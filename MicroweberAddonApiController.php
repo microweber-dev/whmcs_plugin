@@ -17,12 +17,22 @@ class MicroweberAddonApiController
         $the_request = $params;
 
 
+        if (!isset($the_request['email']) and isset($the_request['username'])) {
+            $the_request['email'] = $the_request['username'];
+        }
+
         if (!isset($the_request['email']) or !isset($the_request['password2']) or !isset($the_request['domain'])) {
             return;
         }
 
+        $parsedom = @parse_url($the_request['domain']);
 
-        $host = $the_request['domain'];
+        if (isset($parsedom['host'])) {
+            $host = $parsedom['host'];
+        } else {
+            $host = $the_request['domain'];
+        }
+
 
         $values = array();
         $values["email"] = $the_request['email'];
@@ -37,6 +47,37 @@ class MicroweberAddonApiController
             $values["password"] = $the_request['password2'];
             $validatelogin = localAPI('validatelogin', $values);
         }
+        if (!isset($validatelogin['userid'])) {
+            $hostingProduct = Capsule::table('tblhosting')
+                ->where('domain', '=', $host)->first();
+
+            if ($hostingProduct->id and $hostingProduct->password) {
+
+                $command = 'DecryptPassword';
+                $postData = array(
+                    'password2' => $hostingProduct->password,
+                );
+
+                $results_passwd = localAPI($command, $postData);
+
+
+                if (!isset($results_passwd['password'])) {
+                    return;
+                } else {
+                    $validatelogin['userid'] = $hostingProduct->userid;
+                }
+
+
+                // print_r($results_passwd);
+
+
+            }
+        }
+
+//        var_dump($validatelogin);
+//        exit;
+
+
         if (!isset($validatelogin['userid'])) {
             return;
         }
@@ -79,7 +120,7 @@ class MicroweberAddonApiController
     function get_domain_template_config($params)
     {
         global $CONFIG;
-        global  $autoauthkey;
+        global $autoauthkey;
 
         if (!isset($params['domain'])) {
             return;
@@ -123,8 +164,8 @@ h.domain = '" . $username . "' and
     {
 
 
-        global  $CONFIG;
-        global  $autoauthkey;
+        global $CONFIG;
+        global $autoauthkey;
 
 
         $whmcsurl = $CONFIG['SystemURL'];
@@ -134,49 +175,6 @@ h.domain = '" . $username . "' and
             $ajax = true;
         }
 
-
-        //var_dump($_SESSION);
-        /*if (!isset($_SESSION['uid']) and isset($_COOKIE['mw_remote_hash'])) {
-            $encrypted = $_COOKIE['mw_remote_hash'];
-
-            if (class_exists('Memcache', false)) {
-                $meminstance = new Memcache();
-
-                //$vars['userid'] = $_SESSION['uid'];
-                $vars['REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR'];
-                $vars['HTTP_USER_AGENT'] = $_SERVER['HTTP_USER_AGENT'];
-                $vars['HTTP_ACCEPT_LANGUAGE'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-                $isMemcacheAvailable = @$meminstance->connect(MW_MEMCACHE_ADDR, 11211);
-                if ($isMemcacheAvailable) {
-
-                    $enc = $meminstance->get($encrypted);
-
-                    if ($enc['REMOTE_ADDR'] == $vars['REMOTE_ADDR']) {
-                        if ($enc['HTTP_USER_AGENT'] == $vars['HTTP_USER_AGENT']) {
-                            if ($enc['HTTP_ACCEPT_LANGUAGE'] == $vars['HTTP_ACCEPT_LANGUAGE']) {
-                                if (isset($enc['userid'])) {
-                                    $enc['whm_user_id'] = $enc['userid'];
-                                }
-
-                                if (isset($enc['whm_user_id'])) {
-                                    $enc['whm_user_id'] = $enc['whm_user_id'];
-                                }
-                                if (isset($enc['whm_user_id'])) {
-
-
-                                    $_SESSION['uid'] = $enc['whm_user_id'];
-
-                                }
-                                if (isset($enc['whm_user_passwordhash'])) {
-                                    $_SESSION['upw'] = $enc['whm_user_passwordhash'];
-                                }
-
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
 
         if (!isset($_SESSION['uid'])) {
             // redir("", "index.php");
@@ -272,7 +270,7 @@ h.domain = '" . $username . "' and
 
             $response = whm_hook_get_client_info_by_id($_SESSION['uid']);
             if (isset($response['email'])) {
-                $whmcsurl = $whmcsurl."/dologin.php";
+                $whmcsurl = $whmcsurl . "/dologin.php";
 
 
                 $timestamp = time(); # Get current timestamp
@@ -473,6 +471,109 @@ h.domain = '" . $username . "' and
         }
 
     }
+
+
+    function domain_search($params)
+    {
+
+
+        /*
+         * https://developers.whmcs.com/domain-registrars/availability-checks/
+         *
+         *  searchTerm	string	The search term provided by the end user
+            punyCodeSearchTerm	string	For an IDN domain, the puny code encoded search term
+            tldsToInclude	array	An array of TLDs/extensions to perform the availability check for
+            isIdnDomain	bool	If IDN Domains are enabled for this WHMCS installation
+            premiumEnabled
+        */
+
+// registrarmodule_GetDomainSuggestions($params)
+
+        $search_term = '';
+
+
+
+
+    $search = new MicroweberAddonDomainSearch();
+
+
+      return  $search->domain_search($params);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+    function get_hosting_products()
+    {
+
+
+        //$query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden<>'on' order by tblproducts.order desc  ";
+        $query = "SELECT * FROM `tblproducts` WHERE
+type='hostingaccount' and hidden!=1  order by tblproducts.order asc  ";
+
+
+        $result_q = Capsule::select($query);
+
+
+        $products = array();
+
+
+        if ($result_q) {
+            foreach ($result_q as $item) {
+                $products[] = (array)$item;
+
+            }
+        }
+
+
+        if (!empty($products)) {
+
+            foreach ($products as $k => $row) {
+
+
+                $query = "SELECT * FROM `tblpricing` where
+              tblpricing.type = 'product'
+
+            and relid='{$row['id']}'
+
+
+
+             limit 1  ";
+
+                $result_pricing = Capsule::select($query);
+
+
+                $prices = array();
+
+
+                if ($result_pricing) {
+                    foreach ($result_pricing as $item) {
+                        $prices[] = (array)$item;
+
+                    }
+                }
+
+                $row['pricing'] = $prices;
+                $products[$k] = $row;
+            }
+
+
+        }
+        $result = $products;
+        return $result;
+    }
+
 
     private function _get_user_purchased_products($client_id)
     {

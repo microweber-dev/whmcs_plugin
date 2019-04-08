@@ -6,6 +6,7 @@ if (!defined("WHMCS")) {
 
 
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonApiController.php';
+include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonDomainSearch.php';
 
 function microweber_addon_config()
 {
