@@ -114,7 +114,7 @@ if(is_free){
 
 
 
-              var  $tmpl = '  <div class="domain-item">\n' +
+              var  $tmpl = '  <div class="domain-item" data-domain="'+item.domain+'">\n' +
                   '<div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">'+item.domain+'</span></div>\n' +
                   '<div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>\n' +
                 recomend_tag+
@@ -140,6 +140,18 @@ if(is_free){
 
 
    }
+   $(document).on("click",".domain-item",function(){
+
+     var dom = $(this).attr('data-domain');
+       $("#domain-search-field").val(dom);
+       $( "#user_registration_form" ).submit();
+
+      //. alert( dom );
+
+   });
+
+
+
 
 
 </script>
@@ -367,14 +379,14 @@ if(is_free){
             <div class="col-md-12 fx-deactivate allow-drop">
 
                 <div class="just-text text-center m-b-20">
-                    <h1 class="m-b-20">Customize your domain name</h1>
+                    <h1 class="m-b-20">Choose your domain name</h1>
                     <p>Register your domain with Microweber.com</p>
                 </div>
 
 
 
                 <div id="domain-selector">
-                    <div id="user_registration_form" method="get" action="<?php echo $current_url ?>" class="clearfix">
+                    <form id="user_registration_form" method="get" action="<?php echo $current_url ?>" class="clearfix">
                          <div class="input-holder">
                             <!--                            <button class="clear-domain"></button>-->
                             <button class="btn btn-default search-domain">Search</button>
@@ -431,7 +443,7 @@ if(is_free){
 
 
                         </div>
-                    </div>
+                    </form>
 
                 </div>
 
@@ -450,7 +462,7 @@ if(is_free){
 
                         <div class="col-md-4">
                             <h6>Connect your email</h6>
-                            <p>Use your custom domain in your email address by activating email forwarding, G Suite, or other email services.</p>
+                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>
                         </div>
                     </div>
                 </div>
