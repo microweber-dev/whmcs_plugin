@@ -1,0 +1,5 @@
+{
+    "require": {
+        "layershifter/tld-extract": "^2.0"
+    }
+}
