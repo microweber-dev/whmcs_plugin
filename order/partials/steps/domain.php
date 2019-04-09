@@ -1,5 +1,11 @@
 <script>
 
+
+
+
+
+
+
     $(document).ready(function () {
         var __dprev = $("#domain-search-field").val(), __dtime = null;
         $("#domain-search-field").on('input paste keyup change', function () {
@@ -34,12 +40,23 @@
                             var keyword = $("#domain-search-field").val();
                             var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
                             $.ajax({
+                                contentType: 'application/json',
+                                dataType: 'json',
+
                                 url: URL,
                                 cache: false,
                                 type: "POST",
                                 success: function(response) {
                                     if(response){
-                                    $("#domain-search-field-autocomplete").html(response);
+
+
+                                        if(response.results){
+                                            render_domain_search_list(response.results);
+                                        }
+
+
+
+
                                     }
                                 }
                             });
@@ -58,6 +75,11 @@
         })
     })
 
+
+
+
+
+
 </script>
 
 
@@ -67,13 +89,43 @@
 
 
 <script type="text/javascript">
-    var delay = (function() {
-        var timer = 0;
-        return function(callback, ms){
-            clearTimeout (timer);
-            timer = setTimeout(callback, ms);
-        };
-    })();
+   function render_domain_search_list(results){
+
+
+       $("#domain-search-field-autocomplete").html('');
+
+       var all_res_render = '';
+
+
+       if(results){
+
+          $.each(results, function(i, item) {
+
+
+              var  $tmpl = '  <div class="domain-item">\n' +
+                  '<div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">'+item.domain+'</span></div>\n' +
+                  '<div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>\n' +
+                  '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Recommended</span><span class="di-price">$ 19.00</span></div>\n' +
+                  '<div class="clearfix"></div>\n' +
+                  '</div>';
+
+
+              all_res_render = all_res_render + $tmpl;
+          });
+
+               $("#domain-search-field-autocomplete").html(all_res_render);
+
+
+
+
+
+       }
+
+
+
+
+
+   }
 
 
 </script>
@@ -308,7 +360,7 @@
 
 
                 <div id="domain-selector">
-                    <form id="user_registration_form" method="get" action="<?php echo $current_url ?>" class="clearfix">
+                    <div id="user_registration_form" method="get" action="<?php echo $current_url ?>" class="clearfix">
                          <div class="input-holder">
                             <!--                            <button class="clear-domain"></button>-->
                             <button class="btn btn-default search-domain">Search</button>
@@ -331,7 +383,10 @@
                         </div>
 
                         <div id="domain-search-field-autocomplete" class="fixed-container m-b-20">
-                            <div class="js-autocomplete-placeholder ajax-loading-placeholder" style="display: none;">
+
+
+                            <?php
+                            /*<div class="js-autocomplete-placeholder ajax-loading-placeholder" style="display: none;">
                                 <div class="domain-item">
                                     <div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">yourdomain.com</span></div>
                                     <div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>
@@ -356,9 +411,13 @@
                                     <div class="col-xs-12 col-sm-4 left last-div"><span class="di-price">$ 19.00</span></div>
                                     <div class="clearfix"></div>
                                 </div>
-                            </div>
+                            </div>*/
+
+                            ?>
+
+
                         </div>
-                    </form>
+                    </div>
 
                 </div>
 
