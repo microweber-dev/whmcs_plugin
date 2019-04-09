@@ -32,7 +32,7 @@
 
 
                             var keyword = $("#domain-search-field").val();
-                            var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&q=" + keyword);
+                            var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
                             $.ajax({
                                 url: URL,
                                 cache: false,

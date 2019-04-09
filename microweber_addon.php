@@ -5,6 +5,7 @@ if (!defined("WHMCS")) {
 }
 
 
+include_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonApiController.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonDomainSearch.php';
 
@@ -190,4 +191,27 @@ function ___microweber_helpers_queryToArray($qry)
     }
 
     return empty($result) ? false : $result;
+}
+
+
+if (!function_exists('parse_params')) {
+    function parse_params($params)
+    {
+        $params2 = array();
+        if (is_string($params)) {
+            $params = parse_str($params, $params2);
+            $params = $params2;
+            unset($params2);
+        }
+
+        return $params;
+    }
+}
+
+if (!function_exists('is_fqdn')) {
+    function is_fqdn($FQDN)
+    {
+
+        return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d+\.)[a-zA-Z0-9_\-]{1,63}\.?)+(?:[a-zA-Z]{2,})$)/i', $FQDN) > 0);
+    }
 }
