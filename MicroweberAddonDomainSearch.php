@@ -23,6 +23,18 @@ class MicroweberAddonDomainSearch
 
     function domain_search($params)
     {
+        /*
+           * https://developers.whmcs.com/domain-registrars/availability-checks/
+           *
+           *  searchTerm	string	The search term provided by the end user
+              punyCodeSearchTerm	string	For an IDN domain, the puny code encoded search term
+              tldsToInclude	array	An array of TLDs/extensions to perform the availability check for
+              isIdnDomain	bool	If IDN Domains are enabled for this WHMCS installation
+              premiumEnabled
+          */
+
+
+
         $return_combined = array();
 
         $available_domains = array();
@@ -135,10 +147,10 @@ class MicroweberAddonDomainSearch
                 $search_dom = $host . '.' . $available_domain_extension1;
                 $is_already_local_registered = Capsule::table('tblhosting')->where('domain', $search_dom)->count();
                 if (!$is_already_local_registered) {
-
                     if (in_array($available_domain_extension, $available_subdomains)) {
-                        $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension);
+                        $price = (string) formatCurrency(0);
 
+                        $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension,'is_free' => true,  'price' => $price);
                     } else {
                         $command = 'DomainWhois';
                         $postData = array(
@@ -146,8 +158,13 @@ class MicroweberAddonDomainSearch
                         );
                         $results = localAPI($command, $postData);
                         if (isset($results['result']) and $results['result'] == 'success') {
+                            $tld_data = $available_domain_extensions[$available_domain_extension];
+
+
+                            $price = (string) formatCurrency(array_shift($tld_data));
+
                             if (isset($results['status']) and $results['status'] == 'available') {
-                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension);
+                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension,'is_free' => false,  'price' => $price);
                             }
                         }
                     }
@@ -173,15 +190,6 @@ class MicroweberAddonDomainSearch
 
         //   var_dump($params);
 
-        /*
-         * https://developers.whmcs.com/domain-registrars/availability-checks/
-         *
-         *  searchTerm	string	The search term provided by the end user
-            punyCodeSearchTerm	string	For an IDN domain, the puny code encoded search term
-            tldsToInclude	array	An array of TLDs/extensions to perform the availability check for
-            isIdnDomain	bool	If IDN Domains are enabled for this WHMCS installation
-            premiumEnabled
-        */
 
 // registrarmodule_GetDomainSuggestions($params)
 

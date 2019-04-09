@@ -102,10 +102,24 @@
           $.each(results, function(i, item) {
 
 
+              var is_free = false;
+              if(item.is_free ){
+                  var is_free = true;
+              }
+
+              var recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Recommended</span>';
+if(is_free){
+     recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-free-tag">Free</span>';
+}
+
+
+
               var  $tmpl = '  <div class="domain-item">\n' +
                   '<div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">'+item.domain+'</span></div>\n' +
                   '<div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>\n' +
-                  '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Recommended</span><span class="di-price">$ 19.00</span></div>\n' +
+                recomend_tag+
+
+                  '<span class="di-price">'+item.price+'</span></div>\n' +
                   '<div class="clearfix"></div>\n' +
                   '</div>';
 
