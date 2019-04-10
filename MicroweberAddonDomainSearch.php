@@ -34,7 +34,6 @@ class MicroweberAddonDomainSearch
           */
 
 
-
         $return_combined = array();
 
         $available_domains = array();
@@ -128,9 +127,6 @@ class MicroweberAddonDomainSearch
         }
 
 
-
-
-
         $try_exts = array();
         if ($available_domain_extensions) {
             $try_exts = array_merge($try_exts, array_keys($available_domain_extensions));
@@ -148,9 +144,9 @@ class MicroweberAddonDomainSearch
                 $is_already_local_registered = Capsule::table('tblhosting')->where('domain', $search_dom)->count();
                 if (!$is_already_local_registered) {
                     if (in_array($available_domain_extension, $available_subdomains)) {
-                        $price = (string) formatCurrency(0);
+                        $price = (string)formatCurrency(0);
 
-                        $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension,'is_free' => true,  'price' => $price);
+                        $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension, 'is_free' => true, 'price' => $price);
                     } else {
                         $command = 'DomainWhois';
                         $postData = array(
@@ -161,10 +157,10 @@ class MicroweberAddonDomainSearch
                             $tld_data = $available_domain_extensions[$available_domain_extension];
 
 
-                            $price = (string) formatCurrency(array_shift($tld_data));
+                            $price = (string)formatCurrency(array_shift($tld_data));
 
                             if (isset($results['status']) and $results['status'] == 'available') {
-                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension,'is_free' => false,  'price' => $price);
+                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension, 'is_free' => false, 'price' => $price);
                             }
                         }
                     }
@@ -174,10 +170,22 @@ class MicroweberAddonDomainSearch
         }
 
 
+        $lookupProvider = \WHMCS\Domains\DomainLookup\Provider::factory();
+       // $domain = \WHMCS\Input\Sanitize::decode($domain);
+       // $domain = (\WHMCS\Config\Setting::getValue("AllowIDNDomains") ? mb_strtolower($domain) : strtolower($domain));
+     //   $domain = str_replace(array( "'", "+", ",", "|", "!", "\\", "\"", "£", "\$", "%", "&", "/", "(", ")", "=", "?", "^", "*", " ", "°", "§", ";", ":", "_", "<", ">", "]", "[", "@", ")" ), "", $domain);
+       $domain = new \WHMCS\Domains\Domain($domain);
+
+        $searchResult = $lookupProvider->getSuggestions($domain);
+        $searchResult2 = $lookupProvider->checkAvailability($domain, getSpotlightTlds());
+
+
+
+
         $return_combined['results'] = $domain_results;
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
-      //  $return_combined['available_hosting_plans'] = $available_hosting_acc;
+        //  $return_combined['available_hosting_plans'] = $available_hosting_acc;
         return $return_combined;
 
 

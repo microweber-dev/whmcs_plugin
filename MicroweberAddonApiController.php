@@ -492,23 +492,10 @@ h.domain = '" . $username . "' and
         $search_term = '';
 
 
+        $search = new MicroweberAddonDomainSearch();
 
 
-    $search = new MicroweberAddonDomainSearch();
-
-
-      return  $search->domain_search($params);
-
-
-
-
-
-
-
-
-
-
-
+        return $search->domain_search($params);
 
 
     }
@@ -520,7 +507,7 @@ h.domain = '" . $username . "' and
 
         //$query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden<>'on' order by tblproducts.order desc  ";
         $query = "SELECT * FROM `tblproducts` WHERE
-type='hostingaccount' and hidden!=1  order by tblproducts.order asc  ";
+type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order by tblproducts.order asc  ";
 
 
         $result_q = Capsule::select($query);

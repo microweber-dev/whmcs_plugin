@@ -1,3 +1,13 @@
+<?php
+
+$plans = $controller->get_hosting_products();
+print_r($plans);
+?>
+
+
+
+
+
 <div class="step-3">
     <section class="section-62 section-blue p-t-90  p-b-90 fx-particles edit safe-mode nodrop" field="layout-skin-66-<?php print $params['id'] ?>" rel="module">
         <div class="container p-t-50 p-b-100">
@@ -10,11 +20,82 @@
         </div>
     </section>
 
+
+
+
+
+
     <section class="section-63 section-silver p-t-0 p-b-0 fx-particles">
         <div class="container p-t-50 p-b-50 pricing-holder">
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="hosting">
                     <div class="row pricing-list-2">
+
+
+
+
+
+
+
+
+
+
+
+                        <?php if($plans) { ?>
+                        <?php foreach($plans as $plan) { ?>
+
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="plan">
+
+                                        <div class="heading">
+                                            <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sleeping"></i></span> <?php print $plan['name'] ?></p>
+
+                                            <div class="price">
+
+
+                                                <script language="javascript" src="<?php print $CONFIG['SystemURL'];?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="description">
+
+
+
+                                            <?php print $plan['description'] ?>
+
+
+
+
+                                            <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
+                                            <br/>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php }  ?>
+                        <?php }  ?>
+
+
+
+
+
+
+
+<?php
+
+/*
+
+
+
+
+
+
+
                         <div class="col-md-6 col-lg-3">
                             <div class="plan">
 
@@ -259,7 +340,9 @@
                                     <a href="#" class="btn btn-default btn-md m-t-20">Strat Business</a>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/
+
+?>
 
                     </div>
                 </div>

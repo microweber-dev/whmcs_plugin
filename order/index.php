@@ -10,6 +10,10 @@ require_once $root . DIRECTORY_SEPARATOR . '/init.php';
 global $CONFIG;
 
 
+
+$controller = new MicroweberAddonApiController();
+
+
 $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 if (strpos($_SERVER['REQUEST_URI'], '?') !== false) {
 

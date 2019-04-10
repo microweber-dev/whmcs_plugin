@@ -141,6 +141,29 @@ function microweber_addon_clientarea($vars)
 }
 
 
+
+
+
+//
+//function microweber_addon_AdminServicesTabFields($params){
+//    $username = $params["username"];
+//    $serviceid = $params["serviceid"];
+//   // $collected = collect_usage($params);
+//    $fieldsarray = array(
+//        '# of Logins' =>1,
+//        'Accumalated Hours Online' =>2,
+//        'Total Usage' => 3,
+//        'Uploaded' => 4,
+//        'Downloaded' => 5,
+//        'Usage Limit' => 6,
+//        'Status' =>7
+//    );
+//    return $fieldsarray;
+//}
+
+
+
+
 function ___microweber_helpers_get_current_url($skip_ajax = false, $no_get = false)
 {
 
