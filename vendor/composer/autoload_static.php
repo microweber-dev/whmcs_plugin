@@ -20,6 +20,10 @@ class ComposerStaticInitbf6a5646495b472b194f63096ffc46be
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
         ),
+        'M' => 
+        array (
+            'MicroweberAddon\\' => 16,
+        ),
         'L' => 
         array (
             'LayerShifter\\TLDSupport\\' => 24,
@@ -40,6 +44,10 @@ class ComposerStaticInitbf6a5646495b472b194f63096ffc46be
         'Symfony\\Polyfill\\Intl\\Idn\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
+        ),
+        'MicroweberAddon\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'LayerShifter\\TLDSupport\\' => 
         array (

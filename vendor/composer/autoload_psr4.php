@@ -9,6 +9,7 @@ return array(
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Intl\\Idn\\' => array($vendorDir . '/symfony/polyfill-intl-idn'),
+    'MicroweberAddon\\' => array($baseDir . '/src'),
     'LayerShifter\\TLDSupport\\' => array($vendorDir . '/layershifter/tld-support/src'),
     'LayerShifter\\TLDExtract\\' => array($vendorDir . '/layershifter/tld-extract/src'),
     'LayerShifter\\TLDDatabase\\' => array($vendorDir . '/layershifter/tld-database/src'),

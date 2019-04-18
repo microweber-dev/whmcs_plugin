@@ -1,22 +1,36 @@
 <?php
 
+use WHMCS\View\Menu\Item as MenuItem;
+use WHMCS\Database\Capsule;
+
+
 if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
+
+define("CLIENTAREA", true);
+
+
+include "includes/clientfunctions.php";
 
 
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonApiController.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonDomainSearch.php';
 
+
 function microweber_addon_config()
 {
+    $default_redirect_url = 'https://' . $_SERVER['HTTP_HOST'] . '/index.php?m=custom_oauth2';
+
+
     $configarray = array(
         "name" => "Microweber Addon",
         "description" => "This module allows connection between WHMCS and Microweber Cpanel plugin ",
         "version" => "1.0",
         "author" => "Microweber",
-      
+        'language' => 'english',
+
         'fields' => [
             // a text field type allows for single line text input
             'Text Field Name' => [
@@ -25,6 +39,9 @@ function microweber_addon_config()
                 'Size' => '25',
                 'Default' => 'Default value',
                 'Description' => 'Description goes here',
+                 'SimpleMode'            => true
+
+
             ],
             // a password field type allows for masked text input
             'Password Field Name' => [
@@ -86,6 +103,7 @@ function microweber_addon_clientarea($vars)
         $params = array_merge($params, $_POST);
     }
 
+
     $resp = array();
     $modulelink = $vars['modulelink'];
     $version = $vars['version'];
@@ -93,7 +111,6 @@ function microweber_addon_clientarea($vars)
     $resp = $vars;
 
     $controller = new MicroweberAddonApiController();
-
 
     $method = false;
 
@@ -121,33 +138,76 @@ function microweber_addon_clientarea($vars)
 
                         }
                     }
-
-
                 }
-
-
             }
-
-
         }
-
     }
 
     if ($resp) {
         echo json_encode($resp, JSON_PRETTY_PRINT);
+        exit;
+
 
     }
-    exit;
+
+
+
+}
+
+function microweber_addon_output($vars)
+{
+    $resp = '';
+    $params = array();
+    if ($_GET) {
+        $params = array_merge($params, $_GET);
+    }
+    if ($_POST) {
+        $params = array_merge($params, $_POST);
+    }
+    if ($vars) {
+        $params = array_merge($params, $vars);
+    }
+    $controller= new \MicroweberAddon\AdminController();
+
+    $method = 'index';
+
+    if (isset($params['function'])) {
+        $method = $params['function'];
+    }
+    if (method_exists($controller, $method)) {
+        $resp = $controller->$method($params);
+    }
+    print $resp;
+
+
+
 }
 
 
 
 
 
+function microweber_addon_activate()
+{
+
+
+}
+
+function microweber_addon_deactivate()
+{
+
+}
+
+
+
 //
+//
+////
 //function microweber_addon_AdminServicesTabFields($params){
 //    $username = $params["username"];
 //    $serviceid = $params["serviceid"];
+//
+//    dd($params);
 //   // $collected = collect_usage($params);
 //    $fieldsarray = array(
 //        '# of Logins' =>1,
@@ -160,8 +220,7 @@ function microweber_addon_clientarea($vars)
 //    );
 //    return $fieldsarray;
 //}
-
-
+//
 
 
 function ___microweber_helpers_get_current_url($skip_ajax = false, $no_get = false)
@@ -292,3 +351,7 @@ if (!function_exists('is_fqdn')) {
         return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d+\.)[a-zA-Z0-9_\-]{1,63}\.?)+(?:[a-zA-Z]{2,})$)/i', $FQDN) > 0);
     }
 }
+
+
+
+
