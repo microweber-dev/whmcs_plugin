@@ -77,6 +77,12 @@ class MarketplaceConnector
             foreach ($templates["microweber-template"] as $pk =>$template) {
                 $package_item = $template;
                 $last_item = array_pop($package_item);
+                if($package_item and isset($last_item['version']) and $last_item['version'] == 'dev-master'){
+                    $last_item2 = array_pop($package_item);
+                    $last_item = $last_item2;
+                }
+
+
                 $template['latest_version'] = $last_item;
                 $screenshot = '';
                 if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['_meta']) AND isset($template['latest_version']['extra']['_meta']['screenshot'])) {

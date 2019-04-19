@@ -12,6 +12,7 @@ class Manager
 
     public $marketplace_connector = null;
     public $config = null;
+    public $hosting = null;
 
 
     function __construct()
@@ -20,6 +21,7 @@ class Manager
 
         $this->marketplace_connector = new MarketplaceConnector();
         $this->config = new Config();
+        $this->hosting = new Hosting();
 
 
     }

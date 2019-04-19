@@ -25,4 +25,13 @@ class AdminController
         return $view->display();
     }
 
+    public function save($params)
+    {
+
+
+        
+        print_r($params);
+
+    }
+
 }

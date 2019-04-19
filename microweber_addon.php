@@ -39,7 +39,7 @@ function microweber_addon_config()
                 'Size' => '25',
                 'Default' => 'Default value',
                 'Description' => 'Description goes here',
-                 'SimpleMode'            => true
+                'SimpleMode' => true
 
 
             ],
@@ -151,7 +151,6 @@ function microweber_addon_clientarea($vars)
     }
 
 
-
 }
 
 function microweber_addon_output($vars)
@@ -167,7 +166,7 @@ function microweber_addon_output($vars)
     if ($vars) {
         $params = array_merge($params, $vars);
     }
-    $controller= new \MicroweberAddon\AdminController();
+    $controller = new \MicroweberAddon\AdminController();
 
     $method = 'index';
 
@@ -180,11 +179,7 @@ function microweber_addon_output($vars)
     print $resp;
 
 
-
 }
-
-
-
 
 
 function microweber_addon_activate()
@@ -197,7 +192,6 @@ function microweber_addon_deactivate()
 {
 
 }
-
 
 
 //
@@ -221,6 +215,21 @@ function microweber_addon_deactivate()
 //    return $fieldsarray;
 //}
 //
+
+
+if (!function_exists('parse_params')) {
+    function parse_params($params)
+    {
+        $params2 = array();
+        if (is_string($params)) {
+            $params = parse_str($params, $params2);
+            $params = $params2;
+            unset($params2);
+        }
+
+        return $params;
+    }
+}
 
 
 function ___microweber_helpers_get_current_url($skip_ajax = false, $no_get = false)
