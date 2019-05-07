@@ -1,5 +1,5 @@
 <style>
-    #domain-search-field {
+    #user_registration_form #domain-search-field {
         height: 60px;
         font-size: 18px;
         background: white;
@@ -35,38 +35,80 @@
     }
 
     .domain-item {
-        display: block;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+
         padding: 15px 30px;
         background: white;
         margin: 0 0 4px 0;
         color: #393939;
-        cursor: pointer;
-    }
-
-    .domain-item:hover {
-        color: #0086db;
-        -webkit-box-shadow: 0 0 10px #0086db;
-        box-shadow: 0 0 3px #0086db;
-    }
-
-    .domain-item .last-div:after {
-        display: block;
-        float: right;
-        content: '\f105';
-        font-family: FontAwesome;
-        font-size: 34px;
-        line-height: 19px;
-        color: #969696;
-    }
-
-    .domain-item:hover .last-div:after {
-        color: #0086db;
     }
 
     .domain-item .startWith {
         color: #393939;
         font-size: 14px;
     }
+
+    .domain-item .di-price {
+        text-align: center;
+        width: 100px;
+        display: inline-block;
+        right: 45px;
+        top: 2px;
+        font-size: 14px;
+        margin: 0 10px;
+    }
+
+    .domain-item.can-start {
+        cursor: pointer;
+    }
+
+    .domain-item.can-start:hover {
+        color: #0086db;
+        -webkit-box-shadow: 0 0 10px #0086db;
+        box-shadow: 0 0 3px #0086db;
+    }
+
+    .domain-item.cant-start:hover {
+        color: #393939;
+        -webkit-box-shadow: 0 0 10px #393939;
+        box-shadow: 0 0 3px #393939;
+    }
+
+    .domain-item .last-div:after {
+        display: block;
+        float: right;
+        width: 20px;
+        height: 20px;
+        content: '';
+        background-image: url('assets/img/domain-search/cart.png');
+        font-size: 34px;
+        line-height: 19px;
+        color: #969696;
+    }
+
+    .domain-item.cant-start .last-div:after {
+        visibility: hidden;
+    }
+
+    .domain-item:hover .last-div:after {
+        color: #0086db;
+    }
+
+    .domain-item > div:nth-child(1) {
+        flex: 1;
+    }
+
+    .domain-item > div:nth-child(2) {
+        flex: 2;
+        width: 280px;
+    }
+
+    /*    .domain-item > div:nth-child(3) {
+            !*flex: 3;*!
+            width: 280px;
+        }*/
 
     .user_registration_form_msg {
         margin-bottom: 25px;
@@ -112,13 +154,18 @@
         border: 0;
         position: absolute;
         right: 0;
-        margin-top: 22px;
-        margin-right: 22px;
+        margin-top: 23px;
+        margin-right: 145px;
         background-image: url('assets/img/domain-search/clear-domain.png');
         width: 18px;
         height: 18px;
         outline: none;
         cursor: pointer;
+        visibility: hidden;
+    }
+
+    .clear-domain.visible {
+        visibility: visible;
     }
 
     .search-domain {
@@ -174,6 +221,19 @@
         letter-spacing: 1px;
     }
 
+    .not-available-tag {
+        background: #999999;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 11px;
+        margin-left: 15px;
+        padding: 2px 10px;
+        letter-spacing: 1px;
+    }
+
     @media screen and (min-width: 1200px) {
         #domain-selector {
             width: 70%;
@@ -192,139 +252,163 @@
         }
     }
 
-    .di-price {
-        text-align: center;
-        width: 100px;
-        display: inline-block;
-        position: absolute;
-        right: 45px;
-        top: 2px;
-        font-size: 14px;
+    .ajax-loading .domainName,
+    .ajax-loading .di-price {
+        background-color: #dcdcdc;
+        color: #dcdcdc;
+        border-radius: 3px;
     }
 
+    .ajax-loading-placeholder {
+        display: none;
+    }
 </style>
 
 <script>
-    $(document).ready(function () {
-        var __dprev = $("#domain-search-field").val(), __dtime = null;
-        $(".js-search-domains").on('click', function () {
-            (function (el) {
-                clearTimeout(__dtime);
-                __dtime = setTimeout(function () {
-                    if (!!el.value && el.value != __dprev) {
-                        $("#container").addClass('domain-search-field-on')
-                    } else {
-                        $("#container").removeClass('domain-search-field-on')
-                    }
-                    __dprev = el.value;
+    var __dprev = $("#domain-search-field").val();
+    var __dtime = null;
 
-                    var keyword = $("#domain-search-field").val();
-                    var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
-                    $.ajax({
-                        contentType: 'application/json',
-                        dataType: 'json',
-                        url: URL,
-                        cache: false,
-                        type: "POST",
-                        success: function (response) {
-                            if (response) {
-                                if (response.results) {
-                                    render_domain_search_list(response.results);
-                                }
-                            }
+    function searchDomainResults(el) {
+
+        var __dprev = $("#domain-search-field").val();
+        var __dtime = null;
+
+        clearTimeout(__dtime);
+        __dtime = setTimeout(function () {
+            if (!!el.value && el.value != __dprev) {
+                $("#container").addClass('domain-search-field-on')
+            } else {
+                $("#container").removeClass('domain-search-field-on')
+            }
+            __dprev = el.value;
+
+            var keyword = $("#domain-search-field").val();
+            var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
+            $.ajax({
+                contentType: 'application/json',
+                dataType: 'json',
+                url: URL,
+                cache: false,
+                type: "POST",
+                success: function (response) {
+                    if (response) {
+                        if (response.results) {
+                            render_domain_search_list(response.results);
                         }
-                    });
-                }, 10);
-            })(this)
-        });
-
-        $("#user_registration_form").on('submit', function (e) {
-            e.preventDefault();
-            (function (el) {
-                clearTimeout(__dtime);
-                __dtime = setTimeout(function () {
-                    if (!!el.value && el.value != __dprev) {
-                        $("#container").addClass('domain-search-field-on')
-                    } else {
-                        $("#container").removeClass('domain-search-field-on')
                     }
-                    __dprev = el.value;
+                }
+            });
+        }, 10);
+    }
 
-                    var keyword = $("#domain-search-field").val();
-                    var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
-                    $.ajax({
-                        contentType: 'application/json',
-                        dataType: 'json',
-                        url: URL,
-                        cache: false,
-                        type: "POST",
-                        success: function (response) {
-                            if (response) {
-                                if (response.results) {
-                                    render_domain_search_list(response.results);
-                                }
-                            }
-                        }
-                    });
-                }, 10);
-            })(this)
-        });
-    })
-</script>
-
-
-<script type="text/javascript">
     function render_domain_search_list(results) {
         $("#domain-search-field-autocomplete").html('');
 
         var all_res_render = '';
 
         if (results) {
-            console.log(results);
+            //console.log(results);
             $.each(results, function (i, item) {
                 var is_free = false;
                 if (item.is_free) {
                     is_free = true;
                 }
+
                 var is_available = false;
-                var can_start = 'Not Available';
                 if (item.status == 'available') {
                     is_available = true;
-                    can_start = 'Start With Plan';
                 }
 
-                var recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Paid</span>';
-                if (is_free) {
-                    recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-free-tag">Free</span>';
-                }
+                var tmpl_unavailable = '   <div class="domain-item cant-start" data-domain="' + item.domain + '">' +
+                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                    '<div class="right last-div"> ' +
+                    '<span class="not-available-tag">Unavailable</span> ' +
+                    '<span class="di-price">&nbsp;</span> ' +
+                    '</div> ' +
+                    '<div class="clearfix"></div> ' +
+                    '</div>';
 
+                var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '">' +
+                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                    '<div class="right last-div"> ' +
+                    '<span class="domain-free-tag">Free</span> ' +
+                    '<span class="di-price">' + item.price + '</span> ' +
+                    '</div> ' +
+                    '<div class="clearfix"></div> ' +
+                    '</div>';
 
-                var $tmpl = '  <div class="domain-item" data-domain="' + item.domain + '">\n' +
-                    '<div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">' + item.domain + '</span></div>\n' +
-                    '<div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">' + can_start + '</span></div>\n' +
-                    recomend_tag +
-
-                    '<span class="di-price">' + item.price + '</span></div>\n' +
-                    '<div class="clearfix"></div>\n' +
+                var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '">' +
+                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                    '<div class="right last-div"> ' +
+                    '<span class="domain-recommended-tag">Available</span> ' +
+                    '<span class="di-price">' + item.price + '</span> ' +
+                    '</div> ' +
+                    '<div class="clearfix"></div> ' +
                     '</div>';
 
 
-                all_res_render = all_res_render + $tmpl;
+                var $tpl;
+                if (is_available == false) {
+                    $tpl = tmpl_unavailable;
+                } else {
+                    if (is_free) {
+                        $tpl = tmpl_free;
+                    } else {
+                        $tpl = tmpl_paid;
+                    }
+                }
+
+                all_res_render = all_res_render + $tpl;
             });
 
             $("#domain-search-field-autocomplete").html(all_res_render);
+            $("#domain-search-field-autocomplete").removeClass('ajax-loading');
         }
     }
+</script>
 
-    $(document).on("click", ".domain-item", function () {
-        var domain = $(this).attr('data-domain');
 
-        var url = document.location.href + "?&domain=" + domain;
-        document.location = url;
-        /*
-         $("#domain-search-field").val(dom);
-         $("#user_registration_form").submit();*/
-    });
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".js-search-domains").on('click', function () {
+            $('.ajax-loading-placeholder').show();
+            (function (el) {
+                searchDomainResults(el);
+            })(this)
+
+            $('.js-clear-domain').addClass('visible');
+            $('#domain-search-field-autocomplete').addClass('ajax-loading');
+        });
+
+        $("#user_registration_form").on('submit', function (e) {
+            e.preventDefault();
+            $('.ajax-loading-placeholder').show();
+
+            (function (el) {
+                searchDomainResults(el);
+            })(this)
+
+            $('.js-clear-domain').addClass('visible');
+            $('#domain-search-field-autocomplete').addClass('ajax-loading');
+        });
+
+        $('.js-clear-domain').on('click', function () {
+            $('#domain-search-field').val('');
+            $('#domain-search-field-autocomplete').empty();
+            $(this).removeClass('visible');
+        })
+
+        $(document).on("click", ".domain-item.can-start", function () {
+            var domain = $(this).attr('data-domain');
+
+            var url = document.location.href + "?&domain=" + domain;
+            document.location = url;
+            /*
+             $("#domain-search-field").val(dom);
+             $("#user_registration_form").submit();*/
+        });
+
+    })
 </script>
 
 <section class="section-60 p-t-30 p-b-30 fx-particles">
@@ -337,12 +421,11 @@
                     <p>Register your domain with Microweber.com</p>
                 </div>
 
-
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder">
-                            <!--                            <button class="clear-domain"></button>-->
-                            <button class="btn btn-default search-domain js-search-domains" type="button">Search</button>
+                            <button class="js-clear-domain clear-domain" type="button"></button>
+                            <button class="btn btn-default search-domain js-search-domains" type="submit">Search</button>
                             <input type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 
@@ -361,46 +444,42 @@
                             </div>
                         </div>
 
-                        <div id="domain-search-field-autocomplete" class="fixed-container m-b-20">
-
-
-                            <?php
-                            /*<div class="js-autocomplete-placeholder ajax-loading-placeholder">
-                                <div class="domain-item">
-                                    <div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">yourdomain.com</span></div>
-                                    <div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>
-                                    <div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Recommended</span><span class="di-price">$ 19.00</span></div>
+                        <div id="domain-search-field-autocomplete" class="fixed-container m-b-20 ajax-loading">
+                            <div class="js-autocomplete-placeholder ajax-loading-placeholder">
+                                <div class="domain-item cant-start">
+                                    <div class=" text-left"><span class="domainName ">microweber.com</span></div>
+                                    <div class="right last-div">
+                                        <span class="not-available-tag">Unavailable</span>
+                                        <span class="di-price">&nbsp;</span>
+                                    </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="domain-item ">
-                                    <div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">yourdomain.com</span></div>
-                                    <div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>
-                                    <div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Recommended</span><span class="di-price">$ 19.00</span></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="domain-item  is_free ">
-                                    <div class="col-xs-12 col-sm-5 text-left"><span class="domainName  is_free ">yourdomain.microweber.com</span></div>
-                                    <div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith  is_free ">start with plan</span></div>
-                                    <div class="col-xs-12 col-sm-4 left last-div"><span class="domain-free-tag">Free</span></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="domain-item ">
-                                    <div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">yourdomain.com</span></div>
-                                    <div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>
-                                    <div class="col-xs-12 col-sm-4 left last-div"><span class="di-price">$ 19.00</span></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>*/
 
-                            ?>
+                                <div class="domain-item can-start">
+                                    <div class=" text-left"><span class="domainName ">microweber.com</span></div>
+                                    <div class="right last-div">
+                                        <span class="domain-free-tag">Free</span>
+                                        <span class="di-price">$0.00</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
 
+                                <div class="domain-item can-start">
+                                    <div class=" text-left"><span class="domainName ">microweber.com</span></div>
+                                    <div class="right last-div">
+                                        <span class="domain-recommended-tag">Available</span>
+                                        <span class="di-price">$10.00</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
 
                         </div>
                     </form>
 
                 </div>
 
-                <div class="just-text boxes">
+                <div class="just-text boxes hidden">
                     <div class="row">
                         <div class="col-md-4">
                             <h6>Register a new domain</h6>
