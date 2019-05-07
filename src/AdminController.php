@@ -29,7 +29,7 @@ class AdminController
     {
 
 
-        
+
         print_r($params);
 
     }

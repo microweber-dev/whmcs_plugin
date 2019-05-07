@@ -1,170 +1,3 @@
-<script>
-
-
-
-
-
-
-
-    $(document).ready(function () {
-        var __dprev = $("#domain-search-field").val(), __dtime = null;
-        $("#domain-search-field").on('input paste keyup change', function () {
-            (function (el) {
-                clearTimeout(__dtime);
-                __dtime = setTimeout(function () {
-
-
-
-
-
-
-                    if (!!el.value && el.value != __dprev) {
-                        $("#container").addClass('domain-search-field-on')
-                    }
-                    else {
-                        $("#container").removeClass('domain-search-field-on')
-                    }
-                    __dprev = el.value;
-
-
-
-
-
-
-
-
-
-
-
-
-                            var keyword = $("#domain-search-field").val();
-                            var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
-                            $.ajax({
-                                contentType: 'application/json',
-                                dataType: 'json',
-
-                                url: URL,
-                                cache: false,
-                                type: "POST",
-                                success: function(response) {
-                                    if(response){
-
-
-                                        if(response.results){
-                                            render_domain_search_list(response.results);
-                                        }
-
-
-
-
-                                    }
-                                }
-                            });
-
-
-
-
-
-
-
-
-                }, 2000);
-            })(this)
-
-
-        })
-    })
-
-
-
-
-
-
-</script>
-
-
-
-
-
-
-
-<script type="text/javascript">
-   function render_domain_search_list(results){
-
-
-       $("#domain-search-field-autocomplete").html('');
-
-       var all_res_render = '';
-
-
-       if(results){
-
-          $.each(results, function(i, item) {
-
-
-              var is_free = false;
-              if(item.is_free ){
-                  var is_free = true;
-              }
-
-              var recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Recommended</span>';
-if(is_free){
-     recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-free-tag">Free</span>';
-}
-
-
-
-              var  $tmpl = '  <div class="domain-item" data-domain="'+item.domain+'">\n' +
-                  '<div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">'+item.domain+'</span></div>\n' +
-                  '<div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>\n' +
-                recomend_tag+
-
-                  '<span class="di-price">'+item.price+'</span></div>\n' +
-                  '<div class="clearfix"></div>\n' +
-                  '</div>';
-
-
-              all_res_render = all_res_render + $tmpl;
-          });
-
-               $("#domain-search-field-autocomplete").html(all_res_render);
-
-
-
-
-
-       }
-
-
-
-
-
-   }
-   $(document).on("click",".domain-item",function(){
-
-     var dom = $(this).attr('data-domain');
-       $("#domain-search-field").val(dom);
-       $( "#user_registration_form" ).submit();
-
-      //. alert( dom );
-
-   });
-
-
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
 <style>
     #domain-search-field {
         height: 60px;
@@ -361,7 +194,7 @@ if(is_free){
 
     .di-price {
         text-align: center;
-        width: 60px;
+        width: 100px;
         display: inline-block;
         position: absolute;
         right: 45px;
@@ -371,7 +204,128 @@ if(is_free){
 
 </style>
 
+<script>
+    $(document).ready(function () {
+        var __dprev = $("#domain-search-field").val(), __dtime = null;
+        $(".js-search-domains").on('click', function () {
+            (function (el) {
+                clearTimeout(__dtime);
+                __dtime = setTimeout(function () {
+                    if (!!el.value && el.value != __dprev) {
+                        $("#container").addClass('domain-search-field-on')
+                    } else {
+                        $("#container").removeClass('domain-search-field-on')
+                    }
+                    __dprev = el.value;
 
+                    var keyword = $("#domain-search-field").val();
+                    var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
+                    $.ajax({
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        url: URL,
+                        cache: false,
+                        type: "POST",
+                        success: function (response) {
+                            if (response) {
+                                if (response.results) {
+                                    render_domain_search_list(response.results);
+                                }
+                            }
+                        }
+                    });
+                }, 10);
+            })(this)
+        });
+
+        $("#user_registration_form").on('submit', function (e) {
+            e.preventDefault();
+            (function (el) {
+                clearTimeout(__dtime);
+                __dtime = setTimeout(function () {
+                    if (!!el.value && el.value != __dprev) {
+                        $("#container").addClass('domain-search-field-on')
+                    } else {
+                        $("#container").removeClass('domain-search-field-on')
+                    }
+                    __dprev = el.value;
+
+                    var keyword = $("#domain-search-field").val();
+                    var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
+                    $.ajax({
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        url: URL,
+                        cache: false,
+                        type: "POST",
+                        success: function (response) {
+                            if (response) {
+                                if (response.results) {
+                                    render_domain_search_list(response.results);
+                                }
+                            }
+                        }
+                    });
+                }, 10);
+            })(this)
+        });
+    })
+</script>
+
+
+<script type="text/javascript">
+    function render_domain_search_list(results) {
+        $("#domain-search-field-autocomplete").html('');
+
+        var all_res_render = '';
+
+        if (results) {
+            console.log(results);
+            $.each(results, function (i, item) {
+                var is_free = false;
+                if (item.is_free) {
+                    is_free = true;
+                }
+                var is_available = false;
+                var can_start = 'Not Available';
+                if (item.status == 'available') {
+                    is_available = true;
+                    can_start = 'Start With Plan';
+                }
+
+                var recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-recommended-tag">Paid</span>';
+                if (is_free) {
+                    recomend_tag = '<div class="col-xs-12 col-sm-4 left last-div"><span class="domain-free-tag">Free</span>';
+                }
+
+
+                var $tmpl = '  <div class="domain-item" data-domain="' + item.domain + '">\n' +
+                    '<div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">' + item.domain + '</span></div>\n' +
+                    '<div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">' + can_start + '</span></div>\n' +
+                    recomend_tag +
+
+                    '<span class="di-price">' + item.price + '</span></div>\n' +
+                    '<div class="clearfix"></div>\n' +
+                    '</div>';
+
+
+                all_res_render = all_res_render + $tmpl;
+            });
+
+            $("#domain-search-field-autocomplete").html(all_res_render);
+        }
+    }
+
+    $(document).on("click", ".domain-item", function () {
+        var domain = $(this).attr('data-domain');
+
+        var url = document.location.href + "?&domain=" + domain;
+        document.location = url;
+        /*
+         $("#domain-search-field").val(dom);
+         $("#user_registration_form").submit();*/
+    });
+</script>
 
 <section class="section-60 p-t-30 p-b-30 fx-particles">
     <div class="container">
@@ -384,12 +338,11 @@ if(is_free){
                 </div>
 
 
-
                 <div id="domain-selector">
-                    <form id="user_registration_form" method="get" action="<?php echo $current_url ?>" class="clearfix">
-                         <div class="input-holder">
+                    <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
+                        <div class="input-holder">
                             <!--                            <button class="clear-domain"></button>-->
-                            <button class="btn btn-default search-domain">Search</button>
+                            <button class="btn btn-default search-domain js-search-domains" type="button">Search</button>
                             <input type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 
@@ -412,7 +365,7 @@ if(is_free){
 
 
                             <?php
-                            /*<div class="js-autocomplete-placeholder ajax-loading-placeholder" style="display: none;">
+                            /*<div class="js-autocomplete-placeholder ajax-loading-placeholder">
                                 <div class="domain-item">
                                     <div class="col-xs-12 col-sm-5 text-left"><span class="domainName ">yourdomain.com</span></div>
                                     <div class="col-xs-6 col-sm-3 right hidden-xs"><span class="startWith ">start with plan</span></div>
