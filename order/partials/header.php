@@ -24,7 +24,7 @@
 
     <script src="assets/js/libs/TweenMax.min.js"></script>
     <script src="assets/js/libs/anime.min.js"></script>
-     <script src="assets/js/libs/jquery.sticky-sidebar.min.js"></script>
+    <script src="assets/js/libs/jquery.sticky-sidebar.min.js"></script>
     <script src="assets/js/main.js"></script>
 
     <script src="assets/js/fx.js"></script>
@@ -33,11 +33,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
 
-    <script>
-        $(document).ready(function () {
-         //   $('.selectpicker').selectpicker();
-        });
-    </script>
 
     <!-- Plugins Styles -->
     <link href="assets/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
@@ -62,8 +57,44 @@
     <![endif]-->
 
 
+    <script>
+
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+
+            resize_iframe_to_parent()
+            //   $('.selectpicker').selectpicker();
+        });
+
+
+        window.onresize = function (event) {
+            resize_iframe_to_parent()
+        }
+
+
+        prev_height = null
+
+        function resize_iframe_to_parent() {
+            var documentHeight = document.getElementById('frame-body').scrollHeight;
+
+            if (documentHeight != prev_height) {
+                prev_height = documentHeight;
+                message = 'documentHeight:' + documentHeight;
+                parent.postMessage(message, "*");
+            }
+
+
+        }
+    </script>
+
+
 </head>
 
-<body class="">
+<body class="" id="frame-body">
 
 <div class="main">

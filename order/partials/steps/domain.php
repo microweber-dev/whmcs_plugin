@@ -363,6 +363,12 @@
 
             $("#domain-search-field-autocomplete").html(all_res_render);
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');
+
+
+            if(typeof(resize_iframe_to_parent) != 'undefined'){
+                resize_iframe_to_parent()
+            }
+
         }
     }
 </script>
