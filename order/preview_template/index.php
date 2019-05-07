@@ -12,6 +12,8 @@ $templates = json_decode($templates, true);
     <script src="preview_template/main.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="../scripts.js"></script>
 </head>
 <body>
 
@@ -42,6 +44,7 @@ $templates = json_decode($templates, true);
             $preview_url = 'http://microweber.com';
             if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['preview_url'])) {
                 $preview_url = $template['latest_version']['extra']['preview_url'];
+                $preview_url = str_replace('http://', 'https://', $preview_url);
             }
 
             $plan = false;
@@ -127,7 +130,7 @@ $templates = json_decode($templates, true);
                         <div style="margin: 0 auto;">
                             <div class="device-holder device-desktop">
                                 <div class="device" id="foo">
-                                    <iframe src="<?php print $preview_url; ?>" frameborder="0" allowfullscreen id="bar"></iframe>
+                                    <iframe src="<?php print $preview_url; ?>" frameborder="0" allowfullscreen id="bar" class="js-frame"></iframe>
                                 </div>
                                 <div class="device-component-1"></div>
                                 <div class="device-component-2"><span></span><span></span><span></span></div>

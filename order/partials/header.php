@@ -57,42 +57,7 @@
     <![endif]-->
 
 
-    <script>
-
-
-    </script>
-
-
-    <script>
-        $(document).ready(function () {
-
-
-            resize_iframe_to_parent()
-            //   $('.selectpicker').selectpicker();
-        });
-
-
-        window.onresize = function (event) {
-            resize_iframe_to_parent()
-        }
-
-
-        prev_height = null
-
-        function resize_iframe_to_parent() {
-            var documentHeight = document.getElementById('frame-body').scrollHeight;
-
-            if (documentHeight != prev_height) {
-                prev_height = documentHeight;
-                message = 'documentHeight:' + documentHeight;
-                parent.postMessage(message, "*");
-            }
-
-
-        }
-    </script>
-
-
+    <script src="../scripts.js"></script>
 </head>
 
 <body class="" id="frame-body">
