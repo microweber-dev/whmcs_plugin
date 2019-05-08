@@ -2,6 +2,15 @@
 $plans = $controller->get_hosting_products();
 //print_r($plans);
 ?>
+<style>
+    .pricing-list-2 .specifications {
+        margin-top: 0;
+    }
+
+    .pricing-list-2 .plan .description p.info {
+        height: 140px;
+    }
+</style>
 
 <div class="step-3">
     <section class="section-62 section-blue p-t-90  p-b-90 fx-particles edit safe-mode nodrop" field="layout-skin-66-<?php print $params['id'] ?>" rel="module">
@@ -21,19 +30,40 @@ $plans = $controller->get_hosting_products();
                 <div role="tabpanel" class="tab-pane active" id="hosting">
                     <div class="row pricing-list-2">
                         <?php if ($plans) { ?>
-                            <?php foreach ($plans as $plan) { ?>
+                            <?php foreach ($plans as $key => $plan) { ?>
+                                <?php
+                                if ($key == 1) {
+                                    $planType = 'gold';
+                                    $planIcon = 'mw-micon-solid-Fashion';
+                                } elseif ($key == 2) {
+                                    $planType = 'blue';
+                                    $planIcon = 'mw-micon-solid-Sunglasses-Smiley2';
+                                } elseif ($key == 3) {
+                                    $planType = 'warn';
+                                    $planIcon = 'mw-micon-solid-Money-Smiley';
+                                } else {
+                                    $planType = '';
+                                    $planIcon = 'mw-micon-solid-Sleeping';
+                                }
+                                ?>
                                 <div class="col-md-6 col-lg-3">
-                                    <div class="plan">
+                                    <div class="plan <?php echo $planType; ?>">
 
                                         <div class="heading">
-                                            <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sleeping"></i></span> <?php print $plan['name'] ?></p>
+                                            <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
                                             <div class="price">
                                                 <script language="javascript" src="<?php print $CONFIG['SystemURL']; ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
+                                                <?php if ($key == 0): ?>
+                                                    <span class="period safe-element">14 days free trial</span>
+                                                <?php else: ?>
+                                                    <span class="period safe-element">per month, billed yearly</span>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
 
-                                        <div class="description">
-                                            <?php print $plan['description'] ?>
+                                        <?php print $plan['description'] ?>
+
+                                        <div class="description last">
                                             <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
                                             <br/>
                                             <br/>
