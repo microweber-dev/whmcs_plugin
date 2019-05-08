@@ -307,7 +307,7 @@
         var all_res_render = '';
 
         if (results) {
-            //console.log(results);
+            console.log(results);
             $.each(results, function (i, item) {
                 var is_free = false;
                 if (item.is_free) {
@@ -319,7 +319,7 @@
                     is_available = true;
                 }
 
-                var tmpl_unavailable = '   <div class="domain-item cant-start" data-domain="' + item.domain + '">' +
+                var tmpl_unavailable = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     '<span class="not-available-tag">Unavailable</span> ' +
@@ -328,7 +328,7 @@
                     '<div class="clearfix"></div> ' +
                     '</div>';
 
-                var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '">' +
+                var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     '<span class="domain-free-tag">Free</span> ' +
@@ -337,7 +337,7 @@
                     '<div class="clearfix"></div> ' +
                     '</div>';
 
-                var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '">' +
+                var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     '<span class="domain-recommended-tag">Available</span> ' +
@@ -365,7 +365,7 @@
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');
 
 
-            if(typeof(resize_iframe_to_parent) != 'undefined'){
+            if (typeof(resize_iframe_to_parent) != 'undefined') {
                 resize_iframe_to_parent()
             }
 
@@ -376,8 +376,34 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        //****************** Allow only alphabets, numbers and - in text field **********************//
+        $('#domain-search-field').on('keydown', function (e) {
+            if (!$(this).data("value")) {
+                $(this).data("value", this.value);
+            }
+        });
+
+        $('#domain-search-field').on('keyup', function (e) {
+            if (!/^[-0-9a-z]*$/i.test(this.value)) {
+                this.value = $(this).data("value");
+            } else {
+                $(this).data("value", null);
+            }
+        });
+    });
+
+    $(document).ready(function () {
         $(".js-search-domains").on('click', function () {
+            // Define an expression of words to check for
+            var words = new RegExp('test|neshtozabraneno');
+            // Check if any of the words is contained within your element
+            if (words.test($('#domain-search-field').val())) {
+                $('#wrongSymbols').modal();
+                return false;
+            }
+
             $('.ajax-loading-placeholder').show();
+
             (function (el) {
                 searchDomainResults(el);
             })(this)
@@ -388,6 +414,16 @@
 
         $("#user_registration_form").on('submit', function (e) {
             e.preventDefault();
+
+            // Define an expression of words to check for
+            var words = new RegExp('test|neshtozabraneno');
+            // Check if any of the words is contained within your element
+            if (words.test($('#domain-search-field').val())) {
+                $('#wrongSymbols').modal();
+                return false;
+            }
+
+
             $('.ajax-loading-placeholder').show();
 
             (function (el) {
@@ -406,12 +442,12 @@
 
         $(document).on("click", ".domain-item.can-start", function () {
             var domain = $(this).attr('data-domain');
+            var sld = $(this).attr('data-sld');
+            var tld = $(this).attr('data-tld');
+            var subdomain = $(this).attr('data-subdomain');
 
-            var url = document.location.href + "?&domain=" + domain;
+            var url = document.location.href + "?&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain;
             document.location = url;
-            /*
-             $("#domain-search-field").val(dom);
-             $("#user_registration_form").submit();*/
         });
 
     })
@@ -485,7 +521,7 @@
 
                 </div>
 
-                <div class="just-text boxes hidden">
+                <div class="just-text boxes">
                     <div class="row">
                         <div class="col-md-4">
                             <h6>Register a new domain</h6>
@@ -508,3 +544,24 @@
         </div>
     </div>
 </section>
+
+<!-- The Modal -->
+<div class="modal" id="wrongSymbols">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Allowable characters</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+                <p>You can use letters <strong>a-z</strong>, numbers <strong>0-9</strong> and hyphen(<strong>-</strong>).</p>
+                <p>Words contain "<strong>test</strong>" are disallowed!</p>
+                <br/>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

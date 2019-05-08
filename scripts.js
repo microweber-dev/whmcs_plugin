@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 window.onresize = function (event) {
-    resize_iframe_to_parent()
+   // resize_iframe_to_parent()
 }
 
 prev_height = null
@@ -17,8 +17,4 @@ function resize_iframe_to_parent() {
             parent.postMessage(message, "*");
         }
     }
-}
-
-if (typeof(resize_iframe_to_parent) != 'undefined') {
-    resize_iframe_to_parent()
 }

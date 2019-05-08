@@ -4,11 +4,10 @@
 if (!defined("WHMCS")) {
     define("WHMCS", true);
 }
-$root = dirname( __DIR__ );
+$root = dirname(__DIR__);
 
 require_once $root . DIRECTORY_SEPARATOR . '/init.php';
 global $CONFIG;
-
 
 
 $controller = new MicroweberAddonApiController();
@@ -58,7 +57,45 @@ if (!$getDomain) {
     <?php elseif ($step == 3): ?>
         <?php include "partials/steps/plan.php"; ?>
     <?php else: ?>
-        ready
+        <?php include('params.php'); ?>
+
+        <?php
+        if ($subdomain) {
+            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption[1]=' . $templateID . '&sld=' . $sld . '&tld=' . $tld . '&domainoption=subdomain&billingcycle=monthly&skipconfig=1';
+        } else {
+            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption[1]=' . $templateID . '&sld=' . $sld . '&tld=' . $tld . '&billingcycle=monthly&skipconfig=1';
+        }
+
+        ?>
+
+
+        <form action="https://members.microweber.com/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
+            <input type="text" name="a" value="add">
+            <input type="text" name="pid" value="<?php echo $pid; ?>">
+            <input type="text" name="configoption[1]" value="1">
+            <input type="text" name="sld" value="<?php echo $sld; ?>">
+            <input type="text" name="tld" value="<?php echo $tld; ?>">
+
+            <?php if ($subdomain): ?>
+                <input type="text" name="domainoption" value="subdomain">
+            <?php else: ?>
+                <!--<input type="text" name="domainoption" value="domain">-->
+                <!--<input type="text" name="type" value="register">-->
+            <?php endif; ?>
+
+            <input type="text" name="billingcycle" value="monthly">
+            <input type="text" name="skipconfig" value="1">
+
+            <button type="submit">submit</button>
+        </form>
+        <script>
+            /*
+             $(document).ready(function () {
+             $('#send-fields').submit();
+             })
+             */
+            window.top.location.href = "https://members.microweber.com/<?php echo $redirect_url; ?>";
+        </script>
     <?php endif; ?>
     <?php include "partials/footer.php"; ?>
 <?php endif; ?>

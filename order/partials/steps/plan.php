@@ -1,12 +1,7 @@
 <?php
-
 $plans = $controller->get_hosting_products();
-print_r($plans);
+//print_r($plans);
 ?>
-
-
-
-
 
 <div class="step-3">
     <section class="section-62 section-blue p-t-90  p-b-90 fx-particles edit safe-mode nodrop" field="layout-skin-66-<?php print $params['id'] ?>" rel="module">
@@ -20,65 +15,39 @@ print_r($plans);
         </div>
     </section>
 
-
-
-
-
-
     <section class="section-63 section-silver p-t-0 p-b-0 fx-particles">
         <div class="container p-t-50 p-b-50 pricing-holder">
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="hosting">
                     <div class="row pricing-list-2">
-
-
-
-
-
-
-
-
-
-
-
-                        <?php if($plans) { ?>
-                        <?php foreach($plans as $plan) { ?>
-
-
+                        <?php if ($plans) { ?>
+                            <?php foreach ($plans as $plan) { ?>
                                 <div class="col-md-6 col-lg-3">
                                     <div class="plan">
 
                                         <div class="heading">
                                             <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sleeping"></i></span> <?php print $plan['name'] ?></p>
-
                                             <div class="price">
-
-
-                                                <script language="javascript" src="<?php print $CONFIG['SystemURL'];?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
-
-
-
-
+                                                <script language="javascript" src="<?php print $CONFIG['SystemURL']; ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
                                             </div>
                                         </div>
 
                                         <div class="description">
-
-
-
                                             <?php print $plan['description'] ?>
-
-
-
-
                                             <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
                                             <br/>
                                             <br/>
                                         </div>
                                     </div>
                                 </div>
-                            <?php }  ?>
-                        <?php }  ?>
+                            <?php } ?>
+                        <?php } ?>
+
+
+
+                        <?php
+
+                        /*
 
 
 
@@ -86,263 +55,253 @@ print_r($plans);
 
 
 
-<?php
+                                                <div class="col-md-6 col-lg-3">
+                                                    <div class="plan">
 
-/*
+                                                        <div class="heading">
+                                                            <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sleeping"></i></span> Free Trial</p>
 
+                                                            <div class="price">
+                                                                <small class="safe-element">$</small>
+                                                                <span class="sum safe-element">0</span>
+                                                                <span class="period safe-element">14 days free trial</span>
+                                                            </div>
+                                                        </div>
 
+                                                        <div class="description">
+                                                            <span class="title">Best for Beginers</span>
+                                                            <p class="info">Try to create your website with Microweber.com. We are giving you two weeks free trial to be inspaired and creative.</p>
 
+                                                            <a href="<?php echo $current_url ?>&plan=trial" class="btn btn-default btn-md m-t-20">Strat Free trial</a>
+                                                            <br/>
+                                                            <br/>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-md-6 col-lg-3">
+                                                    <div class="plan blue">
 
+                                                        <div class="heading">
+                                                            <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Fashion"></i></span> Personal</p>
 
+                                                            <div class="price">
+                                                                <small class="safe-element">$</small>
+                                                                <span class="sum safe-element">5</span>
+                                                                <span class="period safe-element">per month, billed yearly</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="description">
+                                                            <span class="title">Best for Personal Use</span>
+                                                            <p class="info">Boost your website with a custom domain name. Get access to high quality email and live chat support. </p>
 
-                        <div class="col-md-6 col-lg-3">
-                            <div class="plan">
+                                                            <a href="<?php echo $current_url ?>&plan=personal" class="btn btn-default btn-md m-t-20">Strat Personal</a>
+                                                        </div>
 
-                                <div class="heading">
-                                    <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sleeping"></i></span> Free Trial</p>
+                                                        <div class="specifications">
+                                                            <ul>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>Free Domain for First Year</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="We are giving you free domain name for one year. Premium domains are included. The domain will be renued at its regular price."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>E-mail & Live Chat Support</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="High quality support to help you get your website up and running and working how you want it."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>Free Templates</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Access to a wide range of professional theme templates for your website so you can find the exact design you're looking for."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>SSL</strong> Security Included</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>1</strong> E-mail Account</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>5 GB</strong> Storage Space</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="With increased storage space you'll be able to upload more images, audio, and documents to your website."> info </i>
+                                                                </li>
+                                                                <li>&nbsp;</li>
+                                                                <li>&nbsp;</li>
+                                                                <li>&nbsp;</li>
+                                                                <li>&nbsp;</li>
+                                                                <li>&nbsp;</li>
+                                                                <li>&nbsp;</li>
+                                                            </ul>
+                                                        </div>
 
-                                    <div class="price">
-                                        <small class="safe-element">$</small>
-                                        <span class="sum safe-element">0</span>
-                                        <span class="period safe-element">14 days free trial</span>
-                                    </div>
-                                </div>
+                                                        <div class="description last">
+                                                            <a href="<?php echo $current_url ?>&plan=personal" class="btn btn-default btn-md m-t-20">Strat Personal</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                <div class="description">
-                                    <span class="title">Best for Beginers</span>
-                                    <p class="info">Try to create your website with Microweber.com. We are giving you two weeks free trial to be inspaired and creative.</p>
+                                                <div class="col-md-6 col-lg-3">
+                                                    <div class="plan gold">
 
-                                    <a href="<?php echo $current_url ?>&plan=trial" class="btn btn-default btn-md m-t-20">Strat Free trial</a>
-                                    <br/>
-                                    <br/>
-                                </div>
-                            </div>
-                        </div>
+                                                        <div class="heading">
+                                                            <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sunglasses-Smiley2"></i></span> Premium</p>
 
-                        <div class="col-md-6 col-lg-3">
-                            <div class="plan blue">
+                                                            <div class="price">
+                                                                <small class="safe-element">$</small>
+                                                                <span class="sum safe-element">10</span>
+                                                                <span class="period safe-element">per month, billed yearly</span>
+                                                            </div>
+                                                        </div>
 
-                                <div class="heading">
-                                    <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Fashion"></i></span> Personal</p>
+                                                        <div class="description">
+                                                            <span class="title">Best for Entrepreneurs</span>
+                                                            <p class="info">Build a unique website with advanced design tools, CSS editing, lots of space for audio and video, and the ability to monetize your site with ads.</p>
 
-                                    <div class="price">
-                                        <small class="safe-element">$</small>
-                                        <span class="sum safe-element">5</span>
-                                        <span class="period safe-element">per month, billed yearly</span>
-                                    </div>
-                                </div>
-                                <div class="description">
-                                    <span class="title">Best for Personal Use</span>
-                                    <p class="info">Boost your website with a custom domain name. Get access to high quality email and live chat support. </p>
+                                                            <a href="<?php echo $current_url ?>&plan=premium" class="btn btn-default btn-md m-t-20">Strat Premium</a>
+                                                        </div>
 
-                                    <a href="<?php echo $current_url ?>&plan=personal" class="btn btn-default btn-md m-t-20">Strat Personal</a>
-                                </div>
+                                                        <div class="specifications">
+                                                            <ul>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>Free Domain for First Year</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="We are giving you free domain name for one year. Premium domains are included. The domain will be renued at its regular price."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>E-mail & Live Chat Support</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="High quality support to help you get your website up and running and working how you want it."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>Unlimited</strong> Templates</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Access to a wide range of professional theme templates for your website so you can find the exact design you're looking for."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>SSL</strong> Security Included</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>10</strong> E-mail Account</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>15 GB</strong> Storage Space</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="With increased storage space you'll be able to upload more images, audio, and documents to your website."> info </i>
+                                                                </li>
 
-                                <div class="specifications">
-                                    <ul>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>Free Domain for First Year</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="We are giving you free domain name for one year. Premium domains are included. The domain will be renued at its regular price."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>E-mail & Live Chat Support</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="High quality support to help you get your website up and running and working how you want it."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>Free Templates</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Access to a wide range of professional theme templates for your website so you can find the exact design you're looking for."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>SSL</strong> Security Included</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>1</strong> E-mail Account</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>5 GB</strong> Storage Space</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="With increased storage space you'll be able to upload more images, audio, and documents to your website."> info </i>
-                                        </li>
-                                        <li>&nbsp;</li>
-                                        <li>&nbsp;</li>
-                                        <li>&nbsp;</li>
-                                        <li>&nbsp;</li>
-                                        <li>&nbsp;</li>
-                                        <li>&nbsp;</li>
-                                    </ul>
-                                </div>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Install Premium Modules</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                <div class="description last">
-                                    <a href="<?php echo $current_url ?>&plan=personal" class="btn btn-default btn-md m-t-20">Strat Personal</a>
-                                </div>
-                            </div>
-                        </div>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Fully Integrated E-commerce</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                        <div class="col-md-6 col-lg-3">
-                            <div class="plan gold">
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Access to Marketing Tools</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                <div class="heading">
-                                    <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Sunglasses-Smiley2"></i></span> Premium</p>
+                                                                <li>&nbsp;</li>
 
-                                    <div class="price">
-                                        <small class="safe-element">$</small>
-                                        <span class="sum safe-element">10</span>
-                                        <span class="period safe-element">per month, billed yearly</span>
-                                    </div>
-                                </div>
+                                                                <li>&nbsp;</li>
 
-                                <div class="description">
-                                    <span class="title">Best for Entrepreneurs</span>
-                                    <p class="info">Build a unique website with advanced design tools, CSS editing, lots of space for audio and video, and the ability to monetize your site with ads.</p>
-
-                                    <a href="<?php echo $current_url ?>&plan=premium" class="btn btn-default btn-md m-t-20">Strat Premium</a>
-                                </div>
-
-                                <div class="specifications">
-                                    <ul>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>Free Domain for First Year</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="We are giving you free domain name for one year. Premium domains are included. The domain will be renued at its regular price."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>E-mail & Live Chat Support</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="High quality support to help you get your website up and running and working how you want it."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>Unlimited</strong> Templates</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Access to a wide range of professional theme templates for your website so you can find the exact design you're looking for."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>SSL</strong> Security Included</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>10</strong> E-mail Account</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>15 GB</strong> Storage Space</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="With increased storage space you'll be able to upload more images, audio, and documents to your website."> info </i>
-                                        </li>
-
-                                        <li>
-                                            <i class="material-icons">check</i> Install Premium Modules</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
-
-                                        <li>
-                                            <i class="material-icons">check</i> Fully Integrated E-commerce</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
-
-                                        <li>
-                                            <i class="material-icons">check</i> Access to Marketing Tools</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
-
-                                        <li>&nbsp;</li>
-
-                                        <li>&nbsp;</li>
-
-                                        <li>&nbsp;</li>
+                                                                <li>&nbsp;</li>
 
 
-                                    </ul>
-                                </div>
+                                                            </ul>
+                                                        </div>
 
-                                <div class="description last">
-                                    <a href="<?php echo $current_url ?>&plan=premium" class="btn btn-default btn-md m-t-20">Strat Premium</a>
-                                </div>
-                            </div>
-                        </div>
+                                                        <div class="description last">
+                                                            <a href="<?php echo $current_url ?>&plan=premium" class="btn btn-default btn-md m-t-20">Strat Premium</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                        <div class="col-md-6 col-lg-3">
-                            <div class="plan warn">
+                                                <div class="col-md-6 col-lg-3">
+                                                    <div class="plan warn">
 
-                                <div class="heading">
-                                    <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Money-Smiley"></i></span> Business</p>
+                                                        <div class="heading">
+                                                            <p class="safe-element title"><span class="icon-holder"><i class="mw-micon-solid-Money-Smiley"></i></span> Business</p>
 
-                                    <div class="price">
-                                        <small class="safe-element">$</small>
-                                        <span class="sum safe-element">25</span><span class="period safe-element">per month, billed yearly</span>
-                                    </div>
-                                </div>
+                                                            <div class="price">
+                                                                <small class="safe-element">$</small>
+                                                                <span class="sum safe-element">25</span><span class="period safe-element">per month, billed yearly</span>
+                                                            </div>
+                                                        </div>
 
-                                <div class="description">
-                                    <span class="title">Best for Small Business</span>
-                                    <p class="info">Power your business website with unlimited premium and business theme templates, Google Analytics support, unlimited storage, and the ability to remove Microweber.com branding.</p>
+                                                        <div class="description">
+                                                            <span class="title">Best for Small Business</span>
+                                                            <p class="info">Power your business website with unlimited premium and business theme templates, Google Analytics support, unlimited storage, and the ability to remove Microweber.com branding.</p>
 
-                                    <a href="#" class="btn btn-default btn-md m-t-20">Strat Business</a>
-                                </div>
+                                                            <a href="#" class="btn btn-default btn-md m-t-20">Strat Business</a>
+                                                        </div>
 
-                                <div class="specifications">
-                                    <ul>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>Free Domain for First Year</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="We are giving you free domain name for one year. Premium domains are included. The domain will be renued at its regular price."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span>E-mail & Live Chat Support</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="High quality support to help you get your website up and running and working how you want it."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>Unlimited</strong> Templates</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Access to a wide range of professional theme templates for your website so you can find the exact design you're looking for."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>SSL</strong> Security Included</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>Unlimited</strong> E-mail Account</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
-                                        </li>
-                                        <li>
-                                            <i class="material-icons">check</i> <span><strong>Unlimited</strong> Storage Space</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title="With increased storage space you'll be able to upload more images, audio, and documents to your website."> info </i>
-                                        </li>
+                                                        <div class="specifications">
+                                                            <ul>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>Free Domain for First Year</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="We are giving you free domain name for one year. Premium domains are included. The domain will be renued at its regular price."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span>E-mail & Live Chat Support</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="High quality support to help you get your website up and running and working how you want it."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>Unlimited</strong> Templates</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Access to a wide range of professional theme templates for your website so you can find the exact design you're looking for."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>SSL</strong> Security Included</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>Unlimited</strong> E-mail Account</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="Own email accoutn connected with your domain."> info </i>
+                                                                </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <span><strong>Unlimited</strong> Storage Space</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title="With increased storage space you'll be able to upload more images, audio, and documents to your website."> info </i>
+                                                                </li>
 
-                                        <li>
-                                            <i class="material-icons">check</i> <strong>Unlimited</strong> Premium Modules</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> <strong>Unlimited</strong> Premium Modules</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                        <li>
-                                            <i class="material-icons">check</i> Fully Integrated E-commerce</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Fully Integrated E-commerce</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                        <li>
-                                            <i class="material-icons">check</i> Access to Marketing Tools</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Access to Marketing Tools</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                        <li>
-                                            <i class="material-icons">check</i> Abandoned Carts</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Abandoned Carts</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                        <li>
-                                            <i class="material-icons">check</i> Coupon Codes</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Coupon Codes</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
 
-                                        <li>
-                                            <i class="material-icons">check</i> Newsletter E-mail Campaigns</span>
-                                            <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
-                                        </li>
-                                    </ul>
-                                </div>
+                                                                <li>
+                                                                    <i class="material-icons">check</i> Newsletter E-mail Campaigns</span>
+                                                                    <i class="material-icons" data-toggle="tooltip" data-placement="right" title=""> info </i>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
 
-                                <div class="description last">
-                                    <a href="#" class="btn btn-default btn-md m-t-20">Strat Business</a>
-                                </div>
-                            </div>
-                        </div>*/
+                                                        <div class="description last">
+                                                            <a href="#" class="btn btn-default btn-md m-t-20">Strat Business</a>
+                                                        </div>
+                                                    </div>
+                                                </div>*/
 
-?>
+                        ?>
 
                     </div>
                 </div>

@@ -14,8 +14,9 @@ $templates = json_decode($templates, true);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="../scripts.js"></script>
+
 </head>
-<body>
+<body id="frame-body">
 
 <?php if ($templates["microweber-template"]): ?>
     <?php foreach ($templates["microweber-template"] as $template): ?>
@@ -31,11 +32,6 @@ $templates = json_decode($templates, true);
                 $description = $template['description'];
             }
 
-            $name = '';
-            if (isset($template['name'])) {
-                $name = $template['name'];
-            }
-
             $homepage = 'http://microweber.com';
             if (isset($template['homepage'])) {
                 $homepage = $template['homepage'];
@@ -47,22 +43,15 @@ $templates = json_decode($templates, true);
                 $preview_url = str_replace('http://', 'https://', $preview_url);
             }
 
-            $plan = false;
-            if (isset($_GET['plan'])) {
-                $plan = htmlspecialchars($_GET['plan']);
-            }
-
-            $domain = false;
-            if (isset($_GET['domain'])) {
-                $domain = htmlspecialchars($_GET['domain']);
-            }
             ?>
+
+            <?php include('params.php'); ?>
 
             <div class="first-seciton">
                 <div class="container">
                     <div class="preview-navbar">
                         <div class="left">
-                            <a href="#" class="back-btn">
+                            <a href="javascript:;" onclick="window.history.back()" class="back-btn">
                                 <svg class="chevron-icon" width="8px" height="13px" viewBox="0 0 8 13" version="1.1">
                                     <g id="Visual-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="1">
                                         <g id="9b" transform="translate(-344.000000, -357.000000)" fill="#222222">
@@ -107,17 +96,8 @@ $templates = json_decode($templates, true);
                         <div class="right buttons">
                             <form method="get" action="<?php echo $current_url ?>" class="clearfix">
                                 <input type="hidden" value="false" name="template_view"/>
-                                <?php if ($name): ?>
-                                    <input type="hidden" value="<?php print $name; ?>" name="template"/>
-                                <?php endif; ?>
 
-                                <?php if ($plan): ?>
-                                    <input type="hidden" value="<?php print $plan; ?>" name="plan"/>
-                                <?php endif; ?>
-
-                                <?php if ($domain): ?>
-                                    <input type="hidden" value="<?php print $domain; ?>" name="domain"/>
-                                <?php endif; ?>
+                                <?php include('params_fields.php'); ?>
 
                                 <a class="btn" href="<?php print $preview_url; ?>" target="_blank">View template demo</a>
                                 <a href="javascript:;" class="btn btn-info" onclick="parentNode.submit();">Start with this template</a>
@@ -130,7 +110,7 @@ $templates = json_decode($templates, true);
                         <div style="margin: 0 auto;">
                             <div class="device-holder device-desktop">
                                 <div class="device" id="foo">
-                                    <iframe src="<?php print $preview_url; ?>" frameborder="0" allowfullscreen id="bar" class="js-frame"></iframe>
+                                    <iframe src="<?php print $preview_url; ?>" onload="resize_iframe_to_parent()" frameborder="0" allowfullscreen id="bar"></iframe>
                                 </div>
                                 <div class="device-component-1"></div>
                                 <div class="device-component-2"><span></span><span></span><span></span></div>

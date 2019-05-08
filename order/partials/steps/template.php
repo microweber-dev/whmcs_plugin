@@ -51,6 +51,7 @@
 <?php
 $templates = file_get_contents('https://microweber.org/api/market_json');
 $templates = json_decode($templates, true);
+
 ?>
 <div class="templates">
     <div class="container">
@@ -68,44 +69,24 @@ $templates = json_decode($templates, true);
                         $description = $template['description'];
                     }
 
-                    $name = '';
-                    if (isset($template['name'])) {
-                        $name = $template['name'];
-                    }
-
                     $homepage = '';
                     if (isset($template['homepage'])) {
                         $homepage = $template['homepage'];
                     }
-
-                    $plan = false;
-                    if (isset($_GET['plan'])) {
-                        $plan = htmlspecialchars($_GET['plan']);
-                    }
-
-                    $domain = false;
-                    if (isset($_GET['domain'])) {
-                        $domain = htmlspecialchars($_GET['domain']);
-                    }
                     ?>
+
+                    <?php include('params.php'); ?>
+
                     <div class="col-md-4 col-xs-6">
                         <form method="get" action="<?php echo $current_url ?>" class="clearfix">
-                            <?php if ($name): ?>
-                                <input type="hidden" value="<?php print $name; ?>" name="template"/>
-                            <?php endif; ?>
 
-                            <?php if ($plan): ?>
-                                <input type="hidden" value="<?php print $plan; ?>" name="plan"/>
-                            <?php endif; ?>
+                            <?php include('params_fields.php'); ?>
 
-                            <?php if ($domain): ?>
-                                <input type="hidden" value="<?php print $domain; ?>" name="domain"/>
-                            <?php endif; ?>
                             <input type="hidden" value="true" name="template_view"/>
                             <a href="javascript:;" onclick="parentNode.submit();">
                                 <div class="template" style="background-image: url('<?php print $screenshot; ?>');"></div>
                                 <h3><?php print $description; ?></h3>
-                                <p><?php print $description; ?></p>
+                                <!-- <p><?php print $description; ?></p>-->
                             </a>
                         </form>
                     </div>
