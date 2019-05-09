@@ -10,6 +10,8 @@ class AdminController
     public function index($params)
     {
 
+        global $CONFIG;
+
         $manager = new \MicroweberAddon\Manager;
 
 
@@ -20,6 +22,7 @@ class AdminController
         $view = new View($view_file);
         $view->assign('params', $params);
         $view->assign('manager', $manager);
+        $view->assign('config', $CONFIG );
 
 
         return $view->display();
