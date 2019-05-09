@@ -9,8 +9,6 @@ $hosting = $manager->hosting->get_hosting_products();
 $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simple');
 
 
-
-
 ?>
 <style>
     .microweber-addon SELECT, INPUT[type="text"] {
@@ -84,13 +82,12 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
 
     <?php
-     //var_dump($hosting)
+    //var_dump($hosting)
 
     ?>
 
     <form method="post">
-        <input type="hidden" name="function" value="save" />
-
+        <input type="hidden" name="function" value="save"/>
 
 
         <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
@@ -101,7 +98,9 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                 <div class="form-group">
 
                     <div class="checkbox">
-                        <label><input <?php if (isset($plan['has_website_builder']) and $plan['has_website_builder']) { ?> checked  <?php } ?> name="selected_hosting_plans[]" type="checkbox" value="<?php print $plan['id'] ?>"><?php print $plan['name'] ?>
+                        <label><input <?php if (isset($plan['has_website_builder']) and $plan['has_website_builder']) { ?> checked  <?php } ?>
+                                    name="selected_hosting_plans[]" type="checkbox"
+                                    value="<?php print $plan['id'] ?>"><?php print $plan['name'] ?>
                         </label>
                     </div>
 
@@ -147,7 +146,6 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
         </div>
 
 
-
         <button type="submit">Save</button>
 
     </form>
@@ -164,6 +162,9 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
         <?php print_r($enabled_templates) ?>
    </pre>
 
+
+
+    <?php include_once "embed_codes.php"; ?>
 
 </div>
 
