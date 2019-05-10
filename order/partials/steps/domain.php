@@ -102,6 +102,27 @@
             $('#domain-search-field-autocomplete').addClass('ajax-loading');
         });
 
+        $("#domain-search-field").on('keyup', function () {
+            // Define an expression of words to check for
+            var words = new RegExp('test|neshtozabraneno');
+            // Check if any of the words is contained within your element
+            if (words.test($('#domain-search-field').val())) {
+                $('#wrongSymbols').modal();
+                return false;
+            }
+
+            setTimeout(function () {
+                $('.ajax-loading-placeholder').show();
+
+                (function (el) {
+                    searchDomainResults(el);
+                })(this)
+
+                $('.js-clear-domain').addClass('visible');
+                $('#domain-search-field-autocomplete').addClass('ajax-loading');
+            }, 1000);
+        });
+
         $('.js-clear-domain').on('click', function () {
             $('#domain-search-field').val('');
             $('#domain-search-field-autocomplete').empty();

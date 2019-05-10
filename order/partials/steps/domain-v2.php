@@ -301,27 +301,6 @@
                 $('.section-61').removeClass('blur');
             }
         })
-
-        $("#domain-search-field").on('keyup', function () {
-            // Define an expression of words to check for
-            var words = new RegExp('test|neshtozabraneno');
-            // Check if any of the words is contained within your element
-            if (words.test($('#domain-search-field').val())) {
-                $('#wrongSymbols').modal();
-                return false;
-            }
-
-            $('.ajax-loading-placeholder').show();
-
-            setTimeout(function () {
-                (function (el) {
-                    searchDomainResults(el);
-                })(this)
-            }, 1000);
-
-            $('.js-clear-domain').addClass('visible');
-            $('#domain-search-field-autocomplete').addClass('ajax-loading');
-        });
     })
 </script>
 
@@ -390,7 +369,7 @@
     }
 </script>
 
-<section class="section-61 fx-particles" style="height: calc(100vh - 250px);">
+<section class="section-61 fx-particles p-t-70" style="height: calc(100vh - 250px);">
     <div class="section-bg" style="background-image: url('assets/img/domain-search/bg.png');"></div>
     <div class="section-bg-blur" style="background-image: url('assets/img/domain-search/bg-blur.png');"></div>
     <div class="container">
@@ -405,7 +384,6 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder">
-                            <button class="js-clear-domain clear-domain" type="button"></button>
                             <button class="btn btn-default search-domain search-domain js-search-domains" style="display: none;" type="submit">Search</button>
                             <input type="text" name="domain" placeholder="start typing to search" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
@@ -426,7 +404,7 @@
                         <div id="domain-search-field-autocomplete" class="fixed-container m-b-20 ajax-loading">
                             <div class="js-autocomplete-placeholder ajax-loading-placeholder">
 
-                                <div class="domain-item">
+                               <!-- <div class="domain-item">
                                     <div class="col-xs-12 col-sm-6 text-left"><span class="domainName ">yourdomain.com</span></div>
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="right-side-holder">
@@ -470,7 +448,7 @@
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </form>

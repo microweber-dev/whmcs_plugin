@@ -29,6 +29,7 @@
         var item = _params[i].split('=');
         params[decodeURIComponent(item[0]).trim()] = decodeURIComponent(item[1]).trim();
     }
+    
 
     var iframe = document.createElement("iframe");
     iframe.src = path + '/index.php?' + $params;

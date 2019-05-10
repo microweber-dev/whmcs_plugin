@@ -386,7 +386,6 @@ iframe {
 }
 
 .first-seciton {
-    min-height: calc(100vh - 30px);
     background: #f5f5f5;
 }
 
