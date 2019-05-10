@@ -351,15 +351,15 @@
                     '<div class="clearfix"></div>' +
                     ' </div>';
 
-                var tmpl_free = '<div class="domain-item unavailable-item" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '"> ' +
-                    '<div class="col-xs-12 col-sm-6 text-left"><span class="domainName">' + item.domain + '</span></div> ' +
-                    '<div class="col-xs-12 col-sm-6"> <div class="right-side-holder">             <span class="free">Free</span> </div> </div> ' +
+                var tmpl_free = '<div class="domain-item can-start is_free" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '"> ' +
+                    '<div class="col-xs-12 col-sm-6 text-left"><span class="domainName is_free">' + item.domain + '</span></div> ' +
+                    '<div class="col-xs-12 col-sm-6"> <div class="right-side-holder"><span class="free">Free</span> </div> </div> ' +
                     '<div class="clearfix"></div>' +
                     ' </div>';
 
-                var tmpl_paid = '<div class="domain-item unavailable-item" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '"> ' +
+                var tmpl_paid = '<div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '"> ' +
                     '<div class="col-xs-12 col-sm-6 text-left"><span class="domainName">' + item.domain + '</span></div> ' +
-                    '<div class="col-xs-12 col-sm-6"> <div class="right-side-holder">   <span class="di-price">' + item.price + '</span><span class="buy-cart"></span> </div> </div> ' +
+                    '<div class="col-xs-12 col-sm-6"> <div class="right-side-holder"><span class="di-price">' + item.price + '</span><span class="buy-cart"></span> </div> </div> ' +
                     '<div class="clearfix"></div>' +
                     ' </div>';
 
