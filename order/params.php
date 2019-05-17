@@ -33,8 +33,18 @@ $subdomain = false;
 if (isset($_GET['subdomain']) AND $_GET['subdomain'] != 'false') {
     $subdomain = true;
 }
+if (!isset($template_id)) {
+    $template_id = 0;
+}
 
-$templateID = 1;
 if (isset($_GET['template_id'])) {
-    $templateID = htmlspecialchars($_GET['template_id']);
+    $template_id = intval($_GET['template_id']);
+}
+
+
+if (!isset($config_gid)) {
+    $config_gid = 0;
+}
+if (isset($_GET['config_gid'])) {
+    $config_gid = intval($_GET['config_gid']);
 }

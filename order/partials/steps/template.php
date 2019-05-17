@@ -49,19 +49,30 @@
 
 </style>
 <?php
-$templates = file_get_contents('https://microweber.org/api/market_json');
-$templates = json_decode($templates, true);
+//$templates = file_get_contents('https://microweber.org/api/market_json');
+//$templates = json_decode($templates, true);
 
+
+$hosting = new \MicroweberAddon\Hosting();
+
+$templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
+//dd($enabled_templates);
+//dd($enabled_templates);
+//$selected_templates =
+//dd($templates);
 ?>
 <div class="templates">
     <div class="container">
         <div class="row">
-            <?php if ($templates["microweber-template"]): ?>
-                <?php foreach ($templates["microweber-template"] as $template): ?>
+            <?php if ($templates): ?>
+                <?php foreach ($templates as $template): ?>
                     <?php
+
+                    // print_r($template);
+
                     $screenshot = '';
-                    if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['_meta']) AND isset($template['latest_version']['extra']['_meta']['screenshot'])) {
-                        $screenshot = $template['latest_version']['extra']['_meta']['screenshot'];
+                    if (isset($template) AND isset($template['extra']) AND isset($template['extra']['_meta']) AND isset($template['extra']['_meta']['screenshot'])) {
+                        $screenshot = $template['extra']['_meta']['screenshot'];
                     }
 
                     $description = '';
@@ -73,6 +84,19 @@ $templates = json_decode($templates, true);
                     if (isset($template['homepage'])) {
                         $homepage = $template['homepage'];
                     }
+
+
+                    if (isset($template['configoption']) and isset($template['configoption']['id'])) {
+                        $template_id = $template['configoption']['id'];
+                    }
+                    if (isset($template['configoption']) and isset($template['configoption']['configid'])) {
+                        $config_gid = $template['configoption']['configid'];
+                    }
+
+
+                    //    print_r($template['configoption']);
+
+
                     ?>
 
                     <?php include('params.php'); ?>
@@ -84,7 +108,8 @@ $templates = json_decode($templates, true);
 
                             <input type="hidden" value="true" name="template_view"/>
                             <a href="javascript:;" onclick="parentNode.submit();">
-                                <div class="template" style="background-image: url('<?php print $screenshot; ?>');"></div>
+                                <div class="template"
+                                     style="background-image: url('<?php print $screenshot; ?>');"></div>
                                 <h3><?php print $description; ?></h3>
                                 <!-- <p><?php print $description; ?></p>-->
                             </a>

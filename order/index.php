@@ -13,6 +13,9 @@ global $CONFIG;
 $controller = new MicroweberAddonApiController();
 
 
+$hosting = new \MicroweberAddon\Hosting();
+
+
 $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 if (strpos($_SERVER['REQUEST_URI'], '?') !== false) {
 
@@ -36,6 +39,12 @@ if (isset($_GET['plan'])) {
 }
 
 $step = 0;
+
+
+$configoptionGID = $hosting->get_gid_for_templates();
+ //$step =
+
+$templateID = 1;
 
 if (!$getDomain) {
     $step = 1;
@@ -61,9 +70,9 @@ if (!$getDomain) {
 
         <?php
         if ($subdomain) {
-            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption[1]=' . $templateID . '&sld=' . $sld . '&tld=' . $tld . '&domainoption=subdomain&billingcycle=monthly&skipconfig=1';
+            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption['.$config_gid.']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&domainoption=subdomain&billingcycle=monthly&skipconfig=1';
         } else {
-            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption[1]=' . $templateID . '&sld=' . $sld . '&tld=' . $tld . '&billingcycle=monthly&skipconfig=1';
+            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption['.$config_gid.']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&billingcycle=monthly&skipconfig=1';
         }
 
         ?>
@@ -72,7 +81,7 @@ if (!$getDomain) {
         <form action="https://members.microweber.com/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
             <input type="text" name="a" value="add">
             <input type="text" name="pid" value="<?php echo $pid; ?>">
-            <input type="text" name="configoption[1]" value="1">
+            <input type="text" name="configoption[<?php print $config_gid ?>]" value="<?php  print $template_id ?>">
             <input type="text" name="sld" value="<?php echo $sld; ?>">
             <input type="text" name="tld" value="<?php echo $tld; ?>">
 
@@ -94,7 +103,7 @@ if (!$getDomain) {
              $('#send-fields').submit();
              })
              */
-            window.top.location.href = "https://members.microweber.com/<?php echo $redirect_url; ?>";
+             window.top.location.href = "https://members.microweber.com/<?php echo $redirect_url; ?>";
         </script>
     <?php endif; ?>
     <?php include "partials/footer.php"; ?>

@@ -8,7 +8,7 @@ $settings_render = $manager->config->get_settings_for_render();
 $hosting = $manager->hosting->get_hosting_products();
 $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simple');
 
-
+//dd($enabled_templates);
 ?>
 <style>
     .microweber-addon SELECT, INPUT[type="text"] {
