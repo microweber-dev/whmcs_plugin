@@ -32,7 +32,7 @@
     
 
     var iframe = document.createElement("iframe");
-    iframe.src = path + '/index.php?' + $params;
+
     iframe.id = 'domain-search-iframe';
     iframe.style.width = "100%";
     iframe.style.height = "100px";
@@ -40,12 +40,35 @@
     iframe.frameBorder = 0;
     iframe.allowtransparency = 1;
 
+    var windowhash = window.location.hash;
+
+   // iframe.onload =       window.scrollTo(0,0);;
+    if (typeof windowhash === 'string' && windowhash.indexOf('frameurl=') > -1) {
+        var hash = windowhash.split('frameurl=')[1];
+        var hash =  decodeURI(hash)
+        iframe.src = hash;
+    } else {
+        iframe.src = path + '/index.php?' + $params;
+    }
+
+
+
     script.parentNode.insertBefore(iframe, script.nextSibling);
 
     addEventListener('message', function (e) {
+
+        if (typeof e.data === 'string' && e.data.indexOf('frameLocation:') > -1) {
+            var hash = e.data.split('frameLocation:')[1];
+             window.location.hash = 'frameurl='+encodeURI(hash)
+        }
         if (typeof e.data === 'string' && e.data.indexOf('documentHeight:') > -1) {
             var height = e.data.split('documentHeight:')[1];
-            $('#domain-search-iframe').style.height = height + 'px';
+            if(height > 0){
+                $('#domain-search-iframe').style.height = height + 'px';
+                window.scrollTo(0,0);
+            }
+
+
         }
     }, false);
 })();

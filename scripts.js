@@ -18,8 +18,13 @@ function resize_iframe_to_parent() {
             top.postMessage('documentHeight:0', "*");
             message = 'documentHeight:' + Math.max(body.scrollHeight, document.documentElement.scrollHeight);
 
-            console.log(message)
             top.postMessage(message, "*");
+
+
+            message = 'frameLocation:' + window.location.href;
+
+            top.postMessage(message, "*");
+
             prev_height = documentHeight;
         }
     }

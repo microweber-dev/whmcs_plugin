@@ -61,13 +61,40 @@ $plans = $controller->get_hosting_products();
                                             </div>
                                         </div>
 
-                                        <?php print $plan['description'] ?>
+
+                                        <?php $desc = $plan['description'];
+
+                                        $desc = explode('<div class="js-order-btn"></div>',$desc );
+                                        ?>
+
+                                        <?php foreach ($desc as $desc_plan){ ?>
+                                            <?php print  $desc_plan ?>
+
+
+                                            <div class="description last">
+                                                <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
+                                                <br/>
+
+                                            </div>
+
+
+                                        <?php } ?>
+
+                                     <?php
+
+                                     /*   <?php print $plan['description'] ?>
+
+
+
 
                                         <div class="description last">
                                             <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
                                             <br/>
-                                            <br/>
-                                        </div>
+
+                                        </div>*/
+                                     ?>
+
+
                                     </div>
                                 </div>
                             <?php } ?>

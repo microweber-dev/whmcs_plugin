@@ -125,6 +125,18 @@ $templates = json_decode($templates, true);
     <?php endforeach; ?>
 <?php endif; ?>
 
+
+<script>
+    $( document ).ready(function() {
+
+
+
+    });
+
+</script>
+
+
+
 <?php include('partials/steps/template.php'); ?>
 </body>
 </html>
