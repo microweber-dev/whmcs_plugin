@@ -405,7 +405,7 @@
 
                 </div>
 
-                <div class="just-text boxes">
+                <div class="just-text boxes p-b-50">
                     <div class="row">
                         <div class="col-md-4">
                             <h6>Register a new domain</h6>
