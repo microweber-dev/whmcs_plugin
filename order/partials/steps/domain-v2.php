@@ -377,7 +377,7 @@
             <div class="col-lg-8 col-lg-offset-2 fx-deactivate allow-drop">
 
                 <div class="just-text m-b-20">
-                    <h1>Choose the name of your website. It's called domain name.</h1>
+                    <h1>Choose the name of your website. It's called a domain name.</h1>
                     <p>Search in the field below. Register today the name and be sure the domain is yours.</p>
                 </div>
 
