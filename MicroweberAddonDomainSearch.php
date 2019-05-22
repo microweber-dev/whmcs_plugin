@@ -167,6 +167,9 @@ class MicroweberAddonDomainSearch
                         }
                     }
 
+                } else {
+                    $price = (string)formatCurrency(0);
+                    $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => $available_domain_extension, 'sld' => $host, 'is_free' => true, 'subdomain' => true, 'price' => $price);
                 }
             }
         }
@@ -182,11 +185,44 @@ class MicroweberAddonDomainSearch
         $searchResult2 = $lookupProvider->checkAvailability($domain, getSpotlightTlds());
 
 
-        $domain_results = array_reverse($domain_results);
-        $return_combined['results'] = $domain_results;
+//        $domain_results = array_reverse($domain_results);
+//        $return_combined['results'] = $domain_results;
+        $return_combined['results'] = [];
+        if ($domain_results) {
+            foreach ($domain_results as $domain_result) {
+                if ($domain_result['status'] == 'available' AND $domain_result['is_free'] == true) {
+                    $return_combined['results'][] = $domain_result;
+                }
+            }
+
+            foreach ($domain_results as $domain_result) {
+                if ($domain_result['status'] == 'available' AND $domain_result['is_free'] == false) {
+                    $return_combined['results'][] = $domain_result;
+                }
+            }
+
+            foreach ($domain_results as $domain_result) {
+                if ($domain_result['status'] == 'unavailable' AND $domain_result['is_free'] == true) {
+                    $return_combined['results'][] = $domain_result;
+                }
+            }
+
+            foreach ($domain_results as $domain_result) {
+                if ($domain_result['status'] == 'unavailable' AND $domain_result['is_free'] == false) {
+                    $return_combined['results'][] = $domain_result;
+                }
+            }
+        }
+
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
         //  $return_combined['available_hosting_plans'] = $available_hosting_acc;
+
+//        echo '<pre>';
+//        var_dump($return_combined);
+//        echo '</pre>';
+//        exit;
+
         return $return_combined;
 
 

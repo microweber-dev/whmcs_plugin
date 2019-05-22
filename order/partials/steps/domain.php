@@ -67,6 +67,7 @@
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
+                $('#domain-search-field').val('');
                 return false;
             }
 
@@ -88,6 +89,7 @@
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
+                $('#domain-search-field').val('');
                 return false;
             }
 
@@ -108,6 +110,7 @@
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
+                $('#domain-search-field').val('');
                 return false;
             }
 
@@ -141,3 +144,24 @@
 
     })
 </script>
+
+<!-- The Modal -->
+<div class="modal" id="wrongSymbols">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Allowable characters</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body text-center">
+                <p>You can use letters <strong>a-z</strong>, numbers <strong>0-9</strong> and hyphen(<strong>-</strong>).</p>
+                <p>Words contain "<strong>test</strong>" are disallowed!</p>
+                <br/>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
