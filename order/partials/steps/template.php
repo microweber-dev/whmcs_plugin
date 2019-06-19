@@ -120,3 +120,16 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
         </div>
     </div>
 </div>
+
+
+
+
+<script>
+    $( document ).ready(function() {
+        // if(typeof(iframe) != 'undefined'){
+        // iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        // }
+
+    });
+
+</script>

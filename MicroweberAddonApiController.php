@@ -121,7 +121,6 @@ class MicroweberAddonApiController
     {
         global $CONFIG;
         global $autoauthkey;
-
         if (!isset($params['domain'])) {
             return;
         }
@@ -143,12 +142,39 @@ WHERE
   c.id = h.userid AND
   p.id = h.packageid AND
 h.domain = '" . $username . "' and
-  pco.optionname = 'Template' ";
+  pco.optionname = 'Template'  limit 1" ;
+
+
+
+        $query = "SELECT
+	c.id AS userid,
+	h.id AS serviceid,
+	pcos.optionname AS template
+FROM
+	tblhosting h,
+	tblclients c,
+	tblproducts p,
+	tblproductconfigoptionssub pcos,
+	tblproductconfigoptions pco,
+	tblhostingconfigoptions hco
+WHERE
+h.domain = '" . $username . "'  
+and pco.optionname = 'Template'
+AND pcos.configid = pco.id
+AND hco.configid = pco.id
+AND hco.optionid = pcos.id
+AND c.id = h.userid
+AND p.id = h.packageid
+LIMIT 1" ;
+
+
+
+
 
 
 // si ebalo majkata
         $dom_data = Capsule::select($query);
-
+       // dd($dom_data);
 
         if ($dom_data) {
             foreach ($dom_data as $dom_item) {

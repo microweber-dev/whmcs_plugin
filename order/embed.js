@@ -1,4 +1,13 @@
 (function () {
+    var tool = {
+        offset : function(node){
+            var rect = node.getBoundingClientRect()
+            return {
+                top: rect.top,
+                left: rect.left
+            }
+        }
+    }
     var mlt = 'Multiple embed instances not allowed';
     if(window['mw-domain-search-iframe-embed']) {
         console.warn(mlt);
@@ -65,7 +74,8 @@
             var height = e.data.split('documentHeight:')[1];
             if(height > 0){
                 $('#domain-search-iframe').style.height = height + 'px';
-                window.scrollTo(0,0);
+                //window.scrollTo(0,0);
+              //  iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             }
 
 

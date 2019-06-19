@@ -103,6 +103,7 @@ function microweber_addon_clientarea($vars)
         $params = array_merge($params, $_POST);
     }
 
+   //
 
     $resp = array();
     $modulelink = $vars['modulelink'];
@@ -120,7 +121,12 @@ function microweber_addon_clientarea($vars)
 
     if (method_exists($controller, $method)) {
         $resp = $controller->$method($params);
-    } else {
+        //dd($params,$resp);
+     } else {
+
+
+
+
         $full_url = ___microweber_helpers_get_current_url();
         if (stristr($full_url, '&amp;')) {
             $full_url = html_entity_decode($full_url);
