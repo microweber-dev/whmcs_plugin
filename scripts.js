@@ -1,31 +1,47 @@
 $(document).ready(function () {
-    resize_iframe_to_parent()
+    $('.section-61').css('height', 'auto');
+    resize_iframe_to_parent();
+    var body = document.body;
+    var html = document.documentElement;
+    $('html,body').css('overflow', 'hidden')
+
 });
 
 window.onresize = function (event) {
     //resize_iframe_to_parent()
 }
 
-prev_height = null
+var prev_height = null,
+    _ifrChecker = null,
+    message;
 
 function resize_iframe_to_parent() {
-    var body = document.getElementById('frame-body')
+    var body = document.getElementById('frame-body');
     if (body) {
-
-        var documentHeight = Math.max(body.scrollHeight, document.documentElement.scrollHeight) ;
-        if (documentHeight != prev_height) {
-
-            top.postMessage('documentHeight:0', "*");
-            message = 'documentHeight:' + Math.max(body.scrollHeight, document.documentElement.scrollHeight);
-
+        if (!_ifrChecker) {
+            _ifrChecker = document.createElement('div');
+            document.body.appendChild(_ifrChecker);
+        }
+        var otop = _ifrChecker.offsetTop;
+        if(otop !== prev_height){
+            message = 'documentHeight:' + otop;
             top.postMessage(message, "*");
-
-
-            message = 'frameLocation:' + window.location.href;
-
+            message = 'frameLocation:' + location.href;
             top.postMessage(message, "*");
-
-            prev_height = documentHeight;
+            prev_height = otop;
         }
     }
 }
+
+setInterval(function(){
+    resize_iframe_to_parent()
+}, 333)
+
+
+function scroll_iframe_to_parent() {
+
+    var message = 'scrollCommand:' + 'top';
+    top.postMessage(message, "*");
+
+}
+

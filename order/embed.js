@@ -54,7 +54,7 @@
    // iframe.onload =       window.scrollTo(0,0);;
     if (typeof windowhash === 'string' && windowhash.indexOf('frameurl=') > -1) {
         var hash = windowhash.split('frameurl=')[1];
-        var hash =  decodeURI(hash)
+        var hash =  decodeURI(atob(hash))
         iframe.src = hash;
     } else {
         iframe.src = path + '/index.php?' + $params;
@@ -68,7 +68,7 @@
 
         if (typeof e.data === 'string' && e.data.indexOf('frameLocation:') > -1) {
             var hash = e.data.split('frameLocation:')[1];
-             window.location.hash = 'frameurl='+encodeURI(hash)
+             window.location.hash = 'frameurl='+(btoa(encodeURI(hash)))
         }
         if (typeof e.data === 'string' && e.data.indexOf('documentHeight:') > -1) {
             var height = e.data.split('documentHeight:')[1];

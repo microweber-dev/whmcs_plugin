@@ -126,6 +126,8 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
 
 <script>
     $( document ).ready(function() {
+
+        scroll_iframe_to_parent();
         // if(typeof(iframe) != 'undefined'){
         // iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         // }

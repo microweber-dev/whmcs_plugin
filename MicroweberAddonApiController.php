@@ -14,6 +14,8 @@ class MicroweberAddonApiController
     public function login_to_my_website($params)
     {
 
+
+
         $the_request = $params;
 
 
@@ -24,6 +26,7 @@ class MicroweberAddonApiController
         if (!isset($the_request['email']) or !isset($the_request['password2']) or !isset($the_request['domain'])) {
             return;
         }
+
 
         $parsedom = @parse_url($the_request['domain']);
 
@@ -77,6 +80,10 @@ class MicroweberAddonApiController
 //        var_dump($validatelogin);
 //        exit;
 
+
+        if (isset($validatelogin['result']) and $validatelogin['result'] == 'error') {
+            return;
+        }
 
         if (!isset($validatelogin['userid'])) {
             return;
@@ -146,28 +153,28 @@ h.domain = '" . $username . "' and
 
 
 
-        $query = "SELECT
-	c.id AS userid,
-	h.id AS serviceid,
-	pcos.optionname AS template
-FROM
-	tblhosting h,
-	tblclients c,
-	tblproducts p,
-	tblproductconfigoptionssub pcos,
-	tblproductconfigoptions pco,
-	tblhostingconfigoptions hco
-WHERE
-h.domain = '" . $username . "'  
-and pco.optionname = 'Template'
-AND pcos.configid = pco.id
-AND hco.configid = pco.id
-AND hco.optionid = pcos.id
-AND c.id = h.userid
-AND p.id = h.packageid
-LIMIT 1" ;
-
-
+//        $query = "SELECT
+//	c.id AS userid,
+//	h.id AS serviceid,
+//	pcos.optionname AS template
+//FROM
+//	tblhosting h,
+//	tblclients c,
+//	tblproducts p,
+//	tblproductconfigoptionssub pcos,
+//	tblproductconfigoptions pco,
+//	tblhostingconfigoptions hco
+//WHERE
+//h.domain = '" . $username . "'
+//and pco.optionname = 'Template'
+//AND pcos.configid = pco.id
+//AND hco.configid = pco.id
+//AND hco.optionid = pcos.id
+//AND c.id = h.userid
+//AND p.id = h.packageid
+//LIMIT 1" ;
+//
+//
 
 
 

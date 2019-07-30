@@ -15,6 +15,32 @@ $templates = json_decode($templates, true);
 
     <script src="../scripts.js"></script>
 
+    <script>
+
+    var submitForPreview = function(form){
+        form.submit();
+
+        /*var path = location.pathname;
+        if(path.indexOf('/templates') !== -1){
+            path = path.split('/templates')[0] +  '/templates/' + form.querySelector('[name="template_id"]').value;
+            history.pushState(null, null, path);
+        }*/
+
+
+
+    }
+
+
+
+    $( document ).ready(function() {
+        // if(typeof(iframe) != 'undefined'){
+        // iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        // }
+
+    });
+
+</script>
+
 </head>
 <body id="frame-body">
 
@@ -100,7 +126,7 @@ $templates = json_decode($templates, true);
                                 <?php include('params_fields.php'); ?>
 
                                 <a class="btn" href="<?php print $preview_url; ?>" target="_blank">View template demo</a>
-                                <a href="javascript:;" class="btn btn-info" onclick="parentNode.submit();">Start with this template</a>
+                                <a href="javascript:;" class="btn btn-info" onclick="submitForPreview(this.parentNode);">Start with this template</a>
                             </form>
                         </div>
                     </div>
@@ -117,7 +143,7 @@ $templates = json_decode($templates, true);
                             </div>
                         </div>
                     <?php endif; ?>
-                    <div class="arrow-more"></div>
+<!--                    <div class="arrow-more"></div>-->
                 </div>
             </div>
 
@@ -126,18 +152,9 @@ $templates = json_decode($templates, true);
 <?php endif; ?>
 
 
-<script>
-    $( document ).ready(function() {
-        // if(typeof(iframe) != 'undefined'){
-        // iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-        // }
-
-    });
-
-</script>
 
 
 
-<?php include('partials/steps/template.php'); ?>
+<?php //include('partials/steps/template.php'); ?>
 </body>
 </html>

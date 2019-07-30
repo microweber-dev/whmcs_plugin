@@ -37,7 +37,7 @@ class MarketplaceConnector
         }
 
         if ($packages) {
-            foreach ($packages as $pk=>$package) {
+            foreach ($packages as $pk => $package) {
 
                 $version_type = false;
                 $package_item = $package;
@@ -49,7 +49,7 @@ class MarketplaceConnector
                 if ($version_type and in_array($version_type, $allowed_package_types)) {
                     $package_is_allowed = true;
                     $return[$pk] = $package;
-                    if(!isset($packages_by_type[$version_type])){
+                    if (!isset($packages_by_type[$version_type])) {
                         $packages_by_type[$version_type] = array();
                     }
                     $packages_by_type[$version_type][$pk] = $package;
@@ -74,31 +74,59 @@ class MarketplaceConnector
 //        $templates = @json_decode($templates, true);
         $return = array();
         if ($templates and isset($templates["microweber-template"])) {
-            foreach ($templates["microweber-template"] as $pk =>$template) {
+            foreach ($templates["microweber-template"] as $pk => $template) {
                 $package_item = $template;
-                $last_item = array_pop($package_item);
-                if($package_item and isset($last_item['version']) and $last_item['version'] == 'dev-master'){
-                    $last_item2 = array_pop($package_item);
-                    $last_item = $last_item2;
+
+                $package_item_version = $package_item;
+
+                $package_item_version = array_reverse($package_item_version);
+
+                $last_item = false;
+
+                foreach ($package_item_version as $package_item_version_key => $package_item_version_data) {
+                     if (!$last_item
+                         and $package_item_version_data
+                         and isset($package_item_version_data['version'])
+                         and $package_item_version_data['version'] != 'dev-master'
+                         and is_numeric($package_item_version_data['version'])) {
+                        $last_item2 =$package_item_version_data;
+                        $last_item = $last_item2;
+
+
+                    }
                 }
 
 
-                $template['latest_version'] = $last_item;
-                $screenshot = '';
-                if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['_meta']) AND isset($template['latest_version']['extra']['_meta']['screenshot'])) {
-                    $screenshot = $template['latest_version']['extra']['_meta']['screenshot'];
-                }
-                if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['_meta']) AND isset($template['latest_version']['extra']['_meta']['screenshot'])) {
-                    $screenshot = $template['latest_version']['extra']['_meta']['screenshot'];
-                }
+//                $last_item = array_pop($package_item);
+//                if ($package_item and isset($last_item['version']) and $last_item['version'] == 'dev-master') {
+//                    $last_item2 = array_pop($package_item);
+//                    $last_item = $last_item2;
+//                }
 
 
-              //$template['screenshot'] = $screenshot;
-                $return[$pk] = $template;
+                if ($last_item) {
+
+                    $template['latest_version'] = $last_item;
+                    $screenshot = '';
+                    $readme = '';
+                    if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['_meta']) AND isset($template['latest_version']['extra']['_meta']['screenshot'])) {
+                        $screenshot = $template['latest_version']['extra']['_meta']['screenshot'];
+                    }
+                    if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['_meta']) AND isset($template['latest_version']['extra']['_meta']['readme'])) {
+                        $readme = $template['latest_version']['extra']['_meta']['readme'];
+                    }
+
+
+                    //$template['screenshot'] = $screenshot;
+                    $return[$pk] = $template;
+                }
+
 
             }
 
         }
+         //var_dump($return);
+
         return $return;
 
     }
