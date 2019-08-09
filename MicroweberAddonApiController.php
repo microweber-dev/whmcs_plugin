@@ -15,7 +15,6 @@ class MicroweberAddonApiController
     {
 
 
-
         $the_request = $params;
 
 
@@ -46,13 +45,15 @@ class MicroweberAddonApiController
 
         if (!isset($validatelogin['userid'])) {
             $values = array();
-            $values["username"] = $the_request['email'];
-            $values["password"] = $the_request['password2'];
+            $values["email"] = $the_request['email'];
+            $values["password2"] = $the_request['password2'];
             $validatelogin = localAPI('validatelogin', $values);
+
         }
         if (!isset($validatelogin['userid'])) {
             $hostingProduct = Capsule::table('tblhosting')
                 ->where('domain', '=', $host)->first();
+
 
             if ($hostingProduct->id and $hostingProduct->password) {
 
@@ -63,11 +64,13 @@ class MicroweberAddonApiController
 
                 $results_passwd = localAPI($command, $postData);
 
+                if (isset($results_passwd['password']) and $the_request['password2'] == $results_passwd['password']) {
 
-                if (!isset($results_passwd['password'])) {
+                    $validatelogin['userid'] = $hostingProduct->userid;
+                } else if (!isset($results_passwd['password'])) {
                     return;
                 } else {
-                    $validatelogin['userid'] = $hostingProduct->userid;
+                   // $validatelogin['userid'] = $hostingProduct->userid;
                 }
 
 
@@ -77,17 +80,20 @@ class MicroweberAddonApiController
             }
         }
 
+
 //        var_dump($validatelogin);
 //        exit;
 
-
-        if (isset($validatelogin['result']) and $validatelogin['result'] == 'error') {
-            return;
+        if (isset($validatelogin['result']) and $validatelogin['result'] == 'error' and !isset($validatelogin['userid'])) {
+             return;
         }
 
         if (!isset($validatelogin['userid'])) {
             return;
         }
+
+
+
 
         $command = "getclientsproducts";
         $values = array();
@@ -109,6 +115,7 @@ class MicroweberAddonApiController
                             $values["result"] = 'success';
                             $values["userid"] = $validatelogin['userid'];
                             $values["hosting_data"] = $prodsuct;
+
                             return $values;
                         }
                     }
@@ -149,8 +156,7 @@ WHERE
   c.id = h.userid AND
   p.id = h.packageid AND
 h.domain = '" . $username . "' and
-  pco.optionname = 'Template'  limit 1" ;
-
+  pco.optionname = 'Template'  limit 1";
 
 
 //        $query = "SELECT
@@ -177,11 +183,9 @@ h.domain = '" . $username . "' and
 //
 
 
-
-
 // si ebalo majkata
         $dom_data = Capsule::select($query);
-       // dd($dom_data);
+        // dd($dom_data);
 
         if ($dom_data) {
             foreach ($dom_data as $dom_item) {
