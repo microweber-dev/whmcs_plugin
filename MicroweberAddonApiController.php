@@ -34,6 +34,8 @@ class MicroweberAddonApiController
         } else {
             $host = $the_request['domain'];
         }
+        $host = str_ireplace('www.','',$host);
+
 
 
         $values = array();
