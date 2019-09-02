@@ -270,7 +270,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
             </div>
 
 
-            <button type="submit" class="btn btn-default">Save changes</button>
+            <button type="submit" class="btn btn-success">Save changes</button>
         </form>
     </div>
 

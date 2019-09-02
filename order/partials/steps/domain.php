@@ -1,8 +1,10 @@
-<?php if (isset($_GET['domain-style']) AND $_GET['domain-style'] == 'v2'): ?>
-    <?php include('domain-v2.php'); ?>
-<?php else: ?>
-    <?php include('domain-v1.php'); ?>
-<?php endif; ?>
+<?php if (isset($_GET['domain-style']) AND $_GET['domain-style'] == 'v2') {
+    include('domain-v2.php');
+} elseif (isset($_GET['domain-style']) AND $_GET['domain-style'] == 'v3') {
+    include('domain-v3.php');
+} else {
+    include('domain-v1.php');
+} ?>
 
 <script>
     var __dprev = $("#domain-search-field").val();
