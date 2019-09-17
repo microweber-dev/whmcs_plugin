@@ -1,0 +1,1 @@
+Upload in folder `modules/addons/microweber_addon/`  

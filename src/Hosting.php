@@ -259,7 +259,8 @@ class Hosting
 
         $data = Capsule::table('tblproductconfiggroups')->where(['name' => $this->config_option_name])->first();
         if (!isset($data->id)) {
-            Capsule::table('tblproductconfiggroups')->insert(array("name" => $this->config_option_name, 'optiontype' => 1));
+            Capsule::table('tblproductconfiggroups')->insert(array("name" => $this->config_option_name));
+          //  Capsule::table('tblproductconfiggroups')->insert(array("name" => $this->config_option_name, 'optiontype' => 1));
             $data = Capsule::table('tblproductconfiggroups')->where(['name' => $this->config_option_name])->first();
 
         }
