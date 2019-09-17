@@ -11,36 +11,37 @@
     var __dtime = null;
 
     function searchDomainResults(el) {
+        setTimeout(function () {
+            var __dprev = $("#domain-search-field").val();
+            var __dtime = null;
 
-        var __dprev = $("#domain-search-field").val();
-        var __dtime = null;
+            clearTimeout(__dtime);
+            __dtime = setTimeout(function () {
+                if (!!el.value && el.value != __dprev) {
+                    $("#container").addClass('domain-search-field-on')
+                } else {
+                    $("#container").removeClass('domain-search-field-on')
+                }
+                __dprev = el.value;
 
-        clearTimeout(__dtime);
-        __dtime = setTimeout(function () {
-            if (!!el.value && el.value != __dprev) {
-                $("#container").addClass('domain-search-field-on')
-            } else {
-                $("#container").removeClass('domain-search-field-on')
-            }
-            __dprev = el.value;
-
-            var keyword = $("#domain-search-field").val();
-            var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
-            $.ajax({
-                contentType: 'application/json',
-                dataType: 'json',
-                url: URL,
-                cache: false,
-                type: "POST",
-                success: function (response) {
-                    if (response) {
-                        if (response.results) {
-                            render_domain_search_list(response.results);
+                var keyword = $("#domain-search-field").val();
+                var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
+                $.ajax({
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    url: URL,
+                    cache: false,
+                    type: "POST",
+                    success: function (response) {
+                        if (response) {
+                            if (response.results) {
+                                render_domain_search_list(response.results);
+                            }
                         }
                     }
-                }
-            });
-        }, 10);
+                });
+            }, 10);
+        }, 1000);
     }
 </script>
 
@@ -59,8 +60,10 @@
             } else {
                 $(this).data("value", null);
             }
+
         });
     });
+
 
     $(document).ready(function () {
         $(".js-search-domains").on('click', function () {
@@ -106,7 +109,24 @@
             $('#domain-search-field-autocomplete').addClass('ajax-loading');
         });
 
-        $("#domain-search-field").on('keyup', function () {
+        //setup before functions
+        var typingTimer;                //timer identifier
+        var doneTypingInterval = 50;  //time in ms, 5 second for example
+        var $input = $('#domain-search-field');
+
+        //on keyup, start the countdown
+        $input.on('keyup', function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(doneTyping, doneTypingInterval);
+        });
+
+        //on keydown, clear the countdown
+        $input.on('keydown', function () {
+            clearTimeout(typingTimer);
+        });
+
+        //user is "finished typing," do something
+        function doneTyping() {
             // Define an expression of words to check for
             var words = new RegExp('test|neshtozabraneno');
             // Check if any of the words is contained within your element
@@ -116,17 +136,21 @@
                 return false;
             }
 
-            setTimeout(function () {
-                $('.ajax-loading-placeholder').show();
+            if($('#domain-search-field').val() == ''){
+                $('#domain-search-field').val('');
+                $('#domain-search-field-autocomplete').empty();
+                $(this).removeClass('visible');
+            }
 
-                (function (el) {
-                    searchDomainResults(el);
-                })(this)
+            $('.ajax-loading-placeholder').show();
 
-                $('.js-clear-domain').addClass('visible');
-                $('#domain-search-field-autocomplete').addClass('ajax-loading');
-            }, 1000);
-        });
+            (function (el) {
+                searchDomainResults(el);
+            })(this)
+
+            $('.js-clear-domain').addClass('visible');
+            $('#domain-search-field-autocomplete').addClass('ajax-loading');
+        }
 
         $('.js-clear-domain').on('click', function () {
             $('#domain-search-field').val('');
