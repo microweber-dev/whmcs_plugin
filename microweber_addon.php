@@ -32,60 +32,7 @@ function microweber_addon_config()
         'language' => 'english',
 
         'fields' => [
-            // a text field type allows for single line text input
-            'Text Field Name' => [
-                'FriendlyName' => 'Text Field Name',
-                'Type' => 'text',
-                'Size' => '25',
-                'Default' => 'Default value',
-                'Description' => 'Description goes here',
-                'SimpleMode' => true
 
-
-            ],
-            // a password field type allows for masked text input
-            'Password Field Name' => [
-                'FriendlyName' => 'Password Field Name',
-                'Type' => 'password',
-                'Size' => '25',
-                'Default' => '',
-                'Description' => 'Enter secret value here',
-            ],
-            // the yesno field type displays a single checkbox option
-            'Checkbox Field Name' => [
-                'FriendlyName' => 'Checkbox Field Name',
-                'Type' => 'yesno',
-                'Description' => 'Tick to enable',
-            ],
-            // the dropdown field type renders a select menu of options
-            'Dropdown Field Name' => [
-                'FriendlyName' => 'Dropdown Field Name',
-                'Type' => 'dropdown',
-                'Options' => [
-                    'option1' => 'Display Value 1',
-                    'option2' => 'Second Option',
-                    'option3' => 'Another Option',
-                ],
-                'Default' => 'option2',
-                'Description' => 'Choose one',
-            ],
-            // the radio field type displays a series of radio button options
-            'Radio Field Name' => [
-                'FriendlyName' => 'Radio Field Name',
-                'Type' => 'radio',
-                'Options' => 'First Option,Second Option,Third Option',
-                'Default' => 'Third Option',
-                'Description' => 'Choose your option!',
-            ],
-            // the textarea field type allows for multi-line text input
-            'Textarea Field Name' => [
-                'FriendlyName' => 'Textarea Field Name',
-                'Type' => 'textarea',
-                'Rows' => '3',
-                'Cols' => '60',
-                'Default' => 'A default value goes here...',
-                'Description' => 'Freeform multi-line text input field',
-            ],
         ]
     );
     return $configarray;
