@@ -9,3 +9,10 @@
 5. Go to **Addon > Microweber Addon**
 6. Mark current **Plans and Templates**
 7. Save!
+
+
+## Add plugin access for users 
+
+![whmcs_plugin.png](order/assets/whmcs_plugin.png "")
+
+
