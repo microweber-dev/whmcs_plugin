@@ -10,7 +10,6 @@ class Hosting
 {
 
     private $config_option_name = 'Template';
-
     // private $config_option_name = 'Templates';
 
 
@@ -237,12 +236,18 @@ class Hosting
         $data = Capsule::table('tblproductconfigoptions')->where(['optionname' => $this->config_option_name])->first();
 
 
-        if (isset($data->id)) {
-            return $data->id;
-        }
+        if (!isset($data->id)) {
+			Capsule::table('tblproductconfigoptions')->insert(['optionname' => $this->config_option_name, 'optiontype'=> 1]);
+			$data = Capsule::table('tblproductconfigoptions')->where(['optionname' => $this->config_option_name])->first();
+			
+			Capsule::table('tblproductconfigoptions')->where(['id' => $data->id])->update(['gid' => $data->id]);
+		}
 
-        return;
-
+		if (isset($data->id)) {
+			return $data->id; 
+		}
+		
+		throw new Exception('Cant find tblproductconfigoptions by option name.');
 
     }
 
