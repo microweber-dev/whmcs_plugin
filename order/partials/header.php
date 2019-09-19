@@ -2,7 +2,6 @@
 <html prefix="og: http://ogp.me/ns#" lang="en">
 
 <head>
-
     <title>Order</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -11,7 +10,6 @@
     <script src="assets/js/jquery-1.12.4.min.js"></script>
 
     <!-- Plugins -->
-
     <script src="assets/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
     <script src="assets/js/libs/TweenMax.min.js"></script>
@@ -48,4 +46,4 @@
 
 <body class="" id="frame-body">
 
-<div class="main">
+    <div class="main">

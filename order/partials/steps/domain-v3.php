@@ -311,7 +311,7 @@
         background-color: #f6fafb;
         font-size: 30px;
         color: #2d2d2d;
-        font-weight:600;
+        font-weight: 600;
         padding: 5px 20px;
     }
 
@@ -325,6 +325,19 @@
 </style>
 
 <script>
+    $(document).ready(function () {
+        $(document).on('mouseover', '.domain-item:not(.placeholder)', function () {
+            var sld = '';
+            var tld = $(this).data('tld');
+            var buttonText = sld + '<span class="text-blue">' + tld + '</span>';
+            $('.js-search-domains').html(buttonText);
+        });
+        $(document).on('mouseleave', '.domain-item:not(.placeholder)', function () {
+            var buttonText = '<span class="text-blue">.</span>microweber<span class="text-blue">.me</span>';
+            $('.js-search-domains').html(buttonText);
+        });
+    })
+
     function render_domain_search_list(results) {
         $("#domain-search-field-autocomplete").html('');
 
@@ -352,7 +365,7 @@
                     '<div class="clearfix"></div> ' +
                     '</div>';
 
-                var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '" data-target="top">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     '<span class="domain-free-tag">Free</span> ' +
@@ -361,7 +374,7 @@
                     '<div class="clearfix"></div> ' +
                     '</div>';
 
-                var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '" data-target="top">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     '<span class="domain-recommended-tag">Available</span> ' +
@@ -419,8 +432,6 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder">
-                            <button class="js-clear-domain clear-domain" type="button"></button>
-                            <!--                            <button class="btn btn-default search-domain js-search-domains" type="submit">Search</button>-->
                             <button class="subdomain-holder js-search-domains" type="submit"><span class="text-blue">.</span>microweber<span class="text-blue">.me</span></button>
                             <input type="text" name="domain" placeholder="Напиши името тук" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
@@ -440,7 +451,7 @@
 
                         <div id="domain-search-field-autocomplete" class="fixed-container m-b-20 ajax-loading">
                             <div class="js-autocomplete-placeholder ajax-loading-placeholder">
-                                <div class="domain-item cant-start">
+                                <div class="domain-item cant-start placeholder">
                                     <div class=" text-left"><span class="domainName ">microweber.com</span></div>
                                     <div class="right last-div">
                                         <span class="not-available-tag">Unavailable</span>
@@ -449,7 +460,7 @@
                                     <div class="clearfix"></div>
                                 </div>
 
-                                <div class="domain-item can-start">
+                                <div class="domain-item can-start placeholder">
                                     <div class=" text-left"><span class="domainName ">microweber.com</span></div>
                                     <div class="right last-div">
                                         <span class="domain-free-tag">Free</span>
@@ -458,7 +469,7 @@
                                     <div class="clearfix"></div>
                                 </div>
 
-                                <div class="domain-item can-start">
+                                <div class="domain-item can-start placeholder">
                                     <div class=" text-left"><span class="domainName ">microweber.com</span></div>
                                     <div class="right last-div">
                                         <span class="domain-recommended-tag">Available</span>

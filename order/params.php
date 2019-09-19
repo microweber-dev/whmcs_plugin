@@ -29,6 +29,26 @@ if (isset($_GET['tld'])) {
     $tld = htmlspecialchars($_GET['tld']);
 }
 
+$target = '';
+if (isset($_GET['target'])) {
+    $target = htmlspecialchars($_GET['target']);
+}
+
+$templates_style = '';
+if (isset($_GET['templates-style'])) {
+    $templates_style = htmlspecialchars($_GET['templates-style']);
+}
+
+$template_preview_style = '';
+if (isset($_GET['template-preview-style'])) {
+    $template_preview_style = htmlspecialchars($_GET['template-preview-style']);
+}
+
+$domain_style = '';
+if (isset($_GET['domain-style'])) {
+    $domain_style = htmlspecialchars($_GET['domain-style']);
+}
+
 $subdomain = false;
 if (isset($_GET['subdomain']) AND $_GET['subdomain'] != 'false') {
     $subdomain = true;
@@ -40,7 +60,6 @@ if (!isset($template_id)) {
 if (isset($_GET['template_id'])) {
     $template_id = intval($_GET['template_id']);
 }
-
 
 if (!isset($config_gid)) {
     $config_gid = 0;

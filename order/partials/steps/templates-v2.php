@@ -102,8 +102,7 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
                     <?php include('params.php'); ?>
 
                     <div class="col-md-4 col-xs-6">
-                        <form method="get" action="<?php echo $current_url ?>" class="clearfix">
-
+                        <form method="get" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
                             <?php include('params_fields.php'); ?>
 
                             <input type="hidden" value="true" name="template_view"/>
@@ -122,10 +121,8 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
 </div>
 
 
-
-
 <script>
-    $( document ).ready(function() {
+    $(document).ready(function () {
 
         scroll_iframe_to_parent();
         // if(typeof(iframe) != 'undefined'){

@@ -136,7 +136,7 @@
                 return false;
             }
 
-            if($('#domain-search-field').val() == ''){
+            if ($('#domain-search-field').val() == '') {
                 $('#domain-search-field').val('');
                 $('#domain-search-field-autocomplete').empty();
                 $(this).removeClass('visible');
@@ -163,9 +163,15 @@
             var sld = $(this).attr('data-sld');
             var tld = $(this).attr('data-tld');
             var subdomain = $(this).attr('data-subdomain');
+            var target = $(this).attr('data-target');
 
-            var url = document.location.href + "?&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain;
+            var url = document.location.href + "?&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>";
+ 
+            <?php if(isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
+            window.top.location = url;
+            <?php else: ?>
             document.location = url;
+            <?php endif; ?>
         });
 
     })

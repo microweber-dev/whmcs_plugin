@@ -30,3 +30,21 @@
 <?php if ($subdomain): ?>
     <input type="hidden" value="<?php print $subdomain; ?>" name="subdomain"/>
 <?php endif; ?>
+
+<?php if ($target): ?>
+    <input type="hidden" value="<?php print $target; ?>" name="target"/>
+<?php endif; ?>
+
+<?php if ($templates_style): ?>
+    <input type="hidden" value="<?php print $templates_style; ?>" name="templates-style"/>
+<?php endif; ?>
+
+<?php if ($template_preview_style): ?>
+    <input type="hidden" value="<?php print $template_preview_style; ?>" name="template-preview-style"/>
+<?php endif; ?>
+
+<?php if ($domain_style): ?>
+    <input type="hidden" value="<?php print $domain_style; ?>" name="domain-style"/>
+<?php endif; ?>
+
+

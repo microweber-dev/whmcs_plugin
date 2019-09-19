@@ -1,20 +1,15 @@
 <?php
-
-
 if (!defined("WHMCS")) {
     define("WHMCS", true);
 }
+
 $root = dirname(__DIR__);
 
 require_once $root . DIRECTORY_SEPARATOR . '/init.php';
 global $CONFIG;
 
-
 $controller = new MicroweberAddonApiController();
-
-
 $hosting = new \MicroweberAddon\Hosting();
-
 
 $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 if (strpos($_SERVER['REQUEST_URI'], '?') !== false) {
@@ -42,7 +37,6 @@ $step = 0;
 
 
 $configoptionGID = $hosting->get_gid_for_templates();
- //$step =
 
 $templateID = 1;
 
@@ -62,7 +56,7 @@ if (!$getDomain) {
     <?php if ($step == 1): ?>
         <?php include "partials/steps/domain.php"; ?>
     <?php elseif ($step == 2): ?>
-        <?php include "partials/steps/template.php"; ?>
+        <?php include "partials/steps/templates.php"; ?>
     <?php elseif ($step == 3): ?>
         <?php include "partials/steps/plan.php"; ?>
     <?php else: ?>
@@ -70,13 +64,11 @@ if (!$getDomain) {
 
         <?php
         if ($subdomain) {
-            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption['.$config_gid.']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&domainoption=subdomain&billingcycle=monthly&skipconfig=1';
+            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption['.$config_gid.']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&target=' . $target . '&domainoption=subdomain&billingcycle=monthly&skipconfig=1';
         } else {
-            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption['.$config_gid.']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&billingcycle=monthly&skipconfig=1';
+            $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption['.$config_gid.']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&target=' . $target . '&billingcycle=monthly&skipconfig=1';
         }
-
         ?>
-
 
         <form action="https://members.microweber.com/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
             <input type="text" name="a" value="add">
