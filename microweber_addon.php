@@ -29,11 +29,7 @@ function microweber_addon_config()
         "description" => "This module allows connection between WHMCS and Microweber Cpanel plugin ",
         "version" => "1.0",
         "author" => "Microweber",
-        'language' => 'english',
-
-        'fields' => [
-
-        ]
+        'language' => 'english'
     );
     return $configarray;
 }
