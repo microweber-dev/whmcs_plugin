@@ -18,6 +18,9 @@ if (strpos($_SERVER['REQUEST_URI'], '?') !== false) {
     $current_url = $current_url . '?';
 }
 
+//var_dump($CONFIG['SystemURL']);exit;
+//var_dump($CONFIG['Domain']);exit;
+
 $getDomain = false;
 if (isset($_GET['domain'])) {
     $getDomain = $_GET['domain'];
@@ -70,7 +73,7 @@ if (!$getDomain) {
         }
         ?>
 
-        <form action="https://members.microweber.com/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
+        <form action="<?php echo $CONFIG['SystemURL']; ?>/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
             <input type="text" name="a" value="add">
             <input type="text" name="pid" value="<?php echo $pid; ?>">
             <input type="text" name="configoption[<?php print $config_gid ?>]" value="<?php  print $template_id ?>">
@@ -95,7 +98,7 @@ if (!$getDomain) {
              $('#send-fields').submit();
              })
              */
-             window.top.location.href = "https://members.microweber.com/<?php echo $redirect_url; ?>";
+             window.top.location.href = "<?php echo $CONFIG['SystemURL']; ?>/<?php echo $redirect_url; ?>";
         </script>
     <?php endif; ?>
     <?php include "partials/footer.php"; ?>
