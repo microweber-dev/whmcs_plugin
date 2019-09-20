@@ -3,7 +3,7 @@ $(document).ready(function () {
     resize_iframe_to_parent();
     var body = document.body;
     var html = document.documentElement;
-    $('html,body').css('overflow', 'hidden')
+    // $('html,body').css('overflow', 'hidden')
 
 });
 
