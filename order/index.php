@@ -52,6 +52,12 @@ if (!$getDomain) {
 }
 ?>
 
+<?php //echo $CONFIG['CompanyName']; ?>
+<?php //echo $CONFIG['Email']; ?>
+<?php //echo $CONFIG['Domain']; ?>
+<?php //echo $CONFIG['SystemURL']; ?>
+<?php //echo $CONFIG['LogoURL']; ?>
+
 <?php if (isset($_GET['template_view']) AND $_GET['template_view'] == 'true'): ?>
     <?php include "preview_template/index.php"; ?>
 <?php else: ?>

@@ -17,7 +17,7 @@ $plans = $controller->get_hosting_products();
         <div class="container p-t-50 p-b-100">
             <div class="row">
                 <div class="col-md-12 fx-deactivate allow-drop text-center">
-                    <h3>Choose your Microweber.com plan </h3>
+                    <h3>Choose your <?php echo $CONFIG['CompanyName']; ?> plan </h3>
                     <p>We are giving you 14 days free trail, no credit card required <br/> before you make purchases.</p>
                 </div>
             </div>

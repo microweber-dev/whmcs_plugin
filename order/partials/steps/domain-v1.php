@@ -344,7 +344,7 @@
 
                 <div class="just-text text-center m-b-20">
                     <h1 class="m-b-20">Choose your domain name</h1>
-                    <p>Register your domain with Microweber.com</p>
+                    <p>Register your domain with <?php echo $CONFIG['CompanyName']; ?></p>
                 </div>
 
                 <div id="domain-selector">
@@ -361,7 +361,7 @@
                             <div class="urf urf_warn" style="display: none;">
                                 <div class="icon"></div>
                                 <strong><span class="var-websiteName">DomainName.com</span> is taken.</strong> Try new one!<br/>
-                                If this is your domain, <u>you can map it with MicroWeber.com Premium.</u>
+                                If this is your domain, <u>you can map it with <?php echo $CONFIG['CompanyName']; ?> Premium.</u>
                             </div>
                             <div class="urf urf_success" style="display: none;">
                                 <div class="icon"></div>
@@ -373,7 +373,7 @@
                         <div id="domain-search-field-autocomplete" class="fixed-container m-b-20 ajax-loading">
                             <div class="js-autocomplete-placeholder ajax-loading-placeholder">
                                 <div class="domain-item cant-start">
-                                    <div class=" text-left"><span class="domainName ">microweber.com</span></div>
+                                    <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
                                         <span class="not-available-tag">Unavailable</span>
                                         <span class="di-price">&nbsp;</span>
@@ -382,7 +382,7 @@
                                 </div>
 
                                 <div class="domain-item can-start">
-                                    <div class=" text-left"><span class="domainName ">microweber.com</span></div>
+                                    <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
                                         <span class="domain-free-tag">Free</span>
                                         <span class="di-price">$0.00</span>
@@ -391,7 +391,7 @@
                                 </div>
 
                                 <div class="domain-item can-start">
-                                    <div class=" text-left"><span class="domainName ">microweber.com</span></div>
+                                    <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
                                         <span class="domain-recommended-tag">Available</span>
                                         <span class="di-price">$10.00</span>
@@ -414,7 +414,7 @@
 
                         <div class="col-md-4">
                             <h6>Connect your own domain</h6>
-                            <p>Already have a domain name? Point it to your Microweber.com website in a few easy steps.
+                            <p>Already have a domain name? Point it to your <?php echo $CONFIG['CompanyName']; ?> website in a few easy steps.
                             </p>
                         </div>
 
