@@ -322,6 +322,35 @@
     .subdomain-holder .text-red {
         color: #ff4200;
     }
+
+    h1 {
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+/*    @media screen and (max-width: 1365px) {
+        h1 {
+            font-size: 42px;
+        }
+    }
+
+    @media screen and (max-width: 1199px) {
+        h1 {
+            font-size: 36px;
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        h1 {
+            font-size: 32px;
+        }
+    }*/
+
+    @media screen and (max-width: 767px) {
+        h1 {
+            font-size: 26px;
+        }
+    }
 </style>
 
 <script>
@@ -416,15 +445,15 @@
             <div class="col-md-12 fx-deactivate allow-drop">
                 <div class="just-text m-b-40">
                     <div class="row" style="display: flex;">
-                        <div class="col-sm-6">
-                            <h1 class="m-b-20">Избери име
+                        <div class="col-sm-7">
+                            <h1 class="">Избери име
                                 <small>(домейн)</small>
                                 <br/>за твоя уебсайт
                             </h1>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <div style="height: 100%; display: flex; flex-flow: column; justify-content: flex-end;">
-                                <p>Свържи безплатно своя домейн по всяко време.</p>
+                                <p>Свържи своя домейн по всяко време.</p>
                             </div>
                         </div>
                     </div>

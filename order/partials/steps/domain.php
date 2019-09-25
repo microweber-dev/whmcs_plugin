@@ -5,7 +5,7 @@
 } else {
     include('domain-v1.php');
 } ?>
-
+`
 <script>
     var __dprev = $("#domain-search-field").val();
     var __dtime = null;

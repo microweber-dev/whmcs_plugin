@@ -49,6 +49,11 @@ if (isset($_GET['domain-style'])) {
     $domain_style = htmlspecialchars($_GET['domain-style']);
 }
 
+$plan_style = '';
+if (isset($_GET['plan-style'])) {
+    $plan_style = htmlspecialchars($_GET['plan-style']);
+}
+
 $subdomain = false;
 if (isset($_GET['subdomain']) AND $_GET['subdomain'] != 'false') {
     $subdomain = true;

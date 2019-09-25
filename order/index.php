@@ -67,7 +67,7 @@ if (!$getDomain) {
     <?php elseif ($step == 2): ?>
         <?php include "partials/steps/templates.php"; ?>
     <?php elseif ($step == 3): ?>
-        <?php include "partials/steps/plan.php"; ?>
+        <?php include "partials/steps/plans.php"; ?>
     <?php else: ?>
         <?php include('params.php'); ?>
 

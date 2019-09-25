@@ -47,4 +47,8 @@
     <input type="hidden" value="<?php print $domain_style; ?>" name="domain-style"/>
 <?php endif; ?>
 
+<?php if ($plan_style): ?>
+    <input type="hidden" value="<?php print $plan_style; ?>" name="plan-style"/>
+<?php endif; ?>
+
 
