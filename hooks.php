@@ -36,50 +36,50 @@ use WHMCS\View\Menu\Item as MenuItem;
 
 add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 
-//    global  $CONFIG;
-//    $whmcsurl = $CONFIG['SystemURL'];
-//
-//    if (!is_null($service)) {
-//
-//        $orderID = $service['service']->orderId;
-//        $domain = $service['service']->domain;
-//
-//        if(!$domain){
-//            return;
-//        }
-//
-//        $redir_url =$whmcsurl .'/index.php?m=microweber_addon&function=go_to_product&domain='.$domain;
-//
-//        $panel = '
-//<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
-//        <div class="panel-heading">
-//            <h3 class="panel-title">Website</h3>
-//        </div>
-//        <div class="panel-body">
-//                            <div class="row">
-//                    <div class="col-md-5 col-xs-6 text-right">
-//                        <strong>Domain</strong>
-//                        <br>
-//                         '.$domain.'
-//                    </div>
-//                    <div class="col-md-7 col-xs-6 text-left">
-//
-//                    <a class="btn btn-default btn-sm btn-primary" href="'.$redir_url.'" target="_blank">Visit website</a>
-//
-//
-//
-//
-//
-//                          </div>
-//                </div>
-//                    </div>
-//    </div>';
-//
-//
-//        return $panel;
-//
-//        //return 'OrderID: ' . $orderID;
-//    }
+   global  $CONFIG;
+   $whmcsurl = $CONFIG['SystemURL'];
+
+   if (!is_null($service)) {
+
+       $orderID = $service['service']->orderId;
+       $domain = $service['service']->domain;
+
+       if(!$domain){
+           return;
+       }
+
+       $redir_url =$whmcsurl .'/index.php?m=microweber_addon&function=go_to_product&domain='.$domain;
+
+       $panel = '
+		<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
+			   <div class="panel-heading">
+				   <h3 class="panel-title">Website</h3>
+			   </div>
+			   <div class="panel-body">
+								   <div class="row">
+						   <div class="col-md-5 col-xs-6 text-right">
+							   <strong>Domain</strong>
+							   <br>
+								'.$domain.'
+						   </div>
+						   <div class="col-md-7 col-xs-6 text-left">
+
+						   <a class="btn btn-default btn-sm btn-primary" href="'.$redir_url.'" target="_blank">Login to website</a>
+
+
+
+
+
+								 </div>
+					   </div>
+						   </div>
+		   </div>';
+
+
+       return $panel; 
+
+       // return 'OrderID: ' . $orderID;
+   }
     return '';
 });
 
