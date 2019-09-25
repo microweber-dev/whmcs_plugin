@@ -410,11 +410,9 @@ h.domain = '" . $username . "' and
             $first_pid = reset($found_prods);
             foreach ($found_prods as $found_prod) {
 
-                if (!$domain_found and isset($found_prod['groupname']) and stristr($found_prod['groupname'], 'hosting')) {
+                if (!$domain_found && $found_prod['groupname'] !== 'license') {
                     if (isset($found_prod['username']) and isset($found_prod['password'])) {
                         $domain_found = $found_prod;
-
-
                     }
                 }
 
