@@ -67,19 +67,19 @@ $plans = $controller->get_hosting_products();
             <div class="container align-self-center">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="img-holder-bg d-flex align-items-center justify-content-center" style="background-image: url('<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/olaweb/plans/assets/img/plans-<?php print $planKey; ?>.png');">
+                        <div class="img-holder-bg d-flex align-items-center justify-content-center" style="background-image: url('<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/plans/assets/img/plans-<?php print $planKey; ?>.png');">
                             <div class="text-left">
                                 <h2 class="text-<?php echo $planColor; ?>"><?php print $plan['name'] ?>!</h2>
                                 <?php if ($key == 0): ?>
-                                    <h2>300MB <span class="text-default">de espaço<br>grátis</span> <br>e tráfego <br>ilimitado.</h2>
+                                    <h2>1 GB <span class="text-default">storage</span> and <br>unlimited<br> bandwidth.</h2>
                                 <?php elseif ($key == 1): ?>
-                                    <h2>300MB <span class="text-default">de espaço<br>grátis</span> <br>e tráfego <br>ilimitado.</h2>
+                                    <h2>10 GB <span class="text-default">storage</span> and <br>unlimited<br> bandwidth.</h2>
                                 <?php elseif ($key == 2): ?>
-                                    <h2>300MB <span class="text-default">de espaço<br>grátis</span> <br>e tráfego <br>ilimitado.</h2>
+                                    <h2>15 GB <span class="text-default">storage</span> and <br>unlimited<br> bandwidth.</h2>
                                 <?php endif; ?>
 
                                 <div class="m-t-50 support-by">
-                                    <p>Inicie agora mesmo seu projeto: &nbsp; <img src="<?php print $CONFIG['LogoURL']; ?>" alt="" style="max-width: 140px;"/></p>
+                                    <p>Trust on&nbsp;<img src="<?php print $CONFIG['LogoURL']; ?>" alt="" style="max-width: 140px;"/>.</p>
                                 </div>
                             </div>
                         </div>
@@ -87,9 +87,9 @@ $plans = $controller->get_hosting_products();
                     <div class="col-lg-6 align-self-center">
                         <div class="info-holder text-left ">
                             <div class="align-self-center">
-                                <img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/olaweb/plans/assets/img/plans-up-<?php print $planKey; ?>.png"/><br/><br/>
+                                <img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/plans/assets/img/plans-up-<?php print $planKey; ?>.png"/><br/><br/>
                                 <div class="box">
-                                    <div class="thing"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/olaweb/plans/assets/img/plan-<?php print $planKey; ?>.svg"/></div>
+                                    <div class="thing"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/plans/assets/img/plan-<?php print $planKey; ?>.svg"/></div>
                                     <div class="price text-<?php echo $planColor; ?>">
                                         <span class="sum"><script language="javascript" src="<?php print $CONFIG['SystemURL']; ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script></span> <span class="per"> / per month</span>
                                     </div>

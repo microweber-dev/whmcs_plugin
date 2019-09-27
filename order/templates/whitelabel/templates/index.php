@@ -66,7 +66,7 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center"><h1>Избери темплейт</h1></div>
+                <div class="col-md-12 text-center"><h1>Choose a template</h1></div>
             </div>
         <?php endif; ?>
 
