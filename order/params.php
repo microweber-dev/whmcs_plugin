@@ -34,6 +34,11 @@ if (isset($_GET['target'])) {
     $target = htmlspecialchars($_GET['target']);
 }
 
+$style = '';
+if (isset($_GET['style'])) {
+    $style = htmlspecialchars($_GET['style']);
+}
+
 $templates_style = '';
 if (isset($_GET['templates-style'])) {
     $templates_style = htmlspecialchars($_GET['templates-style']);

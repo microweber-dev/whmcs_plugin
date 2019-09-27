@@ -35,6 +35,11 @@
     <input type="hidden" value="<?php print $target; ?>" name="target"/>
 <?php endif; ?>
 
+<?php if ($style): ?>
+    <input type="hidden" value="<?php print $style; ?>" name="style"/>
+<?php endif; ?>
+
+<?php /*
 <?php if ($templates_style): ?>
     <input type="hidden" value="<?php print $templates_style; ?>" name="templates-style"/>
 <?php endif; ?>
@@ -52,3 +57,4 @@
 <?php endif; ?>
 
 
+*/ ?>
