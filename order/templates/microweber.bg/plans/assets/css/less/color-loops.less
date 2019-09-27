@@ -1,0 +1,74 @@
+@import "vars";
+/*Color mixer*/
+.color-scheme(@names, @colors , @i: 1) when (@i <= length(@colors)) {
+    @color: extract(@colors, @i);
+    @name: extract(@names, @i);
+
+    .bg-@{name},
+    .badge-@{name},
+    .icon-bg-@{name},
+    .hr-bg-@{name}{
+        background-color: @color;       
+    }
+
+    .module-hr-bg-@{name} div[class*="hr-"]{
+        background-color: @color!important;      
+    }
+
+    .text-@{name} {
+        color: @color;
+    }
+    .text-@{name}>*:not(font),
+        .text-@{name} .btn-link,
+    .icon-@{name}{
+        color: @color!important;
+    }
+    .generate-border(10);
+    .generate-border(@n, @index: 1) when (@index =< @n) {
+        @border:(1px * @index);
+        .border-@{name}-@{index} {
+            border: @border solid @color;
+        }
+        .generate-border(@n, (@index + 1));
+    }
+
+    .generate-border-top(10);
+    .generate-border-top(@n, @index: 1) when (@index =< @n) {
+        @border:(1px * @index);
+        .border-top-@{name}-@{index} {
+            border-top: @border solid @color;
+        }
+        .generate-border-top(@n, (@index + 1));
+    }
+
+    .generate-border-right(10);
+    .generate-border-right(@n, @index: 1) when (@index =< @n) {
+        @border:(1px * @index);
+        .border-right-@{name}-@{index} {
+            border-right: @border solid @color;
+        }
+        .generate-border-right(@n, (@index + 1));
+    }
+
+    .generate-border-bottom(10);
+    .generate-border-bottom(@n, @index: 1) when (@index =< @n) {
+        @border:(1px * @index);
+        .border-bottom-@{name}-@{index} {
+            border-bottom: @border solid @color;
+        }
+        .generate-border-bottom(@n, (@index + 1));
+    }
+
+    .generate-border-left(10);
+    .generate-border-left(@n, @index: 1) when (@index =< @n) {
+        @border:(1px * @index);
+        .border-left-@{name}-@{index} {
+            border-left: @border solid @color;
+        }
+        .generate-border-left(@n, (@index + 1));
+    }
+
+    .color-scheme(@names,@colors, @i + 1);
+}
+
+.color-scheme(@names,@colors);

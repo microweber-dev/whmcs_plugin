@@ -1,0 +1,280 @@
+/* Switcher
+-------------------------------------------------------------- */
+.switcher-container {
+    position: fixed;
+    right: -270px;
+    top: 137px;
+    width: 270px;
+    background-color: #000;
+    z-index: 99999999;
+}
+
+.switcher-container h2 {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 45px;
+    padding-right: 0;
+    margin: 0;
+}
+
+.switcher-container h2 a {
+    background-color: #000;
+    display: block;
+    position: absolute;
+    left: -45px;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    outline: 0;
+    color: #fff;
+    /*-webkit-transition: all 0.3s ease-in-out;*/
+    /*-moz-transition: all 0.3s ease-in-out;*/
+    /*-ms-transition: all 0.3s ease-in-out;*/
+    /*-o-transition: all 0.3s ease-in-out;*/
+    /*transition: all 0.3s ease-in-out;*/
+    text-decoration: none;
+}
+
+.switcher-container h2 a.active {
+    left: 0;
+}
+
+.switcher-container h2 a.active:after {
+    position: absolute;
+    right: 21px;
+    top: 0;
+    content: "\f105";
+    font-family: "FontAwesome";
+    color: #fff;
+    font-size: 22px;
+}
+
+.switcher-container h2 a.active i {
+    display: none;
+}
+
+.switcher-container h2 a:hover,
+.switcher-container h2 a:focus {
+    text-decoration: none;
+}
+
+.switcher-container h2 i {
+    margin-top: 10px;
+    font-size: 25px;
+    color: #fff;
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.switcher-container h2 i:hover {
+    color: #fff;
+}
+
+.switcher-container h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.switcher-container .selector-box {
+    color: #fff;
+    overflow: hidden;
+}
+
+.switcher-container .layout-switcher {
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+
+.switcher-container .color-box {
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.switcher-container .styleswitch {
+    margin-bottom: 10px;
+}
+
+.sw-odd {
+    background-color: #272727;
+    padding: 21px 0 30px 20px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.sw-even {
+    background-color: #191919;
+    padding: 21px 0 25px 20px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.sw-even a {
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 40px;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0px 10px;
+    margin-right: 10px;
+    letter-spacing: 1.8px;
+    text-decoration: none;
+    width: 45%;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.sw-even a:hover,
+.sw-even a.active {
+    background-color: #32bfc0;
+    border: 1px solid #32bfc0;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.sw-light {
+    background-color: #fff;
+    color: #000 !important;
+}
+
+.sw-odd a {
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    display: inline-block;
+    line-height: 17px;
+    width: 100%;
+    position: relative;
+    padding-left: 47px;
+    text-decoration: none;
+}
+
+.sw-odd .ws-colors a:before {
+    background: none;
+}
+
+.sw-odd .ws-colors a {
+    position: relative;
+    width: auto;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    display: inline-block;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+.sw-odd .ws-colors a.current:before {
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    font-family: FontAwesome;
+    content: "\f00c";
+    color: #fff;
+    z-index: 999;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 1);
+}
+
+.sw-odd .ws-colors #color1 {
+    background-color: #18ba60;
+}
+
+.sw-odd .ws-colors #color2 {
+    background-color: #247fe1;
+}
+
+.sw-odd .ws-colors #color3 {
+    background-color: #f87b27;
+}
+
+.sw-odd .ws-colors #color4 {
+    background-color: #e33062;
+}
+
+.sw-odd .ws-colors #color5 {
+    background-color: #29c2e1;
+}
+
+.sw-odd .ws-colors #color6 {
+    background-color: #9b23ea;
+}
+
+.sw-odd #color2 {
+    background-color: #333;
+}
+
+.sw-odd .ws-colors a#color2:after {
+    border-bottom: 21px solid transparent;
+    border-top: 21px solid transparent;
+    border-left: 21px solid #ff5f2e;
+}
+
+.sw-odd #color3 {
+    background-color: #333;
+}
+
+.sw-odd .ws-colors a#color3:after {
+    border-bottom: 21px solid transparent;
+    border-top: 21px solid transparent;
+    border-left: 21px solid #30a9de;
+}
+
+.sw-odd #color4 {
+    background-color: #333;
+}
+
+.sw-odd .ws-colors a#color4:after {
+    border-bottom: 21px solid transparent;
+    border-top: 21px solid transparent;
+    border-left: 21px solid #d9e1e8;
+}
+
+.sw-odd #color5 {
+    background-color: #333;
+}
+
+.sw-odd .ws-colors a#color5:after {
+    border-bottom: 21px solid transparent;
+    border-top: 21px solid transparent;
+    border-left: 21px solid #090707;
+}
+
+.sw-odd #color6 {
+    background-color: #333;
+}
+
+.sw-odd .ws-colors a#color6:after {
+    border-bottom: 21px solid transparent;
+    border-top: 21px solid transparent;
+    border-left: 21px solid #79bd9a;
+}
+
+.sw-even h3 {
+    margin-bottom: 6px;
+}
