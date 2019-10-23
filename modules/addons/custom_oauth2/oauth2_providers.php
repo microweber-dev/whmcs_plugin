@@ -2,11 +2,11 @@
 
 require_once 'exceptions.php';
 
-const PROVIDER_ITSYOU_ONLINE = 'Microweber oAuth';
+const PROVIDER_MICROWEBER = 'Microweber oAuth';
 
 function get_oauth_providers()
 {
-    return join(',', array(PROVIDER_ITSYOU_ONLINE));
+	return join(',', array(PROVIDER_MICROWEBER));
 }
 
 /**
@@ -17,8 +17,8 @@ function get_oauth_providers()
 function get_oauth_provider($provider)
 {
     switch ($provider) {
-        case PROVIDER_ITSYOU_ONLINE:
-            return new ItsYouOnlineProvider();
+    	case PROVIDER_MICROWEBER:
+            return new MicroweberProvider();
         default:
             throw new BusinessException('Unknown provider: ' . $provider);
     }
@@ -67,7 +67,7 @@ abstract class OAuthProvider
 }
 
 
-class ItsYouOnlineProvider extends OAuthProvider
+class MicroweberProvider extends OAuthProvider
 {
     protected function getFirstSetting($property)
     {

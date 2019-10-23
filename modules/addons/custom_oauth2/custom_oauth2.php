@@ -78,7 +78,7 @@ function custom_oauth2_config()
                 'Type' => 'radio',
                 'Options' => get_oauth_providers(),
                 'Description' => 'The OAuth2 provider. This will be used to parse the identity of the user.',
-                'Default' => PROVIDER_ITSYOU_ONLINE,
+                'Default' => PROVIDER_MICROWEBER,
             ),
             'admin_user' => array(
                 'FriendlyName' => 'Admin user',
