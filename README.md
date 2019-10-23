@@ -13,6 +13,6 @@
 
 ## Add plugin access for users 
 
-![whmcs_plugin.png](order/assets/whmcs_plugin.png "")
+![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/whmcs_plugin.png "")
 
 
