@@ -1,6 +1,7 @@
 <?php
 
 use WHMCS\View\Menu\Item as MenuItem;
+use WHMCS\Database\Capsule;
 
 
 /**
@@ -34,23 +35,39 @@ use WHMCS\View\Menu\Item as MenuItem;
  */
 
 
+function get_website_login_by_orderid($order_id) {
+	
+	$getOrder = Capsule::table('tblhosting')->where('orderid','=',$order_id)->first();
+	
+	return get_website_redirect_url($getOrder->domain);
+	
+}
+
+function get_website_redirect_url($domain) {
+	
+	global  $CONFIG;
+	$whmcsurl = $CONFIG['SystemURL'];
+	
+	return $whmcsurl .'/index.php?m=microweber_addon&function=go_to_product&domain='.$domain;
+}
+
+
 add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
+	
+	if (is_null($service)) {
+		return '';
+	}
+	
+	$orderID = $service['service']->orderId;
+	$domain = $service['service']->domain;
 
-   global  $CONFIG;
-   $whmcsurl = $CONFIG['SystemURL'];
+	if (! $domain) {
+		return;
+	}
 
-   if (!is_null($service)) {
+	$redir_url = get_website_redirect_url($domain);
 
-       $orderID = $service['service']->orderId;
-       $domain = $service['service']->domain;
-
-       if(!$domain){
-           return;
-       }
-
-       $redir_url =$whmcsurl .'/index.php?m=microweber_addon&function=go_to_product&domain='.$domain;
-
-       $panel = '
+	$panel = '
 		<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
 			   <div class="panel-heading">
 				   <h3 class="panel-title">Website</h3>
@@ -60,27 +77,19 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 						   <div class="col-md-5 col-xs-6 text-right">
 							   <strong>Domain</strong>
 							   <br>
-								'.$domain.'
+								' . $domain . '
 						   </div>
 						   <div class="col-md-7 col-xs-6 text-left">
 
-						   <a class="btn btn-default btn-sm btn-primary" href="'.$redir_url.'" target="_blank">Login to website</a>
+						   <a class="btn btn-default btn-sm btn-primary" href="' . $redir_url . '" target="_blank">Login to website</a>
 
-
-
-
-
-								 </div>
+							</div>
 					   </div>
-						   </div>
+				</div>
 		   </div>';
 
+	return $panel; 
 
-       return $panel; 
-
-       // return 'OrderID: ' . $orderID;
-   }
-    return '';
 });
 
 

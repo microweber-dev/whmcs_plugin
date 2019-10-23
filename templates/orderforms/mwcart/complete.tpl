@@ -37,7 +37,7 @@
 
 </div>
   <div id="order-loading-done" style="display: none">
-<p align="center" style="padding-top: 40px;"><a class="cbtn cbtn-normal" href="go_to_product.php?orderid={$orderid}">Go to my website</a></p>
+<p align="center" style="padding-top: 40px;"><a class="cbtn cbtn-normal" href="{get_website_login_by_orderid($orderid)}">Go to my website</a></p>
   </div>
 
 

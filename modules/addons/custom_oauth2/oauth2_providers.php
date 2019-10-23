@@ -2,7 +2,7 @@
 
 require_once 'exceptions.php';
 
-const PROVIDER_ITSYOU_ONLINE = 'It\'s You Online';
+const PROVIDER_ITSYOU_ONLINE = 'Microweber oAuth';
 
 function get_oauth_providers()
 {

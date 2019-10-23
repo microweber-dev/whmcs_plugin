@@ -17,10 +17,10 @@ function custom_oauth2_config()
 {
     $default_redirect_url = 'https://' . $_SERVER['HTTP_HOST'] . '/index.php?m=custom_oauth2';
     $config_array = array(
-        'name' => 'OAuth 2.0',
+        'name' => 'Microweber OAuth 2.0',
         'description' => 'This addon allows your users to login using an OAuth2 service.',
         'version' => '1.0',
-        'author' => 'Green IT Globe',
+        'author' => 'Microweber',
         'language' => 'english',
         'fields' => array(
             'url' => array(
@@ -37,12 +37,12 @@ function custom_oauth2_config()
                 'FriendlyName' => 'Token path',
                 'Type' => 'text',
                 'Size' => '75',
-                'Description' => 'The path used to get the access token. Example: /oauth/access_token',
+                'Description' => 'The path used to get the access token. Example: /oauth/token',
             ), 'identity_path' => array(
                 'FriendlyName' => 'Identity path',
                 'Type' => 'text',
                 'Size' => '75',
-                'Description' => 'The path used to get user information (email, address, phone, etc). Example: /me',
+                'Description' => 'The path used to get user information (email, address, phone, etc). Example: /api/user',
             ), 'jwt_path' => array(
                 'FriendlyName' => 'JSON Web Token path',
                 'Type' => 'text',
