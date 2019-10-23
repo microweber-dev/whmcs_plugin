@@ -352,6 +352,10 @@
         h1 {
             font-size: 26px;
         }
+
+        .subdomain-holder{
+            display: none;
+        }
     }
 </style>
 
@@ -364,7 +368,7 @@
             $('.js-search-domains').html(buttonText);
         });
         $(document).on('mouseleave', '.domain-item:not(.placeholder)', function () {
-            var buttonText = '<span class="text-blue">.</span>microweber<span class="text-blue">.me</span>';
+            var buttonText = '<span class="text-blue">.</span>microweber<span class="text-blue">.bg</span>';
             $('.js-search-domains').html(buttonText);
         });
     })
@@ -463,7 +467,7 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder">
-                            <button class="subdomain-holder js-search-domains" type="submit"><span class="text-blue">.</span>microweber<span class="text-blue">.me</span></button>
+                            <button class="subdomain-holder js-search-domains" type="submit"><span class="text-blue">.</span>microweber<span class="text-blue">.bg</span></button>
                             <input type="text" name="domain" placeholder="Напиши името тук" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 

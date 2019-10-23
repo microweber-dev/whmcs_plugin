@@ -352,6 +352,10 @@
         h1 {
             font-size: 26px;
         }
+
+        .subdomain-holder{
+            display: none;
+        }
     }
 </style>
 
@@ -448,13 +452,13 @@
                 <div class="just-text m-b-40">
                     <div class="row" style="display: flex;">
                         <div class="col-sm-7">
-                            <h1 class="">Choose a name
+                            <h1 class="m-b-10">Choose a name
                                 <small>(domain)</small>
                                 <br/>for your site
                             </h1>
                         </div>
                         <div class="col-sm-5">
-                            <div style="height: 100%; display: flex; flex-flow: column; justify-content: flex-end;">
+                            <div style="height: 100%; display: flex; flex-flow: column; justify-content: flex-end; text-align: right;">
                                 <p>Connect your domain anytime.</p>
                             </div>
                         </div>
