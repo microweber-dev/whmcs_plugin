@@ -237,8 +237,7 @@ h.domain = '" . $username . "' and
             $templatefile = "login";
 
             outputClientArea($templatefile);
-
-            return;
+            die();
         }
 
         $redir_link = false;
