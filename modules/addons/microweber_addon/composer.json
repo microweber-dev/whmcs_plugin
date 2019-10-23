@@ -1,0 +1,10 @@
+{
+    "require": {
+        "layershifter/tld-extract": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MicroweberAddon\\": "src/"
+        }
+    }
+}
