@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-            <script type="text/javascript" src="{$BASE_PATH_JS}/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
             <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/main.js"></script>
             <link rel="stylesheet" type="text/css" href="templates/orderforms/{$carttpl}/style.css"/>
-            <link rel="stylesheet" type="text/css" href="{$BASE_PATH_CSS}/jquery-ui.min.css"/>
+            <link rel="stylesheet" type="text/css" href="templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.css"/>
 
             <div id="order-modern">
 
