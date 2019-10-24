@@ -1,3 +1,7 @@
+{if $custom_oauth2_logout_url}
+    <script src="{$custom_oauth2_logout_url}"></script>
+{/if}
+
 <div class="logincontainer">
 
     {include file="$template/includes/pageheader.tpl" title=$LANG.logouttitle}
