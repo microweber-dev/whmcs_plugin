@@ -11,6 +11,38 @@ class MicroweberAddonApiController
     }
 
 
+    public function validate_login($request) {
+    	
+    	$isOk = false;
+    	$json = array();
+    	
+    	if (isset($request['username']) && isset($request['password'])) {
+    	
+    		$command = 'ValidateLogin';
+    		$postData = array(
+    			'email' => $request['username'],
+    			'password2' => $request['password'],
+    		);
+    		
+    		$login = localAPI($command, $postData);
+    		
+    		if (isset($login['result']) && $login['result'] == 'success') {
+    			$isOk = true;
+    		}
+    	}
+    	
+    	if ($isOk) {
+    		$json['message'] = 'Login success.';
+    		$json['result'] = 'success';
+    	} else {
+    		$json['message'] = 'Username and password is not valid.';
+    		$json['result'] = 'failed';
+    	}
+    	
+    	echo json_encode($json, JSON_PRETTY_PRINT);
+    	die();
+    }
+    
     public function login_to_my_website($params)
     {
 
@@ -237,6 +269,7 @@ h.domain = '" . $username . "' and
             $templatefile = "login";
 
             outputClientArea($templatefile);
+			
             die();
         }
 
