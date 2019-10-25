@@ -1,0 +1,37 @@
+/* *****************************************************
+
+    ** Custom Stylesheet **
+
+    Any custom styling you want to apply should be
+    defined here.
+
+***************************************************** */
+.logo-text {
+    color: #000;
+}
+
+#Primary_Navbar-Billing,
+#Primary_Navbar-Open_Ticket,
+#Secondary_Navbar-Account,
+#Primary_Navbar-Network_Status,
+#Primary_Navbar-Store,
+#Primary_Navbar-Contact_Us {
+    display: none;
+}
+
+.fa, .fas, .far, .fab {
+    font-family: "Font Awesome 5 Pro" !important;
+}
+
+
+.dropdown.open .dropdown-menu{
+    display: block !important;
+}
+
+.main-whmcs-content .modal.in .modal-dialog{
+    margin-top: 150px;
+}
+
+.main-whmcs-content .container {
+    max-width: 1170px !important;
+}
