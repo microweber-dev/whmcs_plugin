@@ -57,13 +57,13 @@
 
                                 {if $loggedin}
                                     <div class="nav-item dropdown m-l-10">
-                                        <a class="dropdown-toggle btn btn-default-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Welcome <strong>{$loggedinuser.firstname}</strong></a>
+                                        <a class="dropdown-toggle btn btn-default-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Здравей <strong>{$loggedinuser.firstname}</strong></a>
                                         <div class="dropdown-menu" x-placement="bottom-start">
-                                            <a class="dropdown-item" href="/clientarea.php?action=details">Edit Account Details</a>
-                                            <a class="dropdown-item" href="/clientarea.php?action=contacts">Contacts/Sub-Accounts</a>
-                                            <a class="dropdown-item" href="/clientarea.php?action=changepw">Change Password</a>
-                                            <a class="dropdown-item" href="/clientarea.php?action=security">Security Settings</a>
-                                            <a class="dropdown-item" href="/clientarea.php?action=emails">Email History</a>
+                                            <a class="dropdown-item" href="/clientarea.php?action=details">Молят профил</a>
+                                            <a class="dropdown-item" href="/clientarea.php?action=contacts">Контактна информация</a>
+                                            <a class="dropdown-item" href="/clientarea.php?action=changepw">Промяна на парола</a>
+                                            <a class="dropdown-item" href="/clientarea.php?action=security">Настройки на сигурноста</a>
+                                            <a class="dropdown-item" href="/clientarea.php?action=emails">История на имейлите</a>
                                             <a class="dropdown-item" href="/logout.php">Изход</a>
                                         </div>
                                     </div>
@@ -72,8 +72,8 @@
                                         <a class="dropdown-toggle btn btn-default-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">{$LANG.loginbutton}</a>
                                         <div class="dropdown-menu" x-placement="bottom-start">
                                             <a class="dropdown-item" href="/clientarea.php">Вход</a>
-                                            <a class="dropdown-item" href="/register.php">Register</a>
-                                            <a class="dropdown-item" href="/index.php?rp=/password/reset/begin">Forgot Password?</a>
+                                            <a class="dropdown-item" href="/register.php">Регистрация</a>
+                                            <a class="dropdown-item" href="/index.php?rp=/password/reset/begin">Забравена парола</a>
                                         </div>
                                     </div>
                                 {/if}

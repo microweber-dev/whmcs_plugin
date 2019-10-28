@@ -394,7 +394,7 @@
                 var tmpl_unavailable = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
-                    '<span class="not-available-tag">Unavailable</span> ' +
+                    '<span class="not-available-tag">Заето</span> ' +
                     '<span class="di-price">&nbsp;</span> ' +
                     '</div> ' +
                     '<div class="clearfix"></div> ' +
@@ -403,7 +403,7 @@
                 var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '" data-target="top">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
-                    '<span class="domain-free-tag">Free</span> ' +
+                    '<span class="domain-free-tag">Безплатно</span> ' +
                     '<span class="di-price">' + item.price + '</span> ' +
                     '</div> ' +
                     '<div class="clearfix"></div> ' +
@@ -412,7 +412,7 @@
                 var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '" data-target="top">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
-                    '<span class="domain-recommended-tag">Available</span> ' +
+                    '<span class="domain-recommended-tag">Свободно</span> ' +
                     '<span class="di-price">' + item.price + '</span> ' +
                     '</div> ' +
                     '<div class="clearfix"></div> ' +
@@ -450,14 +450,14 @@
         <div class="row flexbox-container">
             <div class="col-md-12 fx-deactivate allow-drop">
                 <div class="just-text m-b-40">
-                    <div class="row" style="display: flex;">
+                    <div class="row m-t-20" style="display: flex;">
                         <div class="col-sm-7">
-                            <h1 class="">Избери име
+                            <h1 class="m-b-0">Избери име
                                 <small>(домейн)</small>
                                 <br/>за твоя уебсайт
                             </h1>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-5 text-right">
                             <div style="height: 100%; display: flex; flex-flow: column; justify-content: flex-end;">
                                 <p>Свържи своя домейн по всяко време.</p>
                             </div>
@@ -489,7 +489,7 @@
                                 <div class="domain-item cant-start placeholder">
                                     <div class=" text-left"><span class="domainName ">microweber.com</span></div>
                                     <div class="right last-div">
-                                        <span class="not-available-tag">Unavailable</span>
+                                        <span class="not-available-tag">Заето</span>
                                         <span class="di-price">&nbsp;</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -498,8 +498,8 @@
                                 <div class="domain-item can-start placeholder">
                                     <div class=" text-left"><span class="domainName ">microweber.com</span></div>
                                     <div class="right last-div">
-                                        <span class="domain-free-tag">Free</span>
-                                        <span class="di-price">$0.00</span>
+                                        <span class="domain-free-tag">Безплатно</span>
+                                        <span class="di-price">0.00лв.</span>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -507,8 +507,8 @@
                                 <div class="domain-item can-start placeholder">
                                     <div class=" text-left"><span class="domainName ">microweber.com</span></div>
                                     <div class="right last-div">
-                                        <span class="domain-recommended-tag">Available</span>
-                                        <span class="di-price">$10.00</span>
+                                        <span class="domain-recommended-tag">Свободно</span>
+                                        <span class="di-price">10.00лв.</span>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

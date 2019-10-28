@@ -1,3 +1,5 @@
+@import "mw.css";
+
 /*
 Master
 */
@@ -743,13 +745,4 @@ Domain Registration
     -moz-border-radius: 0;
     border-radius: 0;
 
-}
-
-.oc-hero{
-  height:458px;
-  background: #EEEEEE url(img/sitereadyhero.jpg) no-repeat center bottom;
-  background-size: contain;
-  text-align: center;
-  padding-top: 40px;
-  color: #0086DB
 }

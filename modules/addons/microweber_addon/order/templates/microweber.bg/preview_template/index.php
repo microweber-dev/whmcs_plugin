@@ -46,7 +46,7 @@ $templates = json_decode($templates, true);
 
                         <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                        <a href="javascript:;" class="btn btn-default-outline" onclick="submitForPreview(this.parentNode);">Start with this template</a>
+                        <a href="javascript:;" class="btn btn-default-outline" onclick="submitForPreview(this.parentNode);">Започни с този темплейт</a>
                         &nbsp;
                         <a class="btn btn-default" href="<?php print $preview_url; ?>" target="_blank"><i class="fa fa-times"></i></a>
                     </form>

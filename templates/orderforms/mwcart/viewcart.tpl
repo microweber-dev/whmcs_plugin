@@ -18,96 +18,6 @@
     <script type="text/javascript" src="{$BASE_PATH_JS}/PasswordStrength.js"></script>
     <script type="text/javascript" src="{$BASE_PATH_JS}/CreditCardValidation.js"></script>
 
-    <style>
-        .particles {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0086df;
-        }
-
-        #creating_site_progress_title {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            margin-top: -15px;
-            color: white;
-            z-index: 101;
-            display: none;
-            font-size: 33px;
-        }
-
-        #creating_site_progress_title iframe {
-            width: 620px;
-            height: 407px;
-        }
-
-        #creating_site_progress {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            text-align: center;
-            background: #4494c7;
-            padding: 20% 50px;
-            z-index: 102;
-            text-transform: uppercase;
-        }
-
-        #creating_site_progress_meter {
-            width: 320px;
-            margin: auto;
-            position: static;
-            z-index: 111;
-            background: white;
-
-            border-radius: 2px;
-            overflow: hidden;
-            margin-top: 15px;
-            display: none;
-        }
-
-        #creating_site_progress_meter .mw-ui-progress-bar {
-            background-color: #0086df;
-            border: 1px solid #f5f5f5;
-            height: 17px;
-            width: 0;
-            -webkit-transition: all 0.3s;
-            -moz-transition: all 0.3s;
-            transition: all 0.3s;
-            max-width: 100%;
-            border-radius: 2px;
-        }
-
-        #creating_site_progress_meter .mw-ui-progress-small {
-            background-color: #f5f5f5;
-            height: 17px;
-        }
-
-        #creating_site_progress h1 {
-            padding-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        #theiframeloader iframe {
-            max-width: 100%;
-        }
-
-        #theiframeloader {
-            padding-bottom: 20px;
-        }
-
-
-    </style>
-
     {literal}
     <script type="text/javascript">
         function removeItem(type, num) {
@@ -252,7 +162,7 @@
                 $('.wrapper', '.page-payments').hide();
                 _sLoader()
             })
-
+            //_sLoader();
 
             var preparePromoCode = function (ctx) {
                 jQuery(ctx).parents('form').attr('novalidate', 'novalidate');
@@ -274,6 +184,7 @@
 
 
         _sLoader = function () {
+            $('body').addClass('mw-site-is-creating');
             $('.particles')
                 .show()
                 .particleground({
@@ -287,7 +198,7 @@
                 });
 
             //$("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/1gy-03uv0lE?autoplay=1" frameborder="0" allowfullscreen></iframe>')
-            $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/-ius5MMpKY4?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+            //$("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/-ius5MMpKY4?autoplay=1" frameborder="0" allowfullscreen></iframe>')
 
             sitePerccent = 1;
             setInterval(function () {
@@ -323,7 +234,7 @@
 
     {if !$loggedin && $custom_oauth2_login_url}
         <script>
-               window.location.href = "{$custom_oauth2_login_url}";
+            window.location.href = "{$custom_oauth2_login_url}";
         </script>
     {/if}
 
@@ -401,14 +312,14 @@
 
         <div class="clearfix"></div>
         <div class="particles"></div>
-        <h1 id="creating_site_progress_title">
+        <div id="creating_site_progress_title">
 
             <div id="theiframeloader"></div>
-            Creating your website
+            Създаваме твоя уеб сайт
             <div id="creating_site_progress_meter">
                 <div class="mw-ui-progress-bar"></div>
             </div>
-        </h1>
+        </div>
 
     </div>
 </div>

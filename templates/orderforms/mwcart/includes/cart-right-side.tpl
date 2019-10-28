@@ -114,7 +114,7 @@
         {/if}
         <br/>
 
-        <button class="cbtn" type="submit" id="btnCompleteOrder"{if $cartitems==0} disabled{/if}
+        <button class="btn btn-default btn-lg btn-block" type="submit" id="btnCompleteOrder"{if $cartitems==0} disabled{/if}
                 onclick="this.value='{$LANG.pleasewait}'" {if $custtype eq "existing" && !$loggedin}formnovalidate{/if}>{$LANG.checkout}</button>
         <br/><br/>
 
