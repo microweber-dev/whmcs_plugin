@@ -10,6 +10,18 @@ class MicroweberAddonApiController
         return $params;
     }
 
+     public function show_ads_bar() {
+    	
+    	$html = '
+
+		qkooo
+
+		';
+    	
+    	echo $html;
+    	exit;
+    }
+
     public function check_domain_is_premium($request) {
     	
     	$json = array();
@@ -39,6 +51,7 @@ class MicroweberAddonApiController
     		}
     		
     		$json['domain'] = $host;
+    		$json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
     		
     	}
     	
