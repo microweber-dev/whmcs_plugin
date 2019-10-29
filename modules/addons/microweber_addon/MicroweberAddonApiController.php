@@ -10,6 +10,43 @@ class MicroweberAddonApiController
         return $params;
     }
 
+    public function check_domain_is_premium($request) {
+    	
+    	$json = array();
+    	$json['domain'] = false;
+    	
+    	$parse_domain = @parse_url($request['domain']);
+    	
+    	if (isset($parse_domain['host'])) {
+    		$host = $parse_domain['host'];
+    	} else {
+    		$host = $request['domain'];
+    	}
+    	$host = str_ireplace('www.','',$host);
+    	
+    	$hostingProduct = Capsule::table('tblhosting')->where('domain', '=', $host)->first();
+    	
+    	$free = false;
+    	
+    	if ($hostingProduct) {
+    		
+    		if ($hostingProduct->billingcycle == 'Free Account') {
+    			$free = true;
+    		}
+    		
+    		if ($hostingProduct->amount == '0.00') {
+    			$free = true;
+    		}
+    		
+    		$json['domain'] = $host;
+    		
+    	}
+    	
+    	$json['free'] = $free;
+    	
+    	echo json_encode($json, JSON_PRETTY_PRINT);
+    	exit;
+    }
 
     public function validate_login($request) {
     	
