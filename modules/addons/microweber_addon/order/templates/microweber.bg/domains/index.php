@@ -353,13 +353,45 @@
             font-size: 26px;
         }
 
-        .subdomain-holder{
+        .subdomain-holder {
             display: none;
         }
+    }
+
+    body[data-page-iframe="false"] .container {
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    html,
+    body[data-page-iframe="false"],
+    body[data-page-iframe="false"] .main,
+    body[data-page-iframe="false"] .section-60 {
+        height: 100%;
+    }
+
+    .flexbox-container {
+        width: 100%;
     }
 </style>
 
 <script>
+
+    $(document).ready(function () {
+        if (window.location !== window.parent.location) {
+            // The page is in an iframe
+            //console.log('The page is in an iframe');
+            $('body').attr('data-page-iframe', true);
+        } else {
+            // The page is not in an iframe
+            //console.log('The page is not in an iframe');
+            $('body').attr('data-page-iframe', false);
+        }
+    });
+
+
     $(document).ready(function () {
         $(document).on('mouseover', '.domain-item:not(.placeholder)', function () {
             var sld = '';

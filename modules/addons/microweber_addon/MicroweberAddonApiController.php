@@ -10,89 +10,163 @@ class MicroweberAddonApiController
         return $params;
     }
 
-     public function show_ads_bar() {
-    	
-    	$html = '
+    public function show_ads_bar()
+    {
 
-		qkooo
+        $css = '<style>
+@import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700&display=swap&subset=cyrillic");
 
-		';
-    	
-    	echo $html;
-    	exit;
+                   *{
+                   -webkit-box-sizing: border-box;
+                   -moz-box-sizing: border-box;
+                   box-sizing: border-box;
+                   font-family: "Montserrat Alternates", sans-serif;
+                   }
+                .mw-ads-holder {
+                            background: #fff;
+                            z-index: 99999;
+                            padding: 7px;
+                            position: absolute;
+                            min-height: 54px;
+                            border: 0;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            width: 100%;
+                            overflow: hidden;
+                           border-bottom: 1px solid #f1f3f4;
+                           color: #2d2d2d;
+                           font-size: 14px;
+                           font-weight: 500;
+                        }
+                           .mw-ads-holder p{
+                  margin: 0;
+                      margin-top: 2px;
+                        }
+                        
+                        .mw-ads-holder .row{
+                            display: block;
+                        }    
+                          
+                          .mw-ads-holder .row:after{
+                            display: block;
+                            content: "";
+                            clear:both;
+                        }    
+                        
+                        .mw-ads-holder .row .col{
+                           float: left;
+                        }   
+                        .mw-ads-holder .row .col:nth-child(1){
+                                     padding: 10px 0 10px 10px ;
+                           width: calc(100% - 210px);
+                        }
+                        .mw-ads-holder .row .col:nth-child(2){
+                        padding: 10px 10px 10px 0;
+                           width: 210px;
+                        }
+                         
+                         .mw-ads-holder .text-right{
+                           text-align: right;
+                        }      
+                         .mw-ads-holder img{
+                           float: left;
+                           margin-right: 15px;
+                        }
+                        
+                        .mw-ads-holder a{
+                   color: #1717ff;
+                   text-decoration: none !important;
+                   border: 1px solid #1717ff;
+                   -webkit-border-radius: 50px;
+                   -moz-border-radius: 50px;
+                    border-radius: 50px;
+    padding: 8px 14px;
+                        }
+                </style>';
+
+        $html = '<div class="mw-ads-holder"><div class="row">
+    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p>Този уебсайт е направен с <strong>Microweber.bg</strong> сайт билдър</p></div>
+    <div class="col text-right"><a href="https://microweber.bg" target="_blank">Направи си сайт</a></div>
+    </div></div>';
+
+        echo $css . $html;
+        exit;
     }
 
-    public function check_domain_is_premium($request) {
-    	
-    	$json = array();
-    	$json['domain'] = false;
-    	
-    	$parse_domain = @parse_url($request['domain']);
-    	
-    	if (isset($parse_domain['host'])) {
-    		$host = $parse_domain['host'];
-    	} else {
-    		$host = $request['domain'];
-    	}
-    	$host = str_ireplace('www.','',$host);
-    	
-    	$hostingProduct = Capsule::table('tblhosting')->where('domain', '=', $host)->first();
-    	
-    	$free = false;
-    	
-    	if ($hostingProduct) {
-    		
-    		if ($hostingProduct->billingcycle == 'Free Account') {
-    			$free = true;
-    		}
-    		
-    		if ($hostingProduct->amount == '0.00') {
-    			$free = true;
-    		}
-    		
-    		$json['domain'] = $host;
-    		$json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
-    		
-    	}
-    	
-    	$json['free'] = $free;
-    	
-    	echo json_encode($json, JSON_PRETTY_PRINT);
-    	exit;
+    public function check_domain_is_premium($request)
+    {
+
+        $json = array();
+        $json['domain'] = false;
+
+        $parse_domain = @parse_url($request['domain']);
+
+        if (isset($parse_domain['host'])) {
+            $host = $parse_domain['host'];
+        } else {
+            $host = $request['domain'];
+        }
+        $host = str_ireplace('www.', '', $host);
+
+        $hostingProduct = Capsule::table('tblhosting')->where('domain', '=', $host)->first();
+
+        $free = false;
+
+        if ($hostingProduct) {
+
+            if ($hostingProduct->billingcycle == 'Free Account') {
+                $free = true;
+            }
+
+            if ($hostingProduct->amount == '0.00') {
+                $free = true;
+            }
+
+            $json['domain'] = $host;
+            $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
+
+        }
+
+        $json['free'] = $free;
+
+        echo json_encode($json, JSON_PRETTY_PRINT);
+        exit;
     }
 
-    public function validate_login($request) {
-    	
-    	$isOk = false;
-    	$json = array();
-    	
-    	if (isset($request['username']) && isset($request['password'])) {
-    	
-    		$command = 'ValidateLogin';
-    		$postData = array(
-    			'email' => $request['username'],
-    			'password2' => $request['password'],
-    		);
-    		
-    		$login = localAPI($command, $postData);
-    		
-    		if (isset($login['result']) && $login['result'] == 'success') {
-    			$isOk = true;
-    		}
-    	}
-    	
-    	if ($isOk) {
-    		$json['message'] = 'Login success.';
-    		$json['result'] = 'success';
-    	} else {
-    		$json['message'] = 'Username and password is not valid.';
-    		$json['result'] = 'failed';
-    	}
-    	
-    	echo json_encode($json, JSON_PRETTY_PRINT);
-    	die();
+    public function validate_login($request)
+    {
+
+        $isOk = false;
+        $json = array();
+
+        if (isset($request['username']) && isset($request['password'])) {
+
+            $command = 'ValidateLogin';
+            $postData = array(
+                'email' => $request['username'],
+                'password2' => $request['password'],
+            );
+
+            $login = localAPI($command, $postData);
+
+            if (isset($login['result']) && $login['result'] == 'success') {
+                $isOk = true;
+            }
+        }
+
+        if ($isOk) {
+            $json['message'] = 'Login success.';
+            $json['result'] = 'success';
+        } else {
+            $json['message'] = 'Username and password is not valid.';
+            $json['result'] = 'failed';
+        }
+
+        echo json_encode($json, JSON_PRETTY_PRINT);
+        die();
     }
-    
+
     public function login_to_my_website($params)
     {
 
@@ -116,8 +190,7 @@ class MicroweberAddonApiController
         } else {
             $host = $the_request['domain'];
         }
-        $host = str_ireplace('www.','',$host);
-
+        $host = str_ireplace('www.', '', $host);
 
 
         $values = array();
@@ -154,7 +227,7 @@ class MicroweberAddonApiController
                 } else if (!isset($results_passwd['password'])) {
                     return;
                 } else {
-                   // $validatelogin['userid'] = $hostingProduct->userid;
+                    // $validatelogin['userid'] = $hostingProduct->userid;
                 }
 
 
@@ -169,14 +242,12 @@ class MicroweberAddonApiController
 //        exit;
 
         if (isset($validatelogin['result']) and $validatelogin['result'] == 'error' and !isset($validatelogin['userid'])) {
-             return;
+            return;
         }
 
         if (!isset($validatelogin['userid'])) {
             return;
         }
-
-
 
 
         $command = "getclientsproducts";
@@ -319,7 +390,7 @@ h.domain = '" . $username . "' and
             $templatefile = "login";
 
             outputClientArea($templatefile);
-			
+
             die();
         }
 
