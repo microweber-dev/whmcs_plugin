@@ -58,11 +58,11 @@ class MicroweberAddonApiController
                            float: left;
                         }   
                         .mw-ads-holder .row .col:nth-child(1){
-                                     padding: 10px 0 10px 10px ;
+                           padding: 10px 0 10px 10px ;
                            width: calc(100% - 210px);
                         }
                         .mw-ads-holder .row .col:nth-child(2){
-                        padding: 10px 10px 10px 0;
+                            padding: 13px 10px 13px 0;
                            width: 210px;
                         }
                          
