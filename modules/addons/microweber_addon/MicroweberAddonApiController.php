@@ -13,81 +13,106 @@ class MicroweberAddonApiController
     public function show_ads_bar()
     {
 
-        $css = '<style>
-@import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700&display=swap&subset=cyrillic");
+        $css = '
+        <style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700&display=swap&subset=cyrillic");
 
-                   *{
-                   -webkit-box-sizing: border-box;
-                   -moz-box-sizing: border-box;
-                   box-sizing: border-box;
-                   font-family: "Montserrat Alternates", sans-serif;
-                   }
-                .mw-ads-holder {
-                            background: #fff;
-                            z-index: 99999;
-                            padding: 7px;
-                            position: absolute;
-                            min-height: 54px;
-                            border: 0;
-                            left: 0;
-                            right: 0;
-                            top: 0;
-                            width: 100%;
-                            overflow: hidden;
-                           border-bottom: 1px solid #f1f3f4;
-                           color: #2d2d2d;
-                           font-size: 14px;
-                           font-weight: 500;
-                        }
-                           .mw-ads-holder p{
-                  margin: 0;
-                      margin-top: 2px;
-                        }
-                        
-                        .mw-ads-holder .row{
-                            display: block;
-                        }    
-                          
-                          .mw-ads-holder .row:after{
-                            display: block;
-                            content: "";
-                            clear:both;
-                        }    
-                        
-                        .mw-ads-holder .row .col{
-                           float: left;
-                        }   
-                        .mw-ads-holder .row .col:nth-child(1){
-                           padding: 10px 0 10px 10px ;
-                           width: calc(100% - 210px);
-                        }
-                        .mw-ads-holder .row .col:nth-child(2){
-                            padding: 13px 10px 13px 0;
-                           width: 210px;
-                        }
-                         
-                         .mw-ads-holder .text-right{
-                           text-align: right;
-                        }      
-                         .mw-ads-holder img{
-                           float: left;
-                           margin-right: 15px;
-                        }
-                        
-                        .mw-ads-holder a{
-                   color: #1717ff;
-                   text-decoration: none !important;
-                   border: 1px solid #1717ff;
-                   -webkit-border-radius: 50px;
-                   -moz-border-radius: 50px;
-                    border-radius: 50px;
-    padding: 8px 14px;
-                        }
-                </style>';
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: "Montserrat Alternates", sans-serif;
+    }
 
-        $html = '<div class="mw-ads-holder"><div class="row">
-    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p>Този уебсайт е направен с <strong>Microweber.bg</strong> сайт билдър</p></div>
-    <div class="col text-right"><a href="https://microweber.bg" target="_blank">Направи си сайт</a></div>
+    .mw-ads-holder {
+        background: #fff;
+        z-index: 99999;
+        padding: 4px 7px;
+        position: absolute;
+        min-height: 54px;
+        border: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        border-bottom: 1px solid #f1f3f4;
+        color: #2d2d2d;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .mw-ads-holder p {
+        margin: 0;
+        margin-top: 2px;
+    }
+
+    .mw-ads-holder .row {
+        display: block;
+    }
+
+    .mw-ads-holder .row:after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+
+    .mw-ads-holder .row .col {
+        float: left;
+    }
+
+    .mw-ads-holder .row .col:nth-child(1) {
+        padding: 10px 0 10px 10px;
+        width: calc(100% - 210px);
+    }
+
+    .mw-ads-holder .row .col:nth-child(2) {
+        padding: 13px 10px 13px 0;
+        width: 210px;
+    }
+
+    .mw-ads-holder .text-right {
+        text-align: right;
+    }
+
+    .mw-ads-holder img {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .mw-ads-holder a {
+        color: #1717ff;
+        text-decoration: none !important;
+        border: 1px solid #1717ff;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        padding: 8px 14px;
+    }
+    
+    .mw-ads-holder:hover a {
+        color: #fff;
+        background: #1717ff;
+    }
+
+    @media screen and (min-width: 451px) and (max-width: 767px) {
+        .hidden-sm {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .hidden-xs {
+            display: none;
+        }
+    }
+</style>
+                ';
+
+        $html = '<div class="mw-ads-holder" onclick="window.open(\'https://microweber.bg\', \'_blank\');"><div class="row">
+    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">Този уеб сайт е направен с</span> <strong>Microweber.bg</strong> <span class="hidden-sm">сайт билдър</span></p></div>
+    <div class="col text-right"><a href="javascript:;" onclick="window.open(\'https://microweber.bg\', \'_blank\');">Направи си сайт</a></div>
     </div></div>';
 
         echo $css . $html;
