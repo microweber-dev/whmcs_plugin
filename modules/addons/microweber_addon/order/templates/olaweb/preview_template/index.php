@@ -1,6 +1,10 @@
 <?php include 'partials/header.php'; ?>
 
 <?php
+
+
+
+
 $templates = file_get_contents('https://microweber.org/api/market_json');
 $templates = json_decode($templates, true);
 ?>

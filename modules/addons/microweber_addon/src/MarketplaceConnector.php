@@ -44,6 +44,7 @@ class MarketplaceConnector
                 $last_item = array_pop($package_item);
                 if (isset($last_item['type'])) {
                     $version_type = $last_item['type'];
+                    $package['latest_version'] = $last_item;
                 }
 
                 if ($version_type and in_array($version_type, $allowed_package_types)) {
