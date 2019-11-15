@@ -23,15 +23,25 @@ function microweber_addon_config()
 {
     $default_redirect_url = 'https://' . $_SERVER['HTTP_HOST'] . '/index.php?m=custom_oauth2';
 
-
-    $configarray = array(
-        "name" => "Microweber Addon",
-        "description" => "This module allows connection between WHMCS and Microweber Cpanel plugin ",
-        "version" => "1.0",
-        "author" => "Microweber",
-        'language' => 'english'
+    $config = array(
+        'name' => 'Microweber Addon',
+        'description" => 'This module allows connection between WHMCS and Microweber Cpanel plugin',
+        'version" => '1.1',
+        'author' => 'Microweber',
+        'language' => 'english',
+        'fields' => [
+            'Package Manager Urls' => [
+                'FriendlyName' => 'Package Manager Urls',
+                'Type' => 'textarea',
+                'Rows' => '3',
+                'Cols' => '60',
+                'Default' => 'https://packages.microweberapi.com/packages.json, https://private-packages.microweberapi.com/packages.json',
+                'Description' => 'Type your custom marketplace packages urls seperated by coma.',
+            ]
+       ]
     );
-    return $configarray;
+    
+    return $config;
 }
 
 
