@@ -1,20 +1,80 @@
 <?php
 
-
 namespace MicroweberAddon;
 
 
 class MarketplaceConnector
 {
-
-    private $manifest_url = 'https://microweber.org/api/market_json';
     private $package_manager_urls = array(
         'https://packages.microweberapi.com/packages.json',
         'https://private-packages.microweberapi.com/packages.json',
     );
 
+    public function get_content_from_url($url)
+    {
+        if(in_array('curl', get_loaded_extensions())) {
+
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return data inplace of echoing on screen
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // Skip SSL Verification
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+
+            $data = curl_exec($ch);
+
+            curl_close($ch);
+
+            return $data;
+        } else {
+            return @file_get_contents($url);
+        }
+    }
+
+    public function get_packages_urls()
+    {
+        $packages = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'package_manager_urls')
+            ->first();
+
+        if (!empty($packages->value)) {
+            if (strpos($packages->value, PHP_EOL)) {
+                $packages_exp = explode(PHP_EOL, $packages->value);
+            } else {
+                $packages_exp = explode(',', $packages->value);
+            }
+            if (is_array($packages_exp) && !empty($packages_exp)) {
+                $new_package_urls = array();
+                foreach($packages_exp as $package_url) {
+
+                    $package_url = trim($package_url);
+                    $package_url = str_replace(',', false, $package_url);
+
+                    if(filter_var($package_url, FILTER_VALIDATE_URL) === FALSE) {
+                        continue;
+                    }
+
+                    if (empty($package_url)) {
+                        continue;
+                    }
+
+                    $new_package_urls[] = $package_url;
+                }
+                if (is_array($new_package_urls) && !empty($new_package_urls)) {
+                    $this->package_manager_urls = $new_package_urls;
+                }
+            }
+        }
+
+        return $this->package_manager_urls;
+    }
+
+
     public function get_packages()
     {
+        $this->get_packages_urls();
 
         $allowed_package_types = array(
             'microweber-template',
@@ -27,7 +87,7 @@ class MarketplaceConnector
 
         if ($this->package_manager_urls) {
             foreach ($this->package_manager_urls as $url) {
-                $package_manager_resp = @file_get_contents($url);
+                $package_manager_resp = $this->get_content_from_url($url);
                 $package_manager_resp = @json_decode($package_manager_resp, true);
                 if ($package_manager_resp and isset($package_manager_resp['packages']) and is_array($package_manager_resp['packages'])) {
                     $packages = array_merge($packages, $package_manager_resp['packages']);
