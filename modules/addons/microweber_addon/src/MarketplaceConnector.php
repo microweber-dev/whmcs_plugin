@@ -47,8 +47,18 @@ class MarketplaceConnector
             if (is_array($packages_exp) && !empty($packages_exp)) {
                 $new_package_urls = array();
                 foreach($packages_exp as $package_url) {
+
                     $package_url = trim($package_url);
                     $package_url = str_replace(',', false, $package_url);
+
+                    if(filter_var($package_url, FILTER_VALIDATE_URL) === FALSE) {
+                        continue;
+                    }
+
+                    if (empty($package_url)) {
+                        continue;
+                    }
+
                     $new_package_urls[] = $package_url;
                 }
                 if (is_array($new_package_urls) && !empty($new_package_urls)) {

@@ -306,6 +306,14 @@ class MicroweberAddonApiController
 
     }
 
+    function get_package_manager_urls()
+    {
+        $connector = new MicroweberAddon\MarketplaceConnector();
+
+        return $connector->get_packages_urls();
+
+    }
+
 
     function get_domain_template_config($params)
     {
