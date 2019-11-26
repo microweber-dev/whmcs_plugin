@@ -1,11 +1,28 @@
 <?php include 'partials/header.php'; ?>
 
 <?php
-$templates = file_get_contents('https://microweber.org/api/market_json');
-$templates = json_decode($templates, true);
+//$templates = file_get_contents('https://microweber.org/api/market_json');
+//$templates = json_decode($templates, true);
+
+
+
+$connector = new \MicroweberAddon\MarketplaceConnector();
+$templates = $connector->get_packages();
+
+
+?>
+
+
+<?php
 
 if ($templates["microweber-template"]): ?>
     <?php foreach ($templates["microweber-template"] as $template): ?>
+        <?php
+
+        $template['name']  = $template['latest_version']['name'];
+        $template['description']  = $template['latest_version']['description'];
+
+        ?>
         <?php if (isset($_GET['template']) AND $template['name'] == $_GET['template']): ?>
             <?php
             $screenshot = '';

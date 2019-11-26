@@ -8,7 +8,7 @@
     <script type="text/javascript">
 
 
-        var timeleft = 10;
+        var timeleft = 30;
         var downloadTimer = setInterval(function () {
             document.getElementById("progressBar").value = 10 - --timeleft;
             if (timeleft <= 0) {

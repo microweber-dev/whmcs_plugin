@@ -143,11 +143,7 @@ class MicroweberAddonApiController
             if ($hostingProduct->billingcycle == 'Free Account') {
                 $free = true;
             }
-
-            if ($hostingProduct->amount == '0.00') {
-                $free = true;
-            }
-
+            
             $json['domain'] = $host;
             $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
 
@@ -307,6 +303,14 @@ class MicroweberAddonApiController
             }
 
         }
+
+    }
+
+    function get_package_manager_urls()
+    {
+        $connector = new MicroweberAddon\MarketplaceConnector();
+
+        return $connector->get_packages_urls();
 
     }
 

@@ -1,8 +1,18 @@
 <script>
     var __dprev = $("#domain-search-field").val();
     var __dtime = null;
+     __ajax_search = null;
+
+
+
 
     function searchDomainResults(el) {
+
+        if(__ajax_search && typeof(__ajax_search.abort) !== 'undefined'){
+            __ajax_search.abort();
+        }
+
+
         setTimeout(function () {
             var __dprev = $("#domain-search-field").val();
             var __dtime = null;
@@ -18,7 +28,7 @@
 
                 var keyword = $("#domain-search-field").val();
                 var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
-                $.ajax({
+                __ajax_search  = $.ajax({
                     contentType: 'application/json',
                     dataType: 'json',
                     url: URL,
@@ -82,7 +92,7 @@
             e.preventDefault();
 
             // Define an expression of words to check for
-            var words = new RegExp('test|neshtozabraneno');
+            var words = new RegExp('^test|neshtozabraneno');
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
@@ -103,7 +113,7 @@
 
         //setup before functions
         var typingTimer;                //timer identifier
-        var doneTypingInterval = 50;  //time in ms, 5 second for example
+        var doneTypingInterval = 700;  //time in ms, 5 second for example
         var $input = $('#domain-search-field');
 
         //on keyup, start the countdown
@@ -113,14 +123,14 @@
         });
 
         //on keydown, clear the countdown
-        $input.on('keydown', function () {
-            clearTimeout(typingTimer);
-        });
+        // $input.on('keydown', function () {
+        //     clearTimeout(typingTimer);
+        // });
 
         //user is "finished typing," do something
         function doneTyping() {
             // Define an expression of words to check for
-            var words = new RegExp('test|neshtozabraneno');
+            var words = new RegExp('^test|neshtozabraneno');
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
