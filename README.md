@@ -16,3 +16,12 @@
 ![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/whmcs_plugin.png "")
 
 
+
+## Download the white-label template for your Microweber site 
+
+1. Download Microweber White Label Template from https://github.com/microwebertemplates/whitelabel
+2. Upload the content of zip in /public_html/userfiles/templates/whitelabel/ . You must to create the directory “whitelabel”.
+3. Open your main site URL and proceed to install as you need to select SQLite DB, Microweber White Label Template and Install Default content
+4. Set WHMCS url on your  website
+
+![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/set_mw_whmcs_module.png "")

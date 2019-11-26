@@ -315,7 +315,8 @@ class MicroweberAddonApiController
     }
 
 
-    function get_domain_template_config($params)
+    function
+    get_domain_template_config($params)
     {
         global $CONFIG;
         global $autoauthkey;
@@ -325,7 +326,7 @@ class MicroweberAddonApiController
 
 
         $username = $this->__db_escape_string($params['domain']);
-
+        $username = addslashes($username);
 
         $query = "
 select
@@ -368,8 +369,7 @@ h.domain = '" . $username . "' and
 
 
 // si ebalo majkata
-        $dom_data = Capsule::select($query);
-        // dd($dom_data);
+        $dom_data = \Illuminate\Database\Capsule\Manager::select($query);
 
         if ($dom_data) {
             foreach ($dom_data as $dom_item) {

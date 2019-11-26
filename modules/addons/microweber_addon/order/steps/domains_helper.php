@@ -70,7 +70,7 @@
     $(document).ready(function () {
         $(".js-search-domains").on('click', function () {
             // Define an expression of words to check for
-            var words = new RegExp('test|neshtozabraneno');
+            var words = new RegExp('^test|neshtozabraneno');
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
