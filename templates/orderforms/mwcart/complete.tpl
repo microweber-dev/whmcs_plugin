@@ -31,7 +31,7 @@
     </div>
 
     <div id="order-loading">
-        <p align="center" style="padding-top: 40px;">Зареждане...<br/>
+        <p align="center" style="padding-top: 40px;">{$LANG.loading}<br/>
             <progress value="0" max="10" id="progressBar"></progress>
         </p>
     </div>
@@ -40,7 +40,7 @@
         <p align="center" style="padding-top: 40px;"><a class="btn btn-default" href="{get_website_login_by_orderid($orderid)}">Редактирай твоя уеб сайт</a></p>
     </div>
 
-    <h3 class="oi-title">Поръчка</h3>
+    <h3 class="oi-title">{$LANG.information}</h3>
 
     <div class="signupfields padded">
 
