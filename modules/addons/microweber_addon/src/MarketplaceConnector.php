@@ -12,7 +12,7 @@ class MarketplaceConnector
 
     public function get_content_from_url($url)
     {
-        if(in_array('curl', get_loaded_extensions())) {
+        if (in_array('curl', get_loaded_extensions())) {
 
             $ch = curl_init();
 
@@ -47,19 +47,23 @@ class MarketplaceConnector
             }
             if (is_array($packages_exp) && !empty($packages_exp)) {
                 $new_package_urls = array();
-                foreach($packages_exp as $package_url) {
+                foreach ($packages_exp as $package_url) {
 
                     $package_url = trim($package_url);
                     $package_url = str_replace(',', false, $package_url);
 
-                    if(filter_var($package_url, FILTER_VALIDATE_URL) === FALSE) {
+                    $package_url = rtrim($package_url, "/") . '/';
+                    if (!stristr($package_url, 'packages.json')) {
+                        $package_url = ($package_url . "/") . 'packages.json';
+                    }
+
+                    if (filter_var($package_url, FILTER_VALIDATE_URL) === FALSE) {
                         continue;
                     }
 
                     if (empty($package_url)) {
                         continue;
                     }
-
                     $new_package_urls[] = $package_url;
                 }
                 if (is_array($new_package_urls) && !empty($new_package_urls)) {
@@ -84,7 +88,6 @@ class MarketplaceConnector
         $return = array();
         $packages = array();
         $packages_by_type = array();
-
         if ($this->package_manager_urls) {
             foreach ($this->package_manager_urls as $url) {
                 $package_manager_resp = $this->get_content_from_url($url);
@@ -145,12 +148,12 @@ class MarketplaceConnector
                 $last_item = false;
 
                 foreach ($package_item_version as $package_item_version_key => $package_item_version_data) {
-                     if (!$last_item
-                         and $package_item_version_data
-                         and isset($package_item_version_data['version'])
-                         and $package_item_version_data['version'] != 'dev-master'
-                         and is_numeric($package_item_version_data['version'])) {
-                        $last_item2 =$package_item_version_data;
+                    if (!$last_item
+                        and $package_item_version_data
+                        and isset($package_item_version_data['version'])
+                        and $package_item_version_data['version'] != 'dev-master'
+                        and is_numeric($package_item_version_data['version'])) {
+                        $last_item2 = $package_item_version_data;
                         $last_item = $last_item2;
 
 
@@ -186,7 +189,7 @@ class MarketplaceConnector
             }
 
         }
-         //var_dump($return);
+        //var_dump($return);
 
         return $return;
 
