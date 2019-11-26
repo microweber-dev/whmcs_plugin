@@ -37,7 +37,7 @@
     </div>
 
     <div id="order-loading-done" style="display: none">
-        <p align="center" style="padding-top: 40px;"><a class="btn btn-default" href="{get_website_login_by_orderid($orderid)}">Редактирай твоя уеб сайт</a></p>
+        <p align="center" style="padding-top: 40px;"><a class="btn btn-default" href="{get_website_login_by_orderid($orderid)}">{$LANG.completeorder}</a></p>
     </div>
 
     <h3 class="oi-title">{$LANG.information}</h3>

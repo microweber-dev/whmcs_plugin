@@ -44,6 +44,15 @@ function microweber_addon_config()
     return $config;
 }
 
+function microweber_addon_load_language($vars)
+{
+    global $_ADDONLANG;
+    require (WHMCS_MAIN_DIR . DS . "modules" . DS . "servers" . DS . "ts3" . DS . 'lang' . DS . 'english.php');
+    if (file_exists(WHMCS_MAIN_DIR . DS . "modules" . DS . "servers" . DS . "ts3" . DS . 'lang' . DS . $vars['clientsdetails']['language'].'.php')) include (WHMCS_MAIN_DIR . DS . "modules" . DS . "servers" . DS . "ts3" . DS . 'lang' . DS . $vars['clientsdetails']['language'].'.php');
+    return $_ADDONLANG;
+}
+
+
 
 function microweber_addon_clientarea($vars)
 {
@@ -109,11 +118,16 @@ function microweber_addon_clientarea($vars)
 
     }
 
+    return array(
+         'vars' => array(
+            'ADDONLANG' => microweber_addon_load_language($vars)
+         ));
 
 }
 
 function microweber_addon_output($vars)
 {
+
     $resp = '';
     $params = array();
     if ($_GET) {
