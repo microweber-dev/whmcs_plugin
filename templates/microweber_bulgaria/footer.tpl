@@ -126,7 +126,7 @@
 </footer>
 </div>
 
-<button id="to-top" class="btn" style="display: block;"></button>
+<button id="to-top" class="btn" style="display: none;"></button>
 
 {if $templatefile != 'login' AND $templatefile != 'password-reset-container'}
     <script>

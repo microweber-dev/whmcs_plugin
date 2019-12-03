@@ -16,6 +16,16 @@
     <div class="clearfix"></div>
 </div>
 
+<style>
+    .subscription-field{
+        margin-bottom: 20px;
+    }
+
+    #phonenumber{
+        padding-left: 80px !important;
+    }
+</style>
+
 {if !$loggedin}
     <div class="signupfields{if $custtype eq "existing" && !$loggedin} hidden{/if}" id="signupfrm">
         <div class="row">
@@ -74,7 +84,7 @@
                            class="form-control material-field subscription" placeholder="{$LANG.clientareapostcode}" {if !in_array('postcode', $clientsProfileOptionalFields)} required{/if} />
                 </div>
                 <div class="subscription-field">
-                    <select id="country" name="country" class="selectpicker" title="{$LANG.clientareacountry}">
+                    <select id="country" name="country" class="form-control selectpicker" title="{$LANG.clientareacountry}">
                         {foreach from=$countries key=thisCountryCode item=thisCountryName}
                             <option value="{$thisCountryCode}" {if $thisCountryCode eq $clientsdetails.country}selected="selected"{/if}>{$thisCountryName}</option>
                         {/foreach}
@@ -83,7 +93,9 @@
                 <div class="subscription-field">
                     <input type="text" name="phonenumber" id="phonenumber" value="{$clientsdetails.phonenumber}"
                            class="form-control material-field subscription" placeholder="{$LANG.clientareaphonenumber}" {if !in_array('phonenumber', $clientsProfileOptionalFields)} required{/if} />
-                </div>
+                </div> 
+
+
 
                 {if $customfields}
                     {foreach from=$customfields key=num item=customfield}
