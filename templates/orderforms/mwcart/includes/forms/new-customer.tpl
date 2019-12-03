@@ -51,14 +51,12 @@
 
                 <div id="newPassword1" class="subscription-field has-feedback">
                     <input type="password" class="form-control material-field subscription" id="inputNewPassword1" name="password" value="{$password}" placeholder="{$LANG.clientareapassword}" required/>
-                    <span class="form-control-feedback glyphicon glyphicon-password"></span>
-                </div>
+                 </div>
 
                 <div id="newPassword2" class="subscription-field has-feedback">
                     <input type="password" class="form-control material-field subscription" id="inputNewPassword2" name="password2" value="{$password2}" placeholder="{$LANG.clientareaconfirmpassword}"
                            required/>
-                    <span class="form-control-feedback glyphicon glyphicon-password"></span>
-                    <div id="inputNewPassword2Msg">
+                     <div id="inputNewPassword2Msg">
                     </div>
                 </div>
             </div>
