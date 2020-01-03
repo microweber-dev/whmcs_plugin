@@ -30,6 +30,10 @@ function microweber_addon_config()
         'author' => 'Microweber',
         'language' => 'english',
         'fields' => [
+            'whitelabel_key' => [
+                'FriendlyName' => 'Whitelabel Key',
+                'Type' => 'text',
+            ],
             'package_manager_urls' => [
                 'FriendlyName' => 'Package Manager Urls',
                 'Type' => 'textarea',
