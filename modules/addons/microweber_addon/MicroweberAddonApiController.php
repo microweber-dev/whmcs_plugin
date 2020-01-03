@@ -785,10 +785,12 @@ type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order
         $whitelabel_key = false;
         if (isset($_GET['whitelabel_key'])) {
             $whitelabel_key = $_GET['whitelabel_key'];
+            $whitelabel_key = trim($whitelabel_key);
         }
 
         $config = new \MicroweberAddon\Config();
         $current_whitelabel_key = $config->get_setting_value('whitelabel_key');
+        $current_whitelabel_key = md5($current_whitelabel_key);
 
         if ($whitelabel_key !== $current_whitelabel_key) {
             die();
