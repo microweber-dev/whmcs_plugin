@@ -56,8 +56,14 @@ class Config
         $settings = $this->get_settings();
         if ($settings) {
             foreach ($settings as $setting) {
-                if ($setting['setting'] == $key) {
-                    return $setting['value'];
+                if (is_object($setting)) {
+                    if ($setting->setting == $key) {
+                        return $setting->value;
+                    }
+                } else {
+                    if ($setting['setting'] == $key) {
+                        return $setting['value'];
+                    }
                 }
             }
         }

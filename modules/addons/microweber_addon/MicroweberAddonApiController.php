@@ -143,7 +143,7 @@ class MicroweberAddonApiController
             if ($hostingProduct->billingcycle == 'Free Account') {
                 $free = true;
             }
-            
+
             $json['domain'] = $host;
             $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
 
@@ -280,17 +280,17 @@ class MicroweberAddonApiController
 
 
         if (!empty($results) and isset($results['products'])) {
-            $prodsucts = $results['products']['product'];
-            if (!empty($prodsucts)) {
-                foreach ($prodsucts as $prodsuct) {
+            $products = $results['products']['product'];
+            if (!empty($products)) {
+                foreach ($products as $product) {
 
-                    if (!empty($prodsuct) and isset($prodsuct['domain'])) {
+                    if (!empty($product) and isset($product['domain'])) {
 
-                        if (strtolower($host) == strtolower($prodsuct['domain'])) {
+                        if (strtolower($host) == strtolower($product['domain'])) {
                             $values = array();
                             $values["result"] = 'success';
                             $values["userid"] = $validatelogin['userid'];
-                            $values["hosting_data"] = $prodsuct;
+                            $values["hosting_data"] = $product;
 
                             return $values;
                         }
@@ -444,11 +444,11 @@ h.domain = '" . $username . "' and
                 $values["limitnum"] = 199;
                 $results = localAPI($command, $values);
                 if (!empty($results) and isset($results['products'])) {
-                    $prodsucts = $results['products']['product'];
-                    if (!empty($prodsucts)) {
-                        foreach ($prodsucts as $prodsuct) {
-                            if (!empty($prodsuct) and isset($prodsuct['domain'])) {
-                                $pids[] = intval($prodsuct['id']);
+                    $products = $results['products']['product'];
+                    if (!empty($products)) {
+                        foreach ($products as $product) {
+                            if (!empty($product) and isset($product['domain'])) {
+                                $pids[] = intval($product['id']);
                             }
                         }
                     }
@@ -471,11 +471,11 @@ h.domain = '" . $username . "' and
                 $results = localAPI($command, $values);
 
                 if (!empty($results) and isset($results['products'])) {
-                    $prodsucts = $results['products']['product'];
-                    if (!empty($prodsucts)) {
-                        foreach ($prodsucts as $prodsuct) {
-                            if (!empty($prodsuct) and isset($prodsuct['domain'])) {
-                                $pids[] = intval($prodsuct['id']);
+                    $products = $results['products']['product'];
+                    if (!empty($products)) {
+                        foreach ($products as $product) {
+                            if (!empty($product) and isset($product['domain'])) {
+                                $pids[] = intval($product['id']);
                             }
                         }
                     }
@@ -568,15 +568,15 @@ h.domain = '" . $username . "' and
 
                 }
                 if (!empty($results) and isset($results['products'])) {
-                    $prodsucts = $results['products']['product'];
-                    if (!empty($prodsucts)) {
-                        foreach ($prodsucts as $prodsuct) {
-                            if (!empty($prodsuct) and isset($prodsuct['domain'])) {
+                    $products = $results['products']['product'];
+                    if (!empty($products)) {
+                        foreach ($products as $product) {
+                            if (!empty($product) and isset($product['domain'])) {
                                 $values = array();
                                 $values["result"] = 'success';
                                 $values["userid"] = $uid;
-                                $values["hosting_data"] = $prodsuct;
-                                $found_prods[] = $prodsuct;
+                                $values["hosting_data"] = $product;
+                                $found_prods[] = $product;
                             }
 
                         }
@@ -780,6 +780,43 @@ type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order
         return $result;
     }
 
+    public function get_domains()
+    {
+        $whitelabel_key = false;
+        if (isset($_GET['whitelabel_key'])) {
+            $whitelabel_key = $_GET['whitelabel_key'];
+        }
+
+        $config = new \MicroweberAddon\Config();
+        $current_whitelabel_key = $config->get_setting_value('whitelabel_key');
+
+        if ($whitelabel_key !== $current_whitelabel_key) {
+            die();
+        }
+
+        $domains = array();
+        $results = localAPI("getclientsproducts", array());
+
+        if (!empty($results) and isset($results['products'])) {
+            $products = $results['products']['product'];
+            if (!empty($products)) {
+                foreach ($products as $product) {
+                    if (!empty($product) and isset($product['pid'])) {
+                        $domains[] = array(
+                            'status'=> strtolower($product['status']),
+                            'registration_date'=> $product['regdate'],
+                            'domain'=> $product['domain'],
+                        );
+                    }
+                }
+            }
+        }
+
+        header('Content-Type: application/json');
+
+        echo json_encode(array('domains'=>$domains), JSON_PRETTY_PRINT);
+        die();
+    }
 
     private function _get_user_purchased_products($client_id)
     {
@@ -793,12 +830,12 @@ type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order
         $results = localAPI($command, $values);
 
         if (!empty($results) and isset($results['products'])) {
-            $prodsucts = $results['products']['product'];
-            if (!empty($prodsucts)) {
-                foreach ($prodsucts as $prodsuct) {
-                    //   var_dump($prodsucts);
-                    if (!empty($prodsuct) and isset($prodsuct['pid'])) {
-                        $pids[] = intval($prodsuct['pid']);
+            $products = $results['products']['product'];
+            if (!empty($products)) {
+                foreach ($products as $product) {
+                    //   var_dump($products);
+                    if (!empty($product) and isset($product['pid'])) {
+                        $pids[] = intval($product['pid']);
                     }
 
                 }
@@ -851,12 +888,12 @@ type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order
                 }
 
                 if (!empty($results) and isset($results['products'])) {
-                    $prodsucts = $results['products']['product'];
-                    if (!empty($prodsucts)) {
-                        foreach ($prodsucts as $prodsuct) {
+                    $products = $results['products']['product'];
+                    if (!empty($products)) {
+                        foreach ($products as $product) {
 
-                            if (!empty($prodsuct) and isset($prodsuct['pid'])) {
-                                $pids[] = $prodsuct['pid'];
+                            if (!empty($product) and isset($product['pid'])) {
+                                $pids[] = $product['pid'];
                             }
 
                         }
