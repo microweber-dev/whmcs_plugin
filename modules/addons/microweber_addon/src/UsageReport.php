@@ -11,7 +11,7 @@ namespace MicroweberAddon;
 
 class UsageReport
 {
-    private $_reportUrl = "https://postman-echo.com/post";
+    private $_reportUrl = "https://members.microweber.bg";
 
     public function send()
     {
@@ -50,7 +50,7 @@ class UsageReport
 
     private function _getReportUrl()
     {
-        return $this->_reportUrl;
+        return $this->_reportUrl . '/index.php?m=microweber_server&function=save_usage_report';
     }
 
     private function _getClientProductsByPlanId($planId)
