@@ -166,8 +166,6 @@ add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar) {
 
 
 add_hook('DailyCronJob', 1, function($vars) {
-
     $report = new \MicroweberAddon\UsageReport();
     $report->send();
-
 });

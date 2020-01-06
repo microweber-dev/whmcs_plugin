@@ -11,7 +11,7 @@ namespace MicroweberAddon;
 
 class UsageReport
 {
-    private $reportUrl = "http://members.microweber.com/";
+    private $_reportUrl = "https://postman-echo.com/post";
 
     public function send()
     {
@@ -48,6 +48,11 @@ class UsageReport
 
     }
 
+    private function _getReportUrl()
+    {
+        return $this->_reportUrl;
+    }
+
     private function _getClientProductsByPlanId($planId)
     {
 
@@ -77,13 +82,15 @@ class UsageReport
 
     private function _makeHttpRequest(array $post)
     {
+        $json = json_encode($post);
+
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $this->reportUrl);
+        curl_setopt($ch, CURLOPT_URL, $this->_getReportUrl());
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
 
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
@@ -91,10 +98,13 @@ class UsageReport
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // Skip SSL Verification
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json', 'Content-Length: ' . strlen($json)
+        ));
+
         $response = curl_exec($ch);
 
         curl_close($ch);
 
-        var_dump($response);
     }
 }
