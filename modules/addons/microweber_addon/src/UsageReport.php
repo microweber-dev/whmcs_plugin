@@ -42,7 +42,7 @@ class UsageReport
 
                 $post = array();
                 $post['total_clients'] = count($activeClients);
-                $post['clients'] = $activeClients;
+               // $post['clients'] = $activeClients;
                 $post['whmcs_domain'] = $whmcsUrl;
 
                 $this->_makeHttpRequest($post);
@@ -86,15 +86,13 @@ class UsageReport
 
     private function _makeHttpRequest(array $post)
     {
-        $json = json_encode($post);
-
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, $this->_getReportUrl());
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
@@ -102,13 +100,11 @@ class UsageReport
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // Skip SSL Verification
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json', 'Content-Length: ' . strlen($json)
-        ));
-
         $response = curl_exec($ch);
 
         curl_close($ch);
+
+        var_dump($response);
 
     }
 }
