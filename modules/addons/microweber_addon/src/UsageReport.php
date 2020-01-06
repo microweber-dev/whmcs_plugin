@@ -18,14 +18,35 @@ class UsageReport
         global  $CONFIG;
         $whmcsUrl = $CONFIG['SystemURL'];
 
+        $activeClients = $this->getClientProducts();
+
+        $serverIp = '';
+        if (isset($_SERVER['SERVER_ADDR'])) {
+            $serverIp = $_SERVER['SERVER_ADDR'];
+        }
+
+        $config = new \MicroweberAddon\Config();
+        $licenseKey = $config->get_setting_value('whitelabel_key');
+
+        $post = array();
+        $post['total_clients'] = sizeof($activeClients);
+       // $post['clients'] = $activeClients;
+        $post['whmcs_domain'] = $whmcsUrl;
+        $post['server_ip'] = $serverIp;
+        $post['license_key'] = $licenseKey;
+
+        $this->_makeHttpRequest($post);
+
+    }
+
+    public function getClientProducts()
+    {
         $manager = new \MicroweberAddon\Manager;
 
         $plans = array();
         $plansIds = array();
         $hosting = $manager->hosting->get_hosting_products();
         foreach ($hosting as $plan) {
-
-
             if (isset($plan['has_website_builder']) and $plan['has_website_builder']) {
                 $plans[] = $plan;
                 $plansIds[] = $plan['id'];
@@ -33,7 +54,6 @@ class UsageReport
         }
 
         if (!empty($plansIds)) {
-
             $activeClients = array();
             foreach ($plansIds as $planId) {
                 $clients = $this->_getClientProductsByPlanId($planId);
@@ -41,27 +61,16 @@ class UsageReport
             }
 
             if (is_array($activeClients) && !empty($activeClients)) {
-
-                $serverIp = '';
-                if (isset($_SERVER['SERVER_ADDR'])) {
-                    $serverIp = $_SERVER['SERVER_ADDR'];
-                }
-
-                $config = new \MicroweberAddon\Config();
-                $licenseKey = $config->get_setting_value('whitelabel_key');
-
-                $post = array();
-                $post['total_clients'] = sizeof($activeClients);
-               // $post['clients'] = $activeClients;
-                $post['whmcs_domain'] = $whmcsUrl;
-                $post['server_ip'] = $serverIp;
-                $post['license_key'] = $licenseKey;
-
-                $this->_makeHttpRequest($post);
-
+                return $activeClients;
             }
         }
 
+        return array();
+    }
+
+    public function getTotalClientProducts()
+    {
+        return sizeof($this->getClientProducts());
     }
 
     private function _getReportUrl()

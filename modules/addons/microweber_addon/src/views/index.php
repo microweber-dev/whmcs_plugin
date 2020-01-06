@@ -194,6 +194,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
     </style>
 
     <div class="container">
+
         <form method="post">
             <input type="hidden" name="function" value="save"/>
 
@@ -272,6 +273,14 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
             <button type="submit" class="btn btn-success">Save changes</button>
         </form>
+
+
+        <div class="well" style="margin-top:50px;">
+
+            <p>You have <b><?php echo $manager->report->getTotalClientProducts(); ?> </b> microweber active installations.</p>
+
+        </div>
+
     </div>
 
 

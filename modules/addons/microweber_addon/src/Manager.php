@@ -9,7 +9,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 class Manager
 {
 
-
+    public $report = null;
     public $marketplace_connector = null;
     public $config = null;
     public $hosting = null;
@@ -17,13 +17,15 @@ class Manager
 
     function __construct()
     {
-
-
+        $this->report = new \MicroweberAddon\UsageReport();
         $this->marketplace_connector = new MarketplaceConnector();
         $this->config = new Config();
         $this->hosting = new Hosting();
+    }
 
-
+    function get_total_client_products()
+    {
+        $this->report->getTotalClients();
     }
 
     function get_settings()
