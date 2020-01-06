@@ -40,10 +40,20 @@ class UsageReport
 
             if (is_array($activeClients) && !empty($activeClients)) {
 
+                $serverIp = '';
+                if (isset($_SERVER['SERVER_ADDR'])) {
+                    $serverIp = $_SERVER['SERVER_ADDR'];
+                }
+
+                $config = new \MicroweberAddon\Config();
+                $licenseKey = $config->get_setting_value('whitelabel_key');
+
                 $post = array();
                 $post['total_clients'] = count($activeClients);
                // $post['clients'] = $activeClients;
                 $post['whmcs_domain'] = $whmcsUrl;
+                $post['server_ip'] = $serverIp;
+                $post['license_key'] = $licenseKey;
 
                 $this->_makeHttpRequest($post);
 
