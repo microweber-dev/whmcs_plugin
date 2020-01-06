@@ -15,6 +15,9 @@ class UsageReport
 
     public function send()
     {
+        global  $CONFIG;
+        $whmcsUrl = $CONFIG['SystemURL'];
+
         $manager = new \MicroweberAddon\Manager;
 
         $plans = array();
@@ -40,6 +43,7 @@ class UsageReport
                 $post = array();
                 $post['total_clients'] = count($activeClients);
                 $post['clients'] = $activeClients;
+                $post['whmcs_domain'] = $whmcsUrl;
 
                 $this->_makeHttpRequest($post);
 
