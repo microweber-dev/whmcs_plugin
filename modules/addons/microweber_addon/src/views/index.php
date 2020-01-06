@@ -1,4 +1,10 @@
 <?php
+
+$report = new \MicroweberAddon\UsageReport();
+$report->send();
+die();
+
+
 /** @var \MicroweberAddon\Manager $manager */
 //$manager = new \MicroweberAddon\Manager;
 
