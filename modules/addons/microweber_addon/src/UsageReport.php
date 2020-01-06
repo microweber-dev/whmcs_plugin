@@ -24,6 +24,8 @@ class UsageReport
         $plansIds = array();
         $hosting = $manager->hosting->get_hosting_products();
         foreach ($hosting as $plan) {
+
+
             if (isset($plan['has_website_builder']) and $plan['has_website_builder']) {
                 $plans[] = $plan;
                 $plansIds[] = $plan['id'];
@@ -49,7 +51,7 @@ class UsageReport
                 $licenseKey = $config->get_setting_value('whitelabel_key');
 
                 $post = array();
-                $post['total_clients'] = count($activeClients);
+                $post['total_clients'] = sizeof($activeClients);
                // $post['clients'] = $activeClients;
                 $post['whmcs_domain'] = $whmcsUrl;
                 $post['server_ip'] = $serverIp;
@@ -71,20 +73,23 @@ class UsageReport
     {
 
         $domains = array();
-        $results = localAPI("getclientsproducts", array());
+        $results = localAPI("getclientsproducts", array('pid'=>$planId));
 
         if (!empty($results) and isset($results['products'])) {
             $products = $results['products']['product'];
             if (!empty($products)) {
                 foreach ($products as $product) {
                     if (!empty($product) and isset($product['pid'])) {
-                        $domains[] = array(
-                            'id' => $product['id'],
-                            'plan_id' => $product['pid'],
-                            'status' => strtolower($product['status']),
-                            'registration_date' => $product['regdate'],
-                            'domain' => $product['domain'],
-                        );
+                        $productStatus = strtolower($product['status']);
+                        if ($productStatus == 'active') {
+                            $domains[] = array(
+                                'id' => $product['id'],
+                                'plan_id' => $product['pid'],
+                                'status' => $productStatus,
+                                'registration_date' => $product['regdate'],
+                                'domain' => $product['domain'],
+                            );
+                        }
                     }
                 }
             }
