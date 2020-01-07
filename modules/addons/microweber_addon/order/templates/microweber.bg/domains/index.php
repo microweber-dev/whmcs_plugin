@@ -484,9 +484,9 @@
                 <div class="just-text m-b-40">
                     <div class="row m-t-20" style="display: flex;">
                         <div class="col-sm-7">
-                            <h1 class="m-b-0">Избери име
-                                <small>(домейн)</small>
-                                <br/>за твоя уебсайт
+                            <h1 class="m-b-0 text-center text-md-left">Избери име
+                                <small class="d-none d-lg-inline-block">(домейн)</small>
+                                <br class="d-none d-lg-inline-block"/>за твоя уебсайт
                             </h1>
                         </div>
                         <div class="col-sm-5 text-right">

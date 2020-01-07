@@ -168,6 +168,24 @@
             border-radius: 3px;
         }
 
+        .btn-primary {
+            color: #fff;
+            background: #ff4200;
+            border: 1px solid #ff4200;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+        .btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+            color: #ff4200;
+            background: #fff;
+            border: 1px solid #ff4200;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
 
 
     </style>
