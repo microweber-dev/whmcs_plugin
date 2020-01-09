@@ -64,10 +64,16 @@ function microweber_cloudconnect_CreateAccount(array $params)
 
     if ($get_server) {
 
+        $template = false;
+        if (isset($params['configoptions']['Template'])) {
+            $template = $params['configoptions']['Template'];
+        }
+
         $payload = array(
             'm' => 'microweber_server',
             'function' => 'create_account',
             'platform' => $params['configoption1'],
+            'template'=> $template,
             'domain' => $params['domain'],
             'username' => $params['username'],
             'password' => $params['password'],
