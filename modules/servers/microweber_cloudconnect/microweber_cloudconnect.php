@@ -59,62 +59,24 @@ function microweber_cloudconnect_ConfigOptions()
  */
 function microweber_cloudconnect_CreateAccount(array $params)
 {
-    try {
-        $get_server = Capsule::table('tblservers')
-            ->where('id', $params['serverid'])->first();
+    $get_server = Capsule::table('tblservers')
+        ->where('id', $params['serverid'])->first();
 
-        if ($get_server) {
+    if ($get_server) {
 
-            $payload = array(
-                'm' => 'microweber_server',
-                'function' => 'create_account',
-                'platform' => $params['configoption1'],
-                'domain' => $params['domain'],
-                'username'=> $params['username'],
-                'password'=> $params['password'],
-                'api_key'=> $get_server->accesshash
-            );
-
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => $get_server->hostname . '/index.php?' . http_build_query($payload),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_FOLLOWLOCATION => 1
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-
-            $json = json_decode($response, TRUE);
-            if (isset($json['success'])) {
-                return array('success'=>$json['success'], 'error'=>$json['message']);
-            }
-
-            if ($err) {
-                return $err;
-            }
-
-            return array('success'=>false);
-        }
-
-    } catch (Throwable $e) {
-
-        logModuleCall(
-            'provisioningmodule',
-            __FUNCTION__,
-            $params,
-            $e->getMessage(),
-            $e->getTraceAsString()
+        $payload = array(
+            'm' => 'microweber_server',
+            'function' => 'create_account',
+            'platform' => $params['configoption1'],
+            'domain' => $params['domain'],
+            'username' => $params['username'],
+            'password' => $params['password'],
+            'api_key' => $get_server->accesshash
         );
 
-        return $e->getMessage();
+        $api_url = $get_server->hostname . '/index.php?' . http_build_query($payload);
 
+        return microweber_cloudconnect_apicall($api_url);
     }
 
 }
@@ -129,53 +91,9 @@ function microweber_cloudconnect_CreateAccount(array $params)
  */
 function microweber_cloudconnect_TestConnection(array $params)
 {
-    $success = false;
-    try {
-        $curl = curl_init();
+    $api_url = $params['serverhostname'] . '/index.php?m=microweber_server&function=validate_api_key&api_key=' . $params['serveraccesshash'];
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => $params['serverhostname'] . '/index.php?m=microweber_server&function=validate_api_key&api_key=' . $params['serveraccesshash'],
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_TIMEOUT => 10,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        ));
-
-        $response = curl_exec($curl);
-        $err      = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            $errorMsg = $err;
-        }
-    } catch (Throwable $e) {
-        logModuleCall(
-            'provisioningmodule',
-            __FUNCTION__,
-            $params,
-            $e->getMessage(),
-            $e->getTraceAsString()
-        );
-        $success  = false;
-        $errorMsg = $e->getMessage();
-    }
-
-    $json = json_decode($response, true);
-
-    if(isset($json['is_correct']) && $json['is_correct']) {
-        $success = true;
-    } else {
-        $errorMsg = 'Invalid api key.';
-        $success = false;
-    }
-
-    return array(
-        'success' => $success,
-        'error' => $errorMsg,
-    );
-
+    return microweber_cloudconnect_apicall($api_url);
 }
 
 /**
@@ -190,61 +108,21 @@ function microweber_cloudconnect_TestConnection(array $params)
  */
 function microweber_cloudconnect_ServiceSingleSignOn(array $params)
 {
-    try {
-        $get_server = Capsule::table('tblservers')
-            ->where('id', $params['serverid'])->first();
+    $get_server = Capsule::table('tblservers')
+        ->where('id', $params['serverid'])->first();
 
-        if ($get_server) {
+    if ($get_server) {
 
-            $payload = array(
-                'm' => 'microweber_server',
-                'function' => 'single_signon',
-                'platform' => $params['configoption1'],
-                'domain' => $params['domain'],
-                'api_key'=> $get_server->accesshash
-            );
-
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => $get_server->hostname . '/index.php?' . http_build_query($payload),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_FOLLOWLOCATION => 1
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-
-            $json = json_decode($response, TRUE);
-            if (isset($json['success']) && $json['success'] && isset($json['redirect_url'])) {
-                return array(
-                    'success' => true,
-                    'redirectTo' => $json['redirect_url'],
-                );
-            }
-
-            if ($err) {
-                return $err;
-            }
-        }
-
-    } catch (Throwable $e) {
-
-        logModuleCall(
-            'provisioningmodule',
-            __FUNCTION__,
-            $params,
-            $e->getMessage(),
-            $e->getTraceAsString()
+        $payload = array(
+            'm' => 'microweber_server',
+            'function' => 'single_signon',
+            'domain' => $params['domain'],
+            'api_key'=> $get_server->accesshash
         );
 
-        return $e->getMessage();
+        $api_url = $get_server->hostname . '/index.php?' . http_build_query($payload);
 
+        return microweber_cloudconnect_apicall($api_url);
     }
 
 }
@@ -258,59 +136,21 @@ function microweber_cloudconnect_ServiceSingleSignOn(array $params)
  */
 function microweber_cloudconnect_SuspendAccount(array $params)
 {
-    try {
-        $get_server = Capsule::table('tblservers')
-            ->where('id', $params['serverid'])->first();
+    $get_server = Capsule::table('tblservers')
+        ->where('id', $params['serverid'])->first();
 
-        if ($get_server) {
+    if ($get_server) {
 
-            $payload = array(
-                'm' => 'microweber_server',
-                'function' => 'suspend_account',
-                'platform' => $params['configoption1'],
-                'domain' => $params['domain'],
-                'username'=> $params['username'],
-                'password'=> $params['password'],
-                'api_key'=> $get_server->accesshash
-            );
-
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => $get_server->hostname . '/index.php?' . http_build_query($payload),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_FOLLOWLOCATION => 1
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-            
-            $json = json_decode($response, TRUE);
-            if (isset($json['success'])) {
-                return array('success'=>$json['message']);
-            }
-
-            if ($err) {
-                return $err;
-            }
-        }
-
-    } catch (Throwable $e) {
-
-        logModuleCall(
-            'provisioningmodule',
-            __FUNCTION__,
-            $params,
-            $e->getMessage(),
-            $e->getTraceAsString()
+        $payload = array(
+            'm' => 'microweber_server',
+            'function' => 'suspend_account',
+            'domain' => $params['domain'],
+            'api_key' => $get_server->accesshash
         );
 
-        return $e->getMessage();
+        $api_url = $get_server->hostname . '/index.php?' . http_build_query($payload);
 
+        return microweber_cloudconnect_apicall($api_url);
     }
 
 }
@@ -324,58 +164,102 @@ function microweber_cloudconnect_SuspendAccount(array $params)
  */
 function microweber_cloudconnect_UnsuspendAccount(array $params)
 {
+    $get_server = Capsule::table('tblservers')
+    ->where('id', $params['serverid'])->first();
+
+    if ($get_server) {
+
+        $payload = array(
+            'm' => 'microweber_server',
+            'function' => 'unsuspend_account',
+            'domain' => $params['domain'],
+            'api_key' => $get_server->accesshash
+        );
+
+        $api_url = $get_server->hostname . '/index.php?' . http_build_query($payload);
+
+        return microweber_cloudconnect_apicall($api_url);
+    }
+}
+
+/**
+ * Terminate a customer.
+ *
+ * @param array $params
+ *
+ * @return string
+ */
+function microweber_cloudconnect_TerminateAccount(array $params)
+{
+    $get_server = Capsule::table('tblservers')
+        ->where('id', $params['serverid'])->first();
+
+    if ($get_server) {
+
+        $payload = array(
+            'm' => 'microweber_server',
+            'function' => 'terminate_account',
+            'domain' => $params['domain'],
+            'api_key' => $get_server->accesshash
+        );
+
+        $api_url = $get_server->hostname . '/index.php?' . http_build_query($payload);
+
+        return microweber_cloudconnect_apicall($api_url);
+    }
+}
+
+
+function microweber_cloudconnect_apicall($url) {
+
     try {
-        $get_server = Capsule::table('tblservers')
-            ->where('id', $params['serverid'])->first();
+        $response = array();
 
-        if ($get_server) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_FOLLOWLOCATION => 1
+        ));
 
-            $payload = array(
-                'm' => 'microweber_server',
-                'function' => 'unsuspend_account',
-                'platform' => $params['configoption1'],
-                'domain' => $params['domain'],
-                'username'=> $params['username'],
-                'password'=> $params['password'],
-                'api_key'=> $get_server->accesshash
-            );
-
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => $get_server->hostname . '/index.php?' . http_build_query($payload),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 30,
-                CURLOPT_FOLLOWLOCATION => 1
-            ));
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-
-            $json = json_decode($response, TRUE);
-            if (isset($json['success'])) {
-                return array('success'=>$json['message']);
-            }
-
-            if ($err) {
-                return $err;
-            }
+        $curl_response = curl_exec($curl);
+        $err = curl_error($curl);
+        if ($err) {
+            $response['success'] = false;
+            $response['error'] = $err;
+            return $response;
         }
 
-    } catch (Throwable $e) {
+        curl_close($curl);
 
+        $json = json_decode($curl_response, TRUE);
+
+        if (isset($json['success'])) {
+            $response['success'] = $json['success'];
+        }
+
+        if (isset($json['redirect_url'])) {
+            $response['redirectTo'] = $json['redirect_url'];
+        }
+
+        if (isset($json['error'])) {
+            $response['error'] = $json['error'];
+        }
+
+        return $response;
+
+    } catch (Throwable $e) {
         logModuleCall(
             'provisioningmodule',
             __FUNCTION__,
-            $params,
+            $url,
             $e->getMessage(),
             $e->getTraceAsString()
         );
-
         return $e->getMessage();
-
     }
+
 }
