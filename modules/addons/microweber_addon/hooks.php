@@ -57,15 +57,28 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 	if (is_null($service)) {
 		return '';
 	}
-	
-	$orderID = $service['service']->orderId;
+
+	$productId = $service['service']->id;
+	$orderId = $service['service']->orderId;
 	$domain = $service['service']->domain;
 
 	if (! $domain) {
 		return;
 	}
 
-	$redir_url = get_website_redirect_url($domain);
+	$serverId = false;
+	if (isset($service['service']->server)) {
+	    $serverId = $service['service']->server;
+    }
+
+    $get_server = Capsule::table('tblservers')
+        ->where('id', $serverId)->first();
+
+    if (isset($get_server->type) && $get_server->type == 'microweber_cloudconnect') {
+        $redirect_url = '/clientarea.php?action=productdetails&id='.$productId.'&dosinglesignon=1';
+    } else {
+        $redirect_url = get_website_redirect_url($domain);
+    }
 
 	$panel = '
 		<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
@@ -81,7 +94,7 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 						   </div>
 						   <div class="col-md-7 col-xs-6 text-left">
 
-						   <a class="btn btn-default btn-sm btn-primary" href="' . $redir_url . '" target="_blank">Login to website</a>
+						   <a class="btn btn-success" href="' . $redirect_url . '" target="_blank">Login to website</a>
 
 							</div>
 					   </div>
