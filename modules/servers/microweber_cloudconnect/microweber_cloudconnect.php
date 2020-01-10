@@ -262,7 +262,7 @@ function microweber_cloudconnect_apicall($url) {
         if (isset($json['error'])) {
             $response['error'] = $json['error'];
         }
-
+        
         return $response;
 
     } catch (Throwable $e) {
