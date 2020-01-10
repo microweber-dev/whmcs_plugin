@@ -66,6 +66,7 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 		return;
 	}
 
+    $redirect_url = false;
 	$serverId = false;
 	if (isset($service['service']->server)) {
 	    $serverId = $service['service']->server;
@@ -76,11 +77,12 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 
     if (isset($get_server->type) && $get_server->type == 'microweber_cloudconnect') {
         $redirect_url = '/clientarea.php?action=productdetails&id='.$productId.'&dosinglesignon=1';
-    } else {
+    } else if ($get_server) {
         $redirect_url = get_website_redirect_url($domain);
     }
 
-	$panel = '
+    if ($redirect_url) {
+        $panel = '
 		<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
 			   <div class="panel-heading">
 				   <h3 class="panel-title">Website</h3>
@@ -101,7 +103,8 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 				</div>
 		   </div>';
 
-	return $panel; 
+        return $panel;
+    }
 
 });
 
