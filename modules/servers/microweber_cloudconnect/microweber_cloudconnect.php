@@ -63,7 +63,6 @@ function microweber_cloudconnect_CreateAccount(array $params)
         ->where('id', $params['serverid'])->first();
 
     if ($get_server) {
-
         $template = false;
         if (isset($params['configoptions']['Template'])) {
             $template = $params['configoptions']['Template'];
@@ -82,7 +81,15 @@ function microweber_cloudconnect_CreateAccount(array $params)
 
         $api_url = $get_server->hostname . '/index.php?' . http_build_query($payload);
 
-        return microweber_cloudconnect_apicall($api_url);
+        $api_response = microweber_cloudconnect_apicall($api_url);
+
+        if (isset($api_response['error']) && $api_response['error']) {
+            return $api_response;
+        }
+
+        if (isset($api_response['success']) && $api_response['success']) {
+            return 'success';
+        }
     }
 
 }
