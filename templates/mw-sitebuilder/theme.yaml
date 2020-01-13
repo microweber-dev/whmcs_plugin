@@ -1,0 +1,7 @@
+# WHMCS Six Theme Configuration File
+
+name: "Microweber Builder"
+description: "Microweber Builder Theme for WHMCS Version 6.0"
+author: "WHMCS Limited"
+properties:
+  serverSidePagination: false # Defines client side will handle pagination
