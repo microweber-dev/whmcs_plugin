@@ -108,6 +108,12 @@ function microweber_addon_clientarea($vars)
     }
 
     if ($resp) {
+
+
+        header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Credentials: true');
         echo json_encode($resp, JSON_PRETTY_PRINT);
         exit;
 

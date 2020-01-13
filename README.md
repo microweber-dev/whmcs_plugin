@@ -17,11 +17,38 @@
 
 
 
-## Download the white-label template for your Microweber site 
+## Set the template 
 
-1. Download Microweber White Label Template from https://github.com/microwebertemplates/whitelabel
-2. Upload the content of zip in /public_html/userfiles/templates/whitelabel/ . You must to create the directory “whitelabel”.
-3. Open your main site URL and proceed to install as you need to select SQLite DB, Microweber White Label Template and Install Default content
-4. Set WHMCS url on your  website
+1. Go to Setup -> General Settings
+2. Set the template to "Mw-sitebuilder"
+3. Visit your website
 
-![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/set_mw_whmcs_module.png "")
+
+![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/set_mw_whmcs_module_template.png "")
+
+
+
+
+# Setup your server
+
+* If you have __*cPanel & WHM*__ you can install the plugin from here [cPanel Plugin](https://github.com/microweber-dev/cpanel-plugin)
+* If you have __*Plesk*__ you can install the plugin from here [Plesk Plugin](https://github.com/microweber-dev/plesk-plugin) 
+* If you don't have cPanel or Plesk you can use the Cloud Connect setup from here [Cloud Connect](./modules/servers/microweber_cloudconnect/README.md) 
+
+
+
+
+
+## How to edit the order process
+
+If you wish to edit the order process and customize the designs, you can do it in the following way,
+
+1. All order forms are located in `modules/addons/microweber_addon/order/` folder
+2. Copy the folder `whitelabel` and rename it to something else for example `mybrand`
+3. Open the file `templates/mw-sitebuilder/header.tpl` and change the embed code parameter of the style attribute for. For example `<script src="{$WEB_ROOT}/modules/addons/microweber_addon/order/embed.js?style=whitelabel&target=top"></script>` will become  or example `<script src="{$WEB_ROOT}/modules/addons/microweber_addon/order/embed.js?style=mybrand&target=top"></script>`
+4. Edit your text and style on your order forms from the folder `modules/addons/microweber_addon/order/mybrand`
+
+
+# Troubleshooting 
+
+If you have any problems please post them in the issues section. 

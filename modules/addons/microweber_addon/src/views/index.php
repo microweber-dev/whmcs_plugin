@@ -281,6 +281,11 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
         </div>
 
+
+        <?php  include_once "embed_codes.php"; ?>
+
+
+
     </div>
 
 
@@ -292,7 +297,6 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
     <?php //print_r($enabled_templates) ?>
     <!--   </pre>-->
 
-    <?php //include_once "embed_codes.php"; ?>
 
 </div>
 
