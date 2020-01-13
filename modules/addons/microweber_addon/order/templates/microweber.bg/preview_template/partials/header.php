@@ -78,17 +78,17 @@
             opacity: 0.8;
         }
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 676px) {
             .preview-navbar .left {
-                width: 45%;
+                width: 25%;
             }
 
             .preview-navbar .right {
-                width: 55%;
+                width: 75%;
             }
 
             .preview-navbar .logo {
-                padding: 16px 15px;
+                padding: 13px 15px;
             }
 
             .preview-navbar .buttons {
