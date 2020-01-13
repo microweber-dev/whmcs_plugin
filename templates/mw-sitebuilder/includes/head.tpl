@@ -5,8 +5,9 @@
 <link href="{$WEB_ROOT}/templates/{$template}/assets/css/typography.css?v={$versionHash}" rel="stylesheet">
 <link href="{$WEB_ROOT}/templates/{$template}/assets/css/main.css?v={$versionHash}" rel="stylesheet">
 <link href="{$WEB_ROOT}/templates/{$template}/css/all-mw.css?v={$versionHash}" rel="stylesheet">
-<link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet">
+
 <link href="{$WEB_ROOT}/templates/{$template}/css/custom.css" rel="stylesheet">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,7 +35,9 @@
 
 
 <style>
+    #to-top:before,
     .bxSlider-heading .bx-wrapper .bx-controls-direction a:before {
         font-family: 'Font Awesome\ 5 Free' !important;
+        font-weight: 900;
     }
 </style>
