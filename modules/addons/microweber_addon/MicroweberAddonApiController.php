@@ -372,46 +372,12 @@ h.domain = '" . $username . "' and
 
         if ($dom_data) {
             foreach ($dom_data as $dom_item) {
-
-                $whitelabel_settings = $this->_get_whitelabel_settings($dom_item->userid, $dom_item->serviceid);
-                if ($whitelabel_settings) {
-                    $dom_item->whitelabel_settings = $whitelabel_settings;
-                }
-
                 return (array)$dom_item;
             }
         }
 
     }
-
-    private function _get_whitelabel_settings($client_id, $hosting_id) {
-
-        if (Capsule::schema()->hasTable('mod_microweber_cloudconnect_hosting_details')) {
-            $hosting = Capsule::table('tblhosting')->where(['id' => $hosting_id])->first();
-            if ($hosting) {
-                $hosting_details = Capsule::table('mod_microweber_cloudconnect_hosting_details')
-                    ->where(['hosting_id' => $hosting->id, 'client_id' => $client_id])
-                    ->first();
-
-                if ($hosting_details) {
-                    $api_key = Capsule::table('mod_microweber_cloudconnect_api_keys')
-                        ->where(['client_id' => $client_id, 'id' => $hosting_details->api_key_id])
-                        ->first();
-
-                    $check_settings = Capsule::table('mod_microweber_cloudconnect_whitelabel_settings')
-                        ->where([
-                            'service_id' => $api_key->service_id,
-                            'client_id' => $api_key->client_id
-                        ])->first();
-                    if ($check_settings) {
-                        return $check_settings;
-                    }
-                }
-            }
-        }
-    }
-
-
+    
     public function go_to_product($params)
     {
 
