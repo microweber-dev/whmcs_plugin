@@ -30,13 +30,15 @@ class AdminController
 
     public function save($params)
     {
-
         if (isset($params['templates_settings'])) {
             foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
                 Capsule::table('mod_microweber_templates')
                     ->where('id', $template_id)
                     ->update([
+                        'updated_at'=>date('Y-m-d H:i:s'),
                         'name'=>$templates_setting['name'],
+                        'preview_name'=>$templates_setting['preview_name'],
+                        'preview_sort'=>$templates_setting['preview_sort'],
                         'demo_url'=>$templates_setting['demo_url'],
                     ]);
             }

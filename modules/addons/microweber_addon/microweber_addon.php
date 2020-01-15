@@ -164,6 +164,8 @@ function microweber_addon_activate()
             Capsule::schema()->create('mod_microweber_templates', function ($table) {
                     $table->increments('id');
                     $table->string('name');
+                    $table->string('preview_name');
+                    $table->integer('preview_sort');
                     $table->string('demo_url');
                     $table->string('screenshot_url');
                     $table->timestamps();

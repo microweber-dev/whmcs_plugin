@@ -89,8 +89,9 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                         <button type="button" class="js-unselect-all-templates btn btn-sm">Unselect all</button>
                     </div>
                 </div>
-                <?php foreach ($templates as $template) : ?>
+                <?php $i=0; foreach ($templates as $template) : ?>
                     <?php
+
                     $item = $template['latest_version'];
                     $screenshot = '';
                     if (isset($item['extra']) and isset($item['extra']['_meta']) and isset($item['extra']['_meta']['screenshot'])) {
@@ -100,6 +101,10 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                     $get_template = get_template_by_name($item['description']);
                     if (!$get_template) {
                         $get_template = insert_template_by_name($item['description']);
+                    }
+
+                    if (!$get_template->preview_sort) {
+                        $get_template->preview_sort =  $i;
                     }
                     ?>
 
@@ -122,17 +127,21 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                             <div style="margin-top:30px; display: none;" class="js-template-settings-<?php echo $get_template->id; ?>">
 
                                 Template name:
-                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][name]" value="<?php echo $get_template->name; ?>" />
+                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_name]" value="<?php echo $get_template->preview_name; ?>" />
                                 <br />
                                 Template demo:
                                 <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][demo_url]" value="<?php echo $get_template->demo_url; ?>" />
                                 <br />
+                                Template sort:
+                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_sort]" value="<?php echo $get_template->preview_sort; ?>" />
                                 <br />
+                                <br />
+                                <input type="hidden" name="templates_settings[<?php echo $get_template->id; ?>][name]" value="<?php echo $item['description']; ?>" />
                                 <input type="submit" class="btn btn-success btn-block" value="Save settings" />
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php $i++; endforeach; ?>
             </div>
 
 
