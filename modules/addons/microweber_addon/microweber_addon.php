@@ -352,6 +352,24 @@ if (!function_exists('is_fqdn')) {
     }
 }
 
+function insert_template_by_name($name)
+{
+    $insert = Capsule::table('mod_microweber_templates')
+        ->insert([
+                'name' => $name,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => date('Y-m-d H:i:s'),
+            ]);
 
+    if ($insert) {
+        return get_template_by_name($name);
+    }
+}
 
+function get_template_by_name($name)
+{
+    return Capsule::table('mod_microweber_templates')
+        ->where('name', $name)
+        ->first();
+}
 

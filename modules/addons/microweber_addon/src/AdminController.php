@@ -31,15 +31,21 @@ class AdminController
     public function save($params)
     {
 
+        if (isset($params['templates_settings'])) {
+            foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
+                Capsule::table('mod_microweber_templates')
+                    ->where('id', $template_id)
+                    ->update([
+                        'name'=>$templates_setting['name'],
+                        'demo_url'=>$templates_setting['demo_url'],
+                    ]);
+            }
+        }
 
         $hosting = new \MicroweberAddon\Hosting();
 
         $configoptionid = $hosting->configoptionid_for_templates();
-
         //dd($configoptionid);
-
-
-        $templates_to_save = array();
 
         if (isset($params['selected_templates']) and is_array($params['selected_templates'])) {
             $to_save = array_filter($params['selected_templates']);
@@ -62,7 +68,6 @@ class AdminController
                     $saved_config_ids[] = $config_option_id;
                 }
 
-
                 $to_remove_items = Capsule::table('tblproductconfigoptionssub')->select('*')->where(['configid' => $configoptionid])->whereNotIn('optionname', $to_save)->get();
                 if ($to_remove_items) {
                     foreach ($to_remove_items as $to_remove_item) {
@@ -71,19 +76,12 @@ class AdminController
                         }
                     }
                 }
-
-                //$to_save
-
-
             }
-
 
             if ($to_remove_config_ids) {
                 Capsule::table('tblproductconfigoptionssub')->select('*')->where(['configid' => $configoptionid])->whereIn('id', $to_remove_config_ids)->delete();
                 Capsule::table('tblpricing')->select('*')->where(['type' => 'configoptions'])->whereIn('relid', $to_remove_config_ids)->delete();
-
             }
-
 
             if ($saved_config_ids) {
                 foreach ($saved_config_ids as $saved_config_id) {
@@ -106,9 +104,6 @@ class AdminController
                             'biennially' => '0',
                             'triennially' => '0',
                             'relid' => $saved_config_id]);
-
-
-
                     }
                 }
             }

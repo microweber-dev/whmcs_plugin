@@ -89,13 +89,17 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                         <button type="button" class="js-unselect-all-templates btn btn-sm">Unselect all</button>
                     </div>
                 </div>
-                <?php $template_i = 0; foreach ($templates as $template) : ?>
+                <?php foreach ($templates as $template) : ?>
                     <?php
-                    $template_i++;
                     $item = $template['latest_version'];
                     $screenshot = '';
                     if (isset($item['extra']) and isset($item['extra']['_meta']) and isset($item['extra']['_meta']['screenshot'])) {
                         $screenshot = $item['extra']['_meta']['screenshot'];
+                    }
+
+                    $get_template = get_template_by_name($item['description']);
+                    if (!$get_template) {
+                        $get_template = insert_template_by_name($item['description']);
                     }
                     ?>
 
@@ -111,16 +115,17 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                        <input <?php if (in_array($item['target-dir'], $enabled_templates)) { ?> checked  <?php } ?> type="checkbox" name="selected_templates[]" value="<?php print $item['target-dir'] ?>">
                                        <strong><?php echo $item['description']; ?></strong>
                                    </label>
-                                     <b onclick="openTemplateSettings(<?php echo $template_i; ?>);" style="float:right;">Settings</b>
+                                     <b onclick="openTemplateSettings(<?php echo $get_template->id; ?>);" style="float:right;">Settings</b>
                                   </div>
                                 </span>
                             </span>
-                            <div style="margin-top:30px; display: none;" class="js-template-settings-<?php echo $template_i; ?>">
+                            <div style="margin-top:30px; display: none;" class="js-template-settings-<?php echo $get_template->id; ?>">
+
                                 Template name:
-                                <input type="text" class="form-control" style="width: 100%" name="template_name" value="" />
+                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][name]" value="<?php echo $get_template->name; ?>" />
                                 <br />
                                 Template demo:
-                                <input type="text" class="form-control" style="width: 100%" name="template_demo" value="" />
+                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][demo_url]" value="<?php echo $get_template->demo_url; ?>" />
                                 <br />
                                 <br />
                                 <input type="submit" class="btn btn-success btn-block" value="Save settings" />
@@ -129,6 +134,8 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                     </div>
                 <?php endforeach; ?>
             </div>
+
+
             <button type="submit" class="btn btn-success">Save changes</button>
         </form>
 
