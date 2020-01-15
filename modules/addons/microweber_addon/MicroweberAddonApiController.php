@@ -141,7 +141,7 @@ class MicroweberAddonApiController
         if ($hostingProduct) {
 
             if ($hostingProduct->billingcycle == 'Free Account') {
-                $free = true;
+                $free = false;
             }
 
             $json['domain'] = $host;
