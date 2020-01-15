@@ -159,13 +159,29 @@ function microweber_addon_output($vars)
 
 function microweber_addon_activate()
 {
-
-
+    try {
+        if (!Capsule::schema()->hasTable('mod_microweber_templates')) {
+            Capsule::schema()->create('mod_microweber_templates', function ($table) {
+                    $table->increments('id');
+                    $table->string('name');
+                    $table->string('demo_url');
+                    $table->string('screenshot_url');
+                    $table->timestamps();
+                }
+            );
+        }
+    } catch (\Exception $e) {
+        echo "Unable to create mod_microweber_templates: {$e->getMessage()}";
+    }
 }
 
 function microweber_addon_deactivate()
 {
-
+    try {
+        Capsule::schema()->dropIfExists('mod_microweber_templates');
+    } catch (\Exception $e) {
+        echo "Unable to drop table mod_microweber_templates: {$e->getMessage()}";
+    }
 }
 
 
