@@ -89,7 +89,8 @@
     <div class="main-whmcs-content">
         {if $templatefile == 'homepage'}
         {literal}
-            <script>window.location.replace(mw_site);</script>
+            <script src="https://takebesthosting.com/modules/addons/microweber_addon/order/embed.js?style=microweber.com&target=top" id="domain-search-iframe-js"></script>
+            <xxxxscript>window.location.replace(mw_site);</xxxxscript>
         {/literal}
             <section id="home-banner">
                 <div class="container text-center">

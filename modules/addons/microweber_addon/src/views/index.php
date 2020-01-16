@@ -117,7 +117,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                     if (!$get_template->preview_name || empty($get_template->preview_name)) {
                         $get_template->preview_name = $item['description'];
                     }
-                    ?> 
+                    ?>
 
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-4 js-template">
                         <div class="project">
