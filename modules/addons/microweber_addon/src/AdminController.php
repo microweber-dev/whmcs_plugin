@@ -32,14 +32,27 @@ class AdminController
     {
         if (isset($params['templates_settings'])) {
             foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
+
+                $template_enabled = 0;
+                if (isset($params['selected_templates']) and is_array($params['selected_templates'])) {
+                    if (in_array($templates_setting['target_dir'], $params['selected_templates'])) {
+                        $template_enabled = 1;
+                    }
+                }
+
                 Capsule::table('mod_microweber_templates')
                     ->where('id', $template_id)
                     ->update([
+                        'is_enabled'=> $template_enabled,
                         'updated_at'=>date('Y-m-d H:i:s'),
                         'name'=>$templates_setting['name'],
+                        'target_dir'=> $templates_setting['target_dir'],
+                        'git_package_name'=> $templates_setting['git_package_name'],
+                        'screenshot_url'=>$templates_setting['screenshot_url'],
+                        'homepage_url'=>$templates_setting['homepage_url'],
                         'preview_name'=>$templates_setting['preview_name'],
                         'preview_sort'=>$templates_setting['preview_sort'],
-                        'demo_url'=>$templates_setting['demo_url'],
+                        'demo_url'=>$templates_setting['demo_url']
                     ]);
             }
         }
@@ -62,10 +75,16 @@ class AdminController
                     if (!$data->id) {
                         Capsule::table('tblproductconfigoptionssub')->insert(array("optionname" => $item, 'configid' => $configoptionid, 'sortorder' => 0, 'hidden' => 0));
                         $config_option_id = Capsule::getPdo()->lastInsertId();
-
                     } else {
                         $config_option_id = $data->id;
                     }
+
+                    Capsule::table('mod_microweber_templates')
+                        ->where('target_dir', $item)
+                        ->update([
+                            'config_option_id'=> $config_option_id,
+                            'config_option_group_id'=> $configoptionid,
+                        ]);
 
                     $saved_config_ids[] = $config_option_id;
                 }

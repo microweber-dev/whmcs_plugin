@@ -1,7 +1,7 @@
 <?php
 $name = false;
-if (isset($template['name'])) {
-    $name = $template['name'];
+if (isset($template->git_package_name)) {
+    $name = $template->git_package_name;
 }
 
 $pid = '';

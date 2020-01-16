@@ -7,8 +7,6 @@ $settings = $manager->get_settings();
 $settings_render = $manager->config->get_settings_for_render();
 $hosting = $manager->hosting->get_hosting_products();
 $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simple');
-
-//dd($enabled_templates);
 ?>
 <script>
     $(document).ready(function () {
@@ -98,9 +96,9 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                         $screenshot = $item['extra']['_meta']['screenshot'];
                     }
 
-                    $get_template = get_template_by_name($item['description']);
+                    $get_template = get_template_by_git_package_name($item['name']);
                     if (!$get_template) {
-                        $get_template = insert_template_by_name($item['description']);
+                        $get_template = insert_template_by_git_package_name($item['name']);
                     }
 
                     if (!$get_template->preview_sort) {
@@ -111,7 +109,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-4 js-template">
                         <div class="project">
                             <figure class="img-responsive">
-                                <img src="<?php print $screenshot ?>">
+                                <img src="<?php echo $screenshot ?>">
                             </figure>
                             <span class="actions" style="height: 45px;">
                                  <span class="project-details">
@@ -125,7 +123,6 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                 </span>
                             </span>
                             <div style="margin-top:30px; display: none;" class="js-template-settings-<?php echo $get_template->id; ?>">
-
                                 Template name:
                                 <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_name]" value="<?php echo $get_template->preview_name; ?>" />
                                 <br />
@@ -136,6 +133,10 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                 <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_sort]" value="<?php echo $get_template->preview_sort; ?>" />
                                 <br />
                                 <br />
+                                <input type="hidden" name="templates_settings[<?php echo $get_template->id; ?>][homepage_url]" value="<?php echo $item['homepage']; ?>" />
+                                <input type="hidden" name="templates_settings[<?php echo $get_template->id; ?>][target_dir]" value="<?php echo $item['target-dir']; ?>" />
+                                <input type="hidden" name="templates_settings[<?php echo $get_template->id; ?>][git_package_name]" value="<?php echo $item['name']; ?>" />
+                                <input type="hidden" name="templates_settings[<?php echo $get_template->id; ?>][screenshot_url]" value="<?php echo $screenshot ?>" />
                                 <input type="hidden" name="templates_settings[<?php echo $get_template->id; ?>][name]" value="<?php echo $item['description']; ?>" />
                                 <input type="submit" class="btn btn-success btn-block" value="Save settings" />
                             </div>

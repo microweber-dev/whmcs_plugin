@@ -164,10 +164,16 @@ function microweber_addon_activate()
             Capsule::schema()->create('mod_microweber_templates', function ($table) {
                     $table->increments('id');
                     $table->string('name');
+                    $table->string('git_package_name');
+                    $table->string('target_dir');
                     $table->string('preview_name');
                     $table->integer('preview_sort');
                     $table->string('demo_url');
+                    $table->string('homepage_url');
                     $table->string('screenshot_url');
+                    $table->integer('config_option_id');
+                    $table->integer('config_option_group_id');
+                    $table->integer('is_enabled');
                     $table->timestamps();
                 }
             );
@@ -354,24 +360,30 @@ if (!function_exists('is_fqdn')) {
     }
 }
 
-function insert_template_by_name($name)
+function insert_template_by_git_package_name($name)
 {
     $insert = Capsule::table('mod_microweber_templates')
         ->insert([
-                'name' => $name,
+                'git_package_name' => $name,
                 'updated_at' => date('Y-m-d H:i:s'),
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
 
     if ($insert) {
-        return get_template_by_name($name);
+        return get_template_by_git_package_name($name);
     }
 }
 
-function get_template_by_name($name)
+function get_template_by_git_package_name($name)
 {
     return Capsule::table('mod_microweber_templates')
-        ->where('name', $name)
+        ->where('git_package_name', $name)
         ->first();
 }
 
+function get_enabled_templates()
+{
+    return Capsule::table('mod_microweber_templates')
+        ->where('is_enabled',1)
+        ->get();
+}
