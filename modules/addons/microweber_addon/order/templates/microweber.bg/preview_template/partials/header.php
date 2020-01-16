@@ -2,7 +2,7 @@
 <html prefix="og: http://ogp.me/ns#" lang="en">
 
 <head>
-    <title>Preview Template</title>
+    <title>Избиране на темплейт</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
