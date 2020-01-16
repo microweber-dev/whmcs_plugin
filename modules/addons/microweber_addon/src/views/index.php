@@ -104,7 +104,20 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                     if (!$get_template->preview_sort) {
                         $get_template->preview_sort =  $i;
                     }
-                    ?>
+
+
+                    $preview_url = 'http://microweber.com';
+                    if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['preview_url'])) {
+                        $preview_url = $template['latest_version']['extra']['preview_url'];
+                        $preview_url = str_replace('http://', 'https://', $preview_url);
+                    }
+                    if (!$get_template->preview_url || empty($get_template->preview_url)) {
+                        $get_template->preview_url = $preview_url;
+                    }
+                    if (!$get_template->preview_name || empty($get_template->preview_name)) {
+                        $get_template->preview_name = $item['description'];
+                    }
+                    ?> 
 
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-4 js-template">
                         <div class="project">
@@ -126,8 +139,8 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                 Template name:
                                 <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_name]" value="<?php echo $get_template->preview_name; ?>" />
                                 <br />
-                                Template demo:
-                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][demo_url]" value="<?php echo $get_template->demo_url; ?>" />
+                                Template preview:
+                                <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_url]" value="<?php echo $get_template->preview_url; ?>" />
                                 <br />
                                 Template sort:
                                 <input type="text" class="form-control" style="width: 100%" name="templates_settings[<?php echo $get_template->id; ?>][preview_sort]" value="<?php echo $get_template->preview_sort; ?>" />

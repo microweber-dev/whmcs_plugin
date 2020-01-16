@@ -6,8 +6,8 @@
 
     $homepage = 'https://microweber.com';
     $preview_url = 'https://microweber.com';
-    if (!empty($template->demo_url)) {
-        $preview_url = $template->demo_url;
+    if (!empty($template->preview_url)) {
+        $preview_url = $template->preview_url;
     }
     if (!empty($template->homepage_url)) {
         $homepage = $template->homepage_url;

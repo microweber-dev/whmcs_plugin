@@ -168,7 +168,7 @@ function microweber_addon_activate()
                     $table->string('target_dir');
                     $table->string('preview_name');
                     $table->integer('preview_sort');
-                    $table->string('demo_url');
+                    $table->string('preview_url');
                     $table->string('homepage_url');
                     $table->string('screenshot_url');
                     $table->integer('config_option_id');

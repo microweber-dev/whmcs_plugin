@@ -49,10 +49,10 @@ class AdminController
                         'target_dir'=> $templates_setting['target_dir'],
                         'git_package_name'=> $templates_setting['git_package_name'],
                         'screenshot_url'=>$templates_setting['screenshot_url'],
+                        'preview_url'=>$templates_setting['preview_url'],
                         'homepage_url'=>$templates_setting['homepage_url'],
                         'preview_name'=>$templates_setting['preview_name'],
-                        'preview_sort'=>$templates_setting['preview_sort'],
-                        'demo_url'=>$templates_setting['demo_url']
+                        'preview_sort'=>$templates_setting['preview_sort']
                     ]);
             }
         }
