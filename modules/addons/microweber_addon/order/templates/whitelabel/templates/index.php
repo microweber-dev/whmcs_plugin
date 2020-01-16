@@ -50,63 +50,23 @@
 
 </style>
 <?php
-//$templates = file_get_contents('https://microweber.org/api/market_json');
-//$templates = json_decode($templates, true);
-
-
-$hosting = new \MicroweberAddon\Hosting();
-
-$templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
-//dd($enabled_templates);
-//dd($enabled_templates);
-//$selected_templates =
-//dd($templates);
+$templates = get_enabled_templates();
 ?>
 <div class="templates">
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>Start with a prepared website</h1>
-                    <p>Your site is almost ready, change the content and you are done!</p>
-                </div>
+                <div class="col-md-12 text-center"><h1>Избери темплейт</h1></div>
             </div>
         <?php endif; ?>
 
         <div class="row">
             <?php if ($templates): ?>
                 <?php foreach ($templates as $template): ?>
+
                     <?php
-
-                    // print_r($template);
-
-                    $screenshot = '';
-                    if (isset($template) AND isset($template['extra']) AND isset($template['extra']['_meta']) AND isset($template['extra']['_meta']['screenshot'])) {
-                        $screenshot = $template['extra']['_meta']['screenshot'];
-                    }
-
-                    $description = '';
-                    if (isset($template['description'])) {
-                        $description = $template['description'];
-                    }
-
-                    $homepage = '';
-                    if (isset($template['homepage'])) {
-                        $homepage = $template['homepage'];
-                    }
-
-
-                    if (isset($template['configoption']) and isset($template['configoption']['id'])) {
-                        $template_id = $template['configoption']['id'];
-                    }
-                    if (isset($template['configoption']) and isset($template['configoption']['configid'])) {
-                        $config_gid = $template['configoption']['configid'];
-                    }
-
-
-                    //    print_r($template['configoption']);
-
-
+                    $template_id = $template->config_option_id;
+                    $config_gid = $template->config_option_group_id;
                     ?>
 
                     <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
@@ -117,12 +77,12 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
                             <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
                             <input type="hidden" value="true" name="template_view"/>
+
                             <a href="javascript:;" onclick="parentNode.submit();">
-                                <div class="template"
-                                     style="background-image: url('<?php print $screenshot; ?>');"></div>
-                                <h3><?php print $description; ?></h3>
-                                <!-- <p><?php print $description; ?></p>-->
+                                <div class="template" style="background-image: url('<?php echo $template->screenshot_url; ?>');"></div>
+                                <h3><?php echo $template->preview_name; ?></h3>
                             </a>
+
                         </form>
                     </div>
                 <?php endforeach; ?>
@@ -131,17 +91,9 @@ $templates = $hosting->get_enabled_market_templates('only_with_screenshots=1');
     </div>
 </div>
 
-
 <script>
     $(document).ready(function () {
-
         scroll_iframe_to_parent();
-        // if(typeof(iframe) != 'undefined'){
-        // iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-        // }
-
     });
-
 </script>
-
 <?php include 'partials/footer.php'; ?>
