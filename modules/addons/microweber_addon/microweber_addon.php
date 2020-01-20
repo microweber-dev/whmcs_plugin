@@ -13,7 +13,7 @@ define("CLIENTAREA", true);
 
 include "includes/clientfunctions.php";
 
-
+include_once __DIR__ . DIRECTORY_SEPARATOR . 'base62_functions.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonApiController.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonDomainSearch.php';

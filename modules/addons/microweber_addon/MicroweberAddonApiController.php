@@ -636,8 +636,8 @@ h.domain = '" . $username . "' and
 //            $url .= "?username=" . $user_prod['username'];
 //            $url .= "&password=" . $user_prod['password'];
 
-                    $url .= "?username_encoded=" . base64_encode($user_prod['username']);
-                    $url .= "&password_encoded=" . base64_encode($user_prod['password']);
+                    $url .= "?username_encoded=" . base62_encode($user_prod['username']);
+                    $url .= "&password_encoded=" . base62_encode($user_prod['password']);
 
                     if (isset($params['live_edit'])) {
                         $url .= "&redirect=" . "http://" . $user_prod['domain'] . "/?editmode=y";
