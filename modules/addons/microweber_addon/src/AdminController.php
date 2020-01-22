@@ -134,6 +134,7 @@ class AdminController
         print 'Settings are saved';
         // print_r($params);
 
+        header('Location: addonmodules.php?module=microweber_addon');
     }
 
 }

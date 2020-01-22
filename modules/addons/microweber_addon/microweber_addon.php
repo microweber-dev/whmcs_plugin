@@ -385,5 +385,6 @@ function get_enabled_templates()
 {
     return Capsule::table('mod_microweber_templates')
         ->where('is_enabled',1)
+        ->orderBy('preview_sort')
         ->get();
 }
