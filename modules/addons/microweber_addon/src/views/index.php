@@ -168,7 +168,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                                value="<?php print $item['target-dir'] ?>">
                                        <strong><?php echo $item['description']; ?></strong>
                                    </label>
-                                     <b onclick="openTemplateSettings(<?php echo $get_template->id; ?>);" 
+                                     <b onclick="openTemplateSettings(<?php echo $get_template->id; ?>);"
                                         style="float:right;">Settings</b>
                                   </div>
                                 </span>
