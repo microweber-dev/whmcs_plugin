@@ -632,21 +632,28 @@ h.domain = '" . $username . "' and
             }
             if (isset($user_prod['username'])) {
                 if (isset($user_prod['password'])) {
-                    $url = "http://" . $user_prod['domain'] . "/api/user_login";
-//            $url .= "?username=" . $user_prod['username'];
-//            $url .= "&password=" . $user_prod['password'];
-
-                    $url .= "?username_encoded=" . base62_encode($user_prod['username']);
-                    $url .= "&password_encoded=" . base62_encode($user_prod['password']);
 
                     if (isset($params['live_edit'])) {
-                        $url .= "&redirect=" . "http://" . $user_prod['domain'] . "/?editmode=y";
+                        $redirectTo = "http://" . $user_prod['domain'] . "/?editmode=y";
                     } else {
-                        $url .= "&redirect=" . "http://" . $user_prod['domain'] . "/admin/view:content";
+                        $redirectTo = "http://" . $user_prod['domain'] . "/admin/view:content";
                     }
-                    $url .= "&redirect=" . "http://" . $user_prod['domain'] . "/?editmode=y";
 
-                    header("Location: " . $url);
+                    echo '<form id="loginToMicroweber" method="post" action="http://'.$user_prod['domain'].'/api/user_login">';
+
+                    echo '<input type="hidden" value="'.$user_prod['username'].'" name="username" />';
+                    echo '<input type="hidden" value="'.$user_prod['password'].'" name="password" />';
+                    echo '<input type="hidden" value="'.$redirectTo.'" name="redirect" />';
+
+                    echo '<input type="submit" value="Login to Microweber Admin...">';
+
+                    echo '
+                        <script type="text/javascript">
+                        document.forms["loginToMicroweber"].submit();
+                      </script>
+                    ';
+
+                    echo '</form>';
                     exit;
                 }
             }
