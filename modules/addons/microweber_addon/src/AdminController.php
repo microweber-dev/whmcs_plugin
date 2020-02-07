@@ -30,6 +30,8 @@ class AdminController
 
     public function save($params)
     {
+
+
         if (isset($params['templates_settings'])) {
             foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
 
@@ -61,6 +63,14 @@ class AdminController
 
         $configoptionid = $hosting->configoptionid_for_templates();
         //dd($configoptionid);
+
+        Capsule::table('tblproductconfiglinks')->where('gid', $configoptionid)->delete();
+        if (isset($params['selected_hosting_plans'])) {
+            foreach ($params['selected_hosting_plans'] as $selected_hosting_plan) {
+                Capsule::table('tblproductconfiglinks')
+                    ->insert(['gid' => $configoptionid, 'pid' => $selected_hosting_plan]);
+            }
+        }
 
         if (isset($params['selected_templates']) and is_array($params['selected_templates'])) {
             $to_save = array_filter($params['selected_templates']);

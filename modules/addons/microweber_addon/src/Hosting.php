@@ -18,16 +18,12 @@ class Hosting
 
         $params = parse_params($params);
 
-
         $return_mode = 'all';
-
-        $gid = $this->__get_config_option_gid_for_templates();
-
 
         $productconfiglinks = Capsule::table('tblproductconfiglinks')->get();
         if ($productconfiglinks) {
-            $productconfiglinks = collect($productconfiglinks)->map(function ($x) {
-                return (array)$x;
+            $productconfiglinks = collect($productconfiglinks)->map(function ($item) {
+                return (array)$item;
             })->toArray();
         }
 
@@ -40,12 +36,9 @@ class Hosting
             ->orderBy('order', 'ASC')
             ->get();
 
-        $host_acc = collect($host_acc)->map(function ($x) {
-            return (array)$x;
+        $config_data = collect($host_acc)->map(function ($item) {
+            return (array) $item;
         })->toArray();
-
-
-        $config_data = $host_acc;
 
 
         $return = array();
