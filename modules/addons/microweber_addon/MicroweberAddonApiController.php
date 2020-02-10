@@ -155,6 +155,40 @@ class MicroweberAddonApiController
         exit;
     }
 
+    public function validate_license($request)
+    {
+        $json = [];
+        $licenseKey = false;
+        if (isset($request['license_key']) && !empty($request['license_key'])) {
+            $licenseKey = $request['license_key'];
+        }
+
+        if ($licenseKey) {
+
+            $checkLicense = Capsule::table('mod_licensing')->where('licensekey', $licenseKey)->first();
+            if ($checkLicense) {
+                if($checkLicense->status == 'Active' || $checkLicense->status == 'Reissued') {
+                    $checkHosting = Capsule::table('tblhosting')->where('id', $checkLicense->serviceid)->first();
+                    $json['license_id'] = $checkLicense->id;
+                    $json['service_id'] = $checkHosting->id;
+                    $json['status'] = 'success';
+                } else {
+                    $json['message'] = 'License not active.';
+                    $json['status'] = 'failed';
+                }
+            } else {
+                $json['message'] = 'License not found.';
+                $json['status'] = 'failed';
+            }
+        } else {
+            $json['message'] = 'Missing parameter.';
+            $json['status'] = 'failed';
+        }
+
+        echo json_encode($json, JSON_PRETTY_PRINT);
+        exit;
+    }
+
     public function validate_login($request)
     {
 
