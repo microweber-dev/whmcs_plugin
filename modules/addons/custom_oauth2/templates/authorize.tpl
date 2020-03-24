@@ -1,1 +1,0 @@
-<p>An error occurred while logging in: {$error}</p>

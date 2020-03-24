@@ -1,0 +1,1 @@
+If you need custom auth module, you can use this one https://github.com/microweber-dev/whmcs_custom_oauth2
