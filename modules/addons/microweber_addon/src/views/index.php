@@ -109,6 +109,11 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                     $(this).find('input').prop("checked", false);
                                 })
                             })
+
+
+
+                            // $('.js-templates .form-control').off("click");
+
                         })
                     </script>
                     <div class="pull-right" style="height: 50px;">
@@ -168,7 +173,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                                value="<?php print $item['target-dir'] ?>">
                                        <strong><?php echo $item['description']; ?></strong>
                                    </label>
-                                     <button class="btn btn-sm" onclick="openTemplateSettings(<?php echo $get_template->id; ?>);"
+                                     <button class="btn btn-sm" type="button" onclick="openTemplateSettings(<?php echo $get_template->id; ?>);"
                                         style="position:sticky;float:right;color:#000;padding:2px;font-size:12px;width: 130px">Settings</button>
                                   </div>
                                 </span>
