@@ -35,48 +35,50 @@ use WHMCS\Database\Capsule;
  */
 
 
-function get_website_login_by_orderid($order_id) {
-	
-	$getOrder = Capsule::table('tblhosting')->where('orderid','=',$order_id)->first();
-	
-	return get_website_redirect_url($getOrder->domain);
-	
+function get_website_login_by_orderid($order_id)
+{
+
+    $getOrder = Capsule::table('tblhosting')->where('orderid', '=', $order_id)->first();
+
+    return get_website_redirect_url($getOrder->domain);
+
 }
 
-function get_website_redirect_url($domain) {
-	
-	global  $CONFIG;
-	$whmcsurl = $CONFIG['SystemURL'];
-	
-	return $whmcsurl .'/index.php?m=microweber_addon&function=go_to_product&domain='.$domain;
+function get_website_redirect_url($domain)
+{
+
+    global $CONFIG;
+    $whmcsurl = $CONFIG['SystemURL'];
+
+    return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
 }
 
 
 add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
-	
-	if (is_null($service)) {
-		return '';
-	}
 
-	$productId = $service['service']->id;
-	$orderId = $service['service']->orderId;
-	$domain = $service['service']->domain;
+    if (is_null($service)) {
+        return '';
+    }
 
-	if (! $domain) {
-		return;
-	}
+    $productId = $service['service']->id;
+    $orderId = $service['service']->orderId;
+    $domain = $service['service']->domain;
+
+    if (!$domain) {
+        return;
+    }
 
     $redirect_url = false;
-	$serverId = false;
-	if (isset($service['service']->server)) {
-	    $serverId = $service['service']->server;
+    $serverId = false;
+    if (isset($service['service']->server)) {
+        $serverId = $service['service']->server;
     }
 
     $get_server = Capsule::table('tblservers')
         ->where('id', $serverId)->first();
 
     if (isset($get_server->type) && $get_server->type == 'microweber_cloudconnect') {
-        $redirect_url = '/clientarea.php?action=productdetails&id='.$productId.'&dosinglesignon=1';
+        $redirect_url = '/clientarea.php?action=productdetails&id=' . $productId . '&dosinglesignon=1';
     } else if ($get_server) {
         $redirect_url = get_website_redirect_url($domain);
     }
@@ -127,9 +129,7 @@ add_hook('serviceView', 1, function ($secondarySidebar) {
 add_hook('AddonConfigSave', 1, function ($params) {
 
 
-
-
-   // dd($params);
+    // dd($params);
 
     //dd($secondarySidebar);
     // Add a panel to the end of the secondary sidebar for social media links.
@@ -143,9 +143,6 @@ add_hook('AddonConfigSave', 1, function ($params) {
 
 
 });
-
-
-
 
 
 add_hook('AddonConfig', 1, function ($vars) {
@@ -180,8 +177,49 @@ add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar) {
 });
 
 
-
-add_hook('DailyCronJob', 1, function($vars) {
+add_hook('DailyCronJob', 1, function ($vars) {
     $report = new \MicroweberAddon\UsageReport();
     $report->send();
 });
+
+
+/**
+ * Hook sample for defining additional template variables
+ *
+ * @param array $vars Existing defined template variables
+ *
+ * @return array
+ */
+function hook_template_variables_mw_template_config_option($vars)
+{
+    $show_template_script = false;
+    if (isset($vars['SCRIPT_NAME']) and strpos($vars['SCRIPT_NAME'], 'cart.php')) {
+        if (isset($vars['configurableoptions']) and !empty($vars['configurableoptions'])) {
+            foreach ($vars['configurableoptions'] as $item) {
+                if (isset($item['optionname']) and strtolower($item['optionname']) == 'template') {
+                    $show_template_script = true;
+                }
+            }
+        }
+       
+    }
+    if ($show_template_script) {
+
+
+        global $CONFIG;
+
+
+
+        $extraTemplateVariables = array();
+
+
+        $whmcsurl_script = $CONFIG['SystemURL']. '/modules/addons/microweber_addon/order/cart_configoptions.js';
+        $html ='<script src="'.$whmcsurl_script.'" defer></script>';
+        $extraTemplateVariables['template_config_option_script'] = $html;
+        $extraTemplateVariables['template_config_option_script'] = 'asdasdasdasdas';
+        return $extraTemplateVariables;
+    }
+
+}
+
+add_hook('ClientAreaPageCart', 1, 'hook_template_variables_mw_template_config_option');

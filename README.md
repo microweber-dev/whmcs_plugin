@@ -48,6 +48,23 @@ If you wish to edit the order process and customize the designs, you can do it i
 3. Open the file `templates/mw-sitebuilder/header.tpl` and change the embed code parameter of the style attribute for. For example `<script src="{$WEB_ROOT}/modules/addons/microweber_addon/order/embed.js?style=whitelabel&target=top"></script>` will become  or example `<script src="{$WEB_ROOT}/modules/addons/microweber_addon/order/embed.js?style=mybrand&target=top"></script>`
 4. Edit your text and style on your order forms from the folder `modules/addons/microweber_addon/order/mybrand`
 
+## To use template selector on your custom cart orderforms
+
+
+If you wish to edit use your own cart template you need to add thole lines on your file `configureproduct.tpl`
+
+For example open this file `/members/templates/orderforms/modern/configureproduct.tpl` and add
+
+
+```
+{if $template_config_option_script}
+{$template_config_option_script}
+{/if}
+```
+
+     
+
+
 
 # Troubleshooting 
 

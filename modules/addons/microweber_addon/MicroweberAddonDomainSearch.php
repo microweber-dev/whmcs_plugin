@@ -138,6 +138,12 @@ class MicroweberAddonDomainSearch
 
 
         if ($try_exts) {
+
+            if(count($try_exts) > 3){
+                $try_exts = array_slice($try_exts, 0,3);    // limit to 10 exts
+
+            }
+
             foreach ($try_exts as $available_domain_extension) {
                 $available_domain_extension1 = ltrim($available_domain_extension, '.');
                 $search_dom = $host . '.' . $available_domain_extension1;
@@ -153,6 +159,9 @@ class MicroweberAddonDomainSearch
                             'domain' => $search_dom,
                         );
                         $results = localAPI($command, $postData);
+
+
+
                         if (isset($results['result']) and $results['result'] == 'success') {
                             $tld_data = $available_domain_extensions[$available_domain_extension];
 
@@ -174,15 +183,15 @@ class MicroweberAddonDomainSearch
             }
         }
 
-
+      //  dd($domain_results);
         $lookupProvider = \WHMCS\Domains\DomainLookup\Provider::factory();
         // $domain = \WHMCS\Input\Sanitize::decode($domain);
         // $domain = (\WHMCS\Config\Setting::getValue("AllowIDNDomains") ? mb_strtolower($domain) : strtolower($domain));
         //   $domain = str_replace(array( "'", "+", ",", "|", "!", "\\", "\"", "£", "\$", "%", "&", "/", "(", ")", "=", "?", "^", "*", " ", "°", "§", ";", ":", "_", "<", ">", "]", "[", "@", ")" ), "", $domain);
         $domain = new \WHMCS\Domains\Domain($domain);
 
-        $searchResult = $lookupProvider->getSuggestions($domain);
-        $searchResult2 = $lookupProvider->checkAvailability($domain, getSpotlightTlds());
+//        $searchResult = $lookupProvider->getSuggestions($domain);
+//        $searchResult2 = $lookupProvider->checkAvailability($domain, getSpotlightTlds());
 
 
 //        $domain_results = array_reverse($domain_results);
