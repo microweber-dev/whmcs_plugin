@@ -35,7 +35,7 @@ if (isset($_GET['plan'])) {
 
 $step = 0;
 
-$configoptionGID = $hosting->get_gid_for_templates();
+$configoptionGID = $hosting->get_config_option_gid_for_templates();
 
 $templateID = 1;
 

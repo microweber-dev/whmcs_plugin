@@ -11,7 +11,6 @@ class AdminController
 
     public function index($params)
     {
-
         global $CONFIG;
 
         $manager = new \MicroweberAddon\Manager;
@@ -24,14 +23,11 @@ class AdminController
         $view->assign('manager', $manager);
         $view->assign('config', $CONFIG);
 
-
         return $view->display();
     }
 
     public function save($params)
     {
-
-
         if (isset($params['templates_settings'])) {
             foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
 
@@ -60,9 +56,7 @@ class AdminController
         }
 
         $hosting = new \MicroweberAddon\Hosting();
-
         $configoptionid = $hosting->configoptionid_for_templates();
-        //dd($configoptionid);
 
         Capsule::table('tblproductconfiglinks')->where('gid', $configoptionid)->delete();
         if (isset($params['selected_hosting_plans'])) {

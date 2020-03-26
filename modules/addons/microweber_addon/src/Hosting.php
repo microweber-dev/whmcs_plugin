@@ -224,19 +224,18 @@ class Hosting
 
     public function configoptionid_for_templates()
     {
+        $gid = $this->get_config_option_gid_for_templates();
+        $data = Capsule::table('tblproductconfigoptions')->where(['optionname' => $this->config_option_name, 'gid'=>$gid])->first();
 
+        if (!$data) {
 
-        $data = Capsule::table('tblproductconfigoptions')->where(['optionname' => $this->config_option_name])->first();
+            $gid = $this->get_config_option_gid_for_templates();
 
-
-        if (!isset($data->id)) {
-			Capsule::table('tblproductconfigoptions')->insert(['optionname' => $this->config_option_name, 'optiontype'=> 1]);
-			$data = Capsule::table('tblproductconfigoptions')->where(['optionname' => $this->config_option_name])->first();
-			
-			Capsule::table('tblproductconfigoptions')->where(['id' => $data->id])->update(['gid' => $data->id]);
+			Capsule::table('tblproductconfigoptions')->insert(['optionname' => $this->config_option_name, 'gid'=>$gid, 'optiontype'=> 1]);
+			$data = Capsule::table('tblproductconfigoptions')->where(['optionname' => $this->config_option_name, 'gid'=>$gid])->first();
 		}
 
-		if (isset($data->id)) {
+		if ($data) {
 			return $data->id; 
 		}
 		
@@ -244,25 +243,14 @@ class Hosting
 
     }
 
-
-    public function get_gid_for_templates()
-    {
-
-        return $this->__get_config_option_gid_for_templates();
-    }
-
-
-    private function __get_config_option_gid_for_templates()
+    public function get_config_option_gid_for_templates()
     {
 
         $data = Capsule::table('tblproductconfiggroups')->where(['name' => $this->config_option_name])->first();
         if (!isset($data->id)) {
             Capsule::table('tblproductconfiggroups')->insert(array("name" => $this->config_option_name));
-          //  Capsule::table('tblproductconfiggroups')->insert(array("name" => $this->config_option_name, 'optiontype' => 1));
             $data = Capsule::table('tblproductconfiggroups')->where(['name' => $this->config_option_name])->first();
-
         }
-
 
         //dd($data);
         if (isset($data->id)) {
@@ -273,7 +261,7 @@ class Hosting
     private function __get_config_option_id_for_templates($gid, $template_name)
     {
 
-        $gid = $this->__get_config_option_gid_for_templates();
+        $gid = $this->get_config_option_gid_for_templates();
 
         $data = Capsule::table('tblproductconfigoptionssub')->where(['optionname' => $template_name, 'gid' => $gid])->first();
 
