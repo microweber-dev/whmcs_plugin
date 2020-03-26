@@ -34,7 +34,7 @@ class Hosting
             ->where('showdomainoptions', 1)
             ->where('type', 'hostingaccount')
             ->orderBy('order', 'ASC')
-            ->get();
+            ->get(); 
 
         $config_data = collect($host_acc)->map(function ($item) {
             return (array) $item;

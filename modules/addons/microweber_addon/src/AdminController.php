@@ -57,12 +57,13 @@ class AdminController
 
         $hosting = new \MicroweberAddon\Hosting();
         $configoptionid = $hosting->configoptionid_for_templates();
+        $configoption_gid = $hosting->get_config_option_gid_for_templates();
 
-        Capsule::table('tblproductconfiglinks')->where('gid', $configoptionid)->delete();
+        Capsule::table('tblproductconfiglinks')->where('gid', $configoption_gid)->delete();
         if (isset($params['selected_hosting_plans'])) {
             foreach ($params['selected_hosting_plans'] as $selected_hosting_plan) {
                 Capsule::table('tblproductconfiglinks')
-                    ->insert(['gid' => $configoptionid, 'pid' => $selected_hosting_plan]);
+                    ->insert(['gid' => $configoption_gid, 'pid' => $selected_hosting_plan]);
             }
         }
 
