@@ -6,7 +6,9 @@ $(document).ready(function () {
         if (mw_templates_config_option_id_element && mw_templates_config_option_id_element.length) {
 
 
-            var html = '<div class="row mw-configoption-template-select-holder">';
+            var html = '<div class="sub-heading">' +
+                '                            <span>Select Template</span>\n' +
+                '                        </div><div class="row mw-configoption-template-select-holder">';
             var mw_templates_config_option_id_form_item_name = 'configoption['+window.mw_templates_config_option_id+']';
             var mw_templates_config_option_selected_val = mw_templates_config_option_id_element[0].value;
 
