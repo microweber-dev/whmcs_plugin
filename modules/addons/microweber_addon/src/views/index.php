@@ -156,13 +156,17 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                         if (!$get_template->preview_name || empty($get_template->preview_name)) {
                             $get_template->preview_name = $item['description'];
                         }
+
+                        if (empty($get_template->screenshot_url)) {
+                            $get_template->screenshot_url = $screenshot;
+                        }
                         ?>
 
                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-4 js-template"
                              data-template-id="<?php echo $get_template->id; ?>">
                             <div class="project">
                                 <figure class="img-responsive ">
-                                    <img src="<?php echo $screenshot ?>" <?php if (in_array($item['target-dir'], $enabled_templates)): ?> <?php  else: ?> style="opacity:0.3" <?php endif; ?>>
+                                    <img src="<?php echo $get_template->screenshot_url ?>" <?php if (in_array($item['target-dir'], $enabled_templates)): ?> <?php  else: ?> style="opacity:0.3" <?php endif; ?>>
                                 </figure>
                                 <span class="actions" style="height: 45px;">
                                  <span class="project-details">
@@ -190,6 +194,11 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                            name="templates_settings[<?php echo $get_template->id; ?>][preview_url]"
                                            value="<?php echo $get_template->preview_url; ?>"/>
                                     <br/>
+                                    Template screenshot:
+                                    <input type="text" class="form-control" style="width: 100%"
+                                           name="templates_settings[<?php echo $get_template->id; ?>][screenshot_url]"
+                                           value="<?php echo $get_template->screenshot_url; ?>"/>
+                                    <br/>
 
                                     <div style="padding-bottom: 10px;">
                                     Template sort:
@@ -207,9 +216,9 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][git_package_name]"
                                            value="<?php echo $item['name']; ?>"/>
-                                    <input type="hidden"
-                                           name="templates_settings[<?php echo $get_template->id; ?>][screenshot_url]"
-                                           value="<?php echo $screenshot ?>"/>
+                                  <!--  <input type="hidden"
+                                           name="templates_settings[<?php /*echo $get_template->id; */?>][screenshot_url]"
+                                           value="<?php /*echo $screenshot */?>"/>-->
                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][name]"
                                            value="<?php echo $item['description']; ?>"/>
