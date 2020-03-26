@@ -197,26 +197,39 @@ function hook_template_variables_mw_template_config_option($vars)
         if (isset($vars['configurableoptions']) and !empty($vars['configurableoptions'])) {
             foreach ($vars['configurableoptions'] as $item) {
                 if (isset($item['optionname']) and strtolower($item['optionname']) == 'template') {
-                    $show_template_script = true;
+                    $show_template_script = $item;
                 }
             }
         }
-       
+
     }
-    if ($show_template_script) {
+     if ($show_template_script) {
 
 
         global $CONFIG;
-
-
+        $html = '';
 
         $extraTemplateVariables = array();
 
+        $templates_db = \WHMCS\Database\Capsule::table('mod_microweber_templates')
+            ->where('is_enabled', 1)
+            ->orderBy('preview_sort')
+            ->get();
 
-        $whmcsurl_script = $CONFIG['SystemURL']. '/modules/addons/microweber_addon/order/cart_configoptions.js';
-        $html ='<script src="'.$whmcsurl_script.'" defer></script>';
+
+
+        $html .= "\n\n";
+        if ($templates_db) {
+            $html .= '<script>
+                window.mw_templates = ' . json_encode($templates_db) . ';
+                window.mw_templates_config_option_id = ' .$show_template_script['id'] . ';
+                 </script>';
+
+            $html .= "\n\n";
+        }
+        $whmcsurl_script = $CONFIG['SystemURL'] . '/modules/addons/microweber_addon/order/cart_configoptions.js';
+        $html .= '<script src="' . $whmcsurl_script . '"></script>';
         $extraTemplateVariables['template_config_option_script'] = $html;
-        $extraTemplateVariables['template_config_option_script'] = 'asdasdasdasdas';
         return $extraTemplateVariables;
     }
 
