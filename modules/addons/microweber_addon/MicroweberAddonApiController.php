@@ -667,13 +667,19 @@ h.domain = '" . $username . "' and
             if (isset($user_prod['username'])) {
                 if (isset($user_prod['password'])) {
 
-                    if (isset($params['live_edit'])) {
-                        $redirectTo = "http://" . $user_prod['domain'] . "/?editmode=y";
-                    } else {
-                        $redirectTo = "http://" . $user_prod['domain'] . "/admin/view:content";
+                    $http_code = 'http://';
+                    $support_ssl = $this->check_ssl_verify_domain($user_prod['domain']);
+                    if ($support_ssl) {
+                        $http_code = 'https://';
                     }
 
-                    echo '<form id="loginToMicroweber" method="post" action="http://'.$user_prod['domain'].'/api/user_login">';
+                    if (isset($params['live_edit'])) {
+                        $redirectTo = $http_code . $user_prod['domain'] . "/?editmode=y";
+                    } else {
+                        $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
+                    }
+
+                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login">';
 
                     echo '<input type="hidden" value="'.$user_prod['username'].'" name="username" />';
                     echo '<input type="hidden" value="'.$user_prod['password'].'" name="password" />';
@@ -696,6 +702,36 @@ h.domain = '" . $username . "' and
         }
 
         return;
+    }
+
+    public function check_ssl_verify_domain($domain)
+    {
+        $log = '';
+        if($fp = tmpfile())
+        {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"https://" . $domain);
+            curl_setopt($ch, CURLOPT_STDERR, $fp);
+            curl_setopt($ch, CURLOPT_CERTINFO, 1);
+            curl_setopt($ch, CURLOPT_VERBOSE, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_NOBODY, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
+            $result = curl_exec($ch);
+            curl_errno($ch)==0 or die("Error:".curl_errno($ch)." ".curl_error($ch));
+            fseek($fp, 0);//rewind
+            $str='';
+            while(strlen($str.=fread($fp,8192))==8192);
+            $log .=  $str;
+            fclose($fp);
+        }
+
+        if (strpos($log, 'SSL certificate verify ok') !== false) {
+            return true;
+        }
+
+        return false;
     }
 
 
