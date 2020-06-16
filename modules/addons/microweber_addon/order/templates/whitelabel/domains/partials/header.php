@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
-
+<?php require(__DIR__ . '/../../config.php'); ?>
 <head>
     <title>Order</title>
     <meta charset="utf-8"/>
@@ -16,10 +16,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
 
-    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/domains/assets/css/typography.css" rel="stylesheet"/>
+    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/<?php echo $template_config['folder_name']; ?>/domains/assets/css/typography.css" rel="stylesheet"/>
     <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/domains/assets/css/main.css" class="css-main" rel="stylesheet"/>
-    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/domains/assets/css/custom.css" rel="stylesheet"/>
+    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/<?php echo $template_config['folder_name']; ?>/domains/assets/css/main.css" class="css-main" rel="stylesheet"/>
+    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/<?php echo $template_config['folder_name']; ?>/domains/assets/css/custom.css" rel="stylesheet"/>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

@@ -34,8 +34,8 @@ $plans = $controller->get_hosting_products();
                 <div class="container">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <p class="m-b-0">Можете да си направите сайт, он-лайн магазин или блог напълно безплатно с сайт билдъра на <?php echo $CONFIG['CompanyName']; ?>. <br/>Подаряваме ти и безплатен хостинг за него до 1000 mb дисково пространство, спонсорирано от Нетера.<br/><br/></p>
-<!--                            <p>Започни още сега с абсолютно безплатния ни план!</p>-->
+                            <p class="m-b-0">Можете да си направите сайт, он-лайн магазин или блог напълно безплатно с сайт билдъра на <?php echo $CONFIG['CompanyName']; ?>. <br/>Подаряваме ти и безплатен хостинг за него до 1000 mb дисково пространство.<br/><br/></p>
+                            <!--                            <p>Започни още сега с абсолютно безплатния ни план!</p>-->
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ $plans = $controller->get_hosting_products();
                                     <h2>Наеми си сървър,<br/> подходящ за<br/> онлайн търговци.</h2>
                                 <?php endif; ?>
                                 <?php if ($key == 0): ?>
-                                    <div class="m-t-50 support-by">
+                                    <div class="m-t-50 support-by" style="display: none;">
                                         <p>С подкрепата на: &nbsp; <a href="https://neterra.net/bg" target="_blank"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png" alt=""/></a></p>
                                     </div>
                                 <?php endif; ?>
@@ -111,9 +111,11 @@ $plans = $controller->get_hosting_products();
                                     <br/>
 
                                     <?php if ($key == 0): ?>
-                                        <a href="https://neterra.net/bg" target="_blank"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png"/></a>
-                                        <br/>
-                                        <br/>
+                                        <div style="display: none;">
+                                            <a href="https://neterra.net/bg" target="_blank"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png"/></a>
+                                            <br/>
+                                            <br/>
+                                        </div>
                                     <?php endif; ?>
 
                                     <?php echo $plan['description']; ?>

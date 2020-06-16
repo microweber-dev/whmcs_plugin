@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
-
+<?php require(__DIR__ . '/../../config.php'); ?>
 <head>
     <title>Order</title>
     <meta charset="utf-8"/>
@@ -18,8 +18,8 @@
 
     <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.com/plans/assets/css/typography.css" rel="stylesheet"/>
     <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/plans/assets/css/main.css" rel="stylesheet"/>
-    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/whitelabel/plans/assets/css/custom.css" rel="stylesheet"/>
+    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/<?php echo $template_config['folder_name']; ?>/plans/assets/css/main.css" rel="stylesheet"/>
+    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/<?php echo $template_config['folder_name']; ?>/plans/assets/css/custom.css" rel="stylesheet"/>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
-
+<?php require(__DIR__ . '/../../config.php'); ?>
 <head>
     <title>Preview Template</title>
     <meta charset="utf-8"/>
