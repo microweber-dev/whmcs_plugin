@@ -721,7 +721,9 @@ h.domain = '" . $username . "' and
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
             $result = curl_exec($ch);
-            curl_errno($ch)==0 or die("Error:".curl_errno($ch)." ".curl_error($ch));
+            if (curl_errno($ch)==0) {
+                return false;
+            }
             fseek($fp, 0);//rewind
             $str='';
             while(strlen($str.=fread($fp,8192))==8192);
