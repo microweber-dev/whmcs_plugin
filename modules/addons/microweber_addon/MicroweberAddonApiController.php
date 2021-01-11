@@ -680,7 +680,7 @@ h.domain = '" . $username . "' and
                         $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
                     }
 
-                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user/login?http_redirect=1">';
+                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user/login?http_redirect=1&where_to=admin_content">';
 
                     echo '<input type="hidden" value="'.$user_prod['username'].'" name="username" />';
                     echo '<input type="hidden" value="'.$user_prod['password'].'" name="password" />';
