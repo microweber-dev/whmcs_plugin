@@ -245,7 +245,6 @@ class Hosting
 
     public function get_config_option_gid_for_templates()
     {
-
         $data = Capsule::table('tblproductconfiggroups')->where(['name' => $this->config_option_name])->first();
         if (!isset($data->id)) {
             Capsule::table('tblproductconfiggroups')->insert(array("name" => $this->config_option_name));

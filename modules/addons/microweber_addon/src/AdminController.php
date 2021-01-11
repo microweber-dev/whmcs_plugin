@@ -28,7 +28,13 @@ class AdminController
 
     public function save($params)
     {
+
         if (isset($params['templates_settings'])) {
+
+            Capsule::table('mod_microweber_templates')->update([
+                'is_enabled' =>0
+            ]);
+
             foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
 
                 $template_enabled = 0;
@@ -37,6 +43,7 @@ class AdminController
                         $template_enabled = 1;
                     }
                 }
+
 
                 Capsule::table('mod_microweber_templates')
                     ->where('id', $template_id)
