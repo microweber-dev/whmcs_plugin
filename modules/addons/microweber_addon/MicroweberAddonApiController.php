@@ -667,6 +667,7 @@ h.domain = '" . $username . "' and
             if (isset($user_prod['username'])) {
                 if (isset($user_prod['password'])) {
 
+
                     $http_code = 'http://';
                     $support_ssl = $this->check_ssl_verify_domain($user_prod['domain']);
                     if ($support_ssl) {
@@ -679,7 +680,7 @@ h.domain = '" . $username . "' and
                         $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
                     }
 
-                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login">';
+                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login?redirect=/">';
 
                     echo '<input type="hidden" value="'.$user_prod['username'].'" name="username" />';
                     echo '<input type="hidden" value="'.$user_prod['password'].'" name="password" />';
@@ -716,6 +717,7 @@ h.domain = '" . $username . "' and
             curl_setopt($ch, CURLOPT_VERBOSE, 1);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_NOBODY, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
             $result = curl_exec($ch);
