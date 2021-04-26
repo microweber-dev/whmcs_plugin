@@ -1,3 +1,11 @@
+
+ {if !$loggedin && $custom_oauth2_login_url}
+    <script>
+           window.location.href = "{$custom_oauth2_login_url}";
+    </script>
+{/if}
+
+
 <section class="section p-t-200 p-b-200" style="background: #f6fafb;">
     <div class="container">
         <div class="row">
