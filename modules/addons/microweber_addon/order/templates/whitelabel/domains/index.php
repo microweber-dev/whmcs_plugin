@@ -469,8 +469,27 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
 
+
+                        <?php
+                        $whitelabelSettings = [];
+                        if (function_exists('get_whitelabel_settings')) {
+                            $whitelabelSettings = get_whitelabel_settings();
+                        }
+
+                        var_dump($whitelabelSettings);
+                        ?>
+
                         <div class="input-holder">
-                            <button class="subdomain-holder js-search-domains" type="submit"><span class="text-primary">.</span>virtua<span class="text-primary">.click</span></button>
+                            <?php
+                            if (isset($whitelabelSettings['free_subdomains'])):
+                                $freeDomains = explode(',', $whitelabelSettings['free_subdomains']);
+                            ?>
+                            <button class="subdomain-holder js-search-domains" type="submit">
+                                <span class="text-primary">.</span>virtua<span class="text-primary"><?php echo $freeDomains[0]; ?></span>
+                            </button>
+                            <?php
+                            endif;
+                            ?>
                             <input type="text" name="domain" placeholder="Type the name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 
