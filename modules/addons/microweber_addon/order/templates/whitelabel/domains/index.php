@@ -445,6 +445,8 @@
     }
 </script>
 
+
+
 <section class="section-60 p-t-30 p-b-30 fx-particles">
     <div class="container">
         <div class="row flexbox-container">
@@ -466,8 +468,9 @@
                 </div>
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
+
                         <div class="input-holder">
-                            <button class="subdomain-holder js-search-domains" type="submit"><span class="text-blue">.</span>microweber<span class="text-blue">.me</span></button>
+                            <button class="subdomain-holder js-search-domains" type="submit"><span class="text-primary">.</span>virtua<span class="text-primary">.click</span></button>
                             <input type="text" name="domain" placeholder="Type the name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 
