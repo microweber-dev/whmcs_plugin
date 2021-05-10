@@ -98,7 +98,8 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 						   </div>
 						   <div class="col-md-7 col-xs-6 text-left">
 
-						   <a class="btn btn-success" href="' . $redirect_url . '" target="_blank">Login to website</a>
+						   <a class="btn btn-default" href="' . $redirect_url . '" target="_blank"><i class="fa fa-user"></i> Login as [Admin]</a>
+						   <a class="btn btn-success" href="' . $redirect_url . '" target="_blank"><i class="fa fa-pencil"></i> Go to website [Live Edit]</a>
 
 							</div>
 					   </div>

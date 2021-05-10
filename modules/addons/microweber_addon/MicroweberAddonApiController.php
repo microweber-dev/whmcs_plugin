@@ -667,7 +667,6 @@ h.domain = '" . $username . "' and
             if (isset($user_prod['username'])) {
                 if (isset($user_prod['password'])) {
 
-
                     $http_code = 'http://';
                     $support_ssl = $this->check_ssl_verify_domain($user_prod['domain']);
                     if ($support_ssl) {
@@ -680,7 +679,16 @@ h.domain = '" . $username . "' and
                         $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
                     }
 
-                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user/login?http_redirect=1&where_to=admin_content">';
+                    if (function_exists('base64_encode')) {
+                        $user_prod['username'] = base64_encode($user_prod['username']);
+                        $user_prod['password'] = base64_encode($user_prod['password']);
+                        header('Location: ' . $http_code . $user_prod['domain'] . '/api/user_login?username_encoded=' . $user_prod['username'] . '&password_encoded=' . $user_prod['password'] . '&http_redirect='.$redirectTo);
+                    } else {
+                        header('Location: ' . $http_code . $user_prod['domain'] . '/api/user_login?username=' . $user_prod['username'] . '&password=' . $user_prod['password'] . '&http_redirect='.$redirectTo);
+                    }
+
+                    /*
+                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login?http_redirect=1&where_to=admin_content">';
 
                     echo '<input type="hidden" value="'.$user_prod['username'].'" name="username" />';
                     echo '<input type="hidden" value="'.$user_prod['password'].'" name="password" />';
@@ -694,7 +702,7 @@ h.domain = '" . $username . "' and
                       </script>
                     ';
 
-                    echo '</form>';
+                    echo '</form>';*/
                     exit;
                 }
             }
