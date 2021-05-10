@@ -471,12 +471,7 @@
 
 
                         <?php
-                        $whitelabelSettings = [];
-                        if (function_exists('get_whitelabel_settings')) {
-                            $whitelabelSettings = get_whitelabel_settings();
-                        }
-
-                        var_dump($whitelabelSettings);
+                        $whitelabelSettings = get_whitelabel_settings();
                         ?>
 
                         <div class="input-holder">
