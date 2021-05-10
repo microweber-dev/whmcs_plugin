@@ -105,6 +105,18 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
 .main-whmcs-content .bg-color-green {
     background-color: $primaryColor;
 }
+.not-whmcs-content .text-primary {
+    color: $primaryColor !important;
+}
+.bxSlider-heading .bx-wrapper .bx-controls-direction a {
+    border: 2px solid #575757 !important;
+ }
+.bxSlider-heading .bx-wrapper .bx-controls-direction a::before {
+    color: #575757 !important;
+}
+.main-whmcs-content .label-default {
+    background-color: $primaryColor !important;
+}
 </style>
 
 HTML;
