@@ -19,11 +19,19 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
     $template = $vars['template'];
     $whitelabelSettings = get_whitelabel_settings();
 
-    var_dump($whitelabelSettings); 
+    $primaryColor = "#0303ff";
+
+    if (!empty($whitelabelSettings['primary_color'])) {
+        $primaryColor = $whitelabelSettings['primary_color'];
+    }
 
     return <<<HTML
 
-
+<style>
+.btn-link {
+    color: $primaryColor !important;
+}
+</style>
 
 HTML;
 
