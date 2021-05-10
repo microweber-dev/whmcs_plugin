@@ -196,6 +196,12 @@ footer {
     background: $primaryColor !important;
     border-color: $primaryColor !important;
 }
+.oc-hero h1 {
+    color: $primaryColor !important; 
+}
+.main-whmcs-content .product-status-active {
+    background-color:$primaryColor;
+}
 </style>
 
 HTML;
