@@ -168,8 +168,9 @@
     position: absolute;
     content: '';
 }
-
+/*
 .page-payments .service-block.plan h1:before {
+    content: 'Plan';
     background: url("img/checkout_plan.png");
     width: 39px;
     height: 47px;
@@ -181,7 +182,7 @@
     width: 39px;
     height: 34px;
     margin-left: -57px;
-}
+}*/
 
 .page-payments .service-block p,
 .page-payments .service-block span {

@@ -371,9 +371,9 @@ $whitelabelSettings = get_whitelabel_settings();
             var buttonText = sld + '<span class="text-blue">' + tld + '</span>';
             $('.js-search-domains').html(buttonText);
         });
+        var originalSearchDomainText = $('.js-search-domains').html();
         $(document).on('mouseleave', '.domain-item:not(.placeholder)', function () {
-            var buttonText = '<span class="text-blue">.</span>microweber<span class="text-blue">.me</span>';
-            $('.js-search-domains').html(buttonText);
+            $('.js-search-domains').html(originalSearchDomainText);
         });
     })
 
@@ -508,11 +508,23 @@ if (!empty($whitelabelSettings['dark_color'])) {
                             <?php
                             if (isset($whitelabelSettings['free_subdomains'])):
                                 $freeDomains = explode(',', $whitelabelSettings['free_subdomains']);
+                                $firstFreeDomain = $freeDomains[0];
+                                $firstFreeDomain = explode('.', $firstFreeDomain);
+                            if (!empty($firstFreeDomain)):
                             ?>
                             <button class="subdomain-holder js-search-domains" type="submit">
-                                <span class="text-primary">.</span>virtua<span class="text-primary"><?php echo $freeDomains[0]; ?></span>
+                                <span class="text-primary">.</span><?php
+                                foreach ($firstFreeDomain as $domainExpKey=>$domainExp) {
+                                    if ($domainExpKey === array_key_last($firstFreeDomain)) {
+                                        echo '<span class="text-primary">.'.$domainExp.'</span>';
+                                    } else {
+                                        echo $domainExp;
+                                    }
+                                }
+                                ?>
                             </button>
                             <?php
+                            endif;
                             endif;
                             ?>
                             <input type="text" name="domain" placeholder="Type the name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>

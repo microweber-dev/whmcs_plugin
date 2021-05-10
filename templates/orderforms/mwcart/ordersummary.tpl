@@ -1,5 +1,6 @@
 <div class="summaryproduct">{$producttotals.productinfo.groupname} - <b>{$producttotals.productinfo.name}</b></div>
-<table class="ordersummarytbl">
+<table class="table">
+
 <tr><td>{$producttotals.productinfo.name}</td><td class="text-right">{$producttotals.pricing.baseprice}</td></tr>
 {foreach from=$producttotals.configoptions item=configoption}{if $configoption}
 <tr><td style="padding-left:10px;">&raquo; {$configoption.name}: {$configoption.optionname}</td><td class="text-right">{$configoption.recurring}{if $configoption.setup} + {$configoption.setup} {$LANG.ordersetupfee}{/if}</td></tr>
