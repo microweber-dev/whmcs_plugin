@@ -11,6 +11,7 @@
     {$headoutput}
 </head>
 <body data-phone-cc-input="{$phoneNumberInputStyle}" class=" header-inverse sticky-nav ">
+
 <div class="main">
     {$headeroutput}
 

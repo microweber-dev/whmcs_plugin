@@ -469,7 +469,6 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
 
-
                         <?php
                         $whitelabelSettings = get_whitelabel_settings();
                         ?>

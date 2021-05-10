@@ -18,21 +18,23 @@ include_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonApiController.php';
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'MicroweberAddonDomainSearch.php';
 
-function get_whitelabel_settings()
-{
-    if (!\WHMCS\Database\Capsule::schema()->hasTable('tbladdonmodules')) {
-        return [];
-    }
+if (!function_exists('get_whitelabel_settings')) {
+    function get_whitelabel_settings()
+    {
+        if (!\WHMCS\Database\Capsule::schema()->hasTable('tbladdonmodules')) {
+            return [];
+        }
 
-    $getSettings = \WHMCS\Database\Capsule::table('tbladdonmodules')
-        ->where('module', 'microweber_whitelabel')
-        //->where('setting', 'primary_color')
-        ->get();
-    $whitelabelSettings = [];
-    foreach($getSettings as $setting) {
-        $whitelabelSettings[$setting->setting] = $setting->value;
+        $getSettings = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_whitelabel')
+            //->where('setting', 'primary_color')
+            ->get();
+        $whitelabelSettings = [];
+        foreach ($getSettings as $setting) {
+            $whitelabelSettings[$setting->setting] = $setting->value;
+        }
+        return $whitelabelSettings;
     }
-    return $whitelabelSettings;
 }
 
 function microweber_addon_config()
