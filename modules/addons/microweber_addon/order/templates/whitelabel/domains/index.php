@@ -378,6 +378,7 @@ $whitelabelSettings = get_whitelabel_settings();
     })
 
     function render_domain_search_list(results) {
+
         $("#domain-search-field-autocomplete").html('');
 
         var all_res_render = '';

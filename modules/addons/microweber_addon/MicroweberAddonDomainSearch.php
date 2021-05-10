@@ -110,7 +110,6 @@ class MicroweberAddonDomainSearch
         $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
         $domain = $reg_domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
 
-
         $command = 'GetTLDPricing';
         $postData = array();
 
@@ -183,43 +182,24 @@ class MicroweberAddonDomainSearch
             }
         }
 
-      //  dd($domain_results);
-        $lookupProvider = \WHMCS\Domains\DomainLookup\Provider::factory();
-        // $domain = \WHMCS\Input\Sanitize::decode($domain);
-        // $domain = (\WHMCS\Config\Setting::getValue("AllowIDNDomains") ? mb_strtolower($domain) : strtolower($domain));
-        //   $domain = str_replace(array( "'", "+", ",", "|", "!", "\\", "\"", "£", "\$", "%", "&", "/", "(", ")", "=", "?", "^", "*", " ", "°", "§", ";", ":", "_", "<", ">", "]", "[", "@", ")" ), "", $domain);
-        $domain = new \WHMCS\Domains\Domain($domain);
+        //$domain = new \WHMCS\Domains\Domain($domain);
 
-//        $searchResult = $lookupProvider->getSuggestions($domain);
-//        $searchResult2 = $lookupProvider->checkAvailability($domain, getSpotlightTlds());
-
-
-//        $domain_results = array_reverse($domain_results);
-//        $return_combined['results'] = $domain_results;
         $return_combined['results'] = [];
         if ($domain_results) {
             foreach ($domain_results as $domain_result) {
                 if ($domain_result['status'] == 'available' AND $domain_result['is_free'] == true) {
                     $return_combined['results'][] = $domain_result;
                 }
-            }
-
-            foreach ($domain_results as $domain_result) {
                 if ($domain_result['status'] == 'available' AND $domain_result['is_free'] == false) {
                     $return_combined['results'][] = $domain_result;
                 }
-            }
-
-            foreach ($domain_results as $domain_result) {
                 if ($domain_result['status'] == 'unavailable' AND $domain_result['is_free'] == true) {
                     $return_combined['results'][] = $domain_result;
                 }
-            }
-
-            foreach ($domain_results as $domain_result) {
                 if ($domain_result['status'] == 'unavailable' AND $domain_result['is_free'] == false) {
                     $return_combined['results'][] = $domain_result;
                 }
+                $return_combined['results'][] = $domain_result;
             }
         }
 
@@ -227,29 +207,7 @@ class MicroweberAddonDomainSearch
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
         //  $return_combined['available_hosting_plans'] = $available_hosting_acc;
 
-//        echo '<pre>';
-//        var_dump($return_combined);
-//        echo '</pre>';
-//        exit;
-
         return $return_combined;
-
-
-        //print_r($postData);
-        //  print_r($domain_results);
-        // print_r($return_combined);
-
-
-//domain
-
-        //   var_dump($params);
-
-
-// registrarmodule_GetDomainSuggestions($params)
-
-        $search_term = '';
-
-
     }
 
     function domain_suggest()
