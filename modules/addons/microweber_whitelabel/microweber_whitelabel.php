@@ -4,19 +4,6 @@ if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
 
-function get_whitelabel_settings()
-{
-    $getSettings = \WHMCS\Database\Capsule::table('tbladdonmodules')
-        ->where('module', 'microweber_whitelabel')
-        //->where('setting', 'primary_color')
-        ->get();
-    $whitelabelSettings = [];
-    foreach($getSettings as $setting) {
-        $whitelabelSettings[$setting->setting] = $setting->value;
-    }
-    return $whitelabelSettings;
-}
-
 function microweber_whitelabel_config()
 {
     $config = array(
