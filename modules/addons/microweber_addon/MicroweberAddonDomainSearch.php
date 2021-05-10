@@ -114,6 +114,7 @@ class MicroweberAddonDomainSearch
         $postData = array();
 
         $results = localAPI($command, $postData);
+
         if (isset($results['result']) and $results['result'] == 'success') {
             if (isset($results['pricing']) and $results['pricing']) {
                 foreach ($results['pricing'] as $tld_key => $tld_data) {
@@ -125,7 +126,6 @@ class MicroweberAddonDomainSearch
             }
         }
 
-
         $try_exts = array();
         if ($available_domain_extensions) {
             $try_exts = array_merge($try_exts, array_keys($available_domain_extensions));
@@ -135,13 +135,7 @@ class MicroweberAddonDomainSearch
 
         }
 
-
         if ($try_exts) {
-
-            if(count($try_exts) > 3){
-                $try_exts = array_slice($try_exts, 0,3);    // limit to 10 exts
-
-            }
 
             foreach ($try_exts as $available_domain_extension) {
                 $available_domain_extension1 = ltrim($available_domain_extension, '.');
@@ -159,11 +153,8 @@ class MicroweberAddonDomainSearch
                         );
                         $results = localAPI($command, $postData);
 
-
-
                         if (isset($results['result']) and $results['result'] == 'success') {
                             $tld_data = $available_domain_extensions[$available_domain_extension];
-
 
                             $price = (string)formatCurrency(array_shift($tld_data));
 
@@ -182,30 +173,35 @@ class MicroweberAddonDomainSearch
             }
         }
 
-        //$domain = new \WHMCS\Domains\Domain($domain);
 
         $return_combined['results'] = [];
         if ($domain_results) {
+            // show first free domains
             foreach ($domain_results as $domain_result) {
-                if ($domain_result['status'] == 'available' AND $domain_result['is_free'] == true) {
+                if ($domain_result['status'] == 'available' and $domain_result['is_free'] == true) {
                     $return_combined['results'][] = $domain_result;
                 }
-                if ($domain_result['status'] == 'available' AND $domain_result['is_free'] == false) {
+                if ($domain_result['status'] == 'unavailable' and $domain_result['is_free'] == true) {
                     $return_combined['results'][] = $domain_result;
                 }
-                if ($domain_result['status'] == 'unavailable' AND $domain_result['is_free'] == true) {
-                    $return_combined['results'][] = $domain_result;
-                }
-                if ($domain_result['status'] == 'unavailable' AND $domain_result['is_free'] == false) {
-                    $return_combined['results'][] = $domain_result;
-                }
-                $return_combined['results'][] = $domain_result;
             }
+            // show paid domains
+            foreach ($domain_results as $domain_result) {
+                if ($domain_result['status'] == 'available' and $domain_result['is_free'] == false) {
+                    $return_combined['results'][] = $domain_result;
+                }
+                if ($domain_result['status'] == 'unavailable' and $domain_result['is_free'] == false) {
+                    $return_combined['results'][] = $domain_result;
+                }
+            }
+        }
+
+        if(count($return_combined['results']) > 3){
+            $return_combined['results'] = array_slice($return_combined['results'], 0,5);    // limit to 5 exts
         }
 
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
-        //  $return_combined['available_hosting_plans'] = $available_hosting_acc;
 
         return $return_combined;
     }

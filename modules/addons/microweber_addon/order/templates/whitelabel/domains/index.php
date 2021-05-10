@@ -480,6 +480,9 @@ if (!empty($whitelabelSettings['dark_color'])) {
     .text-primary {
         color: <?php echo $primaryColor;?> !important;
     }
+    .subdomain-holder .text-blue {
+        color: <?php echo $primaryColor;?> !important;
+    }
 </style>
 
 
