@@ -30,22 +30,22 @@
         {/if}
 
         <div class="row">
-
             {foreach from=$products key=num item=product}
             <div class="col-md-6">
                 {*<div id="product{$num}" class="panel" onclick="window.location='cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}'">*}
-                <div id="product{$num}" class="panel panel-title">
-                    <div class="row title">
-                        <div class="col-xs-6 name">
-                            {$product.name}
-                            {if $product.qty}
-                                <span class="qty">
+                <div id="product{$num}" class="panel panel-primary">
+
+                    <div class="panel-heading">
+                        {$product.name}
+                        {if $product.qty}
+                            <span class="qty">
                                 ({$product.qty} {$LANG.orderavailable})
                             </span>
-                            {/if}
-                        </div>
+                        {/if}
+                    </div>
 
-                        <div class="col-xs-6 pricing text-right">
+                    <div class="panel-body">
+                        <div class="pricing text-right">
                             {if $product.bid}
                                 {$LANG.bundledeal}
                                 /
@@ -82,10 +82,8 @@
                                 </span>
                             {/if}
                         </div>
-                    </div>
 
-                    <div class="row content">
-                        <div class="col-xs-12">
+
                             {foreach from=$product.features key=feature item=value}
                                 <span class="prodfeature"><span class="feature">{$feature}</span>
                                 <br/>{$value}</span>
@@ -96,18 +94,11 @@
                             <div class="description">{$product.featuresdesc}</div>
 
                             <div class="text-center">
-                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="btn mw-blue btn-sm"> {$LANG.ordernowbutton}</a>
+                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="btn btn-primary btn-sm"> {$LANG.ordernowbutton}</a>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
-            {if $num % 2}
-        </div>
-        <div class="row">
-            {/if}
-
             {/foreach}
 
         </div>

@@ -133,7 +133,7 @@
             <div class="domain-fade-out">
 
                 <div class="text-center">
-                    <button type="submit" id="btnDomainContinue" class="cbtn">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                    <button type="submit" id="btnDomainContinue" class="btn btn-primary">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
                 </div>
 
                 {if $freedomaintlds}<p>* <em>{$LANG.orderfreedomainregistration} {$LANG.orderfreedomainappliesto}: {$freedomaintlds}</em></p>{/if}

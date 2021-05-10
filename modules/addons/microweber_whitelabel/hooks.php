@@ -20,9 +20,17 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
     $whitelabelSettings = get_whitelabel_settings();
 
     $primaryColor = "#0303ff";
+    $darkColor = "#2d2d2d";
+    $whiteColor = "#ffffff";
 
     if (!empty($whitelabelSettings['primary_color'])) {
         $primaryColor = $whitelabelSettings['primary_color'];
+    }
+    if (!empty($whitelabelSettings['dark_color'])) {
+        $darkColor = $whitelabelSettings['dark_color'];
+    }
+    if (!empty($whitelabelSettings['white_color'])) {
+        $whiteColor = $whitelabelSettings['white_color'];
     }
 
     return <<<HTML
@@ -109,13 +117,84 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
     color: $primaryColor !important;
 }
 .bxSlider-heading .bx-wrapper .bx-controls-direction a {
-    border: 2px solid #575757 !important;
+    border: 2px solid $darkColor !important;
  }
 .bxSlider-heading .bx-wrapper .bx-controls-direction a::before {
-    color: #575757 !important;
+    color: $darkColor !important;
 }
 .main-whmcs-content .label-default {
     background-color: $primaryColor !important;
+}
+.main-whmcs-content .input-group-lg > .form-control, .main-whmcs-content .input-group-lg > .input-group-addon, .main-whmcs-content .input-group-lg > .input-group-btn > .btn {
+    height: 60px !important;
+}
+.bxSlider-heading .bx-wrapper .bx-pager.bx-default-pager a.active, .bxSlider-heading .bx-wrapper .bx-pager.bx-default-pager a:hover {
+    background: $primaryColor !important;
+}
+.section-7 h1, .section-7 h2, .section-7 h3 {
+    color: $darkColor;
+}
+.section-7 p {
+    color: $darkColor;
+}
+.header-inverse .navigation .menu .list > li > a {
+    color: $darkColor;
+}
+footer {
+    background-color: $darkColor !important;
+}
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .show > .dropdown-toggle.btn-default.focus, .show > .dropdown-toggle.btn-default:focus, .show > .dropdown-toggle.btn-default:hover {
+    color: #fff !important;
+    background: $primaryColor !important;
+}
+.btn-link.focus, .btn-link:focus, .btn-link:hover {
+    color: $darkColor !important;
+}
+.not-whmcs-content .dropdown-item.active, .not-whmcs-content .dropdown-item:active {
+    background-color: $primaryColor;
+}
+#order-modern .domainoptions .optionselected .radio-inline {
+    color: $primaryColor !important;
+}
+.main-whmcs-content .input-group-addon {
+    border-color: #0000001c !important;
+}
+.accordions .panel-title > .small, .accordions .panel-title > .small > a, .accordions .panel-title > small, .accordions .panel-title > small > a, .panel-title > a {
+    color: $primaryColor !important;
+}
+.page-payments .service-block.plan .price-per .month, .page-payments .service-block.plan .price-per .month span {
+    color: $primaryColor !important;
+}
+.page-payments .service-block.domain .price-per .month, .page-payments .service-block.domain .price-per .month span {
+    color: $primaryColor !important;
+}
+.page-payments .service-block.domain .domain-label {
+    color: $primaryColor !important;
+}
+.page-payments .radio-buttons li:hover, .page-payments .radio-buttons li.active {
+    color: $primaryColor !important;
+}
+.page-payments .radio-buttons li {
+    color: $primaryColor !important;
+    border: 1px solid $primaryColor !important;
+}
+.page-payments .radio-buttons li:hover, .page-payments .radio-buttons li.active {
+    background: $primaryColor !important;
+}
+.page-payments .radio-buttons li .check {
+    background: $primaryColor !important;
+}
+.page-payments .radio-buttons li .check {
+    border-color: $primaryColor !important;
+}
+.page-payments .service-block .edit-this:hover {
+    background: $primaryColor !important;
+    border-color: $primaryColor !important;
+}
+.page-payments .service-block .edit-this {
+    color: $whiteColor !important;
+    background: $primaryColor !important;
+    border-color: $primaryColor !important;
 }
 </style>
 

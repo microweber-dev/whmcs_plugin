@@ -1,5 +1,9 @@
 <?php include 'partials/header.php'; ?>
 
+<?php
+$whitelabelSettings = get_whitelabel_settings();
+?>
+
 <style>
     @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400,600,700,800&display=swap');
 
@@ -445,6 +449,37 @@
     }
 </script>
 
+<?php
+$primaryColor = "#0303ff";
+if (!empty($whitelabelSettings['primary_color'])) {
+    $primaryColor = $whitelabelSettings['primary_color'];
+}
+
+$darkColor = "#2d2d2d";
+if (!empty($whitelabelSettings['dark_color'])) {
+    $darkColor = $whitelabelSettings['dark_color'];
+}
+?>
+
+<style>
+    .section-60 .just-text h1,
+    .section-60 .just-text h2,
+    .section-60 .just-text h3,
+    .section-60 .just-text h4,
+    .section-60 .just-text h5,
+    .section-60 .just-text h6 {
+        color: <?php echo $darkColor;?> !important;
+    }
+    .section-60 .just-text p, .section-60 .just-text span {
+        color: <?php echo $darkColor;?> !important;
+    }
+    .subdomain-holder {
+        color: <?php echo $darkColor;?> !important;
+    }
+    .text-primary {
+        color: <?php echo $primaryColor;?> !important;
+    }
+</style>
 
 
 <section class="section-60 p-t-30 p-b-30 fx-particles">
@@ -468,10 +503,6 @@
                 </div>
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
-
-                        <?php
-                        $whitelabelSettings = get_whitelabel_settings();
-                        ?>
 
                         <div class="input-holder">
                             <?php
