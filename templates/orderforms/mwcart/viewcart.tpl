@@ -224,7 +224,10 @@
 
             $("#creating_site_progress_title, #creating_site_progress_meter").show()
         }
-    </script>{/literal}
+    </script>
+
+    {/literal}
+
     <script>
         window.langPasswordStrength = "{$LANG.pwstrength}";
         window.langPasswordWeak = "{$LANG.pwstrengthweak}";
@@ -315,7 +318,7 @@
         <div id="creating_site_progress_title">
 
             <div id="theiframeloader"></div>
-            Създаваме твоя уеб сайт
+            Creating your website..
             <div id="creating_site_progress_meter">
                 <div class="mw-ui-progress-bar"></div>
             </div>
