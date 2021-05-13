@@ -48,6 +48,7 @@ class MarketplaceConnector
             }
             if (is_array($packages_exp) && !empty($packages_exp)) {
                 $new_package_urls = array();
+
                 foreach ($packages_exp as $package_url) {
 
                     $package_url = trim($package_url);
@@ -65,8 +66,12 @@ class MarketplaceConnector
                     if (empty($package_url)) {
                         continue;
                     }
+
+                    $package_url = str_replace('.json/','.json', $package_url);
+
                     $new_package_urls[] = $package_url;
                 }
+                
                 if (is_array($new_package_urls) && !empty($new_package_urls)) {
                     $this->package_manager_urls = $new_package_urls;
                 }
