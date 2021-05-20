@@ -84,6 +84,7 @@
                         <img src="{$assetLogoPath}" alt="{$companyname}" class="logo-img">
 
                     {elseif $logo}
+                        
                         <img src="{$logo}" alt="{$companyname}" class="logo-img">
 
 
