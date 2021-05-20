@@ -27,14 +27,27 @@ class Hosting
             })->toArray();
         }
 
-
         $host_acc = Capsule::table('tblproducts')
             // ->where('hidden', 0)
             ->where('retired', 0)
             ->where('showdomainoptions', 1)
-            ->where('type', 'hostingaccount')
+
+            ->where(function($query) {
+
+                $query->where(function($query){
+                    $query->where('type', 'hostingaccount');
+                    $query->orWhere('type', 'reselleraccount');
+                 });
+
+
+            })
+
+         //   ->where('type', 'hostingaccount')
+
             ->orderBy('order', 'ASC')
             ->get();
+
+
 
         $config_data = collect($host_acc)->map(function ($item) {
             return (array) $item;
