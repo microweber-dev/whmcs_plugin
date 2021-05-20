@@ -77,14 +77,14 @@
             </div>
         {/if}
 
-        <div class="navbar navbar-light">
+        <div class="navbar navbar-light navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand mr-3" href="{$WEB_ROOT}/index.php">
                     {if $assetLogoPath}
                         <img src="{$assetLogoPath}" alt="{$companyname}" class="logo-img">
 
                     {elseif $logo}
-                        
+
                         <img src="{$logo}" alt="{$companyname}" class="logo-img">
 
 
@@ -121,7 +121,7 @@
                 </ul>
             </div>
         </div>
-        <div class="navbar navbar-expand-xl main-navbar-wrapper">
+        <div class="navbar navbar-expand-xl main-navbar-wrapper navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <form method="post" action="{routePath('knowledgebase-search')}" class="d-xl-none">

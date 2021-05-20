@@ -411,7 +411,7 @@ h.domain = '" . $username . "' and
         }
 
     }
-    
+
     public function go_to_product($params)
     {
 
@@ -770,7 +770,42 @@ h.domain = '" . $username . "' and
         }
 
     }
+    function get_templates_for_cart($params)
+    {
+        $hosting = new \MicroweberAddon\Hosting();
 
+        $enabled_templates = $hosting->get_enabled_market_templates();
+
+        $return = [];
+        if($enabled_templates){
+            foreach ($enabled_templates as $enabled_template){
+                if(isset($enabled_template['configoption']) and isset($enabled_template['configoption']['id'])){
+
+
+                    $ready = [
+                        'id' => $enabled_template['configoption']['id'],
+                        'title' => $enabled_template['configoption']['optionname'],
+                        'image' => '',
+                    ];
+                    if(isset($enabled_template["extra"]['_meta']) and isset($enabled_template["extra"]['_meta']['screenshot'])){
+                        $ready['image'] = $enabled_template["extra"]['_meta']['screenshot'];
+                     }
+
+//image
+//title
+
+                    $return[] = $ready;
+                    //
+                }
+
+                //configoption
+
+            }
+        }
+
+
+        return($return);
+    }
 
     function domain_search($params)
     {
