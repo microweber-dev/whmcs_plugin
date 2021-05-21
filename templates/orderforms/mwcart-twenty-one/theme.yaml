@@ -1,0 +1,7 @@
+# WHMCS Twenty-One Theme Configuration File
+
+name: "MW Cart Child theme"
+description: "Child theme for cart"
+author: "Microweber"
+config:
+  parent: standard_cart

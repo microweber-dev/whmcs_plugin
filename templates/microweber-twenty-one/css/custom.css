@@ -1,7 +1,9 @@
 .primary-bg-color {
-    background-color: #ddd;
+    background-color: white;
 }
-
+.bg-dark, footer.footer {
+    background-color: black !important;
+}
 
 
 header.header .navbar-nav a {

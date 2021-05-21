@@ -94,16 +94,7 @@
                     {/if}
                 </a>
 
-                <form method="post" action="{routePath('knowledgebase-search')}" class="form-inline ml-auto">
-                    <div class="input-group search d-none d-xl-flex">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-default" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                        <input class="form-control appended-form-control font-weight-light" type="text" name="search" placeholder="{lang key="searchOurKnowledgebase"}...">
-                    </div>
-                </form>
+
 
                 <ul class="navbar-nav toolbar">
                     <li class="nav-item ml-3">
@@ -124,16 +115,7 @@
         <div class="navbar navbar-expand-xl main-navbar-wrapper navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <div class="collapse navbar-collapse" id="mainNavbar">
-                    <form method="post" action="{routePath('knowledgebase-search')}" class="d-xl-none">
-                        <div class="input-group search w-100 mb-2">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                            <input class="form-control prepended-form-control" type="text" name="search" placeholder="{lang key="searchOurKnowledgebase"}...">
-                        </div>
-                    </form>
+
                     <ul id="nav" class="navbar-nav mr-auto">
                         {include file="$template/includes/navbar.tpl" navbar=$primaryNavbar}
                     </ul>

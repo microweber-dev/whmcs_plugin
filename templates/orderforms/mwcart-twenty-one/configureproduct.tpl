@@ -1,15 +1,15 @@
 <div id="prodconfigcontainer">
 
 
-
+    <script type="text/javascript" src="{$WEB_ROOT}templates/orderforms/mwcart/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{$WEB_ROOT}templates/orderforms/mwcart/js/main.js"></script>
+     <link rel="stylesheet" type="text/css" href="{$WEB_ROOT}templates/orderforms/mwcart/js/jquery-ui-1.12.1/jquery-ui.min.css"/>
 
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-            <script type="text/javascript" src="{$WEB_ROOT}templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-            <script type="text/javascript" src="{$WEB_ROOT}templates/orderforms/{$carttpl}/js/main.js"></script>
+
             <link rel="stylesheet" type="text/css" href="{$WEB_ROOT}templates/orderforms/{$carttpl}/style.css"/>
-            <link rel="stylesheet" type="text/css" href="{$WEB_ROOT}templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.css"/>
 
             <div id="order-modern">
 
