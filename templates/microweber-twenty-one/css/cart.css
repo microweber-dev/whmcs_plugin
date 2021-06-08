@@ -1,0 +1,32 @@
+#order-standard_cart {
+    font-size: 18px;
+}
+
+#order-modern .image-holder {
+
+    height: 300px;
+    width: 100%;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#order-standard_cart .products .product div.product-desc {
+    font-size: 16px;
+}
+
+#order-standard_cart .product-desc ul li {
+    padding: 5px 0 0 0;
+}
+
+#order-standard_cart .products .product footer {
+    clear: both;
+    float: unset;
+    width: 100%;
+}
+
+#order-standard_cart .cart-sidebar {
+    font-size: 16px;
+}
+

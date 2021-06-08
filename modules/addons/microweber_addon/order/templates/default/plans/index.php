@@ -68,15 +68,33 @@ $plans = $controller->get_hosting_products();
                                         <?php
                                         $desc = $plan['description'];
 
-                                        $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
+                                       // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
 
                                         print  $desc;
                                         ?>
-                                        <?php if ($key > 0): ?>
+                                        <?php if ($plan['id']): ?>
                                             <div class="description last">
-                                                <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
+
+                                                <form method="post" action="<?php echo $current_url ?>" class="clearfix">
+                                                    <input type="hidden" value="1" name="start_with_plan"/>
+                                                    <input type="hidden" value="<?php print $plan['id'] ?>" name="plan_id"/>
+
+                                                    <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
+                                                    <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
+
+                                                    <button type="submit"   class="btn btn-default btn-md m-t-20" >Start</button>
+                                                </form>
+
+
+
+<!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="btn btn-default btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
                                             </div>
                                         <?php endif; ?>
+
+
+
+
+
                                     </div>
                                 </div>
                             <?php } ?>

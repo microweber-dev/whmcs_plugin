@@ -13,8 +13,10 @@
 
 
 
+<pre >
+<?php print $config['SystemURL'] ?>/index.php?m=microweber_addon&function=order_iframe
 
-
+</pre>
 
 
 

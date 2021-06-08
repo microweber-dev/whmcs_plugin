@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
+
+include_once __DIR__ . DIRECTORY_SEPARATOR . 'helpers.php';
+
+
+
 class MicroweberAddonApiController
 {
 
@@ -805,6 +810,70 @@ h.domain = '" . $username . "' and
 
 
         return($return);
+    }
+
+    function order_iframe($params)
+    {
+//        global  $CONFIG;
+//        $whmcsUrl = $CONFIG['SystemURL'];
+//        var_dump($whmcsUrl);
+//        exit;
+        if(isset($params['start_with_plan'])  and isset($params['plan_id']) ){
+
+            global $CONFIG;
+            $whmcsurl = $CONFIG['SystemURL'];
+
+            $redir_url = site_url().'cart.php?a=add';
+            if(isset($params['tld']) and $params['tld']) {
+                $redir_url .= '&tld='.$params['tld'];
+            }
+
+            if(isset($params['sld']) and $params['sld']) {
+                $redir_url .= '&sld='.$params['sld'];
+            }
+
+            if(isset($params['plan_id']) and $params['plan_id']) {
+                $redir_url .= '&pid='.$params['plan_id'];
+            }
+            if(isset($params['subdomain']) and $params['subdomain']) {
+                $redir_url .= '&domainoption=subdomain';
+            }
+
+
+            //
+
+            if(isset($params['template_id']) and $params['template_id']) {
+                if(isset($params['config_gid']) and $params['config_gid']) {
+                    $redir_url .= '&configoption['.$params['config_gid'].']='.$params['template_id'];
+                }
+
+             }
+
+//
+
+
+            if ($redir_url) {
+
+                print '<script type="text/javascript">window.location = "'.$redir_url.'"</script>';
+                exit;
+            }
+
+
+//            var_dump($redir_url);
+//            var_dump($params);
+//
+//            exit();
+//cart.php?a=add&domain=register&sld=domainname&tld=.com
+
+            //redir($redir_url,'cart.php');
+            //exit();
+
+
+        }
+
+
+        include __DIR__."/order/index.php";
+
     }
 
     function domain_search($params)

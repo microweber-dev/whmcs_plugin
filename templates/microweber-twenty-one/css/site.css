@@ -1,0 +1,129 @@
+
+.primary-bg-color {
+    background-color: white;
+}
+.bg-dark, footer.footer {
+    background-color: black !important;
+}
+
+
+header.header .navbar-nav a {
+    font-size: 19px;
+}
+
+header.header .dropdown-menu a.dropdown-item,
+header.header .navbar a {
+    color: #0b0b0b;
+}
+
+
+
+header.header .navbar-dark a {
+    color: white;
+}
+/**************************************************************************************/
+
+
+body,a,input,textarea,select {
+    font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+}
+
+.primary-bg-color {
+    background-color: white;
+}
+.bg-dark, footer.footer {
+    background-color: #1D2939 !important;
+}
+
+
+header.header{
+    position: sticky;
+    top:0;
+    z-index: 9;
+}
+header.header .navbar-nav a {
+    font-size: 19px;
+}
+
+
+
+header.header li + li{
+    padding-left: 10px;
+}
+header.header .navbar-dark a {
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+.master-breadcrumb{
+    display: none;
+}
+
+.header .main-navbar-wrapper{
+    position: sticky;
+    top: 0;
+    background-color: var(--main-brand-color) !important;
+}
+.home-domain-search .input-group-wrapper input{
+    font-weight: bold;
+}
+.home-domain-search .input-group-wrapper{
+    margin: 50px auto 30px;
+}
+.home-domain-search {
+    background-image: -webkit-linear-gradient(left, #1f1f24 0%,#1f1f24 99%);
+    background-image: linear-gradient(to right, #1f1f24 0%, #1f1f24 99%);
+    background-image: linear-gradient(to bottom, rgba(32,18,111,1) 0%,rgba(5,45,133,1) 100%);
+    min-height: 80vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    max-width: 200px;
+    max-height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.captchaimage{
+    padding: 0;
+}
+
+#inputCaptchaImage{
+    display: inline-block;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    vert-align: top;
+}
+
+.card-columns.home{
+    display: flex;
+}
+
+section#main-body{
+    background: #efecec69;
+    padding: 100px 0;
+}
+
+
+
+
+header.header .dropdown-menu a.dropdown-item,
+header.header .navbar a {
+ }
+
+header.header .navbar-dark .dropdown-menu.show a{
+    color: #1D2939;
+}

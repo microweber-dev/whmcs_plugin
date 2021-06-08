@@ -1,4 +1,10 @@
 <?php
+
+
+
+
+
+
 if (!defined("WHMCS")) {
     define("WHMCS", true);
 }
@@ -19,18 +25,18 @@ if (strpos($_SERVER['REQUEST_URI'], '?') !== false) {
 }
 
 $getDomain = false;
-if (isset($_GET['domain'])) {
-    $getDomain = $_GET['domain'];
+if (isset($_REQUEST['domain'])) {
+    $getDomain = $_REQUEST['domain'];
 }
 
 $getTemplate = false;
-if (isset($_GET['template'])) {
-    $getTemplate = $_GET['template'];
+if (isset($_REQUEST['template'])) {
+    $getTemplate = $_REQUEST['template'];
 }
 
 $getPlan = false;
-if (isset($_GET['plan'])) {
-    $getPlan = $_GET['plan'];
+if (isset($_REQUEST['plan'])) {
+    $getPlan = $_REQUEST['plan'];
 }
 
 $step = 0;
@@ -47,6 +53,7 @@ if (!$getDomain) {
     $step = 3;
 }
 
+
 ?>
 
 <?php //echo $CONFIG['CompanyName']; ?>
@@ -57,7 +64,7 @@ if (!$getDomain) {
 
 
 
-<?php if (isset($_GET['template_view']) AND $_GET['template_view'] == 'true'): ?>
+<?php if (isset($_REQUEST['template_view']) AND $_REQUEST['template_view'] == 'true'): ?>
     <?php include "steps/preview_template.php"; ?>
 <?php else: ?>
     <?php if ($step == 1): ?>

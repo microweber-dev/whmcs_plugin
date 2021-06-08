@@ -61,7 +61,7 @@
     } else {
          iframe.src = path + '/index.php?' + $params;
     }
-//alert(iframe.src);
+ alert(iframe.src);
     script.parentNode.insertBefore(iframe, script.nextSibling);
 
     addEventListener('message', function (e) {

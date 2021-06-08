@@ -1,14 +1,1 @@
-#order-modern .image-holder{
-
-    height: 300px;
-    width: 100%;
-    background-position: center top ;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-}
-
-
-#order-standard_cart .products .product div.product-desc {
-    font-size: 16px;
-}
+@import url("css/custom.css");

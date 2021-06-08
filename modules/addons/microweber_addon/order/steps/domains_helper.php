@@ -27,7 +27,7 @@
                 __dprev = el.value;
 
                 var keyword = $("#domain-search-field").val();
-                var URL = encodeURI("<?php print $CONFIG['SystemURL'];?>/index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + keyword);
+                var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + encodeURI(keyword);
                 __ajax_search  = $.ajax({
                     contentType: 'application/json',
                     dataType: 'json',
@@ -70,7 +70,7 @@
     $(document).ready(function () {
         $(".js-search-domains").on('click', function () {
             // Define an expression of words to check for
-            var words = new RegExp('^test|neshtozabraneno');
+            var words = new RegExp('^someblocklistword|neshtozabraneno');
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
@@ -92,7 +92,7 @@
             e.preventDefault();
 
             // Define an expression of words to check for
-            var words = new RegExp('^test|neshtozabraneno');
+            var words = new RegExp('^someblocklistword|neshtozabraneno');
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
@@ -113,7 +113,7 @@
 
         //setup before functions
         var typingTimer;                //timer identifier
-        var doneTypingInterval = 700;  //time in ms, 5 second for example
+        var doneTypingInterval = 2000;  //time in ms, 5 second for example
         var $input = $('#domain-search-field');
 
         //on keyup, start the countdown
@@ -167,7 +167,16 @@
             var subdomain = $(this).attr('data-subdomain');
             var target = $(this).attr('data-target');
 
-            var url = document.location.href + "?&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>&style=<?php echo htmlspecialchars($_GET['style']); ?>";
+            var urlbase = document.location.href;
+
+            if (urlbase.indexOf('?') == -1)
+            {
+                urlbase = urlbase+'?';
+            }
+
+
+
+            var url = urlbase + "&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>&style=<?php echo htmlspecialchars($_GET['style']); ?>";
 
             <?php if(isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
             window.top.location = url;

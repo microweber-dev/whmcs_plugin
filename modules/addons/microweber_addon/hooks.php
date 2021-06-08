@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+include_once __DIR__ . DIRECTORY_SEPARATOR . 'helpers.php';
+
 use WHMCS\View\Menu\Item as MenuItem;
 use WHMCS\Database\Capsule;
 
@@ -204,7 +207,7 @@ function hook_template_variables_mw_template_config_option($vars)
         }
 
     }
-     if ($show_template_script) {
+    if ($show_template_script) {
 
 
         global $CONFIG;
@@ -218,22 +221,150 @@ function hook_template_variables_mw_template_config_option($vars)
             ->get();
 
 
-
         $html .= "\n\n";
         if ($templates_db) {
             $html .= '<script>
                 window.mw_templates = ' . json_encode($templates_db) . ';
-                window.mw_templates_config_option_id = ' .$show_template_script['id'] . ';
+                window.mw_templates_config_option_id = ' . $show_template_script['id'] . ';
                  </script>';
 
             $html .= "\n\n";
         }
-        $whmcsurl_script = $CONFIG['SystemURL'] . '/modules/addons/microweber_addon/order/cart_configoptions.js';
+        $whmcsurl_script =site_url() . 'modules/addons/microweber_addon/order/cart_configoptions.js';
         $html .= '<script src="' . $whmcsurl_script . '"></script>';
         $extraTemplateVariables['template_config_option_script'] = $html;
+
+
         return $extraTemplateVariables;
     }
 
 }
 
 add_hook('ClientAreaPageCart', 1, 'hook_template_variables_mw_template_config_option');
+add_hook('ClientAreaPage', 1, function ($vars) {
+
+
+//    $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+//
+//
+//    $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+//
+//
+//
+//    $resellerCenterLang = $resellerCenterConnector->getSettingsForCurrentDomain();
+//    var_dump($resellerCenterLang);
+//    var_dump(111111111111111);
+//    exit;
+//    var_dump($resellerCenterLang);
+//    var_dump(111111111111111);
+//    exit;
+
+
+    // swapLang('arabic');
+//    global $smarty;
+//    $whmcs = \App::self();
+//    $smarty->assign("template", $whmcs->getClientAreaTemplate()->getName());
+//   // $smarty->assign("language", \Lang::getName());
+//    $smarty->assign("language",'german');
+
+
+    // global $smarty;
+    // $smarty->assign("activeCurrency", 'EUR');
+
+    //  $whmcs = \WHMCS\Application::getInstance();
+    // $activeCurrencyId = $whmcs->getCurrencyID();
+    //  var_dump($whmcs);
+    //  exit;
+//    $currency = getCurrency();
+//var_dump($currency);
+//exit;
+
+    //
+});
+
+
+//$_SESSION['Language'] = 'german';
+add_hook('ClientAreaHeadOutput', 1, function ($vars) {
+
+
+    $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+
+
+    $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+
+    if ($resellerCenterEnabled) {
+
+        return <<<HTML
+    <link href="/modules/addons/microweber_addon/integrations/resellercenter/site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/modules/addons/microweber_addon/integrations/resellercenter/site.js"></script>
+HTML;
+    }
+
+
+});
+
+
+add_hook('ClientAreaPage', 23, function ($v) {
+
+    if (isset($v['template']) and $v['template'] == 'lagom') {
+
+        global $smarty;
+
+//        [
+//            'headline'=> 'Hosting 1',
+//            'tagline' => 'headline',
+//            'name' => 'name',
+//            'pid'=> '19',
+//            'slug' => 'asdasdsa'
+//        ]
+        if (Capsule::schema()->hasTable("rstheme_themes")) {
+            $pageConfig = Capsule::table('rstheme_themes')->select('pages_configuration')->whereName('lagom')->first();
+            if ($pageConfig and $v['templatefile'] == 'homepage') {
+                $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+
+
+                $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+
+                if ($resellerCenterEnabled) {
+                    $resellerProducts = $resellerCenterConnector->getProductsForCurrentDomain();
+                    $banners_data = [];
+                    if ($resellerProducts) {
+                        foreach ($resellerProducts as $resellerProduct) {
+                            $ready = [];
+                            $ready['headline'] = $resellerProduct->name;
+                        //    $ready['name'] = $resellerProduct->name;
+                            $ready['name'] = $resellerProduct->getNameAttribute($resellerProduct->name);
+                         //   $ready['tagline'] = $resellerProduct->description;
+                            $ready['tagline'] = $resellerProduct->getDescriptionAttribute($resellerProduct->description);
+                            $ready['pid'] = $resellerProduct->id;
+                            $ready['slug'] = $resellerProduct->id;
+
+
+                            $banners_data[] = $ready;
+                        }
+                    }
+
+
+                    $smarty->assign('banner_home', $banners_data);
+                }
+            }
+        }
+    }
+});
+
+
+
+//
+//
+//# Translate Specific Language String Hook
+//# Written by brian!
+//
+//function translate_specific_string_hook($vars) {
+//
+//    global $_LANG;
+//    if ($vars['templatefile'] == "configureproductdomain" && $vars['pid'] == 45) {
+//        $_LANG['cartexistingdomainchoice'] = "To Be Or Not To Be";
+//        return array("LANG" => $_LANG);
+//    }
+//}
+//add_hook("ClientAreaPageCart", 1, "translate_specific_string_hook");

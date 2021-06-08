@@ -72,7 +72,7 @@ $templates = get_enabled_templates();
                     <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
 
                     <div class="col-md-4 col-xs-6">
-                        <form method="get" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+                        <form method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
                             <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 

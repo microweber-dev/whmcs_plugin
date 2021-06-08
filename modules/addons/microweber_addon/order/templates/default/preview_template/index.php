@@ -1,8 +1,8 @@
 <?php include 'partials/header.php'; ?>
 
-<?php if (isset($_GET['template'])): ?>
+<?php if (isset($_REQUEST['template'])): ?>
     <?php
-    $template = get_template_by_git_package_name($_GET['template']);
+    $template = get_template_by_git_package_name($_REQUEST['template']);
 
     $homepage = 'https://microweber.com';
     $preview_url = 'https://microweber.com';
@@ -23,8 +23,9 @@
 
         <div class="right buttons">
 
-            <form method="get" action="<?php echo $current_url ?>" class="clearfix">
+            <form method="post" action="<?php echo $current_url ?>" class="clearfix">
                 <input type="hidden" value="false" name="template_view"/>
+                <input type="hidden" value="1" name="start_with_template"/>
 
                 <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 

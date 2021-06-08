@@ -39,6 +39,19 @@
     <input type="hidden" value="<?php print $style; ?>" name="style"/>
 <?php endif; ?>
 
+
+<?php
+if($_GET){
+    foreach ($_GET as $k=>$v){
+
+        ?>
+
+        <!--<input type="hidden" value="<?php /*print $k; */?>" name="<?php /*print $v; */?>"/>-->
+   <?php }
+}
+
+?>
+
 <?php /*
 <?php if ($templates_style): ?>
     <input type="hidden" value="<?php print $templates_style; ?>" name="templates-style"/>
