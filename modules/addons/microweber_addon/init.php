@@ -9,8 +9,9 @@ require_once $root . DIRECTORY_SEPARATOR . '/init.php';
 require_once $root . DIRECTORY_SEPARATOR . '/includes/functions.php';
 
 
-require($root . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'domainfunctions.php');
-require($root . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'cartfunctions.php');
+
+require_once($root . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'domainfunctions.php');
+require_once($root . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'cartfunctions.php');
 
 
 $root = (__DIR__);

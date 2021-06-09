@@ -167,19 +167,35 @@ class MicroweberAddonDomainSearch
 
         $command = 'GetTLDPricing';
         $postData = array();
+        require_once(__DIR__ .'/init.php');
 
-        $results = localAPI($command, $postData);
 
-        if (isset($results['result']) and $results['result'] == 'success') {
-            if (isset($results['pricing']) and $results['pricing']) {
-                foreach ($results['pricing'] as $tld_key => $tld_data) {
+     //   $results = localAPI($command, $postData);
+       $tlds   =getTLDList();
+
+       if($tlds){
+           foreach ($tlds as $tld){
+               $results_tlds[$tld] = getTLDPriceList($tld);
+           }
+       }
+
+
+
+
+
+
+
+             if ($results_tlds) {
+                foreach ($results_tlds as $tld_key => $tld_data) {
+                    $tld_data = $tld_data[1];
+
                     if (isset($tld_data['register']) and $tld_data['register']) {
                         //s $available_domain_extensions[$tld_key] = (string) formatCurrency(array_shift($tld_data['register']));
                         $available_domain_extensions[$tld_key] = $tld_data['register'];
                     }
                 }
             }
-        }
+
 
         $try_exts = array();
         if ($available_domain_extensions) {
@@ -206,19 +222,31 @@ class MicroweberAddonDomainSearch
                         $postData = array(
                             'domain' => $search_dom,
                         );
-                        $results = localAPI($command, $postData);
+                       // $whois = new  \WHMCS\Domains\DomainLookup\Provider\BasicWhois();
+                      //  $whois = new  \WHMCS\Domains\DomainLookup\SearchResult($host,$available_domain_extension1);\
 
-                        if (isset($results['result']) and $results['result'] == 'success') {
+                        $whois = new \WHMCS\WHOIS();
+
+                        $results =$whois->lookup(['sld'=>$host,'tld'=>$available_domain_extension]);
+
+                   //     $results = $whois->getGeneralAvailability($host, [$available_domain_extension1]);
+                   //  $results = $whois->isGeneralAvailability();
+
+                       // $results = localAPI($command, $postData);
+//var_dump(['sld'=>$host,'tld'=>$available_domain_extension1]);
+
+
+                       // if ($results) {
                             $tld_data = $available_domain_extensions[$available_domain_extension];
 
                             $price = (string)formatCurrency(array_shift($tld_data));
 
-                            if (isset($results['status']) and $results['status'] == 'available') {
-                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => '.' . $available_domain_extension, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
+                            if ($results and isset( $results["result"]) and ( $results["result"]) == 'available') {
+                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
                             } else {
-                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => '.' . $available_domain_extension, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
+                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
                             }
-                        }
+                       // }
                     }
 
                 } else {

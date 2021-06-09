@@ -346,7 +346,7 @@
 
                 <div class="just-text text-center m-b-20">
                     <h1 class="m-b-20">Choose your domain name</h1>
-                    <p>Register your domain with <?php echo $CONFIG['CompanyName']; ?></p>
+                    <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
                 </div>
 
                 <div id="domain-selector">
@@ -363,7 +363,7 @@
                             <div class="urf urf_warn" style="display: none;">
                                 <div class="icon"></div>
                                 <strong><span class="var-websiteName">DomainName.com</span> is taken.</strong> Try new one!<br/>
-                                If this is your domain, <u>you can map it with <?php echo $CONFIG['CompanyName']; ?> Premium.</u>
+                                If this is your domain, <u>you can map it with <?php echo $controller->branding_get_company_name(); ?> Premium.</u>
                             </div>
                             <div class="urf urf_success" style="display: none;">
                                 <div class="icon"></div>
@@ -416,7 +416,7 @@
 
                         <div class="col-md-4">
                             <h6>Connect your own domain</h6>
-                            <p>Already have a domain name? Point it to your <?php echo $CONFIG['CompanyName']; ?> website in a few easy steps.
+                            <p>Already have a domain name? Point it to your <?php echo $controller->branding_get_company_name(); ?> website in a few easy steps.
                             </p>
                         </div>
 

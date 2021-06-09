@@ -891,6 +891,22 @@ h.domain = '" . $username . "' and
 
     }
 
+    function branding_get_company_name()
+    {
+        global  $CONFIG;
+        $name = $CONFIG['CompanyName'];
+
+        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+        if ($resellerCenterEnabled) {
+            $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();
+            if (isset($resellerSettings["companyName"])) {
+                $name = $resellerSettings["companyName"];
+            }
+        }
+
+        return $name;
+    }
 
     function get_hosting_products($params = [])
     {
