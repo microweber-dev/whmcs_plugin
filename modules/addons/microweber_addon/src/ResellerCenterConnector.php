@@ -105,6 +105,26 @@ class ResellerCenterConnector
         return $prods;
 
     }
+    public function getPricingForProduct($pid,$billingcycle,$currencyID)
+    {
+        $settings = $this->getSettingsForCurrentDomain();
+        if (isset($settings['reseller_id']) and $settings['reseller_id']) {
+
+
+            $resellerGetPricingForProduct = Capsule::table('ResellersCenter_ResellersPricing')
+                ->where('relid', $pid)
+                ->where('type',  "product")
+                ->where('currency', $currencyID)
+                ->where('billingcycle', $billingcycle)
+                ->where('reseller_id', $settings['reseller_id'])
+                ->first();
+
+            if($resellerGetPricingForProduct){
+                return (array) $resellerGetPricingForProduct;
+            }
+
+        }
+    }
 
 
 }

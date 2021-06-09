@@ -1,8 +1,10 @@
 <?php include 'partials/header.php'; ?>
 
 <?php
+$controller = new MicroweberAddonApiController();
+
 $plans = $controller->get_hosting_products();
-//print_r($plans);
+// print_r($plans);
 ?>
 
 <style>
@@ -55,11 +57,34 @@ $plans = $controller->get_hosting_products();
                                         <div class="heading">
                                             <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
                                             <div class="price">
-                                                <script language="javascript" src="<?php print $CONFIG['SystemURL']; ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
-                                                <?php if ($key == 0): ?>
+<!--                                                <script language="javascript" src="--><?php //print site_url(); ?><!--feeds/productsinfo.php?pid=--><?php //print $plan['id'] ?><!--&get=price&billingcycle=monthly"></script>-->
+
+                                                <?php
+                                                $price = false;
+                                                $billing_cycle = false;
+                                                $is_free = false;
+
+                                                //var_dump($plan ['pricing_data']);
+                                                    if(isset($plan['pricing_data']) and isset($plan['pricing_data']['price'])){
+                                                        $price = $plan['pricing_data']['price'];
+                                                    }
+                                                    if(isset($plan['pricing_data']) and isset($plan['pricing_data']['billing_cycle'])){
+                                                        $billing_cycle = $plan['pricing_data']['billing_cycle'];
+                                                    }
+                                                    if(isset($plan['pricing_data']) and isset($plan['pricing_data']['is_free'])){
+                                                        $is_free = $plan['pricing_data']['is_free'];
+                                                    }
+
+                                                ?>
+
+
+
+                                                <?php if ($is_free): ?>
+                                                Free
                                                     <span class="period safe-element">14 days free trial</span>
                                                 <?php else: ?>
-                                                    <span class="period safe-element">per month, billed yearly</span>
+                                                    <?php print $price; ?>
+                                                    <span class="period safe-element"><?php print $billing_cycle; ?></span>
                                                 <?php endif; ?>
                                             </div>
                                         </div>

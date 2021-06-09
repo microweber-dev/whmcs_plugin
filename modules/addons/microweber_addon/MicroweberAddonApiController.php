@@ -905,11 +905,18 @@ h.domain = '" . $username . "' and
         }
 
 
-
         // $query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order by tblproducts.order asc  ";
 
 
         //  $result_q = Capsule::select($query);
+        $currencyID = false;
+        //todo
+        $currency = getCurrency('', $currencyID);
+
+        if (!$currency || !is_array($currency) || !isset($currency['id'])) {
+            $currency = getCurrency();
+        }
+        $currencyID = $currency['id'];
 
 
         $products = array();
@@ -919,21 +926,52 @@ h.domain = '" . $username . "' and
         if ($result_q) {
             foreach ($result_q as $item) {
                 $item = (array)$item;
-                $prod = Product::find($item['id'])->first();
+                $prod = Product::find($item['id']);
                 $format = $prod->getFormattedProductFeaturesAttribute();
-                $pricing = $prod->pricing();
 
-
-               // var_dump($pricing);
-             //   exit;
                 $item["features"] = $format["features"];
-                $item["pricing"] =$pricing;
+
+
+                $pricing = $prod->pricing($currencyID);
+
+//                $data = Capsule::table('tblpricing')
+//                    ->where('type', '=', 'product')
+//                    ->where('currency', '=', $currencyID)
+//                    ->where('relid', '=', $pid)
+//                    ->first();
+//                $price = $data->$billingCycle;
+
+                $pricing_data = [];
+
+
+                $price = $pricing->best();
+
+
+                if ($price) {
+                    $pricing_data['is_free'] = $price->isFree();
+                    $pricing_data['billing_cycle'] = $price->cycle();
+                    $pricing_data['price'] = $price->price()->format();
+                }
+
+
+                if ($resellerSettings and isset($resellerSettings['reseller_id'])) {
+                    $resellerSettingsPricing = $resellerCenterConnector->getPricingForProduct($item['id'], $price->cycle(), $currencyID);
+
+                    if ($resellerSettingsPricing and isset($resellerSettingsPricing["billingcycle"])) {
+                        $pricing_data['billing_cycle'] = $resellerSettingsPricing["billingcycle"];
+                        $pricing_data['price'] = formatCurrency($resellerSettingsPricing["value"], $currencyID);;
+                    }
+
+                }
+
+
+
+                $item["pricing_data"] = $pricing_data;
 
                 $products[] = $item;
 
             }
         }
-
 
 
         if (!empty($products)) {
