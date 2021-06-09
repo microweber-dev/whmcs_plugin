@@ -832,11 +832,11 @@ h.domain = '" . $username . "' and
             if (isset($params['plan_id']) and $params['plan_id']) {
                 $redir_url .= '&pid=' . $params['plan_id'];
             }
-            if (isset($params['subdomain']) and $params['subdomain'] == 'true') {
+            if (isset($params['subdomain']) and ($params['subdomain'] == 'true' or $params['subdomain'] == '1')) {
                 $redir_url .= '&domainoption=subdomain';
             }
 
-
+ 
             //
 
             if (isset($params['template_id']) and $params['template_id']) {
