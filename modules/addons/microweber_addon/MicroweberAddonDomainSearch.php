@@ -1,6 +1,7 @@
  <?php
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use WHMCS\Product\Product as Product;
 
 class MicroweberAddonDomainSearch
 {
@@ -8,7 +9,7 @@ class MicroweberAddonDomainSearch
     function get_hosting_products($params = false)
     {
 
-        $host_acc = Capsule::table('tblproducts')
+        $hosting_acc = Capsule::table('tblproducts')
             ->where('hidden', 0)
             ->where('retired', 0)
             ->where('showdomainoptions', 1)
@@ -17,7 +18,59 @@ class MicroweberAddonDomainSearch
             ->get();
 
 
-        return $host_acc;
+//        $hosting_acc = Product::query()->where('hidden', 0)
+//            ->where('retired', 0)
+//            ->where('showdomainoptions', 1)
+//            ->where('type', 'hostingaccount')
+//            ->orderBy('order', 'ASC')
+//            ->get();
+
+
+
+        // if is reseller, remove other pids
+        $resellerPids = [];
+        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+        if ($resellerCenterEnabled) {
+            $resellerProducts = $resellerCenterConnector->getProductsForCurrentDomain();
+
+
+            if ($resellerProducts) {
+                foreach ($resellerProducts as $resellerProduct) {
+
+                    $resellerPids[] = $resellerProduct->id;
+                }
+
+            }
+        }
+
+
+        if($resellerPids){
+            if ($hosting_acc) {
+                foreach ($hosting_acc as $k=>$acc) {
+                    $acc = (array)$acc;
+
+                    $found = false;
+
+                    foreach ($resellerPids as $resellerPid){
+                        if(intval($resellerPid) ==intval( $acc['id'])){
+                            $found = true;
+                        }
+                    }
+
+
+
+                    if(!$found){
+                       unset($hosting_acc[$k]);
+                    }
+                }
+            }
+        }
+
+
+
+
+        return $hosting_acc;
 
     }
 
@@ -43,6 +96,8 @@ class MicroweberAddonDomainSearch
 
 
         $hosting_acc = $this->get_hosting_products();
+
+
 
 
         if ($hosting_acc) {

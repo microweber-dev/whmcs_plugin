@@ -70,16 +70,28 @@ class ResellerCenterConnector
         $prods = [];
         $settings = $this->getSettingsForCurrentDomain();
         if (isset($settings['reseller_id']) and $settings['reseller_id']) {
-            $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersServices')
+//            $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersServices')
+//                ->where('reseller_id', $settings['reseller_id'])
+//                ->get();
+
+
+  $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersPricing')
                 ->where('reseller_id', $settings['reseller_id'])
+                ->groupBy('relid')
                 ->get();
 
 
             if ($resellerResellersSettings) {
                 foreach ($resellerResellersSettings as $resellerResellersSettingService) {
                     //$pids[] = $resellerResellersSettingService->relid;
-                    $product = \WHMCS\Product\Product::find($resellerResellersSettingService->relid);
+                     $product = \WHMCS\Product\Product::find($resellerResellersSettingService->relid) ;
+
+//                    $product = Capsule::table('tblproducts')
+//                        ->where('id', $resellerResellersSettingService->relid)
+//                        ->first();
+
                     if($product){
+
                         $isHidden = $product->isHidden;
                         if(!$isHidden){
 

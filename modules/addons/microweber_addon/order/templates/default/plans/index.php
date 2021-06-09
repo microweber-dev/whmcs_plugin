@@ -64,14 +64,31 @@ $plans = $controller->get_hosting_products();
                                             </div>
                                         </div>
 
-
+                                        <div class="description">
                                         <?php
                                         $desc = $plan['description'];
+                                        if(isset($plan['features'])){
+                                            $desc = '<ul>';
+                                             foreach ($plan['features'] as $featk=>$feat){
+                                                $desc = $desc.'<li><b>'.$featk.'</b> '.$feat.'</li>';
+                                            }
+                                            $desc .= '</ul>';
+                                        }
+
+
 
                                        // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
 
                                         print  $desc;
+
+
+
                                         ?>
+
+
+
+
+                                        </div>
                                         <?php if ($plan['id']): ?>
                                             <div class="description last">
 

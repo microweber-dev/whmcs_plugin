@@ -77,10 +77,16 @@
             </div>
         {/if}
 
-        <div class="navbar navbar-light navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar navbar-light navbar navbar-expand-lg  ">
             <div class="container">
                 <a class="navbar-brand mr-3" href="{$WEB_ROOT}/index.php">
-                    {if $assetLogoPath}
+
+                    {if $RCLogo}
+                    <img src="{$RCLogo}" alt="{$companyname}" class="logo-img">
+
+                    {elseif $assetLogoPath}
+
+
                         <img src="{$assetLogoPath}" alt="{$companyname}" class="logo-img">
 
                     {elseif $logo}

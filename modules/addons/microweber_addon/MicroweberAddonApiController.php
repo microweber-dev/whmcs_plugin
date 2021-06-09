@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
+use WHMCS\Product\Product as Product;
 
 include_once __DIR__ . DIRECTORY_SEPARATOR . 'helpers.php';
-
 
 
 class MicroweberAddonApiController
@@ -172,7 +172,7 @@ class MicroweberAddonApiController
 
             $checkLicense = Capsule::table('mod_licensing')->where('licensekey', $licenseKey)->first();
             if ($checkLicense) {
-                if($checkLicense->status == 'Active' || $checkLicense->status == 'Reissued') {
+                if ($checkLicense->status == 'Active' || $checkLicense->status == 'Reissued') {
                     $checkHosting = Capsule::table('tblhosting')->where('id', $checkLicense->serviceid)->first();
                     $json['license_id'] = $checkLicense->id;
                     $json['service_id'] = $checkHosting->id;
@@ -684,7 +684,7 @@ h.domain = '" . $username . "' and
                         $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
                     }
 
-                    header('Location: ' . $http_code . $user_prod['domain'] . '/api/user_login?username=' . $user_prod['username'] . '&password=' . $user_prod['password'] . '&http_redirect='.$redirectTo);
+                    header('Location: ' . $http_code . $user_prod['domain'] . '/api/user_login?username=' . $user_prod['username'] . '&password=' . $user_prod['password'] . '&http_redirect=' . $redirectTo);
 
                     /*
                     echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login?http_redirect=1&where_to=admin_content">';
@@ -715,10 +715,9 @@ h.domain = '" . $username . "' and
     public function check_ssl_verify_domain($domain)
     {
         $log = '';
-        if($fp = tmpfile())
-        {
+        if ($fp = tmpfile()) {
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,"https://" . $domain);
+            curl_setopt($ch, CURLOPT_URL, "https://" . $domain);
             curl_setopt($ch, CURLOPT_STDERR, $fp);
             curl_setopt($ch, CURLOPT_CERTINFO, 1);
             curl_setopt($ch, CURLOPT_VERBOSE, 1);
@@ -726,15 +725,15 @@ h.domain = '" . $username . "' and
             curl_setopt($ch, CURLOPT_NOBODY, 1);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
             $result = curl_exec($ch);
-            if (curl_errno($ch)==0) {
+            if (curl_errno($ch) == 0) {
                 return false;
             }
             fseek($fp, 0);//rewind
-            $str='';
-            while(strlen($str.=fread($fp,8192))==8192);
-            $log .=  $str;
+            $str = '';
+            while (strlen($str .= fread($fp, 8192)) == 8192) ;
+            $log .= $str;
             fclose($fp);
         }
 
@@ -775,6 +774,7 @@ h.domain = '" . $username . "' and
         }
 
     }
+
     function get_templates_for_cart($params)
     {
         $hosting = new \MicroweberAddon\Hosting();
@@ -782,9 +782,9 @@ h.domain = '" . $username . "' and
         $enabled_templates = $hosting->get_enabled_market_templates();
 
         $return = [];
-        if($enabled_templates){
-            foreach ($enabled_templates as $enabled_template){
-                if(isset($enabled_template['configoption']) and isset($enabled_template['configoption']['id'])){
+        if ($enabled_templates) {
+            foreach ($enabled_templates as $enabled_template) {
+                if (isset($enabled_template['configoption']) and isset($enabled_template['configoption']['id'])) {
 
 
                     $ready = [
@@ -792,9 +792,9 @@ h.domain = '" . $username . "' and
                         'title' => $enabled_template['configoption']['optionname'],
                         'image' => '',
                     ];
-                    if(isset($enabled_template["extra"]['_meta']) and isset($enabled_template["extra"]['_meta']['screenshot'])){
+                    if (isset($enabled_template["extra"]['_meta']) and isset($enabled_template["extra"]['_meta']['screenshot'])) {
                         $ready['image'] = $enabled_template["extra"]['_meta']['screenshot'];
-                     }
+                    }
 
 //image
 //title
@@ -809,70 +809,58 @@ h.domain = '" . $username . "' and
         }
 
 
-        return($return);
+        return ($return);
     }
 
     function order_iframe($params)
     {
-//        global  $CONFIG;
-//        $whmcsUrl = $CONFIG['SystemURL'];
-//        var_dump($whmcsUrl);
-//        exit;
-        if(isset($params['start_with_plan'])  and isset($params['plan_id']) ){
+
+        if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
 
             global $CONFIG;
             $whmcsurl = $CONFIG['SystemURL'];
 
-            $redir_url = site_url().'cart.php?a=add';
-            if(isset($params['tld']) and $params['tld']) {
-                $redir_url .= '&tld='.$params['tld'];
+            $redir_url = site_url() . 'cart.php?a=add';
+            if (isset($params['tld']) and $params['tld']) {
+                $redir_url .= '&tld=' . $params['tld'];
             }
 
-            if(isset($params['sld']) and $params['sld']) {
-                $redir_url .= '&sld='.$params['sld'];
+            if (isset($params['sld']) and $params['sld']) {
+                $redir_url .= '&sld=' . $params['sld'];
             }
 
-            if(isset($params['plan_id']) and $params['plan_id']) {
-                $redir_url .= '&pid='.$params['plan_id'];
+            if (isset($params['plan_id']) and $params['plan_id']) {
+                $redir_url .= '&pid=' . $params['plan_id'];
             }
-            if(isset($params['subdomain']) and $params['subdomain']) {
+            if (isset($params['subdomain']) and $params['subdomain']) {
                 $redir_url .= '&domainoption=subdomain';
             }
 
 
             //
 
-            if(isset($params['template_id']) and $params['template_id']) {
-                if(isset($params['config_gid']) and $params['config_gid']) {
-                    $redir_url .= '&configoption['.$params['config_gid'].']='.$params['template_id'];
+            if (isset($params['template_id']) and $params['template_id']) {
+                if (isset($params['config_gid']) and $params['config_gid']) {
+                    $redir_url .= '&configoption[' . $params['config_gid'] . ']=' . $params['template_id'];
                 }
+                $redir_url .= '&skipconfig=1';
 
-             }
+            }
 
 //
 
 
             if ($redir_url) {
 
-                print '<script type="text/javascript">window.location = "'.$redir_url.'"</script>';
+                print '<script type="text/javascript">window.location = "' . $redir_url . '"</script>';
                 exit;
             }
-
-
-//            var_dump($redir_url);
-//            var_dump($params);
-//
-//            exit();
-//cart.php?a=add&domain=register&sld=domainname&tld=.com
-
-            //redir($redir_url,'cart.php');
-            //exit();
 
 
         }
 
 
-        include __DIR__."/order/index.php";
+        include __DIR__ . "/order/index.php";
 
     }
 
@@ -904,27 +892,48 @@ h.domain = '" . $username . "' and
     }
 
 
-    function get_hosting_products()
+    function get_hosting_products($params = [])
     {
+        $search = new MicroweberAddonDomainSearch();
+        $result_q = $search->get_hosting_products($params);
+
+        $resellerSettings = [];
+        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+        if ($resellerCenterEnabled) {
+            $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();
+        }
 
 
-        //$query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden<>'on' order by tblproducts.order desc  ";
-        $query = "SELECT * FROM `tblproducts` WHERE
-type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order by tblproducts.order asc  ";
+
+        // $query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order by tblproducts.order asc  ";
 
 
-        $result_q = Capsule::select($query);
+        //  $result_q = Capsule::select($query);
 
 
         $products = array();
+        //   $description =  $item->getFormattedProductFeaturesAttribute();
 
 
         if ($result_q) {
             foreach ($result_q as $item) {
-                $products[] = (array)$item;
+                $item = (array)$item;
+                $prod = Product::find($item['id'])->first();
+                $format = $prod->getFormattedProductFeaturesAttribute();
+                $pricing = $prod->pricing();
+
+
+               // var_dump($pricing);
+             //   exit;
+                $item["features"] = $format["features"];
+                $item["pricing"] =$pricing;
+
+                $products[] = $item;
 
             }
         }
+
 
 
         if (!empty($products)) {

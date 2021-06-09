@@ -1,25 +1,4 @@
-.primary-bg-color {
-    background-color: white;
-}
-.bg-dark, footer.footer {
-    background-color: black !important;
-}
-
-
-header.header .navbar-nav a {
-    font-size: 19px;
-}
-
-header.header .dropdown-menu a.dropdown-item,
-header.header .navbar a {
-    color: #0b0b0b;
-}
-
-
-
-header.header .navbar-dark a {
-    color: white;
-}
-
-
+@import url("vars.css");
+@import url("site.css");
+@import url("cart.css");
 
