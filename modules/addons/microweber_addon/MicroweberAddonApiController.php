@@ -832,7 +832,7 @@ h.domain = '" . $username . "' and
             if (isset($params['plan_id']) and $params['plan_id']) {
                 $redir_url .= '&pid=' . $params['plan_id'];
             }
-            if (isset($params['subdomain']) and $params['subdomain']) {
+            if (isset($params['subdomain']) and $params['subdomain'] == 'true') {
                 $redir_url .= '&domainoption=subdomain';
             }
 
@@ -843,7 +843,13 @@ h.domain = '" . $username . "' and
                 if (isset($params['config_gid']) and $params['config_gid']) {
                     $redir_url .= '&configoption[' . $params['config_gid'] . ']=' . $params['template_id'];
                 }
-                $redir_url .= '&skipconfig=1';
+                if (isset($params['subdomain']) and $params['subdomain'] == 'false') {
+                    $redir_url .= '&skipconfig=1';
+                    $redir_url .= '&domainoption=register';
+                } else {
+                    $redir_url .= '&skipconfig=1';
+
+                }
 
             }
 
@@ -913,12 +919,7 @@ h.domain = '" . $username . "' and
         $search = new MicroweberAddonDomainSearch();
         $result_q = $search->get_hosting_products($params);
 
-        $resellerSettings = [];
-        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
-        $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
-        if ($resellerCenterEnabled) {
-            $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();
-        }
+
 
 
         // $query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order by tblproducts.order asc  ";
@@ -936,6 +937,16 @@ h.domain = '" . $username . "' and
 
 
         $products = array();
+
+        $resellerSettings = [];
+        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+        if ($resellerCenterEnabled) {
+            $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();
+        }
+
+
+
         //   $description =  $item->getFormattedProductFeaturesAttribute();
 
 

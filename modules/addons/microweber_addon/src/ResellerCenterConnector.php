@@ -28,7 +28,7 @@ class ResellerCenterConnector
 
     }
 
-    public function getSettingsForCurrentDomain()
+    public function getSettingsForCurrentDomain($currencyID = false)
     {
         $host = false;
 
@@ -75,9 +75,22 @@ class ResellerCenterConnector
 //                ->get();
 
 
+            $currencyID = false;
+            //todo
+            $currency = getCurrency('', $currencyID);
+
+            if (!$currency || !is_array($currency) || !isset($currency['id'])) {
+                $currency = getCurrency();
+            }
+            $currencyID = $currency['id'];
+
+
+
   $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersPricing')
                 ->where('reseller_id', $settings['reseller_id'])
-                ->groupBy('relid')
+                ->where('type', 'product')
+                ->where('currency', $currencyID)
+                 ->groupBy('relid')
                 ->get();
 
 
