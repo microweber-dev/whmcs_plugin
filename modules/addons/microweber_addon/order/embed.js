@@ -17,7 +17,8 @@
     }
     window['mw-domain-search-iframe-embed'] = true;
 
-    if (window.top.document.querySelectorAll('#domain-search-iframe-js').length > 1) {
+    //if (window.top.document.querySelectorAll('#domain-search-iframe-js').length > 1) {
+    if (document.querySelectorAll('script[src*="/microweber_addon/"]').length > 1) {
 
         console.warn(mlt);
         return;
@@ -27,7 +28,8 @@
         return document.querySelector(a)
     };
 
-    var script = $('#domain-search-iframe-js');
+    //var script = $('#domain-search-iframe-js');
+    var script = $('script[src*="/microweber_addon/"]')[0];
 
     if (!script) {
         return;
