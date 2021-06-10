@@ -130,7 +130,7 @@
         //user is "finished typing," do something
         function doneTyping() {
             // Define an expression of words to check for
-            var words = new RegExp('^test|neshtozabraneno');
+            var words = new RegExp('^someblocklistword|neshtozabraneno');
             // Check if any of the words is contained within your element
             if (words.test($('#domain-search-field').val())) {
                 $('#wrongSymbols').modal();
