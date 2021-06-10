@@ -836,7 +836,7 @@ h.domain = '" . $username . "' and
                 $redir_url .= '&domainoption=subdomain';
             }
 
- 
+
             //
 
             if (isset($params['template_id']) and $params['template_id']) {
@@ -858,7 +858,14 @@ h.domain = '" . $username . "' and
 
             if ($redir_url) {
 
-                print '<script type="text/javascript">window.location = "' . $redir_url . '"</script>';
+                print '
+                <script type="text/javascript">
+                 if (window.top != window.self){
+                    window.top.location.href = "' . $redir_url . '"
+                } else {
+                    window.location.href = "' . $redir_url . '"
+                }
+                </script>';
                 exit;
             }
 

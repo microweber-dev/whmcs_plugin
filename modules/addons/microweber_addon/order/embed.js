@@ -1,3 +1,5 @@
+
+
 (function () {
     var tool = {
         offset: function (node) {
@@ -9,13 +11,14 @@
         }
     }
     var mlt = 'Multiple embed instances not allowed';
-    if (window['mw-domain-search-iframe-embed']) {
+    if (window['mw-domain-search-iframe-embed-script']) {
         console.warn(mlt);
         return;
     }
     window['mw-domain-search-iframe-embed'] = true;
 
-    if (document.querySelectorAll('script[src*="/microweber_addon/"]').length > 1) {
+    if (window.top.document.querySelectorAll('#domain-search-iframe-js').length > 1) {
+
         console.warn(mlt);
         return;
     }
@@ -24,13 +27,17 @@
         return document.querySelector(a)
     };
 
-    var script = $('script[src*="/microweber_addon/"]');
+    var script = $('#domain-search-iframe-js');
 
     if (!script) {
         return;
     }
 
     var path = script.src.split('/');
+    path.pop()
+    path.pop()
+    path.pop()
+    path.pop()
     path.pop()
     path = path.join('/');
     var $params = script.src.split('?')[1] || '';
@@ -57,11 +64,13 @@
     if (typeof windowhash === 'string' && windowhash.indexOf('frameurl=') > -1) {
         var hash = windowhash.split('frameurl=')[1];
         var hash = decodeURI(atob(hash))
-       //  iframe.src = hash;
+     //     iframe.src = hash;
     } else {
-         iframe.src = path + '/index.php?' + $params;
+
+        //alert(path);
+       iframe.src = path + '/index.php?m=microweber_addon&function=order_iframe&' + $params;
+
     }
- alert(iframe.src);
     script.parentNode.insertBefore(iframe, script.nextSibling);
 
     addEventListener('message', function (e) {
