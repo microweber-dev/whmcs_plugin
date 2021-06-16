@@ -425,7 +425,7 @@ h.domain = '" . $username . "' and
         global $autoauthkey;
 
 
-        $whmcsurl = $CONFIG['SystemURL'];
+        $whmcsurl = site_url();
 
         $ajax = false;
         if (isset($_REQUEST['ajax'])) {
@@ -814,6 +814,8 @@ h.domain = '" . $username . "' and
 
     function order_iframe($params)
     {
+
+
         if (isset($params['language']) and function_exists('swapLang')) {
             swapLang($params['language']);
         }
@@ -821,7 +823,7 @@ h.domain = '" . $username . "' and
         if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
 
             global $CONFIG;
-            $whmcsurl = $CONFIG['SystemURL'];
+            $whmcsurl = site_url();
 
             $redir_url = site_url() . 'cart.php?a=add';
             if (isset($params['tld']) and $params['tld']) {
@@ -888,7 +890,7 @@ h.domain = '" . $username . "' and
 
 
         include __DIR__ . "/order/index.php";
-
+exit;
     }
 
     function domain_search($params)

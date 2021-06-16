@@ -1,4 +1,4 @@
- <?php
+<?php
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use WHMCS\Product\Product as Product;
@@ -26,7 +26,6 @@ class MicroweberAddonDomainSearch
 //            ->get();
 
 
-
         // if is reseller, remove other pids
         $resellerPids = [];
         $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
@@ -45,29 +44,26 @@ class MicroweberAddonDomainSearch
         }
 
 
-        if($resellerPids){
+        if ($resellerPids) {
             if ($hosting_acc) {
-                foreach ($hosting_acc as $k=>$acc) {
+                foreach ($hosting_acc as $k => $acc) {
                     $acc = (array)$acc;
 
                     $found = false;
 
-                    foreach ($resellerPids as $resellerPid){
-                        if(intval($resellerPid) ==intval( $acc['id'])){
+                    foreach ($resellerPids as $resellerPid) {
+                        if (intval($resellerPid) == intval($acc['id'])) {
                             $found = true;
                         }
                     }
 
 
-
-                    if(!$found){
-                       unset($hosting_acc[$k]);
+                    if (!$found) {
+                        unset($hosting_acc[$k]);
                     }
                 }
             }
         }
-
-
 
 
         return $hosting_acc;
@@ -96,8 +92,6 @@ class MicroweberAddonDomainSearch
 
 
         $hosting_acc = $this->get_hosting_products();
-
-
 
 
         if ($hosting_acc) {
@@ -167,34 +161,29 @@ class MicroweberAddonDomainSearch
 
         $command = 'GetTLDPricing';
         $postData = array();
-        require_once(__DIR__ .'/init.php');
+        require_once(__DIR__ . '/init.php');
 
 
-     //   $results = localAPI($command, $postData);
-       $tlds   =getTLDList();
+        //   $results = localAPI($command, $postData);
+        $tlds = getTLDList();
 
-       if($tlds){
-           foreach ($tlds as $tld){
-               $results_tlds[$tld] = getTLDPriceList($tld);
-           }
-       }
-
-
+        if ($tlds) {
+            foreach ($tlds as $tld) {
+                $results_tlds[$tld] = getTLDPriceList($tld);
+            }
+        }
 
 
+        if ($results_tlds) {
+            foreach ($results_tlds as $tld_key => $tld_data) {
+                $tld_data = $tld_data[1];
 
-
-
-             if ($results_tlds) {
-                foreach ($results_tlds as $tld_key => $tld_data) {
-                    $tld_data = $tld_data[1];
-
-                    if (isset($tld_data['register']) and $tld_data['register']) {
-                        //s $available_domain_extensions[$tld_key] = (string) formatCurrency(array_shift($tld_data['register']));
-                        $available_domain_extensions[$tld_key] = $tld_data['register'];
-                    }
+                if (isset($tld_data['register']) and $tld_data['register']) {
+                    //s $available_domain_extensions[$tld_key] = (string) formatCurrency(array_shift($tld_data['register']));
+                    $available_domain_extensions[$tld_key] = $tld_data['register'];
                 }
             }
+        }
 
 
         $try_exts = array();
@@ -222,36 +211,59 @@ class MicroweberAddonDomainSearch
                         $postData = array(
                             'domain' => $search_dom,
                         );
-                       // $whois = new  \WHMCS\Domains\DomainLookup\Provider\BasicWhois();
-                      //  $whois = new  \WHMCS\Domains\DomainLookup\SearchResult($host,$available_domain_extension1);\
+                        // $whois = new  \WHMCS\Domains\DomainLookup\Provider\BasicWhois();
+                        //  $whois = new  \WHMCS\Domains\DomainLookup\SearchResult($host,$available_domain_extension1);\
 
                         $whois = new \WHMCS\WHOIS();
 
-                        $results =$whois->lookup(['sld'=>$host,'tld'=>$available_domain_extension]);
+                        $results = $whois->lookup(['sld' => $host, 'tld' => $available_domain_extension]);
 
-                   //     $results = $whois->getGeneralAvailability($host, [$available_domain_extension1]);
-                   //  $results = $whois->isGeneralAvailability();
+                        //     $results = $whois->getGeneralAvailability($host, [$available_domain_extension1]);
+                        //  $results = $whois->isGeneralAvailability();
 
-                       // $results = localAPI($command, $postData);
+                        // $results = localAPI($command, $postData);
 //var_dump(['sld'=>$host,'tld'=>$available_domain_extension1]);
 
 
-                       // if ($results) {
-                            $tld_data = $available_domain_extensions[$available_domain_extension];
+                        // if ($results) {
+                        $tld_data = $available_domain_extensions[$available_domain_extension];
 
-                            $price = (string)formatCurrency(array_shift($tld_data));
+                        $price = (string)formatCurrency(array_shift($tld_data));
 
-                            if ($results and isset( $results["result"]) and ( $results["result"]) == 'available') {
-                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
-                            } else {
-                                $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
-                            }
-                       // }
+                        if ($results and isset($results["result"]) and ($results["result"]) == 'available') {
+                            $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
+                        } else {
+                            $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
+                        }
+                        // }
                     }
 
                 } else {
                     $price = (string)formatCurrency(0);
                     $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => $available_domain_extension, 'sld' => $host, 'is_free' => true, 'subdomain' => true, 'price' => $price);
+                }
+            }
+
+            foreach ($try_exts as $available_domain_extension) {
+                //suggest
+                $suggest_query = $this->domain_suggest_verisign($host, [$available_domain_extension]);
+                if ($suggest_query) {
+
+
+
+                    foreach ($suggest_query as $sugg) {
+
+                        $available_domain_extension1 = ltrim($available_domain_extension, '.');
+                        $search_dom = $host . '.' . $available_domain_extension1;
+                        $search_dom =$sugg;
+
+                        $tld_data = $available_domain_extensions[$available_domain_extension];
+
+                        $price = (string)formatCurrency(array_shift($tld_data));
+                        $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
+                    }
+
+
                 }
             }
         }
@@ -279,14 +291,49 @@ class MicroweberAddonDomainSearch
             }
         }
 
-        if(count($return_combined['results']) > 3){
-            $return_combined['results'] = array_slice($return_combined['results'], 0,5);    // limit to 5 exts
+        if (count($return_combined['results']) > 3) {
+            $return_combined['results'] = array_slice($return_combined['results'], 0, 150);    // limit to 5 exts
         }
 
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
 
         return $return_combined;
+    }
+
+    function domain_suggest_verisign($domain_name, $tlds = [])
+    {
+        $get_tlds = 'com,net';
+        if ($tlds) {
+            $get_tlds = implode(',', $tlds);
+
+        }
+
+        $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name=' . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=true&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=20&include-suggestion-type=true';
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        $xml = curl_exec($ch);
+        $curlerror = "ErrNo: " . curl_errno($ch) . " ErrMsg: " . curl_error($ch);
+        curl_close($ch);
+
+        $xml = @json_decode($xml, 1);
+        $avaiable = [];
+        if ($xml and is_array($xml) and !empty($xml) and !empty($xml['results'])) {
+            $res = $xml['results'];
+            foreach ($res as $sugg) {
+
+                if (isset($sugg['name']) and isset($sugg['availability']) and $sugg['availability'] == "available") {
+                    $avaiable[] = $sugg['name'];
+                }
+            }
+        }
+        return $avaiable;
+
+
     }
 
     function domain_suggest()

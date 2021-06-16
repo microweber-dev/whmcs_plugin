@@ -53,13 +53,12 @@ if (!$getDomain) {
     $step = 3;
 }
 
-
 ?>
 
 <?php //echo $CONFIG['CompanyName']; ?>
 <?php //echo $CONFIG['Email']; ?>
 <?php //echo $CONFIG['Domain']; ?>
-<?php //echo $CONFIG['SystemURL']; ?>
+<?php //echo site_url(); ?>
 <?php //echo $CONFIG['LogoURL']; ?>
 
 
@@ -68,7 +67,9 @@ if (!$getDomain) {
     <?php include "steps/preview_template.php"; ?>
 <?php else: ?>
     <?php if ($step == 1): ?>
-        <?php include "steps/domains.php"; ?>
+        <?php
+
+        include "steps/domains.php"; ?>
     <?php elseif ($step == 2): ?>
         <?php include "steps/templates.php"; ?>
     <?php elseif ($step == 3): ?>
@@ -84,7 +85,7 @@ if (!$getDomain) {
         }
         ?>
 
-        <form action="<?php echo $CONFIG['SystemURL']; ?>/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
+        <form action="<?php echo site_url(); ?>/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
             <input type="text" name="a" value="add">
             <input type="text" name="pid" value="<?php echo $pid; ?>">
             <input type="text" name="configoption[<?php print $config_gid ?>]" value="<?php print $template_id ?>">
@@ -104,7 +105,7 @@ if (!$getDomain) {
             <button type="submit">submit</button>
         </form>
         <script>
-            window.top.location.href = "<?php echo $CONFIG['SystemURL']; ?>/<?php echo $redirect_url; ?>";
+           // window.top.location.href = "<?php echo site_url(); ?>/<?php echo $redirect_url; ?>";
         </script>
     <?php endif; ?>
 <?php endif; ?>

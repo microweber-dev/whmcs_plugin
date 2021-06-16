@@ -6,10 +6,10 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <script src="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/assets/js/jquery.js"></script>
+    <script src="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/js/jquery.js"></script>
 
     <!-- Custom Theme -->
-    <link href="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 
     <style>
         body {

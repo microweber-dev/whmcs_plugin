@@ -55,7 +55,7 @@ $plans = $controller->get_hosting_products();
                                         <div class="heading">
                                             <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
                                             <div class="price">
-                                                <script language="javascript" src="<?php print $CONFIG['SystemURL']; ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
+                                                <script language="javascript" src="<?php print site_url(); ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly"></script>
                                                 <?php if ($key == 0): ?>
                                                     <span class="period safe-element">14 days free trial</span>
                                                 <?php else: ?>

@@ -69,7 +69,7 @@ $plans = $controller->get_hosting_products();
             <div class="container align-self-center">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="img-holder-bg d-flex align-items-center justify-content-center" style="background-image: url('<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/plans-<?php print $planKey; ?>.png');">
+                        <div class="img-holder-bg d-flex align-items-center justify-content-center" style="background-image: url('<?php print site_url(); ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/plans-<?php print $planKey; ?>.png');">
                             <div class="text-left" style="max-width: 460px;">
                                 <h2 class="text-<?php echo $planColor; ?>"><?php print $plan['name'] ?>!</h2>
                                 <?php if ($key == 0): ?>
@@ -81,7 +81,7 @@ $plans = $controller->get_hosting_products();
                                 <?php endif; ?>
                                 <?php if ($key == 0): ?>
                                     <div class="m-t-50 support-by" style="display: none;">
-                                        <p>С подкрепата на: &nbsp; <a href="https://neterra.net/bg" target="_blank"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png" alt=""/></a></p>
+                                        <p>С подкрепата на: &nbsp; <a href="https://neterra.net/bg" target="_blank"><img src="<?php print site_url(); ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png" alt=""/></a></p>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -90,15 +90,15 @@ $plans = $controller->get_hosting_products();
                     <div class="col-lg-6 align-self-center">
                         <div class="info-holder text-left ">
                             <div class="align-self-center">
-                                <img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/plans-up-<?php print $planKey; ?>.png"/><br/><br/>
+                                <img src="<?php print site_url(); ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/plans-up-<?php print $planKey; ?>.png"/><br/><br/>
                                 <div class="box">
-                                    <div class="thing"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/plan-<?php print $planKey; ?>.svg"/></div>
+                                    <div class="thing"><img src="<?php print site_url(); ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/plan-<?php print $planKey; ?>.svg"/></div>
                                     <div class="price text-<?php echo $planColor; ?>">
                                         <span class="sum">
                                             <?php if ($key == 0): ?>
                                                 0 лв.
                                             <?php else: ?>
-                                                <script language="javascript" src="<?php print $CONFIG['SystemURL']; ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly&currency=4"></script>
+                                                <script language="javascript" src="<?php print site_url(); ?>/feeds/productsinfo.php?pid=<?php print $plan['id'] ?>&get=price&billingcycle=monthly&currency=4"></script>
                                             <?php endif; ?>
                                         </span>
                                         <span class="per"> / на месец</span>
@@ -112,7 +112,7 @@ $plans = $controller->get_hosting_products();
 
                                     <?php if ($key == 0): ?>
                                         <div style="display: none;">
-                                            <a href="https://neterra.net/bg" target="_blank"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png"/></a>
+                                            <a href="https://neterra.net/bg" target="_blank"><img src="<?php print site_url(); ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/neterra_logo.png"/></a>
                                             <br/>
                                             <br/>
                                         </div>
@@ -123,7 +123,7 @@ $plans = $controller->get_hosting_products();
                                     <?php if ($key == 2): ?>
                                         <br/>
 
-                                        <a href="https://client.cloudware.bg/index.php?/cart/dedicated-servers/" target="_blank"><img src="<?php print $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/cloudware.png"/></a>
+                                        <a href="https://client.cloudware.bg/index.php?/cart/dedicated-servers/" target="_blank"><img src="<?php print site_url(); ?>/modules/addons/microweber_addon/order/templates/microweber.bg/plans/assets/img/cloudware.png"/></a>
                                     <?php endif; ?>
 
                                     <div class="text-center" style="margin-bottom: -63px; margin-top: 30px;">

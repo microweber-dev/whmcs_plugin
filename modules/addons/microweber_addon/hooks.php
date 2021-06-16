@@ -51,7 +51,7 @@ function get_website_redirect_url($domain)
 {
 
     global $CONFIG;
-    $whmcsurl = $CONFIG['SystemURL'];
+    $whmcsurl = site_url();
 
     return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
 }

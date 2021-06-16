@@ -1,9 +1,9 @@
-            <script src="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/scripts.js"></script>
+            <script src="<?php echo site_url(); ?>/modules/addons/microweber_addon/scripts.js"></script>
 
             <!-- Plugins -->
-            <script src="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+            <script src="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
             <script src="https://rawgithub.com/soulwire/fit.js/master/fit.js"></script>
-            <script src="<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/default/preview_template/main.js"></script>
+            <script src="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/preview_template/main.js"></script>
 
             <script>
 

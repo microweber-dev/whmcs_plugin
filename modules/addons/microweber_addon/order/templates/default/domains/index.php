@@ -84,7 +84,7 @@
         width: 20px;
         height: 20px;
         content: '';
-        background-image: url('<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/cart.png');
+        background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/cart.png');
         font-size: 34px;
         line-height: 19px;
         color: #969696;
@@ -136,7 +136,7 @@
     }
 
     .user_registration_form_msg .urf.urf_warn .icon {
-        background-image: url('<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/domain-warn.png');
+        background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/domain-warn.png');
         width: 22px;
         height: 27px;
     }
@@ -146,7 +146,7 @@
     }
 
     .user_registration_form_msg .urf.urf_success .icon {
-        background-image: url('<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/domain-success.png');
+        background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/domain-success.png');
         width: 21px;
         height: 21px;
     }
@@ -158,7 +158,7 @@
         right: 0;
         margin-top: 23px;
         margin-right: 145px;
-        background-image: url('<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/clear-domain.png');
+        background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/clear-domain.png');
         width: 18px;
         height: 18px;
         outline: none;
@@ -183,7 +183,7 @@
     }
 
     .domain-search-field-on .clear-domain {
-        background-image: url('<?php echo $CONFIG['SystemURL']; ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/712.gif');
+        background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/712.gif');
         background-size: contain;
         background-position: center;
         right: auto;

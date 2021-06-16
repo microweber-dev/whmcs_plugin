@@ -16,7 +16,7 @@ class UsageReport
     public function send()
     {
         global  $CONFIG;
-        $whmcsUrl = $CONFIG['SystemURL'];
+        $whmcsUrl = site_url();
 
         $activeClients = $this->getClientProducts();
 
