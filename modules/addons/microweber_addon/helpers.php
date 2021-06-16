@@ -18,6 +18,27 @@ if (!function_exists('parse_params')) {
 }
 
 
+if (!function_exists('lang_trans')) {
+    function lang_translate_key($key)
+    {
+        global $_LANG;
+
+        $text = $key;
+
+        $text = \Lang::get($key);
+
+
+
+
+//        if(isset($_LANG[$key])){
+//            $text = $_LANG[$key];
+//        }
+
+        return $text;
+
+    }
+}
+
 function ___microweber_helpers_get_current_url($skip_ajax = false, $no_get = false)
 {
 
@@ -89,7 +110,6 @@ function ___microweber_helpers_is_https()
 }
 
 
-
 if (!function_exists('is_https')) {
     function is_https()
     {
@@ -116,8 +136,6 @@ if (!function_exists('site_url')) {
     function site_url($add_string = false)
     {
         static $site_url;
-
-
 
 
         if ($site_url == false) {
@@ -187,15 +205,13 @@ if (!function_exists('site_url')) {
             $site_url = implode('/', $url_segs);
         }
 
-        if(!$site_url){
+        if (!$site_url) {
             $site_url = 'http://localhost/';
         }
 
         return $site_url . $add_string;
     }
 }
-
-
 
 
 function ___microweber_helpers_strleft($s1, $s2)
@@ -275,7 +291,7 @@ function get_template_by_git_package_name($name)
 function get_enabled_templates()
 {
     return Capsule::table('mod_microweber_templates')
-        ->where('is_enabled',1)
+        ->where('is_enabled', 1)
         ->orderBy('preview_sort')
         ->get();
 }

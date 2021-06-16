@@ -346,6 +346,7 @@
 
                 <div class="just-text text-center m-b-20">
                     <h1 class="m-b-20">Choose your domain name</h1>
+                    <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
                     <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
                 </div>
 

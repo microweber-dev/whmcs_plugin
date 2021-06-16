@@ -814,6 +814,9 @@ h.domain = '" . $username . "' and
 
     function order_iframe($params)
     {
+        if (isset($params['language']) and function_exists('swapLang')) {
+            swapLang($params['language']);
+        }
 
         if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
 
@@ -852,6 +855,17 @@ h.domain = '" . $username . "' and
                 }
 
             }
+
+            if (isset($params['language']) and $params['language']) {
+                $redir_url .= '&language=' . $params['language'];
+            }
+
+            if (isset($params['currency']) and $params['currency']) {
+                $redir_url .= '&currency=' . $params['currency'];
+            }
+
+            
+            
 
 //
 
@@ -906,7 +920,7 @@ h.domain = '" . $username . "' and
 
     function branding_get_company_name()
     {
-        global  $CONFIG;
+        global $CONFIG;
         $name = $CONFIG['CompanyName'];
 
         $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
@@ -926,14 +940,20 @@ h.domain = '" . $username . "' and
         $search = new MicroweberAddonDomainSearch();
         $result_q = $search->get_hosting_products($params);
 
+        $lang = false;
+        if (isset($params['language']) and function_exists('swapLang')) {
+            $lang = ($params['language']);
+        }
 
-
+        if (isset($params['currency'])) {
+            $currencyID = ($params['currency']);
+        }
 
         // $query = "SELECT * FROM `tblproducts` WHERE type='hostingaccount' and hidden!=1 and showdomainoptions=1 and retired=0  order by tblproducts.order asc  ";
 
 
         //  $result_q = Capsule::select($query);
-        $currencyID = false;
+       // $currencyID = false;
         //todo
         $currency = getCurrency('', $currencyID);
 
@@ -953,7 +973,6 @@ h.domain = '" . $username . "' and
         }
 
 
-
         //   $description =  $item->getFormattedProductFeaturesAttribute();
 
 
@@ -965,6 +984,10 @@ h.domain = '" . $username . "' and
 
                 $item["features"] = $format["features"];
 
+
+                if($lang){
+                    $item["name"] =  $prod->getProductName($prod->id,$prod->name,$lang);
+                }
 
                 $pricing = $prod->pricing($currencyID);
 
@@ -997,7 +1020,6 @@ h.domain = '" . $username . "' and
                     }
 
                 }
-
 
 
                 $item["pricing_data"] = $pricing_data;

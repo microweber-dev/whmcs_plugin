@@ -302,6 +302,32 @@ HTML;
 
 
 });
+add_hook('ClientAreaHeadOutput', 1, function ($vars) {
+
+
+    $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+
+
+    $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+     $resellerCenterEnabled = 0;
+    if ($resellerCenterEnabled) {
+
+        return <<<HTML
+   <script type="text/javascript">
+  var _jipt = [];
+  _jipt.push(['preload_texts', true]);
+  _jipt.push(['source_language', 'en']);
+  
+  
+
+  _jipt.push(['project', 'microweber-cms']);
+</script>
+<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
+HTML;
+    }
+
+
+});
 
 
 add_hook('ClientAreaPage', 23, function ($v) {
