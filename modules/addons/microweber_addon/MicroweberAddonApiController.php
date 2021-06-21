@@ -824,15 +824,20 @@ h.domain = '" . $username . "' and
 
             global $CONFIG;
             $whmcsurl = site_url();
-
+$domain = false;
             $redir_url = site_url() . 'cart.php?a=add';
-            if (isset($params['tld']) and $params['tld']) {
-                $redir_url .= '&tld=' . $params['tld'];
-            }
+            $redir_url = site_url() . 'cart.php?a=add';
 
             if (isset($params['sld']) and $params['sld']) {
-                $redir_url .= '&sld=' . $params['sld'];
+                 $redir_url .= '&sld=' . $params['sld'];
+                $domain = $params['sld'];
             }
+
+            if (isset($params['tld']) and $params['tld']) {
+                 $redir_url .= '&tld=' . $params['tld'];
+                $domain = $domain. $params['tld'];
+            }
+
 
             if (isset($params['plan_id']) and $params['plan_id']) {
                 $redir_url .= '&pid=' . $params['plan_id'];
@@ -849,8 +854,14 @@ h.domain = '" . $username . "' and
                     $redir_url .= '&configoption[' . $params['config_gid'] . ']=' . $params['template_id'];
                 }
                 if (isset($params['subdomain']) and $params['subdomain'] == 'false') {
-                    $redir_url .= '&skipconfig=1';
-                    $redir_url .= '&domainoption=register';
+                     $redir_url .= '&skipconfig=1';
+                     $redir_url .= '&showdomainoptions=0';
+                     $redir_url .= '&domainselect=1';
+                     $redir_url .= '&domainoption=register';
+                    //$redir_url .= '&domainoption=incart';
+                    if($domain){
+                    // $redir_url .= '&domain='.$domain;
+                    }
                 } else {
                     $redir_url .= '&skipconfig=1';
 
@@ -867,11 +878,11 @@ h.domain = '" . $username . "' and
             }
 
             
-            
 
 //
-
-
+//
+// var_dump($redir_url);
+//        exit;
             if ($redir_url) {
 
                 print '

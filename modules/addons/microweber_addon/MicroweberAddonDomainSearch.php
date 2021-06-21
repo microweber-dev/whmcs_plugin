@@ -254,7 +254,7 @@ class MicroweberAddonDomainSearch
                     foreach ($suggest_query as $sugg) {
 
                         $available_domain_extension1 = ltrim($available_domain_extension, '.');
-                        $search_dom = $host . '.' . $available_domain_extension1;
+                    //    $search_dom = $host . '.' . $available_domain_extension1;
                         $search_dom =$sugg;
 
                         $tld_data = $available_domain_extensions[$available_domain_extension];
@@ -309,7 +309,8 @@ class MicroweberAddonDomainSearch
 
         }
 
-        $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name=' . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=true&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=20&include-suggestion-type=true';
+        $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name='
+            . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=true&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=15&include-suggestion-type=true';
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -322,15 +323,32 @@ class MicroweberAddonDomainSearch
 
         $xml = @json_decode($xml, 1);
         $avaiable = [];
+        $popular = [];
+
         if ($xml and is_array($xml) and !empty($xml) and !empty($xml['results'])) {
             $res = $xml['results'];
             foreach ($res as $sugg) {
 
                 if (isset($sugg['name']) and isset($sugg['availability']) and $sugg['availability'] == "available") {
-                    $avaiable[] = $sugg['name'];
+                    if (isset($sugg['tldRankingType']) and $sugg['tldRankingType'] == "popular") {
+                        $popular[] = $sugg['name'];
+
+                    } else {
+                        $avaiable[] = $sugg['name'];
+
+                    }
                 }
             }
         }
+
+        if($popular){
+            // $avaiable = array_merge($avaiable,$popular);
+
+             $avaiable = array_merge($popular,$avaiable);
+
+
+        }
+
         return $avaiable;
 
 
