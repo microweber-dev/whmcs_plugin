@@ -28,7 +28,7 @@ class MicroweberAddonDomainSearch
 
         // if is reseller, remove other pids
         $resellerPids = [];
-        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterConnector = new \MicroweberAddon\ResellerMultibrandConnector();
         $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
         if ($resellerCenterEnabled) {
             $resellerProducts = $resellerCenterConnector->getProductsForCurrentDomain();
@@ -303,23 +303,80 @@ class MicroweberAddonDomainSearch
 
     function domain_suggest_verisign($domain_name, $tlds = [])
     {
-        $get_tlds = 'com,net';
-        if ($tlds) {
-            $get_tlds = implode(',', $tlds);
+
+        $isEnabled = false;
+        $api_key = false;
+
+        $setting = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'enable_name_studio_domain_suggest')
+            ->first();
+
+        if($setting and $setting->value=='Yes'){
+            $isEnabled = true;
 
         }
 
-        $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name='
-            . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=true&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=15&include-suggestion-type=true';
 
+        if(!$isEnabled){
+            return;
+        }
+
+        $settingApiKey = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'studio_domain_suggest_api_key')
+            ->first();
+        if($settingApiKey and $settingApiKey->value and trim($settingApiKey->value) != ''){
+            $api_key = trim($settingApiKey->value);
+        }
+
+
+
+
+        $get_tlds = 'com,net';
+        if ($tlds) {
+            $get_tlds = implode(',', $tlds);
+        }
+
+        $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name='
+            . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=auto&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=15&include-suggestion-type=true';
+
+
+        $url .='&ip-address='.user_ip();
+
+            //ip-address
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+        if($api_key){
+
+           // Set authentication details
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'X-NAMESUGGESTION-APIKEY: ' . $api_key
+            ]);
+
+        } else {
+            curl_setopt($ch, CURLOPT_HEADER, false);
+
+        }
+
+
+
+
+        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+
+
+
         // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         $xml = curl_exec($ch);
         $curlerror = "ErrNo: " . curl_errno($ch) . " ErrMsg: " . curl_error($ch);
         curl_close($ch);
+
+
 
         $xml = @json_decode($xml, 1);
         $avaiable = [];

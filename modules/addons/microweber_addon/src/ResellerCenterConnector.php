@@ -13,10 +13,12 @@ use \WHMCS\View\Formatter\Price as Price;
 class ResellerCenterConnector
 {
 
+    public $module_name = 'ResellersCenter';
+
     public function isEnabled()
     {
         $resellerCenterEnabled = Capsule::table('tbladdonmodules')
-            ->where('module', 'ResellersCenter')
+            ->where('module', $this->module_name)
             ->where('setting', 'hooksEnabled')
             ->where('value', 'on')
             ->first();
@@ -40,25 +42,54 @@ class ResellerCenterConnector
 
 
         if ($host) {
-            $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersSettings')
-                ->where('value', 'LIKE', '%' . $host . '%')
-                ->where('setting', 'domain')
-                ->first();
 
-            if ($resellerResellersSettings and isset($resellerResellersSettings->reseller_id) and $resellerResellersSettings->reseller_id) {
-                $resellerResellersSettingsAll = Capsule::table('ResellersCenter_ResellersSettings')
-                    ->where('reseller_id', $resellerResellersSettings->reseller_id)
-                    ->get();
 
-                if ($resellerResellersSettingsAll) {
-                    $return = [];
-                    $return['reseller_id'] = $resellerResellersSettings->reseller_id;
-                    foreach ($resellerResellersSettingsAll as $resellerResellersSettingItem) {
-                        $return[$resellerResellersSettingItem->setting] = $resellerResellersSettingItem->value;
+            if ($this->module_name == 'Multibrand') {
+                $resellerResellersSettings = Capsule::table('Multibrand_Brands')
+                    ->where('domain', 'LIKE', '%' . $host . '%')
+                    ->first();
+
+                if ($resellerResellersSettings and isset($resellerResellersSettings->id) and $resellerResellersSettings->id) {
+                    $resellerResellersSettingsAll = Capsule::table('Multibrand_Settings')
+                        ->where('brand_id', $resellerResellersSettings->id)
+                        ->get();
+
+                    if ($resellerResellersSettingsAll) {
+                        $return = [];
+                        $return['reseller_id'] = $resellerResellersSettings->id;
+                        foreach ($resellerResellersSettingsAll as $resellerResellersSettingItem) {
+                            $return[$resellerResellersSettingItem->setting] = $resellerResellersSettingItem->value;
+                        }
+                        return $return;
                     }
-                    return $return;
                 }
+
+
+            } else {
+                $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersSettings')
+                    ->where('value', 'LIKE', '%' . $host . '%')
+                    ->where('setting', 'domain')
+                    ->first();
+
+
+                if ($resellerResellersSettings and isset($resellerResellersSettings->reseller_id) and $resellerResellersSettings->reseller_id) {
+                    $resellerResellersSettingsAll = Capsule::table('ResellersCenter_ResellersSettings')
+                        ->where('reseller_id', $resellerResellersSettings->reseller_id)
+                        ->get();
+
+                    if ($resellerResellersSettingsAll) {
+                        $return = [];
+                        $return['reseller_id'] = $resellerResellersSettings->reseller_id;
+                        foreach ($resellerResellersSettingsAll as $resellerResellersSettingItem) {
+                            $return[$resellerResellersSettingItem->setting] = $resellerResellersSettingItem->value;
+                        }
+                        return $return;
+                    }
+                }
+
+
             }
+
 
         }
 
@@ -69,11 +100,12 @@ class ResellerCenterConnector
     {
         $prods = [];
         $settings = $this->getSettingsForCurrentDomain();
+
+
         if (isset($settings['reseller_id']) and $settings['reseller_id']) {
 //            $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersServices')
 //                ->where('reseller_id', $settings['reseller_id'])
 //                ->get();
-
 
             $currencyID = false;
             //todo
@@ -85,30 +117,38 @@ class ResellerCenterConnector
             $currencyID = $currency['id'];
 
 
-
-  $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersPricing')
-                ->where('reseller_id', $settings['reseller_id'])
-                ->where('type', 'product')
-                ->where('currency', $currencyID)
-                 ->groupBy('relid')
-                ->get();
+            if ($this->module_name == 'Multibrand') {
+                $resellerResellersSettings = Capsule::table('Multibrand_Contents')
+                    ->where('brand_id', $settings['reseller_id'])
+                    ->where('type', 'product')
+                    //  ->where('currency', $currencyID)
+                    ->groupBy('relid')
+                    ->get();
+            } else {
+                $resellerResellersSettings = Capsule::table('ResellersCenter_ResellersPricing')
+                    ->where('reseller_id', $settings['reseller_id'])
+                    ->where('type', 'product')
+                    ->where('currency', $currencyID)
+                    ->groupBy('relid')
+                    ->get();
+            }
 
 
             if ($resellerResellersSettings) {
                 foreach ($resellerResellersSettings as $resellerResellersSettingService) {
                     //$pids[] = $resellerResellersSettingService->relid;
-                     $product = \WHMCS\Product\Product::find($resellerResellersSettingService->relid) ;
+                    $product = \WHMCS\Product\Product::find($resellerResellersSettingService->relid);
 
 //                    $product = Capsule::table('tblproducts')
 //                        ->where('id', $resellerResellersSettingService->relid)
 //                        ->first();
 
-                    if($product){
+                    if ($product) {
 
                         $isHidden = $product->isHidden;
-                        if(!$isHidden){
+                        if (!$isHidden) {
 
-                        $prods[] = $product;
+                            $prods[] = $product;
                         }
                     }
                 }
@@ -118,22 +158,32 @@ class ResellerCenterConnector
         return $prods;
 
     }
-    public function getPricingForProduct($pid,$billingcycle,$currencyID)
+
+    public function getPricingForProduct($pid, $billingcycle, $currencyID)
     {
         $settings = $this->getSettingsForCurrentDomain();
         if (isset($settings['reseller_id']) and $settings['reseller_id']) {
+            if ($this->module_name == 'Multibrand') {
+                $resellerGetPricingForProduct = Capsule::table('Multibrand_Pricing')
+                    ->leftJoin('Multibrand_Contents as Multibrand_Contents', 'Multibrand_Pricing.content_id', '=', 'Multibrand_Contents.id')
+                    ->where('Multibrand_Contents.relid', $pid)
+                    ->where('Multibrand_Contents.type', "product")
+                    ->where('Multibrand_Pricing.currency_id', $currencyID)
+                    ->where('Multibrand_Pricing.billingcycle', $billingcycle)
+                    //->where('reseller_id', $settings['reseller_id'])
+                    ->first();
 
-
-            $resellerGetPricingForProduct = Capsule::table('ResellersCenter_ResellersPricing')
-                ->where('relid', $pid)
-                ->where('type',  "product")
-                ->where('currency', $currencyID)
-                ->where('billingcycle', $billingcycle)
-                ->where('reseller_id', $settings['reseller_id'])
-                ->first();
-
-            if($resellerGetPricingForProduct){
-                return (array) $resellerGetPricingForProduct;
+            } else {
+                $resellerGetPricingForProduct = Capsule::table('ResellersCenter_ResellersPricing')
+                    ->where('relid', $pid)
+                    ->where('type', "product")
+                    ->where('currency', $currencyID)
+                    ->where('billingcycle', $billingcycle)
+                    ->where('reseller_id', $settings['reseller_id'])
+                    ->first();
+            }
+            if ($resellerGetPricingForProduct) {
+                return (array)$resellerGetPricingForProduct;
             }
 
         }

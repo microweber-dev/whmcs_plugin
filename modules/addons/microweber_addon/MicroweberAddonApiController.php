@@ -936,7 +936,7 @@ exit;
         global $CONFIG;
         $name = $CONFIG['CompanyName'];
 
-        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterConnector = new \MicroweberAddon\ResellerMultibrandConnector();
         $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
         if ($resellerCenterEnabled) {
             $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();
@@ -979,7 +979,7 @@ exit;
         $products = array();
 
         $resellerSettings = [];
-        $resellerCenterConnector = new \MicroweberAddon\ResellerCenterConnector();
+        $resellerCenterConnector = new \MicroweberAddon\ResellerMultibrandConnector();
         $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
         if ($resellerCenterEnabled) {
             $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();

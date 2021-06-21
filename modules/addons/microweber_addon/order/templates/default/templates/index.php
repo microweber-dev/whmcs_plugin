@@ -51,6 +51,8 @@
 </style>
 <?php
 $templates = get_enabled_templates();
+
+
 ?>
 <div class="templates">
     <div class="container">

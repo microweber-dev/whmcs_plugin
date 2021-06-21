@@ -28,8 +28,6 @@ if (!function_exists('lang_trans')) {
         $text = \Lang::get($key);
 
 
-
-
 //        if(isset($_LANG[$key])){
 //            $text = $_LANG[$key];
 //        }
@@ -266,6 +264,34 @@ if (!function_exists('is_fqdn')) {
         return (!empty($FQDN) && preg_match('/(?=^.{1,254}$)(^(?:(?!\d+\.)[a-zA-Z0-9_\-]{1,63}\.?)+(?:[a-zA-Z]{2,})$)/i', $FQDN) > 0);
     }
 }
+if (!function_exists('user_ip')) {
+
+    function user_ip()
+    {
+        $ipaddress = '127.0.0.1';
+
+        if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+            $ipaddress = $_SERVER['HTTP_CF_CONNECTING_IP'];
+        } else if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else if (isset($_SERVER['HTTP_X_FORWARDED'])) {
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        } else if (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        } else if (isset($_SERVER['HTTP_FORWARDED'])) {
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        } else if (isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP'])) {
+            $ipaddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+        } else if (isset($_SERVER['REMOTE_ADDR'])) {
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        }
+
+        return $ipaddress;
+    }
+
+}
 
 function insert_template_by_git_package_name($name)
 {
@@ -295,3 +321,4 @@ function get_enabled_templates()
         ->orderBy('preview_sort')
         ->get();
 }
+

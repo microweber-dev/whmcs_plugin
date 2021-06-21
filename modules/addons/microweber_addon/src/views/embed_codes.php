@@ -7,14 +7,14 @@
 
     Target top
 <pre >
-&#x3C;script  crossorigin="anonymous" src=&#x22;<?php print site_url() ?>/modules/addons/microweber_addon/order/embed.js?style=default&target=top&#x22; id=&#x22;domain-search-iframe-js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script  crossorigin="anonymous" src=&#x22;<?php print $config['SystemURL']; ?>/modules/addons/microweber_addon/order/embed.js?style=default&target=top&#x22; id=&#x22;domain-search-iframe-js&#x22;&#x3E;&#x3C;/script&#x3E;
 </pre>
 
 
     Without target top
 
 <pre >
-&#x3C;script  crossorigin="anonymous" src=&#x22;<?php print site_url() ?>/modules/addons/microweber_addon/order/embed.js&#x22; id=&#x22;domain-search-iframe-js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script  crossorigin="anonymous" src=&#x22;<?php print $config['SystemURL']; ?>/modules/addons/microweber_addon/order/embed.js&#x22; id=&#x22;domain-search-iframe-js&#x22;&#x3E;&#x3C;/script&#x3E;
 </pre>
 
 

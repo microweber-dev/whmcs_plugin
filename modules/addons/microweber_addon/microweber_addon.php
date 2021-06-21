@@ -45,7 +45,7 @@ function microweber_addon_config()
     $config = array(
         'name' => 'Microweber Addon',
         'description' => 'This module allows connection between WHMCS and Microweber Cpanel plugin',
-        'version' => '1.1',
+        'version' => '1.2',
         'author' => 'Microweber',
         'language' => 'english',
         'fields' => [
@@ -60,7 +60,30 @@ function microweber_addon_config()
                 'Cols' => '30',
                 'Default' => 'https://packages.microweberapi.com/packages.json,'.PHP_EOL.'https://private-packages.microweberapi.com/packages.json',
                 'Description' => 'Type your custom marketplace packages urls seperated by coma.',
-            ]
+            ],
+
+            'reseller_center_integration' => [
+                'FriendlyName' => 'Reseller Center integration',
+                'Type' => 'dropdown',
+                 'Options' =>'No,ResellersCenter,Multibrand',
+                'Default' => 'No',
+                'Description' => 'Enable integration with Reseller Center or Multibrand addons',
+            ],
+            'enable_name_studio_domain_suggest' => [
+                'FriendlyName' => 'Name Studio domain suggest integration',
+                'Type' => 'dropdown',
+                'Options' =>'No,Yes',
+                'Default' => 'No',
+                'Description' => 'Name Studio domain suggest integration from namestudioapi.com',
+            ],
+            'studio_domain_suggest_api_key' => [
+                'FriendlyName' => 'Name Studio api key',
+                'Type' => 'text',
+            ],
+
+
+
+
        ]
     );
     

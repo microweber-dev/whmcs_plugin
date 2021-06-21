@@ -4,7 +4,6 @@
 
 
 
-
 if (!defined("WHMCS")) {
     define("WHMCS", true);
 }
@@ -53,6 +52,8 @@ if (!$getDomain) {
     $step = 3;
 }
 
+
+
 ?>
 
 <?php //echo $CONFIG['CompanyName']; ?>
@@ -69,13 +70,13 @@ if (!$getDomain) {
     <?php if ($step == 1): ?>
         <?php
 
-        include "steps/domains.php"; ?>
+        include __DIR__."/steps/domains.php"; ?>
     <?php elseif ($step == 2): ?>
-        <?php include "steps/templates.php"; ?>
+        <?php include  __DIR__."/steps/templates.php"; ?>
     <?php elseif ($step == 3): ?>
-        <?php include "steps/plans.php"; ?>
+        <?php include  __DIR__."/steps/plans.php"; ?>
     <?php else: ?>
-        <?php include('params.php'); ?>
+        <?php include( __DIR__.'/params.php'); ?>
 
         <?php
         if ($subdomain) {

@@ -1,5 +1,7 @@
 <?php
 
+
+
 $style_file = dirname(__DIR__) . '/templates/default/templates/index.php';
 if (isset($_GET['style'])) {
     $style_file2 = dirname(__DIR__) . '/templates/' . htmlspecialchars($_GET['style']) . '/templates/index.php';
