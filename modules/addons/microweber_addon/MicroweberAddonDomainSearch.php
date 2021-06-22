@@ -259,8 +259,26 @@ class MicroweberAddonDomainSearch
 
                         $tld_data = $available_domain_extensions[$available_domain_extension];
 
+                        $extract = new LayerShifter\TLDExtract\Extract();
+
+                        $result = $extract->parse($search_dom);
+                        $host = $result->getHostname(); // will return 'mydomain'
+                        $suffix = $result->getSuffix(); // will return 'co.uk'
+                        $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
+                        $domain = $reg_domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
+
+
+
+
                         $price = (string)formatCurrency(array_shift($tld_data));
-                        $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
+                        $domain_results[$search_dom] = array(
+                            'domain' => $search_dom, 'status' => 'available',
+                            'tld' => $suffix,
+                            'sld' => $host,
+                            'is_free' => false,
+                            'subdomain' => false,
+                            'from_suggestion' => true,
+                            'price' => $price);
                     }
 
 

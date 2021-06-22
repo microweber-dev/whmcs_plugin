@@ -815,93 +815,10 @@ h.domain = '" . $username . "' and
     function order_iframe($params)
     {
 
-
-        if (isset($params['language']) and function_exists('swapLang')) {
-            swapLang($params['language']);
-        }
-
-        if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
-
-            global $CONFIG;
-            $whmcsurl = site_url();
-$domain = false;
-            $redir_url = site_url() . 'cart.php?a=add';
-            $redir_url = site_url() . 'cart.php?a=add';
-
-            if (isset($params['sld']) and $params['sld']) {
-                 $redir_url .= '&sld=' . $params['sld'];
-                $domain = $params['sld'];
-            }
-
-            if (isset($params['tld']) and $params['tld']) {
-                 $redir_url .= '&tld=' . $params['tld'];
-                $domain = $domain. $params['tld'];
-            }
+        $search = new MicroweberAddonOrderController();
 
 
-            if (isset($params['plan_id']) and $params['plan_id']) {
-                $redir_url .= '&pid=' . $params['plan_id'];
-            }
-            if (isset($params['subdomain']) and ($params['subdomain'] == 'true' or $params['subdomain'] == '1')) {
-                $redir_url .= '&domainoption=subdomain';
-            }
-
-
-            //
-
-            if (isset($params['template_id']) and $params['template_id']) {
-                if (isset($params['config_gid']) and $params['config_gid']) {
-                    $redir_url .= '&configoption[' . $params['config_gid'] . ']=' . $params['template_id'];
-                }
-                if (isset($params['subdomain']) and $params['subdomain'] == 'false') {
-                     $redir_url .= '&skipconfig=1';
-                     $redir_url .= '&showdomainoptions=0';
-                     $redir_url .= '&domainselect=1';
-                     $redir_url .= '&domainoption=register';
-                    //$redir_url .= '&domainoption=incart';
-                    if($domain){
-                    // $redir_url .= '&domain='.$domain;
-                    }
-                } else {
-                    $redir_url .= '&skipconfig=1';
-
-                }
-
-            }
-
-            if (isset($params['language']) and $params['language']) {
-                $redir_url .= '&language=' . $params['language'];
-            }
-
-            if (isset($params['currency']) and $params['currency']) {
-                $redir_url .= '&currency=' . $params['currency'];
-            }
-
-            
-
-//
-//
-// var_dump($redir_url);
-//        exit;
-            if ($redir_url) {
-
-                print '
-                <script type="text/javascript">
-                 if (window.top != window.self){
-                    window.top.location.href = "' . $redir_url . '"
-                } else {
-                    window.location.href = "' . $redir_url . '"
-                }
-                </script>';
-                exit;
-            }
-
-
-        }
-
-
-        include __DIR__ . "/order/index.php";
-exit;
+        return $search->order_iframe($params);
     }
 
     function domain_search($params)
@@ -966,7 +883,7 @@ exit;
 
 
         //  $result_q = Capsule::select($query);
-       // $currencyID = false;
+        // $currencyID = false;
         //todo
         $currency = getCurrency('', $currencyID);
 
@@ -998,8 +915,8 @@ exit;
                 $item["features"] = $format["features"];
 
 
-                if($lang){
-                    $item["name"] =  $prod->getProductName($prod->id,$prod->name,$lang);
+                if ($lang) {
+                    $item["name"] = $prod->getProductName($prod->id, $prod->name, $lang);
                 }
 
                 $pricing = $prod->pricing($currencyID);
