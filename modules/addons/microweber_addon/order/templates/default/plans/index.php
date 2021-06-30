@@ -61,10 +61,13 @@ $plans = $controller->get_hosting_products($params);
 
                                         <div class="heading">
                                             <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
+                                            <div class="description">
+                                            <button type="submit"   class="btn btn-default btn-md m-t-20" formtarget="form_<?php print $plan['id'] ?>" form="form_<?php print $plan['id'] ?>" >Start</button>
+                                            </div>
+
                                             <div class="price">
 
 
-                                                <button type="submit"   class="btn btn-default btn-md m-t-20" formtarget="form_<?php print $plan['id'] ?>" form="form_<?php print $plan['id'] ?>" >Start</button>
 
 
 
