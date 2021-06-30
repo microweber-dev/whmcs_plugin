@@ -53,19 +53,23 @@ class MicroweberAddonOrderController
             //
 
             if (isset($params['template_id']) and $params['template_id']) {
+
                 if (isset($params['config_gid']) and $params['config_gid']) {
                     $redir_url .= '&configoption[' . $params['config_gid'] . ']=' . $params['template_id'];
                 }
+
                 if (isset($params['subdomain']) and $params['subdomain'] == 'false') {
                     $redir_url .= '&skipconfig=1';
-                    $redir_url .= '&showdomainoptions=0';
-                    $redir_url .= '&domainselect=1';
-                    $redir_url .= '&domainoption=register';
-                    $redir_url .= '&regperiod=1';
+                  //  $redir_url .= '&showdomainoptions=0';
+                  //  $redir_url .= '&domainselect=1';
+                 //   $redir_url .= '&domainoption=register';
+                  //  $redir_url .= '&regperiod=1';
                     // $redir_url .= '&regperiod=1';
                     //$redir_url .= '&domainoption=incart';
                     if ($domain) {
-                            $redir_url .= '&domain=' . $domain;
+                     //   $redir_url .= '&domain=' . $domain;
+                      //  $redir_url .= '&query=' . $domain;
+                      //  $redir_url .= '&domainsregperiod['.$domain.']=1';
                     }
                 } else {
                     $redir_url .= '&skipconfig=1';
@@ -81,19 +85,52 @@ class MicroweberAddonOrderController
             if (isset($params['currency']) and $params['currency']) {
                 $redir_url .= '&currency=' . $params['currency'];
             }
-
-
+            $token_link  = generate_token("link");
 
             if ($redir_url) {
-
                 print '
-                <script type="text/javascript">
-                 if (window.top != window.self){
-                    window.top.location.href = "' . $redir_url . '"
-                } else {
-                    window.location.href = "' . $redir_url . '"
+
+                <script src="'.site_url().'assets/js/jquery.min.js"></script>
+
+                <script type="application/javascript">
+                function submitForm() {
+                   $.ajax({type:\'POST\', url: \''.site_url().'cart.php?ajax=1'.$token_link.'&a=addToCart&domain=register\', data:
+                   {"domain":"'.$domain.'"}
+                   , complete: function(response) {
+                      goToCart()
+                   }});
+                
+                   return false;
                 }
+                
+                function goToCart() {
+                          if (window.top != window.self){
+                            window.top.location.href = "' . $redir_url . '"
+                        } else {
+                            window.location.href = "' . $redir_url . '"
+                        }
+                      
+                  }
+                
+              //  submitForm()
+                </script> 
+
+
+              ';
+
+                if($domain){
+                print '  <script type="text/javascript">
+                
+                submitForm()
+             // goToCart()
                 </script>';
+                } else {
+                    print '  <script type="text/javascript">
+                
+               goToCart()
+             
+                </script>';
+                }
                 exit;
             }
 

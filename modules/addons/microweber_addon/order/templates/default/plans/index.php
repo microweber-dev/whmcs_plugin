@@ -62,7 +62,14 @@ $plans = $controller->get_hosting_products($params);
                                         <div class="heading">
                                             <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
                                             <div class="price">
-<!--                                                <script language="javascript" src="--><?php //print site_url(); ?><!--feeds/productsinfo.php?pid=--><?php //print $plan['id'] ?><!--&get=price&billingcycle=monthly"></script>-->
+
+
+                                                <button type="submit"   class="btn btn-default btn-md m-t-20" formtarget="form_<?php print $plan['id'] ?>" form="form_<?php print $plan['id'] ?>" >Start</button>
+
+
+
+
+                                                <!--                                                <script language="javascript" src="--><?php //print site_url(); ?><!--feeds/productsinfo.php?pid=--><?php //print $plan['id'] ?><!--&get=price&billingcycle=monthly"></script>-->
 
                                                 <?php
                                                 $price = false;
@@ -122,7 +129,7 @@ $plans = $controller->get_hosting_products($params);
                                         <?php if ($plan['id']): ?>
                                             <div class="description last">
 
-                                                <form method="post" action="<?php echo $current_url ?>" class="clearfix">
+                                                <form method="post" action="<?php echo $current_url ?>" class="clearfix" id="form_<?php print $plan['id'] ?>"  name="form_<?php print $plan['id'] ?>">
                                                     <input type="hidden" value="1" name="start_with_plan"/>
                                                     <input type="hidden" value="<?php print $plan['id'] ?>" name="plan_id"/>
 
