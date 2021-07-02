@@ -15,6 +15,22 @@ class MicroweberAddonApiController
         return $params;
     }
 
+    public function get_logged_user_id()
+    {
+        global $_SESSION;
+        if (isset($_SESSION['uid'])) {
+            $json = [];
+            $json['uid'] = $_SESSION['uid'];
+
+            echo json_encode($json, JSON_PRETTY_PRINT);
+            exit;
+        }
+
+
+        exit;
+    }
+
+
     public function show_ads_bar()
     {
 
@@ -1087,6 +1103,7 @@ h.domain = '" . $username . "' and
         }
 
     }
+
 
     private function _get_user_id_by_email($email)
     {
