@@ -700,7 +700,10 @@ h.domain = '" . $username . "' and
                         $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
                     }
 
-                    header('Location: ' . $http_code . $user_prod['domain'] . '/api/user_login?username_encoded=' . urlencode(base64_encode($user_prod['username'])). '&password_encoded=' . urlencode(base64_encode($user_prod['password']) ). '&http_redirect=' . $redirectTo);
+                    $url = $http_code . $user_prod['domain'] . '/api/user_login?username_encoded=' . rawurlencode(base64_encode($user_prod['username'])). '&password_encoded=' . rawurlencode(base64_encode($user_prod['password']) ). '&http_redirect=' . $redirectTo;
+
+
+                    header('Location: ' .$url);
 
                     /*
                     echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login?http_redirect=1&where_to=admin_content">';
