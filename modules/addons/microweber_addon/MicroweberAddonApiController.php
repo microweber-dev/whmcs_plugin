@@ -747,7 +747,7 @@ h.domain = '" . $username . "' and
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
             $result = curl_exec($ch);
             if (curl_errno($ch) == 0) {
-                return false;
+                return true;
             }
             fseek($fp, 0);//rewind
             $str = '';
