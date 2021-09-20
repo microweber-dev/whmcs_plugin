@@ -176,7 +176,7 @@
 
 
 
-            var url = urlbase + "&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>&style=<?php echo htmlspecialchars($_GET['style']); ?>";
+            var url = urlbase + "&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>&style=<?php echo htmlspecialchars(trim($_GET['style'])); ?>";
 
             <?php if(isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
             window.top.location = url;
