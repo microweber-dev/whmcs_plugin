@@ -13,12 +13,13 @@ class MicroweberAddonOrderController
     function order_iframe($params)
     {
 
-
         if (isset($params['language']) and function_exists('swapLang')) {
             swapLang($params['language']);
         }
 
         if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
+
+            $isSubDomain = false;
 
             global $CONFIG;
             $whmcsurl = site_url();
@@ -45,8 +46,11 @@ class MicroweberAddonOrderController
             if (isset($params['plan_id']) and $params['plan_id']) {
                 $redir_url .= '&pid=' . $params['plan_id'];
             }
+
+
             if (isset($params['subdomain']) and ($params['subdomain'] == 'true' or $params['subdomain'] == '1')) {
                 $redir_url .= '&domainoption=subdomain';
+                $isSubDomain = true;
             }
 
 
@@ -100,7 +104,7 @@ class MicroweberAddonOrderController
                       goToCart()
                    }});
                 
-                   return false;
+                   return false; 
                 }
                 
                 function goToCart() {
@@ -111,25 +115,17 @@ class MicroweberAddonOrderController
                         }
                       
                   }
-                
-              //  submitForm()
-                </script> 
+                </script>  ';
 
 
-              ';
-
-                if($domain){
-                print '  <script type="text/javascript">
-                
-                submitForm()
-             // goToCart()
+                if($domain && $isSubDomain){
+                print '<script type="text/javascript">
+                 submitForm()
                 </script>';
                 } else {
-                    print '  <script type="text/javascript">
-                
-               goToCart()
-             
-                </script>';
+                    print '<script type="text/javascript">
+                     goToCart()
+                    </script>';
                 }
                 exit;
             }
