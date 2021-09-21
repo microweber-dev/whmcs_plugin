@@ -26,10 +26,30 @@ class MicroweberAddonApiController
             exit;
         }
 
-
         exit;
     }
 
+    public function verify_login_code()
+    {
+        if (!isset($_GET['domain']) || !isset($_GET['code'])) {
+            return;
+        }
+
+        $code = $_GET['code'];
+        $domain = $_GET['domain'];
+
+        $check = Capsule::table('mod_microweber_code_login')->where('code', $code)->where('domain', $domain)->first();
+
+        // Delete all codes
+        Capsule::table('mod_microweber_code_login')->where('domain', $domain)->delete();
+        if ($check) {
+            header('Content-Type: application/json');
+            die(json_encode(['success'=>true, 'code'=>$code]));
+        }
+
+        return;
+
+    }
 
     public function show_ads_bar()
     {
@@ -470,7 +490,7 @@ h.domain = '" . $username . "' and
 
             $url = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectTo;
 
-            header('Location: ' .$url); 
+            header('Location: ' .$url);
             exit;
         }
     }

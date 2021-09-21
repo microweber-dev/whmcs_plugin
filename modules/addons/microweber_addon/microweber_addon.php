@@ -95,7 +95,6 @@ function microweber_addon_config()
 
 function microweber_addon_clientarea($vars)
 {
-
     $params = array();
     if ($_GET) {
         $params = array_merge($params, $_GET);
@@ -103,8 +102,6 @@ function microweber_addon_clientarea($vars)
     if ($_POST) {
         $params = array_merge($params, $_POST);
     }
-
-   //
 
     $resp = array();
     $modulelink = $vars['modulelink'];
@@ -124,8 +121,6 @@ function microweber_addon_clientarea($vars)
         $resp = $controller->$method($params);
         //dd($params,$resp);
      } else {
-
-
 
 
         $full_url = ___microweber_helpers_get_current_url();
@@ -151,8 +146,6 @@ function microweber_addon_clientarea($vars)
     }
 
     if ($resp) {
-
-
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
@@ -160,19 +153,11 @@ function microweber_addon_clientarea($vars)
         echo json_encode($resp, JSON_PRETTY_PRINT);
         exit;
 
-
     }
-
-//    return array(
-//         'vars' => array(
-//            'ADDONLANG' => microweber_addon_load_language($vars)
-//         ));
-
 }
 
 function microweber_addon_output($vars)
 {
-
     $resp = '';
     $params = array();
     if ($_GET) {
@@ -184,6 +169,9 @@ function microweber_addon_output($vars)
     if ($vars) {
         $params = array_merge($params, $vars);
     }
+
+
+    // Admin methods
     $controller = new \MicroweberAddon\AdminController();
 
     $method = 'index';
@@ -195,7 +183,6 @@ function microweber_addon_output($vars)
         $resp = $controller->$method($params);
     }
     print $resp;
-
 
 }
 
