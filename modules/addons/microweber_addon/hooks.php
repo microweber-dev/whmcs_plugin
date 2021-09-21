@@ -43,15 +43,19 @@ function get_website_login_by_orderid($order_id)
 
     $getOrder = Capsule::table('tblhosting')->where('orderid', '=', $order_id)->first();
 
-    return get_website_redirect_url($getOrder->domain);
+    return get_website_redirect_url($getOrder->domain, $getOrder->id);
 
 }
 
-function get_website_redirect_url($domain)
+function get_website_redirect_url($domain, $client_product_id = false)
 {
 
     global $CONFIG;
     $whmcsurl = site_url();
+
+    if ($client_product_id) {
+        $domain .= '&client_product_id=' . $client_product_id;
+    }
 
     return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
 }
@@ -83,7 +87,7 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
     if (isset($get_server->type) && $get_server->type == 'microweber_cloudconnect') {
         $redirect_url = '/clientarea.php?action=productdetails&id=' . $productId . '&dosinglesignon=1';
     } else if ($get_server) {
-        $redirect_url = get_website_redirect_url($domain);
+        $redirect_url = get_website_redirect_url($domain, $productId);
     }
 
     if ($redirect_url) {

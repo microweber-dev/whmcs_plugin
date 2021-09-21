@@ -435,300 +435,44 @@ h.domain = '" . $username . "' and
 
     public function go_to_product($params)
     {
-
-
-        global $CONFIG;
-        global $autoauthkey;
-
-
-        $whmcsurl = site_url();
-
-        $ajax = false;
-        if (isset($_REQUEST['ajax'])) {
-            $ajax = true;
-        }
-
-
-        if (!isset($_SESSION['uid'])) {
-            // redir("", "index.php");
-
-            $pagetitle = 'Login to website';
-            $pageicon = "images/support/clientarea.gif";
-            $breadcrumbnav = '<a href="index.php">' . 'Client area' . '</a>';
-            $breadcrumbnav .= ' > <a href="#">Login to view product</a>';
-
-            initialiseClientArea($pagetitle, $pageicon, $breadcrumbnav);
-
-            if ($_SESSION['uid']) {
-                # User is Logged In - put any code you like here
-            }
-            $_SESSION['loginurlredirect'] = $_SERVER['REQUEST_URI'];
-
-
-            //$smartyvalues["login_to_domain"] = $value;
-
-
-            $templatefile = "login";
-
-            outputClientArea($templatefile);
-
-            die();
-        }
-
-        $redir_link = false;
-        $is_site_found = false;
-        $pids = array();
-        if (isset($_REQUEST['id'])) {
-            $pids[] = intval($_REQUEST['id']);
-        }
-        if (isset($_REQUEST['domain'])) {
-            $dom = $_REQUEST['domain'];
-            if (false === strpos($dom, '://')) {
-                $dom = 'http://' . $dom;
-            }
-            $dom = parse_url($dom);
-            if (isset($dom['host'])) {
-                $uid = $_SESSION['uid'];
-                $command = "getclientsproducts";
-                $values = array();
-                $values["clientid"] = $uid;
-                $values["domain"] = $dom['host'];
-                $values["limitnum"] = 199;
-                $results = localAPI($command, $values);
-                if (!empty($results) and isset($results['products'])) {
-                    $products = $results['products']['product'];
-                    if (!empty($products)) {
-                        foreach ($products as $product) {
-                            if (!empty($product) and isset($product['domain'])) {
-                                $pids[] = intval($product['id']);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-
-        if (isset($_REQUEST['username2'])) {
-            $username2 = $_REQUEST['username2'];
-            $username2 = strip_tags($username2);
-
-            if ($username2) {
-                $uid = $_SESSION['uid'];
-                $command = "getclientsproducts";
-                $values = array();
-                $values["clientid"] = $uid;
-                $values["username2"] = $username2;
-                $values["limitnum"] = 199;
-                $results = localAPI($command, $values);
-
-                if (!empty($results) and isset($results['products'])) {
-                    $products = $results['products']['product'];
-                    if (!empty($products)) {
-                        foreach ($products as $product) {
-                            if (!empty($product) and isset($product['domain'])) {
-                                $pids[] = intval($product['id']);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-
-        if (isset($_GET['action']) and isset($_SESSION['uid'])) {
-
-            $act = strip_tags($_GET['action']);
-            $first_pid_url = 'clientarea.php?action=' . $act;
-
-            $response = whm_hook_get_client_info_by_id($_SESSION['uid']);
-            if (isset($response['email'])) {
-                $whmcsurl = $whmcsurl . "/dologin.php";
-
-
-                $timestamp = time(); # Get current timestamp
-                $email = $response['email']; # Clients Email Address to Login
-                $email = urlencode($email);
-                $hash = sha1($email . $timestamp . $autoauthkey); # Generate Hash
-                $goto = $first_pid_url;
-                $url = $whmcsurl . "?email=$email&timestamp=$timestamp&hash=$hash&goto=" . urlencode($goto);
-
-                header("Location: $url");
-                exit;
-            }
-
-
-            exit;
-
-
-        }
-
-        if (isset($_REQUEST['orderid'])) {
-            $command = 'GetOrders';
-            $postData = array(
-                'id' => intval($_REQUEST['orderid']),
-                'userid' => $_SESSION['uid'],
-            );
-
-            $results = localAPI($command, $postData);
-            if (isset($results['orders']) and !empty($results['orders'])) {
-                $orders = $results['orders'];
-                foreach ($orders as $ord_i) {
-                    foreach ($ord_i as $ord) {
-
-                        if (isset($ord['lineitems'])) {
-                            foreach ($ord['lineitems'] as $itm_i) {
-                                foreach ($itm_i as $itm) {
-                                    if (isset($itm['relid'])) {
-                                        $pids[] = $itm['relid'];
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            } else {
-
-            }
-
-        }
-
-
-        if (!$pids) {
-            $pagetitle = "Error";
-
+        if (!isset($_GET['client_product_id'])) {
             return;
-
-            //  exit('not found');
         }
 
+        $client_product_id = intval($_GET['client_product_id']);
 
-        $found_prods = array();
-        if (isset($_SESSION['uid'])) {
-            foreach ($pids as $pid) {
-                $uid = $_SESSION['uid'];
-                $command = "getclientsproducts";
-                $values = array();
-                $values["clientid"] = $uid;
-                $values["limitnum"] = 99999;
-                $values2 = $values;
-                $values["pid"] = $pid;
-                $results = localAPI($command, $values);
-                if (isset($results['numreturned']) and $results['numreturned'] == 0) {
-                    $values2["serviceid"] = $pid;
-                    $results = localAPI($command, $values2);
+        $hosting = Capsule::table('tblhosting')
+            ->where('id', $client_product_id)
+            ->where('userid', $_SESSION['uid'])
+            ->first();
 
-                }
-                if (!empty($results) and isset($results['products'])) {
-                    $products = $results['products']['product'];
-                    if (!empty($products)) {
-                        foreach ($products as $product) {
-                            if (!empty($product) and isset($product['domain'])) {
-                                $values = array();
-                                $values["result"] = 'success';
-                                $values["userid"] = $uid;
-                                $values["hosting_data"] = $product;
-                                $found_prods[] = $product;
-                            }
+        if ($hosting) {
+            $generated_code = uniqid() . 2020 . time() . $_SESSION['uid'] . $client_product_id . uniqid();
 
-                        }
-                    }
-                }
+            Capsule::table('mod_microweber_code_login')->insert([
+                'domain' => $hosting->domain,
+                'code' => $generated_code,
+                'user_id' => $_SESSION['uid'],
+                'created_at' => date('Y-m-d H:i:s'),
+            ]);
+
+            $http_code = 'http://';
+            $support_ssl = $this->check_ssl_verify_domain($hosting->domain);
+            if ($support_ssl) {
+                $http_code = 'https://';
             }
 
-
-        }
-        $first_pid = false;
-        $domain_found = false;
-        if ($found_prods) {
-            $first_pid = reset($found_prods);
-            foreach ($found_prods as $found_prod) {
-
-                if (!$domain_found && $found_prod['groupname'] !== 'license') {
-                    if (isset($found_prod['username']) and isset($found_prod['password'])) {
-                        $domain_found = $found_prod;
-                    }
-                }
-
-            }
-        }
-
-
-        if (!$domain_found) {
-            if ($ajax) {
-                header("Content-type:application/json");
-                print json_encode($first_pid);
-                exit;
-            }
-            if ($first_pid and isset($first_pid['id'])) {
-                $first_pid_url = 'clientarea.php?action=productdetails&id=' . $first_pid['id'];
-                if (isset($first_pid['groupname'])) {
-                    if (stristr($first_pid['groupname'], 'template')) {
-                        $first_pid_url = 'https://microweber.com/profile/section:templates?id=' . $first_pid['id'];
-                    }
-                    if (stristr($first_pid['groupname'], 'module')) {
-                        $first_pid_url = 'https://microweber.com/profile/section:modules?id=' . $first_pid['id'];
-                    }
-                }
-
-                header("Location: " . $first_pid_url);
-                exit;
+            if (isset($params['live_edit'])) {
+                $redirectTo = $http_code . $hosting->domain . "/?editmode=y";
             } else {
-                redir("", "index.php");
+                $redirectTo = $http_code . $hosting->domain. "/admin/view:content";
             }
 
-        } else {
-            //$domain_found
-            $user_prod = $domain_found;
-            if ($ajax) {
-                header("Content-type:application/json");
-                print json_encode($user_prod);
-                exit;
-            }
-            if (isset($user_prod['username'])) {
-                if (isset($user_prod['password'])) {
+            $url = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectTo;
 
-                    $http_code = 'http://';
-                    $support_ssl = $this->check_ssl_verify_domain($user_prod['domain']);
-                    if ($support_ssl) {
-                        $http_code = 'https://';
-                    }
-
-                    if (isset($params['live_edit'])) {
-                        $redirectTo = $http_code . $user_prod['domain'] . "/?editmode=y";
-                    } else {
-                        $redirectTo = $http_code . $user_prod['domain'] . "/admin/view:content";
-                    }
-
-                    $url = $http_code . $user_prod['domain'] . '/api/user_login?username_encoded=' . rawurlencode(base64_encode($user_prod['username'])). '&password_encoded=' . rawurlencode(base64_encode($user_prod['password']) ). '&http_redirect=' . $redirectTo;
-
-
-                    header('Location: ' .$url);
-
-                    /*
-                    echo '<form id="loginToMicroweber" method="post" action="'. $http_code . $user_prod['domain'].'/api/user_login?http_redirect=1&where_to=admin_content">';
-
-                    echo '<input type="hidden" value="'.$user_prod['username'].'" name="username" />';
-                    echo '<input type="hidden" value="'.$user_prod['password'].'" name="password" />';
-                    echo '<input type="hidden" value="'.$redirectTo.'" name="http_redirect" />';
-
-                    echo '<input type="submit" value="Login to Microweber Admin...">';
-
-                    echo '
-                        <script type="text/javascript"> 
-                        document.forms["loginToMicroweber"].submit();
-                      </script>
-                    ';
-
-                    echo '</form>';*/
-                    exit;
-                }
-            }
-
-
+            header('Location: ' .$url); 
+            exit;
         }
-
-        return;
     }
 
     public function check_ssl_verify_domain($domain)

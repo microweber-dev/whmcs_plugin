@@ -203,6 +203,21 @@ function microweber_addon_output($vars)
 function microweber_addon_activate()
 {
     try {
+        if (!Capsule::schema()->hasTable('mod_microweber_code_login')) {
+            Capsule::schema()->create('mod_microweber_code_login', function ($table) {
+                    $table->increments('id');
+                    $table->integer('user_id');
+                    $table->text('domain');
+                    $table->text('code');
+                    $table->dateTime('created_at');
+                }
+            );
+        }
+    }  catch (\Exception $e) {
+        echo "Unable to create mod_microweber_code_login: {$e->getMessage()}";
+    }
+
+    try {
         if (!Capsule::schema()->hasTable('mod_microweber_templates')) {
             Capsule::schema()->create('mod_microweber_templates', function ($table) {
                     $table->increments('id');
@@ -228,6 +243,12 @@ function microweber_addon_activate()
 
 function microweber_addon_deactivate()
 {
+    try {
+        Capsule::schema()->dropIfExists('mod_microweber_code_login');
+    } catch (\Exception $e) {
+        echo "Unable to drop table mod_microweber_code_login: {$e->getMessage()}";
+    }
+
     try {
         Capsule::schema()->dropIfExists('mod_microweber_templates');
     } catch (\Exception $e) {
