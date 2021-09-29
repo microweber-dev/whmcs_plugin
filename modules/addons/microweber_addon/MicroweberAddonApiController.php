@@ -35,15 +35,19 @@ class MicroweberAddonApiController
             return;
         }
 
+        header('Content-Type: application/json');
+
         $code = $_GET['code'];
         $domain = $_GET['domain'];
 
         $check = Capsule::table('mod_microweber_code_login')->where('code', $code)->where('domain', $domain)->first();
-
+        if (empty($check)) {
+            die(json_encode(['error'=>true, 'message'=>'Domain and code is not valid.']));
+        }
+        
         // Delete all codes
         Capsule::table('mod_microweber_code_login')->where('domain', $domain)->delete();
         if ($check) {
-            header('Content-Type: application/json');
             die(json_encode(['success'=>true, 'code'=>$code]));
         }
 
