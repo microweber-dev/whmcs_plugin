@@ -60,26 +60,25 @@ function get_website_redirect_url($domain, $client_product_id = false)
     return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
 }
 
-
-add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
-
+function mw_get_login_links_by_service($service)
+{
     if (is_null($service)) {
         return '';
     }
 
     $productId = $service['service']->id;
-    $orderId = $service['service']->orderId;
     $domain = $service['service']->domain;
 
     if (!$domain) {
         return;
     }
 
-    $redirect_url = false;
     $serverId = false;
     if (isset($service['service']->server)) {
         $serverId = $service['service']->server;
     }
+
+    $redirect_url = false;
 
     $get_server = Capsule::table('tblservers')
         ->where('id', $serverId)->first();
@@ -90,7 +89,16 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
         $redirect_url = get_website_redirect_url($domain, $productId);
     }
 
-    if ($redirect_url) {
+    return ['live_edit'=> $redirect_url . '&live_edit=1', 'admin'=>$redirect_url, 'domain'=>$domain];
+}
+
+
+function mw_client_area_output_html($service)
+{
+
+    $output = mw_get_login_links_by_service($service);
+
+    if ($output['admin']) {
         $panel = '
 		<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
 			   <div class="panel-heading">
@@ -101,12 +109,12 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 						   <div class="col-md-5 col-xs-6 text-right">
 							   <strong>Domain</strong>
 							   <br>
-								' . $domain . '
+								' . $output['domain'] . '
 						   </div>
 						   <div class="col-md-7 col-xs-6 text-left">
 
-						   <a class="btn btn-default" href="' . $redirect_url . '" target="_blank"><i class="fa fa-user"></i> Login as [Admin]</a>
-						   <a class="btn btn-success" href="' . $redirect_url . '&live_edit=1" target="_blank"><i class="fa fa-pencil"></i> Go to website [Live Edit]</a>
+						   <a class="btn btn-default" href="' . $output['admin'] . '" target="_blank"><i class="fa fa-user"></i> Login as [Admin]</a>
+						   <a class="btn btn-success" href="' . $output['live_edit'] . '" target="_blank"><i class="fa fa-pencil"></i> Go to website [Live Edit]</a>
 
 							</div>
 					   </div>
@@ -115,8 +123,26 @@ add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
 
         return $panel;
     }
+}
 
+add_hook('ClientAreaProductDetailsOutput', 1, function ($service) {
+    return mw_client_area_output_html($service);
 });
+
+add_hook('ClientAreaPrimarySidebar', 1, function(WHMCS\View\Menu\Item $primarySidebar)
+{
+    GLOBAL $smarty;
+    $ServiceActions = $primarySidebar->getChild('Service Details Actions');
+    if (empty($ServiceActions)) {
+        return;
+    }
+    $serviceID = (int) $_GET['id'];
+    $ServiceActions->addChild('Cancel')->setLabel('Login as [Admin]')->setURI('fwa');
+    $ServiceActions->addChild('Login as [Admin]')->setLabel('Go to website [Live Edit]')->setURI('fwaxxx');
+});
+
+
+
 
 
 add_hook('serviceView', 1, function ($secondarySidebar) {
