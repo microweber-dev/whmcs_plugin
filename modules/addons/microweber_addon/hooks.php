@@ -60,24 +60,8 @@ function get_website_redirect_url($domain, $client_product_id = false)
     return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
 }
 
-function mw_get_login_links_by_service($service)
+function mw_get_login_links_by_service($productId, $serverId, $domain)
 {
-    if (is_null($service)) {
-        return '';
-    }
-
-    $productId = $service['service']->id;
-    $domain = $service['service']->domain;
-
-    if (!$domain) {
-        return;
-    }
-
-    $serverId = false;
-    if (isset($service['service']->server)) {
-        $serverId = $service['service']->server;
-    }
-
     $redirect_url = false;
 
     $get_server = Capsule::table('tblservers')
@@ -96,7 +80,23 @@ function mw_get_login_links_by_service($service)
 function mw_client_area_output_html($service)
 {
 
-    $output = mw_get_login_links_by_service($service);
+    if (is_null($service)) {
+        return '';
+    }
+
+    $productId = $service['service']->id;
+    $domain = $service['service']->domain;
+
+    if (!$domain) {
+        return;
+    }
+
+    $serverId = false;
+    if (isset($service['service']->server)) {
+        $serverId = $service['service']->server;
+    }
+
+    $output = mw_get_login_links_by_service($productId, $serverId, $domain);
 
     if ($output['admin']) {
         $panel = '
@@ -136,9 +136,12 @@ add_hook('ClientAreaPrimarySidebar', 1, function(WHMCS\View\Menu\Item $primarySi
     if (empty($ServiceActions)) {
         return;
     }
-    $serviceID = (int) $_GET['id'];
-    $ServiceActions->addChild('Cancel')->setLabel('Login as [Admin]')->setURI('fwa');
-    $ServiceActions->addChild('Login as [Admin]')->setLabel('Go to website [Live Edit]')->setURI('fwaxxx');
+    $serviceId = (int) $_GET['id'];
+    $service = \WHMCS\Service\Service::find($serviceId);
+    $output = mw_get_login_links_by_service($service->id, $service->server, $service->domain);
+
+    $ServiceActions->addChild('Cancel')->setLabel('Login as [Admin]')->setURI($output['admin'])->setAttribute('target','_blank')->setIcon('fa fa-key');
+    $ServiceActions->addChild('Login as [Admin]')->setLabel('Go to website [Live Edit]')->setURI($output['live_edit'])->setAttribute('target','_blank')->setIcon('fa fa-pencil');
 });
 
 
