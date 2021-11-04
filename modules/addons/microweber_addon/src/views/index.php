@@ -160,6 +160,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                         if (empty($get_template->screenshot_url)) {
                             $get_template->screenshot_url = $screenshot;
                         }
+
                         ?>
 
                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-4 js-template"
@@ -185,15 +186,26 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                 <div style="margin-top:30px; display: none;"
                                      class="js-show-all-templates js-template-settings-<?php echo $get_template->id; ?>">
 
+                                 <script>
+                                     $(function () {
+                                         $('#enableCustomSettingcCheck<?php echo $get_template->id; ?>').change(function() {
+                                             $('#enableCustomSettingcCheckToggle<?php echo $get_template->id; ?>').toggle();
+                                         });
+                                     });
+                                 </script>
+
                                     <div class="form-group form-check">
-                                        <input type="checkbox"
-                                            <?php if($get_template->has_custom_settings): ?> checked <?php endif; ?>
+                                        <input value="1"
+                                                type="checkbox"
+                                            <?php if(intval($get_template->has_custom_settings) != 0): ?> checked <?php endif; ?>
                                                name="templates_settings[<?php echo $get_template->id; ?>][has_custom_settings]"
                                                class="form-check-input" id="enableCustomSettingcCheck<?php echo $get_template->id; ?>">
                                         <label class="form-check-label" for="enableCustomSettingcCheck<?php echo $get_template->id; ?>">Enable custom settings</label>
                                     </div>
 
 
+
+<div class="well" id="enableCustomSettingcCheckToggle<?php echo $get_template->id; ?>" <?php if(intval($get_template->has_custom_settings) == 0): ?> style="display: none" <?php endif; ?>>
 
 
 
@@ -211,7 +223,13 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                     <input type="text" class="form-control" style="width: 100%"
                                            name="templates_settings[<?php echo $get_template->id; ?>][screenshot_url]"
                                            value="<?php echo $get_template->screenshot_url; ?>"/>
+
+</div>
+
                                     <br/>
+
+
+
 
                                     <div style="padding-bottom: 10px;">
                                     Template sort:

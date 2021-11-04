@@ -44,11 +44,16 @@ class AdminController
                     }
                 }
 
+                $has_custom_settings = 0;
+                if (isset($templates_setting['has_custom_settings']) and intval($templates_setting['has_custom_settings']) != 0) {
+                    $has_custom_settings = 1;
+                }
 
                 Capsule::table('mod_microweber_templates')
                     ->where('id', $template_id)
                     ->update([
                         'is_enabled' => $template_enabled,
+                        'has_custom_settings' => $has_custom_settings,
                         'updated_at' => date('Y-m-d H:i:s'),
                         'name' => $templates_setting['name'],
                         'target_dir' => $templates_setting['target_dir'],
