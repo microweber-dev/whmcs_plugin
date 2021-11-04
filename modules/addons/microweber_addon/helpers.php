@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-
-
-
+use MicroweberAddon\MarketplaceConnector;
 
 
 if (!function_exists('parse_params')) {
@@ -319,9 +317,54 @@ function get_template_by_git_package_name($name)
 
 function get_enabled_templates()
 {
-    return Capsule::table('mod_microweber_templates')
+    $templates =  Capsule::table('mod_microweber_templates')
         ->where('is_enabled', 1)
         ->orderBy('preview_sort')
         ->get();
+
+    return $templates;
+
+//    $ready = [];
+//
+//    $marketplace_connector = new MarketplaceConnector();
+//
+//
+//    $marketplace_templates = $marketplace_connector->get_templates();
+//
+//    var_dump($marketplace_templates);
+//    exit;
+//
+//    //has_custom_settings
+//    if($templates){
+//        foreach ($templates as $template){
+//            $item = $template;
+//            if(!$item->has_custom_settings){
+//                if($marketplace_templates) {
+//                    foreach ($templates as $template) {
+//                        $item = $template['latest_version'];
+//                        $get_template = get_template_by_git_package_name($item['name']);
+//
+//                    }
+//                }
+//
+//            }
+//
+//            $ready[] = $item;
+//        }
+//    }
+//
+//    var_dump($ready);
+//    exit;
+//
+//    return collect($ready);
+
+
+
+
+
+
+
+
+
 }
 
