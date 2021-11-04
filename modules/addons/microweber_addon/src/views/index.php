@@ -101,12 +101,12 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                         $(document).ready(function () {
                             $('.js-select-all-templates').on('click', function () {
                                 $('.js-template').each(function () {
-                                    $(this).find('input').prop("checked", true);
+                                    $(this).find('.js-select-template-item-checkbox').prop("checked", true);
                                 })
                             })
                             $('.js-unselect-all-templates').on('click', function () {
                                 $('.js-template').each(function () {
-                                    $(this).find('input').prop("checked", false);
+                                    $(this).find('.js-select-template-item-checkbox').prop("checked", false);
                                 })
                             })
 
@@ -173,7 +173,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                  <div class="checkbox">
                                    <label style="float:left;">
                                        <input <?php if (in_array($item['target-dir'], $enabled_templates)) { ?> checked  <?php } ?>
-                                               type="checkbox" name="selected_templates[]"
+                                               type="checkbox" class="js-select-template-item-checkbox" name="selected_templates[]"
                                                value="<?php print $item['target-dir'] ?>">
                                        <strong><?php echo $item['description']; ?></strong>
                                    </label>
@@ -184,6 +184,19 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                             </span>
                                 <div style="margin-top:30px; display: none;"
                                      class="js-show-all-templates js-template-settings-<?php echo $get_template->id; ?>">
+
+                                    <div class="form-group form-check">
+                                        <input type="checkbox"
+                                            <?php if($get_template->has_custom_settings): ?> checked <?php endif; ?>
+                                               name="templates_settings[<?php echo $get_template->id; ?>][has_custom_settings]"
+                                               class="form-check-input" id="enableCustomSettingcCheck<?php echo $get_template->id; ?>">
+                                        <label class="form-check-label" for="enableCustomSettingcCheck<?php echo $get_template->id; ?>">Enable custom settings</label>
+                                    </div>
+
+
+
+
+
                                     Template name:
                                     <input type="text" class="form-control" style="width: 100%"
                                            name="templates_settings[<?php echo $get_template->id; ?>][preview_name]"
@@ -216,10 +229,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][git_package_name]"
                                            value="<?php echo $item['name']; ?>"/>
-                                  <!--  <input type="hidden"
-                                           name="templates_settings[<?php /*echo $get_template->id; */?>][screenshot_url]"
-                                           value="<?php /*echo $screenshot */?>"/>-->
-                                    <input type="hidden"
+                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][name]"
                                            value="<?php echo $item['description']; ?>"/>
                                     <input type="submit" class="btn btn-success btn-block" value="Save settings"/>
@@ -240,7 +250,14 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                 installations.</p>
         </div>
 
-        <?php include_once "embed_codes.php"; ?>
+
+
+        <div class="well" style="margin-top:50px;">
+        <?php include __DIR__."/embed_codes.php"; ?>
+        </div>
+        <div class="well" style="margin-top:50px;">
+        <?php include __DIR__."/templates_reset.php"; ?>
+        </div>
 
     </div>
     <!--    <pre>-->

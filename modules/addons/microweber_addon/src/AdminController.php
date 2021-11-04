@@ -32,10 +32,10 @@ class AdminController
         if (isset($params['templates_settings'])) {
 
             Capsule::table('mod_microweber_templates')->update([
-                'is_enabled' =>0
+                'is_enabled' => 0
             ]);
 
-            foreach ($params['templates_settings'] as $template_id=>$templates_setting) {
+            foreach ($params['templates_settings'] as $template_id => $templates_setting) {
 
                 $template_enabled = 0;
                 if (isset($params['selected_templates']) and is_array($params['selected_templates'])) {
@@ -48,16 +48,16 @@ class AdminController
                 Capsule::table('mod_microweber_templates')
                     ->where('id', $template_id)
                     ->update([
-                        'is_enabled'=> $template_enabled,
-                        'updated_at'=>date('Y-m-d H:i:s'),
-                        'name'=>$templates_setting['name'],
-                        'target_dir'=> $templates_setting['target_dir'],
-                        'git_package_name'=> $templates_setting['git_package_name'],
-                        'screenshot_url'=>$templates_setting['screenshot_url'],
-                        'preview_url'=>$templates_setting['preview_url'],
-                        'homepage_url'=>$templates_setting['homepage_url'],
-                        'preview_name'=>$templates_setting['preview_name'],
-                        'preview_sort'=>$templates_setting['preview_sort']
+                        'is_enabled' => $template_enabled,
+                        'updated_at' => date('Y-m-d H:i:s'),
+                        'name' => $templates_setting['name'],
+                        'target_dir' => $templates_setting['target_dir'],
+                        'git_package_name' => $templates_setting['git_package_name'],
+                        'screenshot_url' => $templates_setting['screenshot_url'],
+                        'preview_url' => $templates_setting['preview_url'],
+                        'homepage_url' => $templates_setting['homepage_url'],
+                        'preview_name' => $templates_setting['preview_name'],
+                        'preview_sort' => $templates_setting['preview_sort']
                     ]);
             }
         }
@@ -94,8 +94,8 @@ class AdminController
                     Capsule::table('mod_microweber_templates')
                         ->where('target_dir', $item)
                         ->update([
-                            'config_option_id'=> $config_option_id,
-                            'config_option_group_id'=> $configoptionid,
+                            'config_option_id' => $config_option_id,
+                            'config_option_group_id' => $configoptionid,
                         ]);
 
                     $saved_config_ids[] = $config_option_id;
@@ -147,6 +147,13 @@ class AdminController
         // print_r($params);
 
         header('Location: addonmodules.php?module=microweber_addon');
+    }
+
+    public function reset_templates($params = [])
+    {
+        Capsule::table('mod_microweber_templates')->truncate();
+        header('Location: addonmodules.php?module=microweber_addon');
+
     }
 
 }

@@ -17,7 +17,9 @@ require_once($root . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'c
 $root = (__DIR__);
 
 require_once $root . DIRECTORY_SEPARATOR . '/microweber_addon.php';
-
+include_once __DIR__ .  '/src/ResellerMultibrandConnector.php';
+include_once __DIR__ .  '/MicroweberAddonApiController.php';
+include_once __DIR__ .  '/MicroweberAddonOrderController.php';
 
 //
 //$arr = get_defined_functions(true);

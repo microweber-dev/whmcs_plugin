@@ -218,6 +218,7 @@ function microweber_addon_activate()
                     $table->string('screenshot_url');
                     $table->integer('config_option_id');
                     $table->integer('config_option_group_id');
+                    $table->integer('has_custom_settings');
                     $table->integer('is_enabled');
                     $table->timestamps();
                 }
