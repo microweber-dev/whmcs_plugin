@@ -599,7 +599,7 @@ h.domain = '" . $username . "' and
                     $ready = [
                         'id' => $enabled_template['configoption']['id'],
                         'configid' => $enabled_template['configoption']['configid'],
-                        'title' => $enabled_template['configoption']['optionname'],
+                        'title' => $enabled_template['description'], 
                         'optionname' => $enabled_template['configoption']['optionname'],
                         'image' => '',
                     ];
