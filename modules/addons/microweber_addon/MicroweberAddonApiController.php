@@ -503,6 +503,7 @@ h.domain = '" . $username . "' and
 
             if (isset($params['return_links'])) {
                 $return = [];
+                $return['site'] = $http_code . $hosting->domain ;
                 $return['admin'] = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectToAdmin;
                 $return['live_edit'] = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectToLiveEdit;
 
