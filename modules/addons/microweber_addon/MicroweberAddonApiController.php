@@ -576,7 +576,9 @@ h.domain = '" . $username . "' and
 
                     $ready = [
                         'id' => $enabled_template['configoption']['id'],
+                        'configid' => $enabled_template['configoption']['configid'],
                         'title' => $enabled_template['configoption']['optionname'],
+                        'optionname' => $enabled_template['configoption']['optionname'],
                         'image' => '',
                     ];
                     if (isset($enabled_template["extra"]['_meta']) and isset($enabled_template["extra"]['_meta']['screenshot'])) {
