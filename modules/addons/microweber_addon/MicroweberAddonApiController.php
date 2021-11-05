@@ -459,15 +459,21 @@ h.domain = '" . $username . "' and
 
     public function go_to_product($params)
     {
-        if (!isset($_GET['client_product_id'])) {
+
+        if (!isset($params['client_product_id'])) {
+            return;
+        }
+        $uid = \WHMCS\Session::get("uid");
+
+        if(!isset($uid) or !$uid){
             return;
         }
 
-        $client_product_id = intval($_GET['client_product_id']);
+        $client_product_id = intval($params['client_product_id']);
 
         $hosting = Capsule::table('tblhosting')
             ->where('id', $client_product_id)
-            ->where('userid', $_SESSION['uid'])
+            ->where('userid', $uid)
             ->first();
 
         if ($hosting) {
@@ -476,7 +482,7 @@ h.domain = '" . $username . "' and
             Capsule::table('mod_microweber_code_login')->insert([
                 'domain' => $hosting->domain,
                 'code' => $generated_code,
-                'user_id' => $_SESSION['uid'],
+                'user_id' => $uid,
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
 
@@ -485,14 +491,29 @@ h.domain = '" . $username . "' and
             if ($support_ssl) {
                 $http_code = 'https://';
             }
+            $redirectToLiveEdit = $http_code . $hosting->domain . "/?editmode=y";
+            $redirectToAdmin = $http_code . $hosting->domain . "/admin/view:content";
 
             if (isset($params['live_edit'])) {
-                $redirectTo = $http_code . $hosting->domain . "/?editmode=y";
+                $redirectTo =$redirectToLiveEdit;
             } else {
-                $redirectTo = $http_code . $hosting->domain. "/admin/view:content";
+                $redirectTo = $redirectToAdmin;
             }
 
+
+            if (isset($params['return_links'])) {
+                $return = [];
+                $return['admin'] = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectToAdmin;
+                $return['live_edit'] = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectToLiveEdit;
+
+                return $return;
+            }
+
+
+
             $url = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectTo;
+
+
 
             header('Location: ' .$url);
             exit;
