@@ -84,7 +84,7 @@ class AdminController
 
             $saved_config_ids = array();
             $to_remove_config_ids = array();
-            //   dd($to_save);
+
             if ($to_save) {
                 foreach ($to_save as $item) {
                     $data = Capsule::table('tblproductconfigoptionssub')->where(['optionname' => $item, 'configid' => $configoptionid])->first();

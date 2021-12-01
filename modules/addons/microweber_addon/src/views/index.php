@@ -207,13 +207,19 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
 <div class="well" id="enableCustomSettingcCheckToggle<?php echo $get_template->id; ?>" <?php if(intval($get_template->has_custom_settings) == 0): ?> style="display: none" <?php endif; ?>>
 
+    <small class="help-block">
+        <?php echo $get_template->target_dir; ?>
+    </small>
 
 
                                     Template name:
                                     <input type="text" class="form-control" style="width: 100%"
                                            name="templates_settings[<?php echo $get_template->id; ?>][preview_name]"
                                            value="<?php echo $get_template->preview_name; ?>"/>
-                                    <br/>
+
+
+
+
                                     Template preview:
                                     <input type="text" class="form-control" style="width: 100%"
                                            name="templates_settings[<?php echo $get_template->id; ?>][preview_url]"
@@ -264,8 +270,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
 
         <div class="well" style="margin-top:50px;">
-            <p>You have <b><?php echo $manager->report->getTotalClientProducts(); ?> </b> microweber active
-                installations.</p>
+            <p>You have <b><?php echo $manager->report->getTotalClientProducts(); ?> </b> microweber active installations.</p>
         </div>
 
 

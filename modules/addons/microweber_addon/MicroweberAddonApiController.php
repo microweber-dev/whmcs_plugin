@@ -155,9 +155,9 @@ class MicroweberAddonApiController
 </style>
                 ';
 
-        $html = '<div class="mw-ads-holder" onclick="window.open(\'https://microweber.bg\', \'_blank\');"><div class="row">
-    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">Този уеб сайт е направен с</span> <strong>Microweber.bg</strong> <span class="hidden-sm">сайт билдър</span></p></div>
-    <div class="col text-right"><a href="javascript:;" onclick="window.open(\'https://microweber.bg\', \'_blank\');">Направи си сайт</a></div>
+        $html = '<div class="mw-ads-holder" onclick="window.open(\''.site_url().'\', \'_blank\');"><div class="row">
+    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">This website is created with </span> <strong>'.$this->branding_get_company_name().'</strong> <span class="hidden-sm">website builder</span></p></div>
+    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Create a website</a></div>
     </div></div>';
 
         echo $css . $html;
