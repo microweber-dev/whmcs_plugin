@@ -714,14 +714,17 @@ h.domain = '" . $username . "' and
         }
 
 
-        //   $description =  $item->getFormattedProductFeaturesAttribute();
-
 
         if ($result_q) {
             foreach ($result_q as $item) {
                 $item = (array)$item;
                 $prod = Product::find($item['id']);
-                $format = $prod->getFormattedProductFeaturesAttribute();
+                if(method_exists($prod, 'getFormattedProductFeaturesAttribute')) {
+                    $description = $prod->getFormattedProductFeaturesAttribute();
+                } else {
+                    $description = $item['description'];
+                }
+                $format = $description;
 
                 $item["features"] = $format["features"];
 

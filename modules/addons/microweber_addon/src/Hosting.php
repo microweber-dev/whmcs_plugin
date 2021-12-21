@@ -255,7 +255,10 @@ class Hosting
 		throw new Exception('Cant find tblproductconfigoptions by option name.');
 
     }
-
+    public function get_gid_for_templates()
+    {
+        return $this->get_config_option_gid_for_templates();
+    }
     public function get_config_option_gid_for_templates()
     {
         $data = Capsule::table('tblproductconfiggroups')->where(['name' => $this->config_option_name])->first();
