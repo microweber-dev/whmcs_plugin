@@ -91,14 +91,21 @@ class MicroweberAddonOrderController
             }
             $token_link  = generate_token("link");
 
+
             if ($redir_url) {
+
+                $ajaxPostLink = site_url().'cart.php?ajax=1'.$token_link.'&a=addToCart&domain=register';
+                if ($isSubDomain) {
+                    $ajaxPostLink = site_url().'cart.php?ajax=1'.$token_link.'&a=add&domainoption=subdomain';
+                }
+
                 print '
 
                 <script src="'.site_url().'assets/js/jquery.min.js"></script>
 
                 <script type="application/javascript">
                 function submitForm() {
-                   $.ajax({type:\'POST\', url: \''.site_url().'cart.php?ajax=1'.$token_link.'&a=addToCart&domain=register\', data:
+                   $.ajax({type:\'POST\', url: "'.$ajaxPostLink.'", data:
                    {"domain":"'.$domain.'"}
                    , complete: function(response) {
                       goToCart()
@@ -108,11 +115,11 @@ class MicroweberAddonOrderController
                 }
                 
                 function goToCart() {
-                          if (window.top != window.self){
-                            window.top.location.href = "' . $redir_url . '"
-                        } else {
-                            window.location.href = "' . $redir_url . '"
-                        }
+                     if (window.top != window.self){
+                        window.top.location.href = "' . $redir_url . '"
+                    } else {
+                        window.location.href = "' . $redir_url . '"
+                    }
                       
                   }
                 </script>  ';
@@ -120,7 +127,7 @@ class MicroweberAddonOrderController
 
                 if($domain && $isSubDomain){
                 print '<script type="text/javascript">
-                 submitForm()
+                 submitForm();
                 </script>';
                 } else {
                     print '<script type="text/javascript">
