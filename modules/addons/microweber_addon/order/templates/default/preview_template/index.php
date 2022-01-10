@@ -37,7 +37,12 @@
     </div>
 
     <?php if ($preview_url): ?>
-        <iframe src="<?php print $preview_url; ?>" frameborder="0" allowfullscreen></iframe>
+
+        <script src="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/js/FrameManager.js"></script>
+
+        <iframe src="<?php print $preview_url; ?>" frameborder="0" onload="FrameManager.registerFrame(this)"></iframe>
+
+
     <?php endif; ?>
 
 <?php endif; ?>
