@@ -203,7 +203,8 @@ class MicroweberAddonDomainSearch
                 $is_already_local_registered = Capsule::table('tblhosting')->where('domain', $search_dom)->count();
                 if (!$is_already_local_registered) {
                     if (in_array($available_domain_extension, $available_subdomains)) {
-                        $price = (string)formatCurrency(0);
+
+                        $price = (string)formatCurrency(array_shift($tld_data));
 
                         $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension, 'sld' => $host, 'is_free' => true, 'subdomain' => true, 'price' => $price);
                     } else {
@@ -228,7 +229,7 @@ class MicroweberAddonDomainSearch
                         // if ($results) {
                         $tld_data = $available_domain_extensions[$available_domain_extension];
 
-                        $price = (string)formatCurrency(array_shift($tld_data));
+                        $price =  (string)formatCurrency($tld_data);
 
                         if ($results and isset($results["result"]) and ($results["result"]) == 'available') {
                             $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
