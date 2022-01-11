@@ -55,7 +55,7 @@
 
     iframe.id = 'domain-search-iframe';
     iframe.style.width = "100%";
-    iframe.style.height = "100px";
+    iframe.style.height = "1000px";
     iframe.scrolling = 'no';
     iframe.frameBorder = 0;
     iframe.allowtransparency = 1;
