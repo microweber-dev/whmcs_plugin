@@ -79,17 +79,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var hash = e.data.split('frameLocation:')[1];
             //  window.location.hash = 'frameurl=' + (btoa(encodeURI(hash)))
         }
+
         if (typeof e.data === 'string' && e.data.indexOf('documentHeight:') > -1) {
             var height = e.data.split('documentHeight:')[1];
             if (height > 0) {
-
                 document.getElementById("domain-search-iframe").style.height = height + 'px';
-
-                //window.scrollTo(0,0);
-                //  iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             }
-
-
         }
     }, false);
 

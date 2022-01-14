@@ -314,6 +314,32 @@ class MicroweberAddonDomainSearch
             $return_combined['results'] = array_slice($return_combined['results'], 0, 150);    // limit to 5 exts
         }
 
+        // Otdering domains
+        if (isset($params['tld_order'])) {
+
+            $tld_order = explode(',', $params['tld_order']);
+
+            $ordered_results = [];
+            $other_results = [];
+            if (!empty($tld_order)) {
+                foreach ($return_combined['results'] as $domain) {
+                    $foundTld = false;
+                    foreach ($tld_order as $tld) {
+                        if ($domain['tld'] == trim($tld)) {
+                            $foundTld = true;
+                        }
+                    }
+                    if ($foundTld) {
+                        $ordered_results[] = $domain;
+                    } else {
+                        $other_results[] = $domain;
+                    }
+                }
+            }
+
+            $return_combined['results'] = array_merge($ordered_results,$other_results);
+        }
+
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
 
