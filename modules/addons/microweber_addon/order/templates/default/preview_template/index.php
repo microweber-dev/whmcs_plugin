@@ -58,10 +58,12 @@
     </iframe>
 
     <script>
-        $(document).ready(function() {
-           if (window.parent != window.self) {
-               $('#template-demo-iframe').css('height', (top.innerHeight - $('.preview-navbar').outerHeight()));
-           }
+        document.addEventListener("DOMContentLoaded", function(event) {
+            if (window.parent != window.self) {
+                $('#template-demo-iframe').css('height', (top.innerHeight - $('.preview-navbar').outerHeight()));
+            } else {
+                $('#template-demo-iframe').css('height', (self.innerHeight - $('.preview-navbar').outerHeight()));
+            }
         });
     </script>
     <?php endif; ?>

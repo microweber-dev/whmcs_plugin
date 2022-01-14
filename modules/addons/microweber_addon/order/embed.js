@@ -1,6 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(event) {
 
-
-(function () {
     var tool = {
         offset: function (node) {
             var rect = node.getBoundingClientRect()
@@ -18,8 +17,7 @@
     window['mw-domain-search-iframe-embed'] = true;
 
     if (window.top.document.querySelectorAll('#domain-search-iframe-js').length > 1) {
-   // if (document.querySelectorAll('script[src*="/microweber_addon/"]').length > 1) {
-
+        // if (document.querySelectorAll('script[src*="/microweber_addon/"]').length > 1) {
         console.warn(mlt);
         return;
     }
@@ -29,7 +27,7 @@
     };
 
     var script = $('#domain-search-iframe-js');
-   // var script = $('#domain-search-iframe-js');
+    // var script = $('#domain-search-iframe-js');
 
     if (!script) {
         return;
@@ -66,11 +64,11 @@
     if (typeof windowhash === 'string' && windowhash.indexOf('frameurl=') > -1) {
         var hash = windowhash.split('frameurl=')[1];
         var hash = decodeURI(atob(hash))
-     //     iframe.src = hash;
+        //     iframe.src = hash;
     } else {
 
         //alert(path);
-       iframe.src = path + '/index.php?m=microweber_addon&function=order_iframe&' + $params;
+        iframe.src = path + '/index.php?m=microweber_addon&function=order_iframe&' + $params;
 
     }
     script.parentNode.insertBefore(iframe, script.nextSibling);
@@ -79,12 +77,14 @@
 
         if (typeof e.data === 'string' && e.data.indexOf('frameLocation:') > -1) {
             var hash = e.data.split('frameLocation:')[1];
-          //  window.location.hash = 'frameurl=' + (btoa(encodeURI(hash)))
+            //  window.location.hash = 'frameurl=' + (btoa(encodeURI(hash)))
         }
         if (typeof e.data === 'string' && e.data.indexOf('documentHeight:') > -1) {
             var height = e.data.split('documentHeight:')[1];
             if (height > 0) {
-                $('#domain-search-iframe').style.height = height + 'px';
+
+                document.getElementById("domain-search-iframe").style.height = height + 'px';
+
                 //window.scrollTo(0,0);
                 //  iframe.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             }
@@ -92,4 +92,5 @@
 
         }
     }, false);
-})();
+
+});
