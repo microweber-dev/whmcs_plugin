@@ -322,22 +322,19 @@ class MicroweberAddonDomainSearch
             $ordered_results = [];
             $other_results = [];
             if (!empty($tld_order)) {
-                foreach ($return_combined['results'] as $domain) {
-                    $foundTld = false;
-                    foreach ($tld_order as $tld) {
+                foreach ($tld_order as $tld) {
+                    foreach ($return_combined['results'] as $domain) {
                         if ($domain['tld'] == trim($tld)) {
-                            $foundTld = true;
+                            $ordered_results[$domain['domain']] = $domain;
+                        } else {
+                            $other_results[$domain['domain']] = $domain;
                         }
-                    }
-                    if ($foundTld) {
-                        $ordered_results[] = $domain;
-                    } else {
-                        $other_results[] = $domain;
                     }
                 }
             }
 
-            $return_combined['results'] = array_merge($ordered_results,$other_results);
+            $return_combined['results'] = array_merge($ordered_results, $other_results);
+            $return_combined['results'] = array_values(array_filter($return_combined['results']));
         }
 
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
