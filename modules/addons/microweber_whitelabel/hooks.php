@@ -17,6 +17,10 @@ if (!function_exists('get_whitelabel_settings')) {
 add_hook('ClientAreaHeadOutput', 1, function($vars) {
 
     $template = $vars['template'];
+    if ($template != 'microweber' || $template != 'microweber_bulgaria' || $template != 'mw-sitebuilder') {
+        return ;
+    }
+
     $whitelabelSettings = get_whitelabel_settings();
 
     $primaryColor = "#0303ff";
