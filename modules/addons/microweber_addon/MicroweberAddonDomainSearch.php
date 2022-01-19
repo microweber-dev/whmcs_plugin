@@ -167,12 +167,18 @@ class MicroweberAddonDomainSearch
         //   $results = localAPI($command, $postData);
         $tlds = getTLDList();
 
+        $countTlds = 0;
         if ($tlds) {
             foreach ($tlds as $tld) {
+
                 $results_tlds[$tld] = getTLDPriceList($tld);
+
+                if ($countTlds > 10) {
+                    break;
+                }
+                $countTlds++;
             }
         }
-
 
         if ($results_tlds) {
             foreach ($results_tlds as $tld_key => $tld_data) {
