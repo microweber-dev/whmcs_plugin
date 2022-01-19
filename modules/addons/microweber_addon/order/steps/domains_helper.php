@@ -28,6 +28,9 @@
             cache: false,
             type: "POST",
             success: function (response) {
+
+                $(".js-search-domains").removeAttr('disabled');
+
                 if (response) {
                     if (response.results) {
                         render_domain_search_list(response.results);
