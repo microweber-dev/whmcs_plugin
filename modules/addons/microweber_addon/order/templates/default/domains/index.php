@@ -267,8 +267,11 @@
 </style>
 
 <script>
-    function render_domain_search_list(results) {
-        $("#domain-search-field-autocomplete").html('');
+    function render_domain_search_list(results, append = false) {
+
+        if (append == false) {
+            $("#domain-search-field-autocomplete").html('');
+        }
 
         var all_res_render = '';
 
@@ -327,7 +330,12 @@
                 all_res_render = all_res_render + $tpl;
             });
 
-            $("#domain-search-field-autocomplete").html(all_res_render);
+            if (append) {
+                $("#domain-search-field-autocomplete").append(all_res_render);
+            } else {
+                $("#domain-search-field-autocomplete").html(all_res_render);
+            }
+
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');
 
 

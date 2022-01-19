@@ -24,6 +24,11 @@
             echo '&tld_order=' . $_GET['tld_order'];
         }; ?>" + "&page=" + page;
 
+        var appendNewData = false;
+        if (page > 0) {
+            appendNewData = true;
+        }
+
         __ajax_search = $.ajax({
             contentType: 'application/json',
             dataType: 'json',
@@ -46,7 +51,7 @@
 
                 if (response) {
                     if (response.results) {
-                        render_domain_search_list(response.results);
+                        render_domain_search_list(response.results, appendNewData);
                     }
                 }
             }

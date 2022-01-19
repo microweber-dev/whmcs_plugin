@@ -165,13 +165,15 @@ class MicroweberAddonDomainSearch
         $offset = (($page == 0) ? 0 : ceil(count($tlds) / $next_result_page));
 
         if ($tlds) {
-            // only when we serach many results
-            if (empty($domain_tld_request)) {
-                $tlds = array_slice($tlds, $offset, 5);
-            }
             foreach ($tlds as $tld) {
                 $results_tlds[$tld] = getTLDPriceList($tld);
             }
+
+            // only when we serach many results
+            if (empty($domain_tld_request)) {
+                $results_tlds = array_slice($results_tlds, $offset, 5);
+            }
+
         }
 
         if (!empty($results_tlds) && empty($domain_tld_request)) {
