@@ -578,6 +578,8 @@ if (!empty($whitelabelSettings['dark_color'])) {
                             </div>
 
                         </div>
+
+
                     </form>
 
                 </div>

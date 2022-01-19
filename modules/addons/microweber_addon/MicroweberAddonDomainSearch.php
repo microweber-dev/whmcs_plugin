@@ -151,28 +151,32 @@ class MicroweberAddonDomainSearch
         $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
         $domain = $reg_domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
 
+        $suffix_with_dot = '.' . $domain_tld_request;
 
         $command = 'GetTLDPricing';
         $postData = array();
         require_once(__DIR__ . '/init.php');
 
-
-        //   $results = localAPI($command, $postData);
         $tlds = getTLDList();
 
-        $countTlds = 0;
+        $page = (isset($params['page']) ? $params['page'] : 0);
+        $load_more_results = 0;
+        $next_result_page = $page + 1;
+        $offset = (($page == 0) ? 0 : ceil(count($tlds) / $next_result_page));
+
         if ($tlds) {
+            // only when we serach many results
+            if (empty($domain_tld_request)) {
+                $tlds = array_slice($tlds, $offset, 5);
+            }
             foreach ($tlds as $tld) {
                 $results_tlds[$tld] = getTLDPriceList($tld);
-                if ($countTlds > 5) {
-                    break;
-                }
-                $countTlds++;
             }
         }
 
-      /*  var_dump($results_tlds);
-        die();*/
+        if (!empty($results_tlds) && empty($domain_tld_request)) {
+            $load_more_results = 1;
+        }
 
         if ($results_tlds) {
             foreach ($results_tlds as $tld_key => $tld_data) {
@@ -193,8 +197,6 @@ class MicroweberAddonDomainSearch
         if ($available_subdomains) {
             $try_exts = array_merge($try_exts, $available_subdomains);
         }
-
-        $suffix_with_dot = '.' . $domain_tld_request;
 
         if ($try_exts) {
             foreach ($try_exts as $available_domain_extension) {
@@ -245,7 +247,7 @@ class MicroweberAddonDomainSearch
 
                         $available_domain_extension1 = ltrim($available_domain_extension, '.');
 
-                        $search_dom = $sugg; 
+                        $search_dom = $sugg;
 
                         $tld_data = $available_domain_extensions[$available_domain_extension];
 
@@ -323,6 +325,10 @@ class MicroweberAddonDomainSearch
 
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
+
+        $return_combined['page'] = $page;
+        $return_combined['load_more_results'] = $load_more_results;
+        $return_combined['next_result_page'] = $next_result_page;
 
         return $return_combined;
     }

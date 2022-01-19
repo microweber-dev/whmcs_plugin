@@ -2,11 +2,13 @@
     var __dprev = $("#domain-search-field").val();
     __ajax_search = null;
 
-    function searchDomainResults(el) {
+    function searchDomainResults(el, page = 0) {
 
         if (__ajax_search && typeof (__ajax_search.abort) !== 'undefined') {
             __ajax_search.abort();
         }
+
+        $(".js-domain-search-load-more-btn").val(page);
 
         var __dprev = $("#domain-search-field").val();
 
@@ -18,10 +20,9 @@
 
         var keyword = $("#domain-search-field").val();
 
-
         var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + encodeURI(keyword) + "<?php if (isset($_GET['tld_order'])) {
             echo '&tld_order=' . $_GET['tld_order'];
-        }; ?>";
+        }; ?>" + "&page=" + page;
 
         __ajax_search = $.ajax({
             contentType: 'application/json',
@@ -30,6 +31,16 @@
             cache: false,
             type: "POST",
             success: function (response) {
+
+                if (response.load_more_results == 1) {
+                    $(".js-domain-search-load-more-btn").val(response.next_result_page);
+                    $("#domain-search-load-more").show();
+                } else {
+                    $("#domain-search-load-more").hide();
+                }
+
+                $(".js-domain-search-load-more-btn").removeAttr('disabled');
+                $(".js-domain-search-load-more-btn").html('Load more');
 
                 $(".js-search-domains").removeAttr('disabled');
 
@@ -51,8 +62,8 @@
             $('.ajax-loading-placeholder').show();
 
             (function (el) {
-                searchDomainResults(el);
-            })(this)
+                searchDomainResults(el,-0);
+            })(this);
 
             $('.js-clear-domain').addClass('visible');
             $('#domain-search-field-autocomplete').addClass('ajax-loading');
@@ -63,6 +74,19 @@
             $('#domain-search-field-autocomplete').empty();
             $(this).removeClass('visible');
         })
+
+        $(document).on("click", ".js-domain-search-load-more-btn", function () {
+
+            var nextPage = $(".js-domain-search-load-more-btn").val();
+
+            $(".js-domain-search-load-more-btn").attr('disabled','disabled');
+            $(".js-domain-search-load-more-btn").html('Loading...');
+
+            (function (el) {
+                searchDomainResults(el, nextPage);
+            })(this);
+
+        });
 
         $(document).on("click", ".domain-item.can-start", function () {
 
