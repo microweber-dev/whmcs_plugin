@@ -3,15 +3,11 @@
     var __dtime = null;
      __ajax_search = null;
 
-
-
-
     function searchDomainResults(el) {
 
         if(__ajax_search && typeof(__ajax_search.abort) !== 'undefined'){
             __ajax_search.abort();
         }
-
 
         setTimeout(function () {
             var __dprev = $("#domain-search-field").val();
@@ -49,25 +45,6 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        //****************** Allow only alphabets, numbers and - in text field **********************//
-        $('#domain-search-field').on('keydown', function (e) {
-            if (!$(this).data("value")) {
-                $(this).data("value", this.value);
-            }
-        });
-
-        $('#domain-search-field').on('keyup', function (e) {
-            if (!/^[-0-9a-z]*$/i.test(this.value)) {
-                this.value = $(this).data("value");
-            } else {
-                $(this).data("value", null);
-            }
-
-        });
-    });
-
-
     $(document).ready(function () {
         $(".js-search-domains").on('click', function () {
             // Define an expression of words to check for
