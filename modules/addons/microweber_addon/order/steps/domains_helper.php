@@ -1,61 +1,48 @@
 <script>
     var __dprev = $("#domain-search-field").val();
-    var __dtime = null;
-     __ajax_search = null;
+    __ajax_search = null;
 
     function searchDomainResults(el) {
 
-        if(__ajax_search && typeof(__ajax_search.abort) !== 'undefined'){
+        if (__ajax_search && typeof (__ajax_search.abort) !== 'undefined') {
             __ajax_search.abort();
         }
 
-        setTimeout(function () {
-            var __dprev = $("#domain-search-field").val();
-            var __dtime = null;
+        var __dprev = $("#domain-search-field").val();
 
-            clearTimeout(__dtime);
-            __dtime = setTimeout(function () {
-                if (!!el.value && el.value != __dprev) {
-                    $("#container").addClass('domain-search-field-on')
-                } else {
-                    $("#container").removeClass('domain-search-field-on')
-                }
-                __dprev = el.value;
+        if (!!el.value && el.value != __dprev) {
+            $("#container").addClass('domain-search-field-on')
+        } else {
+            $("#container").removeClass('domain-search-field-on')
+        }
 
-                var keyword = $("#domain-search-field").val();
-                var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + encodeURI(keyword) + "<?php if (isset($_GET['tld_order'])) { echo '&tld_order=' . $_GET['tld_order']; }; ?>";
+        var keyword = $("#domain-search-field").val();
+        var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + encodeURI(keyword) + "<?php if (isset($_GET['tld_order'])) {
+            echo '&tld_order=' . $_GET['tld_order'];
+        }; ?>";
 
-                __ajax_search  = $.ajax({
-                    contentType: 'application/json',
-                    dataType: 'json',
-                    url: URL,
-                    cache: false,
-                    type: "POST",
-                    success: function (response) {
-                        if (response) {
-                            if (response.results) {
-                                render_domain_search_list(response.results);
-                            }
-                        }
+        __ajax_search = $.ajax({
+            contentType: 'application/json',
+            dataType: 'json',
+            url: URL,
+            cache: false,
+            type: "POST",
+            success: function (response) {
+                if (response) {
+                    if (response.results) {
+                        render_domain_search_list(response.results);
                     }
-                });
-            }, 10);
-        }, 1000);
+                }
+            }
+        });
     }
 </script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $(".js-search-domains").on('click', function () {
-            // Define an expression of words to check for
-            var words = new RegExp('^someblocklistword|neshtozabraneno');
-            // Check if any of the words is contained within your element
-            if (words.test($('#domain-search-field').val())) {
-                $('#wrongSymbols').modal();
-                $('#domain-search-field').val('');
-                return false;
-            }
 
+        $(".js-search-domains").on('click', function () {
+            $(this).attr('disabled','disabled');
             $('.ajax-loading-placeholder').show();
 
             (function (el) {
@@ -68,17 +55,6 @@
 
         $("#user_registration_form").on('submit', function (e) {
             e.preventDefault();
-
-            // Define an expression of words to check for
-            var words = new RegExp('^someblocklistword|neshtozabraneno');
-            // Check if any of the words is contained within your element
-            if (words.test($('#domain-search-field').val())) {
-                $('#wrongSymbols').modal();
-                $('#domain-search-field').val('');
-                return false;
-            }
-
-
             $('.ajax-loading-placeholder').show();
 
             (function (el) {
@@ -88,49 +64,6 @@
             $('.js-clear-domain').addClass('visible');
             $('#domain-search-field-autocomplete').addClass('ajax-loading');
         });
-
-        //setup before functions
-        var typingTimer;                //timer identifier
-        var doneTypingInterval = 2000;  //time in ms, 5 second for example
-        var $input = $('#domain-search-field');
-
-        //on keyup, start the countdown
-        $input.on('keyup', function () {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(doneTyping, doneTypingInterval);
-        });
-
-        //on keydown, clear the countdown
-        // $input.on('keydown', function () {
-        //     clearTimeout(typingTimer);
-        // });
-
-        //user is "finished typing," do something
-        function doneTyping() {
-            // Define an expression of words to check for
-            var words = new RegExp('^someblocklistword|neshtozabraneno');
-            // Check if any of the words is contained within your element
-            if (words.test($('#domain-search-field').val())) {
-                $('#wrongSymbols').modal();
-                $('#domain-search-field').val('');
-                return false;
-            }
-
-            if ($('#domain-search-field').val() == '') {
-                $('#domain-search-field').val('');
-                $('#domain-search-field-autocomplete').empty();
-                $(this).removeClass('visible');
-            }
-
-            $('.ajax-loading-placeholder').show();
-
-            (function (el) {
-                searchDomainResults(el);
-            })(this)
-
-            $('.js-clear-domain').addClass('visible');
-            $('#domain-search-field-autocomplete').addClass('ajax-loading');
-        }
 
         $('.js-clear-domain').on('click', function () {
             $('#domain-search-field').val('');
@@ -139,6 +72,7 @@
         })
 
         $(document).on("click", ".domain-item.can-start", function () {
+
             var domain = $(this).attr('data-domain');
             var sld = $(this).attr('data-sld');
             var tld = $(this).attr('data-tld');
@@ -146,13 +80,9 @@
             var target = $(this).attr('data-target');
 
             var urlbase = document.location.href;
-
-            if (urlbase.indexOf('?') == -1)
-            {
+            if (urlbase.indexOf('?') == -1) {
                 urlbase = urlbase+'?';
             }
-
-
 
             var url = urlbase + "&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>&style=<?php echo htmlspecialchars(trim($_GET['style'])); ?>";
 
