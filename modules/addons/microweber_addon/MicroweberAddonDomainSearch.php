@@ -127,7 +127,7 @@ class MicroweberAddonDomainSearch
             $domain = str_ireplace('..', '.', $domain);
         }
 
-        $extension = pathinfo($domain, PATHINFO_EXTENSION);
+        $extension = $domain_tld_request = pathinfo($domain, PATHINFO_EXTENSION);
         if (!$extension) {
             $domain = $domain . '.com';
         }
@@ -139,7 +139,7 @@ class MicroweberAddonDomainSearch
             }
         }
 
-        $tld = pathinfo($domain, PATHINFO_EXTENSION);
+        $tld  = pathinfo($domain, PATHINFO_EXTENSION);
         $host = parse_url($domain, PHP_URL_HOST);
 
 
@@ -150,6 +150,7 @@ class MicroweberAddonDomainSearch
         $suffix = $result->getSuffix(); // will return 'co.uk'
         $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
         $domain = $reg_domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
+
 
         $command = 'GetTLDPricing';
         $postData = array();
@@ -193,9 +194,17 @@ class MicroweberAddonDomainSearch
             $try_exts = array_merge($try_exts, $available_subdomains);
         }
 
-        if ($try_exts) {
+        $suffix_with_dot = '.' . $domain_tld_request;
 
+        if ($try_exts) {
             foreach ($try_exts as $available_domain_extension) {
+
+                if (!empty($domain_tld_request)) {
+                    if ($suffix_with_dot != $available_domain_extension) {
+                        continue;
+                    }
+                }
+
                 $available_domain_extension1 = ltrim($available_domain_extension, '.');
                 $search_dom = $host . '.' . $available_domain_extension1;
                 $is_already_local_registered = Capsule::table('tblhosting')->where('domain', $search_dom)->count();
