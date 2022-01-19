@@ -44,18 +44,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $(".js-search-domains").on('click', function () {
-            $(this).attr('disabled','disabled');
-            $('.ajax-loading-placeholder').show();
-
-            (function (el) {
-                searchDomainResults(el);
-            })(this)
-
-            $('.js-clear-domain').addClass('visible');
-            $('#domain-search-field-autocomplete').addClass('ajax-loading');
-        });
-
         $("#user_registration_form").on('submit', function (e) {
             e.preventDefault();
             $('.ajax-loading-placeholder').show();
