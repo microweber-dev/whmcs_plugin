@@ -215,25 +215,10 @@ class MicroweberAddonDomainSearch
 
                         $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'available', 'tld' => $available_domain_extension, 'sld' => $host, 'is_free' => true, 'subdomain' => true, 'price' => $price);
                     } else {
-                        $command = 'DomainWhois';
-                        $postData = array(
-                            'domain' => $search_dom,
-                        );
-                        // $whois = new  \WHMCS\Domains\DomainLookup\Provider\BasicWhois();
-                        //  $whois = new  \WHMCS\Domains\DomainLookup\SearchResult($host,$available_domain_extension1);\
 
                         $whois = new \WHMCS\WHOIS();
-
                         $results = $whois->lookup(['sld' => $host, 'tld' => $available_domain_extension]);
 
-                        //     $results = $whois->getGeneralAvailability($host, [$available_domain_extension1]);
-                        //  $results = $whois->isGeneralAvailability();
-
-                        // $results = localAPI($command, $postData);
-//var_dump(['sld'=>$host,'tld'=>$available_domain_extension1]);
-
-
-                        // if ($results) {
                         $tld_data = $available_domain_extensions[$available_domain_extension];
 
                         $price =  (string)formatCurrency($tld_data);
@@ -243,7 +228,6 @@ class MicroweberAddonDomainSearch
                         } else {
                             $domain_results[$search_dom] = array('domain' => $search_dom, 'status' => 'unavailable', 'tld' => '.' . $available_domain_extension1, 'sld' => $host, 'is_free' => false, 'subdomain' => false, 'price' => $price);
                         }
-                        // }
                     }
 
                 } else {
@@ -260,8 +244,8 @@ class MicroweberAddonDomainSearch
                     foreach ($suggest_query as $sugg) {
 
                         $available_domain_extension1 = ltrim($available_domain_extension, '.');
-                    //    $search_dom = $host . '.' . $available_domain_extension1;
-                        $search_dom =$sugg;
+
+                        $search_dom = $sugg; 
 
                         $tld_data = $available_domain_extensions[$available_domain_extension];
 
