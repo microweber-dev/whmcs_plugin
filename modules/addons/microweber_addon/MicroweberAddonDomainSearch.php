@@ -87,17 +87,12 @@ class MicroweberAddonDomainSearch
 
         $available_domains = array();
         $available_domain_extensions = array();
-        $available_hosting_acc = array();
         $available_subdomains = array();
 
-
         $hosting_acc = $this->get_hosting_products();
-
-
         if ($hosting_acc) {
             foreach ($hosting_acc as $acc) {
                 $acc = (array)$acc;
-                $available_hosting_acc[] = $acc;
                 if ($acc['subdomain']) {
                     $explode = explode(',', $acc['subdomain']);
                     $explode = array_filter($explode);
@@ -106,13 +101,9 @@ class MicroweberAddonDomainSearch
 
             }
         }
-
-
         $available_subdomains = array_unique($available_subdomains);
 
-
         $domain_results = array();
-
 
         if (!is_array($params)) {
             $params = parse_params($params);
@@ -123,10 +114,11 @@ class MicroweberAddonDomainSearch
             $domain = trim($domain);
         }
         $domain_req = $domain;
-        if (isset($params['tld'])) {
 
+        if (isset($params['tld'])) {
             $domain = $domain . '.' . $params['tld'];
         }
+
         if ($domain != '') {
             $domain = trim($domain);
             $domain = preg_replace("/[^[:alnum:].[:space:]]/u", '', $domain);
@@ -170,15 +162,16 @@ class MicroweberAddonDomainSearch
         $countTlds = 0;
         if ($tlds) {
             foreach ($tlds as $tld) {
-
                 $results_tlds[$tld] = getTLDPriceList($tld);
-
-                if ($countTlds > 10) {
+                if ($countTlds > 5) {
                     break;
                 }
                 $countTlds++;
             }
         }
+
+      /*  var_dump($results_tlds);
+        die();*/
 
         if ($results_tlds) {
             foreach ($results_tlds as $tld_key => $tld_data) {
@@ -198,7 +191,6 @@ class MicroweberAddonDomainSearch
         }
         if ($available_subdomains) {
             $try_exts = array_merge($try_exts, $available_subdomains);
-
         }
 
         if ($try_exts) {
@@ -256,8 +248,6 @@ class MicroweberAddonDomainSearch
                 $suggest_query = $this->domain_suggest_verisign($host, [$available_domain_extension]);
                 if ($suggest_query) {
 
-
-
                     foreach ($suggest_query as $sugg) {
 
                         $available_domain_extension1 = ltrim($available_domain_extension, '.');
@@ -274,9 +264,6 @@ class MicroweberAddonDomainSearch
                         $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
                         $domain = $reg_domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
 
-
-
-
                         $price = (string)formatCurrency(array_shift($tld_data));
                         $domain_results[$search_dom] = array(
                             'domain' => $search_dom, 'status' => 'available',
@@ -287,8 +274,6 @@ class MicroweberAddonDomainSearch
                             'from_suggestion' => true,
                             'price' => $price);
                     }
-
-
                 }
             }
         }
@@ -315,10 +300,10 @@ class MicroweberAddonDomainSearch
                 }
             }
         }
-
+/*
         if (count($return_combined['results']) > 3) {
             $return_combined['results'] = array_slice($return_combined['results'], 0, 150);    // limit to 5 exts
-        }
+        }*/
 
         // Otdering domains
         if (isset($params['tld_order'])) {
