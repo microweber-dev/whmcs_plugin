@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__ . '/init.php');
 include_once 'DomainAvailabilityChecksTrait.php';
 
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -67,7 +68,58 @@ class MicroweberAddonDomainSearch
     function domain_search($params) {
 
         $json = [];
-        $json['test'] = $this->test();
+
+
+
+        return $this->getTldListWithPrices();
+        die();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $tlds = [];
+        $tlds[] = array(
+            'domain' => 'faw',
+            'status' => 'available',
+            'tld' => 'fwa',
+            'sld' => 'fwa',
+            'is_free' => false,
+            'subdomain' => false,
+            'from_suggestion' => true,
+            'price' => 33
+        );
+
+        $page = (isset($params['page']) ? $params['page'] : 0);
+        $laodMoreResults = 0;
+        $nextResultPage = $page + 1;
+        $offset = (($page == 0) ? 0 : ceil(count($tlds) / $nextResultPage));
+
+        $laodMoreResults = 1;
+
+       // $json['available_domain_extensions'] = $available_domain_extensions;
+       // $json['available_subdomain_extensions'] = $available_subdomains;
+
+        $json['results'] = $tlds;
+        $json['page'] = $page;
+        $json['load_more_results'] = $laodMoreResults;
+        $json['next_result_page'] = $nextResultPage;
 
         return $json;
     }
@@ -276,11 +328,6 @@ class MicroweberAddonDomainSearch
                 }
             }
         }
-
-/*
-        if (count($return_combined['results']) > 3) {
-            $return_combined['results'] = array_slice($return_combined['results'], 0, 150);    // limit to 5 exts
-        }*/
 
 
         $return_combined['available_domain_extensions'] = $available_domain_extensions;

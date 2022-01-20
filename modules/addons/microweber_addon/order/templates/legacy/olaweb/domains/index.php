@@ -375,7 +375,7 @@
         var all_res_render = '';
 
         if (results) {
-            console.log(results);
+            // console.log(results);
             $.each(results, function (i, item) {
                 var is_free = false;
                 if (item.is_free) {
