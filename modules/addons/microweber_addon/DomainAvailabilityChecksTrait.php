@@ -3,6 +3,39 @@
 trait DomainAvailabilityChecksTrait
 {
 
+    public function parseDesiredDomain($domain)
+    {
+        $domain = trim($domain);
+
+        if ($domain != '') {
+            $domain = trim($domain);
+            $domain = preg_replace("/[^[:alnum:].[:space:]]/u", '', $domain);
+
+            $domain = str_ireplace('www.', '', $domain);
+            $domain = str_ireplace('..', '.', $domain);
+        }
+
+        if (!is_fqdn($domain)) {
+            $domain2 = 'www.' . $domain;
+            if (!is_fqdn($domain2)) {
+                return false;
+            }
+        }
+
+        $tld  = pathinfo($domain, PATHINFO_EXTENSION);
+        $host = parse_url($domain, PHP_URL_HOST);
+
+        $extract = new LayerShifter\TLDExtract\Extract();
+
+        $result = $extract->parse($domain);
+        $host = $result->getHostname(); // will return 'mydomain'
+        $suffix = $result->getSuffix(); // will return 'co.uk'
+        $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
+        $domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
+
+        return ['host'=>$host,'suffix'=>$suffix,'fullhost'=>$full_host, 'domain'=>$domain, 'tld'=>$tld];
+    }
+
     public function getTldListWithPrices()
     {
         $tldListWithPrices = [];

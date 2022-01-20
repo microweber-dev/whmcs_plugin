@@ -69,25 +69,19 @@ class MicroweberAddonDomainSearch
 
         $json = [];
 
+        if (!is_array($params)) {
+            $params = parse_params($params);
+        }
+
+        $parseDesiredDomain = $this->parseDesiredDomain($params['domain']);
+        if (!$parseDesiredDomain) {
+            return array('Error' => 'Please enter valid domain name');
+        }
 
 
-        return $this->getTldListWithPrices();
+
+        return $parseDesiredDomain; 
         die();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
