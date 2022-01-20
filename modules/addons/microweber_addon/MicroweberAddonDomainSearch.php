@@ -112,6 +112,8 @@ class MicroweberAddonDomainSearch
             }
         }
 
+        $tlds = $this->_orderFirstFree($tlds);
+        // $tlds = $this->_orderCustom($tlds);
 
         $page = (isset($params['page']) ? $params['page'] : 0);
         $laodMoreResults = 0;

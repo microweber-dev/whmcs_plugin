@@ -53,7 +53,7 @@ trait DomainAvailabilityChecksTrait
             return false;
         }
 
-        return false;
+        return rand(0,1);
 
        // $whois = new \WHMCS\WHOIS();
        // $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
@@ -112,7 +112,7 @@ trait DomainAvailabilityChecksTrait
         return $tldListWithPrices;
     }
 
-    private function _orderFirstFree($domains)
+    protected function _orderFirstFree($domains)
     {
         $orderedDomains = [];
 
@@ -139,7 +139,7 @@ trait DomainAvailabilityChecksTrait
         return $orderedDomains;
     }
 
-    private function _tldOrdering($domains, $order) {
+    protected function _orderCustom($domains, $order) {
 
         $order = explode(',', $order);
 
