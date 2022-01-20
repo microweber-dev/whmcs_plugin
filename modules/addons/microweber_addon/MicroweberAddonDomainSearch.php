@@ -78,27 +78,40 @@ class MicroweberAddonDomainSearch
             return array('Error' => 'Please enter valid domain name');
         }
 
-
-
-        return $parseDesiredDomain; 
-        die();
-
-
-
-
-
-
         $tlds = [];
-        $tlds[] = array(
-            'domain' => 'faw',
-            'status' => 'available',
-            'tld' => 'fwa',
-            'sld' => 'fwa',
-            'is_free' => false,
-            'subdomain' => false,
-            'from_suggestion' => true,
-            'price' => 33
-        );
+        $getTlds = $this->getTldListWithPrices();
+        if (!empty( $getTlds)) {
+            foreach ($getTlds as $tld) {
+
+                $price = 0;
+                $isFree = true;
+                $status = 'unavailable';
+
+                if (!empty($tld['prices'])) {
+                    $priceList = array_shift($tld['prices']);
+                    $price = $priceList['register'];
+                    $isFree = false;
+                }
+
+                if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
+                    $status = 'available';
+                }
+
+                $price = (string)formatCurrency($price);
+
+                $tlds[] = array(
+                    'domain' => $parseDesiredDomain['host'] . $tld['tld'],
+                    'status' => $status,
+                    'tld' => $tld['tld'],
+                    'sld' => '',
+                    'is_free' => $isFree,
+                    'subdomain' => false,
+                    'from_suggestion' => true,
+                    'price' => $price
+                );
+            }
+        }
+
 
         $page = (isset($params['page']) ? $params['page'] : 0);
         $laodMoreResults = 0;
@@ -107,13 +120,13 @@ class MicroweberAddonDomainSearch
 
         $laodMoreResults = 1;
 
-       // $json['available_domain_extensions'] = $available_domain_extensions;
-       // $json['available_subdomain_extensions'] = $available_subdomains;
-
         $json['results'] = $tlds;
         $json['page'] = $page;
         $json['load_more_results'] = $laodMoreResults;
         $json['next_result_page'] = $nextResultPage;
+
+        $json['available_domain_extensions'] = $this->_getPaidDomains();
+        $json['available_subdomain_extensions'] = $this->_getFreeHostingDomains();
 
         return $json;
     }

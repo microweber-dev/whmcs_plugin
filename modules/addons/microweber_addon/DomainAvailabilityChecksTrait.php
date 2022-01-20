@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 trait DomainAvailabilityChecksTrait
 {
@@ -9,10 +10,9 @@ trait DomainAvailabilityChecksTrait
 
         if ($domain != '') {
             $domain = trim($domain);
-            $domain = preg_replace("/[^[:alnum:].[:space:]]/u", '', $domain);
-
             $domain = str_ireplace('www.', '', $domain);
             $domain = str_ireplace('..', '.', $domain);
+            $domain = htmlentities($domain);
         }
 
         if (!is_fqdn($domain)) {
@@ -38,31 +38,10 @@ trait DomainAvailabilityChecksTrait
 
     public function getTldListWithPrices()
     {
-        $tldListWithPrices = [];
-
         $freeDomains = $this->_getFreeHostingDomains();
-        if (!empty($freeDomains)) {
-            foreach ($freeDomains as $tld) {
-                $tldListWithPrices[] = [
-                    'tld'=>$tld,
-                    'paid'=>false,
-                    'prices'=>[]
-                ];
-            }
-        }
+        $paidDomains = $this->_getPaidDomains();
 
-        $tldList = getTLDList();
-        if (!empty($tldList)) {
-            foreach ($tldList as $tld) {
-                $tldListWithPrices[] = [
-                    'tld'=>$tld,
-                    'paid'=>true,
-                    'prices'=>getTLDPriceList($tld)
-                ];
-            }
-        }
-
-        return $tldListWithPrices;
+        return array_merge($paidDomains, $freeDomains);
     }
 
     public function isDomainAvailable($sld, $tld)
@@ -74,15 +53,40 @@ trait DomainAvailabilityChecksTrait
             return false;
         }
 
-        $whois = new \WHMCS\WHOIS();
-        $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
+        return false;
+
+       // $whois = new \WHMCS\WHOIS();
+       // $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
     }
 
-    private function _getFreeHostingDomains()
+    protected function _getPaidDomains()
+    {
+        $domains = getTLDList();
+        if (empty($domains)) {
+            return [];
+        }
+
+        $tldListWithPrices = [];
+        foreach ($domains as $tld) {
+            $tldListWithPrices[] = [
+                'tld'=>$tld,
+                'paid'=>true,
+                'prices'=>getTLDPriceList($tld)
+            ];
+        }
+
+        return $tldListWithPrices;
+    }
+
+    protected function _getFreeHostingDomains()
     {
         $domains = array();
 
         $hostingProducts = $this->get_hosting_products();
+        if (empty($hostingProducts)) {
+            return [];
+        }
+
         if ($hostingProducts) {
             foreach ($hostingProducts as $product) {
                 $product = (array)$product;
@@ -96,7 +100,16 @@ trait DomainAvailabilityChecksTrait
         }
         $domains = array_unique($domains);
 
-        return $domains;
+        $tldListWithPrices = [];
+        foreach ($domains as $tld) {
+            $tldListWithPrices[] = [
+                'tld'=>$tld,
+                'paid'=>false,
+                'prices'=>[]
+            ];
+        }
+
+        return $tldListWithPrices;
     }
 
     private function _orderFirstFree($domains)
