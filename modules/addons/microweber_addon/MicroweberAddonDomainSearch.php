@@ -1,14 +1,17 @@
 <?php
 
+include_once 'DomainAvailabilityChecksTrait.php';
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 use WHMCS\Product\Product as Product;
 
 class MicroweberAddonDomainSearch
 {
 
+    use DomainAvailabilityChecksTrait;
+
     function get_hosting_products($params = false)
     {
-
         $hosting_acc = Capsule::table('tblproducts')
             ->where('hidden', 0)
             ->where('retired', 0)
@@ -16,15 +19,6 @@ class MicroweberAddonDomainSearch
             ->where('type', 'hostingaccount')
             ->orderBy('order', 'ASC')
             ->get();
-
-
-//        $hosting_acc = Product::query()->where('hidden', 0)
-//            ->where('retired', 0)
-//            ->where('showdomainoptions', 1)
-//            ->where('type', 'hostingaccount')
-//            ->orderBy('order', 'ASC')
-//            ->get();
-
 
         // if is reseller, remove other pids
         $resellerPids = [];
@@ -70,7 +64,15 @@ class MicroweberAddonDomainSearch
 
     }
 
-    function domain_search($params)
+    function domain_search($params) {
+
+        $json = [];
+        $json['test'] = $this->test();
+
+        return $json;
+    }
+
+    function ____domain_search($params)
     {
         /*
            * https://developers.whmcs.com/domain-registrars/availability-checks/
@@ -275,55 +277,11 @@ class MicroweberAddonDomainSearch
             }
         }
 
-
-        $return_combined['results'] = [];
-        if ($domain_results) {
-            // show first free domains
-            foreach ($domain_results as $domain_result) {
-                if ($domain_result['status'] == 'available' and $domain_result['is_free'] == true) {
-                    $return_combined['results'][] = $domain_result;
-                }
-                if ($domain_result['status'] == 'unavailable' and $domain_result['is_free'] == true) {
-                    $return_combined['results'][] = $domain_result;
-                }
-            }
-            // show paid domains
-            foreach ($domain_results as $domain_result) {
-                if ($domain_result['status'] == 'available' and $domain_result['is_free'] == false) {
-                    $return_combined['results'][] = $domain_result;
-                }
-                if ($domain_result['status'] == 'unavailable' and $domain_result['is_free'] == false) {
-                    $return_combined['results'][] = $domain_result;
-                }
-            }
-        }
 /*
         if (count($return_combined['results']) > 3) {
             $return_combined['results'] = array_slice($return_combined['results'], 0, 150);    // limit to 5 exts
         }*/
 
-        // Otdering domains
-        if (isset($params['tld_order'])) {
-
-            $tld_order = explode(',', $params['tld_order']);
-
-            $ordered_results = [];
-            $other_results = [];
-            if (!empty($tld_order)) {
-                foreach ($tld_order as $tld) {
-                    foreach ($return_combined['results'] as $domain) {
-                        if ($domain['tld'] == trim($tld)) {
-                            $ordered_results[$domain['domain']] = $domain;
-                        } else {
-                            $other_results[$domain['domain']] = $domain;
-                        }
-                    }
-                }
-            }
-
-            $return_combined['results'] = array_merge($ordered_results, $other_results);
-            $return_combined['results'] = array_values(array_filter($return_combined['results']));
-        }
 
         $return_combined['available_domain_extensions'] = $available_domain_extensions;
         $return_combined['available_subdomain_extensions'] = $available_subdomains;
