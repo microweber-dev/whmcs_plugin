@@ -61,13 +61,30 @@ trait DomainAvailabilityChecksTrait
 
     public function isDomainAvailable($sld, $tld)
     {
-        $domain = $sld . '.' . $tld;
+        $requestDomain = $sld . '.' . $tld;
 
-        $localCheck = Capsule::table('tblhosting')->where('domain', $domain)->count();
+        $localCheck = Capsule::table('tblhosting')->where('domain', $requestDomain)->count();
         if ($localCheck) {
             return false;
         }
 
+        $isFreeDomainRequest = false;
+        $freeDomains = $this->_getFreeHostingDomains();
+        if(!empty($freeDomains)) {
+            foreach ($freeDomains as $domain) {
+                if ($tld == $domain['tld']) {
+                    $isFreeDomainRequest = true;
+                    break;
+                }
+            }
+        }
+
+        // The user request free domain and is available
+        if ($isFreeDomainRequest) {
+            return true;
+        }
+
+        // The user wants premium domain, lets check
         $whois = new \WHMCS\WHOIS();
         $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
         if (isset($results['result']) && $results['result'] == 'available') {
