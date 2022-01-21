@@ -12,7 +12,6 @@ class MicroweberAddonOrderController
 
     function order_iframe($params)
     {
-
         if (isset($params['language']) and function_exists('swapLang')) {
             swapLang($params['language']);
         }

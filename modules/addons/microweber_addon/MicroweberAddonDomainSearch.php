@@ -136,7 +136,7 @@ class MicroweberAddonDomainSearch
                 'domain' => $parseDesiredDomain['host'] . $tld['tld'],
                 'status' => $status,
                 'tld' => $tld['tld'],
-                'sld' => '',
+                'sld' => $parseDesiredDomain['host'],
                 'is_free' => $isFree,
                 'subdomain' => false,
                 'from_suggestion' => false,

@@ -16,7 +16,7 @@ trait DomainAvailabilityChecksTrait
             $domain = str_replace(' ', '-', $domain); // Replaces all spaces with hyphens.
             $domain = preg_replace('/[^A-Za-z0-9\-.]/', '', $domain); // Removes special chars.
         }
-        
+
         if (strpos($domain, '.') !== false) {
             if (!is_fqdn($domain)) {
                 $domain2 = 'www.' . $domain;
