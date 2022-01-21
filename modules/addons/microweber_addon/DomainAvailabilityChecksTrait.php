@@ -41,7 +41,7 @@ trait DomainAvailabilityChecksTrait
         $freeDomains = $this->_getFreeHostingDomains();
         $paidDomains = $this->_getPaidDomains();
 
-        return array_merge($paidDomains, $freeDomains);
+        return array_merge($freeDomains, $paidDomains);
     }
 
     public function isDomainAvailable($sld, $tld)
@@ -53,7 +53,7 @@ trait DomainAvailabilityChecksTrait
             return false;
         }
 
-        return rand(0,1);
+        return 1;
 
        // $whois = new \WHMCS\WHOIS();
        // $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
@@ -112,7 +112,7 @@ trait DomainAvailabilityChecksTrait
         return $tldListWithPrices;
     }
 
-    protected function _orderFirstFree($domains)
+    protected function _orderFirstAvailable($domains)
     {
         $orderedDomains = [];
 
@@ -149,9 +149,9 @@ trait DomainAvailabilityChecksTrait
             foreach ($order as $tld) {
                 foreach ($domains as $domain) {
                     if ($domain['tld'] == trim($tld)) {
-                        $orderedResults[$domain['domain']] = $domain;
+                        $orderedResults[$domain['tld']] = $domain;
                     } else {
-                        $otherResults[$domain['domain']] = $domain;
+                        $otherResults[$domain['tld']] = $domain;
                     }
                 }
             }
