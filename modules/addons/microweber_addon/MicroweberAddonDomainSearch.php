@@ -97,10 +97,10 @@ class MicroweberAddonDomainSearch
         $laodMoreResults = 0;
 
         $page = (int) (isset($params['page']) ? $params['page'] : 1);
+        $limit = (int) (isset($params['page']) ? $params['page'] : 15);
         $total = count($tldList); //total items in array
 
-        $limit = 15; //per page
-        $totalPages = ceil( $total / $limit ); //calculate total pages
+        $totalPages = ceil( $total / $limit); //calculate total pages
         $page = max($page, 1); //get 1 page when $params['page'] <= 0
         $page = min($page, $totalPages); //get last page when $params['page'] > $totalPages
         $offset = ($page - 1) * $limit;
