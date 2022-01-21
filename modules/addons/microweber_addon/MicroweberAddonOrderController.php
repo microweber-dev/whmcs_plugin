@@ -24,7 +24,6 @@ class MicroweberAddonOrderController
             $whmcsurl = site_url();
             $domain = false;
             $redir_url = site_url() . 'cart.php?a=add';
-            $redir_url = site_url() . 'cart.php?a=add';
 
             if (isset($params['sld']) and $params['sld']) {
                 $redir_url .= '&sld=' . $params['sld'];
@@ -88,12 +87,12 @@ class MicroweberAddonOrderController
             if (isset($params['currency']) and $params['currency']) {
                 $redir_url .= '&currency=' . $params['currency'];
             }
-            $token_link  = generate_token("link");
 
+            $token_link  = generate_token("link");
 
             if ($redir_url) {
 
-                $ajaxPostLink = site_url().'cart.php?ajax=1'.$token_link.'&a=addToCart&domain=register';
+                $ajaxPostLink = site_url().'cart.php?ajax=1'.$token_link.'&a=addToCart&whois=1&sideorder=1';
                 if ($isSubDomain) {
                     $ajaxPostLink = site_url().'cart.php?ajax=1'.$token_link.'&a=add&domainoption=subdomain';
                 }
@@ -112,14 +111,27 @@ class MicroweberAddonOrderController
                 
                    return false; 
                 }
+                function paidDomainAddToCart()
+                {
+                                   
+                    $.ajax({
+                        type:\'POST\', 
+                        url: "'.site_url().'cart.php",  
+                        data: {"a":"addToCart","whois":"1","sideorder":"1","idnlanguage":"","domain":"'.$domain.'", "token":"'.generate_token("plain").'"},
+                        complete: function(response) {
+                           goToCart(); 
+                        }
+                   });
                 
-                function goToCart() {
+                   return false; 
+                    
+                }
+                function goToCart() { 
                      if (window.top != window.self){
                         window.top.location.href = "' . $redir_url . '"
                     } else {
                         window.location.href = "' . $redir_url . '"
                     }
-                      
                   }
                 </script>  ';
 
@@ -130,7 +142,7 @@ class MicroweberAddonOrderController
                 </script>';
                 } else {
                     print '<script type="text/javascript">
-                     goToCart()
+                     paidDomainAddToCart();
                     </script>';
                 }
                 exit;
