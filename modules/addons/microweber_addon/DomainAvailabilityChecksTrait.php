@@ -109,6 +109,7 @@ trait DomainAvailabilityChecksTrait
             $tldListWithPrices[] = [
                 'tld'=>$tld,
                 'paid'=>true,
+                'is_subdomain'=>false,
                 'prices'=>getTLDPriceList($tld)
             ];
         }
@@ -142,6 +143,7 @@ trait DomainAvailabilityChecksTrait
         foreach ($domains as $tld) {
             $tldListWithPrices[] = [
                 'tld'=>$tld,
+                'is_subdomain'=>true,
                 'paid'=>false,
                 'prices'=>[]
             ];

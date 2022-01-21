@@ -138,7 +138,7 @@ class MicroweberAddonDomainSearch
                 'tld' => $tld['tld'],
                 'sld' => $parseDesiredDomain['host'],
                 'is_free' => $isFree,
-                'subdomain' => false,
+                'subdomain' => $tld['is_subdomain'],
                 'from_suggestion' => false,
                 'price' => $price
             );
