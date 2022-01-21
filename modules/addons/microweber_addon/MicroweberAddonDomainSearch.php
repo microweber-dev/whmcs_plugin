@@ -156,7 +156,7 @@ class MicroweberAddonDomainSearch
         $json['page'] = $page;
         $json['load_more_results'] = $laodMoreResults;
         $json['next_result_page'] = $nextResultPage;
-        $json['results'] = $tlds; 
+        $json['results'] = $tlds;
         $json['results_suggested'] = $suggestedDomains;
 
         $json['available_domain_extensions'] = $this->_getPaidDomains();

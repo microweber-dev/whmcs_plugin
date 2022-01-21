@@ -12,7 +12,9 @@ trait DomainAvailabilityChecksTrait
             $domain = trim($domain);
             $domain = str_ireplace('www.', '', $domain);
             $domain = str_ireplace('..', '.', $domain);
-            $domain = htmlentities($domain);
+
+            $domain = str_replace(' ', '-', $domain); // Replaces all spaces with hyphens.
+            $domain = preg_replace('/[^A-Za-z0-9\-.]/', '', $domain); // Removes special chars.
         }
 
         if (!is_fqdn($domain)) {
@@ -23,7 +25,6 @@ trait DomainAvailabilityChecksTrait
         }
 
         $tld  = pathinfo($domain, PATHINFO_EXTENSION);
-        $host = parse_url($domain, PHP_URL_HOST);
 
         $extract = new LayerShifter\TLDExtract\Extract();
 
