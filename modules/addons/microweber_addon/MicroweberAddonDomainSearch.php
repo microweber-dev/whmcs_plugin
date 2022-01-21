@@ -79,53 +79,69 @@ class MicroweberAddonDomainSearch
         }
 
         $tlds = [];
-        $getTlds = $this->getTldListWithPrices();
-        if (!empty( $getTlds)) {
-            foreach ($getTlds as $tld) {
 
-                $price = 0;
-                $isFree = true;
-                $status = 'unavailable';
+        $tldList = $this->getTldListWithPrices();
+        if (empty($tldList)) {
+            return array('Error' => 'No domains found.');
+        }
 
-                if (!empty($tld['prices'])) {
-                    $priceList = array_shift($tld['prices']);
-                    $price = $priceList['register'];
-                    $isFree = false;
-                }
+        $nextResultPage = 0;
+        $laodMoreResults = 0;
 
-                if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
-                    $status = 'available';
-                }
+        $page = (int) (isset($params['page']) ? $params['page'] : 1);
+        $total = count($tldList); //total items in array
 
-                $price = (string)formatCurrency($price);
+        $limit = 15; //per page
+        $totalPages = ceil( $total / $limit ); //calculate total pages
+        $page = max($page, 1); //get 1 page when $params['page'] <= 0
+        $page = min($page, $totalPages); //get last page when $params['page'] > $totalPages
+        $offset = ($page - 1) * $limit;
+        if ($offset < 0) $offset = 0;
 
-                $tlds[] = array(
-                    'domain' => $parseDesiredDomain['host'] . $tld['tld'],
-                    'status' => $status,
-                    'tld' => $tld['tld'],
-                    'sld' => '',
-                    'is_free' => $isFree,
-                    'subdomain' => false,
-                    'from_suggestion' => true,
-                    'price' => $price
-                );
+        $tldList = array_slice($tldList, $offset, $limit);
+
+        if($page !== $totalPages) {
+            $laodMoreResults = 1;
+            $nextResultPage = $page + 1;
+        }
+
+        foreach ($tldList as $tld) {
+
+            $price = 0;
+            $isFree = true;
+            $status = 'unavailable';
+
+            if (!empty($tld['prices'])) {
+                $priceList = array_shift($tld['prices']);
+                $price = $priceList['register'];
+                $isFree = false;
             }
+
+            if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
+                $status = 'available';
+            }
+
+            $price = (string)formatCurrency($price);
+
+            $tlds[] = array(
+                'domain' => $parseDesiredDomain['host'] . $tld['tld'],
+                'status' => $status,
+                'tld' => $tld['tld'],
+                'sld' => '',
+                'is_free' => $isFree,
+                'subdomain' => false,
+                'from_suggestion' => true,
+                'price' => $price
+            );
         }
 
         $tlds = $this->_orderFirstFree($tlds);
-        // $tlds = $this->_orderCustom($tlds);
+        //$tlds = $this->_orderCustom($tlds);
 
-        $page = (isset($params['page']) ? $params['page'] : 0);
-        $laodMoreResults = 0;
-        $nextResultPage = $page + 1;
-        $offset = (($page == 0) ? 0 : ceil(count($tlds) / $nextResultPage));
-
-        $laodMoreResults = 1;
-
-        $json['results'] = $tlds;
         $json['page'] = $page;
         $json['load_more_results'] = $laodMoreResults;
         $json['next_result_page'] = $nextResultPage;
+        $json['results'] = $tlds;
 
         $json['available_domain_extensions'] = $this->_getPaidDomains();
         $json['available_subdomain_extensions'] = $this->_getFreeHostingDomains();
