@@ -147,6 +147,105 @@ trait DomainAvailabilityChecksTrait
         return $tldListWithPrices;
     }
 
+    protected function _domainSuggestVerisign($domain_name, $tlds = [])
+    {
+        $isEnabled = false;
+        $api_key = false;
+
+        $setting = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'enable_name_studio_domain_suggest')
+            ->first();
+
+        if($setting and $setting->value=='Yes'){
+            $isEnabled = true;
+        }
+
+        if (!$isEnabled) {
+            return;
+        }
+
+        $settingApiKey = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'studio_domain_suggest_api_key')
+            ->first();
+        if($settingApiKey and $settingApiKey->value and trim($settingApiKey->value) != ''){
+            $api_key = trim($settingApiKey->value);
+        }
+
+        $get_tlds = 'com,net';
+        if ($tlds) {
+            $get_tlds = implode(',', $tlds);
+        }
+
+        $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name='
+            . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=auto&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=15&include-suggestion-type=true';
+
+        $url .='&ip-address='.user_ip();
+        $ch = curl_init($url);
+
+        if($api_key){
+            // Set authentication details
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'X-NAMESUGGESTION-APIKEY: ' . $api_key
+            ]);
+        } else {
+            curl_setopt($ch, CURLOPT_HEADER, false);
+        }
+
+        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        $xml = curl_exec($ch);
+        curl_close($ch);
+
+
+        $xml = @json_decode($xml, 1);
+        $avaiable = [];
+        $popular = [];
+
+        if ($xml and is_array($xml) and !empty($xml) and !empty($xml['results'])) {
+            $res = $xml['results'];
+            foreach ($res as $sugg) {
+
+                if (isset($sugg['name']) and isset($sugg['availability']) and $sugg['availability'] == "available") {
+
+                    $tld = '.' . explode('.', $sugg['name'])[1];
+                    $tldPrices = getTLDPriceList($tld);
+                    $priceList = array_shift($tldPrices);
+                    $price = $priceList['register'];
+
+                    $suggDetails = array(
+                        'domain' => $sugg['name'],
+                        'status' =>'available',
+                        'tld' => $tld,
+                        'sld' => '',
+                        'is_free' => false,
+                        'subdomain' => false,
+                        'from_suggestion' => true,
+                        'price' => $price
+                    );
+
+                    if (isset($sugg['tldRankingType']) and $sugg['tldRankingType'] == "popular") {
+                        $popular[] = $suggDetails;
+
+                    } else {
+                        $avaiable[] = $suggDetails;
+
+                    }
+                }
+            }
+        }
+
+        if ($popular) {
+            $avaiable = array_merge($popular,$avaiable);
+        }
+
+        return $avaiable;
+
+    }
+
     protected function _orderFirstAvailable($domains)
     {
         $orderedDomains = [];
