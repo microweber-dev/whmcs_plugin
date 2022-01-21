@@ -78,9 +78,13 @@ class MicroweberAddonDomainSearch
             return array('Error' => 'Please enter valid domain name');
         }
 
-        $tlds = [];
+        $filter = [];
+        if (isset($parseDesiredDomain['tld']) && !empty($parseDesiredDomain['tld'])) {
+            $filter['tld'] = $parseDesiredDomain['tld'];
+        }
 
-        $tldList = $this->getTldListWithPrices();
+        $tlds = [];
+        $tldList = $this->getTldListWithPrices($filter);
         if (empty($tldList)) {
             return array('Error' => 'No domains found.');
         }

@@ -36,12 +36,27 @@ trait DomainAvailabilityChecksTrait
         return ['host'=>$host,'suffix'=>$suffix,'fullhost'=>$full_host, 'domain'=>$domain, 'tld'=>$tld];
     }
 
-    public function getTldListWithPrices()
+    public function getTldListWithPrices($filter)
     {
         $freeDomains = $this->_getFreeHostingDomains();
         $paidDomains = $this->_getPaidDomains();
 
-        return array_merge($freeDomains, $paidDomains);
+        $allDomains = array_merge($freeDomains, $paidDomains);
+
+        if (isset($filter['tld'])) {
+            $domains = [];
+            foreach ($allDomains as $domain) {
+                $filterTld = '.' . $filter['tld'];
+                if ($filterTld == $domain['tld']) {
+                    $domains[] = $domain;
+                    break;
+                }
+            }
+        } else {
+            $domains = $allDomains;
+        }
+
+        return $domains;
     }
 
     public function isDomainAvailable($sld, $tld)
@@ -53,10 +68,13 @@ trait DomainAvailabilityChecksTrait
             return false;
         }
 
-        return 1;
+        $whois = new \WHMCS\WHOIS();
+        $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
+        if (isset($results['result']) && $results['result'] == 'available') {
+            return true;
+        }
 
-       // $whois = new \WHMCS\WHOIS();
-       // $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
+        return false;
     }
 
     protected function _getPaidDomains()
