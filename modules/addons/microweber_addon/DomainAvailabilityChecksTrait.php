@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 trait DomainAvailabilityChecksTrait
@@ -26,7 +27,7 @@ trait DomainAvailabilityChecksTrait
             }
         }
 
-        $tld  = pathinfo($domain, PATHINFO_EXTENSION);
+        $tld = pathinfo($domain, PATHINFO_EXTENSION);
 
         $extract = new LayerShifter\TLDExtract\Extract();
 
@@ -36,7 +37,7 @@ trait DomainAvailabilityChecksTrait
         $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
         $domain = $result->getRegistrableDomain(); // will return 'mydomain.co.uk'
 
-        return ['host'=>$host,'suffix'=>$suffix,'fullhost'=>$full_host, 'domain'=>$domain, 'tld'=>$tld];
+        return ['host' => $host, 'suffix' => $suffix, 'fullhost' => $full_host, 'domain' => $domain, 'tld' => $tld];
     }
 
     public function getTldListWithPrices($filter)
@@ -73,7 +74,7 @@ trait DomainAvailabilityChecksTrait
 
         $isFreeDomainRequest = false;
         $freeDomains = $this->_getFreeHostingDomains();
-        if(!empty($freeDomains)) {
+        if (!empty($freeDomains)) {
             foreach ($freeDomains as $domain) {
                 if ($tld == $domain['tld']) {
                     $isFreeDomainRequest = true;
@@ -87,12 +88,15 @@ trait DomainAvailabilityChecksTrait
             return true;
         }
 
-      /*  // The user wants premium domain, lets check
-        $whois = new \WHMCS\WHOIS();
-        $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
-        if (isset($results['result']) && $results['result'] == 'available') {
+        $domainObject = new WHMCS\Domains\Domain($sld, $tld);
+
+        $check = new WHMCS\Domain\Checker();
+        $check->cartDomainCheck($domainObject, array($domainObject->getDotTopLevel()));
+        $searchResult = $check->getSearchResult()->offsetGet(0);
+
+        if ($searchResult->getStatus() == WHMCS\Domains\DomainLookup\SearchResult::STATUS_NOT_REGISTERED) {
             return true;
-        }*/
+        }
 
         return false;
     }
@@ -107,10 +111,10 @@ trait DomainAvailabilityChecksTrait
         $tldListWithPrices = [];
         foreach ($domains as $tld) {
             $tldListWithPrices[] = [
-                'tld'=>$tld,
-                'paid'=>true,
-                'is_subdomain'=>false,
-                'prices'=>getTLDPriceList($tld)
+                'tld' => $tld,
+                'paid' => true,
+                'is_subdomain' => false,
+                'prices' => getTLDPriceList($tld)
             ];
         }
 
@@ -142,10 +146,10 @@ trait DomainAvailabilityChecksTrait
         $tldListWithPrices = [];
         foreach ($domains as $tld) {
             $tldListWithPrices[] = [
-                'tld'=>$tld,
-                'is_subdomain'=>true,
-                'paid'=>false,
-                'prices'=>[]
+                'tld' => $tld,
+                'is_subdomain' => true,
+                'paid' => false,
+                'prices' => []
             ];
         }
 
@@ -162,7 +166,7 @@ trait DomainAvailabilityChecksTrait
             ->where('setting', 'enable_name_studio_domain_suggest')
             ->first();
 
-        if($setting and $setting->value=='Yes'){
+        if ($setting and $setting->value == 'Yes') {
             $isEnabled = true;
         }
 
@@ -174,7 +178,7 @@ trait DomainAvailabilityChecksTrait
             ->where('module', 'microweber_addon')
             ->where('setting', 'studio_domain_suggest_api_key')
             ->first();
-        if($settingApiKey and $settingApiKey->value and trim($settingApiKey->value) != ''){
+        if ($settingApiKey and $settingApiKey->value and trim($settingApiKey->value) != '') {
             $api_key = trim($settingApiKey->value);
         }
 
@@ -186,10 +190,10 @@ trait DomainAvailabilityChecksTrait
         $url = 'https://sugapi.verisign-grs.com/ns-api/2.0/suggest?name='
             . $domain_name . '&tlds=' . $get_tlds . '&lang=eng&use-numbers=true&use-idns=no&use-dashes=auto&sensitive-content-filter=false&include-registered=false&max-length=63&max-results=15&include-suggestion-type=true';
 
-        $url .='&ip-address='.user_ip();
+        $url .= '&ip-address=' . user_ip();
         $ch = curl_init($url);
 
-        if($api_key){
+        if ($api_key) {
             // Set authentication details
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 'X-NAMESUGGESTION-APIKEY: ' . $api_key
@@ -223,7 +227,7 @@ trait DomainAvailabilityChecksTrait
 
                     $suggDetails = array(
                         'domain' => $sugg['name'],
-                        'status' =>'available',
+                        'status' => 'available',
                         'tld' => $tld,
                         'sld' => '',
                         'is_free' => false,
@@ -244,7 +248,7 @@ trait DomainAvailabilityChecksTrait
         }
 
         if ($popular) {
-            $avaiable = array_merge($popular,$avaiable);
+            $avaiable = array_merge($popular, $avaiable);
         }
 
         return $avaiable;
@@ -278,7 +282,8 @@ trait DomainAvailabilityChecksTrait
         return $orderedDomains;
     }
 
-    protected function _orderCustom($domains, $order) {
+    protected function _orderCustom($domains, $order)
+    {
 
         $order = explode(',', $order);
 
