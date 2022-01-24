@@ -87,12 +87,12 @@ trait DomainAvailabilityChecksTrait
             return true;
         }
 
-        // The user wants premium domain, lets check
+      /*  // The user wants premium domain, lets check
         $whois = new \WHMCS\WHOIS();
         $results = $whois->lookup(['sld' => $sld, 'tld' => $tld]);
         if (isset($results['result']) && $results['result'] == 'available') {
             return true;
-        }
+        }*/
 
         return false;
     }
