@@ -319,6 +319,13 @@ add_hook('ClientAreaPage', 23, function ($v) {
         $overwriteServices[] = $service;
     }
 
+    // Reorder services
+    usort($overwriteServices, function ($a, $b){
+        $t2 = strtotime($a['regdate']);
+        $t1 = strtotime($b['regdate']);
+        return $t1 - $t2;
+    });
+    
     $v['services'] = $overwriteServices;
 
     if (isset($v['template']) and $v['template'] == 'lagom') {
