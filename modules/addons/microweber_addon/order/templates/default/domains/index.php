@@ -279,14 +279,32 @@
 
             $.each(results, function (i, item) {
 
-                var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                    '<div class="right last-div js-domain-available-status" data-domain="' + item.domain + '"> ' +
-                    '<span class=""><img src="modules/addons/microweber_addon/order/loading.gif" /></span>' +
-                    '<span class="di-price">&nbsp;</span>' +
-                    '</div> ' +
-                    '<div class="clearfix"></div> ' +
-                    '</div>';
+                if (item.ajax_status_check) {
+                    var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                        '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                        '<div class="right last-div js-domain-available-status" data-domain="' + item.domain + '"> ' +
+                        '<span class=""><img src="modules/addons/microweber_addon/order/loading.gif" /></span>' +
+                        '<span class="di-price">&nbsp;</span>' +
+                        '</div> ' +
+                        '<div class="clearfix"></div> ' +
+                        '</div>';
+                } else {
+
+                    var item_status_span = '<span class="not-available-tag">Unavailable</span>';
+
+                    if (item.status == 'available') {
+                        item_status_span = '<span class="domain-recommended-tag">Available</span>';
+                    }
+
+                    var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                        '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                        '<div class="right last-div" data-domain="' + item.domain + '"> ' +
+                         item_status_span +
+                        '<span class="di-price">' + item.price_formated + '</span>' +
+                        '</div> ' +
+                        '<div class="clearfix"></div> ' +
+                        '</div>';
+                }
 
                 all_res_render = all_res_render + tmpl_checking;
             });

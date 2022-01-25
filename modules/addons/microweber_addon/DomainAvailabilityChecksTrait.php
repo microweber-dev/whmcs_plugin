@@ -233,9 +233,8 @@ trait DomainAvailabilityChecksTrait
                 if (isset($sugg['name']) and isset($sugg['availability']) and $sugg['availability'] == "available") {
 
                     $tld = '.' . explode('.', $sugg['name'])[1];
-                    $tldPrices = getTLDPriceList($tld);
-                    $priceList = array_shift($tldPrices);
-                    $price = $priceList['register'];
+                    $price = $this->getDomainPrice($sugg['name']);
+                    $priceFormated = (string)formatCurrency($price);
 
                     $suggDetails = array(
                         'domain' => $sugg['name'],
@@ -245,7 +244,9 @@ trait DomainAvailabilityChecksTrait
                         'is_free' => false,
                         'subdomain' => false,
                         'from_suggestion' => true,
-                        'price' => $price
+                        'price' => $price,
+                        'price_formated' => $priceFormated,
+                        'ajax_status_check'=>false
                     );
 
                     if (isset($sugg['tldRankingType']) and $sugg['tldRankingType'] == "popular") {

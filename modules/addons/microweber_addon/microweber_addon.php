@@ -70,6 +70,13 @@ function microweber_addon_config()
                 'Default' => 'No',
                 'Description' => 'Enable integration with Reseller Center or Multibrand addons',
             ],
+            'domain_search_type' => [
+                'FriendlyName' => 'Domain search type',
+                'Type' => 'dropdown',
+                'Options' =>'All,Suggested',
+                'Default' => 'All',
+                'Description' => 'The type of domain search on website build process',
+            ],
             'enable_name_studio_domain_suggest' => [
                 'FriendlyName' => 'Name Studio domain suggest integration',
                 'Type' => 'dropdown',
@@ -81,9 +88,6 @@ function microweber_addon_config()
                 'FriendlyName' => 'Name Studio api key',
                 'Type' => 'text',
             ],
-
-
-
 
        ]
     );

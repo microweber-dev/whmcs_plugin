@@ -106,6 +106,29 @@ class MicroweberAddonDomainSearch
             return array('Error' => 'Please enter valid domain name');
         }
 
+        $domainSearchType = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'domain_search_type')
+            ->first();
+
+        // Search type with suggested domains
+        if ($domainSearchType and $domainSearchType->value == 'Suggested') {
+
+            $suggestForDomain = $parseDesiredDomain['host'] . '.com';
+            if (!empty($parseDesiredDomain['domain'])) {
+                $suggestForDomain = $parseDesiredDomain['domain'];
+            }
+
+            $suggestedDomains = $this->_domainSuggestVerisign($suggestForDomain, getTLDList());
+
+            $json['results'] = $suggestedDomains;
+
+            $json['available_domain_extensions'] = $this->_getPaidDomains();
+            $json['available_subdomain_extensions'] = $this->_getFreeHostingDomains();
+
+            return $json;
+        }
+
         $filter = [];
         if (isset($parseDesiredDomain['tld']) && !empty($parseDesiredDomain['tld'])) {
             $filter['tld'] = $parseDesiredDomain['tld'];
@@ -157,7 +180,7 @@ class MicroweberAddonDomainSearch
                 $status = 'available';
             }*/
 
-            $price = (string)formatCurrency($price);
+            $priceFormated = (string)formatCurrency($price);
 
             $tlds[] = array(
                 'domain' => $parseDesiredDomain['host'] . $tld['tld'],
@@ -167,30 +190,23 @@ class MicroweberAddonDomainSearch
                 'is_free' => $isFree,
                 'subdomain' => $tld['is_subdomain'],
                 'from_suggestion' => false,
-                'price' => $price
+                'price' => $price,
+                'price_formated' => $priceFormated,
+                'ajax_status_check'=>true
             );
         }
 
         $tlds = $this->_orderFirstAvailable($tlds);
 
-        $suggedForDomain = $parseDesiredDomain['host'] . '.com';
-        if (!empty($parseDesiredDomain['domain'])) {
-            $suggedForDomain = $parseDesiredDomain['domain'];
-        }
-
-        $suggestedDomains = $this->_domainSuggestVerisign($suggedForDomain, getTLDList());
-
         $json['page'] = $page;
         $json['load_more_results'] = $laodMoreResults;
         $json['next_result_page'] = $nextResultPage;
-        $json['results'] = $tlds;
-        $json['results_suggested'] = $suggestedDomains;
 
+        $json['results'] = $tlds;
         $json['available_domain_extensions'] = $this->_getPaidDomains();
         $json['available_subdomain_extensions'] = $this->_getFreeHostingDomains();
 
         return $json;
     }
-
 
 }
