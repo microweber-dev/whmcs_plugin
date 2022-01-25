@@ -653,7 +653,7 @@ h.domain = '" . $username . "' and
 
             $domainLink = $http_code . $hosting->domain;
 
-            \WHMCS\Domain\Ssl\Status::factory($userId, $hosting->domain)->syncAndSave();
+            \WHMCS\Domain\Ssl\Status::factory($userId, $hosting->domain)->syncAndSave()->disableAutoResync();
 
             return ['domain_link'=>$domainLink,'ssl_active'=>$support_ssl];
         }
