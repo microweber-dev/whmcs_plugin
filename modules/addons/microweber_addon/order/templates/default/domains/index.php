@@ -296,7 +296,7 @@
                         item_status_span = '<span class="domain-recommended-tag">Available</span>';
                     }
 
-                    var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                    var tmpl_checking = '<div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                         '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                         '<div class="right last-div" data-domain="' + item.domain + '"> ' +
                          item_status_span +
