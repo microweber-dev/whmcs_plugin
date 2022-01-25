@@ -314,10 +314,10 @@ add_hook('ClientAreaPage', 23, function ($v) {
         }
 
         if ($service['sslStatus']->isActive() == false && $mustBeChecked) {
-            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="'.$service['id'].'">' . $service['domain'] . '</span>';
+            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="'.$service['id'].'">' . $service['domain'] . '</span>  &nbsp;&nbsp;<img src="modules/addons/microweber_addon/circle-loading.gif" />';
             $service['domain'] = false;
             $service['status'] = 'Pending';
-            $service['statustext'] = 'Building website &nbsp;&nbsp;<img src="modules/addons/microweber_addon/circle-loading.gif" />';
+            $service['statustext'] = 'Building website';
         }
 
         $overwriteServices[] = $service;
