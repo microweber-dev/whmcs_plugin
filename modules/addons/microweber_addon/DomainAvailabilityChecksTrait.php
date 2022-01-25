@@ -171,9 +171,33 @@ trait DomainAvailabilityChecksTrait
 
     protected function _domainSuggestWHMCS($domain_name, $tlds = [])
     {
+        $suggestions = [];
 
+        $checker = new WHMCS\Domain\Checker();
+        $getSuggestions = $checker->getLookupProvider()->getSuggestions(new WHMCS\Domains\Domain($domain_name));
+        if ($getSuggestions->count()) {
+            foreach ($getSuggestions as $suggestion) {
 
-        
+                $tld = '.' . explode('.', $suggestion->getDomain())[1];
+                $price = $this->getDomainPrice($suggestion->getDomain());
+                $priceFormated = (string)formatCurrency($price);
+
+                $suggestions[] = array(
+                    'domain' => $suggestion->getDomain(),
+                    'status' => 'available',
+                    'tld' => $tld,
+                    'sld' => '',
+                    'is_free' => false,
+                    'subdomain' => false,
+                    'from_suggestion' => true,
+                    'price' => $price,
+                    'price_formated' => $priceFormated,
+                    'ajax_status_check'=>false
+                );
+            }
+        }
+
+        return $suggestions;
     }
 
     protected function _domainSuggestVerisign($domain_name, $tlds = [])
