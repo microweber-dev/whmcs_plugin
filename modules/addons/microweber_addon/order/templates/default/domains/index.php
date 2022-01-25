@@ -278,36 +278,41 @@
         if (results) {
 
             $.each(results, function (i, item) {
+                all_res_render = all_res_render + getDomainItemTemplate(item);
+            });
 
-                if (item.ajax_status_check) {
-                    var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                        '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                        '<div class="right last-div js-domain-available-status" data-domain="' + item.domain + '"> ' +
-                        '<span class=""><img src="modules/addons/microweber_addon/order/loading.gif" /></span>' +
-                        '<span class="di-price">&nbsp;</span>' +
-                        '</div> ' +
-                        '<div class="clearfix"></div> ' +
-                        '</div>';
-                } else {
+            function getDomainItemTemplate(item) {
 
-                    var item_status_span = '<span class="not-available-tag">Unavailable</span>';
+                var ajax_status_check_class = '';
+                var can_start_class = 'cant-start';
+                var item_status_span = '<span class="not-available-tag">Unavailable</span>';
 
-                    if (item.status == 'available') {
-                        item_status_span = '<span class="domain-recommended-tag">Available</span>';
-                    }
-
-                    var tmpl_checking = '<div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                        '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                        '<div class="right last-div" data-domain="' + item.domain + '"> ' +
-                         item_status_span +
-                        '<span class="di-price">' + item.price_formated + '</span>' +
-                        '</div> ' +
-                        '<div class="clearfix"></div> ' +
-                        '</div>';
+                if (item.status == 'available') {
+                    item_status_span = '<span class="domain-recommended-tag">Available</span>';
+                    can_start_class = 'can-start';
                 }
 
-                all_res_render = all_res_render + tmpl_checking;
-            });
+                if (item.ajax_status_check) {
+                    item_status_span = '<span><img src="modules/addons/microweber_addon/order/loading.gif" /></span>';
+                    ajax_status_check_class = 'js-domain-ajax-status-check';
+                }
+
+
+                //<span class="domain-free-tag">Free</span>
+                //<span class="domain-recommended-tag">Available</span>
+                //<span class="not-available-tag">Checking...</span>
+
+                var template = '<div class="domain-item '+can_start_class+' '+ajax_status_check_class+'" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                    '<div class="right last-div"> ' +
+                    item_status_span +
+                    '<span class="di-price">' + item.price_formated + '</span>' +
+                    '</div> ' +
+                    '<div class="clearfix"></div> ' +
+                    '</div>';
+
+                return template;
+            }
 
             if (append) {
                 $("#domain-search-field-autocomplete").append(all_res_render);
@@ -316,13 +321,9 @@
             }
 
             setTimeout(function () {
-                $('.js-domain-available-status').each(function (e, item) {
+                $('.js-domain-ajax-status-check').each(function (e, item) {
 
                     var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_available&domain=" + encodeURI($(item).data('domain'));
-
-                    //<span class="domain-free-tag">Free</span>
-                    //<span class="domain-recommended-tag">Available</span>
-                    //<span class="not-available-tag">Checking...</span>
 
                     $.ajax({
                         contentType: 'application/json',
@@ -331,11 +332,7 @@
                         cache: false,
                         type: "POST",
                         success: function (response) {
-                            if (response.status == 'available') {
-                                $(item).html('<span class="domain-recommended-tag">Available</span><span class="di-price">' + response.price_formated + '</span>');
-                            } else {
-                                $(item).html('<span class="not-available-tag">Unavailable</span><span class="di-price">&nbsp;</span>');
-                            }
+                           $(item).replaceWith(getDomainItemTemplate(response));
                         }
                     });
 
