@@ -310,10 +310,10 @@ add_hook('ClientAreaPage', 23, function ($v) {
     foreach ($v['services'] as $service) {
 
         if (!$service['sslStatus']->isActive()) {
-            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <img src="modules/addons/microweber_addon/order/loading.gif" />';
-            //  $service['domain'] = ' ';
+            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <small>' . $service['domain'] . '</small>';
+            $service['domain'] = false;
             $service['status'] = 'Pending';
-            $service['statustext'] = 'Building website';
+            $service['statustext'] = 'Building website &nbsp;&nbsp;<img src="modules/addons/microweber_addon/circle-loading.gif" />';
         }
 
         $overwriteServices[] = $service;
