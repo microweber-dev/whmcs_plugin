@@ -171,9 +171,11 @@ class MicroweberAddonDomainSearch
                 $isFree = false;
             }
 
-           /* if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
-                $status = 'available';
-            }*/
+            if ($isFree) {
+                if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
+                    $status = 'available';
+                }
+            }
 
             $priceFormated = (string)formatCurrency($price);
 
@@ -187,7 +189,7 @@ class MicroweberAddonDomainSearch
                 'from_suggestion' => false,
                 'price' => $price,
                 'price_formated' => $priceFormated,
-                'ajax_status_check'=>true
+                'ajax_status_check'=> ($isFree ? false : true)
             );
         }
 
