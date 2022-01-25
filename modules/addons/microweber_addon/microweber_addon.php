@@ -77,6 +77,15 @@ function microweber_addon_config()
                 'Default' => 'All',
                 'Description' => 'The type of domain search on website build process',
             ],
+
+            'domain_suggest_provider' => [
+                'FriendlyName' => 'Domain suggest provider',
+                'Type' => 'dropdown',
+                'Options' =>'WHMCS,Name Studio,None',
+                'Default' => 'WHMCS',
+                'Description' => 'The source of domain suggest',
+            ],
+            
             'enable_name_studio_domain_suggest' => [
                 'FriendlyName' => 'Name Studio domain suggest integration',
                 'Type' => 'dropdown',
