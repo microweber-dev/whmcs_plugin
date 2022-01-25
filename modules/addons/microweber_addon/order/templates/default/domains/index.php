@@ -297,10 +297,9 @@
                     ajax_status_check_class = 'js-domain-ajax-status-check';
                 }
 
-
-                //<span class="domain-free-tag">Free</span>
-                //<span class="domain-recommended-tag">Available</span>
-                //<span class="not-available-tag">Checking...</span>
+                if (item.is_free) {
+                    item_status_span = '<span class="domain-free-tag">Free</span>';
+                }
 
                 var template = '<div class="domain-item '+can_start_class+' '+ajax_status_check_class+'" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
