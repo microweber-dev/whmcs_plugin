@@ -632,15 +632,15 @@ h.domain = '" . $username . "' and
 
         $client_product_id = (int) $params['service_id'];
 
-        $uid = \WHMCS\Session::get("uid");
+        $userId = \WHMCS\Session::get("uid");
 
-        if(!isset($uid) or !$uid){
+        if(!isset($userId) or !$userId){
             return;
         }
 
         $hosting = Capsule::table('tblhosting')
             ->where('id', $client_product_id)
-            ->where('userid', $uid)
+            ->where('userid', $userId)
             ->first();
 
         if ($hosting) {
@@ -653,6 +653,7 @@ h.domain = '" . $username . "' and
 
             $domainLink = $http_code . $hosting->domain;
 
+            \WHMCS\Domain\Ssl\Status::factory($userId, $hosting->domain)->syncAndSave();
 
             return ['domain_link'=>$domainLink,'ssl_active'=>$support_ssl];
         }
