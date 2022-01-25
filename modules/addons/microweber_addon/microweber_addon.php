@@ -74,7 +74,7 @@ function microweber_addon_config()
                 'FriendlyName' => 'Domain search type',
                 'Type' => 'dropdown',
                 'Options' =>'Domains/TLDS,Suggested',
-                'Default' => 'Domains/TLDS', 
+                'Default' => 'Domains/TLDS',
                 'Description' => 'The type of domain search on website build process',
             ],
 

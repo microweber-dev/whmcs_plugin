@@ -292,20 +292,37 @@ HTML;
 
 });
 
+add_hook('ClientAreaHeadOutput', 1, function($vars) {
+    return <<<HTML
+<script type="text/javascript">
+
+
+</script> 
+HTML;
+
+});
 
 add_hook('ClientAreaPage', 23, function ($v) {
 
+    global $smarty;
+
+    $overwriteServices = [];
+    foreach ($v['services'] as $service) {
+
+        if (!$service['sslStatus']->isActive()) {
+            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <img src="modules/addons/microweber_addon/order/loading.gif" />';
+            //  $service['domain'] = ' ';
+            $service['status'] = 'Pending';
+            $service['statustext'] = 'Building website';
+        }
+
+        $overwriteServices[] = $service;
+    }
+
+    $v['services'] = $overwriteServices;
+
     if (isset($v['template']) and $v['template'] == 'lagom') {
 
-        global $smarty;
-
-//        [
-//            'headline'=> 'Hosting 1',
-//            'tagline' => 'headline',
-//            'name' => 'name',
-//            'pid'=> '19',
-//            'slug' => 'asdasdsa'
-//        ]
         if (Capsule::schema()->hasTable("rstheme_themes")) {
             $pageConfig = Capsule::table('rstheme_themes')->select('pages_configuration')->whereName('lagom')->first();
             if ($pageConfig and $v['templatefile'] == 'homepage') {
@@ -339,21 +356,6 @@ add_hook('ClientAreaPage', 23, function ($v) {
             }
         }
     }
+
+    return $v;
 });
-
-
-
-//
-//
-//# Translate Specific Language String Hook
-//# Written by brian!
-//
-//function translate_specific_string_hook($vars) {
-//
-//    global $_LANG;
-//    if ($vars['templatefile'] == "configureproductdomain" && $vars['pid'] == 45) {
-//        $_LANG['cartexistingdomainchoice'] = "To Be Or Not To Be";
-//        return array("LANG" => $_LANG);
-//    }
-//}
-//add_hook("ClientAreaPageCart", 1, "translate_specific_string_hook");
