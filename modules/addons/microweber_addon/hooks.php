@@ -303,7 +303,13 @@ add_hook('ClientAreaPage', 23, function ($v) {
     $overwriteServices = [];
     foreach ($v['services'] as $service) {
 
-        if (!$service['sslStatus']->isActive()) {
+
+        $skip = false;
+        if ($service['sslStatus']->lastSyncedDate instanceof \WHMCS\Carbon && $service['sslStatus']->lastSyncedDate->diffInHours() < 24) {
+            $skip = true;
+        }
+
+        if (!$service['sslStatus']->isActive() && !$skip) {
             $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="'.$service['id'].'">' . $service['domain'] . '</span>';
             $service['domain'] = false;
             $service['status'] = 'Pending';
