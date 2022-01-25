@@ -634,29 +634,14 @@ h.domain = '" . $username . "' and
 
     function domain_search($params)
     {
-
-
-        /*
-         * https://developers.whmcs.com/domain-registrars/availability-checks/
-         *
-         *  searchTerm	string	The search term provided by the end user
-            punyCodeSearchTerm	string	For an IDN domain, the puny code encoded search term
-            tldsToInclude	array	An array of TLDs/extensions to perform the availability check for
-            isIdnDomain	bool	If IDN Domains are enabled for this WHMCS installation
-            premiumEnabled
-        */
-
-// registrarmodule_GetDomainSuggestions($params)
-
-        $search_term = '';
-
-
         $search = new MicroweberAddonDomainSearch();
-
-
         return $search->domain_search($params);
+    }
 
-
+    function domain_available($params)
+    {
+        $search = new MicroweberAddonDomainSearch();
+        return $search->domain_available($params);
     }
 
     function branding_get_company_name()

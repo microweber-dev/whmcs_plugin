@@ -65,6 +65,30 @@ class MicroweberAddonDomainSearch
 
     }
 
+    function domain_available($params)
+    {
+
+        $json = [];
+
+        if (!is_array($params)) {
+            $params = parse_params($params);
+        }
+
+
+        $parseDesiredDomain = $this->parseDesiredDomain($params['domain']);
+        if (!$parseDesiredDomain) {
+            return array('Error' => 'Please enter valid domain name');
+        }
+
+        $status = 'unavailable';
+        if ($this->isDomainAvailable($parseDesiredDomain['host'], $parseDesiredDomain['tld'])) {
+            $status = 'available';
+        }
+
+        return array_merge($parseDesiredDomain, ['status'=>$status]);
+
+    }
+
     function domain_search($params)
     {
 
