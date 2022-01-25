@@ -302,14 +302,18 @@ add_hook('ClientAreaPage', 23, function ($v) {
 
     $overwriteServices = [];
     foreach ($v['services'] as $service) {
+        
+        $mustBeChecked = false;
 
-
-        $skip = false;
-        if ($service['sslStatus']->lastSyncedDate instanceof \WHMCS\Carbon && $service['sslStatus']->lastSyncedDate->diffInHours() < 24) {
-            $skip = true;
+        if(is_null($service['sslStatus']->lastSyncedDate)) {
+            $mustBeChecked = true;
+        } else {
+            if ($service['sslStatus']->lastSyncedDate instanceof \WHMCS\Carbon && $service['sslStatus']->lastSyncedDate->diffInHours() < 24) {
+                $mustBeChecked = true;
+            }
         }
 
-        if (!$service['sslStatus']->isActive() && !$skip) {
+        if ($service['sslStatus']->isActive() == false && $mustBeChecked) {
             $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="'.$service['id'].'">' . $service['domain'] . '</span>';
             $service['domain'] = false;
             $service['status'] = 'Pending';
@@ -325,7 +329,7 @@ add_hook('ClientAreaPage', 23, function ($v) {
         $t1 = strtotime($b['regdate']);
         return $t1 - $t2;
     });
-    
+
     $v['services'] = $overwriteServices;
 
     if (isset($v['template']) and $v['template'] == 'lagom') {
