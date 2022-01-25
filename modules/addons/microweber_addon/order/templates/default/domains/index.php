@@ -279,38 +279,11 @@
 
             $.each(results, function (i, item) {
 
-                var tmpl_unavailable = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                    '<div class="right last-div"> ' +
-                    '<span class="not-available-tag">Unavailable</span> ' +
-                    '<span class="di-price">&nbsp;</span> ' +
-                    '</div> ' +
-                    '<div class="clearfix"></div> ' +
-                    '</div>';
-
-                var tmpl_free = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                    '<div class="right last-div"> ' +
-                    '<span class="domain-free-tag">Free</span> ' +
-                    '<span class="di-price">' + item.price + '</span> ' +
-                    '</div> ' +
-                    '<div class="clearfix"></div> ' +
-                    '</div>';
-
-                var tmpl_paid = '   <div class="domain-item can-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                    '<div class="right last-div"> ' +
-                    '<span class="domain-recommended-tag">Available</span> ' +
-                    '<span class="di-price">' + item.price + '</span> ' +
-                    '</div> ' +
-                    '<div class="clearfix"></div> ' +
-                    '</div>';
-
                 var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
-                    '<div class="right last-div"> ' +
-                    '<span class="js-domain-available-status" data-domain="' + item.domain + '"><span class="not-available-tag">Checking...</span> </span>' +
-                    '<span class="di-price">&nbsp;</span> ' +
+                    '<div class="right last-div js-domain-available-status" data-domain="' + item.domain + '"> ' +
+                    '<span class="not-available-tag">Checking...</span>' +
+                    '<span class="di-price">&nbsp;</span>' +
                     '</div> ' +
                     '<div class="clearfix"></div> ' +
                     '</div>';
@@ -326,8 +299,29 @@
 
             setTimeout(function () {
                 $('.js-domain-available-status').each(function (e, item) {
-                    $(item).html('done!');
-                });
+
+                    var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_available&domain=" + encodeURI($(item).data('domain'));
+
+                    //<span class="domain-free-tag">Free</span>
+                    //<span class="domain-recommended-tag">Available</span>
+                    //<span class="not-available-tag">Checking...</span>
+
+                    $.ajax({
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        url: URL,
+                        cache: false,
+                        type: "POST",
+                        success: function (response) {
+                            if (response.status == 'available') {
+                                $(item).html('<span class="domain-recommended-tag">Available</span><span class="di-price">' + response.price_formated + '</span>');
+                            } else {
+                                $(item).html('<span class="not-available-tag">Unavailable</span><span class="di-price">&nbsp;</span>');
+                            }
+                        }
+                    });
+
+               });
             }, 369);
 
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');

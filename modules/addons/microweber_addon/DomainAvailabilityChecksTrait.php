@@ -63,6 +63,18 @@ trait DomainAvailabilityChecksTrait
         return $domains;
     }
 
+    public function getDomainPrice($domain)
+    {
+
+        $tld = '.' . explode('.', $domain)[1];
+        $tldPrices = getTLDPriceList($tld);
+
+        $priceList = array_shift($tldPrices);
+        $price = $priceList['register'];
+
+        return $price;
+    }
+
     public function isDomainAvailable($sld, $tld)
     {
         $requestDomain = $sld . '.' . $tld;

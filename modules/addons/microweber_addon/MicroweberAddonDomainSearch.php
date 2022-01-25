@@ -85,7 +85,10 @@ class MicroweberAddonDomainSearch
             $status = 'available';
         }
 
-        return array_merge($parseDesiredDomain, ['status'=>$status]);
+        $price = $this->getDomainPrice($parseDesiredDomain['domain']);
+        $priceFormated = (string)formatCurrency($price);
+
+        return array_merge($parseDesiredDomain, ['status'=>$status, 'price'=>$price,'price_formated'=>$priceFormated]);
 
     }
 
