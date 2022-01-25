@@ -278,15 +278,6 @@
         if (results) {
 
             $.each(results, function (i, item) {
-                var is_free = false;
-                if (item.is_free) {
-                    is_free = true;
-                }
-
-                var is_available = false;
-                if (item.status == 'available') {
-                    is_available = true;
-                }
 
                 var tmpl_unavailable = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
@@ -315,19 +306,16 @@
                     '<div class="clearfix"></div> ' +
                     '</div>';
 
+                var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                    '<div class="right last-div"> ' +
+                    '<span class="js-domain-available-status" data-domain="' + item.domain + '"><span class="not-available-tag">Checking...</span> </span>' +
+                    '<span class="di-price">&nbsp;</span> ' +
+                    '</div> ' +
+                    '<div class="clearfix"></div> ' +
+                    '</div>';
 
-                var $tpl;
-                if (is_available == false) {
-                    $tpl = tmpl_unavailable;
-                } else {
-                    if (is_free) {
-                        $tpl = tmpl_free;
-                    } else {
-                        $tpl = tmpl_paid;
-                    }
-                }
-
-                all_res_render = all_res_render + $tpl;
+                all_res_render = all_res_render + tmpl_checking;
             });
 
             if (append) {
@@ -336,8 +324,13 @@
                 $("#domain-search-field-autocomplete").html(all_res_render);
             }
 
-            $("#domain-search-field-autocomplete").removeClass('ajax-loading');
+            setTimeout(function () {
+                $('.js-domain-available-status').each(function (e, item) {
+                    $(item).html('done!');
+                });
+            }, 369);
 
+            $("#domain-search-field-autocomplete").removeClass('ajax-loading');
 
             if (typeof(resize_iframe_to_parent) != 'undefined') {
                 resize_iframe_to_parent()
@@ -383,6 +376,7 @@
 
                         <div id="domain-search-field-autocomplete" class="fixed-container m-b-20 ajax-loading">
                             <div class="js-autocomplete-placeholder ajax-loading-placeholder">
+
                                 <div class="domain-item cant-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
