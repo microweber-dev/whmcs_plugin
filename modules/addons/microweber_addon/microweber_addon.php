@@ -81,11 +81,11 @@ function microweber_addon_config()
             'domain_suggest_provider' => [
                 'FriendlyName' => 'Domain suggest provider',
                 'Type' => 'dropdown',
-                'Options' =>'WHMCS,Name Studio,None',
+                'Options' =>'WHMCS,Name Studio',
                 'Default' => 'WHMCS',
                 'Description' => 'The source of domain suggest',
             ],
-            
+
             'enable_name_studio_domain_suggest' => [
                 'FriendlyName' => 'Name Studio domain suggest integration',
                 'Type' => 'dropdown',

@@ -169,9 +169,15 @@ trait DomainAvailabilityChecksTrait
         return $tldListWithPrices;
     }
 
+    protected function _domainSuggestWHMCS($domain_name, $tlds = [])
+    {
+
+
+        
+    }
+
     protected function _domainSuggestVerisign($domain_name, $tlds = [])
     {
-        $isEnabled = false;
         $api_key = false;
 
         $setting = \WHMCS\Database\Capsule::table('tbladdonmodules')
@@ -179,12 +185,8 @@ trait DomainAvailabilityChecksTrait
             ->where('setting', 'enable_name_studio_domain_suggest')
             ->first();
 
-        if ($setting and $setting->value == 'Yes') {
-            $isEnabled = true;
-        }
-
-        if (!$isEnabled) {
-            return;
+        if ($setting and $setting->value !== 'Yes') {
+            return [];
         }
 
         $settingApiKey = \WHMCS\Database\Capsule::table('tbladdonmodules')

@@ -114,7 +114,16 @@ class MicroweberAddonDomainSearch
                 $suggestForDomain = $parseDesiredDomain['domain'];
             }
 
-            $suggestedDomains = $this->_domainSuggestVerisign($suggestForDomain, getTLDList());
+            $domainSuggestProvider = \WHMCS\Database\Capsule::table('tbladdonmodules')
+                ->where('module', 'microweber_addon')
+                ->where('setting', 'domain_suggest_provider')
+                ->first();
+
+            if ($domainSuggestProvider and $domainSuggestProvider->value == 'Name Studio') {
+                $suggestedDomains = $this->_domainSuggestVerisign($suggestForDomain, getTLDList());
+            } else {
+                $suggestedDomains = $this->_domainSuggestWHMCS($suggestForDomain, getTLDList());
+            }
 
             $json['results'] = $suggestedDomains;
 
