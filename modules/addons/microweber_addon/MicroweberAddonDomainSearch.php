@@ -126,9 +126,9 @@ class MicroweberAddonDomainSearch
                 $isFree = false;
             }
 
-            if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
+           /* if ($this->isDomainAvailable($parseDesiredDomain['host'], $tld['tld'])) {
                 $status = 'available';
-            }
+            }*/
 
             $price = (string)formatCurrency($price);
 
