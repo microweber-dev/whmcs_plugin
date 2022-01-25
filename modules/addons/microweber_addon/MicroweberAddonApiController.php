@@ -623,12 +623,46 @@ h.domain = '" . $username . "' and
         return ($return);
     }
 
-    function order_iframe($params)
+    function service_check($params)
     {
 
+        if (!isset($params['service_id'])) {
+            return;
+        }
+
+        $client_product_id = (int) $params['service_id'];
+
+        $uid = \WHMCS\Session::get("uid");
+
+        if(!isset($uid) or !$uid){
+            return;
+        }
+
+        $hosting = Capsule::table('tblhosting')
+            ->where('id', $client_product_id)
+            ->where('userid', $uid)
+            ->first();
+
+        if ($hosting) {
+
+            $http_code = 'http://';
+            $support_ssl = $this->check_ssl_verify_domain($hosting->domain);
+            if ($support_ssl) {
+                $http_code = 'https://';
+            }
+
+            $domainLink = $http_code . $hosting->domain;
+
+
+            return ['domain_link'=>$domainLink,'ssl_active'=>$support_ssl];
+        }
+
+        return false;
+    }
+
+    function order_iframe($params)
+    {
         $search = new MicroweberAddonOrderController();
-
-
         return $search->order_iframe($params);
     }
 

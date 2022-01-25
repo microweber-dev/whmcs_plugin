@@ -293,13 +293,7 @@ HTML;
 });
 
 add_hook('ClientAreaHeadOutput', 1, function($vars) {
-    return <<<HTML
-<script type="text/javascript">
-
-
-</script> 
-HTML;
-
+    return '<script src="modules/addons/microweber_addon/whmcs_products_checker.js"></script>';
 });
 
 add_hook('ClientAreaPage', 23, function ($v) {
@@ -310,7 +304,7 @@ add_hook('ClientAreaPage', 23, function ($v) {
     foreach ($v['services'] as $service) {
 
         if (!$service['sslStatus']->isActive()) {
-            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small">' . $service['domain'] . '</span>';
+            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="'.$service['id'].'">' . $service['domain'] . '</span>';
             $service['domain'] = false;
             $service['status'] = 'Pending';
             $service['statustext'] = 'Building website &nbsp;&nbsp;<img src="modules/addons/microweber_addon/circle-loading.gif" />';
