@@ -67,13 +67,9 @@ class MicroweberAddonDomainSearch
 
     function domain_available($params)
     {
-
-        $json = [];
-
         if (!is_array($params)) {
             $params = parse_params($params);
         }
-
 
         $parseDesiredDomain = $this->parseDesiredDomain($params['domain']);
         if (!$parseDesiredDomain) {
@@ -89,7 +85,6 @@ class MicroweberAddonDomainSearch
         $priceFormated = (string)formatCurrency($price);
 
         return array_merge($parseDesiredDomain, ['status'=>$status, 'price'=>$price,'price_formated'=>$priceFormated]);
-
     }
 
     function domain_search($params)

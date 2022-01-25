@@ -32,6 +32,7 @@ trait DomainAvailabilityChecksTrait
         $extract = new LayerShifter\TLDExtract\Extract();
 
         $result = $extract->parse($domain);
+
         $host = $result->getHostname(); // will return 'mydomain'
         $suffix = $result->getSuffix(); // will return 'co.uk'
         $full_host = $result->getFullHost(); // will return 'mydomain.co.uk'
