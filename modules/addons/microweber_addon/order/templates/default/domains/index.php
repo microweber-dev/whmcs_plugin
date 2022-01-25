@@ -282,7 +282,7 @@
                 var tmpl_checking = '   <div class="domain-item cant-start" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div js-domain-available-status" data-domain="' + item.domain + '"> ' +
-                    '<span class="not-available-tag">Checking...</span>' +
+                    '<span class=""><img src="modules/addons/microweber_addon/order/loading.gif" /></span>' +
                     '<span class="di-price">&nbsp;</span>' +
                     '</div> ' +
                     '<div class="clearfix"></div> ' +
