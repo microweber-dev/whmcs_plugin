@@ -303,10 +303,19 @@ add_hook('ClientAreaPage', 23, function ($v) {
     $overwriteServices = [];
     foreach ($v['services'] as $service) {
 
-     /*   var_dump($service);
-        die();*/
+        $configOptionsData = \WHMCS\Database\Capsule::table("tblproductconfigoptions")
+            ->join("tblhostingconfigoptions", "tblproductconfigoptions.id", "=", "tblhostingconfigoptions.configid")
+            ->join("tblproductconfigoptionssub", "tblproductconfigoptionssub.id", "=", "tblhostingconfigoptions.optionid")
+            ->where("tblhostingconfigoptions.relid", "=", $service['id'])
+            ->first(array("tblproductconfigoptions.optionname as productConfigOptionName", "tblproductconfigoptions.optiontype", "tblproductconfigoptionssub.optionname", "tblhostingconfigoptions.qty"));
 
-        continue; 
+
+        if (!isset($configOptionsData->productConfigOptionName) && $configOptionsData->productConfigOptionName != 'Template') {
+
+            $overwriteServices[] = $service;
+
+            continue;
+        }
 
         $mustBeChecked = false;
 
