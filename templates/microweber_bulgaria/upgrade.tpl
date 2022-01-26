@@ -121,7 +121,7 @@
                                         {/foreach}
                                     </select>
                                 {elseif $configoption.optiontype eq 3}
-                                    <input type="checkbox" name="configoption[{$configoption.id}]" value="1"{if $configoption.selectedqty} checked{/if}> {$configoption.options.0.name}
+                                    <input type="checkbox" name="configoption[{$configoption.id}]" value="1"{if $configoption.selectedqty} checked{/if}> {$.options.0.name}
                                 {elseif $configoption.optiontype eq 4}
                                     <input type="text" name="configoption[{$configoption.id}]" value="{$configoption.selectedqty}" size="5"> x {$configoption.options.0.name}
                                 {/if}

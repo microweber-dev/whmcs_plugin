@@ -302,7 +302,12 @@ add_hook('ClientAreaPage', 23, function ($v) {
 
     $overwriteServices = [];
     foreach ($v['services'] as $service) {
-        
+
+     /*   var_dump($service);
+        die();*/
+
+        continue; 
+
         $mustBeChecked = false;
 
         if(is_null($service['sslStatus']->lastSyncedDate)) {
