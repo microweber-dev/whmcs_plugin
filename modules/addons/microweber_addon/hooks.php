@@ -337,7 +337,7 @@ add_hook('ClientAreaPage', 23, function ($v) {
 
         $overwriteServices[] = $service;
     }
-
+    
     // Reorder services
     usort($overwriteServices, function ($a, $b){
         $t2 = strtotime($a['regdate']);
