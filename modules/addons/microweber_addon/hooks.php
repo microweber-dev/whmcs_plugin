@@ -317,21 +317,25 @@ add_hook('ClientAreaPage', 23, function ($v) {
             continue;
         }
 
-        $mustBeChecked = false;
+        if (isset($service['sslStatus']) && $service['sslStatus'] != null) {
 
-        if(is_null($service['sslStatus']->lastSyncedDate)) {
-            $mustBeChecked = true;
-        } else {
-            if ($service['sslStatus']->lastSyncedDate instanceof \WHMCS\Carbon && $service['sslStatus']->lastSyncedDate->diffInHours() < 24) {
+            $mustBeChecked = false;
+            if(is_null($service['sslStatus']->lastSyncedDate)) {
                 $mustBeChecked = true;
+            } else {
+                if ($service['sslStatus']->lastSyncedDate instanceof \WHMCS\Carbon && $service['sslStatus']->lastSyncedDate->diffInHours() < 24) {
+                    $mustBeChecked = true;
+                }
             }
-        }
 
-        if ($service['sslStatus']->isActive() == false && $mustBeChecked) {
-            $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="'.$service['id'].'">' . $service['domain'] . '</span>  &nbsp;&nbsp;<img src="modules/addons/microweber_addon/circle-loading.gif" />';
-            $service['domain'] = false;
-            $service['status'] = 'Pending';
-            $service['statustext'] = 'Building website';
+            if (method_exists($service['sslStatus'], 'isActive')) {
+                if ($service['sslStatus']->isActive() == false && $mustBeChecked) {
+                    $service['product'] = $service['product'] . ' &nbsp;&nbsp; <br /> <span class="small js-domain-check-is-ready" data-service-id="' . $service['id'] . '">' . $service['domain'] . '</span>  &nbsp;&nbsp;<img src="modules/addons/microweber_addon/circle-loading.gif" />';
+                    $service['domain'] = false;
+                    $service['status'] = 'Pending';
+                    $service['statustext'] = 'Building website';  
+                }
+            }
         }
 
         $overwriteServices[] = $service;
