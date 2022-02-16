@@ -309,11 +309,8 @@ add_hook('ClientAreaPage', 23, function ($v) {
             ->where("tblhostingconfigoptions.relid", "=", $service['id'])
             ->first(array("tblproductconfigoptions.optionname as productConfigOptionName", "tblproductconfigoptions.optiontype", "tblproductconfigoptionssub.optionname", "tblhostingconfigoptions.qty"));
 
-
         if (!isset($configOptionsData->productConfigOptionName) && $configOptionsData->productConfigOptionName != 'Template') {
-
             $overwriteServices[] = $service;
-
             continue;
         }
 
