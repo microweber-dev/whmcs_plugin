@@ -64,6 +64,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if (typeof windowhash === 'string' && windowhash.indexOf('frameurl=') > -1) {
         var hash = windowhash.split('frameurl=')[1];
         var hash = decodeURI(atob(hash))
+        var domain_check = (new URL(hash));
+        domain_check = domain_check.hostname;
+
+        if(window.location.hostname != domain_check){
+            alert('You are trying to load a domain search from a different domain. Please use the same domain.');
+            return;
+        }
+
+
         //     iframe.src = hash;
     } else {
 
