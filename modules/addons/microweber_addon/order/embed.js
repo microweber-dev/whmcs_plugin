@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
 
 
-        //     iframe.src = hash;
+         iframe.src = hash;
     } else {
 
         //alert(path);
