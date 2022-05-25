@@ -202,6 +202,9 @@ class MicroweberAddonApiController
 
     public function validate_license($request)
     {
+        include_once ROOTDIR . "/modules/servers/licensing/licensing.php";
+
+
         $json = [];
         $licenseKey = false;
         if (isset($request['license_key']) && !empty($request['license_key'])) {
@@ -212,14 +215,38 @@ class MicroweberAddonApiController
 
             $checkLicense = Capsule::table('mod_licensing')->where('licensekey', $licenseKey)->first();
             if ($checkLicense) {
+
                 if ($checkLicense->status == 'Active' || $checkLicense->status == 'Reissued') {
                     $checkHosting = Capsule::table('tblhosting')->where('id', $checkLicense->serviceid)->first();
                     $json['license_id'] = $checkLicense->id;
-                    $json['service_id'] = $checkHosting->serviceid;
-                    $json['valid_domain'] = $checkHosting->validdomain;
-                    $json['valid_ip'] = $checkHosting->validip;
-                    $json['last_access'] = $checkHosting->lastaccess;
-                    $json['status'] = 'success';
+                    $json['service_id'] = $checkLicense->serviceid;
+                    $json['valid_domain'] = $checkLicense->validdomain;
+                    $json['valid_ip'] = $checkLicense->validip;
+                    $json['last_access'] = $checkLicense->lastaccess;
+                    $data2 = [];
+                    if (function_exists('licensing_ClientArea')) {
+                        $data2 = licensing_ClientArea(
+                            [
+                                'model' => $checkHosting,
+                                'serviceid' => $checkLicense->serviceid,
+                            ]
+                        );
+                    }
+                    if(isset($data2['templateVariables'])){
+                        if(isset($data2['templateVariables']['allowreissues'])){
+                            $json['allow_reissues'] = $data2['templateVariables']['allowreissues'];
+                        }
+                        if(isset($data2['templateVariables']['allowDomainConflicts'])){
+                            $json['allow_domain_conflicts'] = $data2['templateVariables']['allowDomainConflicts'];
+                        }
+                        if(isset($data2['templateVariables']['allowIpConflicts'])){
+                            $json['allow_ip_conflicts'] = $data2['templateVariables']['allowIpConflicts'];
+                        }
+                    }
+
+                 //   $json['data'] = $data2;
+
+                     $json['status'] = 'success';
                 } else {
                     $json['message'] = 'License not active.';
                     $json['status'] = 'failed';
