@@ -215,7 +215,10 @@ class MicroweberAddonApiController
                 if ($checkLicense->status == 'Active' || $checkLicense->status == 'Reissued') {
                     $checkHosting = Capsule::table('tblhosting')->where('id', $checkLicense->serviceid)->first();
                     $json['license_id'] = $checkLicense->id;
-                    $json['service_id'] = $checkHosting->id;
+                    $json['service_id'] = $checkHosting->serviceid;
+                    $json['valid_domain'] = $checkHosting->validdomain;
+                    $json['valid_ip'] = $checkHosting->validip;
+                    $json['last_access'] = $checkHosting->lastaccess;
                     $json['status'] = 'success';
                 } else {
                     $json['message'] = 'License not active.';
