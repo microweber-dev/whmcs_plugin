@@ -218,12 +218,19 @@ class MicroweberAddonApiController
 
                 if ($checkLicense->status == 'Active' || $checkLicense->status == 'Reissued') {
                     $checkHosting = Capsule::table('tblhosting')->where('id', $checkLicense->serviceid)->first();
+
+
+
                     $json['license_id'] = $checkLicense->id;
                     $json['service_id'] = $checkLicense->serviceid;
+                    $json['package_id'] = $checkHosting->packageid;
                     $json['valid_domain'] = $checkLicense->validdomain;
                     $json['valid_ip'] = $checkLicense->validip;
                     $json['last_access'] = $checkLicense->lastaccess;
                     $data2 = [];
+
+
+
                     if (function_exists('licensing_ClientArea')) {
                         $data2 = licensing_ClientArea(
                             [
@@ -234,17 +241,17 @@ class MicroweberAddonApiController
                     }
                     if(isset($data2['templateVariables'])){
                         if(isset($data2['templateVariables']['allowreissues'])){
-                            $json['allow_reissues'] = $data2['templateVariables']['allowreissues'];
+                          //  $json['allow_reissues'] = $data2['templateVariables']['allowreissues'];
                         }
                         if(isset($data2['templateVariables']['allowDomainConflicts'])){
-                            $json['allow_domain_conflicts'] = $data2['templateVariables']['allowDomainConflicts'];
+                        //    $json['allow_domain_conflicts'] = $data2['templateVariables']['allowDomainConflicts'];
                         }
                         if(isset($data2['templateVariables']['allowIpConflicts'])){
-                            $json['allow_ip_conflicts'] = $data2['templateVariables']['allowIpConflicts'];
+                         //   $json['allow_ip_conflicts'] = $data2['templateVariables']['allowIpConflicts'];
                         }
                     }
 
-                 //   $json['data'] = $data2;
+
 
                      $json['status'] = 'success';
                 } else {
