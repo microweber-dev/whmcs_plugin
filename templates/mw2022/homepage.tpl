@@ -1,3 +1,8 @@
+
+<script>
+    window.location.href =  WHMCS.utils.getRouteUrl('clientarea');
+</script>
+
 {if $twitterusername}
 
     <h2>{$LANG.twitterlatesttweets}</h2>
