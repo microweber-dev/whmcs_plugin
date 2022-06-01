@@ -33,7 +33,8 @@ body {
 }
 
 .sidebar .profile-sidebar {
-    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    border:1px solid #f1f1f1;
+    border-bottom:4px solid #eaeaea;
 }
 
 .sidebar .profile-sidebar-name {
@@ -199,7 +200,8 @@ body {
     width: 80%;
     padding: 15px 25px;
     background: #fff;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    border:1px solid #f1f1f1;
+    border-bottom:4px solid #eaeaea;
 }
 
 .page-content.without-sidebar {
