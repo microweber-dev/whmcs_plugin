@@ -146,7 +146,7 @@
                             {/if}
                         {else}
                             <a href="{$WEB_ROOT}/clientarea.php" class="hidden-mobile">Log In</a>
-                            <a href="https://microweber.com/get-started" class="cbtn top-right-button">Get Started</a>
+                            <a href="{$WEB_ROOT}/index.php" class="cbtn top-right-button">Get Started</a>
                         {/if}
                     </div>
                 </div>
