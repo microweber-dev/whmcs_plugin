@@ -37,6 +37,7 @@ class Manager
     {
         $readyTemplates = array();
         $templates = $this->marketplace_connector->get_templates();
+
         foreach ($templates as $template) {
             $item = $template['latest_version'];
             $get_template = get_template_by_git_package_name($item['name']);

@@ -90,7 +90,7 @@ class MarketplaceConnector
             'microweber-template',
             'microweber-module',
         );
-
+        
         $return = array();
         $packages = array();
         $packages_by_type = array();
