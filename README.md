@@ -13,7 +13,7 @@
 
 ## Add plugin access for users 
 
-![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/whmcs_plugin.png "")
+![whmcs_plugin.png](order/assets/whmcs_plugin.png "")
 
 
 
@@ -24,7 +24,7 @@
 3. Visit your website
 
 
-![whmcs_plugin.png](modules/addons/microweber_addon/order/assets/set_mw_whmcs_module_template.png "")
+![whmcs_plugin.png](order/assets/set_mw_whmcs_module_template.png "")
 
 
 
