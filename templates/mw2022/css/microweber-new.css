@@ -1150,8 +1150,6 @@ a {
     padding-left: 50px !important;
 }
 
-
-
 .back-to-website-button{
     margin: 5px auto 0 auto !important;
     padding: 0 12px;
@@ -1160,12 +1158,8 @@ a {
     line-height: 20px;
 }
 
-
-
-
 #stateselect{
     width: 100%;
-
     outline: none;
     padding: 0;
     border: 1px solid #7fc2ed;
@@ -1173,4 +1167,9 @@ a {
     background: #f5f5f5;
     padding: 18px;
     font-size: 18px;
+}
+
+.product-status {
+    background: #f5f5f5;
+    padding: 44px;
 }
