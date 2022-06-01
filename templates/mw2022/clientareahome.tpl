@@ -148,33 +148,10 @@
     }
 </style>
 
-<div id="microweber-themes">
-    <div class="header-lined text-center">
-        <h1>Start with Template</h1>
-    </div>
 
-    <div class="row"></div>
-    <div class="text-center" style="margin: 20px;">
-        <a href="https://microweber.com/marketplace" class="cbtn cbtn-alt">More templates</a>
-    </div>
-    <script>
-        $(document).ready(function () {
-            $.getJSON("https://members2017.microweber.com/templates-preview/templates.json", function (data) {
-                var items = [];
-                $.each(data, function (key, val) {
-                    items.push('<div class="col-xs-12 col-sm-6 col-md-4" id="' + key + '">' +
-                        '<a href="' + val.url + '" class="template">' +
-                        '<div class="image-holder" style="background-image: url(' + val.image + ');"></div>' +
-                        '<p>' + val.title + '</p>' +
-                        '</a>' +
-                        '</div>');
-                });
 
-                $("<div/>", {
-                    "class": "templates",
-                    html: items.join("")
-                }).appendTo("#microweber-themes .row");
-            });
-        });
-    </script>
-</div>
+{literal}
+
+    <script src="modules/addons/microweber_addon/order/embed.js?style=default&target=_top" id="domain-search-iframe-js"></script>
+
+{/literal}
