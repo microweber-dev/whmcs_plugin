@@ -46,7 +46,6 @@ body {
 .sidebar .profile-sidebar-top {
     height: 110px;
     background: #0086DB;
-    margin-bottom: 20px;
 }
 
 .sidebar .profile-sidebar-image {
@@ -67,8 +66,9 @@ body {
 
 .sidebar .navigation {
     list-style: none;
-    padding: 0 0 20px;
+    padding: 20px 0px 25px;
     margin-bottom: 0;
+    background: #fff;
 }
 
 .sidebar .navigation ul {
