@@ -33,11 +33,13 @@
   <p align="center" style="padding-top: 40px;">Loading...
     <progress value="0" max="10" id="progressBar"></progress></p>
 
-
-
 </div>
+
+
   <div id="order-loading-done" style="display: none">
-<p align="center" style="padding-top: 40px;"><a class="cbtn cbtn-normal" href="go_to_product.php?orderid={$orderid}">Go to my website</a></p>
+  <p align="center" style="padding-top: 40px;">
+    <a class="cbtn cbtn-normal" href="clientarea.php?action=productdetails&id={$orderid}">Go to my website</a>
+  </p>
   </div>
 
 

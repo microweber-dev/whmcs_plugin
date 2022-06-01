@@ -57,7 +57,8 @@
 
                             <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="cbtn cbtn-alt cbtn-small cbtn-circle" data-toggle="tooltip" title="{$LANG.manageproduct}"><i class="fa fa-cog"></i></a>
 
-                            <a href="go_to_product.php?id={$service.id}" target="_blank" class="cbtn cbtn-small">Edit site</a>
+                            <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" class="cbtn cbtn-small">Edit site</a>
+
                         {/if}
 
 
