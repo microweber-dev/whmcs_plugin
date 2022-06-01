@@ -61,9 +61,9 @@ $templates = get_enabled_templates();
 
 <div class="templates">
     <div class="container">
-        <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
+        <?php if (isset($_GET['target']) AND $_GET['target'] == '_top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center"><h1>Select Template</h1></div>
+                <div class="col-md-12 text-center"><h1>Select a template</h1></div>
             </div>
         <?php endif; ?>
 

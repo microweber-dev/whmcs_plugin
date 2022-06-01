@@ -54,7 +54,9 @@
     <?php if ($preview_url): ?>
     <iframe id="template-demo-iframe" src="<?php print $preview_url; ?>"
             name="preview-frame" frameborder="0"
-            noresize="noresize" data-view="fullScreenPreview" height="1000px" width="100%" allow="geolocation 'self'; autoplay 'self'">
+            noresize="noresize" data-view="fullScreenPreview"
+            height="1000px" width="100%"
+            allow="geolocation 'self'; autoplay 'self'">
     </iframe>
 
     <script>
