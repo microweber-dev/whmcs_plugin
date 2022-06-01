@@ -11,7 +11,7 @@ namespace MicroweberAddon;
 
 class UsageReport
 {
-    private $_reportUrl = "https://members.microweber.bg";
+    private $_reportUrl = "https://members.microweber.com";
 
     public function send()
     {
