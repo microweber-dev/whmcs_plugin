@@ -2,15 +2,17 @@
 
 
 
-
-
 if (!defined("WHMCS")) {
     define("WHMCS", true);
 }
 
 $root = dirname(__DIR__);
 
-require_once $root . DIRECTORY_SEPARATOR . '/init.php';
+unset($_SERVER['SCRIPT_NAME']); // for the site_url() function
+require_once $root . DIRECTORY_SEPARATOR . '/modules/addons/microweber_addon/init.php';
+
+
+
 global $CONFIG;
 
 $controller = new MicroweberAddonApiController();
@@ -70,13 +72,13 @@ if (!$getDomain) {
     <?php if ($step == 1): ?>
         <?php
 
-        include __DIR__."/steps/domains.php"; ?>
+        include __DIR__ . "/steps/domains.php"; ?>
     <?php elseif ($step == 2): ?>
-        <?php include  __DIR__."/steps/templates.php"; ?>
+        <?php include __DIR__ . "/steps/templates.php"; ?>
     <?php elseif ($step == 3): ?>
-        <?php include  __DIR__."/steps/plans.php"; ?>
+        <?php include __DIR__ . "/steps/plans.php"; ?>
     <?php else: ?>
-        <?php include( __DIR__.'/params.php'); ?>
+        <?php include(__DIR__ . '/params.php'); ?>
 
         <?php
         if ($subdomain) {

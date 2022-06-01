@@ -135,8 +135,7 @@ $plans = $controller->get_hosting_products($params);
                                                 <form method="post" action="<?php echo $current_url ?>" class="clearfix" id="form_<?php print $plan['id'] ?>"  name="form_<?php print $plan['id'] ?>">
                                                     <input type="hidden" value="1" name="start_with_plan"/>
                                                     <input type="hidden" value="<?php print $plan['id'] ?>" name="plan_id"/>
-
-                                                    <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
+                                                     <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
                                                     <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
                                                     <button type="submit"   class="btn btn-default btn-md m-t-20" >Start</button>
