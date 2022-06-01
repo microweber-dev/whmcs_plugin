@@ -1,0 +1,975 @@
+/*
+
+Orange - FF6939
+Red - FF4239
+
+Green - 35FF4D
+
+
+ p1 #676767
+
+ p2 #222222
+
+
+ */
+
+/* All Pages - Start */
+
+.mw-whm .btn.mw-blue {
+    padding: 10px 25px;
+    color: white;
+    border-radius: 30px;
+    background: #0086DB;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #0086DB;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.mw-whm .btn.mw-blue:hover {
+    text-decoration: none;
+    color: #0086DB;
+    border: 1px solid #0086DB;
+    background: #fff;
+}
+
+.mw-whm .btn.btn-sm {
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+.mw-whm .btn.mw-blue-alt {
+    padding: 10px 25px;
+    color: #0086DB;
+    border-radius: 30px;
+    background: #fff;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #0086DB;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.mw-whm .btn.mw-blue-alt:hover {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #0086DB;
+    background: #0086DB;
+}
+
+.mw-whm ul.blue-links {
+    list-style-type: none;
+}
+
+.mw-whm ul.blue-links a {
+    color: #0086DB;
+    font-size: 15px;
+}
+
+.mw-whm ul.blue-links li {
+    padding: 7px 0;
+}
+
+.mw-whm .pagination > .active > a,
+.mw-whm .pagination > .active > a:focus,
+.mw-whm .pagination > .active > a:hover,
+.mw-whm .pagination > .active > span,
+.mw-whm .pagination > .active > span:focus,
+.mw-whm .pagination > .active > span:hover {
+    background-color: #0086DB;
+    border-color: #0086DB;
+    color: #fff;
+}
+
+.mw-whm .pagination > li > a,
+.mw-whm .pagination > li > span {
+    color: #0086DB;
+    font-size: 14px;
+}
+
+.mw-whm .pagination > li.next > a,
+.mw-whm .pagination > li.previous > a {
+    color: #212121;
+}
+
+/* tables */
+.mw-whm .dataTables_info {
+    display: none;
+}
+
+.mw-whm table th {
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.mw-whm table td,
+.mw-whm table.table > tbody > tr > td,
+.mw-whm table.table > tbody > tr > th,
+.mw-whm table.table > tfoot > tr > td,
+.mw-whm table.table > tfoot > tr > th,
+.mw-whm table.table > thead > tr > td,
+.mw-whm table.table > thead > tr > th {
+    padding: 15px 10px;
+    min-width: 100px;
+    vertical-align: middle;
+}
+
+.mw-whm table td,
+.mw-whm table .table > tbody > tr > td {
+    font-size: 14px;
+}
+
+.mw-whm table td,
+.mw-whm table th {
+    border-color: #f5f5f5 !important;
+    text-align: center;
+    outline: none;
+}
+
+.mw-whm table td:first-child,
+.mw-whm table th:first-child {
+    text-align: left;
+}
+
+.mw-whm table.dataTable thead .sorting:after {
+    content: '';
+    margin-top: 8px;
+}
+
+.mw-whm table.dataTable thead .sorting_asc:after {
+    background: url('../../img/arrow_up.png');
+    width: 12px;
+    height: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+    margin-top: 8px;
+}
+
+.mw-whm table.dataTable thead .sorting_desc:after {
+    background: url('../../img/arrow_down.png');
+    width: 12px;
+    height: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+    margin-top: 8px;
+}
+
+.mw-whm .dataTables_paginate {
+    float: right;
+    width: 50%;
+    margin-top: 10px;
+
+}
+
+.mw-whm .dataTables_length {
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 991px) {
+    .mw-whm .dataTables_paginate,
+    .mw-whm .dataTables_length {
+        width: auto;
+        float: none;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+
+.mw-whm div.dataTables_length label {
+    font-size: 14px;
+}
+
+.mw-whm .dataTables_filter {
+    margin-top: 15px;
+}
+
+/* Panels */
+.mw-whm .panel {
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    -webkit-box-shadow: 0 2px 7px 0px rgba(0, 0, 0, .17);
+    box-shadow: 0 2px 7px 0px rgba(0, 0, 0, .17);
+
+    -webkit-box-shadow: 0px 15px 32px -17px rgba(0, 0, 0, .17);
+    box-shadow: 0px 15px 32px -17px rgba(0, 0, 0, .17);
+    border: 1px solid #f5f5f5;
+    padding: 15px;
+
+}
+
+.mw-whm .panel-heading {
+    color: #333;
+    background: none;
+    border-color: #f5f5f5;
+    padding: 10px 0px 0px 0;
+}
+
+.mw-whm .panel-heading .panel-title {
+    color: #0086DB;
+}
+
+.mw-whm .panel-body {
+    color: #222222;
+    padding: 20px 0px 10px 0;
+}
+
+.mw-whm .panel-body p,
+.mw-whm .list-group,
+.mw-whm .list-group a {
+    color: #222222;
+    font-size: 14px;
+    line-height: 25px;
+    border-color: #f5f5f5;
+}
+
+.mw-whm .panel-footer {
+    display: none;
+}
+
+.mw-whm .panel-title .btn.btn-default {
+    padding: 0 15px;
+    color: white;
+    border-radius: 30px;
+    background: #0086DB;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #0086DB;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.mw-whm .panel-title .btn.btn-default:hover {
+    text-decoration: none;
+    color: #0086DB;
+    border: 1px solid #0086DB;
+    background: #fff;
+}
+
+.mw-whm .panel-title {
+    padding-top: 0;
+    margin-bottom: 25px;
+}
+
+.mw-whm .panel-title .title {
+    background: #f5f5f5;
+    color: #0086DB;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.mw-whm .panel-title .name {
+    font-weight: bold;
+}
+
+.mw-whm .panel-title .content {
+    padding-top: 15px;
+    font-size: 15px;
+}
+
+.mw-whm .panel-title .price-per-what {
+    font-size: 11px;
+}
+
+/* All Pages - End */
+
+/* Pages */
+.mw-whm.clientareahome .tiles {
+    margin-bottom: 10px;
+}
+
+.mw-whm.clientareahome .tiles .tile {
+    margin-bottom: 30px;
+}
+
+.mw-whm.clientareahome .tiles .tile a {
+    display: block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-radius: 0;
+}
+
+.mw-whm.clientareahome .tiles .tile .stat {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.mw-whm.clientareahome .tiles .tile a {
+    border: 1px solid #0086DB;
+    color: #0086DB;
+}
+
+.mw-whm.clientareahome .tiles .tile a:hover {
+    background-color: rgba(0, 134, 219, 0.1);
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(2) a {
+    border: 1px solid #FF8120;
+    color: #FF8120;
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(2) a:hover {
+    background-color: rgba(255, 129, 32, 0.1);
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(3) a {
+    border: 1px solid #BD82FF;
+    color: #BD82FF;
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(3) a:hover {
+    background-color: rgba(189, 130, 255, 0.1);
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(4) a {
+    border: 1px solid #FF4239;
+    color: #FF4239;
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(4) a:hover {
+    background-color: rgba(255, 66, 57, 0.1);
+}
+
+.mw-whm.clientareaproducts a.btn,
+.mw-whm.clientareaproducts a.btn:focus,
+.mw-whm.clientareaproducts a.btn:active,
+.mw-whm.clientareaproducts a.btn:focus:active {
+    color: #0086DB;
+    border: 1px solid transparent;
+    background: none;
+    font-size: 15px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 2px 0px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: 1px solid #0086DB;
+}
+
+.mw-whm.clientareaproducts a.btn:hover {
+    text-decoration: none;
+    color: #0086DB;
+    border: 1px solid #0086DB;
+    background: #fff;
+}
+
+.mw-whm.clientareaproducts a.domain-name {
+    color: #0086DB;
+    font-size: 15px;
+}
+
+.mw-whm.clientareaproducts a.product-name {
+    color: #0086DB;
+    font-size: 15px;
+}
+
+.mw-whm.clientareaproducts .product-amount {
+    color: #414141;
+    font-size: 15px;
+}
+
+.mw-whm.clientareaproducts .product-plan {
+    color: #999999;
+    font-size: 15px;
+}
+
+.mw-whm.clientareaproducts a.product-plan {
+
+}
+
+.mw-whm.clientareaproducts .status span {
+    width: 100px;
+    display: block;
+    float: left;
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 18px;
+}
+
+.mw-whm.clientareaproducts .status:before {
+    content: '';
+    width: 27px;
+    height: 27px;
+    display: block;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.mw-whm.clientareaproducts .status.status-terminated {
+    color: #999999;
+}
+
+.mw-whm.clientareaproducts .status.status-terminated:before {
+    background: url('../../img/status/status-terminated.png');
+}
+
+.mw-whm.clientareaproducts .status.status-pending {
+    color: #FF6939
+}
+
+.mw-whm.clientareaproducts .status.status-pending:before {
+    background: url('../../img/status/status-pending.png');
+}
+
+.mw-whm.clientareaproducts .status.status-suspended {
+    color: #FF4239
+}
+
+.mw-whm.clientareaproducts .status.status-suspended:before {
+    background: url('../../img/status/status-suspended.png');
+}
+
+.mw-whm.clientareaproducts .status.status-cancelled {
+    color: #212121;
+}
+
+.mw-whm.clientareaproducts .status.status-cancelled:before {
+    background: url('../../img/status/status-cancelled.png');
+}
+
+.mw-whm.clientareaproducts .status.status-active {
+    color: #8fe100;
+}
+
+.mw-whm.clientareaproducts .status.status-active:before {
+    background: url('../../img/status/status-active.png');
+}
+
+.mw-whm.clientareaproducts .status-column {
+    min-width: 165px !important;
+    width: 165px;
+}
+
+.mw-whm.clientareaproductdetails {
+
+}
+
+.mw-whm.clientareaproductdetails #cPanelExtrasPurchasePanel {
+    /*display: none;*/
+}
+
+.mw-whm.affiliates .tiles {
+    margin-bottom: 10px;
+}
+
+.mw-whm.affiliates .tiles .tile {
+    margin-bottom: 30px;
+}
+
+.mw-whm.affiliates .tiles .tile > div {
+    display: block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-radius: 0;
+}
+
+.mw-whm.affiliates .tiles .tile .stat {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.mw-whm.affiliates .tiles .tile > div {
+    border: 1px solid #0086DB;
+    color: #0086DB;
+}
+
+.mw-whm.affiliates .tiles .tile > div:hover {
+    background-color: rgba(0, 134, 219, 0.1);
+}
+
+.mw-whm.affiliates .tiles .tile:nth-child(2) > div {
+    border: 1px solid #FF8120;
+    color: #FF8120;
+}
+
+.mw-whm.affiliates .tiles .tile:nth-child(2) > div:hover {
+    background-color: rgba(255, 129, 32, 0.1);
+}
+
+.mw-whm.affiliates .tiles .tile:nth-child(3) > div {
+    border: 1px solid #BD82FF;
+    color: #BD82FF;
+}
+
+.mw-whm.affiliates .tiles .tile:nth-child(3) > div:hover {
+    background-color: rgba(189, 130, 255, 0.1);
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(4) > div {
+    border: 1px solid #FF4239;
+    color: #FF4239;
+}
+
+.mw-whm.affiliates .tiles .tile:nth-child(4) > div:hover {
+    background-color: rgba(255, 66, 57, 0.1);
+}
+
+.mw-whm.affiliates .affiliate-referral-link span {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 30px;
+    display: inline-block;
+    padding: 15px;
+    background: #0086DB;
+}
+
+.mw-whm.clientareadomaindetails .info h4 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.mw-whm.clientareadomaindetails .info {
+    font-size: 15px;
+}
+
+.mw-whm.clientareadomaindetails .link {
+    font-size: 15px;
+    color: #0086DB;
+    font-weight: normal;
+}
+
+.mw-whm.clientareadomaindetails .info > div {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.mw-whm.clientareadomaindetails .ns-labale {
+    font-size: 15px;
+}
+
+.mw-whm.clientareadomains .link {
+    font-size: 15px;
+    color: #0086DB;
+    font-weight: normal;
+}
+
+.mw-whm.clientareadomains .status {
+    line-height: 32.5px;
+}
+
+.mw-whm.clientareadomains .status span {
+    width: 100px;
+    display: block;
+    float: left;
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 18px;
+}
+
+.mw-whm.clientareadomains .status:before {
+    content: '';
+    width: 27px;
+    height: 27px;
+    display: block;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.mw-whm.clientareadomains .status.status-terminated {
+    color: #999999;
+}
+
+.mw-whm.clientareadomains .status.status-terminated:before {
+    background: url('../../img/status/status-terminated.png');
+}
+
+.mw-whm.clientareadomains .status.status-pending {
+    color: #FF6939
+}
+
+.mw-whm.clientareadomains .status.status-pending:before {
+    background: url('../../img/status/status-pending.png');
+}
+
+.mw-whm.clientareadomains .status.status-suspended {
+    color: #FF4239
+}
+
+.mw-whm.clientareadomains .status.status-suspended:before {
+    background: url('../../img/status/status-suspended.png');
+}
+
+.mw-whm.clientareadomains .status.status-cancelled {
+    color: #212121;
+}
+
+.mw-whm.clientareadomains .status.status-cancelled:before {
+    background: url('../../img/status/status-cancelled.png');
+}
+
+.mw-whm.clientareadomains .status.status-active {
+    color: #8fe100;
+}
+
+.mw-whm.clientareadomains .status.status-active:before {
+    background: url('../../img/status/status-active.png');
+}
+
+.mw-whm.clientareadomains .status-column {
+    min-width: 110px !important;
+    width: 110px;
+}
+
+.mw-whm.clientareadomains .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.mw-whm.clientareainvoices {
+
+}
+
+.mw-whm.clientareainvoices .status {
+    line-height: 32.5px;
+}
+
+.mw-whm.clientareainvoices .status span {
+    width: 100px;
+    display: block;
+    float: left;
+    text-align: left;
+    margin-left: 18px;
+}
+
+.mw-whm.clientareainvoices .status:before {
+    content: '';
+    width: 27px;
+    height: 27px;
+    display: block;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.mw-whm.clientareainvoices .status.status-terminated {
+    color: #999999;
+}
+
+.mw-whm.clientareainvoices .status.status-terminated:before {
+    background: url('../../img/status/status-terminated.png');
+}
+
+.mw-whm.clientareainvoices .status.status-unpaid {
+    color: #FF6939
+}
+
+.mw-whm.clientareainvoices .status.status-unpaid:before {
+    background: url('../../img/status/status-pending.png');
+}
+
+.mw-whm.clientareainvoices .status.status-cancelled {
+    color: #FF4239
+}
+
+.mw-whm.clientareainvoices .status.status-cancelled:before {
+    background: url('../../img/status/status-suspended.png');
+}
+
+.mw-whm.clientareainvoices .status.status-refunded {
+    color: #212121;
+}
+
+.mw-whm.clientareainvoices .status.status-refunded:before {
+    background: url('../../img/status/status-cancelled.png');
+}
+
+.mw-whm.clientareainvoices .status.status-paid {
+    color: #8fe100;
+}
+
+.mw-whm.clientareainvoices .status.status-paid:before {
+    background: url('../../img/status/status-active.png');
+}
+
+.mw-whm.clientareainvoices .status-column {
+    min-width: 158px !important;
+    width: 158px !important;
+}
+
+.mw-whm.supportticketslist .status {
+    line-height: 32.5px;
+}
+
+.mw-whm.supportticketslist .status span {
+    width: 100px;
+    display: block;
+    float: left;
+    text-align: left;
+    margin-left: 18px;
+}
+
+.mw-whm.supportticketslist .status:before {
+    content: '';
+    width: 27px;
+    height: 27px;
+    display: block;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.mw-whm.supportticketslist .status.status-terminated {
+    color: #999999;
+}
+
+.mw-whm.supportticketslist .status.status-terminated:before {
+    background: url('../../img/status/status-terminated.png');
+}
+
+.mw-whm.supportticketslist .status.status-unpaid {
+    color: #FF6939
+}
+
+.mw-whm.supportticketslist .status.status-unpaid:before {
+    background: url('../../img/status/status-pending.png');
+}
+
+.mw-whm.supportticketslist .status.status-cancelled {
+    color: #FF4239
+}
+
+.mw-whm.supportticketslist .status.status-cancelled:before {
+    background: url('../../img/status/status-suspended.png');
+}
+
+.mw-whm.supportticketslist .status.status-closed {
+    color: #212121;
+}
+
+.mw-whm.supportticketslist .status.status-closed:before {
+    background: url('../../img/status/status-cancelled.png');
+}
+
+.mw-whm.supportticketslist .status.status-active {
+    color: #8fe100;
+}
+
+.mw-whm.supportticketslist .status.status-active:before {
+    background: url('../../img/status/status-active.png');
+}
+
+.mw-whm.supportticketslist .status-column {
+    min-width: 125px !important;
+    width: 125px !important;
+}
+
+.mw-whm.affiliates .status span {
+    width: 100px;
+    display: block;
+    float: left;
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 18px;
+}
+
+.mw-whm.affiliates .status:before {
+    content: '';
+    width: 27px;
+    height: 27px;
+    display: block;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.mw-whm.affiliates .status.status-terminated {
+    color: #999999;
+}
+
+.mw-whm.affiliates .status.status-terminated:before {
+    background: url('../../img/status/status-terminated.png');
+}
+
+.mw-whm.affiliates .status.status-pending {
+    color: #FF6939
+}
+
+.mw-whm.affiliates .status.status-pending:before {
+    background: url('../../img/status/status-pending.png');
+}
+
+.mw-whm.affiliates .status.status-suspended {
+    color: #FF4239
+}
+
+.mw-whm.affiliates .status.status-suspended:before {
+    background: url('../../img/status/status-suspended.png');
+}
+
+.mw-whm.affiliates .status.status-cancelled {
+    color: #212121;
+}
+
+.mw-whm.affiliates .status.status-cancelled:before {
+    background: url('../../img/status/status-cancelled.png');
+}
+
+.mw-whm.affiliates .status.status-active {
+    color: #8fe100;
+}
+
+.mw-whm.affiliates .status.status-active:before {
+    background: url('../../img/status/status-active.png');
+}
+
+.mw-whm.affiliates .status-column {
+    min-width: 165px !important;
+    width: 165px;
+}
+
+.mw-whm.affiliates ul.features li {
+    margin-bottom: 15px;
+    color: #0086DB;
+    font-size: 16px;
+}
+
+.mw-whm.affiliates ul.features span {
+    color: #333;
+}
+
+.mw-whm.cart-products .product {
+
+}
+
+.mw-whm.cart-products .product-chooser {
+    float: right;
+}
+
+.mw-whm.cart-products .panel .description span.fa {
+    color: #0086DB;
+    font-size: 13px;
+    padding-right: 10px;
+}
+
+.mw-whm.cart-products .panel .description {
+    width: 80%;
+    margin: 15px auto 15px auto;
+}
+
+.mw-whm.cart-products .panel .description p {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .mw-whm.cart-products .product-chooser {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.mw-whm.clientcreditcard .credit-card {
+    background: #f5f5f5;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.mw-whm #cPanelPackagePanel .cpanel-package-details em {
+    font-style: normal;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.mw-whm #cPanelPackagePanel .cpanel-package-details h4 {
+    display: block;
+    margin-bottom: 15px !important;
+}
+
+.mw-whm #cPanelPackagePanel .cpanel-package-details a {
+    color: #0086DB;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.mw-whm #cPanelBillingOverviewPanel .row > div:last-of-type {
+    font-weight: bold;
+}
+
+.mw-whm #cPanelBillingOverviewPanel #registrationDate > div:first-child,
+.mw-whm #cPanelBillingOverviewPanel #nextDueDate > div:first-child {
+    font-weight: normal;
+}
+
+.mw-whm #cPanelBillingOverviewPanel .panel-body .row {
+    padding: 10px;
+}
+
+.mw-whm #cPanelBillingOverviewPanel #recurringAmount div:last-of-type {
+    color: #0086db;
+}
+
+#microweber-themes div.templates {
+    margin-top: 30px;
+}
+
+#microweber-themes div.templates .template {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #414141;
+    font-weight: bold;
+    margin-bottom: 25px;
+    display: block;
+}
+
+#microweber-themes div.templates .template:hover {
+    color: #0086DB;
+}
+
+#microweber-themes div.templates .template .image-holder {
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 350px;
+    margin-bottom: 10px;
+    border: 1px solid #f5f5f5;
+}
+
+.m-b-10 {
+    margin-bottom: 10px !important;
+}

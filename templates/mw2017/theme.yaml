@@ -1,0 +1,7 @@
+# WHMCS Microweber Theme Configuration File
+
+name: "Microweber 2017 Theme"
+description: "The Default Theme for Microweber 2017"
+author: "Microweber"
+properties:
+  serverSidePagination: false # Defines client side will handle pagination

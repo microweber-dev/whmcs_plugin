@@ -1,7 +1,56 @@
 <div class="mw-whm cart-products">
     <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="templates/orderforms/{$carttpl}/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .desc-holder .description br,
+        .desc-holder .specifications br {
+            display: none;
+        }
 
+        .desc-holder .specifications ul {
+            padding: 0;
+        }
+
+        .desc-holder .specifications ul li {
+            list-style-type: none;
+        }
+
+        .desc-holder .specifications ul li span {
+            line-height: 32px;
+        }
+
+        .desc-holder .specifications ul li:after {
+            clear: both;
+            content: '';
+            display: block;
+        }
+
+        .desc-holder .specifications ul li i:first-of-type {
+            float: left;
+            margin-top: 4px;
+            margin-right: 10px;
+            color: #0086DB;
+        }
+
+        .desc-holder .specifications ul li i:last-of-type {
+            font-size: 14px;
+            color: #dadada;
+        }
+
+        .desc-holder .description {
+            margin: 0;
+            width: 100% !important;
+        }
+
+        .desc-holder .description .title {
+            background: none;
+            font-size: 120%;
+            display: block;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+    </style>
     <div id="order-modern">
 
         <div class="title-bar">
@@ -30,22 +79,22 @@
         {/if}
 
         <div class="row">
+
             {foreach from=$products key=num item=product}
             <div class="col-md-6">
                 {*<div id="product{$num}" class="panel" onclick="window.location='cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}'">*}
-                <div id="product{$num}" class="panel panel-primary">
-
-                    <div class="panel-heading">
-                        {$product.name}
-                        {if $product.qty}
-                            <span class="qty">
+                <div id="product{$num}" class="panel panel-title">
+                    <div class="row title">
+                        <div class="col-xs-6 name">
+                            {$product.name}
+                            {if $product.qty}
+                                <span class="qty">
                                 ({$product.qty} {$LANG.orderavailable})
                             </span>
-                        {/if}
-                    </div>
+                            {/if}
+                        </div>
 
-                    <div class="panel-body">
-                        <div class="pricing text-right">
+                        <div class="col-xs-6 pricing text-right">
                             {if $product.bid}
                                 {$LANG.bundledeal}
                                 /
@@ -54,7 +103,6 @@
                                 {/if}
                             {else}
                                 <span class="pricing">{$product.pricing.minprice.price}</span>
-
                                 <span class="price-per-what">
                                 {if $product.pricing.minprice.cycle eq "monthly"}
                                     /
@@ -82,8 +130,10 @@
                                 </span>
                             {/if}
                         </div>
+                    </div>
 
-
+                    <div class="row content">
+                        <div class="col-xs-12">
                             {foreach from=$product.features key=feature item=value}
                                 <span class="prodfeature"><span class="feature">{$feature}</span>
                                 <br/>{$value}</span>
@@ -91,14 +141,21 @@
 
                             <div class="clear"></div>
 
-                            <div class="description">{$product.featuresdesc}</div>
+                            <div class="description desc-holder">{$product.featuresdesc}</div>
 
                             <div class="text-center">
-                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="btn btn-primary btn-sm"> {$LANG.ordernowbutton}</a>
+                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="btn mw-blue btn-sm"> {$LANG.ordernowbutton}</a>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {if $num % 2}
+        </div>
+        <div class="row">
+            {/if}
+
             {/foreach}
 
         </div>

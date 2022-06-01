@@ -7,7 +7,7 @@
         {/if}
     </div>
     <p align="center">
-        <button type="button" onclick="cancelcheck()" class="btn btn-success">
+        <button type="button" onclick="cancelcheck()" class="cbtn cbtn-alt">
             <i class="fa fa-arrow-circle-left"></i>
             {$LANG.carttryanotherdomain}
         </button>
@@ -17,7 +17,7 @@
         {$LANG.cartdomainexists}
     </div>
     <p align="center">
-        <button type="button" onclick="cancelcheck()" class="btn btn-success">
+        <button type="button" onclick="cancelcheck()" class="cbtn cbtn-alt">
             <i class="fa fa-arrow-circle-left"></i>
             {$LANG.carttryanotherdomain}
         </button>
@@ -40,7 +40,7 @@
 
 <div class="domainunavailable">{$LANG.cartdomaintaken|sprintf2:$domain}</div>
 <p align="center">
-    <button type="button" onclick="cancelcheck()" class="btn btn-success">
+    <button type="button" onclick="cancelcheck()" class="cbtn cbtn-alt">
         <i class="fa fa-arrow-circle-left"></i>
         {$LANG.carttryanotherdomain}
     </button>
@@ -57,7 +57,7 @@
 
 <div class="domainunavailable">{$LANG.carttransfernotregistered|sprintf2:$domain}</div>
 <p align="center">
-    <button type="button" onclick="cancelcheck()" class="btn btn-success">
+    <button type="button" onclick="cancelcheck()" class="cbtn cbtn-alt">
         <i class="fa fa-arrow-circle-left"></i>
         {$LANG.carttryanotherdomain}
     </button>

@@ -80,7 +80,7 @@
                 {if $promotioncode}
                     <strong>{$promotioncode}</strong>
                     - {$promotiondescription} &nbsp; &nbsp;
-                    <a href="{$smarty.server.PHP_SELF}?a=removepromo" class="btn btn-success">{$LANG.orderdontusepromo}</a>
+                    <a href="{$smarty.server.PHP_SELF}?a=removepromo" class="cbtn cbtn-small">{$LANG.orderdontusepromo}</a>
                 {else}
                     <div class="row">
                         <div class="col-xs-6 col-sm-7">
@@ -88,7 +88,7 @@
                             <input type="hidden" name="validatepromo" id="validatepromo" value="0"/>
                         </div>
                         <div class="col-xs-6 col-sm-5">
-                            <button type="submit" id="validatePromoCode" class="btn btn-success">
+                            <button type="submit" id="validatePromoCode" class="cbtn cbtn-small">
                                 {$LANG.orderpromovalidatebutton}
                             </button>
                         </div>

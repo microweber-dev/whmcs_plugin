@@ -1,7 +1,3 @@
-@import "mw.css";
-@import "style_cart_config_options_select_template.css";
-@import "style_payments.css";
-
 /*
 Master
 */
@@ -749,5 +745,11 @@ Domain Registration
 
 }
 
-
-
+.oc-hero{
+  height:458px;
+  background: #EEEEEE url(img/sitereadyhero.jpg) no-repeat center bottom;
+  background-size: contain;
+  text-align: center;
+  padding-top: 40px;
+  color: #0086DB
+}

@@ -1,15 +1,11 @@
 <div id="prodconfigcontainer">
-
-
-
-
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-            <script type="text/javascript" src="{$WEB_ROOT}templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-            <script type="text/javascript" src="{$WEB_ROOT}templates/orderforms/{$carttpl}/js/main.js"></script>
-            <link rel="stylesheet" type="text/css" href="{$WEB_ROOT}templates/orderforms/{$carttpl}/style.css"/>
-            <link rel="stylesheet" type="text/css" href="{$WEB_ROOT}templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.css"/>
+            <script type="text/javascript" src="{$BASE_PATH_JS}/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/main.js"></script>
+            <link rel="stylesheet" type="text/css" href="templates/orderforms/{$carttpl}/style.css"/>
+            <link rel="stylesheet" type="text/css" href="{$BASE_PATH_CSS}/jquery-ui.min.css"/>
 
             <div id="order-modern">
 
@@ -208,35 +204,18 @@
                                         <div class="row"></div>
                                         <script>
                                             $(document).ready(function () {
-
-
-
-
-
-                                                $.getJSON("{$WEB_ROOT}/index.php?m=microweber_addon&ajax=1&function=get_templates_for_cart", function (data) {
+                                                $.getJSON("https://members2017.microweber.com/_sync/templates-preview/templates.json", function (data) {
                                                     var items = [];
                                                     $.each(data, function (key, val) {
-
                                                         if (key == 0) {
                                                             var classHidden = '';
                                                         } else {
-                                                            var classHidden = 'hidden d-none';
+                                                            var classHidden = 'hidden';
                                                         }
-                                                    //    var classHidden = '';
-
-                                                       items.push('<div class="col-xs-12 ' + classHidden + ' template" id="template-' + val.id + '">' +
+                                                        items.push('<div class="col-xs-12 ' + classHidden + ' template" id="template-' + val.id + '">' +
                                                             '<div class="image-holder" style="background-image: url(' + val.image + ');"></div>' +
                                                             '<p>' + val.title + '</p>' +
                                                             '</div>');
-
-
-
-
-
-
-
-
-
                                                     });
 
                                                     $("<div/>", {
@@ -248,9 +227,7 @@
                                                 $('select[name="configoption[1]"]').bind('change', function () {
                                                     var tempID = '#template-' + $(this).val();
                                                     $('#microweber-themes .template').addClass('hidden');
-                                                    $('#microweber-themes .template').addClass('d-none');
                                                     $(tempID).removeClass('hidden');
-                                                    $(tempID).removeClass('d-none');
                                                 });
                                             });
                                         </script>
@@ -300,8 +277,8 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="button" id="btnCompleteProductConfig" class="btn btn-primary" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
-                            <a href="cart.php?a=view" class="btn btn-success"><i class="fa fa-shopping-cart"></i> {$LANG.viewcart}</a>
+                            <button type="button" id="btnCompleteProductConfig" class="cbtn" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                            <a href="cart.php?a=view" class="cbtn cbtn-alt"><i class="fa fa-shopping-cart"></i> {$LANG.viewcart}</a>
                         </div>
 
                     </div>
