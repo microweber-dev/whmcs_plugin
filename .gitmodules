@@ -1,0 +1,3 @@
+[submodule "modules/addons/custom_oauth2"]
+	path = modules/addons/custom_oauth2
+	url = https://github.com/microweber-dev/whmcs_custom_oauth2.git
