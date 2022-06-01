@@ -59,18 +59,18 @@
     </li>
 
     <li menuitemname="Store" class="{if $navcat eq 'ordernewservices'}active{/if}" id="Primary_Navbar-Store">
-        <a class="menu-more" href="javascript:;">
+        <a class="menu-more" href="#">
             <div class="svg-icon">
                 <span class="ct-svg"><img svg-src="{$WEB_ROOT}/templates/{$template}/img/im/profile/15.svg"/></span>
             </div>
             Store &nbsp;<b class="caret"></b>
         </a>
         <ul>
-            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/cart.php?gid=5">Templates</a></li>
-            <li menuitemname="Hosting" id="Primary_Navbar-Store-Hosting"><a href="{$WEB_ROOT}/cart.php?gid=1">Hosting</a></li>
-            <li menuitemname="Modules" id="Primary_Navbar-Store-Modules"><a href="{$WEB_ROOT}/cart.php?gid=2">Modules</a></li>
-            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/cart.php?gid=4">License</a></li>
-            <li menuitemname="Support" id="Primary_Navbar-Store-Support"><a href="{$WEB_ROOT}/cart.php?gid=3">Support</a></li>
+            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/">Templates</a></li>
+            <li menuitemname="Hosting" id="Primary_Navbar-Store-Hosting"><a href="{$WEB_ROOT}/">Hosting</a></li>
+            <li menuitemname="Modules" id="Primary_Navbar-Store-Modules"><a href="{$WEB_ROOT}/">Modules</a></li>
+            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/">License</a></li>
+            <li menuitemname="Support" id="Primary_Navbar-Store-Support"><a href="{$WEB_ROOT}/">Support</a></li>
         </ul>
     </li>
 
@@ -179,11 +179,11 @@
             Store &nbsp;<b class="caret"></b>
         </a>
         <ul>
-            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/cart.php?gid=5">Templates</a></li>
-            <li menuitemname="Hosting" id="Primary_Navbar-Store-Hosting"><a href="{$WEB_ROOT}/cart.php?gid=1">Hosting</a></li>
-            <li menuitemname="Modules" id="Primary_Navbar-Store-Modules"><a href="{$WEB_ROOT}/cart.php?gid=2">Modules</a></li>
-            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/cart.php?gid=4">License</a></li>
-            <li menuitemname="Support" id="Primary_Navbar-Store-Support"><a href="{$WEB_ROOT}/cart.php?gid=3">Support</a></li>
+            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/">Templates</a></li>
+            <li menuitemname="Hosting" id="Primary_Navbar-Store-Hosting"><a href="{$WEB_ROOT}/">Hosting</a></li>
+            <li menuitemname="Modules" id="Primary_Navbar-Store-Modules"><a href="{$WEB_ROOT}/">Modules</a></li>
+            <li menuitemname="License" id="Primary_Navbar-Store-License"><a href="{$WEB_ROOT}/">License</a></li>
+            <li menuitemname="Support" id="Primary_Navbar-Store-Support"><a href="{$WEB_ROOT}/">Support</a></li>
             <li menuitemname="Register a New Domain" id="Primary_Navbar-Store-Register_a_New_Domain"><a href="{$WEB_ROOT}/cart.php?a=add&amp;domain=register">Register a New Domain</a></li>
             <li menuitemname="Transfer a Domain to Us" id="Primary_Navbar-Store-Transfer_a_Domain_to_Us"><a href="{$WEB_ROOT}/cart.php?a=add&amp;domain=transfer">Transfer Domains to Us</a></li>
         </ul>
