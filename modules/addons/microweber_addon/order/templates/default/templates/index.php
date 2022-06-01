@@ -52,8 +52,13 @@
 <?php
 $templates = get_enabled_templates();
 
+ ?>
+<?php if (empty((array) $templates)): ?>
+    <div class="alert alert-danger" role="alert">
+        No templates are enabled from the admin panel
+    </div>
+ <?php endif; ?>
 
-?>
 <div class="templates">
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?>

@@ -8,9 +8,7 @@ if (!defined("WHMCS")) {
 
 $root = dirname(__DIR__);
 
-unset($_SERVER['SCRIPT_NAME']); // for the site_url() function
-require_once $root . DIRECTORY_SEPARATOR . '/modules/addons/microweber_addon/init.php';
-
+ require_once $root . DIRECTORY_SEPARATOR . '/init.php';
 
 
 global $CONFIG;
@@ -55,7 +53,6 @@ if (!$getDomain) {
 }
 
 
-
 ?>
 
 <?php //echo $CONFIG['CompanyName']; ?>
@@ -81,6 +78,7 @@ if (!$getDomain) {
         <?php include(__DIR__ . '/params.php'); ?>
 
         <?php
+
         if ($subdomain) {
             $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption[' . $config_gid . ']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&target=' . $target . '&domainoption=subdomain&billingcycle=monthly&skipconfig=1';
         } else {
