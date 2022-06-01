@@ -51,7 +51,6 @@ class MicroweberAddonOrderController
                 $isSubDomain = true;
             }
 
-
             //
 
             if (isset($params['template_id']) and $params['template_id']) {

@@ -10,7 +10,8 @@ if (isset($_GET['style'])) {
     }
 }
 if(is_file($style_file)){
-include($style_file);
+
+    include($style_file);
 }
 
 //if (isset($_GET['style'])) {
