@@ -11,7 +11,7 @@ class MarketplaceConnector extends Client
     $packages = \WHMCS\Database\Capsule::table('tbladdonmodules')
             ->where('module', 'microweber_addon')
             ->where('setting', 'package_manager_urls')
-            ->first();*/ 
+            ->first();*/
 
     /**
      * @return array
