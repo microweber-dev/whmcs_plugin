@@ -32,7 +32,7 @@ function custom_oauth2_config()
                 'FriendlyName' => 'Authorize path',
                 'Type' => 'text',
                 'Size' => '75',
-                'Description' => 'The path used to authorize a user. Example: /oauth/authorize',
+                'Description' => 'The path used to authorize a user. Example: /oauth/ask-to-authorize',
             ), 'token_path' => array(
                 'FriendlyName' => 'Token path',
                 'Type' => 'text',
