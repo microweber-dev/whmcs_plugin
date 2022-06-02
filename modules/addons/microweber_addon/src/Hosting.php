@@ -104,7 +104,7 @@ class Hosting
         $market_conn = new MarketplaceConnector();
 
 
-        $templates = $market_conn->get_templates();
+        $templates = $market_conn->getTemplates();
 
         $tpls = array();
        // $enabled_by_users = $this->get_enabled_templates('return_mode=simple');

@@ -36,9 +36,11 @@ class Manager
     function get_templates()
     {
         $readyTemplates = array();
-        $templates = $this->marketplace_connector->get_templates();
-
+        $templates = $this->marketplace_connector->getTemplates();
         foreach ($templates as $template) {
+
+            var_dump($template);
+            die();
             $item = $template['latest_version'];
             $get_template = get_template_by_git_package_name($item['name']);
             $template['preview_sort'] = 0;
