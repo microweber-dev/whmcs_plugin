@@ -10,10 +10,20 @@ class MarketplaceConnector extends Client
 
     public function getTemplates()
     {
+        $templates = [];
         $packages = $this->search();
+        if (!empty($packages)) {
+            foreach ($packages as $packageName=>$packageVersions) {
+                foreach ($packageVersions as $version) {
+                    if ($version['type'] !== 'microweber-template') {
+                        continue;
+                    }
+                    $templates[$packageName] = $version;
+                }
+            }
+        }
 
-        dd($packages);
-
+        return $templates;
     }
 
 }

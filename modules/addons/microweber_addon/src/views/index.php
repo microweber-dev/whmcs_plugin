@@ -129,15 +129,15 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                     foreach ($templates as $template) : ?>
                         <?php
 
-                        $item = $template['latest_version'];
+
                         $screenshot = '';
-                        if (isset($item['extra']) and isset($item['extra']['_meta']) and isset($item['extra']['_meta']['screenshot'])) {
-                            $screenshot = $item['extra']['_meta']['screenshot'];
+                        if (isset($template['extra']) and isset($template['extra']['_meta']) and isset($template['extra']['_meta']['screenshot'])) {
+                            $screenshot = $template['extra']['_meta']['screenshot'];
                         }
 
-                        $get_template = get_template_by_git_package_name($item['name']);
+                        $get_template = get_template_by_git_package_name($template['name']);
                         if (!$get_template) {
-                            $get_template = insert_template_by_git_package_name($item['name']);
+                            $get_template = insert_template_by_git_package_name($template['name']);
                         }
 
                         if (!$get_template->preview_sort) {
@@ -146,15 +146,15 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
 
                         $preview_url = 'http://microweber.com';
-                        if (isset($template['latest_version']) AND isset($template['latest_version']['extra']) AND isset($template['latest_version']['extra']['preview_url'])) {
-                            $preview_url = $template['latest_version']['extra']['preview_url'];
+                        if (isset($template['extra']) AND isset($template['extra']['preview_url'])) {
+                            $preview_url = $template['extra']['preview_url'];
                             $preview_url = str_replace('http://', 'https://', $preview_url);
                         }
                         if (!$get_template->preview_url || empty($get_template->preview_url)) {
                             $get_template->preview_url = $preview_url;
                         }
                         if (!$get_template->preview_name || empty($get_template->preview_name)) {
-                            $get_template->preview_name = $item['description'];
+                            $get_template->preview_name = $template['description'];
                         }
 
                         if (empty($get_template->screenshot_url)) {
@@ -167,16 +167,16 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
                              data-template-id="<?php echo $get_template->id; ?>">
                             <div class="project">
                                 <figure class="img-responsive ">
-                                    <img src="<?php echo $get_template->screenshot_url ?>" <?php if (in_array($item['target-dir'], $enabled_templates)): ?> <?php  else: ?> style="opacity:0.3" <?php endif; ?>>
+                                    <img src="<?php echo $get_template->screenshot_url ?>" <?php if (in_array($template['target-dir'], $enabled_templates)): ?> <?php  else: ?> style="opacity:0.3" <?php endif; ?>>
                                 </figure>
                                 <span class="actions" style="height: 45px;">
                                  <span class="project-details">
                                  <div class="checkbox">
                                    <label style="float:left;">
-                                       <input <?php if (in_array($item['target-dir'], $enabled_templates)) { ?> checked  <?php } ?>
+                                       <input <?php if (in_array($template['target-dir'], $enabled_templates)) { ?> checked  <?php } ?>
                                                type="checkbox" class="js-select-template-item-checkbox" name="selected_templates[]"
-                                               value="<?php print $item['target-dir'] ?>">
-                                       <strong><?php echo $item['description']; ?></strong>
+                                               value="<?php print $template['target-dir'] ?>">
+                                       <strong><?php echo $template['description']; ?></strong>
                                    </label>
                                      <button class="btn btn-sm" type="button" onclick="openTemplateSettings(<?php echo $get_template->id; ?>);"
                                         style="position:sticky;float:right;color:#000;padding:2px;font-size:12px;width: 130px">Settings</button>
@@ -246,16 +246,16 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][homepage_url]"
-                                           value="<?php echo $item['homepage']; ?>"/>
+                                           value="<?php echo $template['homepage']; ?>"/>
                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][target_dir]"
-                                           value="<?php echo $item['target-dir']; ?>"/>
+                                           value="<?php echo $template['target-dir']; ?>"/>
                                     <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][git_package_name]"
-                                           value="<?php echo $item['name']; ?>"/>
+                                           value="<?php echo $template['name']; ?>"/>
                                      <input type="hidden"
                                            name="templates_settings[<?php echo $get_template->id; ?>][name]"
-                                           value="<?php echo $item['description']; ?>"/>
+                                           value="<?php echo $template['description']; ?>"/>
                                     <input type="submit" class="btn btn-success btn-block" value="Save settings"/>
                                 </div>
                             </div>

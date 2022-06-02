@@ -102,8 +102,6 @@ class Hosting
 
 
         $market_conn = new MarketplaceConnector();
-
-
         $templates = $market_conn->getTemplates();
 
         $tpls = array();
