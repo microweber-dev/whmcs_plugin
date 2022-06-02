@@ -12,8 +12,6 @@ function log_configuration_error($message)
 
 function hook_template_variables_custom_oauth2($vars)
 {
-
-
     $extraTemplateVariables = array();
 
     // fetch clients data if available
@@ -36,10 +34,12 @@ function hook_template_variables_custom_oauth2($vars)
     } else {
         $state = $_SESSION['state'];
     }
+
     $settings = DB::table('tbladdonmodules')
         ->select('setting', 'value')
         ->where('module', 'custom_oauth2')
         ->get();
+
     foreach ($settings as $setting) {
         //            if (!$setting->value) {
         //                log_configuration_error(sprintf('Setting "%s" is not filled in. The module will not function properly until you fill in all settings.', $setting));
@@ -63,6 +63,7 @@ function hook_template_variables_custom_oauth2($vars)
                 break;
         }
     }
+
     $params = array(
         'client_id' => $client_id,
         'redirect_uri' => $redirect_uri,
@@ -70,7 +71,9 @@ function hook_template_variables_custom_oauth2($vars)
         'state' => $state,
         'response_type' => 'code',
     );
-    $extraTemplateVariables['custom_oauth2_login_url'] = $url . $authorize_path . '?' . http_build_query($params);
+    $loginUrl = $url . $authorize_path . '?' . http_build_query($params);
+
+    $extraTemplateVariables['custom_oauth2_login_url'] = $loginUrl;
     $extraTemplateVariables['custom_oauth2_base_url'] = $url;
     $extraTemplateVariables['custom_oauth2_logout_url'] = $url . '/logout';
     // }
