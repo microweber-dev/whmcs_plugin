@@ -75,6 +75,8 @@ function hook_template_variables_custom_oauth2($vars)
     $extraTemplateVariables['custom_oauth2_logout_url'] = $url . '/logout';
     // }
 
+ ///   $extraTemplateVariables['custom_oauth2_login_url'] = 'waw'; //todo
+
     // return array of template variables to define
     return $extraTemplateVariables;
 }
