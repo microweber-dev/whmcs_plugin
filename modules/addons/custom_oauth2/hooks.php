@@ -68,7 +68,7 @@ function hook_template_variables_custom_oauth2($vars)
         'client_id' => $client_id,
         'redirect_uri' => $redirect_uri,
         'scope' => $scope,
-        'state' => $state,
+        'state' => $state, 
         'response_type' => 'code',
     );
     $loginUrl = $url . $authorize_path . '?' . http_build_query($params);
