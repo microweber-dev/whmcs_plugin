@@ -7,6 +7,7 @@
 
 {*<link href="{$WEB_ROOT}/templates/{$template}/css/microweber.css?v={$versionHash}" rel="stylesheet">*}
 <link href="{$WEB_ROOT}/templates/{$template}/css/microweber-new.css" rel="stylesheet">
+<link href="{$WEB_ROOT}/templates/{$template}/css/microweber-new-2022.css" rel="stylesheet">
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

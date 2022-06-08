@@ -36,21 +36,23 @@ class Manager
     function get_templates()
     {
         $readyTemplates = array();
-        $templates = $this->marketplace_connector->get_templates();
+        $templates = $this->marketplace_connector->getTemplates();
         foreach ($templates as $template) {
-            $item = $template['latest_version'];
-            $get_template = get_template_by_git_package_name($item['name']);
-            $template['preview_sort'] = 0;
+
+
+           /*
+           $get_template = get_template_by_git_package_name($template['name']);
+           $template['preview_sort'] = 0;
             if ($get_template) {
                 $template['preview_sort'] = $get_template->preview_sort;
-            }
+            }*/
             $readyTemplates[] = $template;
         }
 
-        usort($readyTemplates, function($a, $b) {
+        /*usort($readyTemplates, function($a, $b) {
             return $a['preview_sort'] - $b['preview_sort'];
         });
-
+        */
         return $readyTemplates;
     }
 

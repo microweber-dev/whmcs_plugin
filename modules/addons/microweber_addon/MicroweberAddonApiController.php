@@ -426,7 +426,7 @@ class MicroweberAddonApiController
     {
         $connector = new MicroweberAddon\MarketplaceConnector();
 
-        return $connector->get_packages_urls();
+        return $connector->getPackagesUrls();
 
     }
 
