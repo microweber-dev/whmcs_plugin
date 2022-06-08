@@ -55,6 +55,9 @@
                     <td style="width: 100px;">
                         {if $invoice.statusClass eq 'unpaid'}
                             <a href="viewinvoice.php?id={$invoice.id}" class="cbtn cbtn-small cbtn-red">Pay</a>
+                        {else}
+                            <a href="viewinvoice.php?id={$invoice.id}" class="cbtn cbtn-small cbtn-blue">View</a>
+
                         {/if}
                     </td>
                 </tr>
