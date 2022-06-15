@@ -32,5 +32,5 @@ function setScale() {
 }
 
 $(document).ready(function () {
-    setScale();
+ //   setScale();
 })

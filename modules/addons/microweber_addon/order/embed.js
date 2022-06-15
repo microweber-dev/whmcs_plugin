@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (typeof e.data === 'string' && e.data.indexOf('documentHeight:') > -1) {
             var height = e.data.split('documentHeight:')[1];
             if (height > 0) {
+
                 document.getElementById("domain-search-iframe").style.height = height + 'px';
             }
         }

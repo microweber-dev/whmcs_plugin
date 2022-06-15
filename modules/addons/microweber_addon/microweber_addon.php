@@ -104,10 +104,13 @@ function microweber_addon_config()
     return $config;
 }
 
-
+//if(isset($_REQUEST['m']) and $_REQUEST['m'] == 'microweber_addon'){
+//    return microweber_addon_clientarea([]);
+//}
 
 function microweber_addon_clientarea($vars)
 {
+
     $params = array();
     if ($_GET) {
         $params = array_merge($params, $_GET);
@@ -117,9 +120,12 @@ function microweber_addon_clientarea($vars)
     }
 
     $resp = array();
-    $modulelink = $vars['modulelink'];
-    $version = $vars['version'];
-    $LANG = $vars['_lang'];
+    if(isset( $vars['modulelink'])){
+        $modulelink = $vars['modulelink'];
+        $version = $vars['version'];
+        $LANG = $vars['_lang'];
+    }
+
     $resp = $vars;
 
     $controller = new MicroweberAddonApiController();
@@ -132,6 +138,12 @@ function microweber_addon_clientarea($vars)
 
     if (method_exists($controller, $method)) {
         $resp = $controller->$method($params);
+
+//        var_dump($controller);
+//        var_dump($resp);
+//        var_dump(method_exists($controller, $method));
+//        var_dump(method_exists($controller, $method));
+//        exit;
         //dd($params,$resp);
      } else {
 
@@ -192,6 +204,7 @@ function microweber_addon_output($vars)
     if (isset($params['function'])) {
         $method = $params['function'];
     }
+
     if (method_exists($controller, $method)) {
         $resp = $controller->$method($params);
     }

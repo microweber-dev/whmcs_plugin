@@ -627,6 +627,7 @@ h.domain = '" . $username . "' and
 
         $enabled_templates = $hosting->get_enabled_market_templates();
 
+
         $return = [];
         if ($enabled_templates) {
             foreach ($enabled_templates as $enabled_template) {
@@ -642,6 +643,10 @@ h.domain = '" . $username . "' and
                     ];
                     if (isset($enabled_template["extra"]['_meta']) and isset($enabled_template["extra"]['_meta']['screenshot'])) {
                         $ready['image'] = $enabled_template["extra"]['_meta']['screenshot'];
+                    }
+
+                    if (isset($enabled_template["keywords"])) {
+                        $ready['keywords'] = $enabled_template["keywords"];
                     }
 
 //image

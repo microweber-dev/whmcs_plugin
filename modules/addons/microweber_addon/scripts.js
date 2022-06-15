@@ -36,7 +36,7 @@ function resize_iframe_to_parent() {
 
 setInterval(function(){
     resize_iframe_to_parent()
-}, 333)
+}, 1333)
 
 
 function scroll_iframe_to_parent() {

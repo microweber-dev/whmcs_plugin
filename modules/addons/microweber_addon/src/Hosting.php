@@ -107,8 +107,21 @@ class Hosting
         $tpls = array();
        // $enabled_by_users = $this->get_enabled_templates('return_mode=simple');
         $enabled_by_users = $this->get_enabled_templates();
+
         if (!empty($templates)) {
             foreach ($templates as $tk => $template) {
+
+                $keywords = false;
+                if ( isset($template['keywords']) AND $template['keywords']) {
+                    $keywords =  $template['keywords'];
+                }
+
+
+                if(!isset($template['latest_version'])){
+                    $template['latest_version'] = ($template);
+                }
+
+
                 if (isset($template['latest_version']) and isset($template['latest_version']["target-dir"])) {
                     $td = $template['latest_version']["target-dir"];
                     $latest_version = $template['latest_version'];
@@ -118,14 +131,16 @@ class Hosting
                     }
 
 
+
+
                     foreach ($enabled_by_users as $enabled_by_user) {
-                    //    dd($enabled_by_user);
-                       $enabled_template_name = $enabled_by_user['optionname'];
+                        $enabled_template_name = $enabled_by_user['optionname'];
                         if ($td == $enabled_template_name) {
 
 
 
                             $latest_version['configoption']  = $enabled_by_user;
+                            $latest_version['keywords']  = $keywords;
 
                             if($only_with_screenshots ){
                                 if($screenshot){
