@@ -26,28 +26,7 @@
 
         }
 
-        #template-demo-iframe {
-            scrollbar-width: thin ;
-            scrollbar-color: #777;
-        }
-        #template-demo-iframe::-webkit-scrollbar {
-            opacity: 1;
-        }
 
-
-        #template-demo-iframe::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-
-        #template-demo-iframe::-webkit-scrollbar-thumb {
-            background: #777;
-
-        }
-
-        #template-demo-iframe::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
     </style>
 
     <div class="container"  >
@@ -109,13 +88,45 @@
     </div>
 
     <?php if ($preview_url): ?>
+    <div class="loading-iframe-loader"> </div>
+<style>
+        .loading-iframe-loader {
+        border: 5px solid #bae7e7;
+        border-radius: 50%;
+        border-top: 5px solid #3498db;
+        width: 40px;
+        height: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -20px 0 0 -20px;
+        -webkit-animation: spin 2s linear infinite; / Safari /
+        animation: spin 2s linear infinite;
+        }
+
+
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+</style>
+
+
     <iframe id="template-demo-iframe" src="<?php print $preview_url; ?>"
             name="preview-frame" frameborder="0"
             noresize="noresize" data-view="fullScreenPreview"
+            referrerpolicy="no-referrer"
             height="1500px" width="100%"
             scrolling="yes"
             style="height: 1000px"
-            allow="geolocation 'self'; autoplay 'self'">
+            onload="$('.loading-iframe-loader').hide()"
+            onerror="$('.loading-iframe-loader').hide()"
+            allow="geolocation 'self'; autoplay 'self'">Loading....
     </iframe>
 
     <script>
