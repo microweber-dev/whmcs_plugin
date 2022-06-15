@@ -136,7 +136,9 @@ if (!function_exists('site_url')) {
     {
         static $site_url;
 
-
+        if(defined('MW_SITE_URL')){
+            return MW_SITE_URL;
+        }
         if ($site_url == false) {
             $pageURL = 'http';
             if (is_https()) {
@@ -314,13 +316,24 @@ function get_template_by_git_package_name($name)
         ->where('git_package_name', $name)
         ->first();
 }
+function get_template_by_config_option_id($config_option_id)
+{
+
+    return Capsule::table('mod_microweber_templates')
+        ->where('config_option_id', $config_option_id)
+        ->first();
+}
 
 function get_enabled_templates()
 {
     $templates =  Capsule::table('mod_microweber_templates')
         ->where('is_enabled', 1)
         ->orderBy('preview_sort')
-        ->get()->toArray();
+        ->get();
+
+    if(is_object($templates)){
+        $templates = $templates->toArray();
+    }
 
     return $templates;
 

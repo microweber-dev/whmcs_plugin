@@ -1,7 +1,6 @@
 <?php
 
 
-
 if (!defined("WHMCS")) {
     define("WHMCS", true);
 }
@@ -12,6 +11,11 @@ $root = dirname(__DIR__);
 
 
 global $CONFIG;
+
+
+if(!defined('MW_SITE_URL')){
+    define('MW_SITE_URL',$CONFIG['SystemURL'].'/');
+}
 
 $controller = new MicroweberAddonApiController();
 $hosting = new \MicroweberAddon\Hosting();
@@ -32,10 +36,17 @@ $getTemplate = false;
 if (isset($_REQUEST['template'])) {
     $getTemplate = $_REQUEST['template'];
 }
+if (isset($_REQUEST['template_id'])) {
+    $getTemplate =  $_REQUEST['template'] = $_REQUEST['template_id'];
+}
 
 $getPlan = false;
 if (isset($_REQUEST['plan'])) {
     $getPlan = $_REQUEST['plan'];
+}
+
+if (isset($_REQUEST['plan_id'])) {
+    $getPlan = $_REQUEST['plan'] = $_REQUEST['plan_id'];
 }
 
 $step = 0;
@@ -51,6 +62,7 @@ if (!$getDomain) {
 } elseif (!$getPlan) {
     $step = 3;
 }
+
 
 
 ?>
@@ -84,6 +96,8 @@ if (!$getDomain) {
         } else {
             $redirect_url = 'cart.php?a=add&pid=' . $pid . '&configoption[' . $config_gid . ']=' . $template_id . '&sld=' . $sld . '&tld=' . $tld . '&target=' . $target . '&billingcycle=monthly&skipconfig=1';
         }
+
+
         ?>
 
         <form action="<?php echo site_url(); ?>/cart.php" method="get" id="send-fields" style="display: none" autocomplete="off">
@@ -106,7 +120,7 @@ if (!$getDomain) {
             <button type="submit">submit</button>
         </form>
         <script>
-           // window.top.location.href = "<?php echo site_url(); ?>/<?php echo $redirect_url; ?>";
+             window.top.location.href = "<?php echo site_url(); ?>/<?php echo $redirect_url; ?>";
         </script>
     <?php endif; ?>
 <?php endif; ?>

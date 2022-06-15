@@ -2,7 +2,8 @@
 
 <?php if (isset($_REQUEST['template'])): ?>
     <?php
-    $template = get_template_by_git_package_name($_REQUEST['template']);
+    $template = get_template_by_config_option_id($_REQUEST['template']);
+
 
     $homepage = 'https://microweber.com';
     $preview_url = 'https://microweber.com';
@@ -12,6 +13,7 @@
     if (!empty($template->homepage_url)) {
         $homepage = $template->homepage_url;
     }
+     
     ?>
 
     <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>

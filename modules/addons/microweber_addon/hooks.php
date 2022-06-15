@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . DIRECTORY_SEPARATOR . 'helpers.php';
+require_once (__DIR__ . '/vendor/autoload.php');
+ require_once (__DIR__ . DIRECTORY_SEPARATOR . 'helpers.php');
 
 use WHMCS\View\Menu\Item as MenuItem;
 use WHMCS\Database\Capsule;

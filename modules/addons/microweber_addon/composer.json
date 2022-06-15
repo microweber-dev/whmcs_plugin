@@ -1,5 +1,8 @@
 {
+    "name": "microweber/whmcs_plugin_microweber_addon",
+    "type": "project",
     "require": {
+        "php": ">=7.3",
         "layershifter/tld-extract": "^2.0",
         "microweber-packages/composer-client": "^1.7",
         "symfony/var-dumper": "^5.4"

@@ -1,10 +1,13 @@
 <?php
 
+
+
 require_once(__DIR__ . '/init.php');
-include_once 'DomainAvailabilityChecksTrait.php';
+require_once (__DIR__ .'/DomainAvailabilityChecksTrait.php');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use WHMCS\Product\Product as Product;
+
 
 class MicroweberAddonDomainSearch
 {

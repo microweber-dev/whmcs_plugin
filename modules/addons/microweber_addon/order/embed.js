@@ -30,9 +30,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // var script = $('#domain-search-iframe-js');
 
     if (!script) {
-        return;
+       // var script_div = document.createElement( 'div' );
+      //  script_div.id = 'domain-search-iframe-js';
+       // $('script[src*="/microweber_addon/"]').after(script_div);
+        $('script[src*="/microweber_addon/"]').setAttribute('id','domain-search-iframe-js');
     }
 
+    var script = $('#domain-search-iframe-js');
+
+    if (!script) {
+        alert('#domain-search-iframe-js');
+        return;
+    }
     var path = script.src.split('/');
     path.pop()
     path.pop()
@@ -80,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         iframe.src = path + '/index.php?m=microweber_addon&function=order_iframe&' + $params;
 
     }
+
     script.parentNode.insertBefore(iframe, script.nextSibling);
 
     addEventListener('message', function (e) {
