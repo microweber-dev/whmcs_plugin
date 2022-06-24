@@ -22,6 +22,8 @@
 
         var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + encodeURI(keyword) + "<?php if (isset($_GET['tld_order'])) {
             echo '&tld_order=' . $_GET['tld_order'];
+        }; ?><?php if (isset($_REQUEST['template_id'])) {
+            echo '&template_id=' . $_REQUEST['template_id'];
         }; ?>" + "&page=" + page;
 
         var appendNewData = false;
@@ -105,8 +107,16 @@
             if (urlbase.indexOf('?') == -1) {
                 urlbase = urlbase+'?';
             }
+            var template_id = $(this).attr('data-template-id');
+            var config_template_id = $(this).attr('data-config-gid');
 
             var url = urlbase + "&domain=" + domain + "&sld=" + sld + "&tld=" + tld + "&subdomain=" + subdomain + "&target=<?php echo htmlspecialchars($_GET['target']); ?>&style=<?php echo htmlspecialchars(trim($_GET['style'])); ?>";
+
+            if(template_id && config_template_id){
+                var url = url + "&template_id=" + template_id + "&config_gid=" + config_template_id ;
+
+            }
+
 
             <?php if(isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
             window.top.location = url;
@@ -117,6 +127,8 @@
 
     })
 </script>
+
+
 
 <!-- The Modal -->
 <div class="modal" id="wrongSymbols">

@@ -300,8 +300,17 @@
                 if (item.is_free) {
                     item_status_span = '<span class="domain-free-tag">Free</span>';
                 }
+                var other_data = '';
+                <?php if(isset($_REQUEST['template_id'])): ?>
+                other_data = other_data + ' data-template-id="' +<?php print intval($_REQUEST['template_id']) ?> + '"'
+                <?php endif; ?>
+                <?php if(isset($_REQUEST['config_gid'])): ?>
+                other_data = other_data + ' data-config-gid="' +<?php print intval($_REQUEST['config_gid']) ?> + '"'
+                <?php endif; ?>
 
-                var template = '<div class="domain-item '+can_start_class+' '+ajax_status_check_class+'" data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
+
+
+                var template = '<div class="domain-item '+can_start_class+' '+ajax_status_check_class+'" '+other_data+' data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     item_status_span +
@@ -358,6 +367,8 @@
                     <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
                     <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
                 </div>
+
+
 
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
