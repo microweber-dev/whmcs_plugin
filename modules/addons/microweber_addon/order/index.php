@@ -55,14 +55,30 @@ $configoptionGID = $hosting->get_config_option_gid_for_templates();
 
 $templateID = 1;
 
-if (!$getDomain) {
+//if (!$getDomain) {
+//    $step = 1;
+//} elseif (!$getTemplate) {
+//    $step = 2;
+//} elseif (!$getPlan) {
+//    $step = 3;
+//}
+
+
+//    if (isset($GET['step']) and empty($_POST)) {
+//        $step = intval($GET['step']);
+//        unset($GET['step']);
+//    }
+
+
+
+
+if (!$getTemplate) {
     $step = 1;
-} elseif (!$getTemplate) {
+} elseif (!$getDomain) {
     $step = 2;
 } elseif (!$getPlan) {
     $step = 3;
 }
-
 
 
 ?>
@@ -78,14 +94,15 @@ if (!$getDomain) {
 <?php if (isset($_REQUEST['template_view']) AND $_REQUEST['template_view'] == 'true'): ?>
     <?php include "steps/preview_template.php"; ?>
 <?php else: ?>
-    <?php if ($step == 1): ?>
+    <?php if ($step == 2): ?>
         <?php
-
         include __DIR__ . "/steps/domains.php"; ?>
-    <?php elseif ($step == 2): ?>
-        <?php include __DIR__ . "/steps/templates.php"; ?>
+    <?php elseif ($step == 1): ?>
+        <?php
+        include __DIR__ . "/steps/templates.php"; ?>
     <?php elseif ($step == 3): ?>
-        <?php include __DIR__ . "/steps/plans.php"; ?>
+        <?php
+        include __DIR__ . "/steps/plans.php"; ?>
     <?php else: ?>
         <?php include(__DIR__ . '/params.php'); ?>
 

@@ -104,6 +104,16 @@ trait DomainAvailabilityChecksTrait
 
         $domainObject = new WHMCS\Domains\Domain($sld, $tld);
 
+
+
+        $checker = new WHMCS\Domain\Checker();
+        $checkAvailability = $checker->getLookupProvider()->checkAvailability($domainObject,[$tld]);
+        $searchResult = $checkAvailability->offsetGet(0);
+        if ($searchResult->getStatus() == WHMCS\Domains\DomainLookup\SearchResult::STATUS_NOT_REGISTERED) {
+            return true;
+        }
+
+
         $check = new WHMCS\Domain\Checker();
         $check->cartDomainCheck($domainObject, array($domainObject->getDotTopLevel()));
         $searchResult = $check->getSearchResult()->offsetGet(0);
@@ -111,6 +121,10 @@ trait DomainAvailabilityChecksTrait
         if ($searchResult->getStatus() == WHMCS\Domains\DomainLookup\SearchResult::STATUS_NOT_REGISTERED) {
             return true;
         }
+
+
+
+
 
         return false;
     }
