@@ -73,8 +73,8 @@
             </div>
 
             <div class="form-group">
-                <label for="inputPhone" class="control-label">{$LANG.clientareaphonenumber}</label>
-                <input type="tel" name="phonenumber" id="inputPhone" value="{$clientphonenumber}"{if in_array('phonenumber',$uneditablefields)} disabled=""{/if} class="form-control" />
+                <label for="inputPhone" class="control-label">Change Password</label>
+                <button>Change password</button>
             </div>
 
         </div>
@@ -86,6 +86,16 @@
                     <option value="none">{$LANG.paymentmethoddefault}</option>
                     {foreach from=$paymentmethods item=method}
                         <option value="{$method.sysname}"{if $method.sysname eq $defaultpaymentmethod} selected="selected"{/if}>{$method.name}</option>
+                    {/foreach}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="inputBillingContact" class="control-label">{$LANG.defaultbillingcontact}</label>
+                <select name="billingcid" id="inputBillingContact" class="form-control">
+                    <option value="0">{$LANG.usedefaultcontact}</option>
+                    {foreach from=$contacts item=contact}
+                        <option value="{$contact.id}"{if $contact.id eq $billingcid} selected="selected"{/if}>{$contact.name}</option>
                     {/foreach}
                 </select>
             </div>
