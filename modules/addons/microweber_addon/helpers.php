@@ -335,7 +335,31 @@ function get_enabled_templates()
         $templates = $templates->toArray();
     }
 
-    return $templates;
+    $hosting = new \MicroweberAddon\Hosting();
+
+    $enabled_templates = $hosting->get_enabled_market_templates();
+
+    $return = [];
+    if ($templates) {
+        foreach ($templates as $template) {
+            foreach ($enabled_templates as $enabled_template) {
+                if (isset($enabled_template['configoption']) and isset($enabled_template['configoption']['id'])) {
+                    if ($template->config_option_id == $enabled_template['configoption']['id']) {
+                        //var_dump($enabled_template);
+                        if (isset($enabled_template['keywords']) and !empty($enabled_template['keywords'])) {
+                            $template->keywords = $enabled_template['keywords'];
+                        } else {
+                            $template->keywords = [];
+
+                        }
+                        $return[] = $template;
+
+                    }
+                }
+            }
+        }
+    }
+    return $return;
 
 //    $ready = [];
 //
