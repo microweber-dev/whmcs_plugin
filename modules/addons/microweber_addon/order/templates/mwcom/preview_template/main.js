@@ -9,8 +9,25 @@ function selectDevice(name) {
         .css('max-height', innerHeight);
     _selectDeviceTime = setTimeout(function(){
         setScale();
-        $(".device-holder iframe").css('opacity', 1) 
+        $(".device-holder iframe").css('opacity', 1)
     }, 700)
+}
+
+function selectDevice2(name, target) {
+    var width = '100%';
+    if(name === 'tablet') {
+        // width = '768px';
+        width = '800px';
+    } else if(name === 'phone') {
+        width = '480px';
+    }
+    document.querySelector('#template-demo-iframe').style.width = width;
+    Array.from(document.querySelectorAll('#preview-toolbar .screens button.active')).forEach(function (node){
+        node.classList.remove('active');
+    })
+    if(target) {
+        target.classList.add('active');
+    }
 }
 
 var _setScaleInit = null;
@@ -32,5 +49,5 @@ function setScale() {
 }
 
 $(document).ready(function () {
- //   setScale();
+    //   setScale();
 })

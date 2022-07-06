@@ -51,7 +51,6 @@
 </style>
 <?php
 $templates = get_enabled_templates();
-
  ?>
 <?php if (empty((array) $templates)): ?>
     <div class="alert alert-danger" role="alert">

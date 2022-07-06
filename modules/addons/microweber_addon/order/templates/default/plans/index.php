@@ -8,8 +8,6 @@ $controller = new MicroweberAddonApiController();
 $plans = $controller->get_hosting_products($params);
 
 
-
-// print_r($plans);
 ?>
 
 <style>
