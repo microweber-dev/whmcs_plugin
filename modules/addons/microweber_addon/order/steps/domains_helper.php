@@ -123,7 +123,7 @@
             }
 
 
-            <?php if(isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
+            <?php if(isset($_GET['target']) AND ($_GET['target'] == 'top' or $_GET['target'] == '_top')): ?>
             window.top.location = url;
             <?php else: ?>
             document.location = url;
