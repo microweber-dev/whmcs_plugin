@@ -1,7 +1,7 @@
  @import url('https://fonts.cdnfonts.com/css/milliard');
 
  body {
-    font-family: 'Milliard', sans-serif;
+    font-family: 'Milliard', sans-serif!important;
  }
 
  p, a, span {
@@ -25,13 +25,13 @@
 
 .profile-sidebar-top {
     border-radius: 10px;
-        display: flex;
-        align-items: center;
+    display: flex;
+    align-items: center;
 
 }
 
 .sidebar .profile-sidebar-image {
-    margin: 0 0 0 10px!important;
+    margin: 0 0 0 20px!important;
 
 }
 
@@ -64,6 +64,8 @@
         background-position: 0% 50%;
     }
 }
+
+
 
 
 @media screen and (max-width: 1500px) {
@@ -100,9 +102,34 @@
 
 }
 
-.whmc-kbtn:hover {
-color: #ffffff!important;
+.whmc-kbtn-2 {
+    font-size: 16px;
+    font-family: "Milliard", sans-serif;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 30px;
+    color:#1279fa;
+    background-color: #ffffff;
+    border: 1px solid #1279fa;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: .3s;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
 }
+
+.whmc-kbtn:hover {
+    color: #ffffff!important;
+}
+
+.whmc-kbtn-2:hover {
+    color: #1279fa!important;
+ }
+
 .header-svg-back-to-site {
     width: auto;
     height: 35px;
@@ -195,7 +222,6 @@ color: #ffffff!important;
    border-radius: 10px;
    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
    transition: all .24s ease!important;
-   width: 300px;
     padding: 0px;
    margin: 10px;
 }
@@ -244,9 +270,53 @@ header .top-right-button {
     padding-left: 100%;
 }
 
+.whm-profile-img {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-position: center top;
+    background-color: white;
+}
+
+.sidebar .navigation li.active a, .sidebar .navigation li.active > a .ct-svg *, .sidebar .navigation a:hover .ct-svg * {
+    color: #1279fa;
+    fill: #1279fa;
+}
+
 @media (max-width: 768px) {
     .back-to-website-button {
         display: none;
     }
 
+}
+
+@media (max-width: 1500px) {
+   .profile-sidebar-top {
+        justify-content: center;
+   }
+    .profile-sidebar-image {
+            display: none;
+    }
+
+    .profile-sidebar-name {
+        font-size: 15px;
+
+    }
+}
+
+@media (max-width: 1000px) {
+    .client-area-row-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .client-area-box-2 {
+        order: 1;
+    }
+
+    .client-area-box-1 {
+            order: 2;
+        }
 }

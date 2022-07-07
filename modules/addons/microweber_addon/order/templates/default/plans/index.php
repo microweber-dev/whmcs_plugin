@@ -54,7 +54,7 @@ $plans = $controller->get_hosting_products($params);
                                     $planIcon = 'mw-micon-solid-Sleeping';
                                 }
                                 ?>
-                                <div class="col-md-6 col-lg-3">
+                                <div class="col-md-6 col-lg-6">
                                     <div class="plan <?php echo $planType; ?>">
 
                                         <div class="heading">

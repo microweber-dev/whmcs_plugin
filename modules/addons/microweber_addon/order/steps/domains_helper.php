@@ -108,7 +108,12 @@
             var subdomain = $(this).attr('data-subdomain');
             var target = $(this).attr('data-target');
 
-            var urlbase = document.location.href;
+         //   var urlbase = document.location.href;
+
+            var urlbase = new URL(document.location.href);
+            urlbase.searchParams.delete('from_step');
+
+            urlbase = urlbase.toString()
             if (urlbase.indexOf('?') == -1) {
                 urlbase = urlbase+'?';
             }
@@ -123,7 +128,7 @@
             }
 
 
-            <?php if(isset($_GET['target']) AND $_GET['target'] == 'top'): ?>
+            <?php if(isset($_GET['target']) AND ($_GET['target'] == 'top' or $_GET['target'] == '_top')): ?>
             window.top.location = url;
             <?php else: ?>
             document.location = url;

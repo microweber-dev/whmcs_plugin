@@ -360,7 +360,7 @@
 <section class="section-60 p-t-30 p-b-30 fx-particles">
     <div class="container">
         <div class="row flexbox-container">
-            <div class="col-md-12 fx-deactivate allow-drop">
+            <div class="col-md-12 col-sm-12 fx-deactivate allow-drop">
 
                 <div class="just-text text-center m-b-20">
                     <h1 class="m-b-20">Choose your domain name</h1>
@@ -434,8 +434,11 @@
 
                 </div>
 
+
                 <div class="just-text boxes p-b-50">
+
                     <div class="row">
+                        <?php if(!isset($_REQUEST['quick_search'])): ?>
                         <div class="col-md-4">
                             <h6>Register a new domain</h6>
                             <p>Register a domain for your site to make it easier to remember and easier to share.</p>
@@ -451,8 +454,18 @@
                             <h6>Connect your email</h6>
                             <p>Use your custom domain in your email address by using cPanel or other email services.</p>
                         </div>
+
+
+                         <?php else: ?>
+
+                            <div class="col-md-12 col-sm-12">
+
+                            </div>
+                        <?php endif; ?>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
