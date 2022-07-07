@@ -320,3 +320,99 @@ header .top-right-button {
             order: 2;
         }
 }
+
+
+
+#user_registration_form #domain-search-field {
+    height: 80px!important;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+    border: none!important;
+    border-radius: 10px 0 0 10px!important;
+
+}
+
+.input-domain-domains-area::placeholder {
+   font-size: 18px;
+    font-weight: 300;
+    color: #2b2b2b;
+}
+
+.input-domain-domains-area-btn {
+     border-radius: 0 10px 10px 0!important;
+}
+
+.clear-domain {
+    margin-top: 30px!important;
+}
+
+.domain-item.cant-start:hover {
+        box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+
+}
+
+.domain-item.can-start:hover {
+    box-shadow: 0px 0px 1px #1279fa, 0px 2px 24px rgb(0 0 0 / 8%)!important;
+}
+
+.domain-item.cant-start span {
+    opacity: 70%;
+}
+
+.domain-recommended-tag {
+    background: #1279fa!important;
+}
+
+.btn-primary {
+        color: #ffffff;
+        background: #1279fa;
+        border: 1px solid #1279fa;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    background: #1279fa;
+    border: 1px solid #1279fa;
+}
+
+
+.pricing-list-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.pricing-list-2 .plan {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+    border: none!important;
+    border-radius: 10px!important;
+}
+
+
+.templates .template {
+        width: 100%!important;
+        height: 450px!important;
+        box-shadow: none!important;
+        border: none!important;
+        margin: 0px!important;
+}
+
+.templates .template-box {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+    padding: 0px;
+}
+
+.templates .template:hover {
+
+       transition: 6s;
+       padding: 0px;
+}
+
+.template-box-bottom-1 {
+    padding: 10px 20px;
+}
+
+
+.template-box-bottom-2 {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}

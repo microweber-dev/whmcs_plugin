@@ -21,21 +21,24 @@ $plans = $controller->get_hosting_products($params);
 </style>
 
 <div class="step-3">
-    <section class="section-62 section-blue p-t-90  p-b-90 fx-particles">
+    <section class="p-t-90  p-b-90 fx-particles">
         <div class="container p-t-50 p-b-100">
             <div class="row">
                 <div class="col-md-12 fx-deactivate allow-drop text-center">
-                    <h3>Choose your <?php echo $controller->branding_get_company_name(); ?> plan </h3>
-                    <p>We are giving you 14 days free trail, no credit card required <br/> before you make purchases.</p>
+<!--                    <h3>Choose your --><?php //echo $controller->branding_get_company_name(); ?><!-- plan </h3>-->
+                    <h1 style="font-size: 48px; font-weight: 700;">Select Your Plan</h1>
+                    <p>Take advantage of our premium plan to be sure your site will run smoothly</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-63 section-silver p-t-0 p-b-0 fx-particles">
+    <section class="section-63  p-t-0 p-b-0 fx-particles">
         <div class="container p-t-50 p-b-50 pricing-holder">
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="hosting">
+
+
                     <div class="row pricing-list-2">
                         <?php if ($plans) { ?>
                             <?php foreach ($plans as $key => $plan) { ?>
@@ -53,23 +56,14 @@ $plans = $controller->get_hosting_products($params);
                                     $planType = '';
                                     $planIcon = 'mw-micon-solid-Sleeping';
                                 }
+
                                 ?>
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="plan <?php echo $planType; ?>">
-
-                                        <div class="heading">
-                                            <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
-                                            <div class="description">
-                                            <button type="submit"   class="btn btn-default btn-md m-t-20" formtarget="form_<?php print $plan['id'] ?>" form="form_<?php print $plan['id'] ?>" >Start</button>
-                                            </div>
-
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="plan <?php echo $planType; ?>" >
+                                        <div class="heading" style="text-align: center;">
                                             <div class="price">
-
-
-
-
-
-
+                                                <h1 style="font-size: 24px; font-weight: 300; color: #2b2b2b;"><?php echo $plan['name']; ?></h1>
+<!--                                                --><?php //echo $plan['description']; ?>
                                                 <!--                                                <script language="javascript" src="--><?php //print site_url(); ?><!--feeds/productsinfo.php?pid=--><?php //print $plan['id'] ?><!--&get=price&billingcycle=monthly"></script>-->
 
                                                 <?php
@@ -93,22 +87,24 @@ $plans = $controller->get_hosting_products($params);
 
 
                                                 <?php if ($is_free): ?>
-                                                Free
+                                                <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;">Free</p>
                                                     <span class="period safe-element">14 days free trial</span>
                                                 <?php else: ?>
-                                                    <?php print $price; ?>
+                                                    <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;"><?php print $price; ?></p>
+
+
                                                     <span class="period safe-element"><?php print $billing_cycle; ?></span>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
 
-                                        <div class="description">
+                                        <div class="description" style="text-align: center;">
                                         <?php
                                         $desc = $plan['description'];
                                         if(isset($plan['features'])){
                                             $desc = '<ul>';
                                              foreach ($plan['features'] as $featk=>$feat){
-                                                $desc = $desc.'<li><b>'.$featk.'</b> '.$feat.'</li>';
+                                                $desc = $desc.'<li style="font-weight: 300; line-height: 2.5; font-size: 18px; color: #2b2b2b;">'.$featk.' '.$feat.'</li>';
                                             }
                                             $desc .= '</ul>';
                                         }
@@ -117,7 +113,7 @@ $plans = $controller->get_hosting_products($params);
 
                                        // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
 
-                                        print  $desc;
+                                        print $desc;
 
 
 
@@ -136,7 +132,7 @@ $plans = $controller->get_hosting_products($params);
                                                      <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
                                                     <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                                                    <button type="submit"   class="btn btn-default btn-md m-t-20" >Start</button>
+                                                    <button type="submit"   class="whmc-kbtn " style="width: 100%;" >Order Now</button>
                                                 </form>
 
 
@@ -159,91 +155,6 @@ $plans = $controller->get_hosting_products($params);
         </div>
     </section>
 
-
-    <section class="section-67 section-white p-t-0 p-b-0 fx-particles">
-        <div class="container p-t-50 p-b-50 ">
-            <div class="row m-b-70">
-                <div class="col-xs-12 text-center">
-                    <h3>What all plans include</h3>
-                    <p>What your free website builder have?</p>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row specs-list">
-                <div class="col-sm-6 col-md-3 cloneable">
-                    <div class="title"><i class="material-icons safe-element">mouse</i> <span class="safe-element">Drag and Drop</span></div>
-                    <div class="specifications">
-                        <ul>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Drag and drop expirience</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Live Edit Text</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Real-time User Statistics</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Template Layouts</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">WYSIWYG Editor</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 cloneable">
-                    <div class="title"><i class="material-icons safe-element">shopping_cart</i> <span class="safe-element">E-commerce</span></div>
-                    <div class="specifications">
-                        <ul>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Full E-commece solution</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Adding products</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Set Currencies</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Custom fields</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Managing orders</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Managing customers</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Track orders</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Set shipping cost</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Set Taxes</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Invoices</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Payment providers </span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">integrations</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Automatic e-mail order </span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Notification</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Abonded cart</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 cloneable">
-                    <div class="title"><i class="material-icons safe-element">star</i> <span class="safe-element">Website Builder</span></div>
-                    <div class="specifications">
-                        <ul>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Adding pages</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Adding categories and subcategories</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Managing Menus</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Search</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Adding buttons and links</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Uploading images</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Managing Galleries</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Uploading Videos</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Automated Update System</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Login & Register</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Website Language Setup</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Database Backup & Restore</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">SEO Settings</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 cloneable">
-                    <div class="title"><i class="material-icons safe-element">question_answer</i> <span class="safe-element">Blog Platform</span></div>
-                    <div class="specifications">
-                        <ul>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Real time Text writing</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Managing comments</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Social Sharing</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Quick E-mail reader</span></li>
-                            <li class="cloneable"><i class="material-icons safe-element">check</i> <span class="safe-element">Contact forms</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 
 <?php include 'partials/footer.php'; ?>

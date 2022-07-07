@@ -62,7 +62,12 @@ $templates = get_enabled_templates();
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == '_top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center"><h1>Select a template</h1></div>
+                <div class="col-md-12 text-center">
+
+                    <h1 style="font-size: 48px; font-weight: 700;">Create a Website Based on a Great Template</h1>
+                    <p style="font-size: 18px!important; font-weight: 300;">Choose From a library of Hundreds of Professional Prepared Mobile Ready Themes</p>
+
+                </div>
             </div>
         <?php endif; ?>
 
@@ -77,7 +82,7 @@ $templates = get_enabled_templates();
 
                     <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
 
-                    <div class="col-md-4 col-xs-6">
+                    <div class="col-md-6 col-xs-6 m-b-30 template-box">
                         <form method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
                             <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
@@ -86,10 +91,15 @@ $templates = get_enabled_templates();
 
                             <a href="javascript:;" onclick="parentNode.submit();">
                                 <div class="template" style="background-image: url('<?php echo $template->screenshot_url; ?>');"></div>
-                                <h3><?php echo $template->preview_name; ?></h3>
+                                <h3 class="template-box-bottom-1" style="font-size: 18px; font-weight: 700;"><?php echo $template->preview_name; ?></h3>
                             </a>
 
                         </form>
+
+                       <div class="template-box-bottom-2 d-flex m-t-15">
+                           <a href="" class="whmc-kbtn-2">Preview</a>
+                           <a href="" class="whmc-kbtn">Start</a>
+                       </div>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

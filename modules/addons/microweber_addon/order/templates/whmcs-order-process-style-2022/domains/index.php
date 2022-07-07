@@ -378,13 +378,13 @@
 
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
-                        <div class="input-holder">
+                        <div class="input-holder" style="display: flex;">
+                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                             <button class="js-clear-domain clear-domain" type="button"></button>
-                            <button class="btn btn-default search-domain js-search-domains" type="submit">Search</button>
-                            <input type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
+                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit">Search</button>
                         </div>
 
-                        <p class="provide-domains">We provide .com .net .org domains.</p>
+                        <p class="provide-domains">We provide .com .net .org .eu domains.</p>
 
                         <div class="fixed-container user_registration_form_msg">
                             <div class="urf urf_warn" style="display: none;">
@@ -432,33 +432,33 @@
 
                         </div>
 
-                        <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">
-                            <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>
-                        </div>
+<!--                        <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">-->
+<!--                            <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>-->
+<!--                        </div>-->
 
                     </form>
 
                 </div>
 
-                <div class="just-text boxes p-b-50">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6>Register a new domain</h6>
-                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>
-                        </div>
-
-                        <div class="col-md-4">
-                            <h6>Connect your own domain</h6>
-                            <p>Already have a domain name? Point it to your <?php echo $controller->branding_get_company_name(); ?> website in a few easy steps.
-                            </p>
-                        </div>
-
-                        <div class="col-md-4">
-                            <h6>Connect your email</h6>
-                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="just-text boxes p-b-50">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-md-4">-->
+<!--                            <h6>Register a new domain</h6>-->
+<!--                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="col-md-4">-->
+<!--                            <h6>Connect your own domain</h6>-->
+<!--                            <p>Already have a domain name? Point it to your --><?php //echo $controller->branding_get_company_name(); ?><!-- website in a few easy steps.-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="col-md-4">-->
+<!--                            <h6>Connect your email</h6>-->
+<!--                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

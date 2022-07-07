@@ -6,7 +6,7 @@
            <p style="margin-top: 20px;">Create the perfect site with powerful drag and drop tools</p>
 
 
-           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=default&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
+           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
        </div>
 
