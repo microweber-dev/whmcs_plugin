@@ -25,9 +25,9 @@
 
 .profile-sidebar-top {
     border-radius: 10px;
-        display: flex;
-        align-items: center;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidebar .profile-sidebar-image {
@@ -249,4 +249,15 @@ header .top-right-button {
         display: none;
     }
 
+}
+
+@media (max-width: 1500px) {
+    .profile-sidebar-image {
+            display: none;
+    }
+
+    .profile-sidebar-name {
+        font-size: 15px;
+
+    }
 }
