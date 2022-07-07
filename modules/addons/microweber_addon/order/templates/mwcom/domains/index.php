@@ -4,6 +4,12 @@
     <div></div>
 </div>
 <style>
+    .js-autocomplete-placeholder .domain-free-tag,
+    .js-autocomplete-placeholder .not-available-tag,
+    .js-autocomplete-placeholder .domain-recommended-tag{
+        background-color: transparent;
+        border-color: transparent;
+    }
     #templates-page-bg {
         height: 400px;
         top: 0;
@@ -326,6 +332,28 @@
     .ajax-loading-placeholder {
         display: none;
     }
+
+    .domain-top h3{
+        font-size: 24px;
+        font-weight: 300;
+    }
+    .domain-top h4{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .domain-top h2{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .domain-top small{
+        font-size: 15px;
+    }
+    .domain-top{
+        text-align: center;
+        padding: 50px 0;
+        color: #000;
+    }
+
 </style>
 
 <script>
@@ -474,12 +502,13 @@
         <div class="row flexbox-container">
             <div class="col-md-12 fx-deactivate allow-drop">
 
-                <div class="just-text text-center m-b-20">
-                    <p class="m-b-20">Discover a name that fits and help visitors find your site faster.
-                        <?php // print  lang_translate_key('store.chooseDomain'); ?>
-                    </p>
-                    <p>Get a free one-year domain name voucher with select website Premium plans.</p>
+                <div class="domain-top">
+                    <h2>Domain Search</h2>
+                    <small><strong>.com   .net   .org   .biz   .info </strong></small>
+                    <h3>Discover the name that fits and help visitors find your site faster.</h3>
+                    <h4>Get a free one-year domain name voucher with select website Premium plans.</h4>
                 </div>
+
 
 
 
@@ -522,8 +551,8 @@
                                 <div class="domain-item cant-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="not-available-tag">Unavailable</span>
-                                        <span class="di-price">&nbsp;</span>
+                                        <span class="not-available-tag"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>
+
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -531,8 +560,8 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-free-tag">Free</span>
-                                        <span class="di-price">$0.00</span>
+                                        <span class="domain-free-tag"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>
+
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -540,8 +569,8 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-recommended-tag">Available</span>
-                                        <span class="di-price">$10.00</span>
+                                        <span class="domain-recommended-tag"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>
+
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
