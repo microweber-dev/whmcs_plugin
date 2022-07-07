@@ -41,7 +41,7 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-success">
-                                <i class="fa fa-shopping-cart"></i>
+                                <i class="fa fa-shopping-cart" ></i>
                                 {$LANG.ordernowbutton}
                             </button>
                         </div>

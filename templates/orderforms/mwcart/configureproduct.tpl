@@ -278,7 +278,7 @@
 
                         <div class="text-center">
                             <button type="button" id="btnCompleteProductConfig" class="cbtn" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
-                            <a href="cart.php?a=view" class="cbtn cbtn-alt"><i class="fa fa-shopping-cart"></i> {$LANG.viewcart}</a>
+                            <a href="cart.php?a=view" class="cbtn cbtn-alt"><i class="fa fa-shopping-cart" ></i> {$LANG.viewcart}</a>
                         </div>
 
                     </div>

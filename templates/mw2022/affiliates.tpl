@@ -22,7 +22,7 @@
 
             <div class="col-sm-4 tile">
                 <div>
-                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-shopping-cart" ></i>
                     <div class="stat">{$signups}</div>
                     <div class="title">{$LANG.affiliatessignups}</div>
                 </div>

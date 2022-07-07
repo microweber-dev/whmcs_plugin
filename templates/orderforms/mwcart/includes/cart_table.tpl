@@ -149,5 +149,5 @@
 </form>
 <div class="cartbuttons hidden">
     <button type="button" class="btn btn-danger btn-sm" onclick="emptyCart();return false"><i class="fa fa-divash"></i> {$LANG.emptycart}</button>
-    <a href="cart.php" class="btn btn-default btn-sm"><i class="fa fa-shopping-cart"></i> {$LANG.continueshopping}</a>
+    <a href="cart.php" class="btn btn-default btn-sm"><i class="fa fa-shopping-cart" ></i> {$LANG.continueshopping}</a>
 </div>

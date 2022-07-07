@@ -16,6 +16,7 @@
 
 
 
+
 <div id="container">
 
     <div class="mobile-overlay"></div>
@@ -23,14 +24,17 @@
         <div class="header-holder">
             <div class="wrapper">
                 <div class="div-table {if !$loggedin}not-logged-user{/if}">
-                    <div class="div-table-cell">
+                    <div class="div-table-cell" style="display: flex; margin-top: 10px; align-items: center;">
                         {if $logo}
-                            <a href="{$WEB_ROOT}/" class="logo"><img src="{$logo}" alt="{$companyname}"></a>
-                        {else}
+{*                            <a href="{$WEB_ROOT}/" class="logo"><img src="{$logo}" alt="{$companyname}"></a>*}
+                            <a href="http://microweber.com">
+                                <svg class="header-svg-back-to-site" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.05 16.94V12.94H18.97L19 10.93H10.05V6.94L5.05 11.94Z" /></svg>
+                            </a>
+                                {else}
                             <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
                         {/if}
 
-                        <a href="http://microweber.com" class="cbtn cbtn-small cbtn-green back-to-website-button">Back to Site</a>
+                        <a href="http://microweber.com" class="back-to-website-button" style="font-size: 18px; margin: 0!important; font-weight: 300;">Back to Site</a>
                     </div>
                     <div class="div-table-cell">
                         <nav class="main-menu">
@@ -139,17 +143,17 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="cbtn top-right-button hidden-mobile pull-right">My Websites</a>
+                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right" style="margin-top: 6px;">My Websites</a>
                             {if $cartitems==0}
                                 <a href="cart.php?a=checkout" class="cbtn cbtn-alt top-right-button hidden-mobile pull-right" style="padding: 0 10px;" title="0 Items"><span
-                                            class="fa fa-shopping-cart"></span> &nbsp;0</a>
+                                            class="fa fa-shopping-cart" ></span> &nbsp;0</a>
                             {else}
                                 <a href="cart.php?a=checkout" class="cbtn cbtn-alt top-right-button hidden-mobile pull-right" style="padding: 0 10px;" title="{$cartitems} Items"><span
-                                            class="fa fa-shopping-cart"></span> &nbsp;{$cartitems}</a>
+                                            class="fa fa-shopping-cart" ></span> &nbsp;{$cartitems}</a>
                             {/if}
                         {else}
-                            <a href="{$WEB_ROOT}/clientarea.php" class="hidden-mobile">Log In</a>
-                            <a href="{$WEB_ROOT}/index.php" class="cbtn top-right-button">Get Started</a>
+                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>
+                            <a href="{$WEB_ROOT}/index.php" class="kbtn top-right-button" >Get Started</a>
                         {/if}
                     </div>
                 </div>

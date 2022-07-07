@@ -114,7 +114,7 @@
                     </button>
                     <button type="submit" name="checkout" value="1" class="btn btn-primary">
                         Checkout
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="fa fa-shopping-cart" ></i>
                     </button>
 
                 </div>

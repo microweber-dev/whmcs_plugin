@@ -92,7 +92,7 @@
 
             <p class="text-center">
                 <button type="submit" class="btn mw-blue m-t-30">
-                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-shopping-cart" ></i>
                     {$LANG.ordernowbutton}
                 </button>
             </p>

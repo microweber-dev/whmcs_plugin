@@ -1,8 +1,9 @@
 @import url("microweber/header.css");
 @import url("microweber/whm.css");
+@import url('https://fonts.cdnfonts.com/css/milliard');
 
 body {
-    font-family: 'Open Sans', sans-serif;
+   font-family: 'Milliard', sans-serif;
 }
 
 .wrapper {

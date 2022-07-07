@@ -254,7 +254,7 @@ header .top-right-button {
     margin-right: 5px;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1500px) {
 
     header {
         position: relative;
@@ -547,9 +547,9 @@ header .top-right-button {
 }
 
 @media screen and (max-width: 1366px) {
-    .top-right-button {
-        display: none !important;
-    }
+//     .top-right-button {
+//         display: none !important;
+//     }
 
     header .div-table-cell:first-child,
     header .div-table-cell:last-child {

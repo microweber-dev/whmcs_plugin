@@ -1,8 +1,50 @@
-@import url("https://fonts.cdnfonts.com/css/milliard");
+ @import url('https://fonts.cdnfonts.com/css/milliard');
 
-body {
+ body {
     font-family: 'Milliard', sans-serif;
+ }
+
+ p, a, span {
+    font-size: 18px;
+ }
+
+.page-wrapper {
+    background: #ffffff;
 }
+
+.page-content {
+    border: unset;
+}
+
+.sidebar .profile-sidebar {
+
+    border: 1px solid white;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
+    border-radius: 10px;
+}
+
+.profile-sidebar-top {
+    border-radius: 10px;
+        display: flex;
+        align-items: center;
+
+}
+
+.sidebar .profile-sidebar-image {
+    margin: 0 0 0 10px!important;
+
+}
+
+.sidebar .navigation {
+    border-radius: 10px;
+
+}
+
+.wrapper {
+    width: 90%;
+}
+
+
 
 .sidebar .profile-sidebar-top {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -21,4 +63,190 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+
+
+@media screen and (max-width: 1500px) {
+    .kbtn {
+        float: right;
+        cursor: pointer;
+        height: 40px;
+        align-self: center;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+}
+
+.whmc-kbtn{
+    font-size: 16px;
+    font-family: "Milliard", sans-serif;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 30px;
+    color:#fff;
+    background-color: #1279fa;
+    border: 1px solid transparent;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: .3s;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
+
+}
+
+.whmc-kbtn:hover {
+color: #ffffff!important;
+}
+.header-svg-back-to-site {
+    width: auto;
+    height: 35px;
+    background-color: #2b2b2b;
+    border-radius: 50%;
+    fill: white;
+}
+
+.cbtn {
+    margin: 0 5px;
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 25px;
+    color: white;
+    border-radius: 0px;
+    background: #1279fa;
+    text-align: center;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #0086DB;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    outline: none;
+}
+
+.svg-icon-outline-i, .svg-icon-outline-l, .svg-icon-outline-p, .svg-icon-outline-s {
+    fill: none;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-icon-stroke {
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-icon-prime.svg-icon-stroke {
+    stroke: #189bfc;
+}
+.svg-icon-prime {
+    fill: #189bfc;
+}
+
+
+
+.svg-icon-prime.svg-icon-stroke {
+    stroke: #1279fa;
+}
+.svg-icon-prime {
+    fill: #1279fa;
+}
+
+
+.svg-icon-prime.svg-icon-stroke {
+    stroke: #1279fa;
+}
+
+.svg-icon-prime-l {
+    fill: #189bfc;
+}
+
+.svg-icon-outline-i {
+    stroke: #ffffff;
+}
+
+.svg-icon-outline-s {
+ stroke: #2b2b2b;
+}
+
+.svg-icon-dashed-21, .svg-icon .dashed-21 {
+    stroke-dasharray: 4.27 8.53;
+}
+
+.svg-icon-dashed-22, .svg-icon .dashed-22 {
+    stroke-dasharray: 3.7 7.4;
+}
+
+.tiles .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.client-area-boxes {
+   border-radius: 10px;
+   box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
+   transition: all .24s ease!important;
+   width: 300px;
+    padding: 0px;
+   margin: 10px;
+}
+
+.client-area-row {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(1) a, .mw-whm.clientareahome .tiles .tile:nth-child(2) a, .mw-whm.clientareahome .tiles .tile:nth-child(3) a, .mw-whm.clientareahome .tiles .tile:nth-child(4) a {
+    border: 1px solid #1279fa;
+    color: #1279fa;
+}
+
+.mw-whm.clientareahome .tiles .tile:nth-child(1) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(1) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(2) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(2) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(3) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(3) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(4) a:hover, .mw-whm.clientareahome .tiles .tile:nth-child(4) a:hover {
+    border: 1px solid #f6fafb!important;
+    color: #1279fa!important;
+    background-color: #f6fafb;
+}
+
+
+.profile-sidebar-name, .sidebar .navigation a {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+header .main-menu > ul > li > a:hover:after {
+    background: #1279fa;
+}
+
+header .main-menu li ul {
+    border-color: #1279fa;
+}
+
+header .top-right-button {
+    background: #ffffff;
+    color: #1279fa;
+    border-color: white;
+}
+
+.client-area-background-image {
+    padding: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-left: 100%;
+}
+
+@media (max-width: 768px) {
+    .back-to-website-button {
+        display: none;
+    }
+
 }
