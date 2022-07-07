@@ -103,7 +103,12 @@
             var subdomain = $(this).attr('data-subdomain');
             var target = $(this).attr('data-target');
 
-            var urlbase = document.location.href;
+         //   var urlbase = document.location.href;
+
+            var urlbase = new URL(document.location.href);
+            urlbase.searchParams.delete('from_step');
+
+            urlbase = urlbase.toString()
             if (urlbase.indexOf('?') == -1) {
                 urlbase = urlbase+'?';
             }

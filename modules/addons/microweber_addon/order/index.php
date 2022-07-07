@@ -63,12 +63,15 @@ $templateID = 1;
 //    $step = 3;
 //}
 
-
-if (isset($_GET['step']) and empty($_POST)) {
-    $step = intval($_GET['step']);
-    unset($_GET['step']);
+if ($step == 0) {
+    if (!isset($_GET['step']) and empty($_POST)) {
+        if (isset($_GET['from_step']) and empty($_POST)) {
+            $step = intval($_GET['from_step']);
+            unset($_GET['from_step']);
+            unset($_REQUEST['from_step']);
+        }
+    }
 }
-
 if ($step == 0) {
     if (!$getTemplate) {
         $step = 1;
