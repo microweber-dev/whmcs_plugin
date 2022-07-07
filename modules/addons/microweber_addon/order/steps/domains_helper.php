@@ -18,7 +18,12 @@
             $("#container").removeClass('domain-search-field-on')
         }
 
-        var keyword = $("#domain-search-field").val();
+        var keyword = $("#domain-search-field").val().trim();
+
+        if(!keyword) {
+            render_domain_search_list([], false);
+            return;
+        }
 
         var URL = "<?php print site_url();?>index.php?m=microweber_addon&ajax=1&function=domain_search&domain=" + encodeURI(keyword) + "<?php if (isset($_GET['tld_order'])) {
             echo '&tld_order=' . $_GET['tld_order'];

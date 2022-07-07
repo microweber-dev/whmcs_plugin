@@ -1,22 +1,60 @@
 <?php include 'partials/header.php'; ?>
-
+<div id="templates-page-bg">
+    <div></div>
+    <div></div>
+</div>
 <style>
-    #user_registration_form #domain-search-field {
-        height: 60px;
-        font-size: 18px;
-        background: white;
-        border-radius: 1px;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
-        outline: none;
+    #templates-page-bg {
+        height: 400px;
+        top: 0;
+        left: 0;
         width: 100%;
-        padding: 0 30px;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
+        position: absolute;
+    }
+    #templates-page-bg div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #templates-page-bg div:first-child {
+        background: linear-gradient(129deg, rgba(189,52,127,1) 0%, rgba(254,195,137,1) 33%, rgba(219,252,255,0.28335084033613445) 72%, rgba(31,200,218,1) 100%);
+        opacity: .7;
+    }
+    #templates-page-bg div:last-child {
+        background: linear-gradient(0deg, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+    }
+    #domain-search-box{
         transition: all 0.3s;
-        font-weight: bold;
-        border: 1px solid #cdcdcd;
+    }
+    #domain-search-box.focus{
+        transform: scale(1.005);
     }
 
+    #user_registration_form #domain-search-field:focus {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+        xbox-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.25) 0px -2px 6px 0px inset;
+
+    }
+    #user_registration_form #domain-search-field {
+        height: 70px;
+        font-size: 24px;
+        background: white;
+        border-radius: 0px;
+        outline: none;
+        width: 100%;
+        padding: 0 170px 0 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: all 0.3s;
+        font-weight: bold;
+        border: 1px solid #000;
+    }
+
+    .input-holder{
+        z-index: 2;
+    }
     .input-holder,
     .fixed-container,
     .provide-domains {
@@ -36,15 +74,26 @@
         padding-left: 45px;
     }
 
+    .domain-item:hover{
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+    .domain-item .domainName{
+        display: inline-block;
+        line-height: 50px;
+        padding-left: 20px;
+        font-size: 17px;
+    }
     .domain-item {
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-
-        padding: 15px 30px;
+        align-items: center;
+        padding: 0;
         background: white;
-        margin: 0 0 4px 0;
         color: #393939;
+        line-height: 50px;
+        margin: 10px 0 0;
+        transition: .3s;
     }
 
     .domain-item .startWith {
@@ -68,27 +117,15 @@
 
     .domain-item.can-start:hover {
         color: #0086db;
-        -webkit-box-shadow: 0 0 10px #0086db;
-        box-shadow: 0 0 3px #0086db;
+
     }
 
     .domain-item.cant-start:hover {
         color: #393939;
-        -webkit-box-shadow: 0 0 10px #393939;
-        box-shadow: 0 0 3px #393939;
+
     }
 
-    .domain-item .last-div:after {
-        display: block;
-        float: right;
-        width: 20px;
-        height: 20px;
-        content: '';
-        background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/cart.png');
-        font-size: 34px;
-        line-height: 19px;
-        color: #969696;
-    }
+
 
     .domain-item.cant-start .last-div:after {
         visibility: hidden;
@@ -152,18 +189,20 @@
     }
 
     .clear-domain {
-        background: none;
+
         border: 0;
         position: absolute;
-        right: 0;
-        margin-top: 23px;
-        margin-right: 145px;
+        right: 160px;
+        top: 50%;
         background-image: url('<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/img/domain-search/clear-domain.png');
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         outline: none;
         cursor: pointer;
         visibility: hidden;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        margin-top: -10px;
     }
 
     .clear-domain.visible {
@@ -173,13 +212,31 @@
     .search-domain {
         border: 0;
         position: absolute;
+        top: 0;
         right: 0;
-        margin-top: 11px;
-        margin-right: 12px;
-        width: 120px;
-        height: 38px;
-        outline: none;
+        text-align: center;
+        min-width: 140px;
+        height: 100%;
+
         cursor: pointer;
+
+        padding: 0 20px;
+        border-radius: 0;
+        font-weight: normal;
+        font-size: 22px;
+        text-transform: uppercase;
+        z-index: 1;
+    }
+
+
+    .search-domain,
+    .search-domain:hover,
+    .search-domain:focus,
+    .search-domain:active{
+        background-color: #000 !important;
+        color: #fff !important;
+        outline: none;
+        border: none;
     }
 
     .domain-search-field-on .clear-domain {
@@ -197,43 +254,40 @@
         }
     }
 
-    .domain-recommended-tag {
-        background: #0086DB;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        color: #fff;
+    .loading-preloader-item,
+    .domain-free-tag,
+    .domain-recommended-tag,
+    .not-available-tag {
         text-transform: uppercase;
-        font-size: 11px;
-        margin-left: 15px;
+        font-size: 17px;
         padding: 2px 10px;
         letter-spacing: 1px;
+        min-width: 150px;
+        text-align: center;
+        line-height: 50px;
+        display: inline-block;
+        border: 1px solid transparent;
+    }
+
+    .domain-recommended-tag {
+        background: #0030ff;
+
+        color: #fff;
+
     }
 
     .domain-free-tag {
-        background: #00cc6e;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
+        background: #2fa700;
+
         color: #fff;
-        text-transform: uppercase;
-        font-size: 11px;
-        margin-left: 15px;
-        padding: 2px 10px;
-        letter-spacing: 1px;
+
     }
 
     .not-available-tag {
-        background: #999999;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        color: #fff;
-        text-transform: uppercase;
-        font-size: 11px;
-        margin-left: 15px;
-        padding: 2px 10px;
-        letter-spacing: 1px;
+        background: rgba(153, 153, 153, 0);
+        border-color: #111;
+        color: #111;
+
     }
 
     @media screen and (min-width: 1200px) {
@@ -244,9 +298,7 @@
     }
 
     @media screen and (max-width: 767px) {
-        .domain-item {
-            padding: 15px 5px;
-        }
+
 
         .domain-recommended-tag,
         .domain-free-tag {
@@ -256,10 +308,20 @@
 
     .ajax-loading .domainName,
     .ajax-loading .di-price {
-        background-color: #dcdcdc;
+
         color: #dcdcdc;
         border-radius: 3px;
+        animation: blinker 1s linear infinite;
     }
+
+
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
 
     .ajax-loading-placeholder {
         display: none;
@@ -267,9 +329,47 @@
 </style>
 
 <script>
-    function render_domain_search_list(results, append = false) {
 
-        if (append == false) {
+    addEventListener('load', function (){
+        document.getElementById('user_registration_form').addEventListener('submit', function (e){
+            var val = document.querySelector('#domain-search-field').value.trim();
+            if(!val) {
+                e.preventDefault();
+                return false;
+            }
+        })
+    })
+    addEventListener('DOMContentLoaded', function (){
+        var fld = document.querySelector('#domain-search-field')
+        fld.addEventListener('focus', function () {
+            this.parentNode.classList.toggle('focus')
+        })
+        fld.addEventListener('blur', function () {
+            this.parentNode.classList.toggle('focus')
+        })
+        var hash = null;
+        fld.addEventListener('input', function () {
+            hash = encodeURIComponent(this.value.trim())
+            location.hash = hash;
+        })
+        addEventListener('hashchange', function () {
+            var h = decodeURIComponent(location.hash).replace('#', '').replace('%23', '')
+            if(h !== hash) {
+                hash = h;
+                fld.value = hash;
+            }
+        })
+        if(location.hash && location.hash !== hash) {
+            hash =  decodeURIComponent(location.hash).replace('#', '').replace('%23', '');
+            fld.value = hash;
+        }
+
+    })
+    function render_domain_search_list(results, append) {
+        if(typeof append === 'undefined') {
+            append = false;
+        }
+        if (append === false) {
             $("#domain-search-field-autocomplete").html('');
         }
 
@@ -280,20 +380,32 @@
             $.each(results, function (i, item) {
                 all_res_render = all_res_render + getDomainItemTemplate(item);
             });
+            console.log(typeof all_res_render, all_res_render.length)
+            if(!all_res_render.trim().length) return;
+            console.log(2)
 
             function getDomainItemTemplate(item) {
+                var nm = item.domain.split('.')[0];
+                if(!nm) {
+                    $("#domain-search-field-autocomplete").removeClass('ajax-loading');
+
+                    if (typeof(resize_iframe_to_parent) != 'undefined') {
+                        resize_iframe_to_parent()
+                    }
+                    return ''
+                }
 
                 var ajax_status_check_class = '';
                 var can_start_class = 'cant-start';
-                var item_status_span = '<span class="not-available-tag">Unavailable</span>';
+                var item_status_span = '<span class="not-available-tag">N/A</span>';
 
                 if (item.status == 'available') {
-                    item_status_span = '<span class="domain-recommended-tag">Available</span>';
+                    item_status_span = '<span class="domain-recommended-tag">'+item.price_formated+'</span>';
                     can_start_class = 'can-start';
                 }
 
                 if (item.ajax_status_check) {
-                    item_status_span = '<span><img src="modules/addons/microweber_addon/order/loading.gif" /></span>';
+                    item_status_span = '<span class="loading-preloader-item"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>';
                     ajax_status_check_class = 'js-domain-ajax-status-check';
                 }
 
@@ -314,7 +426,7 @@
                     '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     item_status_span +
-                    '<span class="di-price">' + item.price_formated + '</span>' +
+                    //'<span class="di-price">' + item.price_formated + '</span>' +
                     '</div> ' +
                     '<div class="clearfix"></div> ' +
                     '</div>';
@@ -340,11 +452,11 @@
                         cache: false,
                         type: "POST",
                         success: function (response) {
-                           $(item).replaceWith(getDomainItemTemplate(response));
+                            $(item).replaceWith(getDomainItemTemplate(response));
                         }
                     });
 
-               });
+                });
             }, 369);
 
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');
@@ -363,22 +475,33 @@
             <div class="col-md-12 fx-deactivate allow-drop">
 
                 <div class="just-text text-center m-b-20">
-                    <h1 class="m-b-20">Choose your domain name</h1>
-                    <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
-                    <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
+                    <p class="m-b-20">Discover a name that fits and help visitors find your site faster.
+                        <?php // print  lang_translate_key('store.chooseDomain'); ?>
+                    </p>
+                    <p>Get a free one-year domain name voucher with select website Premium plans.</p>
                 </div>
 
 
 
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
-                        <div class="input-holder">
+                        <div class="input-holder" id="domain-search-box">
+                            <input
+                                    type="text"
+                                    name="domain"
+                                    placeholder="Type a domain name here"
+                                    tabindex="1"
+                                    autocomplete="off"
+                                    id="domain-search-field"
+                                    value=""
+                                    autofocus
+                            />
+
                             <button class="js-clear-domain clear-domain" type="button"></button>
                             <button class="btn btn-default search-domain js-search-domains" type="submit">Search</button>
-                            <input type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 
-                        <p class="provide-domains">We provide .com .net .org domains.</p>
+                        <p class="provide-domains">We provide .com .net .org .biz .info domains.</p>
 
                         <div class="fixed-container user_registration_form_msg">
                             <div class="urf urf_warn" style="display: none;">
@@ -426,32 +549,23 @@
 
                         </div>
 
+                        <?php
+                        /*
+
                         <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">
-                            <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>
-                        </div>
+                           <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>
+                       </div>
+
+                         * */
+
+                        ?>
 
                     </form>
 
                 </div>
 
                 <div class="just-text boxes p-b-50">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6>Register a new domain</h6>
-                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>
-                        </div>
 
-                        <div class="col-md-4">
-                            <h6>Connect your own domain</h6>
-                            <p>Already have a domain name? Point it to your <?php echo $controller->branding_get_company_name(); ?> website in a few easy steps.
-                            </p>
-                        </div>
-
-                        <div class="col-md-4">
-                            <h6>Connect your email</h6>
-                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
