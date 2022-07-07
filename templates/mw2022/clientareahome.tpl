@@ -1,18 +1,18 @@
 <div class="mw-whm clientareahome">
 
-   <div class="row d-flex ">
-       <div class="col-sm-4" style="    margin-top: 100px;">
-           <h1 style="font-size: 48px; line-height: 1.2;">Building a Website Has Never Been Easier</h1>
-           <p>Create the perfect site with powerful drag and drop tools</p>
+   <div class="row  client-area-row-box ">
+       <div class="col-lg-4 client-area-box-1" style="    margin-top: 100px;">
+           <h1 style="font-size: 48px; font-weight: 700; line-height: 1.2;">Building a Website Has Never Been Easier</h1>
+           <p style="margin-top: 20px;">Create the perfect site with powerful drag and drop tools</p>
 
 
-           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=default&from_step=2&target=_top" class="whmc-kbtn">Create a Website</a>
-           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=default&from_step=2&target=_top" class="whmc-kbtn">Create a Website</a>
+           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=default&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
+           <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
        </div>
 
-       <div class="col-sm-8">
+       <div class="col-lg-8 client-area-box-2">
 
-           <img  src="{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg" alt="">
+           <img width="100%" src="{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg" alt="">
 
        </div>
    </div>
@@ -20,7 +20,7 @@
 
 
         <div class="row client-area-row">
-            <div class="client-area-boxes col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=services'">
+            <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=services'">
                 <a href="clientarea.php?action=services">
                     <div class="icon" style="font-size: 20px;">
                         <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
@@ -38,7 +38,7 @@
                 </a>
             </div>
             {if $registerdomainenabled || $transferdomainenabled}
-                <div class="client-area-boxes col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=domains'">
+                <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=domains'">
                     <a href="clientarea.php?action=domains">
                         <div class="icon" style="font-size: 20px;">
                             <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" x="0px" y="0px" width="64px" height="64px">
@@ -60,7 +60,7 @@
                     </a>
                 </div>
             {elseif $condlinks.affiliates && $clientsstats.isAffiliate}
-                <div class="client-area-boxes col-sm-3 col-xs-6 tile" onclick="window.location='affiliates.php'">
+                <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='affiliates.php'">
                     <a href="affiliates.php">
                         <div class="icon" style="font-size: 20px;"><i class="fa fa-shopping-cart" ></i></div>
                         <div class="stat">{$clientsstats.numaffiliatesignups}</div>
@@ -69,7 +69,7 @@
                     </a>
                 </div>
             {else}
-                <div class="client-area-boxes col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=quotes'">
+                <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=quotes'">
                     <a href="clientarea.php?action=quotes">
                         <div class="icon" style="font-size: 20px;"><i class="fa fa-file-text-o"></i></div>
                         <div class="stat">{$clientsstats.numquotes}</div>
@@ -78,7 +78,7 @@
                     </a>
                 </div>
             {/if}
-            <div class="client-area-boxes col-sm-3 col-xs-6 tile" onclick="window.location='supporttickets.php'">
+            <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='supporttickets.php'">
                 <a href="supporttickets.php">
                     <div class="icon" style="font-size: 20px;">
                         <svg class="svg-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +96,7 @@
                     <div class="highlight bg-color-red"></div>
                 </a>
             </div>
-            <div class="client-area-boxes col-sm-3 col-xs-6 tile" onclick="window.location='clientarea.php?action=invoices'">
+            <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=invoices'">
                 <a href="clientarea.php?action=invoices">
                     <div class="icon" style="font-size: 20px;">
                         <svg class="svg-icon " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.98 63.53" x="0px" y="0px" width="64px" height="64px">
@@ -126,46 +126,19 @@
 
 
 </div>
+{literal}
+    <style>
+        div[menuitemname="Active Products/Services"],
+        div[menuitemname="Recent News"] {
+            display: none;
+        }
+    </style>
 
-<style>
-    div[menuitemname="Active Products/Services"],
-    div[menuitemname="Recent News"] {
-        display: none;
-    }
-</style>
-
-{*{if $registerdomainenabled || $transferdomainenabled}*}
-{*    <h2>{$LANG.homebegin}</h2>*}
-{*    <form method="post" action="domainchecker.php" id="frmDomainHomepage">*}
-{*        <input type="hidden" name="transfer"/>*}
-{*        <div class="row">*}
-{*            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">*}
-{*                <div class="input-group input-group-lg">*}
-{*                    <input type="text" class="form-control" name="domain" placeholder="{$LANG.exampledomain}" autocapitalize="none" data-toggle="tooltip" data-placement="left" data-trigger="manual" title="{lang key='orderForm.required'}"/>*}
-{*                    <span class="input-group-btn">*}
-{*                                    {if $registerdomainenabled}*}
-{*                                        <input type="submit" class="btn search{$captcha->getButtonClass($captchaForm)}" value="{$LANG.search}"/>*}
-{*                                    {/if}*}
-{*                        {if $transferdomainenabled}*}
-{*                            <input type="submit" id="btnTransfer" class="btn transfer{$captcha->getButtonClass($captchaForm)}" value="{$LANG.domainstransfer}"/>*}
-{*                        {/if}*}
-{*                                </span>*}
-{*                </div>*}
-{*            </div>*}
-{*        </div>*}
-
-
-{*    </form>*}
-{*{else}*}
-{*    <h2>{$LANG.doToday}</h2>*}
-{*{/if}*}
-
-
-
+{/literal}
 
 {literal}
 
-    <script src="modules/addons/microweber_addon/order/embed.js?style=default&from_step=2&quick_search=1&target=_top" id="domain-search-iframe-js"></script>
+    <script src="modules/addons/microweber_addon/order/embed.js?style=whmcs-order-process-style-2022&from_step=2&quick_search=1&target=_top" id="domain-search-iframe-js"></script>
 
 {/literal}
 

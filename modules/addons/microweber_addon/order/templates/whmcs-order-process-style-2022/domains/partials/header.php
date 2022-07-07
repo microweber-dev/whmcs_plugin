@@ -13,13 +13,15 @@
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/fonts/mw-icons-mind/solid/style.css" rel="stylesheet"/>
 
     <!-- Custom Theme -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+<!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>-->
 
-    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/css/typography.css" rel="stylesheet"/>
+    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/whmcs-order-process-style-2022/domains/assets/css/typography.css" rel="stylesheet"/>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/css/main.css" class="css-main" rel="stylesheet"/>
-    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/css/custom.css" rel="stylesheet"/>
+    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/whmcs-order-process-style-2022/domains/assets/css/main.css" class="css-main" rel="stylesheet"/>
+    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/whmcs-order-process-style-2022/domains/assets/css/custom.css" rel="stylesheet"/>
+    <link href="<?php echo site_url(); ?>/templates/mw2022/css/microweber-new-2022.css" rel="stylesheet">
+
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

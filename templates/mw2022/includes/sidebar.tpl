@@ -23,7 +23,7 @@
 <div class="sidebar">
     <div class="profile-sidebar-top">
         <div class="profile-sidebar-image">
-            <span id="user-avatar-sidebar" class="pst-img img-circle" style="display:none;background-image: url('{$WEB_ROOT}/templates/{$template}/img/avatar.jpg');"></span>
+            <span id="user-avatar-sidebar" class="whm-profile-img img-circle" style="display:none;background-image: url('{$WEB_ROOT}/templates/{$template}/img/avatar.jpg');"></span>
 
             <svg id="user-avatar-sidebar-default" class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.9 64" x="0px" y="0px" width="64px" height="64px">
                 <path class="svg-icon-outline-s dashed-13 stroke" d="M53.78,53.92a31.2,31.2,0,0,1-44,0A30,30,0,0,1,1,32.21,31,31,0,0,1,9.77,10.08a31.2,31.2,0,0,1,44,0,30.9,30.9,0,0,1,0,43.84Z"></path>
