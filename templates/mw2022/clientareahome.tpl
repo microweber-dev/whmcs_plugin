@@ -1,22 +1,13 @@
 <div class="mw-whm clientareahome">
-{*        <img  src="{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-1.jpg" alt="">*}
-
-{*    <div class="client-area-background-image" style="background-image: url('{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-1.jpg')">*}
-{*        <div class="container">*}
-{*           <div class="row">*}
-{*               <h3>Building a Website Has Never Been Easier</h3>*}
-
-{*               <p>Create the perfect site with powerful drag and drop tools</p>*}
-{*           </div>*}
-{*        </div>*}
-{*    </div>*}
-
 
    <div class="row d-flex ">
        <div class="col-sm-4" style="    margin-top: 100px;">
            <h1 style="font-size: 48px; line-height: 1.2;">Building a Website Has Never Been Easier</h1>
            <p>Create the perfect site with powerful drag and drop tools</p>
 
+
+           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=default&from_step=2&target=_top" class="whmc-kbtn">Create a Website</a>
+           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=default&from_step=2&target=_top" class="whmc-kbtn">Create a Website</a>
        </div>
 
        <div class="col-sm-8">
@@ -143,38 +134,38 @@
     }
 </style>
 
-{if $registerdomainenabled || $transferdomainenabled}
-    <h2>{$LANG.homebegin}</h2>
-    <form method="post" action="domainchecker.php" id="frmDomainHomepage">
-        <input type="hidden" name="transfer"/>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" name="domain" placeholder="{$LANG.exampledomain}" autocapitalize="none" data-toggle="tooltip" data-placement="left" data-trigger="manual" title="{lang key='orderForm.required'}"/>
-                    <span class="input-group-btn">
-                                    {if $registerdomainenabled}
-                                        <input type="submit" class="btn search{$captcha->getButtonClass($captchaForm)}" value="{$LANG.search}"/>
-                                    {/if}
-                        {if $transferdomainenabled}
-                            <input type="submit" id="btnTransfer" class="btn transfer{$captcha->getButtonClass($captchaForm)}" value="{$LANG.domainstransfer}"/>
-                        {/if}
-                                </span>
-                </div>
-            </div>
-        </div>
+{*{if $registerdomainenabled || $transferdomainenabled}*}
+{*    <h2>{$LANG.homebegin}</h2>*}
+{*    <form method="post" action="domainchecker.php" id="frmDomainHomepage">*}
+{*        <input type="hidden" name="transfer"/>*}
+{*        <div class="row">*}
+{*            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">*}
+{*                <div class="input-group input-group-lg">*}
+{*                    <input type="text" class="form-control" name="domain" placeholder="{$LANG.exampledomain}" autocapitalize="none" data-toggle="tooltip" data-placement="left" data-trigger="manual" title="{lang key='orderForm.required'}"/>*}
+{*                    <span class="input-group-btn">*}
+{*                                    {if $registerdomainenabled}*}
+{*                                        <input type="submit" class="btn search{$captcha->getButtonClass($captchaForm)}" value="{$LANG.search}"/>*}
+{*                                    {/if}*}
+{*                        {if $transferdomainenabled}*}
+{*                            <input type="submit" id="btnTransfer" class="btn transfer{$captcha->getButtonClass($captchaForm)}" value="{$LANG.domainstransfer}"/>*}
+{*                        {/if}*}
+{*                                </span>*}
+{*                </div>*}
+{*            </div>*}
+{*        </div>*}
 
 
-    </form>
-{else}
-    <h2>{$LANG.doToday}</h2>
-{/if}
+{*    </form>*}
+{*{else}*}
+{*    <h2>{$LANG.doToday}</h2>*}
+{*{/if}*}
 
 
 
 
-{*{literal}*}
+{literal}
 
-{*    <script src="modules/addons/microweber_addon/order/embed.js?style=default&step=2&target=_top" id="domain-search-iframe-js"></script>*}
+    <script src="modules/addons/microweber_addon/order/embed.js?style=default&from_step=2&quick_search=1&target=_top" id="domain-search-iframe-js"></script>
 
-{*{/literal}*}
+{/literal}
 
