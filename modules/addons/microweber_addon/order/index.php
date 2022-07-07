@@ -64,22 +64,20 @@ $templateID = 1;
 //}
 
 
-//    if (isset($GET['step']) and empty($_POST)) {
-//        $step = intval($GET['step']);
-//        unset($GET['step']);
-//    }
-
-
-
-
-if (!$getTemplate) {
-    $step = 1;
-} elseif (!$getDomain) {
-    $step = 2;
-} elseif (!$getPlan) {
-    $step = 3;
+if (isset($_GET['step']) and empty($_POST)) {
+    $step = intval($_GET['step']);
+    unset($_GET['step']);
 }
 
+if ($step == 0) {
+    if (!$getTemplate) {
+        $step = 1;
+    } elseif (!$getDomain) {
+        $step = 2;
+    } elseif (!$getPlan) {
+        $step = 3;
+    }
+}
 
 ?>
 
