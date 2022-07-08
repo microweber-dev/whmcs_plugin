@@ -287,7 +287,7 @@
                 });
 
             //$("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/1gy-03uv0lE?autoplay=1" frameborder="0" allowfullscreen></iframe>')
-            $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/-ius5MMpKY4?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+            // $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/-ius5MMpKY4?autoplay=1" frameborder="0" allowfullscreen></iframe>')
 
             sitePerccent = 1;
             setInterval(function () {

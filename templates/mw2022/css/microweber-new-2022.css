@@ -122,6 +122,49 @@
     position: relative;
 }
 
+.whmc-kbtn-small{
+    font-size: 12px;
+    font-family: "Milliard", sans-serif;
+    line-height: 25px;
+    text-align: center;
+    padding: 0 13px;
+    color:#fff;
+    background-color: #1279fa;
+    border: 1px solid transparent;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: .3s;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
+    margin-right: 4px;
+
+}
+
+.whmc-kbtn-2-small {
+    font-size: 12px;
+    font-family: "Milliard", sans-serif;
+    line-height: 25px;
+    text-align: center;
+    padding: 0 15px;
+    color:#1279fa;
+    background-color: #ffffff;
+    border: 1px solid #1279fa;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 600;
+    transition: .3s;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
+    margin-right: 4px;
+}
+
 .whmc-kbtn:hover {
     color: #ffffff!important;
 }
@@ -129,6 +172,14 @@
 .whmc-kbtn-2:hover {
     color: #1279fa!important;
  }
+
+ .whmc-kbtn-small:hover {
+     color: #ffffff!important;
+ }
+
+ .whmc-kbtn-2-small:hover {
+     color: #1279fa!important;
+  }
 
 .header-svg-back-to-site {
     width: auto;
@@ -375,10 +426,6 @@ header .top-right-button {
 }
 
 
-.pricing-list-2 {
-    display: flex;
-    justify-content: center;
-}
 
 .pricing-list-2 .plan {
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
@@ -519,4 +566,50 @@ header .top-right-button {
     #domain-selector {
         width: 90%!important;
      }
+}
+
+.mw-whm table.table > thead > tr > th {
+    width: 16%!important;
+}
+
+.mw-whm table td, .mw-whm table.table > tbody > tr > td, .mw-whm table.table > tbody > tr > th, .mw-whm table.table > tfoot > tr > td, .mw-whm table.table > tfoot > tr > th, .mw-whm table.table > thead > tr > td, .mw-whm table.table > thead > tr > th {
+    padding: 16px 40px;
+}
+
+.oc-hero {
+
+    background: url("../img/order-confirmation.jpg")!important;
+    background-repeat: no-repeat!important;
+    background-size: contain!important;
+    background-position: center center!important;
+
+ }
+
+.mw-whm .pagination > .active > a, .mw-whm .pagination > .active > a:focus, .mw-whm .pagination > .active > a:hover, .mw-whm .pagination > .active > span, .mw-whm .pagination > .active > span:focus, .mw-whm .pagination > .active > span:hover {
+        background-color: #1279fa;
+        border-color: #1279fa;
+        color: #fff;
+}
+
+
+#Primary_Navbar-Services-My_Licenses, #Primary_Navbar-Affiliates, #Primary_Navbar-Store {
+    display: none!important;
+}
+
+.plans-whmc-li {
+    font-weight: 300;
+    line-height: 2.5;
+    font-size: 18px;
+   color: #2b2b2b;
+   list-style: none;
+}
+
+.price-per-what {
+    font-size: 14px!important;
+    line-height: 14px!important;
+    font-weight: normal!important;
+    position: relative!important;
+    color: #737373!important;
+    display: block!important;
+    margin-bottom: 30px;
 }

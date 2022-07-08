@@ -1,9 +1,9 @@
 <div class="mw-whm clientareaproducts">
 
     <div class="header-lined text-center">
-        <h1>My Products</h1>
+        <h1 style="font-size: 36px; font-weight: 700;">My Website</h1>
         <br/>
-        <a href="index.php?m=microweber_addon&function=order_iframe&style=default&target=_top" class="cbtn m-b-10"><i class="fa fa-plus"></i> &nbsp; Create New Website</a>
+        <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; Create New Website</a>
     </div>
 
 
@@ -28,10 +28,10 @@
         <table id="tableServicesList" class="table table-list hidden" style="width: 100%;">
             <thead>
             <tr>
-                <th>{$LANG.orderproduct}</th>
-                <th>{$LANG.clientareaaddonpricing}</th>
-                <th>{$LANG.clientareahostingnextduedate}</th>
-                <th>{$LANG.clientareastatus}</th>
+                <th style="width: 20%!important">{$LANG.orderproduct}</th>
+                <th style="width: 20%!important">{$LANG.clientareaaddonpricing}</th>
+                <th style="width: 20%!important">{$LANG.clientareahostingnextduedate}</th>
+                <th style="width: 20%!important">{$LANG.clientareastatus}</th>
                 <th class="responsive-edit-button" style="display: none;"></th>
             </tr>
             </thead>
@@ -53,11 +53,11 @@
                         {else}
 
 
-                            <a href="upgrade.php?type=package&id={$service.id}" class="cbtn cbtn-alt cbtn-small cbtn-circle" data-toggle="tooltip" title="Change plan"><i class="fa fa-database"></i></a>
+                            <a href="upgrade.php?type=package&id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="Change plan">Plan</a>
 
-                            <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="cbtn cbtn-alt cbtn-small cbtn-circle" data-toggle="tooltip" title="{$LANG.manageproduct}"><i class="fa fa-cog"></i></a>
+                            <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="{$LANG.manageproduct}">Manage</i></a>
 
-                            <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" class="cbtn cbtn-small">Edit site</a>
+                            <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" data-toggle="tooltip" title="Edit this website" class="whmc-kbtn-small">Edit</a>
 
                         {/if}
 
@@ -74,3 +74,12 @@
 
 </div>
 
+{literal}
+    <script>
+
+        $( document ).ready(function() {
+            $('.form-control.input-sm').attr('placeholder', 'Search...');
+        });
+
+    </script>
+{/literal}

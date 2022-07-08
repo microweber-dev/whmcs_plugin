@@ -104,7 +104,7 @@ $plans = $controller->get_hosting_products($params);
                                         if(isset($plan['features'])){
                                             $desc = '<ul>';
                                              foreach ($plan['features'] as $featk=>$feat){
-                                                $desc = $desc.'<li style="font-weight: 300; line-height: 2.5; font-size: 18px; color: #2b2b2b;">'.$featk.' '.$feat.'</li>';
+                                                $desc = $desc.'<li class="plans-whmc-li">'.$featk.' '.$feat.'</li>';
                                             }
                                             $desc .= '</ul>';
                                         }
@@ -119,13 +119,9 @@ $plans = $controller->get_hosting_products($params);
 
                                         ?>
 
-
-
-
                                         </div>
                                         <?php if ($plan['id']): ?>
                                             <div class="description last">
-
                                                 <form method="post" action="<?php echo $current_url ?>" class="clearfix" id="form_<?php print $plan['id'] ?>"  name="form_<?php print $plan['id'] ?>">
                                                     <input type="hidden" value="1" name="start_with_plan"/>
                                                     <input type="hidden" value="<?php print $plan['id'] ?>" name="plan_id"/>
@@ -135,16 +131,9 @@ $plans = $controller->get_hosting_products($params);
                                                     <button type="submit"   class="whmc-kbtn " style="width: 100%;" >Order Now</button>
                                                 </form>
 
-
-
 <!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="btn btn-default btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
                                             </div>
                                         <?php endif; ?>
-
-
-
-
-
                                     </div>
                                 </div>
                             <?php } ?>

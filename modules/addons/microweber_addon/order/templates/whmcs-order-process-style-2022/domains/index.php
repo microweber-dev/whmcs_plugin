@@ -368,7 +368,7 @@
         <div class="row flexbox-container">
             <div class="col-md-12 fx-deactivate allow-drop">
 
-                <div class="just-text text-center m-b-20">
+                <div class="just-text text-center m-t-80 m-b-20">
                     <h1 class="m-b-20">Register Domain and Create Site</h1>
                     <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
                     <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>

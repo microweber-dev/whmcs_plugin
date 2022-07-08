@@ -25,12 +25,12 @@
 
 
 <div class="oc-hero">
-  <h1>{$LANG.orderconfirmation}</h1>
+{*  <h1>{$LANG.orderconfirmation}</h1>*}
 </div>
 
 <div id="order-loading">
 
-  <p align="center" style="padding-top: 40px;">Loading...
+  <p  style="text-align: center; padding-top: 40px;">Loading...
     <progress value="0" max="10" id="progressBar"></progress></p>
 
 </div>
@@ -38,7 +38,7 @@
 
   <div id="order-loading-done" style="display: none">
   <p align="center" style="padding-top: 40px;">
-    <a class="cbtn cbtn-normal" href="clientarea.php?action=productdetails&id={$orderid}">Go to my website</a>
+    <a class="whmc-kbtn" href="clientarea.php?action=productdetails&id={$orderid}">Go to my website</a>
   </p>
   </div>
 
@@ -51,7 +51,7 @@
 <p>{$LANG.orderreceived}</p>
 
 <div class="cartbox">
-<p align="center"><strong>{$LANG.ordernumberis} {$ordernumber}</strong></p>
+<p style="text-align: center;"><strong>{$LANG.ordernumberis} {$ordernumber}</strong></p>
 
 
 
