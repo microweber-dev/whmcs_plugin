@@ -142,3 +142,143 @@
 
 {/literal}
 
+<div class="site-section section-primary">
+    <div class="container-fluid">
+        <h2 class="section-title">Our Guarantees</h2>
+        <p class="section-subtitle">Learn why we are trusted by over 35,000 clients worldwides</p>
+        <div class="section-content">
+            <div class="row row-eq-height row-eq-height-xs features">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature feature-xs-left">
+                        <div class="feature-icon">
+                            <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                                <polygon class="svg-icon-prime svg-icon-stroke" points="21,40.7 12,35.5 12,36.6 21,41.8"></polygon>
+                                <polygon class="svg-icon-prime svg-icon-stroke" points="20,44.7 20,36.7 20.5,37 24,43 20.5,45"></polygon>
+                                <line class="svg-icon-outline-s" x1="32" y1="32.7" x2="32" y2="62.5"></line>
+                                <polyline class="svg-icon-outline-s" points="58.5,16.9 32,32.2 5.5,16.9"></polyline>
+                                <polyline class="svg-icon-outline-s" points="26,4.8 26,20 52.6,20"></polyline>
+                                <line class="svg-icon-outline-s" x1="25.5" y1="13" x2="11.7" y2="13"></line>
+                                <line class="svg-icon-outline-s" x1="38" y1="20.5" x2="38" y2="28.2"></line>
+                                <polygon class="svg-icon-outline-s" points="32,63 5,47.4 5,16.6 32,1 59,16.6 59,47.4"></polygon>
+                            </svg>                                </div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">24/7 Expert Support</h4>
+                                <p class="feature-desc">Proactively monitors for and alerts you about any malware that is detected on your website.</p>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature feature-xs-left">
+                        <div class="feature-icon">
+                            <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.87 63.99" x="0px" y="0px" width="64px" height="64px">
+                                <polyline class="svg-icon-outline-s dashed-1" points="10.7 48.01 1 52.43 1 18.72 38.76 1 38.76 10.13"></polyline>
+                                <polygon class="svg-icon-outline-s" points="49.77 5.48 49.77 39.04 11.63 57.24 11.67 22.71 49.77 5.48"></polygon>
+                                <polygon class="svg-icon-prime-l" points="59.06 9.33 62.85 11.32 25.99 62.95 21.87 60.83 21.87 26.5 59.06 9.33"></polygon>
+                                <polygon class="svg-icon-prime" points="62.87 11.39 62.87 44.86 25.87 62.99 25.87 28.41 62.87 11.39"></polygon>
+                                <polyline class="svg-icon-outline-i" points="28.01 54.81 36.67 39.8 46.74 41.94 60.72 15.3"></polyline>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Fast &amp; Reliable</h4>
+                            <p class="feature-desc">If a scan finds anything, SiteLock will safely remove any known malware automatically.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature feature-xs-left">
+                        <div class="feature-icon">
+                            <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.42 64" x="0px" y="0px" width="64px" height="64px">
+                                <path class="svg-icon-outline-s" d="M18.38,59.58A31.17,31.17,0,0,1,1,31.8C1,14.65,15.11,1,32.46,1a32,32,0,0,1,8.19.84"></path>
+                                <path class="svg-icon-outline-s dashed-1" d="M45.23,4A31.17,31.17,0,0,1,31.12,63,32.5,32.5,0,0,1,23,61.71"></path>
+                                <line class="svg-icon-outline-s" x1="44.02" y1="2.97" x2="46.46" y2="10.9"></line>
+                                <line class="svg-icon-outline-s" x1="44.02" y1="2.97" x2="52.26" y2="1.72"></line>
+                                <line class="svg-icon-outline-s" x1="19.21" y1="60.57" x2="11" y2="61.06"></line>
+                                <line class="svg-icon-outline-s" x1="19.21" y1="60.57" x2="17.48" y2="52.35"></line>
+                                <path class="svg-icon-prime-l" d="M49.72,51s-3.1,1.63-3.11,1.63c-1.77-1-5-2.76-5-2.76V29.62C31.83,24,18.71,16,18.71,16l-.53-4.24.23-.16c.67-.42,2.5-1.48,2.5-1.53,9.34,5.39,19.48,10.85,28.81,16.24Z"></path>
+                                <path class="svg-icon-prime" d="M46.68,52.66c-1.39-.79-4.58-2.37-4.58-2.37s.13-18.8-.09-20.35c-4.77-3.26-23.78-13.83-23.78-14.33V11.75c9.34,5.39,19.1,10.78,28.45,16.18Z"></path>
+                                <polygon class="svg-icon-outline-s" points="40.71 53.92 13.71 38.51 13.71 14.06 40.71 29.63 40.71 53.92"></polygon>
+                                <line class="svg-icon-outline-s" x1="13.71" y1="22" x2="40.02" y2="37.05"></line>
+                            </svg>
+
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Super Easy to Use</h4>
+                            <p class="feature-desc">Automatically checks your applications to ensure they are up-to-date and secured against known vulnerabilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature feature-xs-left">
+                        <div class="feature-icon">
+                            <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 63.82" x="0px" y="0px" width="64px" height="64px">
+                                <polyline class="svg-icon-outline-s" points="42 6.01 42 1 1 24.4 1 60.28 6.44 57.14"></polyline>
+                                <polygon class="svg-icon-outline-s" points="7.95 62.82 48 39.52 48 3.64 7.95 26.95 7.95 62.82"></polygon>
+                                <path class="svg-icon-outline-s" d="M10.43,49.93l8.44-13.82,11.41,2.36,13-25.37"></path>
+                                <path class="svg-icon-prime-l" d="M59.84,39.57c0,4.37-10.5,20.76-10.5,20.76S36,57.84,36,53.47c0-4.18,0-18.54,0-18.54L47.85,24.39l11.53-3.24L63,23.05,59.84,39.57Z"></path>
+                                <path class="svg-icon-prime" d="M63,41.6C63,46,50.81,60.51,50.81,60.51s-11.7-1-11.71-5.39c0-4.18,0-18.55,0-18.55L50.8,26.05l12.2-3V41.6Z"></path>
+                            </svg>
+
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">100% Uptime Guaranteed</h4>
+                            <p class="feature-desc">Get protection against the top 10 web app security flaws as recognised by OWASP, the Open Web Application Security Project.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature feature-xs-left">
+                        <div class="feature-icon">
+                            <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.73 62.6" x="0px" y="0px" width="64px" height="64px">
+                                <path class="svg-icon-prime-l" d="M50.36,5.31,46.94,3.36a.89.89,0,0,0-.68-.08L32.06,7a.78.78,0,0,0-.35.18L17.22,19.58a.81.81,0,0,0-.3.62s0,17.09,0,22.06c0,5.72,15.3,8.82,17.1,9.14l.17,0a.92.92,0,0,0,.75-.39c.54-.8,13.34-19.57,13.47-25.06l2.38-19.8A.83.83,0,0,0,50.36,5.31Z"></path>
+                                <path class="svg-icon-prime" d="M50.53,5.38a1,1,0,0,0-.77-.15L36.27,9a.8.8,0,0,0-.37.18L21,21.5c-.2.16-.19.46-.19.7,0,0,0,17.17,0,22.14,0,5.78,13.94,7.15,15.58,7.29h.08a.9.9,0,0,0,.69-.31c1.56-1.79,13.68-17.88,13.68-23.22V6A.83.83,0,0,0,50.53,5.38Z"></path>
+                                <path class="svg-icon-i" d="M44.65,18.78l-.06,0c-.73-.28-1.83.42-2.45,1.56L35.4,32.74l-2.9-2.25c-.62-.47-1.71,0-2.45,1.08l-.05.08c-.74,1.07-.84,2.33-.23,2.81l4.14,3.21.05,0a.65.65,0,0,0,.26.17l.06,0c.73.28,1.83-.41,2.45-1.55l8.12-15C45.47,20.21,45.38,19.06,44.65,18.78Z"></path>
+                                <path class="svg-icon-outline-s dashed-13" d="M12.55,54.75a33.54,33.54,0,0,1-7.22-8.33A30,30,0,0,1,1.94,23.29,31,31,0,0,1,15.61,3.84a31.69,31.69,0,0,1,6-2.84"></path>
+                                <path class="svg-icon-outline-s" d="M62,23.65A31,31,0,0,1,47.91,56.7a31,31,0,0,1-23.39,4.12,30,30,0,0,1-12-6.07"></path>
+                                <line class="svg-icon-outline-s" x1="18.34" y1="1.77" x2="16.67" y2="9.32"></line>
+                                <line class="svg-icon-outline-s" x1="18.34" y1="1.77" x2="10.85" y2="1.84"></line>
+                            </svg>
+
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Secure Servers</h4>
+                            <p class="feature-desc">The TrueShield™ Web Application Firewall protects your website against hackers and attacks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature feature-xs-left">
+                        <div class="feature-icon">
+                            <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" x="0px" y="0px" width="64px" height="64px">
+                                <polyline class="svg-icon-outline-s" points="63 43.41 63 47.41 59.43 49.21"></polyline>
+                                <line class="svg-icon-outline-s dashed-8" x1="50.91" y1="53.49" x2="39.83" y2="59.06"></line>
+                                <polyline class="svg-icon-outline-s" points="35.57 61.2 32 63 28.43 61.2"></polyline>
+                                <line class="svg-icon-outline-s dashed-8" x1="19.91" y1="56.92" x2="8.83" y2="51.35"></line>
+                                <polyline class="svg-icon-outline-s" points="4.57 49.21 1 47.41 1 43.41"></polyline>
+                                <line class="svg-icon-outline-s dashed-9" x1="1" y1="35.26" x2="1" y2="24.66"></line>
+                                <polyline class="svg-icon-outline-s" points="1 20.59 1 16.59 4.57 14.79"></polyline>
+                                <line class="svg-icon-outline-s dashed-8" x1="13.09" y1="10.51" x2="24.17" y2="4.94"></line>
+                                <polyline class="svg-icon-outline-s" points="28.43 2.8 32 1 35.57 2.8"></polyline>
+                                <line class="svg-icon-outline-s dashed-8" x1="44.09" y1="7.08" x2="55.17" y2="12.65"></line>
+                                <polyline class="svg-icon-outline-s" points="59.43 14.79 63 16.59 63 20.59"></polyline>
+                                <line class="svg-icon-outline-s dashed-9" x1="63" y1="28.74" x2="63" y2="39.34"></line>
+                                <polygon class="svg-icon-prime" points="52 34.41 52 42.69 32 52.51 12 42.69 12 34.42 52 34.41"></polygon>
+                                <polygon class="svg-icon-prime-l" points="32 44.23 12 34.42 32 24.6 52 34.42 32 44.23"></polygon>
+                                <polygon class="svg-icon-prime" points="52 22.31 52 30.59 32 40.4 12 30.59 12 22.31 52 22.31"></polygon>
+                                <polygon class="svg-icon-prime-l" points="32 32.13 12 22.31 32 12.49 52 22.31 32 32.13"></polygon>
+                            </svg>
+
+
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">High Performance</h4>
+                            <p class="feature-desc">Instant and fully automated setup gives you protection immediately without anything to install.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

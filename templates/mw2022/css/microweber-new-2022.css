@@ -398,6 +398,11 @@ header .top-right-button {
 .templates .template-box {
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
     padding: 0px;
+    margin: 0 10px;
+}
+
+.box-template-row {
+    margin-top: 80px;
 }
 
 .templates .template:hover {
@@ -415,4 +420,103 @@ header .top-right-button {
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    display: flex;
+}
+
+.col-box-template {
+    width: 48%;
+    float: left;
+}
+
+.page-payments {
+    background: none;
+}
+
+.page-payments .service-block {
+    min-height: 220px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
+    transition: all .24s ease!important;
+    margin: 10px;
+
+}
+
+.page-payments .service-block h1 {
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+
+.page-payments .subscription-block h1 {
+    font-weight: 700;
+
+}
+
+.page-payments .service-block p, .page-payments .service-block span {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.page-payments .service-block.plan .price-per .month .price, .page-payments .service-block.plan .price-per .month, .page-payments .service-block.plan .price-per .month span {
+
+    margin-top: 20px;
+    color: #1279fa;
+
+}
+
+.page-payments .subscription-block .review-order .rev-lable {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.page-payments .subscription-block .review-order .rev-value {
+    font-size: 18px;
+    font-weight: 300;
+    color: #1279fa;
+    text-align: right;
+
+}
+
+.input-sm {
+    font-size: 14px;
+}
+
+.site-section.section-primary .container-fluid {
+    text-align: center;
+}
+
+.site-section.section-primary .section-title {
+    margin-bottom: 20px;
+    font-size: 48px;
+     font-weight: 700;
+      line-height: 1.2;
+}
+
+.site-section.section-primary .section-subtitle {
+    margin-bottom: 5rem;
+}
+
+.site-section.section-primary .section-content {
+    margin-bottom: 20px;
+}
+
+.feature.feature-xs-left {
+    margin-bottom: 50px;
+}
+
+.feature-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.feature-desc {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+@media screen and (min-width: 1200px) {
+
+    #domain-selector {
+        width: 90%!important;
+     }
 }

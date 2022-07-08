@@ -83,11 +83,11 @@
                     <a href="{$smarty.server.PHP_SELF}?a=removepromo" class="cbtn cbtn-small">{$LANG.orderdontusepromo}</a>
                 {else}
                     <div class="row">
-                        <div class="col-xs-6 col-sm-7">
+                        <div class="col-xs-10 col-sm-10">
                             <input type="text" name="promocode" id="inputPromoCode" class="form-control input-sm" placeholder="{lang key="orderPromoCodePlaceholder"}">
                             <input type="hidden" name="validatepromo" id="validatepromo" value="0"/>
                         </div>
-                        <div class="col-xs-6 col-sm-5">
+                        <div class="col-xs-2 col-sm-2">
                             <button type="submit" id="validatePromoCode" class="cbtn cbtn-small">
                                 {$LANG.orderpromovalidatebutton}
                             </button>

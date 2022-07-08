@@ -21,7 +21,7 @@ $plans = $controller->get_hosting_products($params);
 </style>
 
 <div class="step-3">
-    <section class="p-t-90  p-b-90 fx-particles">
+    <section class="p-t-40  p-b-40 fx-particles">
         <div class="container p-t-50 p-b-100">
             <div class="row">
                 <div class="col-md-12 fx-deactivate allow-drop text-center">

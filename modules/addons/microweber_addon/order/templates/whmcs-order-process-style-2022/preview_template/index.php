@@ -136,7 +136,7 @@
 
         <div class="right buttons">
 
-            <form method="post" action="<?php echo $current_url ?>" class="clearfix">
+            <form id="start-with-template-form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                 <input type="hidden" value="false" name="template_view"/>
                 <input type="hidden" value="1" name="start_with_template"/>
 
@@ -146,11 +146,19 @@
                     <span>Preview site</span>
                 </a>
 
-                &nbsp;
+
                 <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
                     <span>Start with this template</span>
                 </span>
 
+                &nbsp;<?php if(isset($_REQUEST['skip_preview_template'])): ?>
+                    <script>
+                        $( document ).ready(function() {
+                            submitForPreview(document.getElementById("start-with-template-form"));
+                        });
+
+                    </script>
+                <?php endif; ?>
             </form>
         </div>
     </div>

@@ -71,7 +71,7 @@ $templates = get_enabled_templates();
             </div>
         <?php endif; ?>
 
-        <div class="row">
+        <div class="row box-template-row">
             <?php if ($templates): ?>
                 <?php foreach ($templates as $template): ?>
 
@@ -82,8 +82,8 @@ $templates = get_enabled_templates();
 
                     <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
 
-                    <div class="col-md-6 col-xs-6 m-b-30 template-box">
-                        <form method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+                    <div class="col-box-template m-b-30 template-box">
+                        <form id="template-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
                             <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
@@ -96,9 +96,20 @@ $templates = get_enabled_templates();
 
                         </form>
 
-                       <div class="template-box-bottom-2 d-flex m-t-15">
-                           <a href="" class="whmc-kbtn-2">Preview</a>
-                           <a href="" class="whmc-kbtn">Start</a>
+                       <div class="template-box-bottom-2 m-t-15">
+                           <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;">Preview</button>
+
+                           <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+
+                               <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
+
+                               <input type="hidden" value="true" name="template_view"/>
+                               <input type="hidden" value="true" name="skip_preview_template"/>
+
+
+                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Start</button>
+                           </form>
+
                        </div>
                     </div>
                 <?php endforeach; ?>

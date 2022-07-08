@@ -12,6 +12,14 @@
                         <small>({$product.domain})</small>
                     {/if}
                 </h1>
+                <p>
+                    {if $product.configoptions}
+                        {foreach key=confnum item=configoption from=$product.configoptions}
+                            {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$LANG.yes}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}
+                            <br/>
+                        {/foreach}
+                    {/if}
+                </p>
 
                 <div class="price-per">
                     <div class="month">
@@ -22,19 +30,8 @@
                         {/if}
                     </div>
                     {*<div class="year"><span>or $60.00 / Year</span></div>*}
-
-
-
-
                 </div>
-                <p>
-                    {if $product.configoptions}
-                        {foreach key=confnum item=configoption from=$product.configoptions}
-                            &nbsp;&raquo; {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$LANG.yes}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}
-                            <br/>
-                        {/foreach}
-                    {/if}
-                </p>
+
 
                 {if $product.allowqty}
                     <p>

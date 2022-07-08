@@ -112,7 +112,7 @@ body {
 }
 
 .sidebar .navigation a:hover .caret {
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .sidebar .navigation li ul {
@@ -126,7 +126,7 @@ body {
 }
 
 .sidebar .navigation li.active a {
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .sidebar .navigation li.current {
@@ -144,7 +144,7 @@ body {
 
 .sidebar .navigation a:hover {
     background: white;
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .sidebar .navigation .svg-icon {
@@ -192,7 +192,7 @@ body {
 
 .sidebar .navigation li.active > a .ct-svg *,
 .sidebar .navigation a:hover .ct-svg * {
-    fill: #0086DB
+    fill: #1279fa
 }
 
 /* Page with content */
@@ -427,13 +427,13 @@ a {
     padding: 0 25px;
     color: white;
     border-radius: 30px;
-    background: #0086DB;
+    background: #1279fa;
     text-align: center;
     position: relative;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
@@ -459,8 +459,8 @@ a {
     /*outline-offset: 15px;*/
     /*text-shadow: 1px 1px 2px #427388;*/
     text-decoration: none;
-    color: #0086DB;
-    border: 1px solid #0086DB;
+    color: #1279fa;
+    border: 1px solid #1279fa;
     background: #fff;
 }
 
@@ -480,12 +480,12 @@ a {
 
 .cbtn-alt {
     background-color: rgba(255, 255, 255, 0);
-    color: #0086DB;
+    color: #1279fa;
     text-decoration: none;
 }
 
 .cbtn-alt:hover {
-    background-color: #0086DB;
+    background-color: #1279fa;
     color: #fff;
     text-decoration: none;
 }
@@ -527,7 +527,7 @@ a {
 
 .cbtn-white.cbtn-alt:hover {
     background-color: rgba(255, 255, 255, 1);
-    color: #0086db;
+    color: #1279fa;
     text-shadow: none;
     text-decoration: none;
 }
@@ -549,7 +549,7 @@ a {
 }
 
 .link {
-    color: #0086db;
+    color: #1279fa;
     font-size: 14px;
 }
 
@@ -597,12 +597,12 @@ a {
 }
 
 #header-holder .checkout-cart .price {
-    color: #0086db;
+    color: #1279fa;
     font-size: 24px;
 }
 
 #header-holder .checkout-cart .per {
-    color: #0086db;
+    color: #1279fa;
     font-size: 12px;
 }
 
@@ -618,12 +618,7 @@ a {
     border: 1px solid #f5f5f5;
 }
 
-.page-payments .service-block:hover {
-    background: #fff;
-    border: 1px solid #dfdfdf;
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .17);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .17);
-}
+
 
 .page-payments .service-block .remove-this {
     /*display: block;*/
@@ -648,8 +643,8 @@ a {
     right: 70px;
     display: none;
     margin-top: -4px;
-    color: #0086DB;
-    border: 1px solid #0086DB;
+    color: #1279fa;
+    border: 1px solid #1279fa;
     padding: 1px 10px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
@@ -659,9 +654,9 @@ a {
 }
 
 .page-payments .service-block .edit-this:hover {
-    background: #0086DB;
+    background: #1279fa;
     color: #fff;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
 }
 
 .page-payments .service-block:hover .edit-this {
@@ -678,13 +673,6 @@ a {
 .page-payments .service-block h1:before {
     position: absolute;
     content: '';
-}
-
-.page-payments .service-block.plan h1:before {
-    background: url("../img/checkout_plan.png");
-    width: 39px;
-    height: 47px;
-    margin-left: -57px;
 }
 
 .page-payments .service-block.domain h1:before {
@@ -712,7 +700,7 @@ a {
 
 .page-payments .service-block.plan .price-per .month,
 .page-payments .service-block.plan .price-per .month span {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-payments .service-block.plan .price-per .month .currency-symbol {
@@ -736,7 +724,7 @@ a {
 
 .page-payments .service-block.domain .domain-label {
     font-size: 18px;
-    color: #0086db;
+    color: #1279fa;
     margin-bottom: 20px;
 }
 
@@ -751,7 +739,7 @@ a {
 
 .page-payments .service-block.domain .price-per .month,
 .page-payments .service-block.domain .price-per .month span {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-payments .service-block.domain .price-per .month .currency-symbol {
@@ -769,7 +757,7 @@ a {
 }
 
 .page-payments .service-block.change {
-    background: #0086db;
+    background: #1279fa;
     padding: 0;
     text-align: center;
 }
@@ -791,12 +779,7 @@ a {
     margin: 50px auto 15px auto;
 }
 
-.page-payments .subscription-block {
-    min-height: 220px;
-    padding: 30px 40px 30px 40px;
-    border: 1px solid transparent;
-    background: #fff;
-}
+
 
 .page-payments .subscription-block .subscription-field .field-helper {
     position: absolute;
@@ -827,7 +810,7 @@ a {
 }
 
 .page-payments .subscription-block .subscription-field .field-helper:hover:after {
-    background: #0086db;
+    background: #1279fa;
 }
 
 .page-payments .subscription-block .subscription-field .field-helper span {
@@ -848,12 +831,6 @@ a {
     color: #fff;
 }
 
-.page-payments .subscription-block:hover {
-    background: #fff;
-    border: 1px solid transparent;
-    -webkit-box-shadow: 0 0 10px #b5dcf5;
-    box-shadow: 0 0 10px #b5dcf5;
-}
 
 .page-payments .subscription-block h1 {
     font-size: 24px;
@@ -874,7 +851,7 @@ a {
 }
 
 .page-payments .subscription-block .description {
-    color: #0086db;
+    color: #1279fa;
     font-size: 16px;
     line-height: 24px;
 }
@@ -891,7 +868,7 @@ a {
 }
 
 .page-payments .subscription-block .cbtn-small {
-    height: 29px;
+    height: 50px;
     line-height: 29px;
     font-size: 13px;
     padding: 0 15px;
@@ -899,7 +876,7 @@ a {
 }
 
 .page-payments .payment-block {
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
     text-align: center;
     padding: 15px;
     height: 100px;
@@ -922,7 +899,7 @@ a {
 }
 
 .page-payments .payment-block.blue {
-    background: #0086db;
+    background: #1279fa;
 }
 
 .page-payments .payment-block.silver {
@@ -976,16 +953,16 @@ a {
 }
 
 .page-payments .radio-buttons li {
-    color: #0086db;
+    color: #1279fa;
     display: block;
     position: relative;
     float: left;
     width: 46%;
     height: 53px;
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
-    border-radius: 25px;
+    border-radius: 0px;
     background: #f5f5f5;
     margin: 2%;
 }
@@ -1007,7 +984,7 @@ a {
 
 .page-payments .radio-buttons li:hover,
 .page-payments .radio-buttons li.active {
-    background: #0086db;
+    background: #1279fa;
 }
 
 .page-payments .radio-buttons li input[type=radio] {
@@ -1035,8 +1012,8 @@ a {
 .page-payments .radio-buttons li .check {
     display: block;
     position: absolute;
-    border: 2px solid #0086db;
-    background: #0086db;
+    border: 2px solid #1279fa;
+    background: #1279fa;
     border-radius: 100%;
     height: 14px;
     width: 14px;
@@ -1088,7 +1065,7 @@ a {
 }
 
 .page-payments .subscription-block .review-order .rev-value {
-    color: #0086db;
+    color: #1279fa;
 }
 
 /* Mobile version */
@@ -1126,21 +1103,21 @@ a {
     -moz-border-radius: 0;
     border-radius: 0;
     border: 1px solid #dedede;
-    height: 38px;
+    height: 50px;
 
     /*box-shadow: 0 1px 3px rgba(0,0,0,.2);*/
 }
 
 .btn-primary {
     color: #fff;
-    background-color: #0086DB;
-    border-color: #0086DB;
+    background-color: #1279fa;
+    border-color: #1279fa;
 }
 
 .btn-primary:hover {
-    color: #0086DB;
+    color: #1279fa;
     background-color: #fff;
-    border-color: #0086DB;
+    border-color: #1279fa;
 }
 
 .intl-tel-input{
