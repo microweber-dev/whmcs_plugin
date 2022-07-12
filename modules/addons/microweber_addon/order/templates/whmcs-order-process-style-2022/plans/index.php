@@ -18,6 +18,22 @@ $plans = $controller->get_hosting_products($params);
     .pricing-list-2 .plan .description p.info {
         height: 140px;
     }
+    .tab-pane#hosting > .row{
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @media screen and (max-width: 991px){
+        .pricing-list-2 .specifications, .pricing-list-2 .description.last {
+             display: block;
+        }
+        .tab-pane#hosting > .row > div{
+           width: 100%;
+            max-width: 500px;
+
+        }
 </style>
 
 <div class="step-3">

@@ -41,7 +41,6 @@
     #user_registration_form #domain-search-field:focus {
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
-        xbox-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.25) 0px -2px 6px 0px inset;
 
     }
     #user_registration_form #domain-search-field {
@@ -51,11 +50,22 @@
         border-radius: 0px;
         outline: none;
         width: 100%;
-        padding: 0 170px 0 20px;
+        padding: 0 190px 0 20px;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         transition: all 0.3s;
         font-weight: bold;
         border: 1px solid #000;
+    }
+
+    @media (max-width: 600px){
+        .search-domain,
+        #user_registration_form #domain-search-field{
+            font-size: 17px !important;
+        }
+        #user_registration_form #domain-search-field{
+            height: 50px;
+
+        }
     }
 
     .input-holder{
@@ -88,6 +98,13 @@
         line-height: 50px;
         padding-left: 20px;
         font-size: 17px;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        text-align: right;
+        direction: rtl;
+
     }
     .domain-item {
         display: flex;
@@ -141,19 +158,15 @@
         color: #0086db;
     }
 
-    .domain-item > div:nth-child(1) {
-        flex: 1;
+    .domain-item .domain-item-domainName + div{
+        width: 170px;
     }
-
-    .domain-item > div:nth-child(2) {
-        flex: 2;
-        width: 280px;
+    .domain-item .domain-item-domainName{
+        width: calc(100% - 170px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-
-    /*    .domain-item > div:nth-child(3) {
-            !*flex: 3;*!
-            width: 280px;
-        }*/
 
     .user_registration_form_msg {
         margin-bottom: 25px;
@@ -221,7 +234,7 @@
         top: 0;
         right: 0;
         text-align: center;
-        min-width: 140px;
+        min-width: 150px;
         height: 100%;
 
         cursor: pointer;
@@ -354,6 +367,25 @@
         color: #000;
     }
 
+    #domains-main-block{
+        max-width: 96%;
+        width: 100%;
+        margin: auto;
+    }
+
+    @media (max-width: 660px) {
+        .domain-item,
+        .domain-item .domainName,
+        .loading-preloader-item, .domain-free-tag, .domain-recommended-tag, .not-available-tag{
+            line-height: 36px;
+            font-size: 14px;
+        }
+    }
+    .domain-item-domainName-suffix{
+        font-weight: bold;
+        font-size: 17px;
+    }
+
 </style>
 
 <script>
@@ -375,22 +407,22 @@
         fld.addEventListener('blur', function () {
             this.parentNode.classList.toggle('focus')
         })
-        var hash = null;
-        fld.addEventListener('input', function () {
-            hash = encodeURIComponent(this.value.trim())
-            location.hash = hash;
-        })
-        addEventListener('hashchange', function () {
-            var h = decodeURIComponent(location.hash).replace('#', '').replace('%23', '')
-            if(h !== hash) {
-                hash = h;
-                fld.value = hash;
-            }
-        })
-        if(location.hash && location.hash !== hash) {
-            hash =  decodeURIComponent(location.hash).replace('#', '').replace('%23', '');
-            fld.value = hash;
-        }
+        /*        var hash = null;
+                fld.addEventListener('input', function () {
+                    hash = encodeURIComponent(this.value.trim())
+                    location.hash = hash;
+                })
+                addEventListener('hashchange', function () {
+                    var h = decodeURIComponent(location.hash).replace('#', '').replace('%23', '')
+                    if(h !== hash) {
+                        hash = h;
+                        fld.value = hash;
+                    }
+                })
+                if(location.hash && location.hash !== hash) {
+                    hash =  decodeURIComponent(location.hash).replace('#', '').replace('%23', '');
+                    fld.value = hash;
+                }*/
 
     })
     function render_domain_search_list(results, append) {
@@ -408,11 +440,18 @@
             $.each(results, function (i, item) {
                 all_res_render = all_res_render + getDomainItemTemplate(item);
             });
-            console.log(typeof all_res_render, all_res_render.length)
             if(!all_res_render.trim().length) return;
-            console.log(2)
+
 
             function getDomainItemTemplate(item) {
+                if(!item.domain) {
+                    $("#domain-search-field-autocomplete").removeClass('ajax-loading');
+
+                    if (typeof(resize_iframe_to_parent) != 'undefined') {
+                        resize_iframe_to_parent()
+                    }
+                    return ''
+                }
                 var nm = item.domain.split('.')[0];
                 if(!nm) {
                     $("#domain-search-field-autocomplete").removeClass('ajax-loading');
@@ -449,9 +488,14 @@
                 <?php endif; ?>
 
 
+                var formatDomain = function (domain) {
+                    var arr = domain.split('.');
+                    var suffix = arr.pop();
+                    return '<span class="domain-item-domainName-name">' + arr.join('.') + '</span><span class="domain-item-domainName-suffix">.' + suffix + '</span>';
+                }
 
                 var template = '<div class="domain-item '+can_start_class+' '+ajax_status_check_class+'" '+other_data+' data-domain="' + item.domain + '" data-sld="' + item.sld + '" data-tld="' + item.tld + '" data-subdomain="' + item.subdomain + '">' +
-                    '<div class=" text-left"><span class="domainName ">' + item.domain + '</span></div> ' +
+                    '<div class=" domain-item-domainName"><span class="domainName ">' + formatDomain(item.domain) + '</span></div> ' +
                     '<div class="right last-div"> ' +
                     item_status_span +
                     //'<span class="di-price">' + item.price_formated + '</span>' +
@@ -500,7 +544,7 @@
 <section class="section-60 p-t-30 p-b-30 fx-particles">
     <div class="container">
         <div class="row flexbox-container">
-            <div class="col-md-12 fx-deactivate allow-drop">
+            <div class="col-12" id="domains-main-block">
 
                 <div class="domain-top">
                     <h2>Domain Search</h2>
@@ -549,7 +593,7 @@
                             <div class="js-autocomplete-placeholder ajax-loading-placeholder">
 
                                 <div class="domain-item cant-start">
-                                    <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
+                                    <div class=" domain-item-domainName"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
                                         <span class="not-available-tag"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>
 
@@ -558,7 +602,7 @@
                                 </div>
 
                                 <div class="domain-item can-start">
-                                    <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
+                                    <div class=" domain-item-domainName"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
                                         <span class="domain-free-tag"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>
 
@@ -567,7 +611,7 @@
                                 </div>
 
                                 <div class="domain-item can-start">
-                                    <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
+                                    <div class=" domain-item-domainName"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
                                         <span class="domain-recommended-tag"><img src="modules/addons/microweber_addon/order/loading.gif" /></span>
 

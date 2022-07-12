@@ -1,6 +1,42 @@
+{literal}
+    <style>
+        .mw-whm-hero--clientarea h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+
+        }
+        .mw-whm-hero--clientarea h1,
+        .mw-whm-hero--clientarea p{
+            padding-bottom: 20px;
+        }
+        .mw-whm-hero--clientarea > div{
+            max-width: 500px;
+
+        }
+        .mw-whm-hero--clientarea{
+            display: flex;
+            align-items: center;
+            height: 520px;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 100%;
+            margin-bottom: 100px;
+        }
+    </style>
+{/literal}
 <div class="mw-whm clientareahome">
 
-   <div class="row  client-area-row-box ">
+    <div class="mw-whm-hero--clientarea" style="background-image: url({$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg)">
+        <div>
+            <h1>Building a Website Has Never Been Easier</h1>
+            <p>Create the perfect site with powerful drag and drop tools</p>
+            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
+            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
+        </div>
+    </div>
+
+   {*<div class="row  client-area-row-box ">
        <div class="col-lg-4 client-area-box-1" style="    margin-top: 100px;">
            <h1 style="font-size: 48px; font-weight: 700; line-height: 1.2;">Building a Website Has Never Been Easier</h1>
            <p style="margin-top: 20px;">Create the perfect site with powerful drag and drop tools</p>
@@ -15,7 +51,7 @@
            <img width="100%" src="{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg" alt="">
 
        </div>
-   </div>
+   </div>*}
     <div class="tiles clearfix">
 
 

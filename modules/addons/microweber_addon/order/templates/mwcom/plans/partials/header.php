@@ -14,19 +14,28 @@
 
     <!-- Custom Theme -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+
 
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/plans/assets/css/typography.css" rel="stylesheet"/>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/plans/assets/css/main.css" class="css-main" rel="stylesheet"/>
-    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/plans/assets/css/custom.css" rel="stylesheet"/>
+    <link href="https://fonts.cdnfonts.com/css/milliard" rel="stylesheet">
+    <link rel="stylesheet" href="https://templates.microweber.com/mwcom/userfiles/templates/microweber_com/home/style.php">
+    <script src="https://templates.microweber.com/mwcom/userfiles/templates/microweber_com/home/scripts/global-scripts.php"></script>
+    <?php
+    /*
+         <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/mwcom/plans/assets/css/main.css" class="css-main" rel="stylesheet"/>
+    <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/mwcom/plans/assets/css/custom.css" rel="stylesheet"/>
+     * */
+    ?>
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="" id="frame-body">
 
 <div class="main">
+
