@@ -3,12 +3,12 @@
 <div id="order-standard_cart">
 
     <div class="row">
-        <div class="cart-sidebar">
-            {include file="orderforms/standard_cart/sidebar-categories.tpl"}
-        </div>
-        <div class="cart-body">
-            <div class="header-lined">
-                <h1 class="font-size-36">
+{*        <div class="cart-sidebar">*}
+{*            {include file="orderforms/standard_cart/sidebar-categories.tpl"}*}
+{*        </div>*}
+        <div class="cart-body" style="width: 90%;">
+            <div class="header-lined page-domains adddomain-title">
+                <h1>
                     {$LANG.registerdomain}
                 </h1>
             </div>

@@ -504,6 +504,13 @@ header .top-right-button {
 
 }
 
+.page-domains.adddomain-title h1 {
+    font-weight: 700;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
 .page-payments .service-block p, .page-payments .service-block span {
     font-size: 18px;
     font-weight: 300;
