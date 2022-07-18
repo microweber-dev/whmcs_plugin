@@ -182,37 +182,59 @@ header .main-menu > ul > li > a:hover:after {
 
 /* More menu - start */
 header .user-menu-dropdown {
+    position: relative;
 }
 
 header .user-menu-dropdown .user-bar .image {
-    display: block;
-    width: 47px;
-    height: 47px;
-    background-size: cover;
-    background-position: center;
-    float: left;
-    margin-right: 10px;
+    display: inline-block;
+    width: 37px;
+    height: 37px;
+    background-size: contain;
+    background-position: -6px center;
+
+}
+header .user-menu-dropdown .user-bar,
+header .user-menu-dropdown .user-bar *{
+    vertical-align: middle;
+}
+header .user-menu-dropdown .user-bar {
+    display: inline-block;
+    width: 70px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-align: center;
 }
 
-header .user-menu-dropdown .user-bar .name {
-    float: left;
-    margin: 15px 0 0;
-    white-space: nowrap;
-    min-width: 100px;
-    display: block;
+.user-menu-dropdown:hover .user-bar {
+    border-color: rgba(14, 136, 176, 0.66);
 }
+header .user-menu-dropdown .user-bar .name {
+
+    white-space: nowrap;
+
+    display: inline-block;
+}
+
+header .user-menu-dropdown .user-bar .name:after{
+    content:"\f078";
+    font-family: "Font Awesome 5 Pro";
+    padding-inline-start: 7px;
+    font-size: 12px;
+}
+
+
 
 header .user-menu-dropdown .more-menu {
-    width: 100%;
+    width: 220px;
     max-width: 157px;
     padding: 11px 0 0 0;
     display: none;
     position: absolute;
-    top: 53px;
+    top: 100%;
     right: 0;
     background: white;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.27);
-    margin-top: 4px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 header .user-menu-dropdown:hover .more-menu {
