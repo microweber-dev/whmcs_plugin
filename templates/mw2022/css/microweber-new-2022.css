@@ -17,7 +17,7 @@
     border: unset;
 }
 
-.sidebar .profile-sidebar {
+.sidebar .profile-sidebar, .featured-tld, .domain-register-table  {
 
     border: 1px solid white;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
@@ -282,6 +282,19 @@
     width: 22.5%;
 }
 
+.client-area-boxes-2 {
+   border-radius: 10px;
+   box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
+   transition: all .24s ease!important;
+   padding: 0px;
+   margin: 10px;
+   height: 200px;
+   display: flex;
+
+   align-items: center;
+   font-size: 36px;
+}
+
  @media (max-width: 768px) {
      #mw-whm--area-row-services{
          flex-wrap: wrap;
@@ -317,9 +330,15 @@
 }
 
 
-.profile-sidebar-name, .sidebar .navigation a {
+.profile-sidebar-name, .sidebar .navigation a, .font-size-18 {
     font-size: 18px;
     font-weight: 300;
+}
+
+.font-size-24 {
+    font-weight: 300;
+    font-size: 24px;
+
 }
 
 header .main-menu > ul > li > a:hover:after {
@@ -396,7 +415,7 @@ header .top-right-button {
 
 
 
-#user_registration_form #domain-search-field {
+#user_registration_form #domain-search-field, #order-standard_cart .input-group-lg>.form-control {
     height: 80px!important;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
     border: none!important;
@@ -787,3 +806,77 @@ header .top-right-button {
      padding: 5px;
      font-size: 14px;
  }
+
+.domain-checker-bg, .domain-checker-container {
+    background-image: unset!important;
+    background: none!important;
+}
+
+
+.featured-tld .img-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.domain-checker-bg {
+    padding-top: 20px!important;
+    padding-bottom: 100px!important;
+}
+
+
+.domain-register-message {
+
+   padding: 10px 22px;
+   border-radius: 50%;
+   border: 0;
+
+   margin-left: 40px;
+   margin-right: 10px;
+}
+
+.domain-register-message.domain-message-success {
+
+    border-color: #fceeef;
+    background: #fceeef;
+}
+
+.domain-register-message.domain-message-danger {
+
+    border-color: #e7f8eb;
+    background: #e7f8eb;
+}
+
+.spotlight-tlds {
+    background-color: unset!important;
+}
+
+.whmc-kbtn.btn-add-to-cart {
+
+    justify-content: end;
+    align-items: center;
+    display: flex;
+}
+
+.domain-pricing .tld-pricing-header div:nth-child(odd), .domain-pricing .tld-pricing-header .col-sm-2, .domain-pricing .tld-pricing-header .col-sm-4, .domain-pricing .tld-pricing-header .col-xs-2, .domain-pricing .tld-pricing-header .col-xs-4 {
+
+    border-color: white!important;
+    background-color: unset!important;
+}
+
+.domain-pricing .two-row-center {
+    border-right: unset!important;
+}
+
+.domain-pricing .tld-row {
+    padding: 30px 0!important;
+    border-bottom: 1px solid #e2e2e2!important;
+}
+
+.featured-tld hr {
+    margin: 0px;
+}
