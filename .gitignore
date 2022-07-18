@@ -4,7 +4,6 @@
 .idea
 /templates/clouder
 /templates/orderforms/clouder-default
-/templates/orderforms/standard_cart
 /templates/twenty-one
 /modules/addons/ResellersCenter
 /templates/orderforms/lagom
