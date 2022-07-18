@@ -2,11 +2,12 @@
 
  body {
     font-family: 'Milliard', sans-serif!important;
+
+     font-size: 16px;
+
  }
 
- p, a, span {
-    font-size: 18px;
- }
+
 
 .page-wrapper {
     background: #ffffff;
@@ -72,18 +73,7 @@
 
 
 
-@media screen and (max-width: 1500px) {
-    .kbtn {
-        float: right;
-        cursor: pointer;
-        height: 40px;
-        align-self: center;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        margin-top: 15px;
-    }
-}
+
 
 .whmc-kbtn{
     font-size: 16px;
@@ -185,12 +175,22 @@
      color: #1279fa!important;
   }
 
+ .header-link-back-to-site{
+     height: 35px;
+     width: 35px;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #ebebeb;
+     border-radius: 50px;
+     vertical-align: middle;
+ }
 .header-svg-back-to-site {
-    width: auto;
-    height: 35px;
-    background-color: #2b2b2b;
-    border-radius: 50%;
-    fill: white;
+    width: 21px;
+    height: auto;
+    fill: #656565;
+    position: relative;
+    left: -1px;
 }
 
 .cbtn {
@@ -282,11 +282,28 @@
     width: 22.5%;
 }
 
+ @media (max-width: 768px) {
+     #mw-whm--area-row-services{
+         flex-wrap: wrap;
+     }
+     #mw-whm--area-row-services .client-area-boxes{
+         width: 45%;
+     }
+ }
+
+ @media (max-width: 500px) {
+
+     #mw-whm--area-row-services .client-area-boxes{
+         width: 90%;
+     }
+ }
+
 .client-area-row {
     justify-content: center;
     margin: 0 auto;
     display: flex;
 }
+
 
 .mw-whm.clientareahome .tiles .tile:nth-child(1) a, .mw-whm.clientareahome .tiles .tile:nth-child(2) a, .mw-whm.clientareahome .tiles .tile:nth-child(3) a, .mw-whm.clientareahome .tiles .tile:nth-child(4) a {
     border: 1px solid #1279fa;
@@ -644,6 +661,8 @@ header .top-right-button {
  }
  .sidebar {
      display: block !important;
+     position: sticky;
+     top: 95px;
  }
 
 
@@ -652,7 +671,17 @@ header .top-right-button {
          display: none;
      }
  }
+ @media  (max-width: 800px){
+     .mw-whm-hero--clientarea h1{
+         font-size: 6vw !important;
+     }
+
+ }
  @media  (max-width: 991px){
+
+     .sidebar{
+         position: static;
+     }
      .sidebar-container.active:after {
          content: '';
          position: fixed;
@@ -697,4 +726,56 @@ header .top-right-button {
      .profile-sidebar-top + br{
          display: none;
      }
+ }
+
+ .mw-whm-header--block{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 62px;
+ }
+
+ .mw-mwh--header-menu-sign-column{
+     display: flex;
+     justify-content: flex-end;
+     flex-wrap: nowrap;
+     align-items: center;
+ }
+
+ .mw-whm-product-status *{
+     vertical-align: middle;
+ }
+ .mw-whm.clientareaproducts .status:before{
+     margin: 0 7px 0 0;
+ }
+ .mw-whm-product-status{
+     font-size: 14px !important;
+     display: inline-block;
+     position: relative;
+     text-align: left;
+     vertical-align: middle;
+ }
+
+ .md-header.btn-toolbar{
+     margin: 0;
+     background-color: #eee;
+     border-radius: 3px 3px 0 0;
+     padding: 10px;
+ }
+
+ .md-header.btn-toolbar .md-control.md-control-fullscreen{
+     display: none;
+ }
+
+ .md-editor .md-fullscreen-controls{
+     display: none;
+ }
+
+ #inputMessage-footer .markdown-save{
+     font-style: italic;
+     color: #999;
+ }
+ #inputMessage-footer{
+     padding: 5px;
+     font-size: 14px;
  }

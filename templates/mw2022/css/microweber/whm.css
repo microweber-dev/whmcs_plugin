@@ -384,8 +384,13 @@ Green - 35FF4D
 }
 
 .mw-whm.clientareaproducts a.domain-name {
-    color: #0086DB;
+    color: #515c64;
     font-size: 15px;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
 }
 
 .mw-whm.clientareaproducts a.product-name {
@@ -408,12 +413,7 @@ Green - 35FF4D
 }
 
 .mw-whm.clientareaproducts .status span {
-    width: 100px;
-    display: block;
-    float: left;
-    margin-top: 15px;
-    text-align: left;
-    margin-left: 18px;
+    vertical-align: middle;
 }
 
 .mw-whm.clientareaproducts .status:before {

@@ -270,6 +270,17 @@
     .ajax-loading-placeholder {
         display: none;
     }
+    .mw-whm--search-box > div{
+        flex: 1;
+    }
+    .mw-whm--search-box{
+        display: flex;
+        width: 100%;
+        max-width: 1000px;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
 </style>
 
 <script>
@@ -364,9 +375,9 @@
 </script>
 
 <section class="section-60 p-t-30 p-b-30 fx-particles">
-    <div class="container">
-        <div class="row flexbox-container">
-            <div class="col-md-12 fx-deactivate allow-drop">
+    <div>
+        <div class="mw-whm--search-box">
+            <div >
 
                 <div class="just-text text-center m-t-80 m-b-20">
                     <h1 class="m-b-20">Register Domain and Create Site</h1>
