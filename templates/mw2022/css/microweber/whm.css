@@ -604,6 +604,11 @@ Green - 35FF4D
     margin-top: 5px;
     background-repeat: no-repeat;
     float: left;
+
+}
+.mw-whm.clientareaproducts .status:before,
+.mw-whm.clientareadomains .status:before{
+    display: none !important;
 }
 
 .mw-whm.clientareadomains .status.status-terminated {

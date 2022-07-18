@@ -5,7 +5,15 @@
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
     {/if}
-    <style>
+    <style type="text/css">
+        #tableServicesList-table-container{
+            max-width: 100%;
+
+        }
+        #tableServicesList-table-container table{
+            table-layout: fixed;
+            width: 100% !important;
+        }
         #tableServicesList-table-container table th:last-child,
         #tableServicesList-table-container table td:last-child{
             position: sticky;
@@ -15,6 +23,31 @@
             padding-right: 0;
             padding-left: 12px;
         }
+        #tableServicesList-table-container table th:nth-child(1),
+        #tableServicesList-table-container table td:nth-child(1){
+            width: 20px !important;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+        #tableServicesList-table-container table th:nth-child(2),
+        #tableServicesList-table-container table td:nth-child(2){
+            left: 20px;
+            word-break: break-all;
+            width: 40%;
+        }
+        .mw-whm.clientareadomains .status-column,
+        .mw-whm.clientareadomains .status-column .label{
+            width: auto;
+            word-break: break-all;
+            min-width: 0 !important;
+        }
+        #tableServicesList-table-container table td:nth-child(1) *{
+            vertical-align: middle;
+        }
+        #tableServicesList-table-container table th:nth-child(2),
+        #tableServicesList-table-container table td:nth-child(2),
         #tableServicesList-table-container table th:first-child,
         #tableServicesList-table-container table td:first-child{
             position: sticky;
@@ -24,13 +57,19 @@
             z-index: 1;
             padding-right: 12px;
             padding-left: 0;
+
+        }
+
+        #tableServicesList-table-container table td:nth-child(3),
+        #tableServicesList-table-container table td:nth-child(4){
+            font-size: 12px;
         }
 
         #tableServicesList-table-container .tableServicesListWrap{
             max-width: 100%;
-            overflow: auto;
+
             margin-bottom: 20px;
-            padding-bottom: 20px;
+
             border-bottom: 1px solid #ccc;
         }
         .more-table-button{
@@ -88,19 +127,19 @@
             color: #00aced;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             #tableServicesList-table-container table tr > *:nth-child(4){
                 display: none !important;
             }
         }
 
-        @media (max-width: 500px) {
-            #tableServicesList-table-container table tr > *:nth-child(2){
+        @media (max-width: 700px) {
+            #tableServicesList-table-container table tr > *:nth-child(5){
                 display: none !important;
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
             #tableServicesList-table-container table,
             #tableServicesList-table-container table tbody{
                 width: 100% !important;
@@ -114,13 +153,15 @@
                 display: none !important;
             }
             #tableServicesList-table-container table tbody tr{
-                border-bottom: 1px solid #ccc;
-                width: 100%;
+                 width: 100%;
                 padding: 20px;
             }
             #tableServicesList-table-container table tbody tr:nth-child(2n+1) {
 
             }
+        }
+        .dataTables_empty{
+            padding: 20px 0 !important;
         }
     </style>
     <div class="tab-content">
@@ -327,3 +368,13 @@
     </div>
 
 </div>
+<script>
+
+    $( document ).ready(function() {
+        $('.form-control.input-sm').attr('placeholder', 'Search...');
+
+
+        $('#tableDomainsList').wrap('<div class="tableServicesListWrap"></div>')
+    });
+
+</script>
