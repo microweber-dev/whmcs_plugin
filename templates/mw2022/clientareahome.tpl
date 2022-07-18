@@ -11,7 +11,9 @@
             padding-bottom: 20px;
         }
         .mw-whm-hero--clientarea > div{
-            max-width: 500px;
+            max-width: 600px;
+            background-color: #ffffffe0;
+            padding: 20px;
 
         }
         .mw-whm-hero--clientarea{
@@ -23,6 +25,28 @@
             background-size: auto 100%;
             margin-bottom: 100px;
         }
+        .mw-whm-hero--clientarea [class*="whmc-kbtn"] + [class*="whmc-kbtn"]{
+            margin-left: 10px;
+        }
+        @media (max-width: 800px) {
+            .mw-whm-hero--clientarea [class*="whmc-kbtn"] {
+                display: block;
+                width: 290px;
+                margin: 10px auto !important;
+            }
+        }
+        @media (max-width: 1200px) {
+            .mw-whm-hero--clientarea {
+                align-items: center;
+                justify-content: center;
+                background-image: none !important;
+                text-align: center;
+                height: auto;
+            }
+            .mw-whm-hero--clientarea > div{
+                margin: auto;
+            }
+        }
     </style>
 {/literal}
 <div class="mw-whm clientareahome">
@@ -31,7 +55,7 @@
         <div>
             <h1>Building a Website Has Never Been Easier</h1>
             <p>Create the perfect site with powerful drag and drop tools</p>
-            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
+            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">Create a Website</a>
             <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
         </div>
     </div>
@@ -55,7 +79,7 @@
     <div class="tiles clearfix">
 
 
-        <div class="row client-area-row">
+        <div class="row client-area-row"  id="mw-whm--area-row-services">
             <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=services'">
                 <a href="clientarea.php?action=services">
                     <div class="icon" style="font-size: 20px;">
