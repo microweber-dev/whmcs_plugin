@@ -217,7 +217,7 @@ Domain Registrations
 }
 
 #order-modern .domainoptions .optionselected .radio-inline {
-    color: #0086db;
+    color: #1279fa;
     font-weight: bold;
 }
 
@@ -690,7 +690,7 @@ Shopping Cart
 }
 
 .oi-title{
-  color: #0086DB;
+  color: #1279fa;
   text-align: center;
   font-weight: 600;
   padding: 50px 0 0;
@@ -751,5 +751,5 @@ Domain Registration
   background-size: contain;
   text-align: center;
   padding-top: 40px;
-  color: #0086DB
+  color: #1279fa
 }

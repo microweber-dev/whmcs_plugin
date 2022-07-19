@@ -39,12 +39,12 @@
 }
 
 .page-with-sidebar .under-content .right ul.top-menu li a {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-with-sidebar .under-content .right ul.top-menu li:hover,
 .page-with-sidebar .under-content .right ul.top-menu li.active {
-    background-color: #0086db;
+    background-color: #1279fa;
     color: #fff;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .page-with-sidebar .sidebar ul li.depth-1 > a {
-    color: #0086db;
+    color: #1279fa;
     margin-bottom: 20px;
     display: block;
     font-weight: bold;
@@ -134,7 +134,7 @@
 
 .page-with-sidebar .sidebar ul li a.active,
 .page-with-sidebar .sidebar ul li a:hover {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-with-sidebar .sidebar ul li ul a:hover:before,
@@ -255,7 +255,7 @@
         position: absolute;
         margin-top: -30px;
         margin-left: -30px;
-        color: #0086DB
+        color: #1279fa
     }
 
     .page-with-sidebar .sidebar-mobile-close {
@@ -263,7 +263,7 @@
         position: absolute;
         margin-top: -30px;
         margin-right: 20px;
-        color: #0086DB;
+        color: #1279fa;
         right: 0;
     }
 }
@@ -357,7 +357,7 @@
 }
 
 .page-plans p a {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 14px;
     line-height: 24px;
 }
@@ -374,13 +374,13 @@
     font-size: 13px;
     max-width: 270px;
     margin: 20px auto;
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
 }
 
 .page-plans .plans-row .mw-ui-col.active {
-    border: 1px solid #0086db;
-    -webkit-box-shadow: 0 0 8px #0086db;
-    box-shadow: 0 0 8px #0086db;
+    border: 1px solid #1279fa;
+    -webkit-box-shadow: 0 0 8px #1279fa;
+    box-shadow: 0 0 8px #1279fa;
     z-index: 1;
     position: relative;
 }
@@ -402,8 +402,8 @@
 
 .page-plans .cbtn:hover {
     border: 1px solid #fff;
-    -webkit-box-shadow: 0 0 8px #0086db;
-    box-shadow: 0 0 8px #0086db;
+    -webkit-box-shadow: 0 0 8px #1279fa;
+    box-shadow: 0 0 8px #1279fa;
 }
 
 @media (max-width: 768px) {
@@ -459,7 +459,7 @@
 .page-plans .plans-row h3 small {
     font-size: 36px;
     font-weight: 600;
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-plans .plans-row h3 .pences {
@@ -470,7 +470,7 @@
 .page-plans .plans-row h3 span.currency {
     font-size: 18px;
     font-weight: 400;
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-plans .plans-plan-features ul {
@@ -526,7 +526,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    color: #0086db;
+    color: #1279fa;
 }
 
 /* Testimonials */

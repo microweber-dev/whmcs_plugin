@@ -207,7 +207,7 @@
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
@@ -530,8 +530,8 @@ header .top-right-button {
 
 }
 
-.page-payments .service-block h1 {
-    font-weight: 700;
+.page-payments .service-block h1, .header-lined h1 {
+    font-weight: 700!important;
     margin-bottom: 0px;
 }
 
@@ -933,4 +933,9 @@ header .top-right-button {
     font-size: 18px;
     margin-left: 16px;
     margin-right: 16px;
+}
+
+#Primary_Navbar-Services-View_Available_Addons {
+
+    display: none!important;
 }

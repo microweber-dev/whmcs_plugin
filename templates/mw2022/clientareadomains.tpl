@@ -1,6 +1,6 @@
 <div class="mw-whm clientareadomains">
     <div class="header-lined text-center">
-        <h1>My domains</h1>
+        <h1>My Domains</h1>
     </div>
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
@@ -164,6 +164,7 @@
             padding: 20px 0 !important;
         }
     </style>
+
     <div class="tab-content">
         <div class="tab-pane fade in active" id="tabOverview">
             {include file="$template/includes/tablelist.tpl" tableName="DomainsList" noSortColumns="0, 6" startOrderCol="1" filterColumn="5"}

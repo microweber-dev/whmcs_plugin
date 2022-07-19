@@ -37,7 +37,7 @@
             <div class="row" style="margin-top: 30px;">
                 {foreach key=num item=upgradepackage from=$upgradepackages}
                     <div class="col-xs-12 col-sm-6 col-md-4" style="min-height: 550px;">
-                        <span style="font-size: 20px; color: #0086DB;">
+                        <span style="font-size: 20px; color: #1279fa;">
                             {$upgradepackage.groupname} - {$upgradepackage.name}
                         </span>
                         <br/>

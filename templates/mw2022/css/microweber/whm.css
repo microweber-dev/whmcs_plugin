@@ -19,12 +19,12 @@ Green - 35FF4D
     padding: 10px 25px;
     color: white;
     border-radius: 30px;
-    background: #0086DB;
+    background: #1279fa;
     text-align: center;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
@@ -34,8 +34,8 @@ Green - 35FF4D
 
 .mw-whm .btn.mw-blue:hover {
     text-decoration: none;
-    color: #0086DB;
-    border: 1px solid #0086DB;
+    color: #1279fa;
+    border: 1px solid #1279fa;
     background: #fff;
 }
 
@@ -46,14 +46,14 @@ Green - 35FF4D
 
 .mw-whm .btn.mw-blue-alt {
     padding: 10px 25px;
-    color: #0086DB;
+    color: #1279fa;
     border-radius: 30px;
     background: #fff;
     text-align: center;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
@@ -64,8 +64,8 @@ Green - 35FF4D
 .mw-whm .btn.mw-blue-alt:hover {
     text-decoration: none;
     color: #fff;
-    border: 1px solid #0086DB;
-    background: #0086DB;
+    border: 1px solid #1279fa;
+    background: #1279fa;
 }
 
 .mw-whm ul.blue-links {
@@ -73,7 +73,7 @@ Green - 35FF4D
 }
 
 .mw-whm ul.blue-links a {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 15px;
 }
 
@@ -87,14 +87,14 @@ Green - 35FF4D
 .mw-whm .pagination > .active > span,
 .mw-whm .pagination > .active > span:focus,
 .mw-whm .pagination > .active > span:hover {
-    background-color: #0086DB;
-    border-color: #0086DB;
+    background-color: #1279fa;
+    border-color: #1279fa;
     color: #fff;
 }
 
 .mw-whm .pagination > li > a,
 .mw-whm .pagination > li > span {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 14px;
 }
 
@@ -223,7 +223,7 @@ Green - 35FF4D
 }
 
 .mw-whm .panel-heading .panel-title {
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .mw-whm .panel-body {
@@ -248,12 +248,12 @@ Green - 35FF4D
     padding: 0 15px;
     color: white;
     border-radius: 30px;
-    background: #0086DB;
+    background: #1279fa;
     text-align: center;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
@@ -261,8 +261,8 @@ Green - 35FF4D
 
 .mw-whm .panel-title .btn.btn-default:hover {
     text-decoration: none;
-    color: #0086DB;
-    border: 1px solid #0086DB;
+    color: #1279fa;
+    border: 1px solid #1279fa;
     background: #fff;
 }
 
@@ -273,7 +273,7 @@ Green - 35FF4D
 
 .mw-whm .panel-title .title {
     background: #f5f5f5;
-    color: #0086DB;
+    color: #1279fa;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -323,8 +323,8 @@ Green - 35FF4D
 }
 
 .mw-whm.clientareahome .tiles .tile a {
-    border: 1px solid #0086DB;
-    color: #0086DB;
+    border: 1px solid #1279fa;
+    color: #1279fa;
 }
 
 .mw-whm.clientareahome .tiles .tile a:hover {
@@ -362,7 +362,7 @@ Green - 35FF4D
 .mw-whm.clientareaproducts a.btn:focus,
 .mw-whm.clientareaproducts a.btn:active,
 .mw-whm.clientareaproducts a.btn:focus:active {
-    color: #0086DB;
+    color: #1279fa;
     border: 1px solid transparent;
     background: none;
     font-size: 15px;
@@ -373,13 +373,13 @@ Green - 35FF4D
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
 }
 
 .mw-whm.clientareaproducts a.btn:hover {
     text-decoration: none;
-    color: #0086DB;
-    border: 1px solid #0086DB;
+    color: #1279fa;
+    border: 1px solid #1279fa;
     background: #fff;
 }
 
@@ -394,7 +394,7 @@ Green - 35FF4D
 }
 
 .mw-whm.clientareaproducts a.product-name {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 15px;
 }
 
@@ -509,8 +509,8 @@ Green - 35FF4D
 }
 
 .mw-whm.affiliates .tiles .tile > div {
-    border: 1px solid #0086DB;
-    color: #0086DB;
+    border: 1px solid #1279fa;
+    color: #1279fa;
 }
 
 .mw-whm.affiliates .tiles .tile > div:hover {
@@ -550,7 +550,7 @@ Green - 35FF4D
     margin-bottom: 30px;
     display: inline-block;
     padding: 15px;
-    background: #0086DB;
+    background: #1279fa;
 }
 
 .mw-whm.clientareadomaindetails .info h4 {
@@ -564,7 +564,7 @@ Green - 35FF4D
 
 .mw-whm.clientareadomaindetails .link {
     font-size: 15px;
-    color: #0086DB;
+    color: #1279fa;
     font-weight: normal;
 }
 
@@ -579,7 +579,7 @@ Green - 35FF4D
 
 .mw-whm.clientareadomains .link {
     font-size: 15px;
-    color: #0086DB;
+    color: #1279fa;
     font-weight: normal;
 }
 
@@ -865,7 +865,7 @@ Green - 35FF4D
 
 .mw-whm.affiliates ul.features li {
     margin-bottom: 15px;
-    color: #0086DB;
+    color: #1279fa;
     font-size: 16px;
 }
 
@@ -882,7 +882,7 @@ Green - 35FF4D
 }
 
 .mw-whm.cart-products .panel .description span.fa {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 13px;
     padding-right: 10px;
 }
@@ -922,7 +922,7 @@ Green - 35FF4D
 }
 
 .mw-whm #cPanelPackagePanel .cpanel-package-details a {
-    color: #0086DB;
+    color: #1279fa;
     display: block;
     font-size: 18px;
     margin-bottom: 10px;
@@ -942,7 +942,7 @@ Green - 35FF4D
 }
 
 .mw-whm #cPanelBillingOverviewPanel #recurringAmount div:last-of-type {
-    color: #0086db;
+    color: #1279fa;
 }
 
 #microweber-themes div.templates {
@@ -962,7 +962,7 @@ Green - 35FF4D
 }
 
 #microweber-themes div.templates .template:hover {
-    color: #0086DB;
+    color: #1279fa;
 }
 
 #microweber-themes div.templates .template .image-holder {
