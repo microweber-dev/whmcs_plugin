@@ -3,7 +3,7 @@
 
     <div id="order-modern">
         <div class="title-bar">
-            <div class="row">
+            <div class="row" >
                 <div class="col-md-12 ">
                     <h1 style="font-size: 48px; font-weight: 700; text-align: center; margin-bottom: 80px; margin-top: 0;">{$groupname}</h1>
                 </div>
