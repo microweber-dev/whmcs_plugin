@@ -136,10 +136,13 @@
                                         {if $data.group}
                                             <div class="spotlight-tld-{$data.group}">{$data.groupDisplayName}</div>
                                         {/if}
-                                        {$data.tld}
+                                        <h2 style="font-weight: 700;">{$data.tld}</h2>
+
                                         <span class="domain-lookup-loader domain-lookup-spotlight-loader">
                                             <i class="fas fa-spinner fa-spin"></i>
                                         </span>
+
+                                        <br>
                                         <div class="domain-lookup-result">
                                             <button type="button" class="btn unavailable w-hidden" disabled="disabled">
                                                 {lang key='domainunavailable'}
@@ -169,7 +172,7 @@
 
                 <div class="suggested-domains{if !$showSuggestionsContainer} w-hidden{/if}">
                     <div class="panel-heading card-header">
-                        {lang key='orderForm.suggestedDomains'}
+                       <h3> {lang key='orderForm.suggestedDomains'}</h3>
                     </div>
                     <div id="suggestionsLoader" class="panel-body card-body domain-lookup-loader domain-lookup-suggestions-loader">
                         <i class="fas fa-spinner fa-spin"></i> {lang key='orderForm.generatingSuggestions'}
@@ -184,7 +187,7 @@
                             </span>
                             <div class="actions">
                                 <span class="price"></span>
-                                <button type="button" class="btn btn-add-to-cart" data-whois="1" data-domain="">
+                                <button type="button" class="btn btn-add-to-cart" style="margin-left: 15px;" data-whois="1" data-domain="">
                                     <span class="to-add">{$LANG.addtocart}</span>
                                     <span class="loading">
                                         <i class="fas fa-spinner fa-spin"></i> {lang key='loading'}
@@ -344,15 +347,24 @@
                 <div class="{if $domainTransferEnabled}col-md-6{else}col-md-8 col-md-offset-2 offset-md-2{/if}">
                     <div class="domain-promo-box">
 
-                        <div class="clearfix">
-                            <i class="fas fa-server fa-4x"></i>
-                            <h3 class="font-size-24 no-wrap">{lang key='orderForm.addHosting'}</h3>
-                            <p class="font-bold text-warning">{lang key='orderForm.chooseFromRange'}</p>
+                        <div class="clearfix domain-info-box">
+                            <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                            <polygon class="svg-icon-prime svg-icon-stroke" points="59,47.4 59,36.2 32,48 5,36.2 5,47.4 32,63 "></polygon>
+                                <polygon class="svg-icon-prime-l svg-icon-stroke" points="32,44.3 11.2,32.3 5,35.9 32,51.5 59,35.9 52.8,32.3 "></polygon>
+                                <line class="svg-icon-outline-s" x1="32" y1="32.7" x2="32" y2="43.2"></line>
+                                <polyline class="svg-icon-outline-s" points="5.5,16.9 32,32.2 58.5,16.9 "></polyline>
+                                <polygon class="svg-icon-outline-s" points="5,16.6 5,28.1 32,43.7 59,28.1 59,16.6 32,1 "></polygon>
+                                <line class="svg-icon-outline-s" x1="37" y1="34.8" x2="44" y2="30.7"></line>
+                        </svg>
+                            <br>
+                            <h3 class="font-size-24 no-wrap domain-info-box" >{lang key='orderForm.addHosting'}</h3>
+
+{*                            <p class="font-bold text-warning">{lang key='orderForm.chooseFromRange'}</p>*}
                         </div>
 
-                        <p>{lang key='orderForm.packagesForBudget'}</p>
+                        <p class="domain-info-box">{lang key='orderForm.packagesForBudget'}</p>
 
-                        <a href="cart.php" class="btn btn-warning">
+                        <a href="cart.php" class="whmc-kbtn">
                             {lang key='orderForm.exploreNow'}
                         </a>
                     </div>
@@ -361,17 +373,30 @@
                     <div class="col-md-6">
                         <div class="domain-promo-box">
 
-                            <div class="clearfix">
-                                <i class="fas fa-globe fa-4x"></i>
-                                <h3 class="font-size-22">{lang key='orderForm.transferToUs'}</h3>
-                                <p class="font-bold text-primary">{lang key='orderForm.transferExtend'}*</p>
+                            <div class="clearfix domain-info-box">
+
+                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" x="0px" y="0px" width="64px" height="64px">
+                                        <ellipse class="svg-icon-prime svg-icon-stroke" cx="31.45" cy="32.38" rx="7.48" ry="7.48"></ellipse>
+                                        <path class="svg-icon-outline-s" d="M54.14,54.29A30.57,30.57,0,0,1,32.2,63a30.34,30.34,0,0,1-21.85-8.71A31.18,31.18,0,0,1,1,32.38a31.18,31.18,0,0,1,9.35-21.91A31.18,31.18,0,0,1,32.2,1a31.37,31.37,0,0,1,21.94,9.47A30.67,30.67,0,0,1,63,32.38,30.67,30.67,0,0,1,54.14,54.29Z"></path>
+                                        <path class="svg-icon-outline-s" d="M1,32.89a15.35,15.35,0,0,1,.09-2"></path>
+                                        <path class="svg-icon-outline-s dashed-21" d="M5.79,23.9a24.23,24.23,0,0,1,4.57-3.36C16,17.3,23.7,15.3,32.24,15.3s16.28,2,21.88,5.24a21.48,21.48,0,0,1,6.51,5.51"></path>
+                                        <path class="svg-icon-outline-s" d="M62.7,29.74a8,8,0,0,1,.2,2"></path>
+                                        <path class="svg-icon-outline-s" d="M63,31.08C63,36,59.72,41,54.12,44.23a45,45,0,0,1-22,5.65,44.17,44.17,0,0,1-21.78-5.65C4.76,41,1,36.52,1,31.59"></path>
+                                        <path class="svg-icon-outline-s" d="M32.87,63a16.42,16.42,0,0,1-2-.11"></path>
+                                        <path class="svg-icon-outline-s dashed-22" d="M24.38,59.6a23.31,23.31,0,0,1-4.11-5.32C17,48.67,15,40.93,15,32.38s2-16.29,5.23-21.89a20.92,20.92,0,0,1,6.23-7l1-.65"></path>
+                                        <path class="svg-icon-outline-s" d="M30.89,1.3a7.81,7.81,0,0,1,2-.27"></path>
+                                        <path class="svg-icon-outline-s" d="M31.41,1c4.93,0,9.44,3.86,12.67,9.46a44.62,44.62,0,0,1,5.81,21.89,44.69,44.69,0,0,1-5.81,21.9C40.85,59.88,36.34,63,31.41,63"></path>
+                                    </svg>
+
+                                <h3 class="font-size-22 domain-info-box">{lang key='orderForm.transferToUs'}</h3>
+                                <p class="font-bold domain-info-box">{lang key='orderForm.transferExtend'}*</p>
                             </div>
 
-                            <a href="cart.php?a=add&domain=transfer" class="btn btn-primary">
+                            <a href="cart.php?a=add&domain=transfer" class="whmc-kbtn">
                                 {lang key='orderForm.transferDomain'}
                             </a>
 
-                            <p class="small">* {lang key='orderForm.extendExclusions'}</p>
+{*                            <p class="small domain-info-box">* {lang key='orderForm.extendExclusions'}</p>*}
                         </div>
                     </div>
                 {/if}

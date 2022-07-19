@@ -330,7 +330,7 @@
 }
 
 
-.profile-sidebar-name, .sidebar .navigation a, .font-size-18 {
+.profile-sidebar-name, .sidebar .navigation a, .font-size-18, .panel-heading.card-header h3 {
     font-size: 18px;
     font-weight: 300;
 }
@@ -468,7 +468,7 @@ header .top-right-button {
 
 
 
-.pricing-list-2 .plan {
+.pricing-list-2 .plan, .spotlight-tld, .domain-promo-box {
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
     border: none!important;
     border-radius: 10px!important;
@@ -872,11 +872,65 @@ header .top-right-button {
     border-right: unset!important;
 }
 
-.domain-pricing .tld-row {
+.domain-pricing .tld-row, .suggested-domains .list-group-item {
     padding: 30px 0!important;
     border-bottom: 1px solid #e2e2e2!important;
 }
 
 .featured-tld hr {
     margin: 0px;
+}
+
+.spotlight-tld .btn:not(.domain-contact-support), .suggested-domains .btn:not(.domain-contact-support) {
+    background-color: #1279fa!important;
+    border-color: #1279fa!important;
+    padding: 5px 10px!important;
+    font-size: 15px!important;
+}
+
+.spotlight-tld {
+    padding: 13px 0!important;
+    height: auto!important;
+}
+
+
+.spotlight-tld .btn:not(.domain-contact-support):hover, .suggested-domains .btn:not(.domain-contact-support):hover {
+    background-color: #5da5ff!important;
+    border-color: #5da5ff!important;
+}
+
+.domain-lookup-result .price {
+    padding: 10px 0!important;
+    font-size: 15px!important;
+}
+
+.suggested-domains .list-group-item {
+    font-size: 16px;
+}
+
+.domain-promo-box {
+    background-color: #ffffff!important;
+    margin-top: 40px! important;
+}
+
+.domain-promo-box p {
+
+    font-size: 16px!important;
+    font-weight: 300!important;
+}
+
+.domain-info-box {
+    padding: 5px 0;
+}
+
+.suggested-domains .card-header, .suggested-domains .panel-heading {
+    border: none!important;
+    text-align: left;
+}
+
+.suggested-domains .list-group-item {
+    text-align: left;
+    font-size: 18px;
+    margin-left: 16px;
+    margin-right: 16px;
 }

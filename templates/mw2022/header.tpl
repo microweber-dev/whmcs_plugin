@@ -169,7 +169,7 @@
     <div class="page-wrapper">
         <div class="main">
             <div class="wrapper ">
-                <div class="row">
+                <div class="row" style="display: flex; justify-content: center;">
                     <!-- No Sidebar -->
                     {assign var="withSidebar" value="true"}
 
