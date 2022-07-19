@@ -1,4 +1,52 @@
-<div class="mw-whm submittickket">
+
+<style>
+    #mw-whm-submit-ticket-block .col-xs-6.captchaimage,
+    #mw-whm-submit-ticket-block .col-xs-6.captchaimage + .col-xs-6{
+        padding: 0;
+        margin: 0;
+    }
+    #mw-whm-submit-ticket-block .col-xs-6.captchaimage{
+        width: 150px;
+        padding: 12.5px;
+        text-align: center;
+        background-color: #7ab2cb;
+        border-radius: 5px 0 0 5px;
+    }
+    #mw-whm-submit-ticket-block .md-header.btn-toolbar{
+        display: none;
+    }
+
+
+
+
+    #default-captcha-domainchecker,
+    #default-captcha-domainchecker{
+        overflow: hidden;
+        padding: 20px;
+        text-align: left;
+    }
+    #mw-whm-attachments-row {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 15px;
+        margin: 0px;
+    }
+    #mw-whm-attachments-row input[type="file"]{
+        margin: 15px 0;
+        border: none;
+        box-shadow: none;
+        height: auto;
+        padding: 0;
+    }
+    #mw-whm-attachments-row .text-muted{
+        font-size:14px;
+    }
+    #mw-whm-attachments-row{
+        max-width: 550px;
+    }
+</style>
+
+<div class="mw-whm submittickket" id="mw-whm-submit-ticket-block">
     <div class="header-lined text-center">
         <h1>Support / Open Ticket</h1><br />
     </div>
@@ -70,7 +118,7 @@
             <textarea name="message" id="inputMessage" rows="12" class="form-control markdown-editor" data-auto-save-name="client_ticket_open">{$message}</textarea>
         </div>
 
-        <div class="row form-group">
+        <div class="row form-group" id="mw-whm-attachments-row">
             <div class="col-sm-12">
                 <label for="inputAttachments">{$LANG.supportticketsticketattachments}</label>
             </div>
@@ -98,7 +146,7 @@
             {include file="$template/includes/captcha.tpl"}
         </div>
 
-        <p class="text-center">
+        <p>
             <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="cbtn"/>
             <a href="supporttickets.php" class="cbtn cbtn-alt">{$LANG.cancel}</a>
         </p>

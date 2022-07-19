@@ -567,9 +567,7 @@ header .mobile-menu {
 }
 
 @media screen and (max-width: 1366px) {
-//     .top-right-button {
-//         display: none !important;
-//     }
+
 
     header .div-table-cell:first-child,
     header .div-table-cell:last-child {
@@ -587,3 +585,36 @@ header .mobile-menu {
     }
 
 }
+
+
+.sidebar{
+    width: 260px !important;
+    margin-right: 0 !important;
+}
+
+.page-content{
+    max-width: calc(100% - 270px);
+
+}
+
+@media screen and (max-width: 991px){
+    .page-content{
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .mw-whm.clientareadomains .status{
+        font-weight: normal;
+    }
+}
+.cbtn-alt {
+    background-color: rgba(255, 255, 255, 0);
+    color: #1279fa;
+    text-decoration: none;
+}
+
+#inputMessage-footer{
+    display: none;
+}
+
