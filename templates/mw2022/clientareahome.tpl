@@ -79,7 +79,7 @@
     <div class="tiles clearfix">
 
 
-        <div class="row client-area-row"  id="mw-whm--area-row-services">
+        <div class=" client-area-row"  id="mw-whm--area-row-services">
             <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=services'">
                 <a href="clientarea.php?action=services">
                     <div class="icon" style="font-size: 20px;">
