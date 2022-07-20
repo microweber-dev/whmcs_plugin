@@ -588,9 +588,12 @@ header .top-right-button {
     display: flex;
 }
 
-.col-box-template {
-    width: 48%;
-    float: left;
+@media screen and (min-width: 1200px) {
+    .col-box-template {
+        width: 48%;
+        float: left;
+    }
+
 }
 
 .page-payments {

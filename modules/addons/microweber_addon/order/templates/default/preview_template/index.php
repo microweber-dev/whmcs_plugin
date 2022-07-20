@@ -147,9 +147,9 @@
                 </a>
 
                 &nbsp;
-                <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
-                    <span>Start with this template</span>
-                </span>
+<!--                <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">-->
+<!--                    <span>Start with this template</span>-->
+<!--                </span>-->
 
             </form>
         </div>
