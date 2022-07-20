@@ -1059,3 +1059,34 @@ header .top-right-button {
    margin-top: 40px;
    margin-left: 20px;
 }
+
+.mw-whm--search-box {
+    display: block!important;
+}
+
+
+@media  (min-width: 650px){
+    .availability-domain-checker-icon {
+        display: none;
+
+    }
+}
+
+ @media  (max-width: 651px){
+     .availability-domain-checker-tag {
+         display: none;
+     }
+ }
+
+.availability-domain-checker-icon.fa.fa-check {
+    color: #5cb85c;
+}
+
+.availability-domain-checker-icon.fa.fa-close {
+    color: red;
+}
+
+.input-holder, .fixed-container, .provide-domains {
+
+    overflow-x: auto;
+}
