@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="{$charset}" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{$companyname} - {$pagetitle}</title>
-
-    <link href="{$WEB_ROOT}/templates/{$template}/css/all.min.css" rel="stylesheet">
-    <link href="{$WEB_ROOT}/templates/{$template}/css/invoice.css" rel="stylesheet">
-
-</head>
-<body>
+{include file="{$template}/header.tpl"}
 
     <div class="container-fluid invoice-container">
 
@@ -21,7 +9,7 @@
         {else}
 
             <div class="row">
-                <div class="col-sm-7">
+                <div class="col-sm-6">
 
                     {if $logo}
                         <p><img src="{$logo}" title="{$companyname}" /></p>
@@ -31,7 +19,9 @@
                     <h3>{$pagetitle}</h3>
 
                 </div>
-                <div class="col-sm-5 text-center">
+
+
+                <div class="col-sm-6 text-center">
 
                     <div class="invoice-status">
                         {if $status eq "Draft"}
@@ -76,6 +66,8 @@
             {/if}
 
             <div class="row">
+
+
                 <div class="col-sm-6 pull-sm-right text-right-sm">
                     <strong>{$LANG.invoicespayto}:</strong>
                     <address class="small-text">
@@ -246,9 +238,25 @@
 
         {/if}
 
+        {if $status eq "Unpaid" && $allowchangegateway}
+            <label>{$LANG.orderpaymentmethod}:</label>
+            <form method="post" action="{$smarty.server.PHP_SELF}?id={$invoiceid}">
+                <div class="form-group">
+                    {$gatewaydropdown}
+                </div>
+            </form>
+        {else}
+            {$paymentmethod}{if $paymethoddisplayname} ({$paymethoddisplayname}){/if}
+        {/if}
+        {if $status eq "Unpaid" || $status eq "Draft"}
+            <span class="small-text"></span>
+            <div class="payment-form payment-btn-container" data-btntext="{$LANG.makepayment}" >
+                {$paymentbutton}
+            </div>
+        {/if}
+
     </div>
 
     <p class="text-center hidden-print"><a href="clientarea.php">{$LANG.invoicesbacktoclientarea}</a></a></p>
 
-</body>
-</html>
+{include file="{$template}/footer.tpl"}

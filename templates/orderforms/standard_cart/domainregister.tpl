@@ -9,7 +9,7 @@
         <div class="cart-body" style="width: 90%; text-align: center;">
             <div class="header-lined page-domains adddomain-title" >
                 <h1>
-                    Find Your New Domain Name
+                    Find Your Domain Name
                 </h1>
             </div>
             {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
