@@ -466,11 +466,84 @@ header .top-right-button {
     border: 1px solid #1279fa;
 }
 
-.invoice-container {
+.invoice-container-printer {
     padding: 30px;
 }
 
-.pricing-list-2 .plan, .spotlight-tld, .domain-promo-box, .invoice-container {
+.invoice-container-printer address {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.invoice-container-printer .panel-body td {
+
+}
+
+.invoice-container-printer.paypal-box {
+    background-color: #1279fa;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .invoice-container-printer.paypal-box {
+        margin-top: 20px;
+        margin-left: 0px!important;
+    }
+}
+
+.invoice-container-printer.paypal-box  label{
+   color: #ffffff;
+   margin-bottom: 10px;
+   font-weight: 300;
+   font-size: 13px;
+}
+
+.invoice-container-printer.printer-box {
+
+}
+.badge {
+    padding: 8px 15px!important;
+    border-radius: 5px!important;
+}
+
+ .badge.badge-danger {
+    background-color: #d92632;
+
+ }
+
+
+ .badge.badge-warning {
+    background-color: yellow;
+ }
+
+
+ .badge.badge-success {
+    background-color: green;
+ }
+
+
+.invoice-container-printer.printer-box h1 {
+    font-weight: 300;
+}
+
+.invoice-container-printer .top-printer-box {
+    color: #ffffff;
+}
+
+.invoice-container-printer .top-printer-box p{
+   font-weight: 300;
+   font-size: 15px;
+
+}
+
+.invoice-container-printer .top-printer-box h2{
+   font-weight: 700;
+
+}
+
+
+.pricing-list-2 .plan, .spotlight-tld, .domain-promo-box, .invoice-container-printer {
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
     border: none!important;
     border-radius: 10px!important;
@@ -874,8 +947,14 @@ header .top-right-button {
     border-right: unset!important;
 }
 
-.domain-pricing .tld-row, .suggested-domains .list-group-item, .panel-default td {
+.domain-pricing .tld-row, .suggested-domains .list-group-item {
     padding: 30px 0!important;
+    border-bottom: 1px solid #e2e2e2!important;
+    border-top: none!important;
+}
+
+.panel-default td {
+    padding: 20px 0!important;
     border-bottom: 1px solid #e2e2e2!important;
     border-top: none!important;
 }
@@ -957,4 +1036,21 @@ header .top-right-button {
     background-color: #ffffff;
     border-color: #ffffff;
     border: none;
+    padding-bottom: 0px;
+}
+
+.panel-body {
+    padding-top: 0;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+
+    vertical-align: middle!important;
+}
+
+.panel-downloads {
+  justify-content: start;
+  display: flex;
+   margin-top: 40px;
+   margin-left: 20px;
 }
