@@ -15,11 +15,11 @@
                             <div class="col-sm-7" style="display: flex; align-items: center;">
 
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-12">
                                         <h1>{$pagetitle}</h1>
                                     </div>
 
-                                    <div class="col-md-2 invoice-status" style="margin-top: 15px;">
+                                    <div class="col-md-12 invoice-status" style="margin-top: 15px;">
                                         {if $status eq "Draft"}
                                             <span class="draft">{$LANG.invoicesdraft}</span>
                                         {elseif $status eq "Unpaid"}
@@ -137,7 +137,7 @@
                                 <h3 class="panel-title" style="font-size: 15px;"><strong>{$LANG.invoicelineitems}</strong></h3>
                             </div>
                             <div class="panel-body">
-                                <div class="table-responsive" style=" border: none;">
+                                <div style=" border: none;">
                                     <table class="table table-condensed">
                                         <thead>
                                         <tr>
@@ -187,7 +187,7 @@
                         {/if}
 
                         <div class="transactions-container small-text" style="font-size: 14px; margin-top: 40px;">
-                            <div class="table-responsive" style=" border: none;">
+                            <div style=" border: none;">
 
                                <h5 style="font-size: 16px;">Transactions:</h5>
                                 <table class="table table-condensed">
@@ -211,7 +211,7 @@
                                         </tr>
                                         {foreachelse}
                                         <tr>
-                                            <td class="text-center" style="padding: 20px 0;" colspan="4">{$LANG.invoicestransnonefound}</td>
+                                            <td style="padding: 20px 0;" colspan="4">{$LANG.invoicestransnonefound}</td>
                                         </tr>
                                     {/foreach}
                                     <tr style="background-color: #f8f8f8; font-size: 14px;">

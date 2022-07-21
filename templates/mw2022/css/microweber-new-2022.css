@@ -536,11 +536,13 @@ header .top-right-button {
 .invoice-container-printer .top-printer-box p{
    font-weight: 300;
    font-size: 15px;
+   margin-bottom: 5px;
 
 }
 
-.invoice-container-printer .top-printer-box h2{
-   font-weight: 700;
+.invoice-container-printer .top-printer-box h3{
+   margin-top: 0;
+   font-weight: 600;
 
 }
 
@@ -1066,15 +1068,15 @@ header .top-right-button {
 
 
 @media  (min-width: 650px){
-    .availability-domain-checker-icon {
-        display: none;
+    .availability-domain-checker-icon, .add-button-icon {
+        display: none!important;
 
     }
 }
 
  @media  (max-width: 651px){
-     .availability-domain-checker-tag {
-         display: none;
+     .availability-domain-checker-tag, .to-add.add-button-mobile, .domain-register-message {
+         display: none!important;
      }
  }
 
@@ -1087,6 +1089,20 @@ header .top-right-button {
 }
 
 .input-holder, .fixed-container, .provide-domains {
-
     overflow-x: auto;
+}
+
+@media  (max-width: 1110px){
+    #primaryLookupResult {
+        font-size: 24px;
+    }
+}
+
+@media  (max-width: 450px){
+    #primaryLookupResult {
+        font-size: 18px;
+    }
+}
+.form-control {
+    border-radius: 5px!important;
 }

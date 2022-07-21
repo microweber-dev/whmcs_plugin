@@ -61,7 +61,7 @@
 
 
 
-                    <div id="primaryLookupResult" class="domain-lookup-result w-hidden " style="width: 100%; display: flex; justify-content: start; font-size: 30px;">
+                    <div id="primaryLookupResult" class="domain-lookup-result w-hidden " style="display: flex; width: 100%;">
                         <div class="col-md-10" style="display: grid; justify-content: start;">
                             <p class="domain-invalid domain-checker-invalid">{lang key='orderForm.domainLetterOrNumber'}<span class="domain-length-restrictions">{lang key='orderForm.domainLengthRequirements'}</span></p>
 
@@ -106,10 +106,11 @@
                         </div>
 
 
-                        <div class="col-md-2" style="margin-right: 40px; align-items: center; align-content: center; display: flex;">
+                        <div class="col-md-2" style="margin-right: 105px; align-items: center; align-content: center; display: flex;">
                             <p class="domain-price " style="justify-content: end;">
                                 <button class="whmc-kbtn btn-add-to-cart" data-whois="0" data-domain="">
-                                    <span class="to-add">{$LANG.addtocart}</span>
+                                    <i class="add-button-icon fa fa-shopping-cart" style="padding: 10px 0;"></i>
+                                    <span class="to-add add-button-mobile">{$LANG.addtocart}</span>
                                     <span class="loading">
                                         <i class="fas fa-spinner fa-spin"></i> {lang key='loading'}
                                     </span>
