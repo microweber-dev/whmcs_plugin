@@ -73,6 +73,7 @@
 
         {foreach key=num item=domain from=$domains}
             <div class="service-block domain">
+
                 <a href="#" onclick="removeItem('d','{$num}');return false" class="remove-this" title="Remove"></a>
                 <a href="{$smarty.server.PHP_SELF}?a=confdomains" class="edit-this" title="Edit">edit</a>
 
