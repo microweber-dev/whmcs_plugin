@@ -1106,3 +1106,35 @@ header .top-right-button {
 .form-control {
     border-radius: 5px!important;
 }
+
+
+#order-standard_cart .font-size-36 {
+    font-weight: 700;
+    margin-bottom: 20px!important;
+    text-align: center;
+}
+
+#order-standard_cart .cart-body {
+
+    width: 100%!important
+}
+
+#order-standard_cart .font-size-24 {
+    font-weight: 300;
+    margin-bottom: 15px;
+
+}
+
+#order-standard_cart .font-size-30 {
+    font-weight: 300;
+}
+
+.btn-transfer {
+
+    width: 100%;
+}
+
+.panel-footer {
+    background-color: unset!important;
+    border: none!important;
+}
