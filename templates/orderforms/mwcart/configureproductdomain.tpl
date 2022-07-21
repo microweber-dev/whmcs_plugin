@@ -5,15 +5,15 @@
 
     <div id="order-modern">
 
-        <div class="text-center">
-            <h1>{$LANG.cartproductselection}: {$productinfo.groupname} - {$productinfo.name}</h1>
+        <div class="col-sm-10">
+            <h1 class="choose-a-domain-h1">{$LANG.cartproductselection}: {$productinfo.groupname} - {$productinfo.name}</h1>
             <p>{$LANG.cartmakedomainselection}</p>
         </div>
 
         <form onsubmit="checkdomain();return false">
 
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-sm-10">
                     <div class="domainoptions">
                         {if $incartdomains}
                             <div class="option">
@@ -133,7 +133,7 @@
             <div class="domain-fade-out">
 
                 <div class="text-center">
-                    <button type="submit" id="btnDomainContinue" class="cbtn">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                    <button type="submit" id="btnDomainContinue" class="whmc-kbtn">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
                 </div>
 
                 {if $freedomaintlds}<p>* <em>{$LANG.orderfreedomainregistration} {$LANG.orderfreedomainappliesto}: {$freedomaintlds}</em></p>{/if}
