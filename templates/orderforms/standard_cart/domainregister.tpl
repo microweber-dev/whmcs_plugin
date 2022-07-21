@@ -219,16 +219,16 @@
 
                 {if $featuredTlds}
                     <div class="featured-tlds-container">
-                        <div class="row">
+                        <div class="row" style="" >
                             {foreach $featuredTlds as $num => $tldinfo}
-                                {if $num % 3 == 0 && (count($featuredTlds) - $num < 3)}
-                                    {if count($featuredTlds) - $num == 2}
-                                        <div class="col-sm-2"></div>
-                                    {else}
-                                        <div class="col-sm-4"></div>
-                                    {/if}
-                                {/if}
-                                <div class="col-lg-4 col-sm-6">
+{*                                {if $num % 3 == 0 && (count($featuredTlds) - $num < 3)}*}
+{*                                    {if count($featuredTlds) - $num == 2}*}
+{*                                        <div class="col-sm-2"></div>*}
+{*                                    {else}*}
+{*                                        <div class="col-sm-4"></div>*}
+{*                                    {/if}*}
+{*                                {/if}*}
+                                <div class="col-lg-6 col-sm-6">
                                     <div class="featured-tld">
                                         <div class="img-container">
                                             <img height="80"  src="{$BASE_PATH_IMG}/tld_logos/{$tldinfo.tldNoDots}.png">
