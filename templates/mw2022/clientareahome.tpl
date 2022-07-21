@@ -223,7 +223,9 @@
                             </svg>                                </div>
                             <div class="feature-content">
                                 <h4 class="feature-title">24/7 Expert Support</h4>
-                                <p class="feature-desc">Proactively monitors for and alerts you about any malware that is detected on your website.</p>
+                                <p class="feature-desc">
+                                    Our expert support team is on hand 24/7 to give expert support and advice on all your technical problems.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -240,7 +242,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Fast &amp; Reliable</h4>
-                            <p class="feature-desc">If a scan finds anything, SiteLock will safely remove any known malware automatically.</p>
+                            <p class="feature-desc">Create a site faster than ever that will be available online at any time.</p>
                         </div>
                     </div>
                 </div>
