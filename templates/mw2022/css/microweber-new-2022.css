@@ -420,7 +420,7 @@ header .top-right-button {
 #user_registration_form #domain-search-field, #order-standard_cart .input-group-lg>.form-control {
     height: 80px!important;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
-    border: none!important;
+
     border-radius: 10px 0 0 10px!important;
 
 }
