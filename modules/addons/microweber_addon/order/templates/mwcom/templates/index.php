@@ -170,7 +170,7 @@ $templates = get_enabled_templates();
 /*print('<pre style="display: block;height: 500px;overflow: auto">');
 var_dump($templates);
 print('</pre>');*/
-?>
+ ?>
 
 <section class="section" id="templates-page">
     <div id="templates-page-bg">
@@ -189,18 +189,18 @@ print('</pre>');*/
             </div>
         </div>
     </div>
-    <?php
+<?php
 
-    $keywords = Array(
-        'business',
-        'store',
-        'event',
-        'blog',
-        'gallery',
-        'services',
-    );
+$keywords = Array(
+    'business',
+    'store',
+    'event',
+    'blog',
+    'gallery',
+    'services',
+);
 
-    ?>
+?>
     <nav class="ns-tabs-like-navigation" id="templates-categories-selector">
         <a href="#">All</a><?php foreach ($keywords as $key) {  print '<a href="#' . $key . '">' . ucfirst($key) . '</a>'; } ?>
     </nav>
@@ -209,24 +209,24 @@ print('</pre>');*/
 
 
 
-            <?php if ($templates): ?>
-                <?php foreach ($templates as $template): ?>
+                <?php if ($templates): ?>
+                    <?php foreach ($templates as $template): ?>
 
-                    <?php
-                    $template_id = $template->config_option_id;
-                    $config_gid = $template->config_option_group_id;
-                    ?>
+                        <?php
+                        $template_id = $template->config_option_id;
+                        $config_gid = $template->config_option_group_id;
+                        ?>
 
-                    <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
+                        <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
 
-                    <div class="templates-list-block-item active" data-cat='<?php print(isset($template->keywords) ? implode(',',$template->keywords) : ''); ?>'>
-                        <template>
-                            <form method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
-                                <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
-                                <input type="hidden" value="true" name="template_view"/>
-                                <div onclick="parentNode.submit();">
-                                    <span class="templates-list-block-item-image" style="background-image: url(<?php print $template->screenshot_url; ?>) "></span>
-                                    <span class="templates-list-block-item-info">
+                        <div class="templates-list-block-item active" data-cat='<?php print(isset($template->keywords) ? implode(',',$template->keywords) : ''); ?>'>
+                            <template>
+                                <form method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+                                    <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
+                                    <input type="hidden" value="true" name="template_view"/>
+                                    <div onclick="parentNode.submit();">
+                                        <span class="templates-list-block-item-image" style="background-image: url(<?php print $template->screenshot_url; ?>) "></span>
+                                        <span class="templates-list-block-item-info">
                                         <strong class="templates-list-block-item-title"><?php print $template->preview_name; ?></strong>
                                         <span class="templates-list-block-item-description">
                                             <?php print(isset($template->keywords) ? '<span class="tpl-tag">'. implode('</span><span class="tpl-tag">',$template->keywords) . '</span>' : ''); ?>
@@ -235,13 +235,13 @@ print('</pre>');*/
                                         <samp class="kbtn kbtn-outline-dark">Preview</samp>
                                         <!--<samp class="kbtn">Start</samp>-->
                                     </span>
-                                </div>
-                            </form>
-                        </template>
-                    </div>
+                                    </div>
+                                </form>
+                            </template>
+                        </div>
 
-                <?php endforeach; ?>
-            <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
         </div>
     </div>
@@ -252,7 +252,7 @@ print('</pre>');*/
     <div class="alert alert-danger" role="alert">
         No templates are enabled from the admin panel
     </div>
-<?php endif; ?>
+ <?php endif; ?>
 
 
 <script>

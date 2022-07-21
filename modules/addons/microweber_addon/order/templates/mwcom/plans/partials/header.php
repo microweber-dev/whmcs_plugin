@@ -19,7 +19,7 @@
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/plans/assets/css/typography.css" rel="stylesheet"/>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://fonts.cdnfonts.com/css/milliard" rel="stylesheet">
-    <link rel="stylesheet" href="https://templates.microweber.com/mwcom/userfiles/templates/microweber_com/home/style.php">
+    <link rel="stylesheet" href="https://microweber.com/api/getTemplateStyleMW">
     <script src="https://templates.microweber.com/mwcom/userfiles/templates/microweber_com/home/scripts/global-scripts.php"></script>
     <?php
     /*

@@ -21,10 +21,11 @@
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/css/main.css" class="css-main" rel="stylesheet"/>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/templates/default/domains/assets/css/custom.css" rel="stylesheet"/>
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+
+    <link rel="stylesheet" href="https://microweber.com/api/getTemplateStyleMW">
+    <script src="https://templates.microweber.com/mwcom/userfiles/templates/microweber_com/home/scripts/libs.js"></script>
+
 </head>
 
 <body class="" id="frame-body">
