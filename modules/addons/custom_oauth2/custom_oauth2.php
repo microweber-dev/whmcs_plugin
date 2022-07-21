@@ -295,7 +295,25 @@ function login_userid($userid, $ip_address)
     if (is_object($entry) && isset($entry->id))
     {
         $token = create_sso_token($entry);
+        if(isset($token["result"]) && $token["result"] == "error"){
+            global $autoauthkey;
+            global $CONFIG;
 
+            // Define WHMCS URL & AutoAuth Key
+            $whmcsurl = $CONFIG['SystemURL']."/dologin.php";
+
+            $timestamp = time(); // Get current timestamp
+            $email = $entry->email; // Clients Email Address to Login
+            $goto = 'clientarea.php?action=products';
+
+            $hash = sha1($email . $timestamp . $autoauthkey); // Generate Hash
+
+// Generate AutoAuth URL & Redirect
+            $url = $whmcsurl . "?email=$email&timestamp=$timestamp&hash=$hash&goto=" . urlencode($goto);
+            header("Location: $url");
+            exit;
+
+        }
         header('Location: '. $token['redirect_url']);
         exit;
 
