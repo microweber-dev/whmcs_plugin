@@ -12,9 +12,13 @@ class MicroweberAddonOrderController
 
     function order_iframe($params)
     {
+
+
+
         if (isset($params['language']) and function_exists('swapLang')) {
             swapLang($params['language']);
         }
+
 
         if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
 
@@ -150,6 +154,9 @@ class MicroweberAddonOrderController
 
         }
 
+
+
+       // WHMCS\Terminus::getInstance()->doExit();
 
         include __DIR__ . "/order/index.php";
         exit;

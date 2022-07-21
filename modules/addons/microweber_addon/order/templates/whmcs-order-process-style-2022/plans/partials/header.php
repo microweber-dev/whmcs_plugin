@@ -11,6 +11,7 @@
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet"/>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/fonts/mw-icons-mind/line/style.css" rel="stylesheet"/>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/fonts/mw-icons-mind/solid/style.css" rel="stylesheet"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Custom Theme -->
 <!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>-->

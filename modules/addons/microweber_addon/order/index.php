@@ -97,6 +97,9 @@ if ($step == 0) {
 <?php else: ?>
     <?php if ($step == 2): ?>
         <?php
+
+
+
         include __DIR__ . "/steps/domains.php"; ?>
     <?php elseif ($step == 1): ?>
         <?php

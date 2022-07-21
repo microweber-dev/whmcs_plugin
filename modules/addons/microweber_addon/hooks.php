@@ -1,6 +1,8 @@
 <?php
 
 require_once (__DIR__ . '/vendor/autoload.php');
+
+
  require_once (__DIR__ . DIRECTORY_SEPARATOR . 'helpers.php');
 
 use WHMCS\View\Menu\Item as MenuItem;
@@ -51,7 +53,7 @@ function get_website_redirect_url($domain, $client_product_id = false)
 {
 
     global $CONFIG;
-    $whmcsurl = site_url();
+    $whmcsurl =$CONFIG['SystemURL'].'/';
 
     if ($client_product_id) {
         $domain .= '&client_product_id=' . $client_product_id;
