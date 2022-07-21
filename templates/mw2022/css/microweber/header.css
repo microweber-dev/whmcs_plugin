@@ -213,7 +213,7 @@ header .user-menu-dropdown .user-bar .name {
 
     white-space: nowrap;
 
-    display: inline-block;
+    display: none;
 }
 
 header .user-menu-dropdown .user-bar .name:after{
