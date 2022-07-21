@@ -156,8 +156,8 @@
                                 {*<span class="nav-label">Menu</span>*}
                             </div>
                         {else}
-                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>
-                            <a href="{$WEB_ROOT}/index.php" class="kbtn top-right-button" >Get Started</a>
+{*                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>*}
+                            <a href="{$WEB_ROOT}/index.php" class="whmc-kbtn" >Log in</a>
                         {/if}
 
                     </div>

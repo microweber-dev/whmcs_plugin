@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             {if $logo}
-                                <a href="{$WEB_ROOT}/" class="logo"><img src="{$logo}" alt="{$companyname}" class="img-responsive"></a>
+                                <a href="{$WEB_ROOT}/" class="logo"><img src="templates/mw2022/img/logo.svg" alt="{$companyname}" class="img-responsive"></a>
                             {else}
                                 <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
                             {/if}
