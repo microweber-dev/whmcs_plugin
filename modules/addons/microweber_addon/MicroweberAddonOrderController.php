@@ -122,7 +122,10 @@ class MicroweberAddonOrderController
                         url: "'.site_url().'cart.php",  
                         data: {"a":"addToCart","whois":"1","sideorder":"1","idnlanguage":"","domain":"'.$domain.'", "token":"'.generate_token("plain").'"},
                         complete: function(response) {
-                           goToCart(); 
+                        setTimeout(function(){
+                         goToCart(); 
+                         }, 1000);
+                          
                         }
                    });
                 
