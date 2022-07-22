@@ -5,6 +5,7 @@ if (!defined("WHMCS"))
 
 use WHMCS\Database\Capsule;
 use Illuminate\Database\Capsule\Manager as DB;
+use WHMCS\Session;
 
 define("CLIENTAREA", true);
 
@@ -298,13 +299,23 @@ function login_userid($userid, $ip_address)
         if(isset($token["result"]) && $token["result"] == "error"){
             global $autoauthkey;
             global $CONFIG;
+//var_dump($_SERVER);
+//exit;
+             $cart_data = (Session::get("cart"));
 
-            // Define WHMCS URL & AutoAuth Key
+         //   $clientQuery = \WHMCS\User\Client::where("id", $entry->id)->first();
+      //      $clientQuery->finalizeLogin();
+             // Define WHMCS URL & AutoAuth Key
             $whmcsurl = $CONFIG['SystemURL']."/dologin.php";
 
             $timestamp = time(); // Get current timestamp
             $email = $entry->email; // Clients Email Address to Login
             $goto = 'clientarea.php?action=products';
+
+            if(isset($cart_data["products"]) and !empty($cart_data["products"])){
+                $goto = 'cart.php?a=checkout';
+
+            }
 
             $hash = sha1($email . $timestamp . $autoauthkey); // Generate Hash
 
