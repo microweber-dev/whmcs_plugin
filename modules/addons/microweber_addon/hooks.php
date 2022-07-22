@@ -344,6 +344,7 @@ add_hook('ClientAreaPage', 23, function ($v) {
     usort($overwriteServices, function ($a, $b){
         $t2 = strtotime($a['regdate']);
         $t1 = strtotime($b['regdate']);
+       // return $t1 - $t2;
         return $t1 - $t2;
     });
 
@@ -387,3 +388,6 @@ add_hook('ClientAreaPage', 23, function ($v) {
 
     return $v;
 });
+
+
+

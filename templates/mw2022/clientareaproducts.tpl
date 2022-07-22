@@ -7,12 +7,12 @@
     </div>
 
 
-    {include file="$template/includes/tablelist.tpl" tableName="ServicesList" filterColumn="3"}
+    {include file="$template/includes/tablelist.tpl" tableName="ServicesList" filterColumn="4" startOrderCol="[2, 'desc'], [1, 'asc']"}
     <script type="text/javascript">
         jQuery(document).ready(function () {
             var table = jQuery('#tableServicesList').removeClass('hidden').DataTable();
             {if $orderby == 'product'}
-            table.order([0, '{$sort}']);
+            table.order([2, 'desc']);
             {elseif $orderby == 'amount' || $orderby == 'billingcycle'}
             table.order(1, '{$sort}');
             {elseif $orderby == 'nextduedate'}
@@ -152,8 +152,10 @@
             <thead>
             <tr>
                 <th>{$LANG.orderproduct}</th>
+
                 <th>{$LANG.clientareaaddonpricing}</th>
-                <th>{$LANG.clientareahostingnextduedate}</th>
+{*                <th>{$LANG.clientareahostingnextduedate}</th>*}
+                <th>Register date</th>
                 <th>{$LANG.clientareastatus}</th>
                 <th class="responsive-edit-button" >Actions</th>
             </tr>
@@ -166,9 +168,13 @@
                     <td>
                         {if $service.domain}<br/><a href="http://{$service.domain}" target="_blank" class="domain-name">{$service.domain}</a><br>{/if}
                         <span class="product-name">{$service.product}</span>
+
+
                     </td>
+
                     <td class="text-center" data-order="{$service.amountnum}"><span class="product-amount">{$service.amount}</span><br/><span class="product-plan">{$service.billingcycle}</span></td>
-                    <td class="text-center"><span class="hidden">{$service.normalisedNextDueDate}</span>{$service.nextduedate}</td>
+                    <td class="text-center"><span class="hidden">{$service.normalisedRegDate}</span>{$service.normalisedRegDate}</td>
+{*                    <td class="text-center"><span class="hidden">{$service.normalisedNextDueDate}</span>{$service.nextduedate}</td>*}
                     <td class="text-center status-column"><span class="status mw-whm-product-status status-{$service.status|strtolower}"><span>{$service.statustext}</span></span></td>
                     <td class="responsive-edit-button" style="max-width: 250px; text-align: right">
                         {*<span class="more-table-button"></span>*}
