@@ -18,7 +18,7 @@
                         {if $incartdomains}
                             <div class="option">
                                 <label class="radio-inline">
-                                    <input type="radio" name="domainoption" value="incart" id="selincart"/>{$LANG.cartproductdomainuseincart}
+                                    <input type="radio" class="input-select-domaintransfer" placeholder="Search domain..." name="domainoption" value="incart" id="selincart"/>{$LANG.cartproductdomainuseincart}
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domainincart">
                                     <div class="row">
@@ -36,20 +36,20 @@
                         {if $registerdomainenabled}
                             <div class="option">
                                 <label class="radio-inline">
-                                    <input type="radio" name="domainoption" value="register" id="selregister"/>{$LANG.cartregisterdomainchoice|sprintf2:$companyname}
+                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="register" id="selregister"/>{$LANG.cartregisterdomainchoice|sprintf2:$companyname}
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domainregister">
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-8 col-sm-offset-2">
                                             <div class="input-group" style="display: block;">
 {*                                                <span class="input-group-addon">www.</span>*}
-                                                <input type="text" id="registersld" value="{$sld}" class="form-control" autocapitalize="none"/>
+                                                <input type="text" id="registersld" value="{$sld}" class="form-control" placeholder="Search domain..." autocapitalize="none"/>
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-xs-4">
                                             <select id="registertld" class="form-control">
                                                 {foreach from=$registertlds item=listtld}
-                                                    <option value="{$listtld}"{if $listtld eq $tld} selected="selected"{/if}>{$listtld}</option>
+                                                    <option value="{$listtld}"{if $listtld eq $tld}  selected="selected"{/if}>{$listtld}</option>
                                                 {/foreach}
                                             </select>
                                         </div>
@@ -60,20 +60,20 @@
                         {if $transferdomainenabled}
                             <div class="option">
                                 <label class="radio-inline">
-                                    <input type="radio" name="domainoption" value="transfer" id="seltransfer"/>{$LANG.carttransferdomainchoice|sprintf2:$companyname}
+                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="transfer" id="seltransfer"/>{$LANG.carttransferdomainchoice|sprintf2:$companyname}
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domaintransfer">
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-8 col-sm-offset-2">
                                             <div class="input-group" style="display: block;">
 {*                                                <span class="input-group-addon">www.</span>*}
-                                                <input type="text" id="transfersld" value="{$sld}" class="form-control" autocapitalize="none"/>
+                                                <input type="text" id="transfersld" value="{$sld}" placeholder="Search domain..." class="form-control" autocapitalize="none"/>
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-xs-4">
                                             <select id="transfertld" class="form-control">
                                                 {foreach from=$transfertlds item=listtld}
-                                                    <option value="{$listtld}"{if $listtld eq $tld} selected="selected"{/if}>{$listtld}</option>
+                                                    <option value="{$listtld}"{if $listtld eq $tld}  selected="selected"{/if}>{$listtld}</option>
                                                 {/foreach}
                                             </select>
                                         </div>
@@ -84,14 +84,14 @@
                         {if $owndomainenabled}
                             <div class="option">
                                 <label class="radio-inline">
-                                    <input type="radio" name="domainoption" value="owndomain" id="selowndomain"/>{$LANG.cartexistingdomainchoice|sprintf2:$companyname}
+                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="owndomain" id="selowndomain"/>{$LANG.cartexistingdomainchoice|sprintf2:$companyname}
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domainowndomain">
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-8 col-sm-offset-2">
                                             <div class="input-group" style="display: block;">
 {*                                                <span class="input-group-addon">www.</span>*}
-                                                <input type="text" id="owndomainsld" value="{$sld}" placeholder="yourdomain" class="form-control" autocapitalize="none"/>
+                                                <input type="text" id="owndomainsld" value="{$sld}" placeholder="Search domain..." class="form-control" autocapitalize="none"/>
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-xs-4">
@@ -105,14 +105,14 @@
                         {if $subdomains}
                             <div class="option">
                                 <label class="radio-inline">
-                                    <input type="radio" name="domainoption" value="subdomain" id="selsubdomain"/>{$LANG.cartsubdomainchoice|sprintf2:$companyname}
+                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="subdomain" id="selsubdomain"/>{$LANG.cartsubdomainchoice|sprintf2:$companyname}
                                 </label>
                                 <div class="domainreginput hidden" id="domainsubdomain">
                                     <div class="row">
                                         <div class="col-sm-5 col-xs-7 col-sm-offset-2">
-                                            <div class="input-group" style="display: block;">
+                                            <div class="input-group" class="input-select-domaintransfer" style="display: block;">
 {*                                                <span class="input-group-addon">http://</span>*}
-                                                <input type="text" id="subdomainsld" size="30" value="{$sld}" autocapitalize="none" class="form-control"/>
+                                                <input type="text"  id="subdomainsld" size="30" placeholder="Search domain..." value="{$sld}" autocapitalize="none" class="form-control"/>
                                             </div>
                                         </div>
                                         <div class="col-sm-3 col-xs-5">
@@ -126,6 +126,7 @@
                                 </div>
                             </div>
                         {/if}
+
                     </div>
                 </div>
             </div>

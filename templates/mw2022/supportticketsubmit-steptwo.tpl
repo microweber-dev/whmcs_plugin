@@ -147,8 +147,8 @@
         </div>
 
         <p>
-            <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="cbtn"/>
-            <a href="supporttickets.php" class="cbtn cbtn-alt">{$LANG.cancel}</a>
+            <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="whmc-kbtn-2"/>
+            <a href="supporttickets.php" class="whmc-kbtn">{$LANG.cancel}</a>
         </p>
 
     </form>

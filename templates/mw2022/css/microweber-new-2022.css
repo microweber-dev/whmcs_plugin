@@ -1155,7 +1155,7 @@ footer {
 
 #order-modern .domainoptions .optionselected {
 
-    background: linear-gradient( 90deg, #1966ff 0%, #1966ff 100%);
+    background: linear-gradient( 90deg, #1279fa 0%, #1279fa 100%);
     background-color: unset!important;
 }
 
@@ -1172,4 +1172,15 @@ footer {
 #order-modern .domainoptions .optionselected .radio-inline {
 
     color: #ffffff!important;
+}
+
+.input-select-domaintransfer {
+    height: 17px;
+    width: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 35px;
+
 }

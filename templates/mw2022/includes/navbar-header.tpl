@@ -32,10 +32,15 @@
         <a class="menu-more" href="javascript:;">Support &nbsp;<b class="caret"></b></a>
         <ul>
             <li menuitemname="Tickets" id="Primary_Navbar-Support-Tickets"><a href="{$WEB_ROOT}/supporttickets.php">Tickets</a></li>
-            <li menuitemname="Announcements" id="Primary_Navbar-Support-Announcements"><a href="{$WEB_ROOT}/index.php?rp=/announcements">Announcements</a></li>
-            <li menuitemname="Knowledgebase" id="Primary_Navbar-Support-Knowledgebase"><a href="{$WEB_ROOT}/index.php?rp=/knowledgebase">Knowledgebase</a></li>
-            <li menuitemname="Downloads" id="Primary_Navbar-Support-Downloads"><a href="{$WEB_ROOT}/index.php?rp=/download">Downloads</a></li>
-            <li menuitemname="Network Status" id="Primary_Navbar-Support-Network_Status"><a href="{$WEB_ROOT}/serverstatus.php">Network Status</a></li>
+            <li menuitemname="Open Ticket" id="Primary_Navbar-Open_Ticket" class="{if $filename eq 'submitticket' AND $smarty.get eq false}current{/if}">
+                <a href="{$WEB_ROOT}/submitticket.php">
+                    Open Ticket
+                </a>
+            </li>
+{*            <li menuitemname="Announcements" id="Primary_Navbar-Support-Announcements"><a href="{$WEB_ROOT}/index.php?rp=/announcements">Announcements</a></li>*}
+{*            <li menuitemname="Knowledgebase" id="Primary_Navbar-Support-Knowledgebase"><a href="{$WEB_ROOT}/index.php?rp=/knowledgebase">Knowledgebase</a></li>*}
+{*            <li menuitemname="Downloads" id="Primary_Navbar-Support-Downloads"><a href="{$WEB_ROOT}/index.php?rp=/download">Downloads</a></li>*}
+{*            <li menuitemname="Network Status" id="Primary_Navbar-Support-Network_Status"><a href="{$WEB_ROOT}/serverstatus.php">Network Status</a></li>*}
         </ul>
     </li>
 {else}
