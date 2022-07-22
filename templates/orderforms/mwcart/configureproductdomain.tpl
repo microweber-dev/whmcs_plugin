@@ -5,7 +5,7 @@
 
     <div id="order-modern">
 
-        <div class="col-sm-10">
+        <div class="col-sm-12">
             <h1 class="choose-a-domain-h1">{$LANG.cartproductselection}: {$productinfo.groupname} - {$productinfo.name}</h1>
             <p>{$LANG.cartmakedomainselection}</p>
         </div>
@@ -13,7 +13,7 @@
         <form onsubmit="checkdomain();return false">
 
             <div class="row">
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                     <div class="domainoptions">
                         {if $incartdomains}
                             <div class="option">
@@ -41,8 +41,8 @@
                                 <div class="domainreginput hidden clearfix" id="domainregister">
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-8 col-sm-offset-2">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">www.</span>
+                                            <div class="input-group" style="display: block;">
+{*                                                <span class="input-group-addon">www.</span>*}
                                                 <input type="text" id="registersld" value="{$sld}" class="form-control" autocapitalize="none"/>
                                             </div>
                                         </div>
@@ -65,8 +65,8 @@
                                 <div class="domainreginput hidden clearfix" id="domaintransfer">
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-8 col-sm-offset-2">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">www.</span>
+                                            <div class="input-group" style="display: block;">
+{*                                                <span class="input-group-addon">www.</span>*}
                                                 <input type="text" id="transfersld" value="{$sld}" class="form-control" autocapitalize="none"/>
                                             </div>
                                         </div>
@@ -89,8 +89,8 @@
                                 <div class="domainreginput hidden clearfix" id="domainowndomain">
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-8 col-sm-offset-2">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">www.</span>
+                                            <div class="input-group" style="display: block;">
+{*                                                <span class="input-group-addon">www.</span>*}
                                                 <input type="text" id="owndomainsld" value="{$sld}" placeholder="yourdomain" class="form-control" autocapitalize="none"/>
                                             </div>
                                         </div>
@@ -110,8 +110,8 @@
                                 <div class="domainreginput hidden" id="domainsubdomain">
                                     <div class="row">
                                         <div class="col-sm-5 col-xs-7 col-sm-offset-2">
-                                            <div class="input-group">
-                                                <span class="input-group-addon">http://</span>
+                                            <div class="input-group" style="display: block;">
+{*                                                <span class="input-group-addon">http://</span>*}
                                                 <input type="text" id="subdomainsld" size="30" value="{$sld}" autocapitalize="none" class="form-control"/>
                                             </div>
                                         </div>

@@ -1153,3 +1153,23 @@ footer {
     padding: 0 0 40px 0!important;
 }
 
+#order-modern .domainoptions .optionselected {
+
+    background: linear-gradient( 90deg, #1966ff 0%, #1966ff 100%);
+    background-color: unset!important;
+}
+
+#order-modern .domainoptions .option {
+    border: none!important;
+    padding: 20px 60px;
+
+}
+
+#order-modern .domainoptions .option label {
+    padding: 20px 60px;
+}
+
+#order-modern .domainoptions .optionselected .radio-inline {
+
+    color: #ffffff!important;
+}
