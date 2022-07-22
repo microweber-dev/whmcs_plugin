@@ -443,6 +443,23 @@ class MicroweberAddonApiController
         $username = $this->__db_escape_string($params['domain']);
         $username = addslashes($username);
 
+//        $query = "
+//select
+//  c.id AS userid, h.id AS serviceid, pcos.optionname AS template
+//FROM
+//  tblhosting h, tblclients c, tblproducts p, tblproductconfigoptionssub pcos, tblproductconfigoptions pco, tblhostingconfigoptions hco
+//WHERE
+//  pcos.configid = pco.id AND
+//  hco.configid = pco.id AND
+//  hco.optionid = pcos.id AND
+//  hco.relid = h.id AND
+//  c.id = h.userid AND
+//  p.id = h.packageid AND
+//h.domain = '" . $username . "' and
+//  pco.optionname = 'Template'  limit 1";
+
+
+
         $query = "
 select
   c.id AS userid, h.id AS serviceid, pcos.optionname AS template
@@ -452,7 +469,6 @@ WHERE
   pcos.configid = pco.id AND
   hco.configid = pco.id AND
   hco.optionid = pcos.id AND
-  hco.relid = h.id AND
   c.id = h.userid AND
   p.id = h.packageid AND
 h.domain = '" . $username . "' and
@@ -551,7 +567,8 @@ h.domain = '" . $username . "' and
 
             $url = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectTo;
 
-
+//var_dump($url);
+//exit;
 
             header('Location: ' .$url);
             exit;
