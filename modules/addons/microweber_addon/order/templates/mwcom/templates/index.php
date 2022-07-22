@@ -221,22 +221,41 @@ $keywords = Array(
 
                         <div class="templates-list-block-item active" data-cat='<?php print(isset($template->keywords) ? implode(',',$template->keywords) : ''); ?>'>
                             <template>
-                                <form method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+                                <form method="post"
+                                      id="template-preview-<?php print $template_id ?>"
+                                      action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) and $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?>
+                                      class="clearfix">
                                     <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
                                     <input type="hidden" value="true" name="template_view"/>
-                                    <div onclick="parentNode.submit();">
-                                        <span class="templates-list-block-item-image" style="background-image: url(<?php print $template->screenshot_url; ?>) "></span>
-                                        <span class="templates-list-block-item-info">
-                                        <strong class="templates-list-block-item-title"><?php print $template->preview_name; ?></strong>
-                                        <span class="templates-list-block-item-description">
-                                            <?php print(isset($template->keywords) ? '<span class="tpl-tag">'. implode('</span><span class="tpl-tag">',$template->keywords) . '</span>' : ''); ?>
+                                    <div>
+                                        <span onclick="document.getElementById('template-preview-<?php print $template_id ?>').submit();" class="templates-list-block-item-image"
+                                              style="background-image: url(<?php print $template->screenshot_url; ?>) "></span>
+                                        <span  class="templates-list-block-item-info">
+                                        <strong onclick="document.getElementById('template-preview-<?php print $template_id ?>').submit();"  class="templates-list-block-item-title"><?php print $template->preview_name; ?></strong>
+                                        <span onclick="document.getElementById('template-preview-<?php print $template_id ?>').submit();"  class="templates-list-block-item-description">
+                                            <?php print(isset($template->keywords) ? '<span class="tpl-tag">' . implode('</span><span class="tpl-tag">', $template->keywords) . '</span>' : ''); ?>
                                             <?php #print $tpl['title']; ?>
                                         </span>
-                                        <samp class="kbtn kbtn-outline-dark">Preview</samp>
-                                        <!--<samp class="kbtn">Start</samp>-->
+                                        <samp onclick="document.getElementById('template-preview-<?php print $template_id ?>').submit();"  class="kbtn kbtn-outline-dark">Preview</samp>
+                                        <samp class="kbtn"
+                                              onclick='document.getElementById("template-start-<?php print $template_id ?>").submit();'>Start</samp>
                                     </span>
                                     </div>
                                 </form>
+
+                                <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?>  style="display: none">
+
+                                    <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
+
+                                    <input type="hidden" value="true" name="template_view"/>
+                                    <input type="hidden" value="true" name="skip_preview_template"/>
+
+
+                                    <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Start</button>
+                                </form>
+
+
+
                             </template>
                         </div>
 

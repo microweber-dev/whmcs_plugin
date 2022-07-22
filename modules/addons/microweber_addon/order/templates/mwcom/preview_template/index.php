@@ -136,7 +136,8 @@
 
         <div class="right buttons">
 
-            <form method="post" action="<?php echo $current_url ?>" class="clearfix">
+
+            <form method="post" action="<?php echo $current_url ?>" class="clearfix" id="start-with-template-form">
                 <input type="hidden" value="false" name="template_view"/>
                 <input type="hidden" value="1" name="start_with_template"/>
 
@@ -155,7 +156,14 @@
         </div>
     </div>
 
+    <?php if(isset($_REQUEST['skip_preview_template'])): ?>
+        <script>
+            $( document ).ready(function() {
+                submitForPreview(document.getElementById("start-with-template-form"));
+            });
 
+        </script>
+    <?php endif; ?>
 
 
     <?php if ($preview_url): ?>

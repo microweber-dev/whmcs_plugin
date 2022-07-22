@@ -469,6 +469,7 @@ WHERE
   pcos.configid = pco.id AND
   hco.configid = pco.id AND
   hco.optionid = pcos.id AND
+  hco.relid = h.id AND
   c.id = h.userid AND
   p.id = h.packageid AND
 h.domain = '" . $username . "' and
