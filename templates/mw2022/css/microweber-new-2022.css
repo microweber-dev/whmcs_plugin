@@ -553,6 +553,12 @@ header .top-right-button {
     border-radius: 10px!important;
 }
 
+#order-modern .domainoptions, #order-modern .domainreginput input, #order-modern .domainreginput select, #order-modern .domainregperiod select, .input-group-addon:first-child {
+
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+    border: none!important;
+
+}
 
 .templates .template {
     width: 100%!important;
@@ -1137,4 +1143,44 @@ header .top-right-button {
 .panel-footer {
     background-color: unset!important;
     border: none!important;
+}
+
+footer .copy {
+    padding-top: 20px!important;
+}
+
+footer {
+    padding: 0 0 40px 0!important;
+}
+
+#order-modern .domainoptions .optionselected {
+
+    background: linear-gradient( 90deg, #1279fa 0%, #1279fa 100%);
+    background-color: unset!important;
+}
+
+#order-modern .domainoptions .option {
+    border: none!important;
+    padding: 20px 60px;
+
+}
+
+#order-modern .domainoptions .option label {
+    padding: 20px 60px;
+}
+
+#order-modern .domainoptions .optionselected .radio-inline {
+
+    color: #ffffff!important;
+}
+
+.input-select-domaintransfer {
+    height: 17px;
+    width: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 35px;
+
 }

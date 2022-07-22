@@ -265,7 +265,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Super Easy to Use</h4>
-                            <p class="feature-desc">Automatically checks your applications to ensure they are up-to-date and secured against known vulnerabilities.</p>
+                            <p class="feature-desc">Ease of use is achieved with an intuitive design, convenient control panel and drag and drop technology.</p>
                         </div>
                     </div>
                 </div>
@@ -283,7 +283,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">100% Uptime Guaranteed</h4>
-                            <p class="feature-desc">Get protection against the top 10 web app security flaws as recognised by OWASP, the Open Web Application Security Project.</p>
+                            <p class="feature-desc">The guarantee of uninterrupted operation of your site, will be online at any time of the year.</p>
                         </div>
                     </div>
                 </div>
@@ -303,7 +303,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Secure Servers</h4>
-                            <p class="feature-desc">The TrueShield™ Web Application Firewall protects your website against hackers and attacks.</p>
+                            <p class="feature-desc">High level of security, we protect your website from hackers and attacks.</p>
                         </div>
                     </div>
                 </div>
@@ -334,7 +334,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">High Performance</h4>
-                            <p class="feature-desc">Instant and fully automated setup gives you protection immediately without anything to install.</p>
+                            <p class="feature-desc">You create more sites in less time. Fast and easy</p>
                         </div>
                     </div>
                 </div>
