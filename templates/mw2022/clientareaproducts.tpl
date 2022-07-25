@@ -7,7 +7,7 @@
     </div>
 
 
-    {include file="$template/includes/tablelist.tpl" tableName="ServicesList" filterColumn="4" startOrderCol="[2, 'desc'], [1, 'asc']"}
+{*    {include file="$template/includes/tablelist.tpl" tableName="ServicesList" filterColumn="4" startOrderCol="[1, 'desc'], [1, 'asc']"}*}
     <script type="text/javascript">
         jQuery(document).ready(function () {
             var table = jQuery('#tableServicesList').removeClass('hidden').DataTable();

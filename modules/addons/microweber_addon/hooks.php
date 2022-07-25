@@ -59,7 +59,7 @@ function get_website_redirect_url($domain, $client_product_id = false)
         $domain .= '&client_product_id=' . $client_product_id;
     }
 
-    return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
+    return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&live_edit=1&domain=' . $domain;
 }
 
 function mw_get_login_links_by_service($productId, $serverId, $domain)
