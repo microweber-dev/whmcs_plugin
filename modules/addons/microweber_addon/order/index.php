@@ -82,8 +82,8 @@ if ($step == 0) {
     }
 }
 //var_dump($step);
-//var_dump($_REQUEST);
-//exit;
+////var_dump($_REQUEST);
+// exit;
 //var_dump($step);
 //exit;
 ?>
@@ -96,7 +96,7 @@ if ($step == 0) {
 
 
 
-<?php if ($step == 0 and isset($_REQUEST['template_view']) AND $_REQUEST['template_view'] == 'true'): ?>
+<?php if (($step == 0  or $step==2 )and isset($_REQUEST['template_view']) AND $_REQUEST['template_view'] == 'true'): ?>
     <?php include "steps/preview_template.php"; ?>
 <?php else: ?>
     <?php if ($step == 2): ?>
