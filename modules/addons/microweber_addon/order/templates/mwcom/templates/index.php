@@ -201,7 +201,7 @@ $keywords = Array(
 );
 
 ?>
-    <nav class="ns-tabs-like-navigation" id="templates-categories-selector">
+    <nav class="ns-tabs-like-navigation" id="templates-categories-selector" style="display: none">
         <a href="#">All</a><?php foreach ($keywords as $key) {  print '<a href="#' . $key . '">' . ucfirst($key) . '</a>'; } ?>
     </nav>
     <div class="section-wrapper">

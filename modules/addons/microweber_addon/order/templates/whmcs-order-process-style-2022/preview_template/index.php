@@ -166,6 +166,7 @@
 
 
 
+
     <?php if ($preview_url): ?>
         <div class="tpl-loader-overlay"></div>
         <div class="tpl-loader">
@@ -290,10 +291,12 @@
 
 
         <script>
-        function handleIframeLoad (){
-            $('.tpl-loader, .tpl-loader-overlay').hide()
-        }
-    </script>
+
+            $(window).on('load', function (){
+                $('.tpl-loader, .tpl-loader-overlay').remove()
+            })
+
+        </script>
 
 
 
@@ -304,8 +307,7 @@
                 height="1500px" width="100%"
                 scrolling="yes"
                 style="height: 1000px"
-                onload="handleIframeLoad"
-                onerror="handleIframeLoad"
+
                 allow="geolocation 'self'; autoplay 'self'">Loading....
         </iframe>
 
