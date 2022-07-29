@@ -118,13 +118,15 @@ $plans = $controller->get_hosting_products($params);
                                         <?php
                                         $desc = $plan['description'];
 
-                                        if(isset($plan['features']) and  is_array($plan['features'])){
+                                        if(isset($plan['features']) and  is_array($plan['features'])  and  !empty($plan['features'])){
                                             $desc = '<ul>';
                                              foreach ($plan['features'] as $featk=>$feat){
                                                 $desc = $desc.'<li class="plans-whmc-li">'.$featk.' '.$feat.'</li>';
                                             }
                                             $desc .= '</ul>';
                                         }
+
+
 
 
 
