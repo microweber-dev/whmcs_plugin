@@ -300,7 +300,11 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
 
 add_hook('ClientAreaPage', 23, function ($v) {
 
+    include_once (__DIR__.'/MicroweberAddonApiController.php');
+
     global $smarty;
+
+    $controller =  new MicroweberAddonApiController();
 
     $overwriteServices = [];
     foreach ($v['services'] as $service) {
@@ -316,6 +320,18 @@ add_hook('ClientAreaPage', 23, function ($v) {
             continue;
         }
 
+        if (isset($service['group']) && strtolower($service['group']) != 'hosting') {
+            $overwriteServices[] = $service;
+            continue;
+        }
+
+        $code = $controller->check_domain_http_responce_code($service['domain']);
+
+        if ($code == '200' or $code == '301' or $code == '302') {
+            $overwriteServices[] = $service;
+            continue;
+        }
+
         if (isset($service['sslStatus']) && $service['sslStatus'] != null) {
 
             $mustBeChecked = false;
@@ -326,6 +342,8 @@ add_hook('ClientAreaPage', 23, function ($v) {
                     $mustBeChecked = true;
                 }
             }
+
+
 
             if (method_exists($service['sslStatus'], 'isActive')) {
                 if ($service['sslStatus']->isActive() == false && $mustBeChecked) {
