@@ -84,7 +84,7 @@ class MicroweberAddonApiController
         border-bottom: 1px solid #f1f3f4;
         color: #2d2d2d;
         font-size: 16px;
-        line-height: 16px;
+        line-height: 19px;
         font-weight: 500;
         cursor: pointer;
     }
@@ -161,7 +161,8 @@ class MicroweberAddonApiController
     Create Your Own Website, Easily With </span> <strong>'.$this->branding_get_company_name().'</strong></p>
     </div>
     <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Create a Website</a></div>
-    </div></div>';
+    </div>
+    </div>';
 
         echo $css . $html;
         exit;
