@@ -193,6 +193,16 @@ class MicroweberAddonApiController
                 $free = true;
             }
 
+            $json =[];
+            $json['plan_name'] = '';
+            $json['plan_paytype'] = '';
+
+            $getProduct = Capsule::table('tblproducts')->where('id', '=', $hostingProduct->packageid)->first();
+            if ($getProduct != null) {
+                $json['plan_name'] = $getProduct->name;
+                $json['plan_paytype'] = $getProduct->paytype;
+            }
+
             $json['domain'] = $host;
             $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
 
