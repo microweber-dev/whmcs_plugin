@@ -1,6 +1,8 @@
 <?php
 
 require_once (__DIR__ . '/vendor/autoload.php');
+
+
  require_once (__DIR__ . DIRECTORY_SEPARATOR . 'helpers.php');
 
 use WHMCS\View\Menu\Item as MenuItem;
@@ -51,13 +53,13 @@ function get_website_redirect_url($domain, $client_product_id = false)
 {
 
     global $CONFIG;
-    $whmcsurl = site_url();
+    $whmcsurl =$CONFIG['SystemURL'].'/';
 
     if ($client_product_id) {
         $domain .= '&client_product_id=' . $client_product_id;
     }
 
-    return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&domain=' . $domain;
+    return $whmcsurl . '/index.php?m=microweber_addon&function=go_to_product&live_edit=1&domain=' . $domain;
 }
 
 function mw_get_login_links_by_service($productId, $serverId, $domain)
@@ -298,7 +300,11 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
 
 add_hook('ClientAreaPage', 23, function ($v) {
 
+    include_once (__DIR__.'/MicroweberAddonApiController.php');
+
     global $smarty;
+
+    $controller =  new MicroweberAddonApiController();
 
     $overwriteServices = [];
     foreach ($v['services'] as $service) {
@@ -314,6 +320,18 @@ add_hook('ClientAreaPage', 23, function ($v) {
             continue;
         }
 
+        if (isset($service['group']) && strtolower($service['group']) != 'hosting') {
+            $overwriteServices[] = $service;
+            continue;
+        }
+
+        $code = $controller->check_domain_http_responce_code($service['domain']);
+
+        if ($code == '200' or $code == '301' or $code == '302') {
+            $overwriteServices[] = $service;
+            continue;
+        }
+
         if (isset($service['sslStatus']) && $service['sslStatus'] != null) {
 
             $mustBeChecked = false;
@@ -324,6 +342,8 @@ add_hook('ClientAreaPage', 23, function ($v) {
                     $mustBeChecked = true;
                 }
             }
+
+
 
             if (method_exists($service['sslStatus'], 'isActive')) {
                 if ($service['sslStatus']->isActive() == false && $mustBeChecked) {
@@ -342,6 +362,7 @@ add_hook('ClientAreaPage', 23, function ($v) {
     usort($overwriteServices, function ($a, $b){
         $t2 = strtotime($a['regdate']);
         $t1 = strtotime($b['regdate']);
+       // return $t1 - $t2;
         return $t1 - $t2;
     });
 
@@ -385,3 +406,6 @@ add_hook('ClientAreaPage', 23, function ($v) {
 
     return $v;
 });
+
+
+

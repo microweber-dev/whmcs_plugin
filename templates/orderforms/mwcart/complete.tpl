@@ -16,7 +16,8 @@
 
 
 
-</script>{/literal}
+</script>
+{/literal}
 
 
 
@@ -38,7 +39,14 @@
 
   <div id="order-loading-done" style="display: none">
   <p align="center" style="padding-top: 40px;">
-    <a class="whmc-kbtn" href="clientarea.php?action=productdetails&id={$orderid}">Go to my website</a>
+
+
+    <a href="{get_website_login_by_orderid($orderid)}" target="_blank"
+       data-toggle="tooltip" title="Edit this website"
+       class="whmc-kbtn">Go to my website</a>
+
+
+
   </p>
   </div>
 

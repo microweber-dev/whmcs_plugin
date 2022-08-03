@@ -12,9 +12,13 @@ class MicroweberAddonOrderController
 
     function order_iframe($params)
     {
+
+
+
         if (isset($params['language']) and function_exists('swapLang')) {
             swapLang($params['language']);
         }
+
 
         if (isset($params['start_with_plan']) and isset($params['plan_id'])) {
 
@@ -118,7 +122,10 @@ class MicroweberAddonOrderController
                         url: "'.site_url().'cart.php",  
                         data: {"a":"addToCart","whois":"1","sideorder":"1","idnlanguage":"","domain":"'.$domain.'", "token":"'.generate_token("plain").'"},
                         complete: function(response) {
-                           goToCart(); 
+                        setTimeout(function(){
+                         goToCart(); 
+                         }, 1000);
+                          
                         }
                    });
                 
@@ -150,6 +157,9 @@ class MicroweberAddonOrderController
 
         }
 
+
+
+       // WHMCS\Terminus::getInstance()->doExit();
 
         include __DIR__ . "/order/index.php";
         exit;

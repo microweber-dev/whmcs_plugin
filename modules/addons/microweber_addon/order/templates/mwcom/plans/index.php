@@ -462,7 +462,6 @@ $whmplans = $controller->get_hosting_products($params);
             foreach ($plans as $plan) {
                 $count++;
                 ?>
-
                 <div>
                     <div class="price-header">
                         <div class="price-header-top">
@@ -470,9 +469,9 @@ $whmplans = $controller->get_hosting_products($params);
                             <p><?php print $plan['description']; ?></p>
                         </div>
                         <div class="price-header-bottom">
-                            <span class="prices-price"><small>&euro;</small><?php print $plan['price']; ?></span>
+                            <span class="prices-price"><small>$</small><?php print $plan['price']; ?></span>
                             <small class="price-desc">per month, billed yearly</small>
-                            <button type="submit" form="<?php print $whmplans[$count]['form_id']; ?>" class="kbtn <?php print $plan['kbtnType']; ?>"><?php print $plan['startWith']; ?></button>
+                            <button type="submit" form="<?php print $whmplans[$count-1]['form_id']; ?>" class="kbtn <?php print $plan['kbtnType']; ?>"><?php print $plan['startWith']; ?></button>
                         </div>
                     </div>
                     <ul>

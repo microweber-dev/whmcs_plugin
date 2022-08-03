@@ -6,7 +6,7 @@
     <div>
         <div class="title-bar">
             <div class="text-center">
-                <h1>{$LANG.domainrenewals}</h1><br/>
+                <h1>{$LANG.domainrenewals}</h1> sadasddad<br/>
                 {include file="templates/orderforms/{$carttpl}/category-chooser.tpl"}
             </div>
         </div>

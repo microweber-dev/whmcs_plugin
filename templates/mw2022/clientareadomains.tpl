@@ -1,11 +1,19 @@
 <div class="mw-whm clientareadomains">
     <div class="header-lined text-center">
-        <h1>My domains</h1>
+        <h1>My Domains</h1>
     </div>
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
     {/if}
-    <style>
+    <style type="text/css">
+        #tableServicesList-table-container{
+            max-width: 100%;
+
+        }
+        #tableServicesList-table-container table{
+            table-layout: fixed;
+            width: 100% !important;
+        }
         #tableServicesList-table-container table th:last-child,
         #tableServicesList-table-container table td:last-child{
             position: sticky;
@@ -15,6 +23,31 @@
             padding-right: 0;
             padding-left: 12px;
         }
+        #tableServicesList-table-container table th:nth-child(1),
+        #tableServicesList-table-container table td:nth-child(1){
+            width: 20px !important;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+        #tableServicesList-table-container table th:nth-child(2),
+        #tableServicesList-table-container table td:nth-child(2){
+            left: 20px;
+            word-break: break-all;
+            width: 40%;
+        }
+        .mw-whm.clientareadomains .status-column,
+        .mw-whm.clientareadomains .status-column .label{
+            width: auto;
+            word-break: break-all;
+            min-width: 0 !important;
+        }
+        #tableServicesList-table-container table td:nth-child(1) *{
+            vertical-align: middle;
+        }
+        #tableServicesList-table-container table th:nth-child(2),
+        #tableServicesList-table-container table td:nth-child(2),
         #tableServicesList-table-container table th:first-child,
         #tableServicesList-table-container table td:first-child{
             position: sticky;
@@ -24,13 +57,19 @@
             z-index: 1;
             padding-right: 12px;
             padding-left: 0;
+
+        }
+
+        #tableServicesList-table-container table td:nth-child(3),
+        #tableServicesList-table-container table td:nth-child(4){
+            font-size: 12px;
         }
 
         #tableServicesList-table-container .tableServicesListWrap{
             max-width: 100%;
-            overflow: auto;
+
             margin-bottom: 20px;
-            padding-bottom: 20px;
+
             border-bottom: 1px solid #ccc;
         }
         .more-table-button{
@@ -88,19 +127,19 @@
             color: #00aced;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 900px) {
             #tableServicesList-table-container table tr > *:nth-child(4){
                 display: none !important;
             }
         }
 
-        @media (max-width: 500px) {
-            #tableServicesList-table-container table tr > *:nth-child(2){
+        @media (max-width: 700px) {
+            #tableServicesList-table-container table tr > *:nth-child(5){
                 display: none !important;
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
             #tableServicesList-table-container table,
             #tableServicesList-table-container table tbody{
                 width: 100% !important;
@@ -114,15 +153,18 @@
                 display: none !important;
             }
             #tableServicesList-table-container table tbody tr{
-                border-bottom: 1px solid #ccc;
-                width: 100%;
+                 width: 100%;
                 padding: 20px;
             }
             #tableServicesList-table-container table tbody tr:nth-child(2n+1) {
 
             }
         }
+        .dataTables_empty{
+            padding: 20px 0 !important;
+        }
     </style>
+
     <div class="tab-content">
         <div class="tab-pane fade in active" id="tabOverview">
             {include file="$template/includes/tablelist.tpl" tableName="DomainsList" noSortColumns="0, 6" startOrderCol="1" filterColumn="5"}
@@ -144,6 +186,17 @@
                     jQuery('#tableLoading').addClass('hidden');
                 });
             </script>
+            <div class="btn-group margin-bottom">
+                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" id="nameservers" class="setBulkAction"><i class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>
+                    <li><a href="#" id="autorenew" class="setBulkAction"><i class="glyphicon glyphicon-refresh"></i> {$LANG.domainautorenewstatus}</a></li>
+                    <li><a href="#" id="reglock" class="setBulkAction"><i class="glyphicon glyphicon-lock"></i> {$LANG.domainreglockstatus}</a></li>
+                    <li><a href="#" id="contactinfo" class="setBulkAction"><i class="glyphicon glyphicon-user"></i> {$LANG.domaincontactinfoedit}</a></li>
+                </ul>
+            </div>
             <form id="domainForm" method="post" action="clientarea.php?action=bulkdomain">
                 <input id="bulkaction" name="update" type="hidden"/>
 
@@ -219,17 +272,7 @@
                 </div>
             </form>
 
-            <div class="btn-group margin-bottom">
-                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" id="nameservers" class="setBulkAction"><i class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>
-                    <li><a href="#" id="autorenew" class="setBulkAction"><i class="glyphicon glyphicon-refresh"></i> {$LANG.domainautorenewstatus}</a></li>
-                    <li><a href="#" id="reglock" class="setBulkAction"><i class="glyphicon glyphicon-lock"></i> {$LANG.domainreglockstatus}</a></li>
-                    <li><a href="#" id="contactinfo" class="setBulkAction"><i class="glyphicon glyphicon-user"></i> {$LANG.domaincontactinfoedit}</a></li>
-                </ul>
-            </div>
+
         </div>
         <div class="tab-pane fade in" id="tabRenew">
             {include file="$template/includes/tablelist.tpl" tableName="RenewalsList" noSortColumns="3, 4, 5" startOrderCol="0" filterColumn="1" dontControlActiveClass=true}
@@ -327,3 +370,13 @@
     </div>
 
 </div>
+<script>
+
+    $( document ).ready(function() {
+        $('.form-control.input-sm').attr('placeholder', 'Search...');
+
+
+        $('#tableDomainsList').wrap('<div class="tableServicesListWrap"></div>')
+    });
+
+</script>

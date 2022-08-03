@@ -19,6 +19,7 @@
             jQuery('#tableLoading').addClass('hidden');
         });
     </script>
+
     <div class="table-container table-responsive clearfix">
         <table id="tableTicketsList" class="table table-list hidden">
             <thead>
@@ -32,6 +33,7 @@
             <tbody>
             {foreach from=$tickets item=ticket}
                 <tr onclick="window.location='viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}'">
+
                     <td>
                         {$ticket.department}
                     </td>

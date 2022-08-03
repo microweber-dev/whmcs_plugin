@@ -98,6 +98,11 @@
             background-color: transparent;
 
         }
+        @media (max-width: 1400px) {
+            #preview-toolbar .screens button{
+                display: none;
+            }
+        }
 
     </style>
     <div class="preview-navbar" id="preview-toolbar">
@@ -136,17 +141,18 @@
 
         <div class="right buttons">
 
-            <form method="post" action="<?php echo $current_url ?>" class="clearfix">
+
+            <form method="post" action="<?php echo $current_url ?>" class="clearfix" id="start-with-template-form">
                 <input type="hidden" value="false" name="template_view"/>
                 <input type="hidden" value="1" name="start_with_template"/>
 
                 <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php';?>
 
-                <a href="<?php print $preview_url; ?>" target="_blank">
-                    <span>Preview site</span>
-                </a>
+<!--                <a href="--><?php //print $preview_url; ?><!--" target="_blank">-->
+<!--                    <span>Preview site</span>-->
+<!--                </a>-->
 
-                &nbsp;
+
                 <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
                     <span>Start with this template</span>
                 </span>
@@ -155,37 +161,147 @@
         </div>
     </div>
 
+    <?php if(isset($_REQUEST['skip_preview_template'])): ?>
+        <script>
+            $( document ).ready(function() {
+                submitForPreview(document.getElementById("start-with-template-form"));
+            });
 
+        </script>
+    <?php endif; ?>
 
 
     <?php if ($preview_url): ?>
-        <div class="loading-iframe-loader"> </div>
+        <div class="tpl-loader-overlay"></div>
+        <div class="tpl-loader">
+            <div class="tpl-loader__figure"></div>
+        </div>
         <style>
-            .loading-iframe-loader {
-                border: 5px solid #bae7e7;
-                border-radius: 50%;
-                border-top: 5px solid #3498db;
-                width: 40px;
-                height: 40px;
+
+
+            .tpl-loader-overlay{
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255,255,255,.3);
+                z-index: 2;
+            }
+            .tpl-loader,
+            .tpl-loader__figure {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                margin: -20px 0 0 -20px;
-                -webkit-animation: spin 2s linear infinite; / Safari /
-            animation: spin 2s linear infinite;
+                transform: translate(-50%, -50%);
+                z-index: 3;
+            }
+
+            .tpl-loader {
+                overflow: visible;
+                padding-top: 50px;
+                height: 0;
+                width: 50px;
+            }
+
+            .tpl-loader__figure {
+                height: 0;
+                width: 0;
+                box-sizing: border-box;
+                border: 0 solid #FE665C;
+                border-radius: 50%;
+                -webkit-animation: tpl-loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+                -moz-animation: tpl-loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation: tpl-loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
             }
 
 
-            @-webkit-keyframes spin {
-                0% { -webkit-transform: rotate(0deg); }
-                100% { -webkit-transform: rotate(360deg); }
+
+            @-webkit-keyframes tpl-loader-figure {
+                0% {
+                    height: 0;
+                    width: 0;
+                    background-color: #FE665C;
+                }
+                29% {
+                    background-color: #FE665C;
+                }
+                30% {
+                    height: 50px;
+                    width: 50px;
+                    background-color: transparent;
+                    border-width: 1em;
+                    opacity: 1;
+                }
+                100% {
+                    height: 50px;
+                    width: 50px;
+                    border-width: 0;
+                    opacity: 0;
+                    background-color: transparent;
+                }
+            }
+            @-moz-keyframes tpl-loader-figure {
+                0% {
+                    height: 0;
+                    width: 0;
+                    background-color: #FE665C;
+                }
+                29% {
+                    background-color: #FE665C;
+                }
+                30% {
+                    height: 50px;
+                    width: 50px;
+                    background-color: transparent;
+                    border-width: 1em;
+                    opacity: 1;
+                }
+                100% {
+                    height: 50px;
+                    width: 50px;
+                    border-width: 0;
+                    opacity: 0;
+                    background-color: transparent;
+                }
+            }
+            @keyframes tpl-loader-figure {
+                0% {
+                    height: 0;
+                    width: 0;
+                    background-color: #FE665C;
+                }
+                29% {
+                    background-color: #FE665C;
+                }
+                30% {
+                    height: 50px;
+                    width: 50px;
+                    background-color: transparent;
+                    border-width: 1em;
+                    opacity: 1;
+                }
+                100% {
+                    height: 50px;
+                    width: 50px;
+                    border-width: 0;
+                    opacity: 0;
+                    background-color: transparent;
+                }
             }
 
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
         </style>
+
+
+
+        <script>
+
+            $(window).on('load', function (){
+                $('.tpl-loader, .tpl-loader-overlay').remove()
+            })
+
+        </script>
+
 
 
         <iframe id="template-demo-iframe" src="<?php print $preview_url; ?>"
@@ -195,8 +311,7 @@
                 height="1500px" width="100%"
                 scrolling="yes"
                 style="height: 1000px"
-                onload="$('.loading-iframe-loader').hide()"
-                onerror="$('.loading-iframe-loader').hide()"
+
                 allow="geolocation 'self'; autoplay 'self'">Loading....
         </iframe>
 

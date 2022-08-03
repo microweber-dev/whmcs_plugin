@@ -332,6 +332,7 @@ function get_enabled_templates()
         ->get();
 
     if(is_object($templates)){
+
         $templates = $templates->toArray();
     }
 

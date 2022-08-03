@@ -79,7 +79,7 @@
     <div class="tiles clearfix">
 
 
-        <div class="row client-area-row"  id="mw-whm--area-row-services">
+        <div class=" client-area-row"  id="mw-whm--area-row-services">
             <div class="client-area-boxes col-lg-3 col-md-6 tile" onclick="window.location='clientarea.php?action=services'">
                 <a href="clientarea.php?action=services">
                     <div class="icon" style="font-size: 20px;">
@@ -223,7 +223,9 @@
                             </svg>                                </div>
                             <div class="feature-content">
                                 <h4 class="feature-title">24/7 Expert Support</h4>
-                                <p class="feature-desc">Proactively monitors for and alerts you about any malware that is detected on your website.</p>
+                                <p class="feature-desc">
+                                    Our expert support team is on hand 24/7 to give expert support and advice on all your technical problems.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -240,7 +242,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Fast &amp; Reliable</h4>
-                            <p class="feature-desc">If a scan finds anything, SiteLock will safely remove any known malware automatically.</p>
+                            <p class="feature-desc">Create a site faster than ever that will be available online at any time.</p>
                         </div>
                     </div>
                 </div>
@@ -263,7 +265,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Super Easy to Use</h4>
-                            <p class="feature-desc">Automatically checks your applications to ensure they are up-to-date and secured against known vulnerabilities.</p>
+                            <p class="feature-desc">Ease of use is achieved with an intuitive design, convenient control panel and drag and drop technology.</p>
                         </div>
                     </div>
                 </div>
@@ -281,7 +283,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">100% Uptime Guaranteed</h4>
-                            <p class="feature-desc">Get protection against the top 10 web app security flaws as recognised by OWASP, the Open Web Application Security Project.</p>
+                            <p class="feature-desc">The guarantee of uninterrupted operation of your site, will be online at any time of the year.</p>
                         </div>
                     </div>
                 </div>
@@ -301,7 +303,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Secure Servers</h4>
-                            <p class="feature-desc">The TrueShield™ Web Application Firewall protects your website against hackers and attacks.</p>
+                            <p class="feature-desc">High level of security, we protect your website from hackers and attacks.</p>
                         </div>
                     </div>
                 </div>
@@ -332,7 +334,7 @@
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">High Performance</h4>
-                            <p class="feature-desc">Instant and fully automated setup gives you protection immediately without anything to install.</p>
+                            <p class="feature-desc">You create more sites in less time. Fast and easy</p>
                         </div>
                     </div>
                 </div>

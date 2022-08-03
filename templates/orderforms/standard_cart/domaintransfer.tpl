@@ -3,22 +3,19 @@
 <div id="order-standard_cart">
 
     <div class="row">
-        <div class="cart-sidebar">
-            {include file="orderforms/standard_cart/sidebar-categories.tpl"}
-        </div>
         <div class="cart-body">
             <div class="header-lined">
                 <h1 class="font-size-36">
                     {$LANG.transferdomain}
                 </h1>
             </div>
-            {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
+{*            {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}*}
 
-            <div class="text-center">
-                <h2 class="font-size-30">{lang key='orderForm.transferToUs'}</h2>
-                <p>{lang key='orderForm.transferExtend'}*</p>
-            </div>
-            <br />
+{*            <div class="text-center">*}
+{*                <h2 class="font-size-30">{lang key='orderForm.transferToUs'}</h2>*}
+{*                <p>{lang key='orderForm.transferExtend'}*</p>*}
+{*            </div>*}
+{*            <br />*}
 
             <form method="post" action="cart.php" id="frmDomainTransfer">
                 <input type="hidden" name="a" value="addDomainTransfer">
@@ -26,9 +23,9 @@
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 offset-sm-2">
                         <div class="panel card panel-default">
-                            <div class="panel-heading card-header pb-0">
-                                <h3 class="panel-title card-title font-size-24 mb-2">{lang key='orderForm.singleTransfer'}</h3>
-                            </div>
+{*                            <div class="panel-heading card-header pb-0">*}
+{*                                <h3 class="panel-title card-title font-size-24 mb-2">{lang key='orderForm.singleTransfer'}</h3>*}
+{*                            </div>*}
                             <div class="panel-body card-body">
                                 <div class="form-group">
                                     <label for="inputTransferDomain">{lang key='domainname'}</label>
@@ -60,7 +57,7 @@
                             </div>
 
                             <div class="panel-footer card-footer text-right">
-                                <button type="submit" id="btnTransferDomain" class="btn btn-primary btn-transfer{$captcha->getButtonClass($captchaForm)}">
+                                <button type="submit" id="btnTransferDomain" class="whmc-kbtn btn-transfer{$captcha->getButtonClass($captchaForm)}">
                                     <span class="loader w-hidden" id="addTransferLoader">
                                         <i class="fas fa-fw fa-spinner fa-spin"></i>
                                     </span>

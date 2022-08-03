@@ -142,11 +142,11 @@
 
                 <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php';?>
 
-                <a href="<?php print $preview_url; ?>" target="_blank">
-                    <span>Preview site</span>
-                </a>
+<!--                <a href="--><?php //print $preview_url; ?><!--" target="_blank">-->
+<!--                    <span>Preview site</span>-->
+<!--                </a>-->
 
-                &nbsp;
+
                 <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
                     <span>Start with this template</span>
                 </span>

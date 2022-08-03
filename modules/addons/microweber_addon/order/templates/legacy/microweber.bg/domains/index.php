@@ -78,9 +78,9 @@
     }
 
     .domain-item.can-start:hover {
-        color: #0086db;
-        -webkit-box-shadow: 0 0 10px #0086db;
-        box-shadow: 0 0 3px #0086db;
+        color: #1279fa;
+        -webkit-box-shadow: 0 0 10px #1279fa;
+        box-shadow: 0 0 3px #1279fa;
     }
 
     .domain-item.cant-start:hover {
@@ -106,7 +106,7 @@
     }
 
     .domain-item:hover .last-div:after {
-        color: #0086db;
+        color: #1279fa;
     }
 
     .domain-item > div:nth-child(1) {
@@ -204,7 +204,7 @@
     }
 
     .domain-recommended-tag {
-        background: #0086DB;
+        background: #1279fa;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;

@@ -443,6 +443,23 @@ class MicroweberAddonApiController
         $username = $this->__db_escape_string($params['domain']);
         $username = addslashes($username);
 
+//        $query = "
+//select
+//  c.id AS userid, h.id AS serviceid, pcos.optionname AS template
+//FROM
+//  tblhosting h, tblclients c, tblproducts p, tblproductconfigoptionssub pcos, tblproductconfigoptions pco, tblhostingconfigoptions hco
+//WHERE
+//  pcos.configid = pco.id AND
+//  hco.configid = pco.id AND
+//  hco.optionid = pcos.id AND
+//  hco.relid = h.id AND
+//  c.id = h.userid AND
+//  p.id = h.packageid AND
+//h.domain = '" . $username . "' and
+//  pco.optionname = 'Template'  limit 1";
+
+
+
         $query = "
 select
   c.id AS userid, h.id AS serviceid, pcos.optionname AS template
@@ -551,13 +568,27 @@ h.domain = '" . $username . "' and
 
             $url = $http_code . $hosting->domain . '/api/user_login?code_login=' . $generated_code. '&http_redirect=' . $redirectTo;
 
-
+//var_dump($url);
+//exit;
 
             header('Location: ' .$url);
             exit;
         }
     }
 
+    public function check_domain_http_responce_code($domain)
+    {
+        $url = 'http://'.$domain;
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
+        curl_setopt($ch, CURLOPT_NOBODY, true);    // we don't need body
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_TIMEOUT,10);
+        $output = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        return $httpcode;
+    }
     public function check_ssl_verify_domain($domain)
     {
         $log = '';
@@ -701,7 +732,9 @@ h.domain = '" . $username . "' and
                 $sslStatus->disableAutoResync();
             }
 
-            return ['domain_link'=>$domainLink,'ssl_active'=>$support_ssl];
+            $code = $this->check_domain_http_responce_code($hosting->domain);
+
+            return ['domain_link'=>$domainLink,'ssl_active'=>$support_ssl,'http_code'=>$code];
         }
 
         return false;

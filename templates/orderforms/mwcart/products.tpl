@@ -3,7 +3,7 @@
 
     <div id="order-modern">
         <div class="title-bar">
-            <div class="row">
+            <div class="row" >
                 <div class="col-md-12 ">
                     <h1 style="font-size: 48px; font-weight: 700; text-align: center; margin-bottom: 80px; margin-top: 0;">{$groupname}</h1>
                 </div>
@@ -81,16 +81,15 @@
 
                     <div class="row ">
                         <div class="col-xs-12 " style="text-align: center;">
-                            <ul>
-                                {foreach from=$product.features key=feature item=value}
 
-                                    <li class="plans-whmc-li">{$feature}
-                                   {$value}</li>
-                                {/foreach}
-                            </ul>
                             <div class="clear"></div>
 
-                            <div class="description desc-holder">{$product.featuresdesc}</div>
+                            <div class="description desc-holder">
+
+
+                                {$product.description|unescape}
+
+                            </div>
 
                             <div class="text-center">
                                 <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn" style="width: 80%; margin: 20px 0;"> {$LANG.ordernowbutton}</a>

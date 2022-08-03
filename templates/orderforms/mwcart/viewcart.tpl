@@ -288,6 +288,7 @@
 
             //$("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/1gy-03uv0lE?autoplay=1" frameborder="0" allowfullscreen></iframe>')
             // $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/-ius5MMpKY4?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+            // $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/EKiaLcZkReM?autoplay=1" frameborder="0" allowfullscreen></iframe>')
 
             sitePerccent = 1;
             setInterval(function () {
@@ -333,11 +334,11 @@
     <div class="page-payments">
         <div class="wrapper">
             <div class="row" style="margin-bottom:30px;">
-                <div class="col-xs-12 col-md-5 col-lg-5">
+                <div class="col-xs-12 col-lg-5">
                     {include file="orderforms/mwcart/includes/cart-left-side.tpl"}
                 </div>
 
-                <div class="col-xs-12 col-md-7 col-lg-7">
+                <div class="col-xs-12 col-lg-7">
                     <div class="subscription-block">
                         {if $errormessage}
                             <div class="alert alert-danger alert-dismissible" role="alert">

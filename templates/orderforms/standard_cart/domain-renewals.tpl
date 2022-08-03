@@ -2,12 +2,13 @@
 
 <div id="order-standard_cart">
     <div class="row">
-        <div class="cart-sidebar">
-            {include file="orderforms/standard_cart/sidebar-categories.tpl"}
-        </div>
+{*        <div class="cart-sidebar">*}
+{*            {include file="orderforms/standard_cart/sidebar-categories.tpl"}*}
+{*        </div>*}
         <div class="cart-body">
             <div class="header-lined">
                 <h1 class="font-size-36">
+
                     {if $totalResults > 1}{lang key='domainrenewals'}{else}{lang key='domainrenewal'}{/if}
                     {if $totalResults > 5}
                         <div class="pull-right float-right">
@@ -22,7 +23,7 @@
                 <div id="no-domains" class="alert alert-warning text-center" role="alert">
                     {$LANG.domainRenewal.noDomains}
                 </div>
-                <p class="text-center">
+                <p>
                     <a href="clientarea.php" class="btn btn-default">
                         <i class="fas fa-arrow-circle-left"></i>
                         {$LANG.orderForm.returnToClientArea}

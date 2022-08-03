@@ -139,7 +139,7 @@
     }
 
     .domain-item.can-start:hover {
-        color: #0086db;
+        color: #1279fa;
 
     }
 
@@ -155,7 +155,7 @@
     }
 
     .domain-item:hover .last-div:after {
-        color: #0086db;
+        color: #1279fa;
     }
 
     .domain-item .domain-item-domainName + div{

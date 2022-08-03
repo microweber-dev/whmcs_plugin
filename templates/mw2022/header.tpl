@@ -103,7 +103,7 @@
                             <div class="user-menu-dropdown pull-right">
                                 <a class="user-bar" href="clientarea.php?action=details">
                                     <span class="image" style="background-image: url('{$WEB_ROOT}/templates/{$template}/img/avatar.jpg')"></span>
-                                    <span class="name">Profile</span>
+                                    <span class="name"></span>
                                 </a>
                                 <div class="clearfix"></div>
                                 <div class="more-menu">
@@ -156,8 +156,8 @@
                                 {*<span class="nav-label">Menu</span>*}
                             </div>
                         {else}
-                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>
-                            <a href="{$WEB_ROOT}/index.php" class="kbtn top-right-button" >Get Started</a>
+{*                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>*}
+                            <a href="{$WEB_ROOT}/index.php" class="whmc-kbtn" >Log in</a>
                         {/if}
 
                     </div>
@@ -169,7 +169,7 @@
     <div class="page-wrapper">
         <div class="main">
             <div class="wrapper ">
-                <div class="row">
+                <div class="row" style="display: flex; justify-content: center;">
                     <!-- No Sidebar -->
                     {assign var="withSidebar" value="true"}
 

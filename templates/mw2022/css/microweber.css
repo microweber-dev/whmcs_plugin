@@ -299,11 +299,11 @@ h2 > .like-icon:after {
 .tpl-like .like-icon:hover:after,
 .like-icon.active:after {
     content: "\f199";
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .tpl-item:hover .like-icon:after {
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .tpl-like-holder {
@@ -577,7 +577,7 @@ h2 > .like-icon:after {
     display: inline-block;
     width: 76px;
     height: 76px;
-    background: #0086DB;
+    background: #1279fa;
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -585,7 +585,7 @@ h2 > .like-icon:after {
 }
 
 .mwcircle2 {
-    color: #0086DB;
+    color: #1279fa;
     background-color: #F5F5F5
 }
 
@@ -655,7 +655,7 @@ h2 > .like-icon:after {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    color: #0086DB;
+    color: #1279fa;
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0);
@@ -668,7 +668,7 @@ h2 > .like-icon:after {
 }
 
 .featureswrapper li:hover {
-    color: #0086DB
+    color: #1279fa
 }
 
 .featureswrapper li:hover:before {
@@ -858,7 +858,7 @@ h2 > .like-icon:after {
 
 #createit .cbtn {
     width: 185px;
-    color: #0086DB;
+    color: #1279fa;
 }
 
 .site-section {
@@ -869,7 +869,7 @@ h2 > .like-icon:after {
 .template-top {
     padding: 60px 0;
     text-align: center;
-    background: #0086DB;
+    background: #1279fa;
 
 }
 
@@ -895,7 +895,7 @@ h2 > .like-icon:after {
 .pack-nav a {
     display: inline-block;
     padding: 0 15px;
-    color: #0086DB;
+    color: #1279fa;
     border-radius: 30px;
     text-align: center;
     position: relative;
@@ -912,14 +912,14 @@ h2 > .like-icon:after {
 
 .pack-nav a:hover {
     background: #fff;
-    color: #0086DB;
-    border: 1px solid #0086DB;
+    color: #1279fa;
+    border: 1px solid #1279fa;
 }
 
 .pack-nav a.active {
-    background: #0086DB;
+    background: #1279fa;
     color: white;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
 }
 
 .pack-nav a.pack-nav-custom {
@@ -1320,15 +1320,15 @@ h2 > .like-icon:after {
 }
 
 .page-with-sidebar .under-content .right ul.top-menu li a {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-with-sidebar .under-content .right ul.top-menu li:hover {
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
 }
 
 .page-with-sidebar .under-content .right ul.top-menu li.active {
-    background-color: #0086db;
+    background-color: #1279fa;
     color: #fff;
 }
 
@@ -1399,7 +1399,7 @@ h2 > .like-icon:after {
 }
 
 .page-with-sidebar .sidebar ul li.depth-0 > a {
-    color: #0086db;
+    color: #1279fa;
     margin-bottom: 20px;
     display: block;
     font-weight: bold;
@@ -1413,7 +1413,7 @@ h2 > .like-icon:after {
 
 .page-with-sidebar .sidebar ul li a.active,
 .page-with-sidebar .sidebar ul li a:hover {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-with-sidebar .sidebar ul li ul a:hover:before,
@@ -1493,13 +1493,13 @@ h2 > .like-icon:after {
 }
 
 .page-with-sidebar .content .content-wrapper a {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 14px;
     line-height: 24px;
 }
 
 .page-with-sidebar .content .content-wrapper a:hover {
-    color: #0086DB;
+    color: #1279fa;
     text-decoration: underline;
 }
 
@@ -1545,7 +1545,7 @@ h2 > .like-icon:after {
         position: absolute;
         margin-top: -30px;
         margin-left: -30px;
-        color: #0086DB
+        color: #1279fa
     }
 
     .page-with-sidebar .sidebar-mobile-close {
@@ -1553,7 +1553,7 @@ h2 > .like-icon:after {
         position: absolute;
         margin-top: -30px;
         margin-right: 20px;
-        color: #0086DB;
+        color: #1279fa;
         right: 0;
     }
 }
@@ -1633,7 +1633,7 @@ h2 > .like-icon:after {
 }
 
 .page-download p a {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 14px;
     line-height: 24px;
 }
@@ -1700,7 +1700,7 @@ h2 > .like-icon:after {
 }
 
 .page-plans p a {
-    color: #0086DB;
+    color: #1279fa;
     font-size: 14px;
     line-height: 24px;
 }
@@ -1727,13 +1727,13 @@ h2 > .like-icon:after {
     font-size: 13px;
     max-width: 270px;
     margin: 20px auto;
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
 }
 
 .page-plans .plans-row .mw-ui-col.active {
-    border: 1px solid #0086db;
-    -webkit-box-shadow: 0 0 8px #0086db;
-    box-shadow: 0 0 8px #0086db;
+    border: 1px solid #1279fa;
+    -webkit-box-shadow: 0 0 8px #1279fa;
+    box-shadow: 0 0 8px #1279fa;
     z-index: 1;
     position: relative;
 }
@@ -1755,8 +1755,8 @@ h2 > .like-icon:after {
 
 .page-plans .cbtn:hover {
     border: 1px solid #fff;
-    -webkit-box-shadow: 0 0 8px #0086db;
-    box-shadow: 0 0 8px #0086db;
+    -webkit-box-shadow: 0 0 8px #1279fa;
+    box-shadow: 0 0 8px #1279fa;
 }
 
 @media (max-width: 768px) {
@@ -1812,14 +1812,14 @@ h2 > .like-icon:after {
 .page-plans .plans-row h3 small {
     font-size: 36px;
     font-weight: 600;
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-plans .plans-row h3 span.tip.per-item,
 .page-plans .plans-row h3 span.currency {
     font-size: 18px;
     font-weight: 400;
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-plans .plans-plan-features ul {
@@ -1875,7 +1875,7 @@ h2 > .like-icon:after {
     width: 100%;
     top: 0;
     left: 0;
-    color: #0086db;
+    color: #1279fa;
 }
 
 /* Testimonials */
@@ -1941,7 +1941,7 @@ h2 > .like-icon:after {
 }
 
 .page-contacts .bg-top {
-    background: #0086db;
+    background: #1279fa;
     min-height: 120px;
     width: 100%;
     text-align: center;
@@ -2143,7 +2143,7 @@ h2 > .like-icon:after {
 
 .page-payments .service-block.plan .price-per .month,
 .page-payments .service-block.plan .price-per .month span {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-payments .service-block.plan .price-per .month .currency-symbol {
@@ -2167,7 +2167,7 @@ h2 > .like-icon:after {
 
 .page-payments .service-block.domain .domain-label {
     font-size: 18px;
-    color: #0086db;
+    color: #1279fa;
     margin-bottom: 20px;
 }
 
@@ -2182,7 +2182,7 @@ h2 > .like-icon:after {
 
 .page-payments .service-block.domain .price-per .month,
 .page-payments .service-block.domain .price-per .month span {
-    color: #0086db;
+    color: #1279fa;
 }
 
 .page-payments .service-block.domain .price-per .month .currency-symbol {
@@ -2200,7 +2200,7 @@ h2 > .like-icon:after {
 }
 
 .page-payments .service-block.change {
-    background: #0086db;
+    background: #1279fa;
     padding: 0;
     text-align: center;
 }
@@ -2258,7 +2258,7 @@ h2 > .like-icon:after {
 }
 
 .page-payments .subscription-block .subscription-field .field-helper:hover:after {
-    background: #0086db;
+    background: #1279fa;
 }
 
 .page-payments .subscription-block .subscription-field .field-helper span {
@@ -2305,7 +2305,7 @@ h2 > .like-icon:after {
 }
 
 .page-payments .subscription-block .description {
-    color: #0086db;
+    color: #1279fa;
     font-size: 16px;
     line-height: 24px;
 }
@@ -2322,7 +2322,7 @@ h2 > .like-icon:after {
 }
 
 .page-payments .payment-block {
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
     text-align: center;
     padding: 15px;
     height: 100px;
@@ -2345,7 +2345,7 @@ h2 > .like-icon:after {
 }
 
 .page-payments .payment-block.blue {
-    background: #0086db;
+    background: #1279fa;
 }
 
 .page-payments .payment-block.silver {
@@ -2471,13 +2471,13 @@ h2 > .like-icon:after {
 }
 
 .page-payments .radio-buttons li {
-    color: #0086db;
+    color: #1279fa;
     display: block;
     position: relative;
     float: left;
     width: 46%;
     height: 53px;
-    border: 1px solid #0086db;
+    border: 1px solid #1279fa;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
@@ -2498,7 +2498,7 @@ h2 > .like-icon:after {
 
 .page-payments .radio-buttons li:hover,
 .page-payments .radio-buttons li.active {
-    background: #0086db;
+    background: #1279fa;
 }
 
 .page-payments .radio-buttons li input[type=radio] {
@@ -2525,8 +2525,8 @@ h2 > .like-icon:after {
 .page-payments .radio-buttons li .check {
     display: block;
     position: absolute;
-    border: 2px solid #0086db;
-    background: #0086db;
+    border: 2px solid #1279fa;
+    background: #1279fa;
     border-radius: 100%;
     height: 14px;
     width: 14px;

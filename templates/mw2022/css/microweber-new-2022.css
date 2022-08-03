@@ -17,7 +17,7 @@
     border: unset;
 }
 
-.sidebar .profile-sidebar {
+.sidebar .profile-sidebar, .featured-tld, .domain-register-table  {
 
     border: 1px solid white;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
@@ -207,7 +207,7 @@
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    border: 1px solid #0086DB;
+    border: 1px solid #1279fa;
     cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
@@ -282,6 +282,21 @@
     width: 22.5%;
 }
 
+
+
+.client-area-boxes-2 {
+   border-radius: 10px;
+   box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
+   transition: all .24s ease!important;
+   padding: 0px;
+   margin: 10px;
+   height: 200px;
+   display: flex;
+
+   align-items: center;
+   font-size: 36px;
+}
+
  @media (max-width: 768px) {
      #mw-whm--area-row-services{
          flex-wrap: wrap;
@@ -317,9 +332,15 @@
 }
 
 
-.profile-sidebar-name, .sidebar .navigation a {
+.profile-sidebar-name, .sidebar .navigation a, .font-size-18, .panel-heading.card-header h3 {
     font-size: 18px;
     font-weight: 300;
+}
+
+.font-size-24 {
+    font-weight: 300;
+    font-size: 24px;
+
 }
 
 header .main-menu > ul > li > a:hover:after {
@@ -396,10 +417,10 @@ header .top-right-button {
 
 
 
-#user_registration_form #domain-search-field {
+#user_registration_form #domain-search-field, #order-standard_cart .input-group-lg>.form-control {
     height: 80px!important;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
-    border: none!important;
+
     border-radius: 10px 0 0 10px!important;
 
 }
@@ -447,21 +468,104 @@ header .top-right-button {
     border: 1px solid #1279fa;
 }
 
+.invoice-container-printer {
+    padding: 30px;
+}
+
+.invoice-container-printer address {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.invoice-container-printer .panel-body td {
+
+}
+
+.invoice-container-printer.paypal-box {
+    background-color: #1279fa;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .invoice-container-printer.paypal-box {
+        margin-top: 20px;
+        margin-left: 0px!important;
+    }
+}
+
+.invoice-container-printer.paypal-box  label{
+   color: #ffffff;
+   margin-bottom: 10px;
+   font-weight: 300;
+   font-size: 13px;
+}
+
+.invoice-container-printer.printer-box {
+
+}
+.badge {
+    padding: 8px 15px!important;
+    border-radius: 5px!important;
+}
+
+ .badge.badge-danger {
+    background-color: #d92632;
+
+ }
 
 
-.pricing-list-2 .plan {
+ .badge.badge-warning {
+    background-color: yellow;
+ }
+
+
+ .badge.badge-success {
+    background-color: green;
+ }
+
+
+.invoice-container-printer.printer-box h1 {
+    font-weight: 300;
+}
+
+.invoice-container-printer .top-printer-box {
+    color: #ffffff;
+}
+
+.invoice-container-printer .top-printer-box p{
+   font-weight: 300;
+   font-size: 15px;
+   margin-bottom: 5px;
+
+}
+
+.invoice-container-printer .top-printer-box h3{
+   margin-top: 0;
+   font-weight: 600;
+
+}
+
+
+.pricing-list-2 .plan, .spotlight-tld, .domain-promo-box, .invoice-container-printer {
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
     border: none!important;
     border-radius: 10px!important;
 }
 
+#order-modern .domainoptions, #order-modern .domainreginput input, #order-modern .domainreginput select, #order-modern .domainregperiod select, .input-group-addon:first-child {
+
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+    border: none!important;
+
+}
 
 .templates .template {
-        width: 100%!important;
-        height: 450px!important;
-        box-shadow: none!important;
-        border: none!important;
-        margin: 0px!important;
+    width: 100%!important;
+    height: 450px!important;
+    box-shadow: none!important;
+    border: none!important;
+    margin: 0px!important;
 }
 
 .templates .template-box {
@@ -492,9 +596,12 @@ header .top-right-button {
     display: flex;
 }
 
-.col-box-template {
-    width: 48%;
-    float: left;
+@media screen and (min-width: 1200px) {
+    .col-box-template {
+        width: 48%;
+        float: left;
+    }
+
 }
 
 .page-payments {
@@ -503,7 +610,7 @@ header .top-right-button {
 
 .page-payments .service-block {
     min-height: 220px;
-    padding: 20px 40px;
+    padding: 20px 65px;
     border-radius: 10px;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%);
     transition: all .24s ease!important;
@@ -511,8 +618,8 @@ header .top-right-button {
 
 }
 
-.page-payments .service-block h1 {
-    font-weight: 700;
+.page-payments .service-block h1, .header-lined h1 {
+    font-weight: 700!important;
     margin-bottom: 0px;
 }
 
@@ -755,6 +862,7 @@ header .top-right-button {
  .mw-whm.clientareaproducts .status:before{
      margin: 0 7px 0 0;
  }
+
  .mw-whm-product-status{
      font-size: 14px !important;
      display: inline-block;
@@ -786,3 +894,293 @@ header .top-right-button {
      padding: 5px;
      font-size: 14px;
  }
+
+.domain-checker-bg, .domain-checker-container {
+    background-image: unset!important;
+    background: none!important;
+}
+
+
+.featured-tld .img-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.domain-checker-bg {
+    padding-top: 20px!important;
+    padding-bottom: 100px!important;
+}
+
+
+.domain-register-message {
+
+   padding: 10px 22px;
+   border-radius: 50%;
+   border: 0;
+
+   margin-left: 40px;
+   margin-right: 10px;
+}
+
+.domain-register-message.domain-message-success {
+
+    border-color: #fceeef;
+    background: #fceeef;
+}
+
+.domain-register-message.domain-message-danger {
+
+    border-color: #e7f8eb;
+    background: #e7f8eb;
+}
+
+.spotlight-tlds {
+    background-color: unset!important;
+}
+
+.whmc-kbtn.btn-add-to-cart {
+
+    justify-content: end;
+    align-items: center;
+    display: flex;
+}
+
+.domain-pricing .tld-pricing-header div:nth-child(odd), .domain-pricing .tld-pricing-header .col-sm-2, .domain-pricing .tld-pricing-header .col-sm-4, .domain-pricing .tld-pricing-header .col-xs-2, .domain-pricing .tld-pricing-header .col-xs-4 {
+
+    border-color: white!important;
+    background-color: unset!important;
+}
+
+.domain-pricing .two-row-center {
+    border-right: unset!important;
+}
+
+.domain-pricing .tld-row, .suggested-domains .list-group-item {
+    padding: 30px 0!important;
+    border-bottom: 1px solid #e2e2e2!important;
+    border-top: none!important;
+}
+
+.panel-default td {
+    padding: 20px 0!important;
+    border-bottom: 1px solid #e2e2e2!important;
+    border-top: none!important;
+}
+
+.featured-tld hr {
+    margin: 0px;
+}
+
+.spotlight-tld .btn:not(.domain-contact-support), .suggested-domains .btn:not(.domain-contact-support) {
+    background-color: #1279fa!important;
+    border-color: #1279fa!important;
+    padding: 5px 10px!important;
+    font-size: 15px!important;
+}
+
+.spotlight-tld {
+    padding: 13px 0!important;
+    height: auto!important;
+}
+
+
+.spotlight-tld .btn:not(.domain-contact-support):hover, .suggested-domains .btn:not(.domain-contact-support):hover {
+    background-color: #5da5ff!important;
+    border-color: #5da5ff!important;
+}
+
+.domain-lookup-result .price {
+    padding: 10px 0!important;
+    font-size: 15px!important;
+}
+
+.suggested-domains .list-group-item {
+    font-size: 16px;
+}
+
+.domain-promo-box {
+    background-color: #ffffff!important;
+    margin-top: 40px! important;
+}
+
+.domain-promo-box p {
+
+    font-size: 16px!important;
+    font-weight: 300!important;
+}
+
+.domain-info-box {
+    padding: 5px 0;
+}
+
+.suggested-domains .card-header, .suggested-domains .panel-heading {
+    border: none!important;
+    text-align: left;
+}
+
+.suggested-domains .list-group-item {
+    text-align: left;
+    font-size: 18px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#Primary_Navbar-Services-View_Available_Addons {
+
+    display: none!important;
+}
+
+#order-standard_cart .sidebar-collapsed {
+    display: none;
+}
+
+.domain-checker-container .input-group-box .form-control {
+    margin-bottom: 0!important;
+}
+
+
+.panel-default > .panel-heading, .panel-default {
+
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border: none;
+    padding-bottom: 0px;
+}
+
+.panel-body {
+    padding-top: 0;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+
+    vertical-align: middle!important;
+}
+
+.panel-downloads {
+  justify-content: start;
+  display: flex;
+   margin-top: 40px;
+   margin-left: 20px;
+}
+
+.mw-whm--search-box {
+    display: block!important;
+}
+
+
+@media  (min-width: 650px){
+    .availability-domain-checker-icon, .add-button-icon {
+        display: none!important;
+
+    }
+}
+
+ @media  (max-width: 651px){
+     .availability-domain-checker-tag, .to-add.add-button-mobile, .domain-register-message {
+         display: none!important;
+     }
+ }
+
+.availability-domain-checker-icon.fa.fa-check {
+    color: #5cb85c;
+}
+
+.availability-domain-checker-icon.fa.fa-close {
+    color: red;
+}
+
+.input-holder, .fixed-container, .provide-domains {
+    overflow-x: auto;
+}
+
+@media  (max-width: 1110px){
+    #primaryLookupResult {
+        font-size: 24px;
+    }
+}
+
+@media  (max-width: 450px){
+    #primaryLookupResult {
+        font-size: 18px;
+    }
+}
+.form-control {
+    border-radius: 5px!important;
+}
+
+
+#order-standard_cart .font-size-36 {
+    font-weight: 700;
+    margin-bottom: 20px!important;
+    text-align: center;
+}
+
+#order-standard_cart .cart-body {
+
+    width: 100%!important
+}
+
+#order-standard_cart .font-size-24 {
+    font-weight: 300;
+    margin-bottom: 15px;
+
+}
+
+#order-standard_cart .font-size-30 {
+    font-weight: 300;
+}
+
+.btn-transfer {
+
+    width: 100%;
+}
+
+.panel-footer {
+    background-color: unset!important;
+    border: none!important;
+}
+
+footer .copy {
+    padding-top: 20px!important;
+}
+
+footer {
+    padding: 0 0 40px 0!important;
+}
+
+#order-modern .domainoptions .optionselected {
+
+    background: linear-gradient( 90deg, #1279fa 0%, #1279fa 100%);
+    background-color: unset!important;
+}
+
+#order-modern .domainoptions .option {
+    border: none!important;
+    padding: 20px 60px;
+
+}
+
+#order-modern .domainoptions .option label {
+    padding: 20px 60px;
+}
+
+#order-modern .domainoptions .optionselected .radio-inline {
+
+    color: #ffffff!important;
+}
+
+.input-select-domaintransfer {
+    height: 17px;
+    width: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 35px;
+
+}

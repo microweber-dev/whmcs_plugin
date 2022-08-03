@@ -47,6 +47,7 @@ body {
     text-overflow: ellipsis;
     padding-left: 10px;
     white-space: nowrap;
+    font-size: 12.8px !important;
 }
 
 .sidebar .profile-sidebar-top {

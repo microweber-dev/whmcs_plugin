@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="en">
+<?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+?>
 <head>
     <title>Order</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/js/jquery.js"></script>
     <link href="<?php echo site_url(); ?>/modules/addons/microweber_addon/order/assets/plugins/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet"/>

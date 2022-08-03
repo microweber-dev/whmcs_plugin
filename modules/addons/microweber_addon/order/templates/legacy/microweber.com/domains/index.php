@@ -162,7 +162,7 @@
     }
 
     .domain-recommended-tag {
-        background: #0086DB;
+        background: #1279fa;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
