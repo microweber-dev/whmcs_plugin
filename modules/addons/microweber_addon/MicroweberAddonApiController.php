@@ -59,14 +59,14 @@ class MicroweberAddonApiController
     {
 
         $css = '
-        <style>
-    @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,600,700&display=swap&subset=cyrillic");
+    <style>
+    @import url("https://fonts.cdnfonts.com/css/milliard");
 
     * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        font-family: "Montserrat Alternates", sans-serif;
+        font-family: "Milliard", sans-serif;
     }
 
     .mw-ads-holder {
@@ -83,7 +83,8 @@ class MicroweberAddonApiController
         overflow: hidden;
         border-bottom: 1px solid #f1f3f4;
         color: #2d2d2d;
-        font-size: 14px;
+        font-size: 16px;
+        line-height: 16px;
         font-weight: 500;
         cursor: pointer;
     }
@@ -156,8 +157,10 @@ class MicroweberAddonApiController
                 ';
 
         $html = '<div class="mw-ads-holder" onclick="window.open(\''.site_url().'\', \'_blank\');"><div class="row">
-    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">This website is created with </span> <strong>'.$this->branding_get_company_name().'</strong> <span class="hidden-sm">website builder</span></p></div>
-    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Create a website</a></div>
+    <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">
+    Create Your Own Website, Easily With </span> <strong>'.$this->branding_get_company_name().'</strong></p>
+    </div>
+    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Create a Website</a></div>
     </div></div>';
 
         echo $css . $html;
