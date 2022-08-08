@@ -28,13 +28,13 @@ class AdminController
 
     public function save($params)
     {
-
         if (isset($params['templates_settings'])) {
 
             Capsule::table('mod_microweber_templates')->update([
                 'is_enabled' => 0
             ]);
 
+            $updatedTemplates = [];
             foreach ($params['templates_settings'] as $template_id => $templates_setting) {
 
                 $template_enabled = 0;
@@ -52,18 +52,19 @@ class AdminController
                 Capsule::table('mod_microweber_templates')
                     ->where('id', $template_id)
                     ->update([
-                        'is_enabled' => $template_enabled,
-                        'has_custom_settings' => $has_custom_settings,
-                        'updated_at' => date('Y-m-d H:i:s'),
-                        'name' => $templates_setting['name'],
-                        'target_dir' => $templates_setting['target_dir'],
-                        'git_package_name' => $templates_setting['git_package_name'],
-                        'screenshot_url' => $templates_setting['screenshot_url'],
-                        'preview_url' => $templates_setting['preview_url'],
-                        'homepage_url' => $templates_setting['homepage_url'],
-                        'preview_name' => $templates_setting['preview_name'],
-                        'preview_sort' => $templates_setting['preview_sort']
-                    ]);
+                    'is_enabled' => $template_enabled,
+                    'has_custom_settings' => $has_custom_settings,
+                    'updated_at' => date('Y-m-d H:i:s'),
+                    'name' => $templates_setting['name'],
+                    'target_dir' => $templates_setting['target_dir'],
+                    'git_package_name' => $templates_setting['git_package_name'],
+                    'screenshot_url' => $templates_setting['screenshot_url'],
+                    'preview_url' => $templates_setting['preview_url'],
+                    'homepage_url' => $templates_setting['homepage_url'],
+                    'preview_name' => $templates_setting['preview_name'],
+                    'preview_sort' => $templates_setting['preview_sort']
+                ]);
+                $updatedTemplates[] = $template_id;
             }
         }
 
