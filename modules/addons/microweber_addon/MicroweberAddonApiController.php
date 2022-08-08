@@ -694,6 +694,13 @@ h.domain = '" . $username . "' and
                         $ready['keywords'] = $enabled_template["keywords"];
                     }
 
+                    $get_template = get_template_by_config_option_id($enabled_template['configoption']['id']);
+                    $ready['preview_sort'] = 0;
+                    if ($get_template) {
+                        $ready['preview_sort'] = $get_template->preview_sort;
+                    }
+
+
 //image
 //title
 
@@ -705,6 +712,10 @@ h.domain = '" . $username . "' and
 
             }
         }
+
+        usort($return, function($a, $b) {
+            return $a['preview_sort'] - $b['preview_sort'];
+        });
 
 
         return ($return);
