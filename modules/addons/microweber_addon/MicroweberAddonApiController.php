@@ -157,8 +157,29 @@ class MicroweberAddonApiController
         return $css;
     }
 
-    public function show_ads_bar_live_edit()
+    public function show_ads_bar_live_edit($request)
     {
+        $parse_domain = @parse_url($request['domain']);
+
+        if (isset($parse_domain['host'])) {
+            $host = $parse_domain['host'];
+        } else {
+            $host = $request['domain'];
+        }
+        $host = str_ireplace('www.', '', $host);
+
+        $hostingProduct = Capsule::table('tblhosting')->where('domain', '=', $host)->first();
+        if ($hostingProduct) {
+            $getProduct = Capsule::table('tblproducts')->where('id', '=', $hostingProduct->packageid)->first();
+            if ($getProduct != null) {
+
+                $upgradeLink = site_url() . '/cart.php?a=add&pid=3';
+                /*var_dump($hostingProduct);
+                var_dump($getProduct);
+                die();*/ 
+            }
+        }
+
         $html = '<div class="mw-ads-holder" onclick="window.open(\''.site_url().'\', \'_blank\');"><div class="row">
     <div class="col"> <p class="hidden-xs">
     <span class="hidden-sm">
