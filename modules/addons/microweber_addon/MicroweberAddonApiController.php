@@ -225,8 +225,8 @@ class MicroweberAddonApiController
             }
 
             $json['domain'] = $host;
-            $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
-            $json['ads_bar_live_edit_url'] = 'index.php?m=microweber_addon&function=show_ads_bar_live_edit';
+            $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar&domain='.$host;
+            $json['ads_bar_live_edit_url'] = 'index.php?m=microweber_addon&function=show_ads_bar_live_edit&domain='.$host;
 
         }
 
