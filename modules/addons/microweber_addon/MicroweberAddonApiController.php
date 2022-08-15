@@ -168,15 +168,12 @@ class MicroweberAddonApiController
         }
         $host = str_ireplace('www.', '', $host);
 
+        $upgradeLink = site_url();
         $hostingProduct = Capsule::table('tblhosting')->where('domain', '=', $host)->first();
         if ($hostingProduct) {
             $getProduct = Capsule::table('tblproducts')->where('id', '=', $hostingProduct->packageid)->first();
             if ($getProduct != null) {
-
-                $upgradeLink = site_url() . '/cart.php?a=add&pid=3';
-                /*var_dump($hostingProduct);
-                var_dump($getProduct);
-                die();*/ 
+                $upgradeLink = site_url() . 'upgrade.php?type=package&id=' . $getProduct->id;
             }
         }
 
@@ -187,7 +184,7 @@ class MicroweberAddonApiController
     </span>
     </p>
     </div>
-    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Upgrade</a></div>
+    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.$upgradeLink.'\', \'_blank\');">Upgrade</a></div>
     </div>
     </div>';
 
