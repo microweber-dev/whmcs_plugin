@@ -173,7 +173,7 @@ class MicroweberAddonApiController
         if ($hostingProduct) {
             $getProduct = Capsule::table('tblproducts')->where('id', '=', $hostingProduct->packageid)->first();
             if ($getProduct != null) {
-                $upgradeLink = site_url() . 'upgrade.php?type=package&id=' . $getProduct->id;
+                $upgradeLink = site_url() . 'upgrade.php?type=package&id=' . $hostingProduct->id;
             }
         }
 
