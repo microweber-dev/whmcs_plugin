@@ -55,116 +55,137 @@ class MicroweberAddonApiController
 
     }
 
+    public function get_ads_bar_css()
+    {
+        $css = '
+            <style>
+            @import url("https://fonts.cdnfonts.com/css/milliard");
+        
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                font-family: "Milliard", sans-serif;
+            }
+        
+            .mw-ads-holder {
+                background: #fff;
+                z-index: 99999;
+                padding: 4px 7px;
+                position: absolute;
+                min-height: 54px;
+                border: 0;
+                left: 0;
+                right: 0;
+                top: 0;
+                width: 100%;
+                overflow: hidden;
+                border-bottom: 1px solid #f1f3f4;
+                color: #2d2d2d;
+                font-size: 16px;
+                line-height: 19px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        
+            .mw-ads-holder p {
+                margin: 0;
+                margin-top: 2px;
+            }
+        
+            .mw-ads-holder .row {
+                display: block;
+            }
+        
+            .mw-ads-holder .row:after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        
+            .mw-ads-holder .row .col {
+                float: left;
+            }
+        
+            .mw-ads-holder .row .col:nth-child(1) {
+                padding: 10px 0 10px 10px;
+                width: calc(100% - 210px);
+            }
+        
+            .mw-ads-holder .row .col:nth-child(2) {
+                padding: 13px 10px 13px 0;
+                width: 210px;
+            }
+        
+            .mw-ads-holder .text-right {
+                text-align: right;
+            }
+        
+            .mw-ads-holder img {
+                float: left;
+                margin-right: 15px;
+            }
+        
+            .mw-ads-holder a {
+                color: #1717ff;
+                text-decoration: none !important;
+                border: 1px solid #1717ff;
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+                border-radius: 50px;
+                padding: 8px 14px;
+            }
+            
+            .mw-ads-holder:hover a {
+                color: #fff;
+                background: #1717ff;
+            }
+        
+            @media screen and (min-width: 451px) and (max-width: 767px) {
+                .hidden-sm {
+                    display: none;
+                }
+            }
+        
+            @media screen and (max-width: 450px) {
+                .hidden-xs {
+                    display: none;
+                }
+            }
+        </style>';
+
+        return $css;
+    }
+
+    public function show_ads_bar_live_edit()
+    {
+        $html = '<div class="mw-ads-holder" onclick="window.open(\''.site_url().'\', \'_blank\');"><div class="row">
+    <div class="col"> <p class="hidden-xs">
+    <span class="hidden-sm">
+    Upgrade your plan to remove ads. 
+    </span>
+    </p>
+    </div>
+    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Upgrade</a></div>
+    </div>
+    </div>';
+
+        echo $this->get_ads_bar_css() . $html;
+        exit;
+    }
+
     public function show_ads_bar()
     {
 
-        $css = '
-    <style>
-    @import url("https://fonts.cdnfonts.com/css/milliard");
-
-    * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        font-family: "Milliard", sans-serif;
-    }
-
-    .mw-ads-holder {
-        background: #fff;
-        z-index: 99999;
-        padding: 4px 7px;
-        position: absolute;
-        min-height: 54px;
-        border: 0;
-        left: 0;
-        right: 0;
-        top: 0;
-        width: 100%;
-        overflow: hidden;
-        border-bottom: 1px solid #f1f3f4;
-        color: #2d2d2d;
-        font-size: 16px;
-        line-height: 19px;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .mw-ads-holder p {
-        margin: 0;
-        margin-top: 2px;
-    }
-
-    .mw-ads-holder .row {
-        display: block;
-    }
-
-    .mw-ads-holder .row:after {
-        display: block;
-        content: "";
-        clear: both;
-    }
-
-    .mw-ads-holder .row .col {
-        float: left;
-    }
-
-    .mw-ads-holder .row .col:nth-child(1) {
-        padding: 10px 0 10px 10px;
-        width: calc(100% - 210px);
-    }
-
-    .mw-ads-holder .row .col:nth-child(2) {
-        padding: 13px 10px 13px 0;
-        width: 210px;
-    }
-
-    .mw-ads-holder .text-right {
-        text-align: right;
-    }
-
-    .mw-ads-holder img {
-        float: left;
-        margin-right: 15px;
-    }
-
-    .mw-ads-holder a {
-        color: #1717ff;
-        text-decoration: none !important;
-        border: 1px solid #1717ff;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        border-radius: 50px;
-        padding: 8px 14px;
-    }
-    
-    .mw-ads-holder:hover a {
-        color: #fff;
-        background: #1717ff;
-    }
-
-    @media screen and (min-width: 451px) and (max-width: 767px) {
-        .hidden-sm {
-            display: none;
-        }
-    }
-
-    @media screen and (max-width: 450px) {
-        .hidden-xs {
-            display: none;
-        }
-    }
-</style>
-                ';
-
         $html = '<div class="mw-ads-holder" onclick="window.open(\''.site_url().'\', \'_blank\');"><div class="row">
     <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">
-    Create Your Own Website, Easily With </span> <strong>'.$this->branding_get_company_name().'</strong></p>
+    Create Website Easily with </span> <strong>'.$this->branding_get_company_name().'</strong></p>
     </div>
     <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.site_url().'\', \'_blank\');">Create a Website</a></div>
     </div>
     </div>';
 
-        echo $css . $html;
+        echo $this->get_ads_bar_css() . $html;
         exit;
     }
 
@@ -205,6 +226,7 @@ class MicroweberAddonApiController
 
             $json['domain'] = $host;
             $json['ads_bar_url'] = 'index.php?m=microweber_addon&function=show_ads_bar';
+            $json['ads_bar_live_edit_url'] = 'index.php?m=microweber_addon&function=show_ads_bar_live_edit';
 
         }
 
