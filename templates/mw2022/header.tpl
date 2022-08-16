@@ -157,7 +157,7 @@
                             </div>
                         {else}
 {*                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>*}
-                            <a href="{$WEB_ROOT}/index.php" class="whmc-kbtn" >Log in</a>
+                            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn" >Log in</a>
                         {/if}
 
                     </div>

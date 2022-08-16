@@ -57,5 +57,5 @@
             <li menuitemname="Transfer a Domain to Us" id="Primary_Navbar-Store-Transfer_a_Domain_to_Us"><a href="{$WEB_ROOT}/cart.php?a=add&amp;domain=transfer">Transfer Domains to Us</a></li>
         </ul>
     </li>
-    <li menuitemname="Contact Us" class="" id="Primary_Navbar-Contact_Us"><a href="{$WEB_ROOT}/contact.php">Contact Us</a></li>
+    <li menuitemname="Contact Us" class="" id="Primary_Navbar-Contact_Us"><a href="https://microweber.com/contact-us">Contact Us</a></li>
 {/if}
