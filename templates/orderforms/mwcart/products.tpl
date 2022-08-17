@@ -5,7 +5,7 @@
         <div class="title-bar">
             <div class="row" >
                 <div class="col-md-12 ">
-                    <h1 style="font-size: 48px; font-weight: 700; text-align: center; margin-bottom: 80px; margin-top: 0;">{$groupname}</h1>
+                    <h1 style="font-size: 48px; font-weight: 700; text-align: center; margin-bottom: 80px; margin-top: 80px;">{$groupname}</h1>
                 </div>
                 <div class="col-md-4">
 {*                    {include file="templates/orderforms/{$carttpl}/category-chooser.tpl"}*}
@@ -27,8 +27,49 @@
             </div>
         {/if}
 
+        {*here is a first plan*}
+        {foreach from=$products key=num item=product}
+            {if $num == 0}
+
+                <div class="col-xs-12 product-plans-free-wrapper">
+                    <div class="product-plans-free col-xs-6">
+                        <div id="product{$num}" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="col-xs-2" style=" border-right: 1px solid #1279fa;">
+                                <h1 class="product-plans-free-h1">{$product.name}</h1>
+                                {if $product.qty}
+                                    <span class="qty">
+                            ({$product.qty} {$LANG.orderavailable})
+                        </span>
+                                {/if}
+                            </div>
+
+
+                            <div class="col-xs-5 description desc-holder" style="margin-top: 20px;">
+                                {$product.description|unescape}
+                            </div>
+
+                            <div class="col-xs-5">
+                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn"> Start with Free</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                {break}
+            {/if}
+        {/foreach}
+
         <div class="row pricing-list-2">
+
+
             {foreach from=$products key=num item=product}
+
+            {if $num == 0}
+                {* skip first plan *}
+                {continue}
+            {/if}
+
             <div class="col-md-6 col-lg-4 ">
                 {*<div id="product{$num}" class="panel" onclick="window.location='cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}'">*}
                 <div id="product{$num}" class="panel panel-title plan">

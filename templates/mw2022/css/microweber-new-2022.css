@@ -1185,3 +1185,25 @@ footer {
     left: 35px;
 
 }
+
+.product-plans-free-wrapper {
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-plans-free {
+
+    border-top: 10px solid #1279fa;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%)!important;
+
+}
+
+.product-plans-free-h1 {
+    font-weight: 700;
+    color: #2b2b2b;
+    margin-top: 0;
+
+
+}
