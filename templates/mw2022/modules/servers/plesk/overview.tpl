@@ -282,7 +282,7 @@
 
         </div>
     </div>
-*}
+
 
     <div class="panel card panel-default mb-3" id="cPanelQuickEmailPanel">
         <div class="panel-heading card-header">
@@ -322,7 +322,7 @@
 
         </div>
     </div>
-
+*}
 {else}
 
     <div class="alert alert-warning text-center" role="alert" id="cPanelSuspendReasonPanel">
