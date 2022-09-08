@@ -178,7 +178,8 @@ function custom_oauth2_clientarea($vars)
         }
 
         $client_id = get_client_id_by_email($email, $vars['admin_user']);
-		
+//		var_dump($client_id);
+//        exit;
         $new_user = false;
         if ($client_id === false) {
         	
@@ -203,14 +204,37 @@ function custom_oauth2_clientarea($vars)
         if ($client_id) {
         	
         	$client_details = get_user_details_by_id($client_id);
-        	if ($client_details['status'] !== 'Active') {
-        		
-	        	$command = 'UpdateClient';
-	        	$postData = array(
-	        		'clientid' => $client_id,
-	        		'status' => 'Active'
-	        		
-	        	);
+
+
+            $postData = array(
+                'clientid' => $client_id,
+            );
+
+            if(!isset($client_details['firstname']) or
+                (isset($client_details['firstname']) and $client_details['firstname'] == '')){
+                $postData['firstname'] = 'User';
+            }
+            if(!isset($client_details['lastname']) or
+                (isset($client_details['lastname']) and $client_details['lastname'] == '')){
+                $postData['lastname'] = 'lastname '. $client_id;
+            }
+
+
+            $command = 'UpdateClient';
+
+            $results = localAPI($command, $postData);
+
+            if ($client_details['status'] !== 'Active') {
+
+                $postData = array(
+                    'clientid' => $client_id,
+                    'status' => 'Active'
+                );
+
+
+
+                $command = 'UpdateClient';
+
 	        	$results = localAPI($command, $postData);
         	}
         }

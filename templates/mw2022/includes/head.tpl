@@ -27,6 +27,9 @@
 
 </script>
 {/literal}
+<script>
+    var whmcsBaseUrl = "{\WHMCS\Utility\Environment\WebHelper::getBaseUrl()}";
+</script>
 <script type="text/javascript">
 
     var csrfToken = '{$token}',

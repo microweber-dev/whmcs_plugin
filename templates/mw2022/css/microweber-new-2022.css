@@ -1205,5 +1205,34 @@ footer {
     color: #2b2b2b;
     margin-top: 0;
 
+}
+
+.whmc-2022-panel {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.hosting-information-titles {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.hosting-domain-panel {
+    margin: 20px 0;
+}
+
+.left-padding-domain {
+    padding-left: 30px;
+}
+
+.pending-screenshot {
+    background-size: 100% 100%;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    padding-top: 448%;
+    overflow-y: auto;
+    position: relative;
+    background-position: 100% 100%;
 
 }

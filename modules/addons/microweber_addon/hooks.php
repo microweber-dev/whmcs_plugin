@@ -102,18 +102,20 @@ function mw_client_area_output_html($service)
 
     if ($output['admin']) {
         $panel = '
-		<div class="panel panel-default" id="mwPanelConfigurableOptionsPanel">
+
+        <div class="col-md-12" style="padding-left: 0;">
+		<div class="panel panel-default whmc-2022-panel " id="mwPanelConfigurableOptionsPanel">
 			   <div class="panel-heading">
 				   <h3 class="panel-title">Website</h3>
 			   </div>
-			   <div class="panel-body">
+			   <div class="panel-body" style="padding-top: 0;">
 								   <div class="row">
-						   <div class="col-md-5 col-xs-6 text-right">
-							   <strong>Domain</strong>
-							   <br>
+						   <div class="col-sm-12 hosting-information-titles left-padding-domain">
+							   <p><strong >Domain</strong></p>
+							 
 								' . $output['domain'] . '
 						   </div>
-						   <div class="col-md-7 col-xs-6 text-left">
+						   <div class="col-sm-12 hosting-information-titles left-padding-domain" style="padding-top: 20px;">
 
 						   <a class="btn btn-default" href="' . $output['admin'] . '" target="_blank"><i class="fa fa-user"></i> Login as [Admin]</a>
 						   <a class="btn btn-success" href="' . $output['live_edit'] . '" target="_blank"><i class="fa fa-pencil"></i> Go to website [Live Edit]</a>
@@ -121,7 +123,7 @@ function mw_client_area_output_html($service)
 							</div>
 					   </div>
 				</div>
-		   </div>';
+		   </div></div>';
 
         return $panel;
     }

@@ -1,6 +1,6 @@
 
 <div class="mw-whm clientareaproductdetails">
-    <div class="header-lined text-center">
+    <div class="header-lined text-center" style="padding-bottom: 20px;">
         <h1>Manage Product</h1><br />
     </div>
     {if $modulecustombuttonresult}
@@ -25,7 +25,7 @@
                 <div class="product-details clearfix">
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
 
                             <div class="product-status product-status-{$rawstatus|strtolower}">
                                 <div class="product-icon text-center">
@@ -58,44 +58,53 @@
                             {/if}
 
                         </div>
-                        <div class="col-md-6 text-center">
+                           <div class="col-md-6" style="margin-top: 50px;">
+                               <div class=" panel panel-default" style="padding: 30px;">
 
-                            <h4>{$LANG.clientareahostingregdate}</h4>
-                            {$regdate}
+                                   <h4>{$LANG.clientareahostingregdate}</h4>
+                                   {$regdate}
 
-                            {if $firstpaymentamount neq $recurringamount}
-                                <h4>{$LANG.firstpaymentamount}</h4>
-                                {$firstpaymentamount}
-                            {/if}
+                                   {if $firstpaymentamount neq $recurringamount}
+                                       <h4>{$LANG.firstpaymentamount}</h4>
+                                       {$firstpaymentamount}
+                                   {/if}
 
-                            {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
-                                <h4>{$LANG.recurringamount}</h4>
-                                {$recurringamount}
-                            {/if}
+                                   {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
+                                       <h4>{$LANG.recurringamount}</h4>
+                                       {$recurringamount}
+                                   {/if}
 
-                            <h4>{$LANG.orderbillingcycle}</h4>
-                            {$billingcycle}
+                                   <h4>{$LANG.orderbillingcycle}</h4>
+                                   {$billingcycle}
 
-                            <h4>{$LANG.clientareahostingnextduedate}</h4>
-                            {$nextduedate}
+                                   <h4>{$LANG.clientareahostingnextduedate}</h4>
+                                   {$nextduedate}
 
-                            <h4>{$LANG.orderpaymentmethod}</h4>
-                            {$paymentmethod}
+                                   <h4>{$LANG.orderpaymentmethod}</h4>
+                                   {$paymentmethod}
 
-                            {if $suspendreason}
-                                <h4>{$LANG.suspendreason}</h4>
-                                {$suspendreason}
-                            {/if}
+                                   {if $suspendreason}
+                                       <h4>{$LANG.suspendreason}</h4>
+                                       {$suspendreason}
+                                   {/if}
 
-                        </div>
+                               </div>
+                           </div>
+
+
+                          <div class="col-md-6">
+                              {foreach $hookOutput as $output}
+                                  <div>
+                                      {$output}
+                                  </div>
+                              {/foreach}
+                          </div>
+
+
                     </div>
 
                 </div>
-            {foreach $hookOutput as $output}
-                <div>
-                    {$output}
-                </div>
-            {/foreach}
+
 
             {if $domain || $moduleclientarea || $configurableoptions || $customfields || $lastupdate}
                 <div class="row clearfix">
@@ -132,42 +141,42 @@
                 </div>
                 <div class="tab-content product-details-tab-container">
                     {if $domain}
-                        <div class="tab-pane fade in active text-center" id="domain">
+                        <div class="tab-pane fade in active text-center hosting-domain-panel" id="domain">
                             {if $type eq "server"}
                                 <div class="row">
-                                    <div class="col-sm-5 text-right">
+                                    <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                         <strong>{$LANG.serverhostname}</strong>
                                     </div>
-                                    <div class="col-sm-7 text-left">
+                                    <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                         {$domain}
                                     </div>
                                 </div>
                                 {if $dedicatedip}
                                     <div class="row">
-                                        <div class="col-sm-5 text-right">
+                                        <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                             <strong>{$LANG.primaryIP}</strong>
                                         </div>
-                                        <div class="col-sm-7 text-left">
+                                        <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                             {$dedicatedip}
                                         </div>
                                     </div>
                                 {/if}
                                 {if $assignedips}
                                     <div class="row">
-                                        <div class="col-sm-5 text-right">
+                                        <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                             <strong>{$LANG.assignedIPs}</strong>
                                         </div>
-                                        <div class="col-sm-7 text-left">
+                                        <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                             {$assignedips|nl2br}
                                         </div>
                                     </div>
                                 {/if}
                                 {if $ns1 || $ns2}
                                     <div class="row">
-                                        <div class="col-sm-5 text-right">
+                                        <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                             <strong>{$LANG.domainnameservers}</strong>
                                         </div>
-                                        <div class="col-sm-7 text-left">
+                                        <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                             {$ns1}<br/>{$ns2}
                                         </div>
                                     </div>
@@ -175,46 +184,46 @@
                             {elseif ($type eq "hostingaccount" || $type eq "reselleraccount") && $serverdata}
                                 {if $domain}
                                     <div class="row">
-                                        <div class="col-sm-5 text-right">
+                                        <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                             <strong>{$LANG.orderdomain}</strong>
                                         </div>
-                                        <div class="col-sm-7 text-left">
+                                        <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                             {$domain}&nbsp;<a href="http://{$domain}" target="_blank" class="btn btn-default btn-xs">{$LANG.visitwebsite}</a>
                                         </div>
                                     </div>
                                 {/if}
                                 {if $username}
                                     <div class="row">
-                                        <div class="col-sm-5 text-right">
+                                        <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                             <strong>{$LANG.serverusername}</strong>
                                         </div>
-                                        <div class="col-sm-7 text-left">
+                                        <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                             {$username}
                                         </div>
                                     </div>
                                 {/if}
                                 <div class="row">
-                                    <div class="col-sm-5 text-right">
+                                    <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                         <strong>{$LANG.servername}</strong>
                                     </div>
-                                    <div class="col-sm-7 text-left">
+                                    <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                         {$serverdata.hostname}
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-5 text-right">
+                                    <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                         <strong>{$LANG.domainregisternsip}</strong>
                                     </div>
-                                    <div class="col-sm-7 text-left">
+                                    <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                         {$serverdata.ipaddress}
                                     </div>
                                 </div>
                                 {if $serverdata.nameserver1 || $serverdata.nameserver2 || $serverdata.nameserver3 || $serverdata.nameserver4 || $serverdata.nameserver5}
                                     <div class="row">
-                                        <div class="col-sm-5 text-right">
+                                        <div class="col-sm-2 text-left hosting-information-titles left-padding-domain">
                                             <strong>{$LANG.domainnameservers}</strong>
                                         </div>
-                                        <div class="col-sm-7 text-left">
+                                        <div class="col-sm-10 text-left hosting-information-titles left-padding-domain ">
                                             {if $serverdata.nameserver1}{$serverdata.nameserver1} ({$serverdata.nameserver1ip})<br/>{/if}
                                             {if $serverdata.nameserver2}{$serverdata.nameserver2} ({$serverdata.nameserver2ip})<br/>{/if}
                                             {if $serverdata.nameserver3}{$serverdata.nameserver3} ({$serverdata.nameserver3ip})<br/>{/if}
@@ -253,11 +262,11 @@
                     {if $configurableoptions}
                         <div class="tab-pane fade{if !$domain && !$moduleclientarea} in active{/if} text-center" id="configoptions">
                             {foreach from=$configurableoptions item=configoption}
-                                <div class="row">
-                                    <div class="col-sm-5">
+                                <div class="row hosting-domain-panel">
+                                    <div class="col-sm-2 text-left hosting-information-titles left-padding-domain" style="padding-left: 0px;">
                                         <strong>{$configoption.optionname}</strong>
                                     </div>
-                                    <div class="col-sm-7 text-left">
+                                    <div class="col-sm-10 hosting-information-titles left-padding-domain text-left" style="padding-left: 0px;">
                                         {if $configoption.optiontype eq 3}
                                             {if $configoption.selectedqty}
                                                 {$LANG.yes}
@@ -277,11 +286,11 @@
                     {if $customfields}
                         <div class="tab-pane fade{if !$domain && !$moduleclientarea && !$configurableoptions} in active{/if} text-center" id="additionalinfo">
                             {foreach from=$customfields item=field}
-                                <div class="row">
-                                    <div class="col-sm-5">
+                                <div class="row hosting-domain-panel">
+                                    <div class="col-sm-2 text-left hosting-information-titles left-padding-domain" style="padding-left: 0px;">
                                         <strong>{$field.name}</strong>
                                     </div>
-                                    <div class="col-sm-7 text-left">
+                                    <div class="col-sm-10 hosting-information-titles left-padding-domain text-left" style="padding-left: 0px;">
                                         {$field.value}
                                     </div>
                                 </div>
@@ -355,7 +364,7 @@
             <div class="row">
                 {foreach from=$addons item=addon}
                     <div class="col-xs-10 col-xs-offset-1">
-                        <div class="panel panel-default panel-accent-blue">
+                        <div class="panel panel-default panel-accent-blue ">
                             <div class="panel-heading">
                                 {$addon.name}
                                 <div class="pull-right status-{$addon.rawstatus|strtolower}">{$addon.status}</div>

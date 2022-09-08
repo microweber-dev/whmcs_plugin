@@ -12,7 +12,10 @@ class MarketplaceConnector extends Client
             ->where('module', 'microweber_addon')
             ->where('setting', 'package_manager_urls')
             ->first();*/
-
+    public function getPackagesUrls()
+    {
+        return $this->packageServers;
+    }
     /**
      * @return array
      */
