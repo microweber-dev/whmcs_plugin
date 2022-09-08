@@ -4,15 +4,19 @@
 <div class="row" style="display: flex; margin-bottom: 40px;">
     <div class="col-md-6">
 
-<<<<<<< HEAD
+
         <div class="panel panel-default" id="cPanelPackagePanel" style="height: 100%;">
             <div class="panel-heading">
                 <h3 class="panel-title">{$LANG.cPanel.packageDomain}</h3>
-=======
+
         <div class="panel panel-default card mb-3" id="cPanelPackagePanel">
             <div class="panel-heading card-header">
                 <h3 class="panel-title card-title m-0">{lang key='packageDomain'}</h3>
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+        <div class="panel panel-default card mb-3" id="cPanelPackagePanel">
+            <div class="panel-heading card-header">
+                <h3 class="panel-title card-title m-0">{lang key='packageDomain'}</h3>
+
             </div>
             <div class="panel-body card-body text-center">
 
@@ -59,15 +63,18 @@
     </div>
     <div class="col-md-6">
 
-<<<<<<< HEAD
         <div class="panel panel-default" id="cPanelUsagePanel" style="height: 100%;">
             <div class="panel-heading">
                 <h3 class="panel-title">{$LANG.cPanel.usageStats}</h3>
-=======
+
         <div class="panel card panel-default mb-3" id="cPanelUsagePanel">
             <div class="panel-heading card-header">
                 <h3 class="panel-title card-title m-0">{lang key='usageStats'}</h3>
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+        <div class="panel card panel-default mb-3" id="cPanelUsagePanel">
+            <div class="panel-heading card-header">
+                <h3 class="panel-title card-title m-0">{lang key='usageStats'}</h3>
+
             </div>
             <div class="panel-body card-body text-center cpanel-usage-stats">
 
@@ -140,7 +147,7 @@
 
 <div style="display: flex;">
 
-<<<<<<< HEAD
+
        {foreach $hookOutput as $output}
            <div>
                {$output}
@@ -151,7 +158,7 @@
 
       <div class="col-md-6" style="align-items: center; display: flex; justify-content: center;">
           {if $systemStatus == 'Active'}
-=======
+
 {if $systemStatus == 'Active'}
     {if count($wpInstances) || $allowWpClientInstall}
         <div class="panel card panel-default mb-3" id="cPanelWordPress" data-service-id="{$serviceId}" data-wp-domain="{$wpDomain}">
@@ -214,7 +221,7 @@
             </div>
         </div>
     {/if}
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
 
 
 {*
@@ -301,9 +308,54 @@
                 {/if}
             </div>
 
+
         </div>
     </div>
 *}
+
+    <div class="panel card panel-default mb-3" id="cPanelQuickEmailPanel">
+        <div class="panel-heading card-header">
+            <h3 class="panel-title card-title m-0">{$LANG.cPanel.createEmailAccount}</h3>
+        </div>
+        <div class="panel-body card-body">
+
+            {include file="$template/includes/alert.tpl" type="success" msg=$LANG.cPanel.emailAccountCreateSuccess textcenter=true hide=true idname="emailCreateSuccess" additionalClasses="email-create-feedback"}
+
+            {include file="$template/includes/alert.tpl" type="danger" msg=$LANG.cPanel.emailAccountCreateFailed|cat:' <span id="emailCreateFailedErrorMsg"></span>' textcenter=true hide=true idname="emailCreateFailed" additionalClasses="email-create-feedback"}
+
+            <form id="frmCreateEmailAccount" onsubmit="doEmailCreate();return false">
+                <input type="hidden" name="id" value="{$serviceid}" />
+                <input type="hidden" name="email_quota" value="250" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-1">
+                            <input type="text" id="cpanel-email-prefix" name="email_prefix" class="form-control" placeholder="{$LANG.cPanel.usernamePlaceholder}">
+                            <div class="input-group-addon input-group-append">
+                                <span class="input-group-text">
+                                    <small>@{$domain}</small>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="password" id="cpanel-email-password" name="email_pw" class="form-control mb-1" placeholder="{$LANG.cPanel.passwordPlaceholder}">
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-plus" id="btnCreateLoader"></i>
+                            {$LANG.cPanel.create}
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+        </div>
+    </div>
+
 
     <div class="panel card panel-default mb-3" id="cPanelQuickEmailPanel">
         <div class="panel-heading card-header">
@@ -379,6 +431,7 @@
    </div>
 
 
+
 <div class="panel card panel-default mb-3" id="cPanelBillingOverviewPanel">
     <div class="panel-heading card-header">
         <h3 class="panel-title card-title m-0">{lang key='billingOverview'}</h3>
@@ -389,11 +442,13 @@
             <div class="col-md-4">
                 {if $firstpaymentamount neq $recurringamount}
                     <div class="row" id="firstPaymentAmount">
-<<<<<<< HEAD
+
                         <div cl8ss="col-xs-6 text-start" >
-=======
+
                         <div class="col-xs-6 col-6 text-right" >
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                        <div class="col-xs-6 col-6 text-right" >
+
                             {$LANG.firstpaymentamount}
                         </div>
                         <div class="col-xs-6 col-6">
@@ -403,11 +458,13 @@
                 {/if}
                 {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
                     <div class="row" id="recurringAmount">
-<<<<<<< HEAD
+
                         <div class="col-xs-6 text-start">
-=======
+
                         <div class="col-xs-6 col-6 text-right">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                        <div class="col-xs-6 col-6 text-right">
+
                             {$LANG.recurringamount}
                         </div>
                         <div class="col-xs-6 col-6">
@@ -416,11 +473,12 @@
                     </div>
                 {/if}
                 <div class="row" id="billingCycle">
-<<<<<<< HEAD
+
                     <div class="col-xs-6 text-start">
-=======
+
                     <div class="col-xs-6 col-6 text-right">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                    <div class="col-xs-6 col-6 text-right">
                         {$LANG.orderbillingcycle}
                     </div>
                     <div class="col-xs-6 col-6">
@@ -428,11 +486,12 @@
                     </div>
                 </div>
                 <div class="row" id="paymentMethod">
-<<<<<<< HEAD
+
                     <div class="col-xs-6 text-start">
-=======
+
                     <div class="col-xs-6 col-6 text-right">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                    <div class="col-xs-6 col-6 text-right">
                         {$LANG.orderpaymentmethod}
                     </div>
                     <div class="col-xs-6 col-6">
@@ -442,32 +501,40 @@
             </div>
             <div class="col-md-7">
                 <div class="row" id="registrationDate">
-<<<<<<< HEAD
+
                     <div class="col-xs-6 col-md-4 text-right">
                         {$LANG.clientareahostingregdate}
                     </div>
                     <div class="col-xs-6 col-md-8">
-=======
+
                     <div class="col-xs-6 col-6 col-xl-5 text-right">
                         {$LANG.clientareahostingregdate}
                     </div>
                     <div class="col-xs-6 col-6 col-xl-7">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                    <div class="col-xs-6 col-6 col-xl-5 text-right">
+                        {$LANG.clientareahostingregdate}
+                    </div>
+                    <div class="col-xs-6 col-6 col-xl-7">
                         {$regdate}
                     </div>
                 </div>
                 <div class="row" id="nextDueDate">
-<<<<<<< HEAD
+
                     <div class="col-xs-6 col-md-4 text-right">
                         {$LANG.clientareahostingnextduedate}
                     </div>
                     <div class="col-xs-6 col-md-8">
-=======
+
                     <div class="col-xs-6 col-6 col-xl-5 text-right">
                         {$LANG.clientareahostingnextduedate}
                     </div>
                     <div class="col-xs-6 col-6 col-xl-7">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                    <div class="col-xs-6 col-6 col-xl-5 text-right">
+                        {$LANG.clientareahostingnextduedate}
+                    </div>
+                    <div class="col-xs-6 col-6 col-xl-7">
                         {$nextduedate}
                     </div>
                 </div>
@@ -482,19 +549,24 @@
         </div>
         <div class="panel-body card-body">
             {foreach from=$configurableoptions item=configoption}
-<<<<<<< HEAD
+
                 <div class="row hosting-domain-panel">
                     <div class="col-md-2 col-xs-6 text-start">
                         <strong>{$configoption.optionname}</strong>
                     </div>
                     <div class="col-md-10 col-xs-6 text-left">
-=======
+
                 <div class="row">
                     <div class="col-md-5 col-xs-6 col-6 text-right">
                         <strong>{$configoption.optionname}</strong>
                     </div>
                     <div class="col-md-7 col-xs-6 col-6 text-left">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+                <div class="row">
+                    <div class="col-md-5 col-xs-6 col-6 text-right">
+                        <strong>{$configoption.optionname}</strong>
+                    </div>
+                    <div class="col-md-7 col-xs-6 col-6 text-left">
                         {if $configoption.optiontype eq 3}{if $configoption.selectedqty}{$LANG.yes}{else}{$LANG.no}{/if}{elseif $configoption.optiontype eq 4}{$configoption.selectedqty} x {$configoption.selectedoption}{else}{$configoption.selectedoption}{/if}
                     </div>
                 </div>
@@ -516,6 +588,7 @@
         </div>
     </div>
 {/if}
+
 {if $customfields}
     <div class="panel card panel-default mb-3" id="cPanelAdditionalInfoPanel">
         <div class="panel-heading card-header">
@@ -524,17 +597,39 @@
         <div class="panel-body card-body">
             {foreach from=$customfields item=field}
                 <div class="row">
-<<<<<<< HEAD
+
                     <div class="col-md-2 col-xs-6 text-start">
                         <strong>{$field.name}</strong>
                     </div>
                     <div class="col-md-1- col-xs-6 text-left">
-=======
+
                     <div class="col-md-5 col-xs-6 col-6 text-right">
                         <strong>{$field.name}</strong>
                     </div>
                     <div class="col-md-7 col-xs-6 col-6 text-left">
->>>>>>> f1dc8f949fb8ab3f3df7d0611e05621c318337c4
+
+{if $metricStats}
+    <div class="panel card panel-default mb-3" id="cPanelMetricStatsPanel">
+        <div class="panel-heading card-header">
+            <h3 class="panel-title card-title m-0">{$LANG.metrics.title}</h3>
+        </div>
+        <div class="panel-body card-body">
+            {include file="$template/clientareaproductusagebilling.tpl"}
+        </div>
+    </div>
+{/if}
+{if $customfields}
+    <div class="panel card panel-default mb-3" id="cPanelAdditionalInfoPanel">
+        <div class="panel-heading card-header">
+            <h3 class="panel-title card-title m-0">{$LANG.additionalInfo}</h3>
+        </div>
+        <div class="panel-body card-body">
+            {foreach from=$customfields item=field}
+                <div class="row">
+                    <div class="col-md-5 col-xs-6 col-6 text-right">
+                        <strong>{$field.name}</strong>
+                    </div>
+                    <div class="col-md-7 col-xs-6 col-6 text-left">
                         {if empty($field.value)}
                             {$LANG.blankCustomField}
                         {else}
