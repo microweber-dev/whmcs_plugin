@@ -279,6 +279,10 @@
                                             {$configoption.selectedoption}
                                         {/if}
                                     </div>
+
+                                    <div class="pending-screenshot" style="background-image: url({$WEB_ROOT}/templates/mw2022/img/screenshot-test-templates.jpg)">
+
+                                    </div>
                                 </div>
                             {/foreach}
                         </div>

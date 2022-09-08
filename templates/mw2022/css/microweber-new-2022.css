@@ -1236,3 +1236,12 @@ footer {
     background-position: 100% 100%;
 
 }
+
+#tableServicesList_filter {
+    text-align: right;
+}
+
+#tableServicesList_filter .form-control.input-sm {
+
+     margin-left: 15px;
+}
