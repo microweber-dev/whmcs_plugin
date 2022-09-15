@@ -80,7 +80,7 @@ class MicroweberAddonApiController
                 top: 0;
                 width: 100%;
                 overflow: hidden;
-                border-bottom: 1px solid #f1f3f4;
+                border-top: 1px solid #f1f3f4;
                 color: #2d2d2d;
                 font-size: 16px;
                 line-height: 19px;
@@ -133,7 +133,8 @@ class MicroweberAddonApiController
                 -webkit-border-radius: 50px;
                 -moz-border-radius: 50px;
                 border-radius: 50px;
-                padding: 8px 14px;
+               padding: 4px 7px;
+                font-size: 15px;
             }
             
             .mw-ads-holder:hover a {
