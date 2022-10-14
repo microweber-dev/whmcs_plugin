@@ -14,6 +14,13 @@ function hook_template_variables_custom_oauth2($vars)
 {
     $extraTemplateVariables = array();
 
+    $from_site_url = false;
+  //  if(isset($vars['currentpagelinkback']) and $vars['currentpagelinkback']) {
+        if (isset($vars['systemurl']) and $vars['systemurl']) {
+            $from_site_url = $vars['systemurl'];
+        }
+   // }
+
     // fetch clients data if available
     $clientsData = isset($vars['clientsdetails']) ? $vars['clientsdetails'] : null;
     $url = $authorize_path = $client_id = $redirect_uri = $scope = $provider = null;
@@ -64,6 +71,7 @@ function hook_template_variables_custom_oauth2($vars)
         }
     }
 
+
     $params = array(
         'client_id' => $client_id,
         'redirect_uri' => $redirect_uri,
@@ -71,6 +79,24 @@ function hook_template_variables_custom_oauth2($vars)
         'state' => $state,
         'response_type' => 'code',
     );
+//    $resellerCenterConnector = new \MicroweberAddon\ResellerMultibrandConnector();
+//    $resellerCenterEnabled = $resellerCenterConnector->isEnabled();
+//    if ($resellerCenterEnabled) {
+//        $resellerSettings = $resellerCenterConnector->getSettingsForCurrentDomain();
+//        if(isset($resellerSettings['domain']) and $resellerSettings['domain']) {
+//            $from_site_url = $resellerSettings['domain'];
+//         //   $redirect_uri = $redirect_uri . '&from_domain=' . $from_site_url;
+//          //  $_SESSION['reseller_site_url'] = $from_site_url;
+//            $params['return_url'] = $from_site_url;
+//           // $redirect_uri = preg_replace("/(http|https):\/\/(?:.*?)\//i", "$1://".$from_site_url."", $redirect_uri);
+//
+//        }
+//    }
+
+
+
+
+
     $loginUrl = $url . $authorize_path . '?' . http_build_query($params);
 
     $extraTemplateVariables['custom_oauth2_login_url'] = $loginUrl;

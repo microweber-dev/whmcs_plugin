@@ -176,7 +176,6 @@ function custom_oauth2_clientarea($vars)
         if (!$authorized) {
             throw new BusinessException('You do not have permission to login.');
         }
-
         $client_id = get_client_id_by_email($email, $vars['admin_user']);
 //		var_dump($client_id);
 //        exit;
@@ -199,8 +198,9 @@ function custom_oauth2_clientarea($vars)
         if (!$username) {
             $username = $email;
         }
-        
-        
+
+
+
         if ($client_id) {
         	
         	$client_details = get_user_details_by_id($client_id);
@@ -216,7 +216,7 @@ function custom_oauth2_clientarea($vars)
             }
             if(!isset($client_details['lastname']) or
                 (isset($client_details['lastname']) and $client_details['lastname'] == '')){
-                $postData['lastname'] = 'lastname '. $client_id;
+                $postData['lastname'] = ''. $client_id;
             }
 
 
@@ -245,6 +245,10 @@ function custom_oauth2_clientarea($vars)
         // Login user
         if (login_userid($client_id, $user_ip_address))
         {
+
+
+
+
         	$redirect_to = rtrim($CONFIG['SystemURL'], ' /') . '/clientarea.php';
 
         	if (isset($_GET['return_url']) && !empty($_GET['return_url']) && strpos($_GET['return_url'], $CONFIG['SystemURL']) == 0) {

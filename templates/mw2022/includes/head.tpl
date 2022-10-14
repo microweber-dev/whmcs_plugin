@@ -39,6 +39,7 @@
         saving = '{lang key="markdown.saving"}';
 </script>
 <script src="{$WEB_ROOT}/templates/{$template}/js/scripts.js?v={$versionHash}"></script>
+<script src="{$WEB_ROOT}/templates/{$template}/js/whmcs.js?v={$versionHash}"></script>
 
 
 <script src="{$WEB_ROOT}/templates/{$template}/js/microweber/script.js?v={$versionHash}" defer></script>

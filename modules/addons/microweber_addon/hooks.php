@@ -410,4 +410,34 @@ add_hook('ClientAreaPage', 23, function ($v) {
 });
 
 
+add_hook('ClientAreaPageCreditCard', 100, function ($vars) {
 
+    $array = array('Visa', 'Mastercard', 'Amex', 'UnionPay', 'JCB', 'Diners', 'Discover');
+    return array("acceptedcctypes" => $array);
+
+});
+
+add_hook('ClientAreaPageCart', 100, function ($vars) {
+
+    $array = array('Visa', 'Mastercard', 'Amex', 'UnionPay', 'JCB', 'Diners', 'Discover');
+    return array("acceptedcctypes" => $array);
+
+});
+
+add_hook('ClientAreaPageCreditCardCheckout', 100, function ($vars) {
+
+    $array = array('Visa', 'Mastercard', 'Amex', 'UnionPay', 'JCB', 'Diners', 'Discover');
+    return array("acceptedcctypes" => $array);
+});
+
+add_hook('ClientAreaPageViewInvoice', 100, function ($vars) {
+
+    $today = strtotime($vars['date']);
+    $duedate = strtotime($vars['duedate']);
+
+    if($today > $duedate) {
+        return array("paymentbutton" => '<a href="submitticket.php">Contact Us</a>');
+    }
+
+
+});
