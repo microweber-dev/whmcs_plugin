@@ -18,25 +18,27 @@
 <![endif]-->
 
 {literal}
-<script type="text/javascript">
- (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    <script type="text/javascript">
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-MJ4VGK'); 
+        })(window,document,'script','dataLayer','GTM-MJ4VGK');
 
-</script>
+    </script>
 {/literal}
 <script>
     var whmcsBaseUrl = "{\WHMCS\Utility\Environment\WebHelper::getBaseUrl()}";
 </script>
-<script type="text/javascript">
-
+<script>
     var csrfToken = '{$token}',
-        markdownGuide = '{lang key="markdown.title"}',
+        markdownGuide = '{lang|addslashes key="markdown.title"}',
         locale = '{if !empty($mdeLocale)}{$mdeLocale}{else}en{/if}',
-        saved = '{lang key="markdown.saved"}',
-        saving = '{lang key="markdown.saving"}';
+        saved = '{lang|addslashes key="markdown.saved"}',
+        saving = '{lang|addslashes key="markdown.saving"}',
+        whmcsBaseUrl = "{\WHMCS\Utility\Environment\WebHelper::getBaseUrl()}",
+        requiredText = '{lang|addslashes key="orderForm.required"}',
+        recaptchaSiteKey = "{if $captcha}{$captcha->recaptcha->getSiteKey()}{/if}";
 </script>
 <script src="{$WEB_ROOT}/templates/{$template}/js/scripts.js?v={$versionHash}"></script>
 <script src="{$WEB_ROOT}/templates/{$template}/js/whmcs.js?v={$versionHash}"></script>
@@ -47,4 +49,14 @@
 
 {if $templatefile == "viewticket" && !$loggedin}
     <meta name="robots" content="noindex"/>
+{/if}
+
+{assetExists file="custom.css"}
+    <link href="{$__assetPath__}" rel="stylesheet">
+{/assetExists}
+
+
+
+{if $templatefile == "viewticket" && !$loggedin}
+    <meta name="robots" content="noindex" />
 {/if}

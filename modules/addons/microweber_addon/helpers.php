@@ -134,16 +134,19 @@ if (!function_exists('is_https')) {
 if (!function_exists('site_url')) {
     function site_url($add_string = false)
     {
-        static $site_url;
 
+       // static $site_url;
+        $site_url = false;
         if(defined('MW_SITE_URL')){
             return MW_SITE_URL;
         }
+
         if ($site_url == false) {
             $pageURL = 'http';
             if (is_https()) {
                 $pageURL .= 's';
             }
+
             $subdir_append = false;
             if (isset($_SERVER['PATH_INFO'])) {
                 // $subdir_append = $_SERVER ['PATH_INFO'];

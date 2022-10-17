@@ -1,126 +1,147 @@
-<div id="ccinputform" class="signupfields {if $selectedgatewaytype neq "CC"}hidden{/if}">
-    <table width="100%" cellspacing="0" cellpadding="0" class="configtable textleft">
-        {if $clientsdetails.cclastfour}
-            <tr>
-                <td class="fieldarea">
-                    <label class="radio-inline">
-                        <input type="radio" name="ccinfo" value="useexisting" id="useexisting"
-                               onclick="useExistingCC()" {if $clientsdetails.cclastfour}checked{else}disabled{/if} />
-                        {$LANG.creditcarduseexisting}
-                        {if $clientsdetails.cclastfour}
-                            ({$clientsdetails.cclastfour})
-                        {/if}
-                    </label><br/>
-                    <label class="radio-inline">
-                        <input type="radio" name="ccinfo" value="new" id="new" onclick="enterNewCC()" {if !$clientsdetails.cclastfour || $ccinfo eq "new"}checked{/if} />
-                        {$LANG.creditcardenternewcard}
+{if !$inExpressCheckout}
+    <div id="paymentGatewaysContainer" class="form-group">
+        <p class="small text-muted">{$LANG.orderForm.preferredPaymentMethod}</p>
+
+        <div class="text-center">
+            {foreach $gateways as $gateway}
+                <label class="radio-inline">
+                    <input type="radio"
+                           name="paymentmethod"
+                           value="{$gateway.sysname}"
+                           data-payment-type="{$gateway.payment_type}"
+                           data-show-local="{$gateway.show_local_cards}"
+                           data-remote-inputs="{$gateway.uses_remote_inputs}"
+                           class="payment-methods{if $gateway.type eq "CC"} is-credit-card{/if}"
+                            {if $selectedgateway eq $gateway.sysname} checked{/if}
+                    />
+                    {$gateway.name}
+                </label>
+            {/foreach}
+        </div>
+    </div>
+
+    <div class="alert alert-danger text-center gateway-errors w-hidden"></div>
+
+    <div class="clearfix"></div>
+
+    <div class="cc-input-container{if $selectedgatewaytype neq "CC"} w-hidd1en{/if}" id="creditCardInputFields">
+        {if $client}
+            <div id="existingCardsContainer" class="existing-cc-grid">
+                {include file="orderforms/standard_cart/includes/existing-paymethods.tpl"}
+            </div>
+        {/if}
+        <div class="row cvv-input" id="existingCardInfo">
+            <div class="col-lg-3 col-sm-4">
+                <div class="form-group prepend-icon">
+                    <label for="inputCardCVV2" class="field-icon">
+                        <i class="fas fa-barcode"></i>
                     </label>
-                </td>
-            </tr>
-        {else}
-            <input type="hidden" name="ccinfo" value="new"/>
-        {/if}
+                    <div class="input-group">
+                        <input type="tel" name="cccvv" id="inputCardCVV2" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
+                        <span class="input-group-btn input-group-append">
+                                            <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                                ?
+                                            </button>
+                                        </span>
+                    </div>
+                    <span class="field-error-msg">{lang key="paymentMethodsManage.cvcNumberNotValid"}</span>
+                </div>
+            </div>
+        </div>
 
-        <tr>
-            <td><h2>Card details</h2></td>
-        </tr>
+        <ul>
+            <li>
+                <label class="radio-inline">
+                    <input type="radio" name="ccinfo" value="new" id="new" {if !$client || $client->payMethods->count() === 0} checked="checked"{/if} />
+                    &nbsp;
+                    {lang key='creditcardenternewcard'}
+                </label>
+            </li>
+        </ul>
 
-        <tr class="newccinfo"{if $clientsdetails.cclastfour && $ccinfo neq "new"} style="display:none;"{/if}>
-            <td class="fieldarea">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <select class="selectpicker" name="cctype" id="cctype" title="{$LANG.creditcardcardtype}">
-                            {foreach key=num item=cardtype from=$acceptedcctypes}
-                                <option{if $cctype eq $cardtype} selected{/if}>{$cardtype}</option>
-                            {/foreach}
-                        </select>
+        <div class="row" id="newCardInfo">
+            <div id="cardNumberContainer" class="col-sm-6 new-card-container">
+                <div class="form-group prepend-icon">
+                    <label for="inputCardNumber" class="field-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </label>
+                    <input type="tel" name="ccnumber" id="inputCardNumber" class="field form-control cc-number-field" placeholder="{$LANG.orderForm.cardNumber}" autocomplete="cc-number" data-message-unsupported="{lang key='paymentMethodsManage.unsupportedCardType'}" data-message-invalid="{lang key='paymentMethodsManage.cardNumberNotValid'}" data-supported-cards="{$supportedCardTypes}" />
+                    <span class="field-error-msg"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 new-card-container">
+                <div class="form-group prepend-icon">
+                    <label for="inputCardExpiry" class="field-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </label>
+                    <input type="tel" name="ccexpirydate" id="inputCardExpiry" class="field form-control" placeholder="MM / YY{if $showccissuestart} ({$LANG.creditcardcardexpires}){/if}" autocomplete="cc-exp">
+                    <span class="field-error-msg">{lang key="paymentMethodsManage.expiryDateNotValid"}</span>
+                </div>
+            </div>
+            <div class="col-sm-3" id="cvv-field-container">
+                <div class="form-group prepend-icon">
+                    <label for="inputCardCVV" class="field-icon">
+                        <i class="fas fa-barcode"></i>
+                    </label>
+                    <div class="input-group">
+                        <input type="tel" name="cccvv" id="inputCardCVV" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
+                        <span class="input-group-btn input-group-append">
+                                            <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                                ?
+                                            </button>
+                                        </span><br>
+                    </div>
+                    <span class="field-error-msg">{lang key="paymentMethodsManage.cvcNumberNotValid"}</span>
+                </div>
+            </div>
+            {if $showccissuestart}
+                <div class="col-sm-3 col-sm-offset-6 new-card-container offset-sm-6">
+                    <div class="form-group prepend-icon">
+                        <label for="inputCardStart" class="field-icon">
+                            <i class="far fa-calendar-check"></i>
+                        </label>
+                        <input type="tel" name="ccstartdate" id="inputCardStart" class="field form-control" placeholder="MM / YY ({$LANG.creditcardcardstart})" autocomplete="cc-exp">
                     </div>
                 </div>
-            </td>
-        </tr>
-        <tr class="newccinfo"{if $clientsdetails.cclastfour && $ccinfo neq "new"} style="display:none;"{/if}>
-            <td class="fieldarea">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="subscription-field">
-                            <input class="material-field subscription" type="text" name="ccnumber" size="30" value="{$ccnumber}" autocomplete="off"
-                                   placeholder="{$LANG.creditcardcardnumber}"/>
-                        </div>
+                <div class="col-sm-3 new-card-container">
+                    <div class="form-group prepend-icon">
+                        <label for="inputCardIssue" class="field-icon">
+                            <i class="fas fa-asterisk"></i>
+                        </label>
+                        <input type="tel" name="ccissuenum" id="inputCardIssue" class="field form-control" placeholder="{$LANG.creditcardcardissuenum}">
                     </div>
                 </div>
-            </td>
-        </tr>
-        <tr class="newccinfo"{if $clientsdetails.cclastfour && $ccinfo neq "new"} style="display:none;"{/if}>
-            <td class="fieldarea">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <select class="selectpicker" name="ccexpirymonth" id="ccexpirymonth" title="Select month">
-                            {foreach from=$months item=month}
-                                <option{if $ccexpirymonth eq $month} selected{/if}>{$month}</option>
-                            {/foreach}
-                        </select>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-6">
-                        <select class="selectpicker" name="ccexpiryyear" title="Select year">
-                            {foreach from=$expiryyears item=year}
-                                <option{if $ccexpiryyear eq $year} selected{/if}>{$year}</option>
-                            {/foreach}
-                        </select>
+            {/if}
+        </div>
+        <div id="newCardSaveSettings">
+            <div class="row form-group new-card-container">
+                <div id="inputDescriptionContainer" class="col-md-6">
+                    <div class="prepend-icon">
+                        <label for="inputDescription" class="field-icon">
+                            <i class="fas fa-pencil"></i>
+                        </label>
+                        <input type="text" class="field form-control" id="inputDescription" name="ccdescription" autocomplete="off" value="" placeholder="{$LANG.paymentMethods.descriptionInput} {$LANG.paymentMethodsManage.optional}" />
                     </div>
                 </div>
-            </td>
-        </tr>
-        {if $showccissuestart}
-            <tr class="newccinfo"{if $clientsdetails.cclastfour && $ccinfo neq "new"} style="display:none;"{/if}>
-                <td class="fieldarea">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <select class="selectpicker" name="ccstartmonth" id="ccstartmonth" title="Select month">
-                                {foreach from=$months item=month}
-                                    <option{if $ccstartmonth eq $month} selected{/if}>{$month}</option>
-                                {/foreach}
-                            </select>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-6">
-                            <select class="selectpicker" name="ccstartyear" title="Select year">
-                                {foreach from=$startyears item=year}
-                                    <option{if $ccstartyear eq $year} selected{/if}>{$year}</option>
-                                {/foreach}
-                            </select>
-                        </div>
+                {if $allowClientsToRemoveCards}
+                    <div id="inputNoStoreContainer" class="col-md-6" style="line-height: 32px;">
+                        <input type="hidden" name="nostore" value="1">
+                        <input type="checkbox" class="toggle-switch-success no-icheck" data-size="mini" checked="checked" name="nostore" id="inputNoStore" value="0" data-on-text="{lang key='yes'}" data-off-text="{lang key='no'}">
+                        <label for="inputNoStore" class="checkbox-inline no-padding">
+                            &nbsp;&nbsp;
+                            {$LANG.creditCardStore}
+                        </label>
                     </div>
-                </td>
-            </tr>
-            <tr class="newccinfo"{if $clientsdetails.cclastfour && $ccinfo neq "new"} style="display:none;"{/if}>
-                <td class="fieldarea">
-                    <input type="text" name="ccissuenum" value="{$ccissuenum}" placeholder="{$LANG.creditcardcardissuenum}" size="5" maxlength="3"/>
-                </td>
-            </tr>
-        {/if}
-        <tr>
-            <td class="fieldarea">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="subscription-field">
-                            <a href="#" onclick="window.open('{$BASE_PATH_IMG}/ccv.gif','','width=280,height=200,scrollbars=no,top=100,left=100');return false" class="field-helper"
-                               title="{$LANG.creditcardcvvwhere}"><span>?</span></a>
-                            <input class="material-field subscription" type="text" name="cccvv" id="cccvv" value="{$cccvv}" size="5" autocomplete="off"
-                                   placeholder="{$LANG.creditcardcvvnumber}"/>
-                        </div>
-                    </div>
-
-                    {if $shownostore}
-                        <div class="col-xs-12 col-sm-6">
-                            <label class="checkbox-inline" for="nostore">
-                                <input type="checkbox" name="nostore" id="nostore"/>
-                                {$LANG.creditcardnostore}
-                            </label>
-                        </div>
-                    {/if}
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+                {/if}
+            </div>
+        </div>
+    </div>
+{else}
+    {if $expressCheckoutOutput}
+        {$expressCheckoutOutput}
+    {else}
+        <p align="center">
+            {lang key='paymentPreApproved' gateway=$expressCheckoutGateway}
+        </p>
+    {/if}
+{/if}

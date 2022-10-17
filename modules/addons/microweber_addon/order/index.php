@@ -14,7 +14,7 @@ global $CONFIG;
 
 
 if(!defined('MW_SITE_URL')){
-    define('MW_SITE_URL',$CONFIG['SystemURL'].'/');
+     define('MW_SITE_URL',$CONFIG['SystemURL'].'/');
 }
 
 $controller = new MicroweberAddonApiController();

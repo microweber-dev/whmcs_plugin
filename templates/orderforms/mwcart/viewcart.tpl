@@ -1,417 +1,617 @@
-<div class="mw-whm">
-    <link rel="stylesheet" type="text/css" href="templates/orderforms/{$carttpl}/style.css"/>
-    <script language="javascript">
+{if $checkout}
+
+    {include file="orderforms/$carttpl/checkout.tpl"}
+
+{else}
+
+    <script>
         // Define state tab index value
         var statesTab = 10;
-        {if in_array('state', $clientsProfileOptionalFields)}
-        // Do not enforce state input client side
         var stateNotRequired = true;
-        {/if}
     </script>
-    <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/main.js"></script>
-    <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/jquery.particleground.min.js"></script>
-    <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/intl-tel-input/js/intlTelInput.js"></script>
-    <link rel="stylesheet" type="text/css" href="templates/orderforms/{$carttpl}/js/intl-tel-input/css/intlTelInput.css"/>
-
-
+    {include file="orderforms/standard_cart/common.tpl"}
     <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
-    <script type="text/javascript" src="{$BASE_PATH_JS}/PasswordStrength.js"></script>
-    <script type="text/javascript" src="{$BASE_PATH_JS}/CreditCardValidation.js"></script>
 
-    <style>
-        .particles {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0086df;
-        }
+    <div id="order-standard_cart">
 
-        #creating_site_progress_title {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            margin-top: -15px;
-            color: white;
-            z-index: 101;
-            display: none;
-            font-size: 33px;
-        }
+        <div class="row">
 
-        #creating_site_progress_title iframe {
-            width: 620px;
-            height: 407px;
-        }
-
-        #creating_site_progress {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            text-align: center;
-            background: #4494c7;
-            padding: 20% 50px;
-            z-index: 102;
-            text-transform: uppercase;
-        }
-
-        #creating_site_progress_meter {
-            width: 320px;
-            margin: auto;
-            position: static;
-            z-index: 111;
-            background: white;
-
-            border-radius: 2px;
-            overflow: hidden;
-            margin-top: 15px;
-            display: none;
-        }
-
-        #creating_site_progress_meter .mw-ui-progress-bar {
-            background-color: #0086df;
-            border: 1px solid #f5f5f5;
-            height: 17px;
-            width: 0;
-            -webkit-transition: all 0.3s;
-            -moz-transition: all 0.3s;
-            transition: all 0.3s;
-            max-width: 100%;
-            border-radius: 2px;
-        }
-
-        #creating_site_progress_meter .mw-ui-progress-small {
-            background-color: #f5f5f5;
-            height: 17px;
-        }
-
-        #creating_site_progress h1 {
-            padding-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        #theiframeloader iframe {
-            max-width: 100%;
-        }
-
-        #theiframeloader {
-            padding-bottom: 20px;
-        }
-
-
-    </style>
-
-    {literal}
-    <script type="text/javascript">
-        function removeItem(type, num) {
-            var response = confirm("{/literal}{$LANG.cartremoveitemconfirm}{literal}");
-            if (response) {
-                window.location = 'cart.php?a=remove&r=' + type + '&i=' + num;
-            }
-        }
-        function emptyCart(type, num) {
-            var response = confirm("{/literal}{$LANG.cartemptyconfirm}{literal}");
-            if (response) {
-                window.location = 'cart.php?a=empty';
-            }
-        }
-
-        jQuery(document).ready(function () {
-
-
-            var telInput = $("#domaincontactphonenumber"),
-                errorMsg = $("#phone-error-msg"),
-                validMsg = $("#phone-valid-msg");
-
-            // initialise plugin
-            telInput.intlTelInput({
-                xxxxinitialCountry: "auto",
-                xxxxxxgeoIpLookup: function (callback) {
-                    $.get('https://ipinfo.io', function () {
-                    }, "jsonp").always(function (resp) {
-                        var countryCode = (resp && resp.country) ? resp.country : "";
-                        callback(countryCode);
-                    });
-                },
-                autoHideDialCode: true,
-                nationalMode: true,
-                utilsScript: "templates/orderforms/mwcart/js/intl-tel-input/js/utils.js"
-            });
-
-            var reset = function () {
-                telInput.removeClass("error");
-                errorMsg.addClass("hide");
-                validMsg.addClass("hide");
-
-                if ($.trim(telInput.val())) {
-                    if (telInput.intlTelInput("isValidNumber")) {
-                        validMsg.removeClass("hide");
-                    } else {
-                        telInput.addClass("error");
-                        errorMsg.removeClass("hide");
-                    }
-                }
-
-
-            };
-            var validatephonefield = function () {
-                var ntlNumber = $(telInput).intlTelInput("getNumber", intlTelInputUtils.numberFormat.E164);
-                if (ntlNumber) {
-                    //     console.log(ntlNumber);
-                    //   ntlNumber.replace(/\s+/g, '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
-                    // telInput.val(ntlNumber)
-                }
-
-                reset();
-                if ($.trim(telInput.val())) {
-
-
-                    if (telInput.intlTelInput("isValidNumber")) {
-                        validMsg.removeClass("hide");
-                    } else {
-                        telInput.addClass("error");
-                        errorMsg.removeClass("hide");
-                    }
-                }
-            };
-
-
-            telInput.blur(function () {
-                validatephonefield()
-            });
-
-            telInput.on("keyup change", reset);
-
-            telInput.on("countrychange", function (e, countryData) {
-
-                var countryCode = (countryData.iso2).toUpperCase();
-                if (document.querySelector('#domaincontactcountry [value="' + countryCode + '"]')) {
-                    document.querySelector('#domaincontactcountry [value="' + countryCode + '"]').selected = true;
-                }
-                $('.selectpicker, .selectpicker-wrapper select').selectpicker('refresh');
-
-            });
-
-
-            $('#domaincontactcountry').change(function () {
-                telInput.intlTelInput("setCountry", $(this).val());
-
-            });
-
-
-            if ($('#domaincontactfields').is(':visible')) {
-                $.get('https://ipinfo.io', function () {
-                }, "jsonp").always(function (resp) {
-                    var countryCode = (resp && resp.country) ? resp.country : "";
-                    if (countryCode) {
-                        if (document.querySelector('#domaincontactcountry [value="' + countryCode + '"]')) {
-                            document.querySelector('#domaincontactcountry [value="' + countryCode + '"]').selected = true;
-                        }
-                        $('.selectpicker, .selectpicker-wrapper select').selectpicker('refresh');
-                        telInput.intlTelInput("setCountry", countryCode);
-                    }
-                });
-
-            }
-
-
-            $("#frmCheckout").submit(function (e) {
-
-
-                if ($('#domaincontactfields').is(':visible')) {
-                    $('#domaincontactphonenumber').val();
-
-                    if ($('#domaincontactphonenumber').hasClass('error')) {
-                        alert('Phone number is not valid');
-                        $('#domaincontactphonenumber').focus();
-                        return false;
-                    }
-
-                    var inp = $('input', '#domaincontactfields');
-
-                    for (var i in inp) {
-                        if (inp[i].type == 'text') {
-                            if (!(inp[i].value)) {
-                                alert('Please fill the domain registration information');
-                                inp[i].focus();
-                                return false;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-
-                $('.wrapper', '.page-payments').hide();
-                _sLoader()
-            })
-
-
-            var preparePromoCode = function (ctx) {
-                jQuery(ctx).parents('form').attr('novalidate', 'novalidate');
-                jQuery('#validatepromo').val('1');
-            };
-
-            jQuery('#validatePromoCode').click(function () {
-                preparePromoCode(this);
-                //jQuery('#btnCompleteOrder').click();
-            });
-
-            jQuery('#inputPromoCode').keydown(function (evt) {
-                if (evt.keyCode == 13) {
-                    preparePromoCode(this);
-                    // Enter in a form will submit the form
-                }
-            });
-        });
-
-
-        _sLoader = function () {
-            $('.particles')
-                .show()
-                .particleground({
-                    dotColor: '#60b0e3',
-                    lineColor: '#60b0e3',
-                    lineWidth: 1,
-                    curvedLines: false,
-                    proximity: 150,
-                    parallax: true,
-                    density: 27000
-                });
-
-            //$("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/1gy-03uv0lE?autoplay=1" frameborder="0" allowfullscreen></iframe>')
-            // $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/-ius5MMpKY4?autoplay=1" frameborder="0" allowfullscreen></iframe>')
-            // $("#theiframeloader").html('<iframe  src="https://www.youtube.com/embed/EKiaLcZkReM?autoplay=1" frameborder="0" allowfullscreen></iframe>')
-
-            sitePerccent = 1;
-            setInterval(function () {
-                sitePerccent++
-                $('#creating_site_progress_meter div').width(sitePerccent + '%')
-
-            }, 1000);
-
-            setInterval(function () {
-                var el = $("#creating_site_progress_title");
-                if (el.height() < $(window).height()) {
-                    el.css({
-                        top: $(window).height() / 2 - el.height() / 2
-                    })
-                }
-                else {
-                    el.css({
-                        top: 50
-                    })
-                }
-
-            }, 333);
-
-            $("#creating_site_progress_title, #creating_site_progress_meter").show()
-        }
-    </script>{/literal}
-    <script>
-        window.langPasswordStrength = "{$LANG.pwstrength}";
-        window.langPasswordWeak = "{$LANG.pwstrengthweak}";
-        window.langPasswordModerate = "{$LANG.pwstrengthmoderate}";
-        window.langPasswordStrong = "{$LANG.pwstrengthstrong}";
-    </script>
-
-    {if !$loggedin && $custom_oauth2_login_url}
-
-
-        <script>
-               window.location.href = "{$custom_oauth2_login_url}";
-        </script>
-    {/if}
-
-
-    <div class="page-payments">
-        <div class="wrapper">
-            <div class="row" style="margin-bottom:30px;">
-                <div class="col-xs-12 col-lg-5">
-                    {include file="orderforms/mwcart/includes/cart-left-side.tpl"}
+            <div class="cart-body">
+                <div class="header-lined">
+                    <h1 class="font-size-36">{$LANG.cartreviewcheckout}</h1>
                 </div>
 
-                <div class="col-xs-12 col-lg-7">
-                    <div class="subscription-block">
-                        {if $errormessage}
-                            <div class="alert alert-danger alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                {$errormessage}
+
+
+                <div class="row">
+                    <div class="secondary-cart-body">
+
+                        {if $promoerrormessage}
+                            <div class="alert alert-warning text-center" role="alert">
+                                {$promoerrormessage}
+                            </div>
+                        {elseif $errormessage}
+                            <div class="alert alert-danger" role="alert">
+                                <p>{$LANG.orderForm.correctErrors}:</p>
+                                <ul>
+                                    {$errormessage}
+                                </ul>
                             </div>
                         {elseif $promotioncode && $rawdiscount eq "0.00"}
-                            <div class="alert alert-danger alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <strong>Error!</strong> {$LANG.promoappliedbutnodiscount}
+                            <div class="alert alert-info text-center" role="alert">
+                                {$LANG.promoappliedbutnodiscount}
+                            </div>
+                        {elseif $promoaddedsuccess}
+                            <div class="alert alert-success text-center" role="alert">
+                                {$LANG.orderForm.promotionAccepted}
                             </div>
                         {/if}
 
-                        {include file="orderforms/mwcart/includes/cart-right-side-review.tpl"}
-                        {include file="orderforms/mwcart/includes/cart-right-side.tpl"}
-                    </div>
-                </div>
-            </div>
+                        {if $bundlewarnings}
+                            <div class="alert alert-warning" role="alert">
+                                <strong>{$LANG.bundlereqsnotmet}</strong><br />
+                                <ul>
+                                    {foreach from=$bundlewarnings item=warning}
+                                        <li>{$warning}</li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        {/if}
 
-            <div class="row" style="margin-bottom:30px;">
-                <div class="col-xs-12">
-                    {if $bundlewarnings}
-                        <div class="cartwarningbox">
-                            <strong>{$LANG.bundlereqsnotmet}</strong><br/>
-                            {foreach from=$bundlewarnings item=warning}
-                                {$warning}
-                                <br/>
-                            {/foreach}
-                        </div>
-                    {/if}
+                        <form method="post" action="{$smarty.server.PHP_SELF}?a=view">
 
-                    {if !$loggedin && $currencies}
-                        <div class="currencychooser">
-                            <div class="btn-group" role="group">
-                                {foreach from=$currencies item=curr}
-                                    <a href="cart.php?a=view&currency={$curr.id}" class="btn btn-default{if $currency.id eq $curr.id} active{/if}">
-                                        <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png"
-                                             border="0" alt=""/>
-                                        {$curr.code}
-                                    </a>
+                            <div class="view-cart-items-header">
+                                <div class="row">
+                                    <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7">
+                                        {$LANG.orderForm.productOptions}
+                                    </div>
+                                    {if $showqtyoptions}
+                                        <div class="col-sm-2 hidden-xs text-center d-none d-sm-block">
+                                            {$LANG.orderForm.qty}
+                                        </div>
+                                    {/if}
+                                    <div class="col-sm-4 col-xs-5 col-5 text-right">
+                                        {$LANG.orderForm.priceCycle}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-cart-items">
+
+                                {foreach $products as $num => $product}
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if}">
+                                                <span class="item-title">
+                                                    {$product.productinfo.name}
+                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        {$LANG.orderForm.edit}
+                                                    </a>
+                                                    <span class="visible-xs-inline d-inline d-sm-none">
+                                                        <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
+                                                            <i class="fas fa-times"></i>
+                                                            {$LANG.orderForm.remove}
+                                                        </button>
+                                                    </span>
+                                                </span>
+                                                <span class="item-group">
+                                                    {$product.productinfo.groupname}
+                                                </span>
+                                                {if $product.domain}
+                                                    <span class="item-domain">
+                                                        {$product.domain}
+                                                    </span>
+                                                {/if}
+                                                {if $product.configoptions}
+                                                    <small>
+                                                        {foreach key=confnum item=configoption from=$product.configoptions}
+                                                            &nbsp;&raquo; {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}<br />
+                                                        {/foreach}
+                                                    </small>
+                                                {/if}
+                                            </div>
+                                            {if $showqtyoptions}
+                                                <div class="col-sm-2 item-qty">
+                                                    {if $product.allowqty}
+                                                        <input type="number" name="qty[{$num}]" value="{$product.qty}" class="form-control text-center" min="0" />
+                                                        <button type="submit" class="btn btn-xs">
+                                                            {$LANG.orderForm.update}
+                                                        </button>
+                                                    {/if}
+                                                </div>
+                                            {/if}
+                                            <div class="col-sm-4 item-price">
+                                                <span>{$product.pricing.totalTodayExcludingTaxSetup}</span>
+                                                <span class="cycle">{$product.billingcyclefriendly}</span>
+                                                {if $product.pricing.productonlysetup}
+                                                    {$product.pricing.productonlysetup->toPrefixed()} {$LANG.ordersetupfee}
+                                                {/if}
+                                                {if $product.proratadate}<br />({$LANG.orderprorata} {$product.proratadate}){/if}
+                                            </div>
+                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {foreach $product.addons as $addonnum => $addon}
+                                        <div class="item">
+                                            <div class="row">
+                                                <div class="{if $showAddonQtyOptions}col-sm-5{else}col-sm-7{/if}">
+                                                    <span class="item-title">
+                                                        {$addon.name}
+                                                    </span>
+                                                    <span class="item-group">
+                                                        {$LANG.orderaddon}
+                                                    </span>
+                                                </div>
+                                                {if $showAddonQtyOptions}
+                                                    <div class="col-sm-2 item-qty">
+                                                        {if $addon.allowqty === 2}
+                                                            <input type="number" name="paddonqty[{$num}][{$addonnum}]" value="{$addon.qty}" class="form-control text-center" min="0" />
+                                                            <button type="submit" class="btn btn-xs">
+                                                                {$LANG.orderForm.update}
+                                                            </button>
+                                                        {/if}
+                                                    </div>
+                                                {/if}
+                                                <div class="col-sm-4 item-price">
+                                                    <span>{$addon.totaltoday}</span>
+                                                    <span class="cycle">{$addon.billingcyclefriendly}</span>
+                                                    {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
+                                                    {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
                                 {/foreach}
+
+                                {foreach $addons as $num => $addon}
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="{if $showAddonQtyOptions}col-sm-5{else}col-sm-7{/if}">
+                                                <span class="item-title">
+                                                    {$addon.name}
+                                                    <span class="visible-xs-inline d-inline d-sm-none">
+                                                        <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('a','{$num}')">
+                                                            <i class="fas fa-times"></i>
+                                                            {$LANG.orderForm.remove}
+                                                        </button>
+                                                    </span>
+                                                </span>
+                                                <span class="item-group">
+                                                    {$addon.productname}
+                                                </span>
+                                                {if $addon.domainname}
+                                                    <span class="item-domain">
+                                                        {$addon.domainname}
+                                                    </span>
+                                                {/if}
+                                            </div>
+                                            {if $showAddonQtyOptions}
+                                                <div class="col-sm-2 item-qty">
+                                                    {if $addon.allowqty === 2}
+                                                        <input type="number" name="addonqty[{$num}]" value="{$addon.qty}" class="form-control text-center" min="0" />
+                                                        <button type="submit" class="btn btn-xs">
+                                                            {$LANG.orderForm.update}
+                                                        </button>
+                                                    {/if}
+                                                </div>
+                                            {/if}
+                                            <div class="col-sm-4 item-price">
+                                                <span>{$addon.totaltoday}</span>
+                                                <span class="cycle">{$addon.billingcyclefriendly}</span>
+                                                {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
+                                                {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
+                                            </div>
+                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('a','{$num}')">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/foreach}
+
+                                {foreach $domains as $num => $domain}
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-7">
+                                                <span class="item-title">
+                                                    {if $domain.type eq "register"}{$LANG.orderdomainregistration}{else}{$LANG.orderdomaintransfer}{/if}
+                                                    <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        {$LANG.orderForm.edit}
+                                                    </a>
+                                                    <span class="visible-xs-inline d-inline d-sm-none">
+                                                        <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
+                                                            <i class="fas fa-times"></i>
+                                                            {$LANG.orderForm.remove}
+                                                        </button>
+                                                    </span>
+                                                </span>
+                                                {if $domain.domain}
+                                                    <span class="item-domain">
+                                                        {$domain.domain}
+                                                    </span>
+                                                {/if}
+                                                {if $domain.dnsmanagement}&nbsp;&raquo; {$LANG.domaindnsmanagement}<br />{/if}
+                                                {if $domain.emailforwarding}&nbsp;&raquo; {$LANG.domainemailforwarding}<br />{/if}
+                                                {if $domain.idprotection}&nbsp;&raquo; {$LANG.domainidprotection}<br />{/if}
+                                            </div>
+                                            <div class="col-sm-4 item-price">
+                                                {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
+                                                    <span name="{$domain.domain}Price">{$domain.price}</span>
+                                                    <span class="cycle">{$domain.regperiod} {$domain.yearsLanguage}</span>
+                                                    <span class="renewal cycle">
+                                                        {if isset($domain.renewprice)}{lang key='domainrenewalprice'} <span class="renewal-price cycle">{$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}{/if}</span>
+                                                    </span>
+                                                {else}
+                                                    <span name="{$domain.domain}Price">{$domain.price}</span>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-default btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            {$domain.regperiod} {$domain.yearsLanguage}
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="{$domain.domain}Pricing">
+                                                            {foreach $domain.pricing as $years => $price}
+                                                                <li class="dropdown-item">
+                                                                    <a href="#" onclick="selectDomainPeriodInCart('{$domain.domain}', '{$price.register}', {$years}, '{if $years == 1}{lang key='orderForm.year'}{else}{lang key='orderForm.years'}{/if}');return false;">
+                                                                        {$years} {if $years == 1}{lang key='orderForm.year'}{else}{lang key='orderForm.years'}{/if} @ {$price.register}
+                                                                    </a>
+                                                                </li>
+                                                            {/foreach}
+                                                        </ul>
+                                                    </div>
+                                                    <span class="renewal cycle">
+                                                        {lang key='domainrenewalprice'} <span class="renewal-price cycle">{if isset($domain.renewprice)}{$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}{/if}</span>
+                                                    </span>
+                                                {/if}
+                                            </div>
+                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/foreach}
+
+                                {foreach $renewals as $num => $domain}
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-7">
+                                                <span class="item-title">
+                                                    {$LANG.domainrenewal}
+                                                </span>
+                                                <span class="item-domain">
+                                                    {$domain.domain}
+                                                </span>
+                                                {if $domain.dnsmanagement}&nbsp;&raquo; {$LANG.domaindnsmanagement}<br />{/if}
+                                                {if $domain.emailforwarding}&nbsp;&raquo; {$LANG.domainemailforwarding}<br />{/if}
+                                                {if $domain.idprotection}&nbsp;&raquo; {$LANG.domainidprotection}<br />{/if}
+                                            </div>
+                                            <div class="col-sm-4 item-price">
+                                                <span>{$domain.price}</span>
+                                                <span class="cycle">{$domain.regperiod} {$LANG.orderyears}</span>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('r','{$num}')">
+                                                    <i class="fas fa-times"></i>
+                                                    <span class="visible-xs d-block d-sm-none">{$LANG.orderForm.remove}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/foreach}
+
+                                {foreach $upgrades as $num => $upgrade}
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="{if $showUpgradeQtyOptions}col-sm-5{else}col-sm-7{/if}">
+                                                <span class="item-title">
+                                                    {$LANG.upgrade}
+                                                </span>
+                                                <span class="item-group">
+                                                    {if $upgrade->type == 'service'}
+                                                        {$upgrade->originalProduct->productGroup->name}<br>{$upgrade->originalProduct->name} => {$upgrade->newProduct->name}
+                                                    {elseif $upgrade->type == 'addon'}
+                                                        {$upgrade->originalAddon->name} => {$upgrade->newAddon->name}
+                                                    {/if}
+                                                </span>
+                                                <span class="item-domain">
+                                                    {if $upgrade->type == 'service'}
+                                                        {$upgrade->service->domain}
+                                                    {/if}
+                                                </span>
+                                            </div>
+                                            {if $showUpgradeQtyOptions}
+                                                <div class="col-sm-2 item-qty">
+                                                    {if $upgrade->allowMultipleQuantities}
+                                                        <input type="number" name="upgradeqty[{$num}]" value="{$upgrade->qty}" class="form-control text-center" min="{$upgrade->minimumQuantity}" />
+                                                        <button type="submit" class="btn btn-xs">
+                                                            {$LANG.orderForm.update}
+                                                        </button>
+                                                    {/if}
+                                                </div>
+                                            {/if}
+                                            <div class="col-sm-4 item-price">
+                                                <span>{$upgrade->newRecurringAmount}</span>
+                                                <span class="cycle">{$upgrade->localisedNewCycle}</span>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('u','{$num}')">
+                                                    <i class="fas fa-times"></i>
+                                                    <span class="visible-xs d-block d-sm-none">{$LANG.orderForm.remove}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {if $upgrade->totalDaysInCycle > 0}
+                                            <div class="row row-upgrade-credit">
+                                                <div class="col-sm-7">
+                                                    <span class="item-group">
+                                                        {$LANG.upgradeCredit}
+                                                    </span>
+                                                    <div class="upgrade-calc-msg">
+                                                        {lang key="upgradeCreditDescription" daysRemaining=$upgrade->daysRemaining totalDays=$upgrade->totalDaysInCycle}
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 item-price">
+                                                    <span>-{$upgrade->creditAmount}</span>
+                                                </div>
+                                            </div>
+                                        {/if}
+                                    </div>
+                                {/foreach}
+
+                                {if $cartitems == 0}
+                                    <div class="view-cart-empty">
+                                        {$LANG.cartempty}
+                                    </div>
+                                {/if}
+
+                            </div>
+
+                            {if $cartitems > 0}
+                                <div class="empty-cart">
+                                    <button type="button" class="btn btn-link btn-xs" id="btnEmptyCart">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <span>{$LANG.emptycart}</span>
+                                    </button>
+                                </div>
+                            {/if}
+
+                        </form>
+
+                        {foreach $hookOutput as $output}
+                            <div>
+                                {$output}
+                            </div>
+                        {/foreach}
+
+                        {foreach $gatewaysoutput as $gatewayoutput}
+                            <div class="view-cart-gateway-checkout">
+                                {$gatewayoutput}
+                            </div>
+                        {/foreach}
+
+                        <div class="view-cart-tabs">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="nav-item active">
+                                    <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab"{if $template == 'twenty-one'} aria-selected="true"{else} aria-expanded="true"{/if}>
+                                        {$LANG.orderForm.applyPromoCode}
+                                    </a>
+                                </li>
+                                {if $taxenabled && !$loggedin}
+                                    <li role="presentation" class="nav-item">
+                                        <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab"{if $template == 'twenty-one'} aria-selected="false"{else} aria-expanded="false"{/if}>
+                                            {$LANG.orderForm.estimateTaxes}
+                                        </a>
+                                    </li>
+                                {/if}
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
+                                    {if $promotioncode}
+                                        <div class="view-cart-promotion-code">
+                                            {$promotioncode} - {$promotiondescription}
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-default btn-xs">
+                                                {$LANG.orderForm.removePromotionCode}
+                                            </a>
+                                        </div>
+                                    {else}
+                                        <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
+                                            <div class="form-group prepend-icon ">
+                                                <label for="cardno" class="field-icon">
+                                                    <i class="fas fa-ticket-alt"></i>
+                                                </label>
+                                                <input type="text" name="promocode" id="inputPromotionCode" class="field form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
+                                            </div>
+                                            <button type="submit" name="validatepromo" class="btn btn-block btn-default" value="{$LANG.orderpromovalidatebutton}">
+                                                {$LANG.orderpromovalidatebutton}
+                                            </button>
+                                        </form>
+                                    {/if}
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="calcTaxes">
+
+                                    <form method="post" action="{$WEB_ROOT}/cart.php?a=setstateandcountry">
+                                        <div class="form-group row">
+                                            <label for="inputState" class="pt-sm-2 col-sm-4 control-label text-sm-right">{$LANG.orderForm.state}</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" name="state" id="inputState" value="{$clientsdetails.state}" class="form-control"{if $loggedin} disabled="disabled"{/if} />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputCountry" class="pt-sm-2 col-sm-4 control-label text-sm-right">{$LANG.orderForm.country}</label>
+                                            <div class="col-sm-7">
+                                                <select name="country" id="inputCountry" class="form-control">
+                                                    {foreach $countries as $countrycode => $countrylabel}
+                                                        <option value="{$countrycode}"{if (!$country && $countrycode == $defaultcountry) || $countrycode eq $country} selected{/if}>
+                                                            {$countrylabel}
+                                                        </option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-default">
+                                                {$LANG.orderForm.updateTotals}
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                </div>
                             </div>
                         </div>
-                    {/if}
 
-                    {foreach from=$gatewaysoutput item=gatewayoutput}
-                        <div class="clear"></div>
-                        <div class="cartbuttons">
-                            {$gatewayoutput}
+                    </div>
+                    <div class="secondary-cart-sidebar" id="scrollingPanelContainer">
+
+                        <div class="order-summary" id="orderSummary">
+                            <div class="loader w-hidden" id="orderSummaryLoader">
+                                <i class="fas fa-fw fa-sync fa-spin"></i>
+                            </div>
+                            <h2 class="font-size-30">{$LANG.ordersummary}</h2>
+                            <div class="summary-container">
+
+                                <div class="subtotal clearfix">
+                                    <span class="pull-left float-left">{$LANG.ordersubtotal}</span>
+                                    <span id="subtotal" class="pull-right float-right">{$subtotal}</span>
+                                </div>
+                                {if $promotioncode || $taxrate || $taxrate2}
+                                    <div class="bordered-totals">
+                                        {if $promotioncode}
+                                            <div class="clearfix">
+                                                <span class="pull-left float-left">{$promotiondescription}</span>
+                                                <span id="discount" class="pull-right float-right">{$discount}</span>
+                                            </div>
+                                        {/if}
+                                        {if $taxrate}
+                                            <div class="clearfix">
+                                                <span class="pull-left float-left">{$taxname} @ {$taxrate}%</span>
+                                                <span id="taxTotal1" class="pull-right float-right">{$taxtotal}</span>
+                                            </div>
+                                        {/if}
+                                        {if $taxrate2}
+                                            <div class="clearfix">
+                                                <span class="pull-left float-left">{$taxname2} @ {$taxrate2}%</span>
+                                                <span id="taxTotal2" class="pull-right float-right">{$taxtotal2}</span>
+                                            </div>
+                                        {/if}
+                                    </div>
+                                {/if}
+                                <div class="recurring-totals clearfix">
+                                    <span class="pull-left float-left">{$LANG.orderForm.totals}</span>
+                                    <span id="recurring" class="pull-right float-right recurring-charges">
+                                        <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;"{/if}>
+                                            <span class="cost">{$totalrecurringmonthly}</span> {$LANG.orderpaymenttermmonthly}<br />
+                                        </span>
+                                        <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;"{/if}>
+                                            <span class="cost">{$totalrecurringquarterly}</span> {$LANG.orderpaymenttermquarterly}<br />
+                                        </span>
+                                        <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;"{/if}>
+                                            <span class="cost">{$totalrecurringsemiannually}</span> {$LANG.orderpaymenttermsemiannually}<br />
+                                        </span>
+                                        <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;"{/if}>
+                                            <span class="cost">{$totalrecurringannually}</span> {$LANG.orderpaymenttermannually}<br />
+                                        </span>
+                                        <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;"{/if}>
+                                            <span class="cost">{$totalrecurringbiennially}</span> {$LANG.orderpaymenttermbiennially}<br />
+                                        </span>
+                                        <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;"{/if}>
+                                            <span class="cost">{$totalrecurringtriennially}</span> {$LANG.orderpaymenttermtriennially}<br />
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="total-due-today total-due-today-padded">
+                                    <span id="totalDueToday" class="amt">{$total}</span>
+                                    <span>{$LANG.ordertotalduetoday}</span>
+                                </div>
+
+                                <div class="express-checkout-buttons">
+                                    {foreach $expressCheckoutButtons as $checkoutButton}
+                                        {$checkoutButton}
+                                        <div class="separator">
+                                            - {$LANG.or|strtoupper} -
+                                        </div>
+                                    {/foreach}
+                                </div>
+
+                                <div class="text-right">
+                                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-success btn-lg btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
+                                        {$LANG.orderForm.checkout}
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a><br />
+                                    <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">
+                                        {$LANG.orderForm.continueShopping}
+                                    </a>
+                                </div>
+
+                            </div>
                         </div>
-                    {/foreach}
-
-
-                    <div class="text-center">
-                        <p>
-                            <img src="assets/img/padlock.gif" align="absmiddle" border="0" alt="Secure Transaction"/>
-                            &nbsp;{$LANG.ordersecure} (<strong>{$ipaddress}</strong>) {$LANG.ordersecure2}
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="clearfix"></div>
-        <div class="particles"></div>
-        <h1 id="creating_site_progress_title">
-
-            <div id="theiframeloader"></div>
-            Creating your website
-            <div id="creating_site_progress_meter">
-                <div class="mw-ui-progress-bar"></div>
+        <form method="post" action="{$WEB_ROOT}/cart.php">
+            <input type="hidden" name="a" value="remove" />
+            <input type="hidden" name="r" value="" id="inputRemoveItemType" />
+            <input type="hidden" name="i" value="" id="inputRemoveItemRef" />
+            <div class="modal fade modal-remove-item" id="modalRemoveItem" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="float-right">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="{lang key='orderForm.close'}">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <h4 class="modal-title margin-bottom mb-3">
+                                <i class="fas fa-times fa-3x"></i>
+                                <span>{lang key='orderForm.removeItem'}</span>
+                            </h4>
+                            {lang key='cartremoveitemconfirm'}
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
+                            <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </h1>
+        </form>
 
+        <form method="post" action="{$WEB_ROOT}/cart.php">
+            <input type="hidden" name="a" value="empty" />
+            <div class="modal fade modal-remove-item" id="modalEmptyCart" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="float-right">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="{$LANG.orderForm.close}">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <h4 class="modal-title margin-bottom mb-3">
+                                <i class="fas fa-trash-alt fa-3x"></i>
+                                <span>{$LANG.emptycart}</span>
+                            </h4>
+                            {$LANG.cartemptyconfirm}
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.no}</button>
+                            <button type="submit" class="btn btn-primary">{$LANG.yes}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-</div>
+    {include file="orderforms/standard_cart/recommendations-modal.tpl"}
+{/if}
