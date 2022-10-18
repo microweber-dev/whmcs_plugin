@@ -9,9 +9,9 @@
         var statesTab = 10;
         var stateNotRequired = true;
     </script>
+
     {include file="orderforms/standard_cart/common.tpl"}
     <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
-
 
     <div id="order-standard_cart">
 
@@ -25,7 +25,7 @@
 
 
                 <div class="row">
-                    <div class="secondary-cart-body">
+                    <div class="col-xl-8 col-12 secondary-cart-body">
 
                         {if $promoerrormessage}
                             <div class="alert alert-warning text-center" role="alert">
@@ -63,7 +63,7 @@
 
                             <div class="view-cart-items-header">
                                 <div class="row">
-                                    <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7" style="color: #000000;">
+                                    <div class="ps-5 {if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7" style="color: #000000;">
                                         {$LANG.orderForm.productOptions}
                                     </div>
                                     {if $showqtyoptions}
@@ -71,7 +71,7 @@
                                             {$LANG.orderForm.qty}
                                         </div>
                                     {/if}
-                                    <div class="col-sm-4 col-xs-5 col-5 text-right" style="color: #000000;">
+                                    <div class="col-sm-4 col-xs-5 col-5 " style="color: #000000;">
                                         {$LANG.orderForm.priceCycle}
                                     </div>
                                 </div>
@@ -80,14 +80,11 @@
 
                                 {foreach $products as $num => $product}
                                     <div class="item">
-                                        <div class="row">
-                                            <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if}">
+                                        <div class="row py-4">
+                                            <div class="ps-5 {if $showqtyoptions}col-sm-5{else}col-sm-7{/if}">
                                                 <span class="item-title">
                                                     {$product.productinfo.name}
-                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                        {$LANG.orderForm.edit}
-                                                    </a>
+
                                                     <span class="visible-xs-inline d-inline d-sm-none">
                                                         <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
                                                             <i class="fas fa-times"></i>
@@ -95,20 +92,20 @@
                                                         </button>
                                                     </span>
                                                 </span>
-                                                <span class="item-group">
-                                                    {$product.productinfo.groupname}
-                                                </span>
+{*                                                <span class="item-group">*}
+{*                                                    {$product.productinfo.groupname}*}
+{*                                                </span>*}
                                                 {if $product.domain}
-                                                    <span class="item-domain">
-                                                        {$product.domain}
+                                                    <span class="item-domain py-1">
+                                                      <a style="font-size: 16px; color: #1279fa;" href="{$product.domain}">{$product.domain}</a>
                                                     </span>
                                                 {/if}
                                                 {if $product.configoptions}
-                                                    <small>
+                                                    <p style="font-size: 15px;">
                                                         {foreach key=confnum item=configoption from=$product.configoptions}
-                                                            &nbsp;&raquo; {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}<br />
+                                                          {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}<br />
                                                         {/foreach}
-                                                    </small>
+                                                    </p>
                                                 {/if}
                                             </div>
                                             {if $showqtyoptions}
@@ -121,7 +118,7 @@
                                                     {/if}
                                                 </div>
                                             {/if}
-                                            <div class="col-sm-4 item-price">
+                                            <div class="col-sm-3 my-auto item-price">
                                                 <span>{$product.pricing.totalTodayExcludingTaxSetup}</span>
                                                 <span class="cycle">{$product.billingcyclefriendly}</span>
                                                 {if $product.pricing.productonlysetup}
@@ -129,9 +126,15 @@
                                                 {/if}
                                                 {if $product.proratadate}<br />({$LANG.orderprorata} {$product.proratadate}){/if}
                                             </div>
-                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
+                                            <div class="col-sm-2 text-center my-auto hidden-xs d-none d-sm-block">
+                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs">
+                                                        <i class="fas fa-edit checkout-procuts-actions "></i>
+                                                    </a>
                                                 <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
-                                                    <i class="fas fa-times"></i>
+                                                    <a href="">
+                                                        <i class="fas fa-trash checkout-procuts-actions "></i>
+
+                                                    </a>
                                                 </button>
                                             </div>
                                         </div>
@@ -216,15 +219,12 @@
                                 {/foreach}
 
                                 {foreach $domains as $num => $domain}
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="col-sm-7">
+                                    <div class="item"> dfsfsfs
+                                        <div class="row py-4">
+                                            <div class="col-sm-7 ps-5">
                                                 <span class="item-title">
                                                     {if $domain.type eq "register"}{$LANG.orderdomainregistration}{else}{$LANG.orderdomaintransfer}{/if}
-                                                    <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                        {$LANG.orderForm.edit}
-                                                    </a>
+
                                                     <span class="visible-xs-inline d-inline d-sm-none">
                                                         <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
                                                             <i class="fas fa-times"></i>
@@ -234,14 +234,17 @@
                                                 </span>
                                                 {if $domain.domain}
                                                     <span class="item-domain">
-                                                        {$domain.domain}
+
+                                                       <a href="" style="font-size: 16px; color: #1279fa;">
+                                                            {$domain.domain}
+                                                       </a>
                                                     </span>
                                                 {/if}
                                                 {if $domain.dnsmanagement}&nbsp;&raquo; {$LANG.domaindnsmanagement}<br />{/if}
                                                 {if $domain.emailforwarding}&nbsp;&raquo; {$LANG.domainemailforwarding}<br />{/if}
                                                 {if $domain.idprotection}&nbsp;&raquo; {$LANG.domainidprotection}<br />{/if}
                                             </div>
-                                            <div class="col-sm-4 item-price">
+                                            <div class="col-sm-3 my-auto item-price">
                                                 {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <span class="cycle">{$domain.regperiod} {$domain.yearsLanguage}</span>
@@ -270,10 +273,16 @@
                                                     </span>
                                                 {/if}
                                             </div>
-                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
+                                            <div class="col-sm-2 text-center my-auto hidden-xs d-none d-sm-block">
+                                                <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs">
+                                                    <i class="fas fa-edit checkout-procuts-actions"></i>
+
+                                                </a>
+
                                                 <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
-                                                    <i class="fas fa-times"></i>
+                                                    <i class="fas fa-trash checkout-procuts-actions"></i>
                                                 </button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -374,16 +383,18 @@
 
                             </div>
 
-                            <a href="{$WEB_ROOT}/cart.php" class="whmc-kbtn-2" id="continueShopping">
-                                {$LANG.orderForm.continueShopping}
-                            </a>
+
 
                             {if $cartitems > 0}
-                                <div class="empty-cart">
-                                    <button type="button" class="whmc-kbtn-2" id="btnEmptyCart">
-                                        <i class="fas fa-trash-alt"></i>
-                                        <span>{$LANG.emptycart}</span>
-                                    </button>
+                                <div class="empty-cart ps-5">
+                                    <a href="{$WEB_ROOT}/cart.php" class="whmc-kbtn mb-0" id="continueShopping">
+                                        {$LANG.orderForm.continueShopping}
+                                    </a>
+
+{*                                    <button type="button" class="whmc-kbtn-2" id="btnEmptyCart">*}
+{*                                        <i class="fas fa-trash-alt"></i>*}
+{*                                        <span>{$LANG.emptycart}</span>*}
+{*                                    </button>*}
                                 </div>
                             {/if}
 
@@ -418,9 +429,9 @@
                                     {else}
                                         <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
                                             <div class="form-group prepend-icon " style="display: flex;">
-                                                <label for="cardno" class="col-sm-8 field-icon">
-                                                    <i class="fas fa-ticket-alt"></i>
-                                                </label>
+{*                                                <label for="cardno" class="col-sm-8 field-icon">*}
+{*                                                    <i class="fas fa-ticket-alt"></i>*}
+{*                                                </label>*}
                                                 <input type="text" name="promocode" id="inputPromotionCode" class="field form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
                                             <button type="submit" name="validatepromo" class="whmc-kbtn-2 coupon-code-verify btn-default" value="{$LANG.orderpromovalidatebutton}">
                                                 {$LANG.orderpromovalidatebutton}
@@ -462,9 +473,9 @@
                         </div>
 
                     </div>
-                    <div class="secondary-cart-sidebar" id="scrollingPanelContainer">
+                    <div class="col-xl-4 col-12 secondary-cart-sidebar" >
 
-                        <div class="order-summary" id="orderSummary">
+                        <div class="order-summary" >
                             <div class="loader w-hidden" id="orderSummaryLoader">
                                 <i class="fas fa-fw fa-sync fa-spin"></i>
                             </div>
@@ -522,7 +533,7 @@
                                 </div>
 
                                 <div class="total-due-today total-due-today-padded">
-                                    <span>{$LANG.ordertotalduetoday}</span>
+                                    <span class="todal-due-span">{$LANG.ordertotalduetoday}</span>
                                     <span id="totalDueToday" class="amt">{$total}</span>
                                 </div>
 
@@ -566,7 +577,7 @@
                                 </button>
                             </div>
                             <h4 class="modal-title margin-bottom mb-3">
-                                <i class="fas fa-times fa-3x"></i>
+{*                                <i class="fas fa-question fa-3x"></i>*}
                                 <span>{lang key='orderForm.removeItem'}</span>
                             </h4>
                             {lang key='cartremoveitemconfirm'}
