@@ -137,7 +137,7 @@ $enabled_templates = $manager->hosting->get_enabled_templates('return_mode=simpl
 
                         $get_template = get_template_by_git_package_name($template['name']);
                         if (!$get_template) {
-                            $get_template = insert_template_by_git_package_name($template['name']);
+                            $get_template = insert_template_by_git_package_name($template['name'], $i);
                         }
 
                         if (!$get_template->preview_sort) {

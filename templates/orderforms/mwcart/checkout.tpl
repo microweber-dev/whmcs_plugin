@@ -13,6 +13,12 @@
     window.langPasswordModerate = "{$LANG.pwstrengthmoderate}";
     window.langPasswordStrong = "{$LANG.pwstrengthstrong}";
 </script>
+
+{if !$loggedin && $custom_oauth2_login_url}
+    <script>
+        window.location.href = "{$custom_oauth2_login_url}";
+    </script>
+{/if}
 <div id="order-standard_cart">
 
     <div class="row">

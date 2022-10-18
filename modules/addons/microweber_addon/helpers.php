@@ -299,11 +299,12 @@ if (!function_exists('user_ip')) {
 
 }
 
-function insert_template_by_git_package_name($name)
+function insert_template_by_git_package_name($name, $sort)
 {
     $insert = Capsule::table('mod_microweber_templates')
         ->insert([
             'git_package_name' => $name,
+            'preview_sort' => $sort,
             'updated_at' => date('Y-m-d H:i:s'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);

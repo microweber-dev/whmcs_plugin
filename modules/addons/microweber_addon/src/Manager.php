@@ -37,18 +37,22 @@ class Manager
     {
         $readyTemplates = array();
         $templates = $this->marketplace_connector->getTemplates();
+
+        $sortTemplateFromPackageManager = 0;
         foreach ($templates as $template) {
            $get_template = get_template_by_git_package_name($template['name']);
-           $template['preview_sort'] = 0;
+           $template['preview_sort'] = $sortTemplateFromPackageManager;
             if ($get_template) {
                 $template['preview_sort'] = $get_template->preview_sort;
             }
             $readyTemplates[] = $template;
+            $sortTemplateFromPackageManager++;
         }
 
         usort($readyTemplates, function($a, $b) {
             return $a['preview_sort'] - $b['preview_sort'];
         });
+
         return $readyTemplates;
     }
 
