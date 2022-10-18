@@ -1,5 +1,5 @@
- @import url('https://fonts.cdnfonts.com/css/milliard');
-
+@import url('https://fonts.cdnfonts.com/css/milliard');
+@import url('bs5grid.css');
  body {
     font-family: 'Milliard', sans-serif!important;
 
@@ -16,7 +16,9 @@
 
 .page-content {
     border: unset;
+    width: 85%!important;
 }
+
 
 .sidebar .profile-sidebar, .featured-tld, .domain-register-table  {
 
@@ -1305,17 +1307,19 @@ footer {
 
  #order-standard_cart .view-cart-tabs .tab-content {
      background-color: #1279fa!important;
-     padding: 20px!important;
+     padding: 25px!important;
      border-radius: 5px;
 
  }
 
  #order-standard_cart .secondary-cart-body {
-     width: 70%!important;
+     /*width: 70%!important;*/
  }
 
  #order-standard_cart .whmc-kbtn {
      padding: 10px!important;
+     line-height: 2;
+     margin-bottom: 15px;
  }
 
  #order-standard_cart .coupon-code-verify {
@@ -1330,6 +1334,8 @@ footer {
  #order-standard_cart .field, #order-standard_cart .form-control {
      border: unset!important;
      border-radius: 2px!important;
+     padding-top: 26px;
+     padding-bottom: 26px;
  }
 
  #order-standard_cart .view-cart-tabs .promo .form-group {
@@ -1337,7 +1343,7 @@ footer {
  }
 
  #order-standard_cart .secondary-cart-sidebar {
-     width: 30% !important;
+     /*width: 30% !important;*/
  }
 
  #order-standard_cart .order-summary .total-due-today .amt {
@@ -1362,3 +1368,48 @@ footer {
  #order-standard_cart #btnEmptyCart i {
    margin-right: 5px;
  }
+
+ #order-standard_cart .empty-cart {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ #order-standard_cart .fade.show {
+     opacity: 1;
+ }
+
+
+ /*@media only screen and (max-width: 1200px) {*/
+ /*    #order-standard_cart .secondary-cart-body {*/
+ /*        width: 100%!important;*/
+ /*    }*/
+ /*}*/
+
+ /*@media only screen and (max-width: 1200px) {*/
+ /*    #order-standard_cart .secondary-cart-sidebar {*/
+ /*        width: 100%!important;*/
+ /*    }*/
+ /*}*/
+
+#order-standard_cart .view-cart-items .item-price {
+    text-align: start!important;
+}
+
+#order-standard_cart .font-size-36 {
+    text-align: left!important;
+    margin-bottom: 40px!important;
+}
+
+#order-standard_cart .view-cart-tabs {
+    margin-top: 40px!important;
+}
+
+#order-standard_cart .checkout-procuts-actions {
+    color: #acafb9;
+    font-size: 18px!important;
+    margin-right: 5px;
+}
+#order-standard_cart .todal-due-span {
+    color: #5e636e!important;
+    font-size: 13px!important;
+}
