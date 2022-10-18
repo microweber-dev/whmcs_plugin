@@ -12,13 +12,6 @@
     {include file="orderforms/standard_cart/common.tpl"}
     <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
-    {if !$loggedin && $custom_oauth2_login_url}
-
-
-        <script>
-            window.location.href = "{$custom_oauth2_login_url}";
-        </script>
-    {/if}
 
     <div id="order-standard_cart">
 
