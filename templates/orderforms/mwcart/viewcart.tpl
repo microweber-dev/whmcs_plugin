@@ -12,6 +12,14 @@
     {include file="orderforms/standard_cart/common.tpl"}
     <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
+    {if !$loggedin && $custom_oauth2_login_url}
+
+
+        <script>
+            window.location.href = "{$custom_oauth2_login_url}";
+        </script>
+    {/if}
+
     <div id="order-standard_cart">
 
         <div class="row">
@@ -373,9 +381,13 @@
 
                             </div>
 
+                            <a href="{$WEB_ROOT}/cart.php" class="whmc-kbtn-2" id="continueShopping">
+                                {$LANG.orderForm.continueShopping}
+                            </a>
+
                             {if $cartitems > 0}
                                 <div class="empty-cart">
-                                    <button type="button" class="btn btn-link btn-xs" id="btnEmptyCart">
+                                    <button type="button" class="whmc-kbtn-2" id="btnEmptyCart">
                                         <i class="fas fa-trash-alt"></i>
                                         <span>{$LANG.emptycart}</span>
                                     </button>
@@ -535,8 +547,8 @@
 {*                                        <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>*}
                                         {$LANG.orderForm.checkout}
                                     </a><br />
-                                    <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">
-                                        {$LANG.orderForm.continueShopping}
+{*                                    <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">*}
+{*                                        {$LANG.orderForm.continueShopping}*}
                                     </a>
                                 </div>
 

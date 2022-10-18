@@ -1344,3 +1344,21 @@ footer {
      font-size: 3.2rem!important;
      font-weight: 700!important;
  }
+
+ #order-standard_cart .view-cart-items .item:nth-child(even) {
+     background-color: #ffffff!important;
+ }
+
+ #order-standard_cart .empty-cart {
+    padding: 20px;
+ }
+
+#order-standard_cart #btnEmptyCart, #order-standard_cart #continueShopping {
+    padding: 5px 20px!important;
+    line-height: 2;
+    font-size: 12px;
+}
+
+ #order-standard_cart #btnEmptyCart i {
+   margin-right: 5px;
+ }
