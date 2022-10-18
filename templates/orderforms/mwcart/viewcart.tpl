@@ -58,19 +58,19 @@
                             </div>
                         {/if}
 
-                        <form method="post" action="{$smarty.server.PHP_SELF}?a=view">
+                        <form class="secondary-card-form" method="post" action="{$smarty.server.PHP_SELF}?a=view">
 
                             <div class="view-cart-items-header">
                                 <div class="row">
-                                    <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7">
+                                    <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7" style="color: #000000;">
                                         {$LANG.orderForm.productOptions}
                                     </div>
                                     {if $showqtyoptions}
-                                        <div class="col-sm-2 hidden-xs text-center d-none d-sm-block">
+                                        <div class="col-sm-2 hidden-xs text-center d-none d-sm-block" >
                                             {$LANG.orderForm.qty}
                                         </div>
                                     {/if}
-                                    <div class="col-sm-4 col-xs-5 col-5 text-right">
+                                    <div class="col-sm-4 col-xs-5 col-5 text-right" style="color: #000000;">
                                         {$LANG.orderForm.priceCycle}
                                     </div>
                                 </div>
@@ -397,20 +397,8 @@
                         {/foreach}
 
                         <div class="view-cart-tabs">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="nav-item active">
-                                    <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab"{if $template == 'twenty-one'} aria-selected="true"{else} aria-expanded="true"{/if}>
-                                        {$LANG.orderForm.applyPromoCode}
-                                    </a>
-                                </li>
-                                {if $taxenabled && !$loggedin}
-                                    <li role="presentation" class="nav-item">
-                                        <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab"{if $template == 'twenty-one'} aria-selected="false"{else} aria-expanded="false"{/if}>
-                                            {$LANG.orderForm.estimateTaxes}
-                                        </a>
-                                    </li>
-                                {/if}
-                            </ul>
+                           <p style="font-size: 26px; padding: 15px 0;">Promotion</p>
+
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
                                     {if $promotioncode}
@@ -424,15 +412,15 @@
                                         </div>
                                     {else}
                                         <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
-                                            <div class="form-group prepend-icon ">
-                                                <label for="cardno" class="field-icon">
+                                            <div class="form-group prepend-icon " style="display: flex;">
+                                                <label for="cardno" class="col-sm-8 field-icon">
                                                     <i class="fas fa-ticket-alt"></i>
                                                 </label>
                                                 <input type="text" name="promocode" id="inputPromotionCode" class="field form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
-                                            </div>
-                                            <button type="submit" name="validatepromo" class="btn btn-block btn-default" value="{$LANG.orderpromovalidatebutton}">
+                                            <button type="submit" name="validatepromo" class="whmc-kbtn-2 coupon-code-verify btn-default" value="{$LANG.orderpromovalidatebutton}">
                                                 {$LANG.orderpromovalidatebutton}
                                             </button>
+                                            </div>
                                         </form>
                                     {/if}
                                 </div>
@@ -529,8 +517,8 @@
                                 </div>
 
                                 <div class="total-due-today total-due-today-padded">
-                                    <span id="totalDueToday" class="amt">{$total}</span>
                                     <span>{$LANG.ordertotalduetoday}</span>
+                                    <span id="totalDueToday" class="amt">{$total}</span>
                                 </div>
 
                                 <div class="express-checkout-buttons">
@@ -542,10 +530,10 @@
                                     {/foreach}
                                 </div>
 
-                                <div class="text-right">
-                                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-success btn-lg btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
+                                <div class="text-right" style="margin: 0 20px;">
+                                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="whmc-kbtn btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
+{*                                        <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>*}
                                         {$LANG.orderForm.checkout}
-                                        <i class="fas fa-arrow-right"></i>
                                     </a><br />
                                     <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">
                                         {$LANG.orderForm.continueShopping}

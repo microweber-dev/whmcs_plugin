@@ -1242,6 +1242,105 @@ footer {
 }
 
 #tableServicesList_filter .form-control.input-sm {
-
-     margin-left: 15px;
+    margin-left: 15px;
 }
+
+#order-standard_cart .secondary-card-form {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+
+}
+
+#order-standard_cart .view-cart-items-header {
+    background-color: white!important;
+    padding: 20px!important;
+    border-bottom: 1px solid #e9eaec;
+}
+
+#order-standard_cart .order-summary {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+
+}
+
+#order-standard_cart .view-cart-items {
+     border-bottom: 1px solid #e9eaec!important;
+
+ }
+
+#order-standard_cart .summary-container {
+     background-color: #ffffff!important;
+ }
+
+#order-standard_cart .order-summary h2 {
+    color: #000000!important;
+    text-align: left!important;
+    font-size: 26px!important;
+    padding: 30px!important;
+
+}
+
+#order-standard_cart .order-summary {
+    background-color: #ffffff!important;
+}
+
+#order-standard_cart .order-summary .subtotal, #order-standard_cart .order-summary .recurring-totals {
+     padding: 20px!important;
+     font-size: 16px!important;
+    border-bottom: 1px solid #e9eaec!important;
+
+}
+
+ #order-standard_cart .order-summary .total-due-today span {
+     text-align: left!important;
+     padding: 5px 20px!important;
+ }
+
+ #order-standard_cart .btn-checkout {
+     background-color: #1279fa!important;
+     width: 100% !important;
+ }
+
+ #order-standard_cart .view-cart-tabs .tab-content {
+     background-color: #1279fa!important;
+     padding: 20px!important;
+     border-radius: 5px;
+
+ }
+
+ #order-standard_cart .secondary-cart-body {
+     width: 70%!important;
+ }
+
+ #order-standard_cart .whmc-kbtn {
+     padding: 10px!important;
+ }
+
+ #order-standard_cart .coupon-code-verify {
+     margin-left: 10px!important;
+     border-radius: 2px!important;
+ }
+
+ #order-standard_cart .prepend-icon .field-icon {
+     top: 8px!important;
+ }
+
+ #order-standard_cart .field, #order-standard_cart .form-control {
+     border: unset!important;
+     border-radius: 2px!important;
+ }
+
+ #order-standard_cart .view-cart-tabs .promo .form-group {
+     margin-bottom: 0px!important;
+ }
+
+ #order-standard_cart .secondary-cart-sidebar {
+     width: 30% !important;
+ }
+
+ #order-standard_cart .order-summary .total-due-today .amt {
+     font-size: 3.2rem!important;
+     font-weight: 700!important;
+ }
