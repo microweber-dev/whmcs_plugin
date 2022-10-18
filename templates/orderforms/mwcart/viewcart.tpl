@@ -120,7 +120,7 @@
                                             {/if}
                                             <div class="col-sm-3 my-auto item-price">
                                                 <span>{$product.pricing.totalTodayExcludingTaxSetup}</span>
-                                                <span class="cycle">{$product.billingcyclefriendly}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$product.billingcyclefriendly}</span>
                                                 {if $product.pricing.productonlysetup}
                                                     {$product.pricing.productonlysetup->toPrefixed()} {$LANG.ordersetupfee}
                                                 {/if}
@@ -161,8 +161,8 @@
                                                     </div>
                                                 {/if}
                                                 <div class="col-sm-4 item-price">
-                                                    <span>{$addon.totaltoday}</span>
-                                                    <span class="cycle">{$addon.billingcyclefriendly}</span>
+                                                    <span style="font-size: 14px; color: gray;">{$addon.totaltoday}</span>
+                                                    <span class="cycle" style="font-size: 14px; color: gray;">{$addon.billingcyclefriendly}</span>
                                                     {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
                                                     {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
                                                 </div>
@@ -204,8 +204,8 @@
                                                 </div>
                                             {/if}
                                             <div class="col-sm-4 item-price">
-                                                <span>{$addon.totaltoday}</span>
-                                                <span class="cycle">{$addon.billingcyclefriendly}</span>
+                                                <span style="font-size: 14px; color: gray;">{$addon.totaltoday}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$addon.billingcyclefriendly}</span>
                                                 {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
                                                 {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
                                             </div>
@@ -219,7 +219,7 @@
                                 {/foreach}
 
                                 {foreach $domains as $num => $domain}
-                                    <div class="item"> dfsfsfs
+                                    <div class="item">
                                         <div class="row py-4">
                                             <div class="col-sm-7 ps-5">
                                                 <span class="item-title">
@@ -247,8 +247,8 @@
                                             <div class="col-sm-3 my-auto item-price">
                                                 {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
-                                                    <span class="cycle">{$domain.regperiod} {$domain.yearsLanguage}</span>
-                                                    <span class="renewal cycle">
+                                                    <span class="cycle" style="font-size: 14px; color: gray;">{$domain.regperiod} {$domain.yearsLanguage}</span>
+                                                    <span class="renewal cycle" style="font-size: 14px; color: gray;>
                                                         {if isset($domain.renewprice)}{lang key='domainrenewalprice'} <span class="renewal-price cycle">{$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}{/if}</span>
                                                     </span>
                                                 {else}
@@ -303,8 +303,8 @@
                                                 {if $domain.idprotection}&nbsp;&raquo; {$LANG.domainidprotection}<br />{/if}
                                             </div>
                                             <div class="col-sm-4 item-price">
-                                                <span>{$domain.price}</span>
-                                                <span class="cycle">{$domain.regperiod} {$LANG.orderyears}</span>
+                                                <span style="font-size: 14px; color: gray;">{$domain.price}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$domain.regperiod} {$LANG.orderyears}</span>
                                             </div>
                                             <div class="col-sm-1">
                                                 <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('r','{$num}')">
@@ -347,8 +347,8 @@
                                                 </div>
                                             {/if}
                                             <div class="col-sm-4 item-price">
-                                                <span>{$upgrade->newRecurringAmount}</span>
-                                                <span class="cycle">{$upgrade->localisedNewCycle}</span>
+                                                <span style="font-size: 14px; color: gray;">{$upgrade->newRecurringAmount}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$upgrade->localisedNewCycle}</span>
                                             </div>
                                             <div class="col-sm-1">
                                                 <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('u','{$num}')">
@@ -368,7 +368,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 item-price">
-                                                    <span>-{$upgrade->creditAmount}</span>
+                                                    <span style="font-size: 14px; color: gray;">-{$upgrade->creditAmount}</span>
                                                 </div>
                                             </div>
                                         {/if}
