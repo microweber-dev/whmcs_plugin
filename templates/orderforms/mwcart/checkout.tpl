@@ -22,7 +22,7 @@
 
 <div id="order-standard_cart">
 
-    <div class="row">
+    <div class="row col-xl-8 mx-auto">
 
         <div class="cart-body">
             <div class="header-lined">
