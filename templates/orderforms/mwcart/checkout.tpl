@@ -503,6 +503,8 @@
                                 {include file="orderforms/mwcart/includes/existing-paymethods.tpl"}
                             </div>
                         {/if}
+
+                        {if count($client->payMethods->validateGateways()->sortByExpiryDate()) gt 0 }
                         <div class="row cvv-input" id="existingCardInfo">
                             <div class="col-lg-3 col-sm-4">
                                 <div class="form-group prepend-icon">
@@ -519,6 +521,8 @@
                                 </div>
                             </div>
                         </div>
+                        {/if}
+
 
                         <ul>
                             <li>

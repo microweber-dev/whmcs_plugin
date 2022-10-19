@@ -1492,6 +1492,7 @@ footer {
 #order-standard_cart .radio-inline.col-12.text-left {
     padding: 20px 0px!important;
     border-bottom: 1px solid #e9eaec;
+    margin: 20px 0!important;
 
 }
 
@@ -1501,4 +1502,33 @@ footer {
     border: none !important;
     border-radius: 10px !important;
 
+}
+
+.stripe-cards-inputs, #inputDescriptionContainer {
+    margin-left: 0!important;
+}
+
+#order-standard_cart .prepend-icon {
+    margin: 15px;
+}
+
+#stripeCreditCard, #stripeExpiryDate, #stripeCvc {
+    margin-top: 10px!important;
+
+}
+
+.stripe-cards-inputs label {
+    font-weight: 500!important;
+    font-size: 15px!important;
+}
+.cvv-input .form-group.prepend-icon .input-group-btn > .btn {
+    padding: 15px;
+}
+
+#existingCardsContainer {
+    margin: 15px;
+}
+
+.cc-input-container .radio-inline.col-12.text-left {
+    margin: 15px;
 }
