@@ -1532,3 +1532,7 @@ footer {
 .cc-input-container .radio-inline.col-12.text-left {
     margin: 15px;
 }
+
+#order-standard_cart .account-select-container div.account, #order-standard_cart .account-select-container div.account {
+    padding-left: 25px!important;
+}
