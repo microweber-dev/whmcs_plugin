@@ -4,6 +4,12 @@
 
 {else}
 
+    {if !$loggedin && $custom_oauth2_login_url}
+        <script>
+            window.location.href = "{$custom_oauth2_login_url}";
+        </script>
+    {/if}
+
     <script>
         // Define state tab index value
         var statesTab = 10;
