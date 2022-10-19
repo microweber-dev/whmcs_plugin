@@ -204,7 +204,7 @@
                                         <div class="row"></div>
                                         <script>
                                             $(document).ready(function () {
-                                                $.getJSON("https://members2017.microweber.com/_sync/templates-preview/templates.json", function (data) {
+                                                $.getJSON("{$WEB_ROOT}/index.php?m=microweber_addon&ajax=1&function=get_templates_for_cart", function (data) {
                                                     var items = [];
                                                     $.each(data, function (key, val) {
                                                         if (key == 0) {

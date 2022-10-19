@@ -1,6 +1,7 @@
 
 <script>
-    window.location.href =  WHMCS.utils.getRouteUrl('clientarea');
+    //window.location.href =  WHMCS.utils.getRouteUrl('clientarea');
+    window.location.href =  WHMCS.utils.getRouteUrl('cart');
 </script>
 
 {if $twitterusername}
