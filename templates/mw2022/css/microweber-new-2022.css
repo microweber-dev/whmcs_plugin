@@ -1413,3 +1413,92 @@ footer {
     color: #5e636e!important;
     font-size: 13px!important;
 }
+
+#order-standard_cart .cart-body {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 20px 40px!important;
+    margin-top: 30px!important;
+
+}
+#order-standard_cart .account-select-container div.account, #order-standard_cart .account-select-container div.account {
+    background-color: #ffffff!important;
+}
+
+#containerExistingAccountSelect .label {
+    color: #ffffff;
+    background-color: #1279fa;
+}
+#order-standard_cart label, #order-standard_cart p.domain-renewal-desc {
+    margin: 15px!important;
+
+    color: black!important;
+
+}
+
+#order-standard_cart label, #order-standard_cart p.domain-renewal-desc .address span {
+    font-size: 20px!important;
+    font-weight: 500!important;
+    padding-right: 10px!important;
+}
+
+#order-standard_cart .sub-heading {
+    border-top: unset!important;
+    margin-top: 40px!important;
+    margin-bottom: 40px!important;
+}
+
+#order-standard_cart .field, #order-standard_cart .form-control {
+    border: 1px solid #e9eaec!important;
+}
+
+#order-standard_cart label, #order-standard_cart p.domain-renewal-desc {
+    margin: unset!important;
+
+    padding-top: 3px;
+}
+
+#order-standard_cart .field-icon i {
+    color: #1279fa!important;
+
+}
+
+#order-standard_cart .sub-heading span, #order-standard_cart .sub-heading-borderless span {
+    color: #000000!important;
+    font-size: 22px!important;
+    margin-bottom: 40px!important;
+    padding-left: 0!important;
+    font-weight: bold;
+
+}
+
+#order-standard_cart .field, #order-standard_cart .form-control {
+    box-shadow: unset!important;
+}
+#order-standard_cart .sub-heading {
+    text-align: left!important;
+}
+
+#order-standard_cart .cc-input-container {
+    background-color: #ffffff!important;
+}
+
+#order-standard_cart .account-select-container div.account, #order-standard_cart .account-select-container div.account {
+    border: none;
+}
+
+
+#order-standard_cart .radio-inline.col-12.text-left {
+    padding: 20px 0px!important;
+    border-bottom: 1px solid #e9eaec;
+
+}
+
+#order-standard_cart #paymentGatewaysContainer {
+    padding: 30px;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+
+}
