@@ -1602,3 +1602,23 @@ footer {
 #domainpopupcontainer {
     padding: 50px 0 0 0!important;
 }
+
+@media (min-width: 1375px) {
+    .produc-plans-free-border-blue {
+        border-right: 1px solid #1279fa;
+    }
+}
+
+@media (min-width: 1375px) {
+   .product-plans-free {
+
+        padding: 0;
+   }
+}
+
+@media (max-width: 1375px) {
+    .product-plans-free {
+
+        padding: 20px;
+    }
+}
