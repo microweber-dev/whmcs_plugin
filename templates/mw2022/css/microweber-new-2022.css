@@ -1397,7 +1397,7 @@ footer {
 
 #order-standard_cart .font-size-36 {
     text-align: left!important;
-    margin-bottom: 40px!important;
+    margin-bottom: 20px!important;
 }
 
 #order-standard_cart .view-cart-tabs {
@@ -1438,7 +1438,7 @@ footer {
 }
 
 #order-standard_cart label, #order-standard_cart p.domain-renewal-desc .address span {
-    font-size: 20px!important;
+    font-size: 17px!important;
     font-weight: 500!important;
     padding-right: 10px!important;
 }
@@ -1491,13 +1491,13 @@ footer {
 
 #order-standard_cart .radio-inline.col-12.text-left {
     padding: 20px 0px!important;
-    border-bottom: 1px solid #e9eaec;
+    /*border-bottom: 1px solid #e9eaec;*/
     margin: 20px 0!important;
 
 }
 
 #order-standard_cart #paymentGatewaysContainer {
-    padding: 30px;
+    padding: 20px 30px;
     box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
     border: none !important;
     border-radius: 10px !important;
@@ -1535,4 +1535,23 @@ footer {
 
 #order-standard_cart .account-select-container div.account, #order-standard_cart .account-select-container div.account {
     padding-left: 25px!important;
+}
+
+#order-standard_cart .order-form-labels {
+    color: #5e636e!important;
+    font-size: 15px!important;
+    font-weight: 400!important;
+    margin-bottom: 10px!important;
+    line-height: 24px!important;
+}
+
+#order-standard_cart .gateway-border-bottom {
+    border-bottom: 1px solid #e9eaec;
+}
+
+#order-standard_cart .gateway-border-bottom:last-child {
+    border-bottom: none;
+}
+#order-standard_cart label .iradio_square-blue {
+    margin-right: 10px!important;
 }

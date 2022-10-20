@@ -121,7 +121,7 @@
                         <div class="col-sm-6">
                             <div class="form-group prepend-icon">
 
-                                <input type="text" name="loginemail" id="inputLoginEmail" class="field form-control" placeholder="{$LANG.orderForm.emailAddress}" value="{$loginemail}">
+                                <input type="text" name="loginemail" id="inputLoginEmail" class="field form-control" placeholder="" value="{$loginemail}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -148,81 +148,81 @@
                         {include file="orderforms/standard_cart/linkedaccounts.tpl" linkContext="checkout-new"}
                     </div>
 
-                    <div class="sub-heading">
+                    <div class="sub-heading ms-4">
                         <span class="primary-bg-color">{$LANG.orderForm.personalInformation}</span>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="firstname" id="inputFirstName" class="field form-control" placeholder="{$LANG.orderForm.firstName}" value="{$clientsdetails.firstname}" autofocus>
+                                <label for="order-form-first-name" class="control-label order-form-labels">{$LANG.orderForm.firstName}</label>
+                                <input type="text" name="firstname" id="inputFirstName" class="field form-control" placeholder="" value="{$clientsdetails.firstname}" autofocus>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="lastname" id="inputLastName" class="field form-control" placeholder="{$LANG.orderForm.lastName}" value="{$clientsdetails.lastname}">
+                                <label for="order-form-last-name" class="control-label order-form-labels">{$LANG.orderForm.lastName}</label>
+                                <input type="text" name="lastname" id="inputLastName" class="field form-control" placeholder="" value="{$clientsdetails.lastname}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group prepend-icon">
-
-                                <input type="email" name="email" id="inputEmail" class="field form-control" placeholder="{$LANG.orderForm.emailAddress}" value="{$clientsdetails.email}">
+                                <label for="order-form-email" class="control-label order-form-labels">{$LANG.orderForm.emailAddress}</label>
+                                <input type="email" name="email" id="inputEmail" class="field form-control" placeholder="" value="{$clientsdetails.email}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group prepend-icon">
-
-                                <input type="tel" name="phonenumber" id="inputPhone" class="field form-control" placeholder="{$LANG.orderForm.phoneNumber}" value="{$clientsdetails.phonenumber}">
+                                <label for="order-form-phone" class="control-label order-form-labels">{$LANG.orderForm.phoneNumber}</label>
+                                <input type="tel" name="phonenumber" id="inputPhone" class="field form-control" placeholder="" value="{$clientsdetails.phonenumber}">
                             </div>
                         </div>
                     </div>
 
                     <div class="sub-heading">
-                        <span class="primary-bg-color">{$LANG.orderForm.billingAddress}</span>
+                        <span class="primary-bg-color ms-4">{$LANG.orderForm.billingAddress}</span>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="companyname" id="inputCompanyName" class="field form-control" placeholder="{$LANG.orderForm.companyName} ({$LANG.orderForm.optional})" value="{$clientsdetails.companyname}">
+                                <label for="order-form-company-name" class="control-label order-form-labels">{$LANG.orderForm.companyName} ({$LANG.orderForm.optional})</label>
+                                <input type="text" name="companyname" id="inputCompanyName" class="field form-control" placeholder="" value="{$clientsdetails.companyname}">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="address1" id="inputAddress1" class="field form-control" placeholder="{$LANG.orderForm.streetAddress}" value="{$clientsdetails.address1}">
+                                <label for="order-form-address" class="control-label order-form-labels">{$LANG.orderForm.streetAddress}</label>
+                                <input type="text" name="address1" id="inputAddress1" class="field form-control" placeholder="" value="{$clientsdetails.address1}">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="address2" id="inputAddress2" class="field form-control" placeholder="{$LANG.orderForm.streetAddress2}" value="{$clientsdetails.address2}">
+                                <label for="order-form-address2" class="control-label order-form-labels">{$LANG.orderForm.streetAddress2}</label>
+                                <input type="text" name="address2" id="inputAddress2" class="field form-control" placeholder="" value="{$clientsdetails.address2}">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="city" id="inputCity" class="field form-control" placeholder="{$LANG.orderForm.city}" value="{$clientsdetails.city}">
+                                <label for="order-form-city" class="control-label order-form-labels">{$LANG.orderForm.city}</label>
+                                <input type="text" name="city" id="inputCity" class="field form-control" placeholder="" value="{$clientsdetails.city}">
                             </div>
                         </div>
                         <div class="col-sm-5">
                             <div class="form-group prepend-icon">
-
-
-                                <input type="text" name="state" id="inputState" class="field form-control" placeholder="{$LANG.orderForm.state}" value="{$clientsdetails.state}">
+                                <label for="order-form-state" class="control-label order-form-labels">{$LANG.orderForm.state}</label>
+                                <input type="text" name="state" id="inputState" class="field form-control" placeholder="" value="{$clientsdetails.state}">
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group prepend-icon">
-
-                                <input type="text" name="postcode" id="inputPostcode" class="field form-control" placeholder="{$LANG.orderForm.postcode}" value="{$clientsdetails.postcode}">
+                                <label for="order-form-postcode" class="control-label order-form-labels">{$LANG.orderForm.postcode}</label>
+                                <input type="text" name="postcode" id="inputPostcode" class="field form-control" placeholder="" value="{$clientsdetails.postcode}">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group prepend-icon">
+                                <label for="order-form-country" class="control-label order-form-labels">Country</label>
 
                                 <select name="country" id="inputCountry" class="field form-control">
                                     {foreach $countries as $countrycode => $countrylabel}
@@ -236,8 +236,8 @@
                         {if $showTaxIdField}
                             <div class="col-sm-12">
                                 <div class="form-group prepend-icon">
-
-                                    <input type="text" name="tax_id" id="inputTaxId" class="field form-control" placeholder="{$taxLabel} ({$LANG.orderForm.optional})" value="{$clientsdetails.tax_id}">
+                                    <label for="order-form-client-details" class="control-label order-form-labels">{$taxLabel} ({$LANG.orderForm.optional})</label>
+                                    <input type="text" name="tax_id" id="inputTaxId" class="field form-control" placeholder="" value="{$clientsdetails.tax_id}">
                                 </div>
                             </div>
                         {/if}
@@ -477,18 +477,20 @@
 
                         <div class="text-center">
                             {foreach $gateways as $gateway}
-                                <label class="radio-inline col-12 text-left">
-                                    <input type="radio"
-                                           name="paymentmethod"
-                                           value="{$gateway.sysname}"
-                                           data-payment-type="{$gateway.payment_type}"
-                                           data-show-local="{$gateway.show_local_cards}"
-                                           data-remote-inputs="{$gateway.uses_remote_inputs}"
-                                           class="payment-methods{if $gateway.type eq "CC"} is-credit-card{/if}"
-                                            {if $selectedgateway eq $gateway.sysname} checked{/if}
-                                    />
-                                    {$gateway.name}
-                                </label>
+                                <div class="gateway-border-bottom">
+                                    <label class="radio-inline col-12 text-left">
+                                        <input type="radio"
+                                               name="paymentmethod"
+                                               value="{$gateway.sysname}"
+                                               data-payment-type="{$gateway.payment_type}"
+                                               data-show-local="{$gateway.show_local_cards}"
+                                               data-remote-inputs="{$gateway.uses_remote_inputs}"
+                                               class="payment-methods{if $gateway.type eq "CC"} is-credit-card{/if}"
+                                                {if $selectedgateway eq $gateway.sysname} checked{/if}
+                                        />
+                                        {$gateway.name}
+                                    </label>
+                                </div>
                             {/foreach}
                         </div>
                     </div>
