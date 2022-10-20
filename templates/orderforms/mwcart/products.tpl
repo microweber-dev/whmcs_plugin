@@ -44,12 +44,12 @@
                             </div>
 
 
-                            <div class="col-xl-5 text-center col-12 description desc-holder" style="margin-top: 20px;">
+                            <div class="col-xl-6 text-center col-12 description desc-holder" style="margin-top: 20px;">
                                 {$product.description|unescape}
                             </div>
 
-                            <div class="col-xl-4 text-center col-12">
-                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn"> Start Free</a>
+                            <div class="col-xl-3 text-center col-12">
+                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn">Start</a>
                             </div>
 
                         </div>

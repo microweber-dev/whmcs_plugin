@@ -1612,7 +1612,7 @@ footer {
 @media (min-width: 1375px) {
    .product-plans-free {
 
-        padding: 0;
+        padding: 8px;
    }
 }
 
