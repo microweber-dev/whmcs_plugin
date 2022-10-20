@@ -73,7 +73,7 @@
             <div class="col-md-6 col-lg-4 ">
                 {*<div id="product{$num}" class="panel" onclick="window.location='cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}'">*}
                 <div id="product{$num}" class="panel panel-title plan">
-                    <div class="row " style="text-align: center;">
+                    <div class="row" style="text-align: center; padding-top: 40px;">
 
                         <h1 style="margin-top:50px; margin-bottom:10px; font-size: 24px; font-weight: 300; color: #2b2b2b;">{$product.name}</h1>
                             {if $product.qty}

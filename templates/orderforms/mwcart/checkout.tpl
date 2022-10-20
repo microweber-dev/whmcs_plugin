@@ -500,30 +500,34 @@
                     <div class="clearfix"></div>
 
                     <div class="cc-input-container{if $selectedgatewaytype neq "CC"} w-hidden{/if}" id="creditCardInputFields">
-                        {if $client}
-                            <div id="existingCardsContainer" class="existing-cc-grid">
-                                {include file="orderforms/mwcart/includes/existing-paymethods.tpl"}
-                            </div>
-                        {/if}
+                       <div class="d-flex" style="display: flex; align-items: center;">
+                           {if $client}
+                              <div class="col-lg-9 col-sm-12 px-0">
+                                  <div id="existingCardsContainer" class="existing-cc-grid">
+                                      {include file="orderforms/mwcart/includes/existing-paymethods.tpl"}
+                                  </div>
+                              </div>
+                           {/if}
 
-                        {if count($client->payMethods->validateGateways()->sortByExpiryDate()) gt 0 }
-                        <div class="row cvv-input" id="existingCardInfo">
-                            <div class="col-lg-3 col-sm-4">
-                                <div class="form-group prepend-icon">
+                           {if count($client->payMethods->validateGateways()->sortByExpiryDate()) gt 0 }
+                               <div class="row cvv-input col-lg-3 col-sm-12"  id="existingCardInfo">
+                                   <div class="form-group prepend-icon">
 
-                                    <div class="input-group">
-                                        <input type="tel" name="cccvv" id="inputCardCVV2" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
-                                        <span class="input-group-btn input-group-append">
-                                            <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
-                                                ?
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="field-error-msg">{lang key="paymentMethodsManage.cvcNumberNotValid"}</span>
-                                </div>
-                            </div>
-                        </div>
-                        {/if}
+                                       <div class="input-group">
+                                           <input type="tel" name="cccvv" id="inputCardCVV2" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
+                                           <span class="input-group-btn input-group-append">
+                                        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                            ?
+                                        </button>
+                                    </span>
+                                       </div>
+
+{*                                        <span class="field-error-msg">{lang key="paymentMethodsManage.cvcNumberNotValid"}</span>*}
+
+                                   </div>
+                               </div>
+                           {/if}
+                       </div>
 
 
                         <ul>
@@ -650,7 +654,7 @@
 
                     <button type="submit"
                             id="btnCompleteOrder"
-                            class="btn btn-primary btn-lg disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
+                            class="whmc-kbtn my-4 disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
                             {if $cartitems==0}disabled="disabled"{/if}
                     >
                         {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.completeorder}{/if}
