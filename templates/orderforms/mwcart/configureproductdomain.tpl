@@ -40,7 +40,7 @@
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domainregister">
                                     <div class="row">
-                                        <div class="col-sm-6 col-xs-8 col-sm-offset-2">
+                                        <div class="col-sm-6 col-xs-8">
                                             <div class="input-group" style="display: block;">
 {*                                                <span class="input-group-addon">www.</span>*}
                                                 <input type="text" id="registersld" value="{$sld}" class="form-control" placeholder="Search domain..." autocapitalize="none"/>
@@ -64,7 +64,7 @@
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domaintransfer">
                                     <div class="row">
-                                        <div class="col-sm-6 col-xs-8 col-sm-offset-2">
+                                        <div class="col-sm-6 col-xs-8">
                                             <div class="input-group" style="display: block;">
 {*                                                <span class="input-group-addon">www.</span>*}
                                                 <input type="text" id="transfersld" value="{$sld}" placeholder="Search domain..." class="form-control" autocapitalize="none"/>
@@ -88,7 +88,7 @@
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domainowndomain">
                                     <div class="row">
-                                        <div class="col-sm-6 col-xs-8 col-sm-offset-2">
+                                        <div class="col-sm-6 col-xs-8" >
                                             <div class="input-group" style="display: block;">
 {*                                                <span class="input-group-addon">www.</span>*}
                                                 <input type="text" id="owndomainsld" value="{$sld}" placeholder="Search domain..." class="form-control" autocapitalize="none"/>
@@ -109,7 +109,7 @@
                                 </label>
                                 <div class="domainreginput hidden" id="domainsubdomain">
                                     <div class="row">
-                                        <div class="col-sm-5 col-xs-7 col-sm-offset-2">
+                                        <div class="col-sm-5 col-xs-7">
                                             <div class="input-group" class="input-select-domaintransfer" style="display: block;">
 {*                                                <span class="input-group-addon">http://</span>*}
                                                 <input type="text"  id="subdomainsld" size="30" placeholder="Search domain..." value="{$sld}" autocapitalize="none" class="form-control"/>

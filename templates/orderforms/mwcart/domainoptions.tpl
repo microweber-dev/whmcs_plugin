@@ -32,7 +32,11 @@
 
 <div class="domainavailable">{$LANG.cartcongratsdomainavailable|sprintf2:$domain}</div>
 <input type="hidden" name="domains[]" value="{$domain}" />
-<div class="domainregperiod">{$LANG.cartregisterhowlong} <select name="domainsregperiod[{$domain}]" id="regperiod" class="form-control select-inline">{foreach key=period item=regoption from=$regoptions}{if $regoption.register}<option value="{$period}">{$period} {$LANG.orderyears} @ {$regoption.register}</option>{/if}{/foreach}</select></div>
+<div class="domainregperiod">
+    <h3 class="mb-4">
+        {$LANG.cartregisterhowlong}
+    </h3>
+    <select name="domainsregperiod[{$domain}]" id="regperiod" class="form-control select-inline">{foreach key=period item=regoption from=$regoptions}{if $regoption.register}<option value="{$period}">{$period} {$LANG.orderyears} @ {$regoption.register}</option>{/if}{/foreach}</select></div>
 
 {assign var='continueok' value=true}
 
@@ -88,7 +92,7 @@ completedomain();
 
 <div class="domainsuggestions">{$LANG.cartotherdomainsuggestions}</div>
 
-<table align="center" cellspacing="1" class="domainsuggestions">
+<table align="center" cellspacing="1" class="domainsuggestions" >
 <tr><th width="50"></th><th>{$LANG.domainname}</th><th>{$LANG.clientarearegistrationperiod}</th></tr>
 {foreach from=$othersuggestions item=other}
 <tr><td><input type="checkbox" name="domains[]" value="{$other.domain}" /></td><td>{$other.domain}</td><td><select name="domainsregperiod[{$other.domain}]">{foreach from=$other.regoptions key=period item=regoption}{if $regoption.register}<option value="{$period}">{$period} {$LANG.orderyears} @ {$regoption.register}</option>{/if}{/foreach}</select></td></tr>
@@ -101,7 +105,7 @@ completedomain();
 
 {if $continueok}
 <div class="text-center">
-    <button type="submit" class="btn btn-primary btn-lg">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+    <button type="submit" class="whmc-kbtn mt-5">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
 </div>
 {/if}
 

@@ -125,7 +125,7 @@
             {/if}
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                <button type="submit" class="whmc-kbtn">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
             </div>
 
         </form>

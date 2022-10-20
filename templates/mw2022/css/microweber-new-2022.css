@@ -1559,3 +1559,46 @@ footer {
     border: none !important;
     border-radius: 10px !important;
 }
+
+
+#domainfrm .domainsuggestions tbody {
+   max-height: 500px;
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#order-modern table.domainsuggestions td {
+    padding: 18px!important;
+    width: 100%!important;
+    font-size: 18px!important;
+}
+
+
+#order-modern table.domainsuggestions th {
+    background-color: #1279fa!important;
+    padding: 15px!important;
+    font-size: 13px!important;
+}
+
+#order-modern div.domainresults div {
+    font-size: 22px;
+    margin: 5px 0!important;
+}
+
+#domainresults {
+    padding: 40px 20px 20px 30px!important;
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+}
+
+#order-modern .domainreginput select, #order-modern .domainregperiod select {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#domainpopupcontainer {
+    padding: 50px 0 0 0!important;
+}

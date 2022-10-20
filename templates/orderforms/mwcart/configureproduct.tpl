@@ -132,7 +132,7 @@
                                             <tr>
 
                                                 {if $configoption.optiontype eq 1}
-                                                <select name="configoption[{$configoption.id}]" onchange="recalctotals()" class="form-control">
+                                                <select name="configoption[{$configoption.id}]" onchange="recalctotals()" class="form-control mb-4">
                                                     {foreach key=num2 item=options from=$configoption.options}
                                                         <option value="{$options.id}"{if $configoption.selectedvalue eq $options.id} selected="selected"{/if}>{$options.name}</option>
                                                     {/foreach}
@@ -277,8 +277,8 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="button" id="btnCompleteProductConfig" class="cbtn" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
-                            <a href="cart.php?a=view" class="cbtn cbtn-alt"><i class="fa fa-shopping-cart" ></i> {$LANG.viewcart}</a>
+                            <a href="cart.php?a=view" class="whmc-kbtn-2"><i class="fa fa-shopping-cart" ></i> {$LANG.viewcart}</a>
+                            <button type="button" id="btnCompleteProductConfig" class="whmc-kbtn" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
                         </div>
 
                     </div>
