@@ -41,7 +41,7 @@
             <div class="row pricing-list-2 text-center"  style="margin-top: 30px;">
                 {foreach key=num item=upgradepackage from=$upgradepackages}
                     <div class="col-md-6 col-lg-4 plan" >
-                        <h1 style="font-weight: bold; font-size: 36px; color: #2b2b2b; margin-top: 50px;">
+                        <h1 class="col-md-12" style="font-weight: bold; font-size: 36px; color: #2b2b2b; margin-top: 50px;">
                             {$upgradepackage.groupname} - {$upgradepackage.name}
                         </h1>
                         <br/>
