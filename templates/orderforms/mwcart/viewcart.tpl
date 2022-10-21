@@ -133,14 +133,14 @@
                                                 {if $product.proratadate}<br />({$LANG.orderprorata} {$product.proratadate}){/if}
                                             </div>
                                             <div class="col-sm-2 text-center my-auto hidden-xs d-none d-sm-block">
-                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs">
+                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                         <i class="fas fa-edit checkout-procuts-actions "></i>
                                                     </a>
-                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
-                                                    <a href="">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" onclick="removeItem('p','{$num}')">
+
                                                         <i class="fas fa-trash checkout-procuts-actions "></i>
 
-                                                    </a>
+
                                                 </button>
                                             </div>
                                         </div>
@@ -280,12 +280,12 @@
                                                 {/if}
                                             </div>
                                             <div class="col-sm-2 text-center my-auto hidden-xs d-none d-sm-block">
-                                                <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs">
+                                                <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                                                     <i class="fas fa-edit checkout-procuts-actions"></i>
 
                                                 </a>
 
-                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" onclick="removeItem('d','{$num}')">
                                                     <i class="fas fa-trash checkout-procuts-actions"></i>
                                                 </button>
 
@@ -434,7 +434,7 @@
                                         </div>
                                     {else}
                                         <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
-                                            <div class="form-group prepend-icon " style="display: flex;">
+                                            <div class="m-0 p-3 prepend-icon " style="display: flex;">
 {*                                                <label for="cardno" class="col-sm-8 field-icon">*}
 {*                                                    <i class="fas fa-ticket-alt"></i>*}
 {*                                                </label>*}

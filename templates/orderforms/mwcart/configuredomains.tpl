@@ -21,9 +21,9 @@
             <input type="hidden" name="update" value="true"/>
 
             {foreach key=num item=domain from=$domains}
-                <div class="panel panel-default whmc-domain-configure-panel mb-5 pb-3" style="display: flex;">
+                <div class="row panel panel-default whmc-domain-configure-panel mb-5 pb-3" style="display: flex;">
 
-                   <div class="mt-2">
+                   <div class="mt-2 col-md-1">
                        <div class="m-3">
                            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" x="0px" y="0px" width="64px" height="64px">
                                <ellipse class="svg-icon-prime svg-icon-stroke" cx="31.45" cy="32.38" rx="7.48" ry="7.48"></ellipse>
@@ -39,13 +39,13 @@
                            </svg>
                        </div>
                    </div>
-                    <div class="row">
+                    <div class="row col-md-11">
                         <div class="panel-heading">
                             <div class="row panel-title">
 
-                                <div style="display: flex; align-items: center;">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
+                                <div class="row" style=" align-items: center;">
+                                    <div class="col-lg-6 col-12">
+                                        <div>
                                             <h2 class="mb-5" style="color: #000000;">{$domain.domain}</h2>
                                         </div>
                                         {if $domain.hosting}
@@ -55,14 +55,14 @@
                                         {/if}
                                     </div>
 
-                                    <div class="col" style="text-align: right; color: #acb0b9;">
+                                    <div class="col-lg col-12" style="text-align: right; color: #acb0b9;">
                                         <div>{$LANG.orderregperiod}: {$domain.regperiod} {$LANG.orderyears}</div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-body" style="display: flex; align-items: center; justify-content: center; margin: 0 40px;">
+                        <div class="row panel-body" style="display: flex; align-items: center; justify-content: center; margin: 0 40px;">
 
                             <div class="" style="display: none;">
                                 <div class="col-sm-4">{$LANG.hosting}:</div>
@@ -73,7 +73,7 @@
 
                             {if $domain.dnsmanagement || $domain.emailforwarding || $domain.idprotection}
                                 {if $domain.dnsmanagement}
-                                    <div class="col-xl-4 col-12 mx-4 whmc-panel-services-configure-domain">
+                                    <div class="col-xl-3 col-12 m-4 whmc-panel-services-configure-domain p-4">
 
                                         <label class="checkbox-inline">
                                             <input type="checkbox" class="me-4" name="dnsmanagement[{$num}]"{if $domain.dnsmanagementselected} checked{/if} />
@@ -89,7 +89,7 @@
                                 {/if}
 
                                 {if $domain.emailforwarding}
-                                    <div class="col-xl-4 col-12 mx-4 whmc-panel-services-configure-domain">
+                                    <div class="col-xl-3 col-12 m-4 whmc-panel-services-configure-domain p-4">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" name="emailforwarding[{$num}]"{if $domain.emailforwardingselected} checked{/if} />
                                             <label class="ms-5 mb-3" style="display: block;">
@@ -103,7 +103,7 @@
                                 {/if}
 
                                 {if $domain.idprotection}
-                                    <div class="col-xl-4 col-12 mx-4 whmc-panel-services-configure-domain">
+                                    <div class="col-xl-3 col-12 m-4 whmc-panel-services-configure-domain p-4">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" name="idprotection[{$num}]"{if $domain.idprotectionselected} checked{/if} />
                                             <label class="ms-5 mb-3" style="display: block;">
@@ -118,12 +118,20 @@
                                 {/if}
 
                                 {if $domain.eppenabled}
-                                    <div class="col-12 mx-4 whmc-panel-services-configure-domain">
-                                        <div class="" >
-                                            <div>{$LANG.domaineppcode}:</div>
-                                            <div><input type="text" name="epp[{$num}]" size="20" value="{$domain.eppvalue}" class="form-control"/> {$LANG.domaineppcodedesc}</div>
-                                        </div>
-                                    </div>
+                                   <div class="row whmc-epp-code-box mt-5 px-0" >
+                                       <div class="col-12 m-md-4 pt-5 mt-5 px-0">
+
+                                          <div class="form-group">
+                                              <label class="col-md-3 col-lg-1 px-0 my-4" style="color: #5e636e; font-weight: 400;">
+                                                  {$LANG.domaineppcode}:
+                                              </label>
+                                              <div class="col-md-9 col-lg-11 px-0">
+                                                  <input type="text" name="epp[{$num}]" size="20" value="{$domain.eppvalue}" class="form-control mb-3"/>
+                                                  <span style="color: #5e636e; margin-top: 10px;">{$LANG.domaineppcodedesc}</span>
+                                              </div>
+                                          </div>
+                                       </div>
+                                   </div>
                                 {/if}
                             {/if}
                             {foreach from=$domain.fields key=domainfieldname item=domainfield}
@@ -175,6 +183,8 @@
             {/if}
 
             <div class="text-center">
+                <a href="cart.php?a=view" class="whmc-kbtn-2 mx-2"><i class="fa fa-shopping-cart" ></i> {$LANG.viewcart}</a>
+
                 <button type="submit" class="whmc-kbtn">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
             </div>
 
