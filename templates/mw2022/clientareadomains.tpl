@@ -242,13 +242,13 @@
                                 </span>
                                 </td>
                                 <td>
-                                    <div class="btn-group btn-group-sm" style="width:60px;">
+                                    <div class="btn-group btn-group-sm" style="width:60px; float: right;">
                                         <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fa fa-wrench"></i></a>
                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                             <span class="caret"></span>
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <ul class="dropdown-menu text-left" role="menu">
+                                        <ul class="dropdown-menu dropdown-menu-left " role="menu">
                                             {if $domain.status eq 'Active'}
                                                 <li><a href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers"><i
                                                                 class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>

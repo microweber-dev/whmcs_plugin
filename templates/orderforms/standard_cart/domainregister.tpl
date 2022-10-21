@@ -187,7 +187,7 @@
                                 <span class="sales-group-sale w-hidden">{lang key='domainCheckerSalesGroup.sale'}</span>
                             </span>
                             <div class="actions">
-                                <span class="price"></span>
+                                <span class="price me-3"></span>
                                 <button type="button" class="btn btn-add-to-cart" style="margin-left: 15px;" data-whois="1" data-domain="">
                                     <span class="to-add">{$LANG.addtocart}</span>
                                     <span class="loading">
@@ -251,28 +251,7 @@
                     </div>
                 {/if}
                 <br><br><br><br>
-                <h4 class="font-size-24" style="text-align: left;">{lang key='pricing.browseExtByCategory'}</h4>
 
-                <br>
-
-                <div class="tld-filters" style="justify-content: start; display: flex;">
-
-                   <div class="form-group">
-                       <select class="form-control" name="" id="">
-                           {foreach $categoriesWithCounts as $category => $count}
-
-
-                               <option data-category="{$category}" value="{$category}">
-                                   {lang key="domainTldCategory.$category" defaultValue=$category} ({$count})
-                               </option>
-
-
-                           {/foreach}
-
-                       </select>
-                   </div>
-
-                </div>
 
                 <br><br><br>
 
@@ -389,7 +368,7 @@
                                         <path class="svg-icon-outline-s" d="M31.41,1c4.93,0,9.44,3.86,12.67,9.46a44.62,44.62,0,0,1,5.81,21.89,44.69,44.69,0,0,1-5.81,21.9C40.85,59.88,36.34,63,31.41,63"></path>
                                     </svg>
 
-                                <h3 class="font-size-22 domain-info-box">{lang key='orderForm.transferToUs'}</h3>
+                                <h3 class="font-size-24 no-wrap domain-info-box">{lang key='orderForm.transferToUs'}</h3>
                                 <p class="font-bold domain-info-box">{lang key='orderForm.transferExtend'}*</p>
                             </div>
 

@@ -1008,6 +1008,10 @@ header .top-right-button {
     font-size: 16px;
 }
 
+.suggested-domains .list-group-item:hover {
+    background-color: #f5f5f554!important;
+}
+
 .domain-promo-box {
     background-color: #ffffff!important;
     margin-top: 40px! important;
