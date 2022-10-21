@@ -1669,3 +1669,31 @@ input[type="radio"], input[type="checkbox"] {
 #lightbox {
     display: none!important;
 }
+
+.whmc-domain-configure-panel {
+    padding: 40px!important;
+}
+
+.whmc-domain-configure-panel .badge-has-hosting {
+    background-color: #dbf5e1;
+    color: #2d9f46;
+    padding: 7px 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+
+.whmc-domain-configure-panel .whmc-panel-services-configure-domain {
+
+    border: 1px solid #e9eaec;
+    padding: 30px;
+}
+
+.whmc-domain-configure-panel .whmc-panel-services-configure-domain:hover {
+    border-color: #babec7!important;
+}
+
+.mw-whm .panel-heading {
+    border-color: none!important;
+}
