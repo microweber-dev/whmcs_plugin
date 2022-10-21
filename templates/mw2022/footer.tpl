@@ -10,30 +10,32 @@
 
                     <section class="copy">
                         <div class="row">
-                            <div class="col-xs-4">
+                            <div style="display: flex; align-items: center;">
+                                <div class="col-xs-4">
 
-                                {if $logo}
-                                    <a href="{$WEB_ROOT}/" class="logo"><img src="templates/mw2022/img/logo.svg" alt="{$companyname}" class="img-responsive"></a>
-                                {else}
-                                    <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
-                                {/if}
-                            </div>
+                                    {if $logo}
+                                        <a href="{$WEB_ROOT}/" class="logo"><img src="templates/mw2022/img/logo.svg" alt="{$companyname}" class="img-responsive"></a>
+                                    {else}
+                                        <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
+                                    {/if}
+                                </div>
 
-                            <div class="col-xs-4 text-center" style="margin-top: 20px;">
+                                <div class="col-xs-4 text-center" style="margin-top: 20px;">
 
-                                Copyright &copy; {$date_year} {$companyname}. Open Source Website Builder &amp; CMS under MIT License
-                            </div>
+                                    Copyright &copy; {$date_year} {$companyname}. Open Source Website Builder &amp; CMS under MIT License
+                                </div>
 
-                            <div class="col-xs-4" style="margin-top: 20px;">
-                                <div class="copy-follow">
-                                    <a href="https://twitter.com/microweber" target="_blank">Twitter</a>
-                                    <a href="https://facebook.com/microweber" target="_blank">Facebook</a>
-                                    <a href="https://linkedin.com/company/microweber" target="_blank">LinkedIn</a>
-                                    <a href="https://youtube.com/microweber" target="_blank">YouTube</a>
-{*                                    <a href="https://pinterest.com/Microweber" target="_blank">Pinterest</a>*}
-{*                                    <a href="https://plus.google.com/+Microweber" target="_blank">Google Plus</a>*}
-                                    <br>
+                                <div class="col-xs-4" style="margin-top: 20px;">
+                                    <div class="copy-follow">
+                                        <a href="https://twitter.com/microweber" target="_blank">Twitter</a>
+                                        <a href="https://facebook.com/microweber" target="_blank">Facebook</a>
+                                        <a href="https://linkedin.com/company/microweber" target="_blank">LinkedIn</a>
+                                        <a href="https://youtube.com/microweber" target="_blank">YouTube</a>
+                                        {*                                    <a href="https://pinterest.com/Microweber" target="_blank">Pinterest</a>*}
+                                        {*                                    <a href="https://plus.google.com/+Microweber" target="_blank">Google Plus</a>*}
+                                        <br>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>

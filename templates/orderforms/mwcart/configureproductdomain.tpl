@@ -22,7 +22,7 @@
                                 </label>
                                 <div class="domainreginput hidden clearfix" id="domainincart">
                                     <div class="row">
-                                        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                                        <div class="col-sm-8 col-md-6">
                                             <select id="incartsld" name="incartdomain" class="form-control">
                                                 {foreach key=num item=incartdomain from=$incartdomains}
                                                     <option value="{$incartdomain}">{$incartdomain}</option>

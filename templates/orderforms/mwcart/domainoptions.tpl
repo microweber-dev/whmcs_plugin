@@ -92,13 +92,27 @@ completedomain();
 
 <div class="domainsuggestions">{$LANG.cartotherdomainsuggestions}</div>
 
-<table align="center" cellspacing="1" class="domainsuggestions" >
-<tr><th width="50"></th><th>{$LANG.domainname}</th><th>{$LANG.clientarearegistrationperiod}</th></tr>
-{foreach from=$othersuggestions item=other}
-<tr><td><input type="checkbox" name="domains[]" value="{$other.domain}" /></td><td>{$other.domain}</td><td><select name="domainsregperiod[{$other.domain}]">{foreach from=$other.regoptions key=period item=regoption}{if $regoption.register}<option value="{$period}">{$period} {$LANG.orderyears} @ {$regoption.register}</option>{/if}{/foreach}</select></td></tr>
-{/foreach}
-</table>
+<div class="whmc-table-domain-prices">
+    <table class="domainsuggestions table-reset-whm-max-minwidth" >
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">{$LANG.domainname}</th>
+            <th style="text-align: right!important;" scope="col">{$LANG.clientarearegistrationperiod}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach from=$othersuggestions item=other}
+            <tr>
+                <td scope="col"><input type="checkbox" name="domains[]" value="{$other.domain}" /></td>
+                <td scope="col">{$other.domain}</td>
+                <td style="text-align: right!important;" scope="col"><select name="domainsregperiod[{$other.domain}]">{foreach from=$other.regoptions key=period item=regoption}{if $regoption.register}<option value="{$period}">{$period} {$LANG.orderyears} @ {$regoption.register}</option>{/if}{/foreach}</select></td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
 
+</div>
 {assign var='continueok' value=true}
 
 {/if}

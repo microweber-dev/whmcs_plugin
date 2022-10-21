@@ -1,6 +1,6 @@
 <div id="prodconfigcontainer">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 ">
 
             <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
             <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/main.js"></script>
@@ -212,7 +212,7 @@
                                                         } else {
                                                             var classHidden = 'hidden';
                                                         }
-                                                        items.push('<div class="col-xs-12 ' + classHidden + ' template" id="template-' + val.id + '">' +
+                                                        items.push('<div class="col-xs-12 px-0 ' + classHidden + ' template" id="template-' + val.id + '">' +
                                                             '<div class="image-holder" style="background-image: url(' + val.image + ');"></div>' +
                                                             '<p>' + val.title + '</p>' +
                                                             '</div>');
@@ -277,8 +277,8 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="cart.php?a=view" class="whmc-kbtn-2"><i class="fa fa-shopping-cart" ></i> {$LANG.viewcart}</a>
-                            <button type="button" id="btnCompleteProductConfig" class="whmc-kbtn" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                            <a href="cart.php?a=view" class="whmc-kbtn-2 mx-2"><i class="fa fa-shopping-cart" ></i> {$LANG.viewcart}</a>
+                            <button type="button" id="btnCompleteProductConfig" class="whmc-kbtn mx-2" onclick="addtocart();">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
                         </div>
 
                     </div>
