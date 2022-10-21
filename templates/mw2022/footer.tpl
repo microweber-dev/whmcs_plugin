@@ -87,6 +87,18 @@
 
         ga('send', 'pageview');
 
+        var pageWrapperSize = function () {
+            var header = document.querySelector('#container > header');
+            var footer = document.querySelector('#container > footer');
+            var pageWrapper = document.querySelector('#container > .page-wrapper');
+            if(header && footer && pageWrapper) {
+                pageWrapper.style.minHeight = 'calc(100vh - ' + header.offsetHeight + 'px - ' + footer.offsetHeight + 'px)';
+            }
+        };
+
+        addEventListener('load', pageWrapperSize);
+        addEventListener('resize', pageWrapperSize);
+
     </script>
 
 {/literal}
