@@ -570,6 +570,7 @@ header .top-right-button {
     box-shadow: none!important;
     border: none!important;
     margin: 0px!important;
+    transition: none!important;
 }
 
 .templates .template-box {
@@ -602,7 +603,7 @@ header .top-right-button {
 
 @media screen and (min-width: 1200px) {
     .col-box-template {
-        width: 48%;
+        width: 48%!important;
         float: left;
     }
 
