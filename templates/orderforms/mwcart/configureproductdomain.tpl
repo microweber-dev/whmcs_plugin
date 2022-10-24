@@ -15,7 +15,7 @@
             <div class="row">
                 <div class=" col-sm-12">
                     <div class="row domainoptions">
-                       <div class="p-4">
+                       <div class="p-4 m-3">
                            {if $incartdomains}
                                <div class="offset-md-2  p-1 option">
                                    <label class="radio-inline">
@@ -74,13 +74,13 @@
 
                             <div class="domainreginput hidden clearfix" id="domainregister">
                                 <div class="row-blue">
-                                    <div class="col-sm-6 col-xs-8">
+                                    <div class="col-md-6 col-12">
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
                                             <input type="text" id="registersld" value="{$sld}" class="form-control" placeholder="Search domain..." autocapitalize="none"/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2 col-xs-4">
+                                    <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
                                         <select id="registertld" class="form-control">
                                             {foreach from=$registertlds item=listtld}
                                                 <option value="{$listtld}"{if $listtld eq $tld}  selected="selected"{/if}>{$listtld}</option>
@@ -93,13 +93,13 @@
 
                             <div class="domainreginput hidden clearfix" id="domaintransfer">
                                 <div class="row-blue">
-                                    <div class="col-sm-6 col-xs-8">
+                                    <div class="col-md-6 col-12">
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
                                             <input type="text" id="transfersld" value="{$sld}" placeholder="Transfer domain..." class="form-control" autocapitalize="none"/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2 col-xs-4">
+                                    <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
                                         <select id="transfertld" class="form-control">
                                             {foreach from=$transfertlds item=listtld}
                                                 <option value="{$listtld}"{if $listtld eq $tld}  selected="selected"{/if}>{$listtld}</option>
@@ -112,13 +112,13 @@
 
                             <div class="domainreginput hidden clearfix" id="domainowndomain">
                                 <div class="row-blue">
-                                    <div class="col-sm-6 col-xs-8" >
+                                    <div class="col-md-6 col-12" >
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
                                             <input type="text" id="owndomainsld" value="{$sld}" placeholder="Type your domain..." class="form-control" autocapitalize="none"/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2 col-xs-4">
+                                    <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
                                         <input type="text" id="owndomaintld" value="{$tld|substr:1}" placeholder="com" class="form-control" autocapitalize="none"/>
                                     </div>
                                 </div>
@@ -128,13 +128,13 @@
 
                             <div class="domainreginput hidden" id="domainsubdomain">
                                 <div class="row-blue">
-                                    <div class="col-sm-5 col-xs-7">
+                                    <div class="col-md-6 col-12">
                                         <div class="input-group" class="input-select-domaintransfer" style="display: block;">
                                             {*                                                <span class="input-group-addon">http://</span>*}
                                             <input type="text"  id="subdomainsld" size="30" placeholder="Type your subdomain..." value="{$sld}" autocapitalize="none" class="form-control"/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-3 col-xs-5">
+                                    <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
                                         <select id="subdomaintld" class="form-control">
                                             {foreach from=$subdomains key=subid item=subdomain}
                                                 <option value="{$subid}">{$subdomain}</option>

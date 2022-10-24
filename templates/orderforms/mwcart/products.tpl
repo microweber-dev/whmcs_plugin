@@ -70,7 +70,7 @@
                 {continue}
             {/if}
 
-            <div class="col-md-6 col-lg-4 ">
+            <div class="col-lg-6 col-xl-4 ">
                 {*<div id="product{$num}" class="panel" onclick="window.location='cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}'">*}
                 <div id="product{$num}" class="panel panel-title plan">
                     <div class="row" style="text-align: center; padding-top: 40px;">

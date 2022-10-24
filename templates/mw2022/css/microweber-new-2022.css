@@ -324,6 +324,11 @@
 }
 
 
+@media (max-width: 993px) {
+    .client-area-row {
+       flex-wrap: wrap;
+    }
+}
 .mw-whm.clientareahome .tiles .tile:nth-child(1) a, .mw-whm.clientareahome .tiles .tile:nth-child(2) a, .mw-whm.clientareahome .tiles .tile:nth-child(3) a, .mw-whm.clientareahome .tiles .tile:nth-child(4) a {
     border: 1px solid #1279fa;
     color: #1279fa;
@@ -1177,6 +1182,14 @@ footer {
 #order-modern .domainreginput .row-blue  {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+
+    #order-modern .padding-on-mobile  {
+        margin-top: 30px;
+    }
 }
 
 
