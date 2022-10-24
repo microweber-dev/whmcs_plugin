@@ -10,7 +10,12 @@
 {*    {include file="$template/includes/tablelist.tpl" tableName="ServicesList" filterColumn="4" startOrderCol="[1, 'desc'], [1, 'asc']"}*}
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            var table = jQuery('#tableServicesList').removeClass('hidden').DataTable();
+            var table = jQuery('#tableServicesList').removeClass('hidden').DataTable({
+                dom:
+                    "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 pagination-clientareaproducts'p>>",
+            });
             {if $orderby == 'product'}
             table.order([2, 'desc']);
             {elseif $orderby == 'amount' || $orderby == 'billingcycle'}

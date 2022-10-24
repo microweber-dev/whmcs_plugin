@@ -6,6 +6,7 @@
     </div>
 
     <div class="text-center">
+
         {if $overdueinvoice}
             {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeerroroverdueinvoice}
         {elseif $existingupgradeinvoice}

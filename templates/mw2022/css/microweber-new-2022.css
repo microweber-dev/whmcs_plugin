@@ -1768,3 +1768,34 @@ input[type="radio"], input[type="checkbox"] {
 /*    display: flex;*/
 /*    flex-wrap: wrap;*/
 /*}*/
+
+.pagination-clientareaproducts{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+#dataTables_length label {
+    width: 50%;
+}
+
+.mw-whm div.dataTables_length select {
+    display: inline;
+    width: 90px;
+    margin: 0 15px;
+}
+
+.mw-whm div.dataTables_length label{
+
+    width: 100%;
+}
+
+#tableServicesList_filter label {
+    width: 100%;
+}
+
+#tableServicesList_filter input {
+    display: inline-block;
+    width: 30%;
+    margin-left: 15px;
+}

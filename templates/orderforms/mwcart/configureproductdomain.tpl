@@ -134,7 +134,7 @@
                                             <input type="text"  id="subdomainsld" size="30" placeholder="Type your subdomain..." value="{$sld}" autocapitalize="none" class="form-control"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
+                                    <div class="col-md-8 col-lg-2 col-8 padding-on-mobile">
                                         <select id="subdomaintld" class="form-control">
                                             {foreach from=$subdomains key=subid item=subdomain}
                                                 <option value="{$subid}">{$subdomain}</option>
