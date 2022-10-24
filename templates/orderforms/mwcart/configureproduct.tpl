@@ -204,14 +204,27 @@
                                         <div class="row"></div>
                                         <script>
                                             $(document).ready(function () {
+
+
+                                                var selectedTemplateIdFromCart = $('select[name="configoption[1]"] option:selected').val();
+
+
                                                 $.getJSON("{$WEB_ROOT}/index.php?m=microweber_addon&ajax=1&function=get_templates_for_cart", function (data) {
                                                     var items = [];
                                                     $.each(data, function (key, val) {
-                                                        if (key == 0) {
-                                                            var classHidden = '';
+                                                        var classHidden = 'hidden';
+
+                                                        if(selectedTemplateIdFromCart && val){
+                                                            if(val.id == selectedTemplateIdFromCart){
+                                                                var classHidden = '';
+                                                            }
                                                         } else {
-                                                            var classHidden = 'hidden';
+                                                            if (key == 0) {
+                                                                var classHidden = '';
+                                                            }
                                                         }
+
+
                                                         items.push('<div class="col-xs-12 px-0 ' + classHidden + ' template" id="template-' + val.id + '">' +
                                                             '<div class="image-holder" style="background-image: url(' + val.image + ');"></div>' +
                                                             '<p>' + val.title + '</p>' +
