@@ -1,12 +1,12 @@
 <div class="mw-whm submittickket">
-    <div class="header-lined text-center">
+    <div class="header-lined text-center mb-3">
         <h1>Support / Open Ticket</h1>
         <p>{$LANG.supportticketsheader}</p>
     </div>
 
     <br/>
 
-    <div class="row">
+    <div class="row whmc-submitaticket">
         <div class="col-sm-10 col-sm-offset-1">
             <div class="row">
                 {foreach from=$departments key=num item=department}

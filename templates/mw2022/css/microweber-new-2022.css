@@ -1799,3 +1799,21 @@ input[type="radio"], input[type="checkbox"] {
     width: 30%;
     margin-left: 15px;
 }
+
+.currencychooser .whmc-kbtn-2 {
+    line-height: 25px;
+    padding: 0 15px;
+}
+
+.mw-whm.submittickket {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 3px !important;
+    padding: 50px;
+    margin: 20px;
+}
+
+#default-captcha-domainchecker, #default-captcha-domainchecker {
+    padding: 30px 0!important;
+
+}
