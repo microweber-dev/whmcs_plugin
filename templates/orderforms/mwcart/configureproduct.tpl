@@ -25,103 +25,7 @@
                     <div class="row">
                         <div class="col-md-6">
 
-                            {if $pricing.type eq "recurring"}
-                                <h3>{$LANG.cartchoosecycle}</h3>
-                                <div class="billingcycle">
-                                    <table width="100%" cellspacing="0" cellpadding="0" class="configtable">
-                                        {if $pricing.monthly}
-                                            <tr>
-                                                <td class="radiofield">
-                                                    <input type="radio" name="billingcycle" id="cycle1" value="monthly"{if $billingcycle eq "monthly"} checked{/if}
-                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
-                                                </td>
-                                                <td class="fieldarea">
-                                                    <label for="cycle1" class="radio-inline">{$pricing.monthly}</label>
-                                                </td>
-                                            </tr>
-                                        {/if}
-                                        {if $pricing.quarterly}
-                                            <tr>
-                                                <td class="radiofield">
-                                                    <input type="radio" name="billingcycle" id="cycle2" value="quarterly"{if $billingcycle eq "quarterly"} checked{/if}
-                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
-                                                </td>
-                                                <td class="fieldarea">
-                                                    <label for="cycle2" class="radio-inline">{$pricing.quarterly}</label>
-                                                </td>
-                                            </tr>
-                                        {/if}
-                                        {if $pricing.semiannually}
-                                            <tr>
-                                                <td class="radiofield">
-                                                    <input type="radio" name="billingcycle" id="cycle3" value="semiannually"{if $billingcycle eq "semiannually"} checked{/if}
-                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
-                                                </td>
-                                                <td class="fieldarea">
-                                                    <label for="cycle3" class="radio-inline">{$pricing.semiannually}</label>
-                                                </td>
-                                            </tr>
-                                        {/if}
-                                        {if $pricing.annually}
-                                            <tr>
-                                                <td class="radiofield">
-                                                    <input type="radio" name="billingcycle" id="cycle4" value="annually"{if $billingcycle eq "annually"} checked{/if}
-                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
-                                                </td>
-                                                <td class="fieldarea">
-                                                    <label for="cycle4" class="radio-inline">{$pricing.annually}</label>
-                                                </td>
-                                            </tr>
-                                        {/if}
-                                        {if $pricing.biennially}
-                                            <tr>
-                                                <td class="radiofield">
-                                                    <input type="radio" name="billingcycle" id="cycle5" value="biennially"{if $billingcycle eq "biennially"} checked{/if}
-                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
-                                                </td>
-                                                <td class="fieldarea">
-                                                    <label for="cycle5" class="radio-inline">{$pricing.biennially}</label>
-                                                </td>
-                                            </tr>
-                                        {/if}
-                                        {if $pricing.triennially}
-                                            <tr>
-                                                <td class="radiofield">
-                                                    <input type="radio" name="billingcycle" id="cycle6" value="triennially"{if $billingcycle eq "triennially"} checked{/if}
-                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
-                                                </td>
-                                                <td class="fieldarea">
-                                                    <label for="cycle6" class="radio-inline">{$pricing.triennially}</label>
-                                                </td>
-                                            </tr>
-                                        {/if}
-                                    </table>
-                                </div>
-                            {/if}
 
-                            {if $productinfo.type eq "server"}
-                                <h3>{$LANG.cartconfigserver}</h3>
-                                <div class="serverconfig">
-                                    <table width="100%" cellspacing="0" cellpadding="0" class="configtable">
-                                        <tr>
-                                            <td class="fieldlabel">{$LANG.serverhostname}:</td>
-                                            <td class="fieldarea"><input type="text" name="hostname" size="15" value="{$server.hostname}"/> {$LANG.serverhostnameexample}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fieldlabel">{$LANG.serverns1prefix}:</td>
-                                            <td class="fieldarea"><input type="text" name="ns1prefix" size="10" value="{$server.ns1prefix}"/> {$LANG.serverns1prefixexample}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fieldlabel">{$LANG.serverns2prefix}:</td>
-                                            <td class="fieldarea"><input type="text" name="ns2prefix" size="10" value="{$server.ns2prefix}"/> {$LANG.serverns2prefixexample}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fieldlabel">{$LANG.serverrootpw}:</td>
-                                            <td class="fieldarea"><input type="password" name="rootpw" size="20" value="{$server.rootpw}"/></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            {/if}
 
                             {if $configurableoptions}
                                 {*<h3>{$LANG.orderconfigpackage}</h3>*}
@@ -280,6 +184,107 @@
 
                         </div>
                         <div class="col-md-6">
+
+
+                            {if $pricing.type eq "recurring"}
+                                <h3>{$LANG.cartchoosecycle}</h3>
+                                <div class="billingcycle">
+                                    <table width="100%" cellspacing="0" cellpadding="0" class="configtable">
+                                        {if $pricing.monthly}
+                                            <tr>
+                                                <td class="radiofield">
+                                                    <input type="radio" name="billingcycle" id="cycle1" value="monthly"{if $billingcycle eq "monthly"} checked{/if}
+                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
+                                                </td>
+                                                <td class="fieldarea">
+                                                    <label for="cycle1" class="radio-inline">{$pricing.monthly}</label>
+                                                </td>
+                                            </tr>
+                                        {/if}
+                                        {if $pricing.quarterly}
+                                            <tr>
+                                                <td class="radiofield">
+                                                    <input type="radio" name="billingcycle" id="cycle2" value="quarterly"{if $billingcycle eq "quarterly"} checked{/if}
+                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
+                                                </td>
+                                                <td class="fieldarea">
+                                                    <label for="cycle2" class="radio-inline">{$pricing.quarterly}</label>
+                                                </td>
+                                            </tr>
+                                        {/if}
+                                        {if $pricing.semiannually}
+                                            <tr>
+                                                <td class="radiofield">
+                                                    <input type="radio" name="billingcycle" id="cycle3" value="semiannually"{if $billingcycle eq "semiannually"} checked{/if}
+                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
+                                                </td>
+                                                <td class="fieldarea">
+                                                    <label for="cycle3" class="radio-inline">{$pricing.semiannually}</label>
+                                                </td>
+                                            </tr>
+                                        {/if}
+                                        {if $pricing.annually}
+                                            <tr>
+                                                <td class="radiofield">
+                                                    <input type="radio" name="billingcycle" id="cycle4" value="annually"{if $billingcycle eq "annually"} checked{/if}
+                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
+                                                </td>
+                                                <td class="fieldarea">
+                                                    <label for="cycle4" class="radio-inline">{$pricing.annually}</label>
+                                                </td>
+                                            </tr>
+                                        {/if}
+                                        {if $pricing.biennially}
+                                            <tr>
+                                                <td class="radiofield">
+                                                    <input type="radio" name="billingcycle" id="cycle5" value="biennially"{if $billingcycle eq "biennially"} checked{/if}
+                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
+                                                </td>
+                                                <td class="fieldarea">
+                                                    <label for="cycle5" class="radio-inline">{$pricing.biennially}</label>
+                                                </td>
+                                            </tr>
+                                        {/if}
+                                        {if $pricing.triennially}
+                                            <tr>
+                                                <td class="radiofield">
+                                                    <input type="radio" name="billingcycle" id="cycle6" value="triennially"{if $billingcycle eq "triennially"} checked{/if}
+                                                           onclick="{if $configurableoptions}updateConfigurableOptions({$i}, this.value){else}recalctotals(){/if}"/>
+                                                </td>
+                                                <td class="fieldarea">
+                                                    <label for="cycle6" class="radio-inline">{$pricing.triennially}</label>
+                                                </td>
+                                            </tr>
+                                        {/if}
+                                    </table>
+                                </div>
+                            {/if}
+
+                            {if $productinfo.type eq "server"}
+                                <h3>{$LANG.cartconfigserver}</h3>
+                                <div class="serverconfig">
+                                    <table width="100%" cellspacing="0" cellpadding="0" class="configtable">
+                                        <tr>
+                                            <td class="fieldlabel">{$LANG.serverhostname}:</td>
+                                            <td class="fieldarea"><input type="text" name="hostname" size="15" value="{$server.hostname}"/> {$LANG.serverhostnameexample}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fieldlabel">{$LANG.serverns1prefix}:</td>
+                                            <td class="fieldarea"><input type="text" name="ns1prefix" size="10" value="{$server.ns1prefix}"/> {$LANG.serverns1prefixexample}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fieldlabel">{$LANG.serverns2prefix}:</td>
+                                            <td class="fieldarea"><input type="text" name="ns2prefix" size="10" value="{$server.ns2prefix}"/> {$LANG.serverns2prefixexample}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fieldlabel">{$LANG.serverrootpw}:</td>
+                                            <td class="fieldarea"><input type="password" name="rootpw" size="20" value="{$server.rootpw}"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            {/if}
+
+
                             <div>
                                 <div id="cartLoader" class="pull-right">
                                     <i class="fa fa-fw fa-refresh fa-spin"></i>
