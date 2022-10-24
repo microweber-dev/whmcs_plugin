@@ -17,7 +17,7 @@
     });
 </script>
 <div class="table-container clearfix">
-    <table id="tableQuotesList" class="table table-list hidden">
+    <table id="tableQuotesList" class="table table-list hidden table-responsive" style="width: 100% !important;">
         <thead>
             <tr>
                 <th>{$LANG.quotenumber}</th>

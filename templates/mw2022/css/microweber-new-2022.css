@@ -1139,7 +1139,7 @@ header .top-right-button {
     margin-bottom: 15px;
 
 }
-
+z
 #order-standard_cart .font-size-30 {
     font-weight: 300;
 }
@@ -1164,9 +1164,22 @@ footer {
 
 #order-modern .domainoptions .optionselected {
 
-    background: linear-gradient( 90deg, #1279fa 0%, #1279fa 100%);
+    background: white!important;
     background-color: unset!important;
 }
+
+#order-modern .domainreginput  {
+    background: linear-gradient( 90deg, #1279fa 0%, #1279fa 100%);
+    background-color: unset!important;
+    padding: 60px 0!important;
+}
+
+#order-modern .domainreginput .row-blue  {
+    display: flex;
+    justify-content: center;
+}
+
+
 
 #order-modern .domainoptions .option {
     border: none!important;
@@ -1180,7 +1193,7 @@ footer {
 
 #order-modern .domainoptions .optionselected .radio-inline {
 
-    color: #ffffff!important;
+    color: #000000!important;
 }
 
 .input-select-domaintransfer {
@@ -1603,7 +1616,7 @@ footer {
 }
 
 #order-modern .domainreginput select, #order-modern .domainregperiod select {
-    text-align: center;
+    /*text-align: center;*/
     margin: 0 auto;
 }
 
@@ -1721,3 +1734,24 @@ input[type="radio"], input[type="checkbox"] {
         margin: 100px auto;
     }
 }
+
+#tableQuotesList_wrapper {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 3px !important;
+    padding: 50px;
+    margin: 20px;
+}
+
+#tableQuotesList_wrapper td, #tableQuotesList_wrapper th{
+    padding: 20px;
+}
+
+.dataTables_paginate .paging_simple_numbers {
+    text-align: center;
+}
+
+/*#tableQuotesList {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/

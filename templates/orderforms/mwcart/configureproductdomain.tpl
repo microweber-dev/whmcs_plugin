@@ -5,7 +5,7 @@
 
     <div id="order-modern">
 
-        <div class="col-sm-12">
+        <div class="col-sm-12 mb-5 px-0 py-5">
             <h1 class="choose-a-domain-h1">{$LANG.cartproductselection}: {$productinfo.groupname} - {$productinfo.name}</h1>
             <p>{$LANG.cartmakedomainselection}</p>
         </div>
@@ -13,51 +13,53 @@
         <form onsubmit="checkdomain();return false">
 
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="domainoptions">
-                        {if $incartdomains}
-                            <div class="option">
-                                <label class="radio-inline">
-                                    <input type="radio" class="input-select-domaintransfer" placeholder="Search domain..." name="domainoption" value="incart" id="selincart"/>{$LANG.cartproductdomainuseincart}
-                                </label>
-                            </div>
-                        {/if}
-                        {if $registerdomainenabled}
-                            <div class="option">
-                                <label class="radio-inline">
-                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="register" id="selregister"/>{$LANG.cartregisterdomainchoice|sprintf2:$companyname}
-                                </label>
-                            </div>
-                        {/if}
-                        {if $transferdomainenabled}
-                            <div class="option">
-                                <label class="radio-inline">
-                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="transfer" id="seltransfer"/>{$LANG.carttransferdomainchoice|sprintf2:$companyname}
-                                </label>
-                            </div>
-                        {/if}
-                        {if $owndomainenabled}
-                            <div class="option">
-                                <label class="radio-inline">
-                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="owndomain" id="selowndomain"/>{$LANG.cartexistingdomainchoice|sprintf2:$companyname}
-                                </label>
-                            </div>
-                        {/if}
-                        {if $subdomains}
-                            <div class="option">
-                                <label class="radio-inline">
-                                    <input type="radio" class="input-select-domaintransfer" name="domainoption" value="subdomain" id="selsubdomain"/>{$LANG.cartsubdomainchoice|sprintf2:$companyname}
-                                </label>
+                <div class=" col-sm-12">
+                    <div class="row domainoptions">
+                       <div class="p-4">
+                           {if $incartdomains}
+                               <div class="offset-md-2  p-1 option">
+                                   <label class="radio-inline">
+                                       <input type="radio" class="input-select-domaintransfer" placeholder="Search domain..." name="domainoption" value="incart" id="selincart"/><span class="ms-3">{$LANG.cartproductdomainuseincart}</span>
+                                   </label>
+                               </div>
+                           {/if}
+                           {if $registerdomainenabled}
+                               <div class="offset-md-2  p-1 option">
+                                   <label class="radio-inline">
+                                       <input type="radio" class="input-select-domaintransfer" name="domainoption" value="register" id="selregister"/><span class="ms-3">{$LANG.cartregisterdomainchoice|sprintf2:$companyname}</span>
+                                   </label>
+                               </div>
+                           {/if}
+                           {if $transferdomainenabled}
+                               <div class="offset-md-2  p-1 option">
+                                   <label class="radio-inline">
+                                       <input type="radio" class="input-select-domaintransfer" name="domainoption" value="transfer" id="seltransfer"/><span class="ms-3">{$LANG.carttransferdomainchoice|sprintf2:$companyname}</span>
+                                   </label>
+                               </div>
+                           {/if}
+                           {if $owndomainenabled}
+                               <div class="offset-md-2  p-1 option">
+                                   <label class="radio-inline">
+                                       <input type="radio" class="input-select-domaintransfer" name="domainoption" value="owndomain" id="selowndomain"/><span class="ms-3">{$LANG.cartexistingdomainchoice|sprintf2:$companyname}</span>
+                                   </label>
+                               </div>
+                           {/if}
+                           {if $subdomains}
+                               <div class="offset-md-2  p-1 option">
+                                   <label class="radio-inline">
+                                       <input type="radio" class="input-select-domaintransfer" name="domainoption" value="subdomain" id="selsubdomain"/><span class="ms-3">{$LANG.cartsubdomainchoice|sprintf2:$companyname}</span>
+                                   </label>
 
-                            </div>
-                        {/if}
+                               </div>
+                           {/if}
+                       </div>
 
 
 
-                        <div class="row">
+
 
                             <div class="domainreginput hidden clearfix" id="domainincart">
-                                <div class="row">
+                                <div class="row-blue">
                                     <div class="col-sm-8 col-md-6">
                                         <select id="incartsld" name="incartdomain" class="form-control">
                                             {foreach key=num item=incartdomain from=$incartdomains}
@@ -71,7 +73,7 @@
 
 
                             <div class="domainreginput hidden clearfix" id="domainregister">
-                                <div class="row">
+                                <div class="row-blue">
                                     <div class="col-sm-6 col-xs-8">
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
@@ -90,11 +92,11 @@
 
 
                             <div class="domainreginput hidden clearfix" id="domaintransfer">
-                                <div class="row">
+                                <div class="row-blue">
                                     <div class="col-sm-6 col-xs-8">
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
-                                            <input type="text" id="transfersld" value="{$sld}" placeholder="Search domain..." class="form-control" autocapitalize="none"/>
+                                            <input type="text" id="transfersld" value="{$sld}" placeholder="Transfer domain..." class="form-control" autocapitalize="none"/>
                                         </div>
                                     </div>
                                     <div class="col-sm-2 col-xs-4">
@@ -109,11 +111,11 @@
 
 
                             <div class="domainreginput hidden clearfix" id="domainowndomain">
-                                <div class="row">
+                                <div class="row-blue">
                                     <div class="col-sm-6 col-xs-8" >
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
-                                            <input type="text" id="owndomainsld" value="{$sld}" placeholder="Search domain..." class="form-control" autocapitalize="none"/>
+                                            <input type="text" id="owndomainsld" value="{$sld}" placeholder="Type your domain..." class="form-control" autocapitalize="none"/>
                                         </div>
                                     </div>
                                     <div class="col-sm-2 col-xs-4">
@@ -125,11 +127,11 @@
 
 
                             <div class="domainreginput hidden" id="domainsubdomain">
-                                <div class="row">
+                                <div class="row-blue">
                                     <div class="col-sm-5 col-xs-7">
                                         <div class="input-group" class="input-select-domaintransfer" style="display: block;">
                                             {*                                                <span class="input-group-addon">http://</span>*}
-                                            <input type="text"  id="subdomainsld" size="30" placeholder="Search domain..." value="{$sld}" autocapitalize="none" class="form-control"/>
+                                            <input type="text"  id="subdomainsld" size="30" placeholder="Type your subdomain..." value="{$sld}" autocapitalize="none" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="col-sm-3 col-xs-5">
@@ -142,7 +144,7 @@
                                 </div>
                             </div>
 
-                        </div>
+
 
                     </div>
                 </div>
@@ -150,7 +152,7 @@
 
             <div class="domain-fade-out">
 
-                <div class="text-center">
+                <div class="text-center mt-5">
                     <button type="submit" id="btnDomainContinue" class="whmc-kbtn">{$LANG.continue} &nbsp;<i class="fa fa-arrow-circle-right"></i></button>
                 </div>
 
