@@ -49,7 +49,7 @@
         }
     </style>
 {/literal}
-<div class="mw-whm clientareahome">
+<div class="mw-whm clientareahome mt-5 pt-5">
 
     <div class="mw-whm-hero--clientarea" style="background-image: url({$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg)">
         <div>
