@@ -112,7 +112,7 @@
                     <br>
                 {/foreach}
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="whmc-kbtn ">
                 {lang key="userManagement.sendInvite"}
             </button>
         </form>
@@ -143,7 +143,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {lang key="cancel"}
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btnRemoveUserConfirm">
+                    <button type="submit" class="whmc-kbtn " id="btnRemoveUserConfirm">
                         {lang key="confirm"}
                     </button>
                 </div>
@@ -171,7 +171,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {lang key="cancel"}
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btnCancelInviteConfirm">
+                    <button type="submit" class="whmc-kbtn " id="btnCancelInviteConfirm">
                         {lang key="confirm"}
                     </button>
                 </div>

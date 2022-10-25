@@ -13,6 +13,6 @@
     </div>
 
     <div class="form-group text-center">
-        <button type="submit" class="btn btn-primary">{lang key='pwresetsubmit'}</button>
+        <button type="submit" class="whmc-kbtn ">{lang key='pwresetsubmit'}</button>
     </div>
 </form>

@@ -24,7 +24,7 @@
                     {/if}
                 </button>
                 {if isset($submitAction)}
-                    <button type="button" class="btn btn-primary" onclick="{$submitAction}">
+                    <button type="button" class="whmc-kbtn " onclick="{$submitAction}">
                         {if isset($submitLabel)}
                             {$submitLabel}
                         {else}

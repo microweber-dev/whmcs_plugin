@@ -15,9 +15,17 @@
     min-height: calc(100vh - 67px - 97px);
 }
 
+
+
 .page-content {
     border: unset;
-    width: 85%!important;
+}
+@media (min-width: 768px) {
+
+    .page-content {
+        width: 85% !important;
+
+    }
 }
 
 
@@ -1250,6 +1258,9 @@ footer {
 .hosting-information-titles {
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #acb0b9;
+    font-weight: 500!important;
 }
 
 .hosting-domain-panel {
@@ -1817,3 +1828,80 @@ input[type="radio"], input[type="checkbox"] {
     padding: 30px 0!important;
 
 }
+
+.product-status {
+    background: linear-gradient( 90deg, #009aff 0%, #1279fa 100%);
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 3px !important;
+    height: 100%;
+    display: flex;
+    align-items: self-end;
+    justify-content: center;
+}
+
+.panel.panel-default, .client-area-details-tabs-box {
+    box-shadow: 0px 0px 1px rgb(0 0 0 / 10%), 0px 2px 24px rgb(0 0 0 / 8%) !important;
+    border: none !important;
+    border-radius: 3px !important;
+    padding: 40px!important;
+}
+.padding-x-0 .col-md-12 {
+    padding-right: 0;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: unset;
+    padding: 20px;
+}
+
+
+.client-area-details-tabs-box li {
+    padding: 20px 0;
+
+}
+.client-area-details-tabs-box li a.active >  i, .client-area-details-tabs-box li a.active {
+    color: #1279fa;
+
+}
+
+.client-area-details-tabs-box i  {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.client-area-details-tabs-box li:has(> a.active) {
+    border-bottom: 2px solid #1279fa;
+    pdding-bottom: 20px;
+    padding: 20px 0;
+
+}
+
+.client-area-details-tabs-box .nav-tabs > li > a:hover, .client-area-details-tabs-box .nav-tabs > li > a:active {
+    background-color: unset!important;
+    color: #1279fa;
+
+}
+
+.client-area-details-tabs-box .nav-tabs > li > a {
+    border: none!important;
+    background-color: unset!important;
+    padding-left: 0;
+}
+.client-area-details-tabs-box .nav-tabs > li {
+    margin-right: 30px;
+
+}
+
+.hosting-domain-panel {
+    padding: 0 10px;
+}
+
+@media (max-width: 995px) {
+
+    .texts-hide-on-mobile {
+        display: none!important;
+    }
+}
+
+

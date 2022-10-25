@@ -626,7 +626,7 @@
                         /*
 
                         <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">
-                           <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>
+                           <button type="button" class="whmc-kbtn js-domain-search-load-more-btn">Load more</button>
                        </div>
 
                          * */

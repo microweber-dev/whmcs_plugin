@@ -196,7 +196,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.cancel}</button>
-                        <button type="submit" class="btn btn-primary">{$LANG.quoteacceptbtn}</button>
+                        <button type="submit" class="whmc-kbtn ">{$LANG.quoteacceptbtn}</button>
                     </div>
                 </div>
             </div>

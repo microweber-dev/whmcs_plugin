@@ -336,7 +336,7 @@ var _localLang = {
                                 <div class="summary-container" id="producttotal"></div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" id="btnCompleteProductConfig" class="btn btn-primary btn-lg">
+                                <button type="submit" id="btnCompleteProductConfig" class="whmc-kbtn btn-lg">
                                     {$LANG.continue}
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </button>

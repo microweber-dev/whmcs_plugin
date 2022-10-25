@@ -126,7 +126,7 @@
     </div>
 
     <div class="form-group text-center">
-        <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+        <input class="whmc-kbtn " type="submit" name="save" value="{lang key='clientareasavechanges'}" />
         <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
     </div>
 

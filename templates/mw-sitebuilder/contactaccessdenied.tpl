@@ -17,7 +17,7 @@
     {/if}
     <p>{$LANG.subaccountcontactmaster}</p>
     <div class="buttons">
-        <a href="javascript:history.go(-1)" class="btn btn-primary btn-lg">
+        <a href="javascript:history.go(-1)" class="whmc-kbtn btn-lg">
             <i class="fas fa-arrow-circle-left"></i>
             {$LANG.goback}
         </a>

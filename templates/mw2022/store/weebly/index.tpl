@@ -178,7 +178,7 @@
                             <form method="post" action="{routePath('store-order')}">
                                 <input type="hidden" name="pid" value="{$product->id}">
                                 <input type="hidden" name="billingcycle" value="">
-                                <button type="submit" class="btn btn-primary btn-block btn-signup">Signup</button>
+                                <button type="submit" class="whmc-kbtnbtn-block btn-signup">Signup</button>
                             </form>
                         </div>
                     {/foreach}

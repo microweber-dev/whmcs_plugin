@@ -16,7 +16,7 @@
         <form method="post" action="{routePath('user-accounts')}">
             <div class="d-flex justify-content-center">
                 <input type="hidden" name="id" value="{$requiredClient->id}" >
-                <button type="submit" class="btn btn-primary mr-3">
+                <button type="submit" class="whmc-kbtnmr-3">
                     {lang key="continue"}
                     <i class="fas fa-arrow-right"></i>
                 </button>

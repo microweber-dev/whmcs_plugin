@@ -147,7 +147,7 @@
                                 <div class="summary-container" id="producttotal"></div>
                             </div>
                             <div class="text-center">
-                                <a id="btnGoToCart" class="btn btn-primary btn-lg" href="{$WEB_ROOT}/cart.php?a=view">
+                                <a id="btnGoToCart" class="whmc-kbtn btn-lg" href="{$WEB_ROOT}/cart.php?a=view">
                                     {lang key='viewcart'}
                                     <i class="far fa-shopping-cart"></i>
                                 </a>
@@ -180,7 +180,7 @@
                     </div>
                     <div class="modal-footer d-block">
                         <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
-                        <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+                        <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
                     </div>
                 </div>
             </div>

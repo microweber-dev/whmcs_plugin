@@ -41,7 +41,7 @@
                         {/if}
                         <div id="btnSubmitContainer" class="form-group submit-container">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary" id="btnSubmit" value="{lang key='submitpayment'}">
+                                <button type="submit" class="whmc-kbtn " id="btnSubmit" value="{lang key='submitpayment'}">
                                     <span class="pay-text">{lang key='submitpayment'}</span>
                                     <span class="click-text w-hidden">{lang key='pleasewait'}</span>
                                 </button>

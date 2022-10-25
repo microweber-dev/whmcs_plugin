@@ -34,7 +34,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                     {$LANG.close}
                 </button>
-                <button type="button" class="btn btn-primary modal-submit">
+                <button type="button" class="whmc-kbtn modal-submit">
                     {$LANG.submit}
                 </button>
             </div>

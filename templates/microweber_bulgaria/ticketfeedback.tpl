@@ -2,7 +2,7 @@
     {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.feedbackclosed textcenter=true}
 
     <p class="text-center">
-        <a href="clientarea.php" class="btn btn-primary">{$LANG.returnclient}</a>
+        <a href="clientarea.php" class="whmc-kbtn ">{$LANG.returnclient}</a>
     </p>
 {elseif $feedbackdone}
     {include file="$template/includes/alert.tpl" type="success" msg=$LANG.feedbackprovided textcenter=true}
@@ -10,7 +10,7 @@
     <p class="text-center">{$LANG.feedbackthankyou}</p>
 
     <p class="text-center">
-        <a href="clientarea.php" class="btn btn-primary">{$LANG.returnclient}</a>
+        <a href="clientarea.php" class="whmc-kbtn ">{$LANG.returnclient}</a>
     </p>
 {elseif $success}
     {include file="$template/includes/alert.tpl" type="success" msg=$LANG.feedbackreceived textcenter=true}
@@ -18,7 +18,7 @@
     <p class="text-center">{$LANG.feedbackthankyou}</p>
 
     <p class="text-center">
-        <a href="clientarea.php" class="btn btn-primary">{$LANG.returnclient}</a>
+        <a href="clientarea.php" class="whmc-kbtn ">{$LANG.returnclient}</a>
     </p>
 {else}
 
@@ -113,7 +113,7 @@
         <br />
 
         <div class="form-group text-center">
-            <input class="btn btn-primary" type="submit" name="save" value="{$LANG.clientareasavechanges}" />
+            <input class="whmc-kbtn " type="submit" name="save" value="{$LANG.clientareasavechanges}" />
             <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
         </div>
 

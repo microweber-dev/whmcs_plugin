@@ -138,7 +138,7 @@
                 </table>
 
                 <p class="text-center">
-                    <input type="submit" value="{$LANG.ordercontinuebutton}" class="btn btn-primary"/>
+                    <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn "/>
                 </p>
 
             </form>

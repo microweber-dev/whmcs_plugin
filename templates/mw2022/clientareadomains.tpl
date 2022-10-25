@@ -348,7 +348,7 @@
                             </td>
                             <td class="text-center">
                                 {if !$renewal.beforeRenewLimit && !$renewal.pastGracePeriod}
-                                    <button type="button" class="btn btn-primary btn-sm" id="renewButton{$renewal.id}" onclick="addRenewalToCart({$renewal.id}, this)">
+                                    <button type="button" class="whmc-kbtnbtn-sm" id="renewButton{$renewal.id}" onclick="addRenewalToCart({$renewal.id}, this)">
                                         <span class="glyphicon glyphicon-shopping-cart"></span> {$LANG.addtocart}
                                     </button>
                                 {/if}

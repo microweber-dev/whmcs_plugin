@@ -2,7 +2,7 @@
     <div class="input-group input-group-lg kb-search margin-bottom">
         <input type="text" name="search" id="inputDownloadsSearch" class="form-control" placeholder="{$LANG.downloadssearch}" value="{$search}" />
         <span class="input-group-btn">
-            <input type="submit" id="btnDownloadsSearch" class="btn btn-primary btn-input-padded-responsive" value="{$LANG.search}" />
+            <input type="submit" id="btnDownloadsSearch" class="whmc-kbtnbtn-input-padded-responsive" value="{$LANG.search}" />
         </span>
     </div>
 </form>

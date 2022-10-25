@@ -9,7 +9,7 @@
                         <input type="text" class="form-control" name="domain" placeholder="{lang key="exampledomain"}" autocapitalize="none">
                         <span class="input-group-append d-none d-sm-block">
                             {if $registerdomainenabled}
-                                <button type="submit" class="btn btn-primary{$captcha->getButtonClass($captchaForm)}" id="btnDomainSearch">
+                                <button type="submit" class="whmc-kbtn {$captcha->getButtonClass($captchaForm)}" id="btnDomainSearch">
                                     {lang key="search"}
                                 </button>
                             {/if}
@@ -24,7 +24,7 @@
                 <div class="row d-sm-none">
                     {if $registerdomainenabled}
                         <div class="col-6">
-                            <button type="submit" class="btn btn-primary{$captcha->getButtonClass($captchaForm)} btn-block" id="btnDomainSearch2">
+                            <button type="submit" class="whmc-kbtn {$captcha->getButtonClass($captchaForm)} btn-block" id="btnDomainSearch2">
                                 {lang key="search"}
                             </button>
                         </div>

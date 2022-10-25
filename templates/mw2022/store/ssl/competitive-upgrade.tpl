@@ -65,7 +65,7 @@
                                         </tr>
                                     {/if}
                                 </table>
-                                <a class="btn btn-primary btn-lg" href="{routePath('store-product-group', $productGroupSlug, 'ev')}">
+                                <a class="whmc-kbtnbtn-lg" href="{routePath('store-product-group', $productGroupSlug, 'ev')}">
                                     {lang key='store.ssl.competitiveUpgrades.continue'}
                                 </a>
                             {else}
@@ -82,7 +82,7 @@
                                 </div>
                                 <input type="text" name="url" value="{$url}" class="form-control" placeholder="{lang key='store.ssl.competitiveUpgrades.enterDomain'}">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="whmc-kbtn ">
                                         {lang key='store.ssl.competitiveUpgrades.validate'}
                                     </button>
                                 </div>

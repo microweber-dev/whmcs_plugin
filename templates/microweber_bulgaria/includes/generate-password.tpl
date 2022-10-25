@@ -41,7 +41,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {$LANG.close}
                     </button>
-                    <button type="button" class="btn btn-primary" id="btnGeneratePasswordInsert" data-clipboard-target="#inputGeneratePasswordOutput">
+                    <button type="button" class="whmc-kbtn " id="btnGeneratePasswordInsert" data-clipboard-target="#inputGeneratePasswordOutput">
                         {$LANG.generatePassword.copyAndInsert}
                     </button>
                 </div>

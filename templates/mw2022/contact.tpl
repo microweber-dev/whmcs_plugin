@@ -41,7 +41,7 @@
 
             <div class="form-group">
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">{$LANG.contactsend}</button>
+                    <button type="submit" class="whmc-kbtn ">{$LANG.contactsend}</button>
                 </div>
             </div>
 

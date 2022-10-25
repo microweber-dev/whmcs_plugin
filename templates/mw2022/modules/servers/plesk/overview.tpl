@@ -312,7 +312,7 @@
                         <input type="password" id="cpanel-email-password" name="email_pw" class="form-control mb-1" placeholder="{$LANG.cPanel.passwordPlaceholder}">
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-primary btn-block">
+                        <button type="submit" class="whmc-kbtnbtn-block">
                             <i class="fas fa-plus" id="btnCreateLoader"></i>
                             {$LANG.cPanel.create}
                         </button>

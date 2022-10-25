@@ -102,7 +102,7 @@
                                     <i class="input-group-icon fas fa-search lm lm-search"></i>
                                     <input type="text" class="form-control" name="domain" placeholder="{$LANG.exampledomain}" autocapitalize="none"/>
                                     {if $registerdomainenabled}
-                                        <input type="submit" class="btn btn-primary search {if in_array($captcha, ['invisible']) && $captcha->isEnabled() && $captcha->isEnabledForForm($captchaForm)}{$captcha->getButtonClass($captchaForm)}{/if}" value="{$LANG.search}" id="btnDomainSearch"/>
+                                        <input type="submit" class="whmc-kbtn search {if in_array($captcha, ['invisible']) && $captcha->isEnabled() && $captcha->isEnabledForForm($captchaForm)}{$captcha->getButtonClass($captchaForm)}{/if}" value="{$LANG.search}" id="btnDomainSearch"/>
                                     {/if}
                                 </div>
                             </form>
@@ -168,7 +168,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="package-actions">
-                                                    <a href="{$systemurl}cart.php?gid={$homepage->productGroup($product.gid)->product->productGroup->id}" class="btn btn-primary" data-target="incoming">{$LANG.getStartedNow}</a>
+                                                    <a href="{$systemurl}cart.php?gid={$homepage->productGroup($product.gid)->product->productGroup->id}" class="whmc-kbtn " data-target="incoming">{$LANG.getStartedNow}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -185,7 +185,7 @@
             <div class="container">
                 <h2 class="section-title">{$rslang->trans('homepage.get_started.title')}</h2>
                 <p class="section-subtitle">{$rslang->trans('homepage.get_started.subtitle')}</p>
-                <a href="{$WEB_ROOT}/contact.php" class="btn btn-primary">{$LANG.contactus}</a>
+                <a href="{$WEB_ROOT}/contact.php" class="whmc-kbtn ">{$LANG.contactus}</a>
             </div>
         </div>
     </div>

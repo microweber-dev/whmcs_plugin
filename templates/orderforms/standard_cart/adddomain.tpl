@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-sm-2 col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block" id="btnCheckAvailability">
+                        <button type="submit" class="whmc-kbtn btn-block" id="btnCheckAvailability">
                             {if $domain eq "register"}
                                 {$LANG.orderForm.check}
                             {else}

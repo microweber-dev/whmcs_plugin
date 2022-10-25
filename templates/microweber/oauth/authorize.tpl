@@ -24,7 +24,7 @@
             <input type="hidden" name="authz[]" value="{$auth}" />
         {/foreach}
         <div class="action-buttons">
-            <button name="userAuthorization" id="userAuthorizationAccepted" value="yes" type="submit" class="btn btn-primary">
+            <button name="userAuthorization" id="userAuthorizationAccepted" value="yes" type="submit" class="whmc-kbtn ">
                 {lang key='oauth.authorise'}
             </button>
             <button name="userAuthorization" id="userAuthorizationDeclined" value="no" type="submit" class="btn btn-default">

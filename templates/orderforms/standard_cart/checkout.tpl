@@ -134,7 +134,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="button" id="btnExistingLogin" class="btn btn-primary btn-md">
+                        <button type="button" id="btnExistingLogin" class="whmc-kbtn btn-md">
                             <span id="existingLoginButton">{lang key='login'}</span>
                             <span id="existingLoginPleaseWait" class="w-hidden">{lang key='pleasewait'}</span>
                         </button>
@@ -719,7 +719,7 @@
 
                     <button type="submit"
                             id="btnCompleteOrder"
-                            class="btn btn-primary btn-lg disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
+                            class="whmc-kbtn btn-lg disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
                             {if $cartitems==0}disabled="disabled"{/if}
                     >
                         {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.completeorder}{/if}

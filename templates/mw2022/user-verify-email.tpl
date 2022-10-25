@@ -29,7 +29,7 @@
             {/if}
         {/if}
 
-        <a href="{routePath('login-index')}" class="btn btn-primary btn-lg mt-4">
+        <a href="{routePath('login-index')}" class="whmc-kbtnbtn-lg mt-4">
             {lang key="orderForm.continueToClientArea"}
             &nbsp;
             <i class="fa fa-arrow-right"></i>

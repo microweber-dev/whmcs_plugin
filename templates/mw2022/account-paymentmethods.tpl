@@ -24,7 +24,7 @@
 
         <p>
             {if $allowCreditCard}
-                <a href="{routePath('account-paymentmethods-add')}" class="btn btn-primary" data-role="add-new-credit-card">
+                <a href="{routePath('account-paymentmethods-add')}" class="whmc-kbtn " data-role="add-new-credit-card">
                     {lang key='paymentMethods.addNewCC'}
                 </a>
             {/if}
@@ -98,7 +98,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
-        <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+        <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
       </div>
     </div>
   </div>

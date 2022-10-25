@@ -22,7 +22,7 @@
             <br>
 
             <p>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="whmc-kbtn ">
                     {lang key="clientareasavechanges"}
                 </button>
                 <a href="{routePath('account-users')}" class="btn btn-default">

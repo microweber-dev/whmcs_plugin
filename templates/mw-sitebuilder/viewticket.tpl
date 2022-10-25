@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group text-center">
-                    <input class="btn btn-primary" type="submit" name="save" value="{$LANG.supportticketsticketsubmit}" />
+                    <input class="whmc-kbtn " type="submit" name="save" value="{$LANG.supportticketsticketsubmit}" />
                     <input class="btn btn-default" type="reset" value="{$LANG.cancel}" onclick="jQuery('#ticketReply').click()" />
                 </div>
 

@@ -28,7 +28,7 @@
 
                     <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                    <a href="javascript:;" class="btn btn-primary" onclick="submitForPreview(this.parentNode);">Започни с този темплейт</a>
+                    <a href="javascript:;" class="whmc-kbtn " onclick="submitForPreview(this.parentNode);">Започни с този темплейт</a>
                     &nbsp;
                     <a class="btn btn-default" href="<?php print $preview_url; ?>" target="_blank"><i class="fa fa-times"></i></a>
                 </form>

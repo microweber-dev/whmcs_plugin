@@ -83,7 +83,7 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-primary modal-submit">
+                            <button type="button" class="whmc-kbtnmodal-submit">
                                 Submit
                             </button>
                         </div>

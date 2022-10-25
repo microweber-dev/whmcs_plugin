@@ -166,7 +166,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg">
+            <button type="submit" class="whmc-kbtn btn-lg">
                 {$LANG.continue}
                 &nbsp;<i class="fas fa-arrow-circle-right"></i>
             </button>

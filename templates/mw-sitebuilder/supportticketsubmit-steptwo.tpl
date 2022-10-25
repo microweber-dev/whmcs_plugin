@@ -93,7 +93,7 @@
     </div>
 
     <p class="text-center">
-        <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="btn btn-primary{$captcha->getButtonClass($captchaForm)}" />
+        <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="whmc-kbtn {$captcha->getButtonClass($captchaForm)}" />
         <a href="supporttickets.php" class="btn btn-default">{$LANG.cancel}</a>
     </p>
 

@@ -25,7 +25,7 @@
                 </form>
             </div>
             <div class="btn-group btn-group-sm" role="group">
-                <button id="btnAddAccount" type="button" class="btn btn-primary btn-sm">
+                <button id="btnAddAccount" type="button" class="whmc-kbtnbtn-sm">
                     <i class="fal fa-plus"></i>
                     {lang key='ox.createUser'}
                 </button>
@@ -117,7 +117,7 @@
                                        <span class="input-group-text">
                                            @{$domain}
                                        </span>
-                                       <button class="btn btn-primary btn-xs ox-create-alias">
+                                       <button class="whmc-kbtnbtn-xs ox-create-alias">
                                        <span class="loader w-hidden">
                                            <i class="far fa-sync-alt fa-spin" aria-hidden="true"></i>
                                        </span>
@@ -358,7 +358,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {lang key='close'}
                     </button>
-                    <button type="button" class="btn btn-primary ox-submit-button">
+                    <button type="button" class="whmc-kbtnox-submit-button">
                         {lang key='orderForm.add'}
                     </button>
                 </div>
@@ -406,7 +406,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {lang key='close'}
                     </button>
-                    <button type="button" class="btn btn-primary ox-submit-button">
+                    <button type="button" class="whmc-kbtnox-submit-button">
                         {lang key='clientareasavechanges'}
                     </button>
                 </div>
@@ -464,7 +464,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {lang key='close'}
                     </button>
-                    <button type="button" class="btn btn-primary ox-submit-button">
+                    <button type="button" class="whmc-kbtnox-submit-button">
                         {lang key='ox.setPassword'}
                     </button>
                 </div>

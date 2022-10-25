@@ -167,7 +167,7 @@
         </div>
         <div class="form-group submit-container">
             <div class="col-sm-8 col-sm-offset-4">
-                <button type="submit" name="submit" id="btnSubmit" class="btn btn-primary">{$LANG.clientareasavechanges}</button>
+                <button type="submit" name="submit" id="btnSubmit" class="whmc-kbtn ">{$LANG.clientareasavechanges}</button>
                 <a href="{routePath('account-paymentmethods')}" class="btn btn-default">{$LANG.cancel}</a>
             </div>
         </div>
@@ -284,7 +284,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.paymentMethods.close}</button>
-                    <button type="submit" class="btn btn-primary">{$LANG.paymentMethods.saveChanges}</button>
+                    <button type="submit" class="whmc-kbtn ">{$LANG.paymentMethods.saveChanges}</button>
                 </div>
             </form>
         </div>

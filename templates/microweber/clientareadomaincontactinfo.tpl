@@ -84,7 +84,7 @@
             <input id="irtpOptOut" type="hidden" name="irtpOptOut" value="0">
             <input id="irtpOptOutReason" type="hidden" name="irtpOptOutReason" value="">
         {/if}
-        <input type="submit" value="{$LANG.clientareasavechanges}" class="btn btn-primary" />
+        <input type="submit" value="{$LANG.clientareasavechanges}" class="whmc-kbtn " />
         <input type="reset" value="{$LANG.clientareacancel}" class="btn btn-default" />
     </p>
 
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <div id="modalIRTPConfirmationFooter" class="modal-footer panel-footer">
-                    <button type="button" id="IRTPConfirmation-Submit" class="btn btn-primary" onclick="irtpSubmit();return false;">
+                    <button type="button" id="IRTPConfirmation-Submit" class="whmc-kbtn " onclick="irtpSubmit();return false;">
                         {lang key='supportticketsticketsubmit'}
                     </button>
                     <button type="button" id="IRTPConfirmation-Cancel" class="btn btn-default" data-dismiss="modal">

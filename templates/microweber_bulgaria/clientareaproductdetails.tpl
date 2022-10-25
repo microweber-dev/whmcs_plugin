@@ -466,7 +466,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-6">
-                    <input class="btn btn-primary" type="submit" value="{$LANG.clientareasavechanges}" />
+                    <input class="whmc-kbtn " type="submit" value="{$LANG.clientareasavechanges}" />
                     <input class="btn" type="reset" value="{$LANG.cancel}" />
                 </div>
             </div>

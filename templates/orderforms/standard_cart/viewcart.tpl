@@ -584,7 +584,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
-                            <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+                            <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
                         </div>
                     </div>
                 </div>
@@ -610,7 +610,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.no}</button>
-                            <button type="submit" class="btn btn-primary">{$LANG.yes}</button>
+                            <button type="submit" class="whmc-kbtn ">{$LANG.yes}</button>
                         </div>
                     </div>
                 </div>

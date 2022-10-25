@@ -11,7 +11,7 @@
                 {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.twofabackupcodelogin textcenter=true}
                 <input type="text" name="code" class="form-control">
                 <br />
-                <button type="submit" name="backupcode" value="1" class="btn btn-primary btn-block" id="btnLogin">
+                <button type="submit" name="backupcode" value="1" class="whmc-kbtnbtn-block" id="btnLogin">
                     {lang key='login'} &raquo;
                 </button>
             </div>

@@ -160,7 +160,7 @@
                                                 <span class="added"><i class="far fa-shopping-cart"></i> {lang key='checkout'}</span>
                                                 <span class="unavailable">{$LANG.domaincheckertaken}</span>
                                             </button>
-                                            <button type="button" class="btn btn-primary domain-contact-support w-hidden">
+                                            <button type="button" class="whmc-kbtn domain-contact-support w-hidden">
                                                 {lang key='domainChecker.contactSupport'}
                                             </button>
                                         </div>
@@ -196,7 +196,7 @@
                                     <span class="added"><i class="far fa-shopping-cart"></i> {lang key='checkout'}</span>
                                     <span class="unavailable">{$LANG.domaincheckertaken}</span>
                                 </button>
-                                <button type="button" class="btn btn-primary domain-contact-support w-hidden">
+                                <button type="button" class="whmc-kbtn domain-contact-support w-hidden">
                                     {lang key='domainChecker.contactSupport'}
                                 </button>
                             </div>

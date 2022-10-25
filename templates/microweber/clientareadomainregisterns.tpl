@@ -29,7 +29,7 @@
     </div>
 
     <p class="text-center">
-        <input type="submit" value="{$LANG.clientareasavechanges}" class="btn btn-primary" />
+        <input type="submit" value="{$LANG.clientareasavechanges}" class="whmc-kbtn " />
     </p>
 
 </form>
@@ -63,7 +63,7 @@
     </div>
 
     <p class="text-center">
-        <input type="submit" value="{$LANG.clientareasavechanges}" class="btn btn-primary" />
+        <input type="submit" value="{$LANG.clientareasavechanges}" class="whmc-kbtn " />
     </p>
 
 </form>
@@ -85,7 +85,7 @@
     </div>
 
     <p class="text-center">
-        <input type="submit" value="{$LANG.clientareasavechanges}" class="btn btn-primary" />
+        <input type="submit" value="{$LANG.clientareasavechanges}" class="whmc-kbtn " />
     </p>
 
 </form>

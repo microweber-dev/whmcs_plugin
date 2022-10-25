@@ -129,7 +129,7 @@
 
                                     <form method="post" action="{routePath('cart-order')}">
                                         <input type="hidden" name="pid" value="{$plan->id}">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="whmc-kbtn ">
                                             {lang key="store.ssl.landingPage.buyNow"}
                                         </button>
                                     </form>

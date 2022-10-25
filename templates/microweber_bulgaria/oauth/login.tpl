@@ -37,7 +37,7 @@
                     <a href="{routePath('password-reset-begin')}">{lang key='forgotpw'}</a>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" id="btnLogin">
+            <button type="submit" class="whmc-kbtn " id="btnLogin">
                 {lang key='login'}
             </button>
             <button type="button" class="btn btn-default" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">

@@ -112,7 +112,7 @@
                     <button type="submit" name="continue" value="1" class="btn btn-default">
                         Continue Shopping
                     </button>
-                    <button type="submit" name="checkout" value="1" class="btn btn-primary">
+                    <button type="submit" name="checkout" value="1" class="whmc-kbtn ">
                         Checkout
                         <i class="fa fa-shopping-cart" ></i>
                     </button>

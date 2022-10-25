@@ -210,7 +210,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="#" class="btn btn-primary large" onclick="smoothScroll('#pricing');return false">
+                <a href="#" class="whmc-kbtnlarge" onclick="smoothScroll('#pricing');return false">
                     {lang key="store.siteBuilder.viewPricing"}
                 </a>
             </div>
@@ -278,7 +278,7 @@
                     <form method="post" action="{routePath('cart-order')}">
                         <input type="hidden" name="pid" value="{$trialPlan->id}">
                         <input type="hidden" name="billingcycle" value="">
-                        <button type="submit" class="btn btn-primary large">
+                        <button type="submit" class="whmc-kbtnlarge">
                             {lang key='store.siteBuilder.tryFreeCta'}
                         </button>
                     </form>
@@ -333,7 +333,7 @@
                         <div class="col-plans-{count($plans)}">
                             <form action="{routePath('cart-order')}" method="post">
                                 <input type="hidden" name="pid" value="{$plan->id}">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="whmc-kbtn ">
                                     {lang key='buy'}
                                 </button>
                             </form>

@@ -122,7 +122,7 @@
     </div>
 
     <div class="form-group text-center">
-        <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+        <input class="whmc-kbtn " type="submit" name="save" value="{lang key='clientareasavechanges'}" />
         <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDeleteContact">{lang key='clientareadeletecontact'}</button>
     </div>
@@ -147,7 +147,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         {lang key="cancel"}
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btnCancelInviteConfirm">
+                    <button type="submit" class="whmc-kbtn " id="btnCancelInviteConfirm">
                         {lang key="confirm"}
                     </button>
                 </div>

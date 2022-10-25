@@ -133,7 +133,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="button" id="btnExistingLogin" class="btn btn-primary btn-md">
+                        <button type="button" id="btnExistingLogin" class="whmc-kbtn btn-md">
                             <span id="existingLoginButton">{lang key='login'}</span>
                             <span id="existingLoginPleaseWait" class="w-hidden">{lang key='pleasewait'}</span>
                         </button>

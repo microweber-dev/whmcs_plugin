@@ -31,7 +31,7 @@
                     <div id="inputNewPassword2Msg"></div>
                 </div>
             </div>
-            <input class="btn btn-primary" type="submit" value="{lang key='clientareasavechanges'}" />
+            <input class="whmc-kbtn " type="submit" value="{lang key='clientareasavechanges'}" />
             <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
         </form>
 

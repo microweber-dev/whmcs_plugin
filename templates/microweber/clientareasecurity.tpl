@@ -90,7 +90,7 @@
         </div>
 
         <p class="text-center">
-            <input class="btn btn-primary" type="submit" name="submit" value="{$LANG.clientareasavechanges}" />
+            <input class="whmc-kbtn " type="submit" name="submit" value="{$LANG.clientareasavechanges}" />
             <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
         </p>
 
