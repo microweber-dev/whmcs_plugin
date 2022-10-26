@@ -16,7 +16,7 @@
 
     {if !$loggedin && $currencies}
         <div class="currencychooser col-md-12 text-center mx-auto my-5">
-            <h5 class="mb-3">Choose your Currency</h5>
+            <h3 class="mb-4">Choose your Currency</h3>
             <div class="btn-group" role="group">
                 {foreach from=$currencies item=curr}
                     <a href="cart.php?gid={$gid}&currency={$curr.id}" class="whmc-kbtn-2{if $currency.id eq $curr.id} active{/if}">

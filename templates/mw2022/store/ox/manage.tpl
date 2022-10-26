@@ -25,7 +25,7 @@
                 </form>
             </div>
             <div class="btn-group btn-group-sm" role="group">
-                <button id="btnAddAccount" type="button" class="whmc-kbtnbtn-sm">
+                <button id="btnAddAccount" type="button" class="whmc-kbtn btn-sm">
                     <i class="fal fa-plus"></i>
                     {lang key='ox.createUser'}
                 </button>
