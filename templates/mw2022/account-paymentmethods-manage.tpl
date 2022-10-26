@@ -1,17 +1,17 @@
 <script src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
-<div class="card">
+<div class="card panel panel-default">
     <div class="card-body">
 
-        <h3 class="card-title">
+        <h1 class="card-title pb-5">
             {if $editMode}
                 {lang key='paymentMethodsManage.editPaymentMethod'}
             {else}
                 {lang key='paymentMethodsManage.addPaymentMethod'}
             {/if}
-        </h3>
+        </h1>
 
-        <form id="frmManagePaymentMethod" class="frm-credit-card-input" role="form" method="post" action="{if $editMode}{routePath('account-paymentmethods-save', $payMethod->id)}{else}{routePath('account-paymentmethods-add')}{/if}">
+        <form id="frmManagePaymentMethod" class=" frm-credit-card-input" role="form" method="post" action="{if $editMode}{routePath('account-paymentmethods-save', $payMethod->id)}{else}{routePath('account-paymentmethods-add')}{/if}">
             <div class="alert alert-warning text-center gateway-errors assisted-cc-input-feedback w-hidden">
                 {lang key='paymentMethodsManage.invalidCardDetails'}
             </div>
@@ -176,7 +176,7 @@
                     </div>
                 </div>
                 <div class="form-group row submit-container">
-                    <div class="col-md-8 offset-sm-4">
+                    <div class="col-md-12 text-center mt-5">
                         <button type="submit" name="submit" id="btnSubmit" class="whmc-kbtn ">{lang key='clientareasavechanges'}</button>
                         <a href="{routePath('account-paymentmethods')}" class="whmc-kbtn-2">{lang key='cancel'}</a>
                     </div>
