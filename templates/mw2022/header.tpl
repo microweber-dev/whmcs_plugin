@@ -188,4 +188,4 @@
                         {assign var="withBG" value="false"}
                     {/if}
 
-                    <div class="page-content {if $withSidebar eq 'false'}without-sidebar{/if} {if $withBG eq 'false'}no-bg{/if}">
+                    <div class="page-content pt-0 {if $withSidebar eq 'false'}without-sidebar{/if} {if $withBG eq 'false'}no-bg{/if}">

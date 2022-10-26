@@ -1,6 +1,6 @@
 
 <div class="mw-whm clientareaproductdetails">
-    <div class="text-left" style="padding-bottom: 40px;">
+    <div class="text-left">
         <h1 class="py-4 mt-5" style="font-weight: 700!important; font-size: 40px!important;">Product Details</h1><br />
     </div>
     {if $modulecustombuttonresult}
@@ -69,48 +69,48 @@
 
                                    <div class=" py-3">
                                        <h4 style="font-size: 15px; color: #acb0b9;">Status</h4>
-                                       <h3 style="font-size: 18px;"> {$status}</h3>
+                                       <h3 style="font-size: 18px; margin: 0;"> {$status}</h3>
                                    </div>
 
 
                                    <div class=" py-3">
                                        <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.clientareahostingregdate}</h4>
-                                      <h3 style="font-size: 18px;">{$regdate}</h3>
+                                      <h3 style="font-size: 18px; margin: 0;">{$regdate}</h3>
                                    </div>
 
                                    {if $firstpaymentamount neq $recurringamount}
                                        <div class=" py-3">
                                            <h4  style="color: #acb0b9;">{$LANG.firstpaymentamount}</h4 >
-                                           <h3 style="font-size: 18px;"> {$firstpaymentamount}</h3>
+                                           <h3 style="font-size: 18px; margin: 0;"> {$firstpaymentamount}</h3>
                                        </div>
                                    {/if}
 
                                    {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
                                        <div class=" py-3">
                                            <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.recurringamount}</h4 >
-                                           <h3 style="font-size: 18px;"> {$recurringamount}</h3>
+                                           <h3 style="font-size: 18px; margin: 0;"> {$recurringamount}</h3>
                                        </div>
                                    {/if}
 
                                    <div class=" py-3">
                                        <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.orderbillingcycle}</h4 >
-                                       <h3 style="font-size: 18px;"> {$billingcycle}</h3>
+                                       <h3 style="font-size: 18px; margin: 0;"> {$billingcycle}</h3>
                                    </div>
 
                                    <div class=" py-3">
                                        <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.clientareahostingnextduedate}</h4 >
-                                       <h3 style="font-size: 18px;"> {$nextduedate}</h3>
+                                       <h3 style="font-size: 18px; margin: 0;"> {$nextduedate}</h3>
                                    </div>
 
                                    <div class=" py-3">
                                        <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.orderpaymentmethod}</h4 >
-                                       <h3 style="font-size: 18px;"> {$paymentmethod}</h3>
+                                       <h3 style="font-size: 18px; margin: 0;"> {$paymentmethod}</h3>
                                    </div>
 
                                    {if $suspendreason}
                                        <div class=" py-3">
                                            <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.suspendreason}</h4 >
-                                           <h3 style="font-size: 18px;"> {$suspendreason}</h3>
+                                           <h3 style="font-size: 18px; margin: 0;"> {$suspendreason}</h3>
                                        </div>
                                    {/if}
 
