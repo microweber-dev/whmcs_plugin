@@ -255,8 +255,8 @@
 
                     <div class="pull-right btn-group btn-group-sm hidden-print">
                         <h4>Actions</h4>
-                        <a href="javascript:window.print()" class="btn btn-default"><i class="fa fa-print"></i> {$LANG.print}</a>
-                        <a href="dl.php?type=i&amp;id={$invoiceid}" class="btn btn-default"><i class="fa fa-download"></i> {$LANG.invoicesdownload}</a>
+                        <a href="javascript:window.print()" class="whmc-kbtn-2"><i class="fa fa-print"></i> {$LANG.print}</a>
+                        <a href="dl.php?type=i&amp;id={$invoiceid}" class="whmc-kbtn-2"><i class="fa fa-download"></i> {$LANG.invoicesdownload}</a>
                     </div>
 
                 </div>

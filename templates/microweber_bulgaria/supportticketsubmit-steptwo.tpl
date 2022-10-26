@@ -73,7 +73,7 @@
             <div id="fileUploadsContainer"></div>
         </div>
         <div class="col-sm-3">
-            <button type="button" class="btn btn-default btn-block" onclick="extraTicketAttachment()">
+            <button type="button" class="whmc-kbtn-2 btn-block" onclick="extraTicketAttachment()">
                 <i class="fas fa-plus"></i> {$LANG.addmore}
             </button>
         </div>
@@ -94,7 +94,7 @@
 
     <p class="text-center">
         <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="whmc-kbtn {$captcha->getButtonClass($captchaForm)}" />
-        <a href="supporttickets.php" class="btn btn-default">{$LANG.cancel}</a>
+        <a href="supporttickets.php" class="whmc-kbtn-2">{$LANG.cancel}</a>
     </p>
 
 </form>

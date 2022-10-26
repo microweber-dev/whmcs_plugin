@@ -34,7 +34,7 @@
                         </small>
                     </td>
                     <td>
-                        <a href="{routePath('account-users-permissions', $user->id)}" class="btn btn-default btn-sm btn-manage-permissions{if $user->pivot->owner} disabled{/if}">
+                        <a href="{routePath('account-users-permissions', $user->id)}" class="whmc-kbtn-2 btn-sm btn-manage-permissions{if $user->pivot->owner} disabled{/if}">
                             {lang key="userManagement.managePermissions"}
                         </a>
                         <a href="#" class="btn btn-danger btn-sm btn-remove-user{if $user->pivot->owner} disabled{/if}" data-id="{$user->id}">
@@ -62,10 +62,10 @@
                         <td>
                             <form method="post" action="{routePath('account-users-invite-resend')}">
                                 <input type="hidden" name="inviteid" value="{$invite->id}">
-                                <button type="submit" class="btn btn-default btn-sm">
+                                <button type="submit" class="whmc-kbtn-2 btn-sm">
                                     {lang key="userManagement.resendInvite"}
                                 </button>
-                                <button type="button" class="btn btn-default btn-sm btn-cancel-invite" data-id="{$invite->id}">
+                                <button type="button" class="whmc-kbtn-2 btn-sm btn-cancel-invite" data-id="{$invite->id}">
                                     {lang key="userManagement.cancelInvite"}
                                 </button>
                             </form>
@@ -140,7 +140,7 @@
                     <p>{lang key="userManagement.removeAccessInfo"}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key="cancel"}
                     </button>
                     <button type="submit" class="whmc-kbtn " id="btnRemoveUserConfirm">
@@ -168,7 +168,7 @@
                     <p>{lang key="userManagement.cancelInviteInfo"}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key="cancel"}
                     </button>
                     <button type="submit" class="whmc-kbtn " id="btnCancelInviteConfirm">

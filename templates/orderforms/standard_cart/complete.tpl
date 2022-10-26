@@ -54,7 +54,7 @@
             {/if}
 
             <div class="text-center">
-                <a href="clientarea.php" class="btn btn-default">
+                <a href="clientarea.php" class="whmc-kbtn-2">
                     {$LANG.orderForm.continueToClientArea}
                     &nbsp;<i class="fas fa-arrow-circle-right"></i>
                 </a>

@@ -89,7 +89,7 @@
 
         <p class="text-center">
             <input class="whmc-kbtn " type="submit" name="submit" value="{$LANG.clientareasavechanges}" />
-            <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
+            <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}" />
         </p>
 
     </form>

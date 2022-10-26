@@ -71,7 +71,7 @@
 								{/if}
 								
                                 <div class="text-center">
-                                    <button id="login" type="submit" class="btn btn-default btn-md">{$LANG.loginbutton}</button>
+                                    <button id="login" type="submit" class="whmc-kbtn-2 btn-md">{$LANG.loginbutton}</button>
                                 </div>
                             </form>
 

@@ -80,7 +80,7 @@
                             <div class="pull-left loader">
                                 <i class="fa fa-circle-o-notch fa-spin"></i> Loading...
                             </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                                 Close
                             </button>
                             <button type="button" class="whmc-kbtnmodal-submit">

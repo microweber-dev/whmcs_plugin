@@ -268,11 +268,11 @@
                                 {/if}
                                 <br>
                                 <p>
-                                    <a href="http://{$domain}" class="btn btn-default" target="_blank">{$LANG.visitwebsite}</a>
+                                    <a href="http://{$domain}" class="whmc-kbtn-2" target="_blank">{$LANG.visitwebsite}</a>
                                     {if $domainId}
-                                        <a href="clientarea.php?action=domaindetails&id={$domainId}" class="btn btn-default" target="_blank">{$LANG.managedomain}</a>
+                                        <a href="clientarea.php?action=domaindetails&id={$domainId}" class="whmc-kbtn-2" target="_blank">{$LANG.managedomain}</a>
                                     {/if}
-                                    <input type="button" onclick="popupWindow('whois.php?domain={$domain}','whois',650,420);return false;" value="{$LANG.whoisinfo}" class="btn btn-default" />
+                                    <input type="button" onclick="popupWindow('whois.php?domain={$domain}','whois',650,420);return false;" value="{$LANG.whoisinfo}" class="whmc-kbtn-2" />
                                 </p>
                             {/if}
                             {if $moduleclientarea}
@@ -381,7 +381,7 @@
                         {$download.description}
                     </p>
                     <p>
-                        <a href="{$download.link}" class="btn btn-default"><i class="fas fa-download"></i> {$LANG.downloadname}</a>
+                        <a href="{$download.link}" class="whmc-kbtn-2"><i class="fas fa-download"></i> {$LANG.downloadname}</a>
                     </p>
                 </div>
             {/foreach}
@@ -450,7 +450,7 @@
                     {include file="$template/includes/pwstrength.tpl"}
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" class="btn btn-default generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                    <button type="button" class="whmc-kbtn-2 generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                         {$LANG.generatePassword.btnLabel}
                     </button>
                 </div>

@@ -306,7 +306,7 @@
                 </div>
                 <form method="post" action="{routePath('store-order')}">
                     <input type="hidden" name="pid" value="{$emergencyPlan->id}">
-                    <button type="submit" class="btn btn-default pull-right">
+                    <button type="submit" class="whmc-kbtn-2 pull-right">
                         Buy Now
                     </button>
                 </form>

@@ -35,7 +35,7 @@
                     <a href="{$smarty.server.PHP_SELF}?a=confproduct&i={$num}" class="cartedit">[{$LANG.carteditproductconfig}]</a>
                     {if $product.allowqty}
                         <br /><br />
-                        <div align="right">{$LANG.cartqtyenterquantity} <input type="text" name="qty[{$num}]" size="3" value="{$product.qty}" /> <input type="submit" value="{$LANG.cartqtyupdate}" class="btn btn-default btn-sm" /></div>
+                        <div align="right">{$LANG.cartqtyenterquantity} <input type="text" name="qty[{$num}]" size="3" value="{$product.qty}" /> <input type="submit" value="{$LANG.cartqtyupdate}" class="whmc-kbtn-2 btn-sm" /></div>
                     {/if}
                 </div>
                 <div class="text-center">
@@ -149,5 +149,5 @@
 </form>
 <div class="cartbuttons hidden">
     <button type="button" class="btn btn-danger btn-sm" onclick="emptyCart();return false"><i class="fa fa-divash"></i> {$LANG.emptycart}</button>
-    <a href="cart.php" class="btn btn-default btn-sm"><i class="fa fa-shopping-cart" ></i> {$LANG.continueshopping}</a>
+    <a href="cart.php" class="whmc-kbtn-2 btn-sm"><i class="fa fa-shopping-cart" ></i> {$LANG.continueshopping}</a>
 </div>

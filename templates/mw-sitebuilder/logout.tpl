@@ -10,7 +10,7 @@
 
     <div class="main-content">
         <p class="text-center">
-            <a href="index.php" class="btn btn-default">{$LANG.logoutcontinuetext}</a>
+            <a href="index.php" class="whmc-kbtn-2">{$LANG.logoutcontinuetext}</a>
         </p>
     </div>
 </div>

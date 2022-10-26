@@ -60,7 +60,7 @@ $plans = $controller->get_hosting_products($params);
                                         <div class="heading">
                                             <p class="safe-element title"><span class="icon-holder"><i class="<?php echo $planIcon; ?>"></i></span> <?php print $plan['name'] ?></p>
                                             <div class="description">
-                                            <button type="submit"   class="btn btn-default btn-md m-t-20" formtarget="form_<?php print $plan['id'] ?>" form="form_<?php print $plan['id'] ?>" >Start</button>
+                                            <button type="submit"   class="whmc-kbtn-2 btn-md m-t-20" formtarget="form_<?php print $plan['id'] ?>" form="form_<?php print $plan['id'] ?>" >Start</button>
                                             </div>
 
                                             <div class="price">
@@ -115,7 +115,7 @@ $plans = $controller->get_hosting_products($params);
 
 
 
-                                       // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
+                                       // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="whmc-kbtn-2 btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
 
                                         print  $desc;
 
@@ -136,12 +136,12 @@ $plans = $controller->get_hosting_products($params);
                                                      <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
                                                     <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                                                    <button type="submit"   class="btn btn-default btn-md m-t-20" >Start</button>
+                                                    <button type="submit"   class="whmc-kbtn-2 btn-md m-t-20" >Start</button>
                                                 </form>
 
 
 
-<!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="btn btn-default btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
+<!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="whmc-kbtn-2 btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
                                             </div>
                                         <?php endif; ?>
 

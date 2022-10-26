@@ -40,7 +40,7 @@
             <button type="submit" class="whmc-kbtn " id="btnLogin">
                 {lang key='login'}
             </button>
-            <button type="button" class="btn btn-default" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
+            <button type="button" class="whmc-kbtn-2" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
                 {lang key='cancel'}
             </button>
         </div>

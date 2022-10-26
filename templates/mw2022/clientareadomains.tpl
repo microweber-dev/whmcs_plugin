@@ -187,7 +187,7 @@
                 });
             </script>
             <div class="btn-group margin-bottom">
-                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
@@ -243,8 +243,8 @@
                                 </td>
                                 <td>
                                     <div class="btn-group btn-group-sm" style="width:60px; float: right;">
-                                        <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fa fa-wrench"></i></a>
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="whmc-kbtn-2"><i class="fa fa-wrench"></i></a>
+                                        <button type="button" class="whmc-kbtn-2 dropdown-toggle" data-toggle="dropdown">
                                             <span class="caret"></span>
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
@@ -297,7 +297,7 @@
                         <th>&nbsp;</th>
                         <th>
                             <div id="btnCheckout" style="display:none;">
-                                <a href="cart.php?a=view" class="btn btn-default">{$LANG.domainsgotocheckout} &raquo;</a>
+                                <a href="cart.php?a=view" class="whmc-kbtn-2">{$LANG.domainsgotocheckout} &raquo;</a>
                             </div>
                         </th>
                     </tr>
@@ -361,7 +361,7 @@
 
             <div class="row">
                 <div class="col-xs-12" id="backLink">
-                    <a href="#tabOverview" class="btn btn-default btn-sm" data-toggle="tab" id="back">
+                    <a href="#tabOverview" class="whmc-kbtn-2 btn-sm" data-toggle="tab" id="back">
                         <i class="glyphicon glyphicon-backward"></i> {$LANG.clientareabacklink|replace:'&laquo; ':''}
                     </a>
                 </div>

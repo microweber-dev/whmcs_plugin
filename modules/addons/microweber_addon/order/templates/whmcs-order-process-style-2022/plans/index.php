@@ -130,7 +130,7 @@ $plans = $controller->get_hosting_products($params);
 
 
 
-                                       // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
+                                       // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="whmc-kbtn-2 btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
 
                                         print $desc;
 
@@ -150,7 +150,7 @@ $plans = $controller->get_hosting_products($params);
                                                     <button type="submit"   class="whmc-kbtn " style="width: 100%;" >Order Now</button>
                                                 </form>
 
-<!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="btn btn-default btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
+<!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="whmc-kbtn-2 btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
                                             </div>
                                         <?php endif; ?>
                                     </div>

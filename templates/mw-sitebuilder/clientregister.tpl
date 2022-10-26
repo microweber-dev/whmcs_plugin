@@ -217,7 +217,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <button type="button" class="btn btn-default btn-sm generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                    <button type="button" class="whmc-kbtn-2 btn-sm generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                         {$LANG.generatePassword.btnLabel}
                     </button>
                 </div>

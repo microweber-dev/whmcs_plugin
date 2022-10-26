@@ -25,7 +25,7 @@
         <br>
 
         <p class="text-center">
-            <a href="{$WEB_ROOT}/index.php" class="btn btn-default">
+            <a href="{$WEB_ROOT}/index.php" class="whmc-kbtn-2">
                 <i class="fas fa-home"></i>
                 {$LANG.returnhome}
             </a>

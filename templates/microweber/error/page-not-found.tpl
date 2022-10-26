@@ -7,10 +7,10 @@
         <p>{lang key="errorPage.404.description"}</p>
 
         <div class="buttons">
-            <a href="{$systemurl}" class="btn btn-default">
+            <a href="{$systemurl}" class="whmc-kbtn-2">
                 {lang key="errorPage.404.home"}
             </a>
-            <a href="{$systemurl}submitticket.php" class="btn btn-default">
+            <a href="{$systemurl}submitticket.php" class="whmc-kbtn-2">
                 {lang key="errorPage.404.submitTicket"}
             </a>
         </div>

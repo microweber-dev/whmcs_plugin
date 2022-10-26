@@ -20,7 +20,7 @@
                     {lang key="continue"}
                     <i class="fas fa-arrow-right"></i>
                 </button>
-                <a href="{routePath('clientarea-home')}" class="btn btn-default">
+                <a href="{routePath('clientarea-home')}" class="whmc-kbtn-2">
                     {lang key="switchAccount.cancelAndReturn"}
                 </a>
             </div>

@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="col-sm-2 hidden-xs">
-                        <button type="submit" class="btn btn-default btn-block">{$LANG.go}</button>
+                        <button type="submit" class="whmc-kbtn-2 btn-block">{$LANG.go}</button>
                     </div>
                 </div>
             </form>

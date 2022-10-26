@@ -62,5 +62,5 @@
 {/if}
 
 <p>
-    <a href="{routePath('announcement-index')}" class="btn btn-default">{$LANG.clientareabacklink}</a>
+    <a href="{routePath('announcement-index')}" class="whmc-kbtn-2">{$LANG.clientareabacklink}</a>
 </p>

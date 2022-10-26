@@ -29,7 +29,7 @@
                 </a>
             {/if}
             {if $allowBankDetails}
-                <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="btn btn-default">
+                <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="whmc-kbtn-2">
                     {lang key='paymentMethods.addNewBank'}
                 </a>
             {/if}
@@ -97,7 +97,7 @@
         <p>{lang key='paymentMethods.deletePaymentMethodConfirm'}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
+        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='no'}</button>
         <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
       </div>
     </div>

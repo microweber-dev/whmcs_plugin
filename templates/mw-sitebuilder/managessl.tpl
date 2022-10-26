@@ -41,15 +41,15 @@
                         <td>{if $sslProduct->addon->nextDueDate instanceof Carbon}<span class="hidden">{$sslProduct->addon->nextDueDate->toDateString()}</span>{$sslProduct->addon->nextDueDate->format({$smarty.const.CLIENT_DATE_FORMAT})}{/if}</td>
                         <td>
                             {if $sslProduct->status == $sslStatusAwaitingIssuance}
-                                <button class="btn btn-default btn-sm btn-resend-approver-email" data-url="{routePath('store-ssl-certificates-resend-approver-email')}" data-addonid="{$sslProduct->addonId}">Resend Email</button>
+                                <button class="whmc-kbtn-2 btn-sm btn-resend-approver-email" data-url="{routePath('store-ssl-certificates-resend-approver-email')}" data-addonid="{$sslProduct->addonId}">Resend Email</button>
                             {/if}
                             {if $sslProduct->status == $sslStatusAwaitingConfiguration}
-                                <a href="{$sslProduct->getConfigurationUrl()}" class="btn btn-default btn-sm">Configure</a>
+                                <a href="{$sslProduct->getConfigurationUrl()}" class="whmc-kbtn-2 btn-sm">Configure</a>
                             {/if}
                             {if $sslProduct->addon->nextDueDate instanceof Carbon &&  $sslProduct->addon->nextDueDate->subDay()->isFuture()}
                                 <form action="{$sslProduct->getUpgradeUrl()}" method="post">
                                     <input type="hidden" name="id" value="{$sslProduct->id}">
-                                    <button type="submit" class="btn btn-default btn-sm"{if $sslProduct->validationType == 'EV'} disabled="disabled"{/if}>Upgrade</button>
+                                    <button type="submit" class="whmc-kbtn-2 btn-sm"{if $sslProduct->validationType == 'EV'} disabled="disabled"{/if}>Upgrade</button>
                                 </form>
                             {/if}
                         </td>
@@ -76,10 +76,10 @@
                         <td>{if $sslProduct->service->nextDueDate instanceof Carbon}<span class="hidden">{$sslProduct->service->nextDueDate->toDateString()}</span>{$sslProduct->service->nextDueDate->format({$smarty.const.CLIENT_DATE_FORMAT})}{/if}</td>
                         <td>
                             {if $sslProduct->status == $sslStatusAwaitingIssuance}
-                                <button class="btn btn-default btn-sm btn-resend-approver-email" data-url="{routePath('store-ssl-certificates-resend-approver-email')}" data-serviceid="{$sslProduct->serviceId}">Resend Email</button>
+                                <button class="whmc-kbtn-2 btn-sm btn-resend-approver-email" data-url="{routePath('store-ssl-certificates-resend-approver-email')}" data-serviceid="{$sslProduct->serviceId}">Resend Email</button>
                             {/if}
                             {if $sslProduct->status == $sslStatusAwaitingConfiguration}
-                                <a href="{$sslProduct->getConfigurationUrl()}" class="btn btn-default btn-sm">Configure</a>
+                                <a href="{$sslProduct->getConfigurationUrl()}" class="whmc-kbtn-2 btn-sm">Configure</a>
                             {/if}
                         </td>
                     {/if}

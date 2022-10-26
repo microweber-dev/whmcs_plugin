@@ -155,7 +155,7 @@
                 <p>You can use letters <strong>a-z</strong>, numbers <strong>0-9</strong> and hyphen(<strong>-</strong>).</p>
                 <p>Words contain "<strong>test</strong>" are disallowed!</p>
                 <br/>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="whmc-kbtn-2" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

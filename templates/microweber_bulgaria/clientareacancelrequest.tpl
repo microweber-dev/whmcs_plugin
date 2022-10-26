@@ -58,7 +58,7 @@
             <div class="form-group">
                 <div class="form-inline text-center">
                     <input type="submit" value="{$LANG.clientareacancelrequestbutton}" class="btn btn-danger" />
-                    <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default">{$LANG.cancel}</a>
+                    <a href="clientarea.php?action=productdetails&id={$id}" class="whmc-kbtn-2">{$LANG.cancel}</a>
                 </div>
             </div>
 

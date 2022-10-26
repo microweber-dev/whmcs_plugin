@@ -129,7 +129,7 @@
                               <div id="fileUploadsContainer"></div>
                           </div>
                           <div class="col-md-3">
-                              <button type="button" class="btn btn-default btn-block" onclick="extraTicketAttachment()">
+                              <button type="button" class="whmc-kbtn-2 btn-block" onclick="extraTicketAttachment()">
                                   <i class="fa fa-plus"></i> {$LANG.addmore}
                               </button>
                           </div>

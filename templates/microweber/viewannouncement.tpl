@@ -11,7 +11,7 @@
 
 {if $editLink}
     <p>
-        <a href="{$editLink}" class="btn btn-default btn-sm pull-right">
+        <a href="{$editLink}" class="whmc-kbtn-2 btn-sm pull-right">
             <i class="fas fa-pencil-alt fa-fw"></i>
             {$LANG.edit}
         </a>
@@ -58,5 +58,5 @@
 {/if}
 
 <p>
-    <a href="{routePath('announcement-index')}" class="btn btn-default">{$LANG.clientareabacklink}</a>
+    <a href="{routePath('announcement-index')}" class="whmc-kbtn-2">{$LANG.clientareabacklink}</a>
 </p>

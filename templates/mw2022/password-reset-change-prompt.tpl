@@ -22,7 +22,7 @@
     <div class="form-group">
         <div class="text-center">
             <input class="whmc-kbtn " type="submit" name="submit" value="{lang key='clientareasavechanges'}" />
-            <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
+            <input class="whmc-kbtn-2" type="reset" value="{lang key='cancel'}" />
         </div>
     </div>
 

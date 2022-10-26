@@ -21,7 +21,7 @@
             <i class="fas fa-arrow-circle-left"></i>
             {$LANG.goback}
         </a>
-        <a href="index.php" class="btn btn-default btn-lg">
+        <a href="index.php" class="whmc-kbtn-2 btn-lg">
             <i class="fas fa-home"></i>
             {$LANG.returnhome}
         </a>

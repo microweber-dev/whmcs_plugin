@@ -30,7 +30,7 @@
                 </button>
             </div>
             <p class="text-center">
-                <a href="#" class="btn btn-default btn-block mt-2" id="backupCodeCancel">
+                <a href="#" class="whmc-kbtn-2 btn-block mt-2" id="backupCodeCancel">
                     {lang key='cancel'}
                 </a>
             </p>

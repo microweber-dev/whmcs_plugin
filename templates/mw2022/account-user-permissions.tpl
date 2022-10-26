@@ -25,7 +25,7 @@
                 <button type="submit" class="whmc-kbtn ">
                     {lang key="clientareasavechanges"}
                 </button>
-                <a href="{routePath('account-users')}" class="btn btn-default">
+                <a href="{routePath('account-users')}" class="whmc-kbtn-2">
                     {lang key="clientareacancel"}
                 </a>
             </p>

@@ -17,7 +17,7 @@
                 </div>
 
                 <p>
-                    <a href="http://{$domain}" class="btn btn-default btn-sm" target="_blank">{$LANG.visitwebsite}</a>
+                    <a href="http://{$domain}" class="whmc-kbtn-2 btn-sm" target="_blank">{$LANG.visitwebsite}</a>
                     {if $domainId}
                         <a href="clientarea.php?action=domaindetails&id={$domainId}" class="btn btn-success btn-sm" target="_blank">{$LANG.managedomain}</a>
                     {/if}
@@ -40,7 +40,7 @@
                                 <option value="{$addonId}">{$addonName}</option>
                             {/foreach}
                         </select>
-                        <button type="submit" class="btn btn-default btn-sm btn-block mt-1">
+                        <button type="submit" class="whmc-kbtn-2 btn-sm btn-block mt-1">
                             <i class="fas fa-shopping-cart"></i>
                             {lang key='purchaseActivate'}
                         </button>
@@ -151,13 +151,13 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-default btn-block" id="btnGoToWordPressHome">
+                        <button class="whmc-kbtn-2 btn-block" id="btnGoToWordPressHome">
                             <i class="fab fa-wordpress"></i>
                             {lang key='wptk.goToWebsite'}
                         </button>
                     </div>
                     <div class="col-md-4">
-                        <button class="btn btn-default btn-block" id="btnGoToWordPressAdmin">
+                        <button class="whmc-kbtn-2 btn-block" id="btnGoToWordPressAdmin">
                             <i class="fas fa-users-cog"></i>
                             {lang key='wptk.goToAdmin'}
                         </button>
@@ -185,7 +185,7 @@
                         <input type="password" class="form-control" id="wpAdminPass" placeholder="Admin Password" />
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-default btn-block" id="btnInstallWordpress">
+                        <button class="whmc-kbtn-2 btn-block" id="btnInstallWordpress">
                             <i class="far fa-fw fa-plus"></i>
                             {lang key='wptk.installWordPressShort'}
                         </button>

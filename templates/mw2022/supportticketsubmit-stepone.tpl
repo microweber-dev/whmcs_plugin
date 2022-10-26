@@ -16,7 +16,7 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     <div class="pull-right">
-                                        <a href="{$smarty.server.PHP_SELF}?step=2&amp;deptid={$department.id}" class="btn btn-default btn-xs">
+                                        <a href="{$smarty.server.PHP_SELF}?step=2&amp;deptid={$department.id}" class="whmc-kbtn-2 btn-xs">
                                             open ticket
                                         </a>
                                     </div>

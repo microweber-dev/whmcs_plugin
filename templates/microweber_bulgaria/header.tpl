@@ -57,7 +57,7 @@
 
                                 {if $loggedin}
                                     <div class="nav-item dropdown m-l-10">
-                                        <a class="dropdown-toggle btn btn-default-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Здравей <strong>{$loggedinuser.firstname}</strong></a>
+                                        <a class="dropdown-toggle whmc-kbtn-2-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Здравей <strong>{$loggedinuser.firstname}</strong></a>
                                         <div class="dropdown-menu" x-placement="bottom-start">
                                             <a class="dropdown-item" href="/clientarea.php?action=details">Молят профил</a>
                                             <a class="dropdown-item" href="/clientarea.php?action=contacts">Контактна информация</a>
@@ -69,7 +69,7 @@
                                     </div>
                                 {else}
                                     <div class="nav-item dropdown m-l-10">
-                                        <a class="dropdown-toggle btn btn-default-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">{$LANG.loginbutton}</a>
+                                        <a class="dropdown-toggle whmc-kbtn-2-outline btn-md" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">{$LANG.loginbutton}</a>
                                         <div class="dropdown-menu" x-placement="bottom-start">
                                             <a class="dropdown-item" href="/clientarea.php">Вход</a>
                                             <a class="dropdown-item" href="/register.php">Регистрация</a>

@@ -22,7 +22,7 @@
             {include file="$template/includes/pwstrength.tpl"}
         </div>
         <div class="col-sm-3">
-            <button type="button" class="btn btn-default generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+            <button type="button" class="whmc-kbtn-2 generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                 {$LANG.generatePassword.btnLabel}
             </button>
         </div>
@@ -38,7 +38,7 @@
     <div class="form-group">
         <div class="text-center">
             <input class="whmc-kbtn " type="submit" value="{$LANG.clientareasavechanges}" />
-            <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
+            <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}" />
         </div>
     </div>
 </form>

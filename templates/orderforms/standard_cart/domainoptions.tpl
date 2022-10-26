@@ -28,20 +28,20 @@
             <div class="text-center">
                 {if count($searchResults.pricing) == 1}
                     <p class="margin-bottom">{$LANG.orderForm.domainAddedToCart}</p>
-                    <button type="button" class="btn btn-default btn-lg margin-bottom">
+                    <button type="button" class="whmc-kbtn-2 btn-lg margin-bottom">
                         <span class="far fa-shopping-cart"></span>
                         {$searchResults.shortestPeriod.register}
                     </button>
                 {else}
                     <p class="margin-bottom">{$LANG.orderForm.registerLongerAndSave}</p>
                     <div class="btn-group btn-group-lg margin-bottom">
-                        <button type="button" class="btn btn-default btn-sm">
+                        <button type="button" class="whmc-kbtn-2 btn-sm">
                             <span name="{$searchResults.domainName}-selected-price">
                                 <b class="far fa-shopping-cart"></b>
                                 {$searchResults.shortestPeriod.period} {$LANG.orderyears} @ {$searchResults.shortestPeriod.register}
                             </span>
                         </button>
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle additional-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle additional-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <b class="caret"></b>
                             <span class="sr-only">
                                 {lang key="domainChecker.additionalPricingOptions" domain=$searchResults.domainName}
@@ -125,14 +125,14 @@
                         {if count($result.pricing) > 1}
                             <div class="btn-group domain-suggestion-pricing">
                         {/if}
-                        <button type="button" class="btn btn-default btn-sm" onclick="selectDomainPricing('{$result.domainName}', '{$result.shortestPeriod.register}', {$result.shortestPeriod.period}, '{$LANG.orderyears}', '{$num}')">
+                        <button type="button" class="whmc-kbtn-2 btn-sm" onclick="selectDomainPricing('{$result.domainName}', '{$result.shortestPeriod.register}', {$result.shortestPeriod.period}, '{$LANG.orderyears}', '{$num}')">
                             <span name="{$result.domainName}-selected-price">
                                 <b class="far fa-shopping-cart"></b>
                                 {$result.shortestPeriod.period} {$LANG.orderyears} @ {$result.shortestPeriod.register}
                             </span>
                         </button>
                         {if count($result.pricing) > 1}
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle additional-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle additional-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <b class="caret"></b>
                                 <span class="sr-only">
                                     {lang key="domainChecker.additionalPricingOptions" domain=$result.domainName}

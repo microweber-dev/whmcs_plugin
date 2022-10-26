@@ -165,8 +165,8 @@
             {/if}
 
             <div class="pull-right btn-group btn-group-sm hidden-print">
-                <a href="javascript:window.print()" class="btn btn-default"><i class="fa fa-print"></i> {$LANG.print}</a>
-                <a href="dl.php?type=q&amp;id={$quoteid}" class="btn btn-default"><i class="fa fa-download"></i> {$LANG.invoicesdownload}</a>
+                <a href="javascript:window.print()" class="whmc-kbtn-2"><i class="fa fa-print"></i> {$LANG.print}</a>
+                <a href="dl.php?type=q&amp;id={$quoteid}" class="whmc-kbtn-2"><i class="fa fa-download"></i> {$LANG.invoicesdownload}</a>
             </div>
 
         {/if}
@@ -194,7 +194,7 @@
                         <small>{$LANG.quoteacceptcontractwarning}</small>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.cancel}</button>
+                        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{$LANG.cancel}</button>
                         <button type="submit" class="whmc-kbtn ">{$LANG.quoteacceptbtn}</button>
                     </div>
                 </div>

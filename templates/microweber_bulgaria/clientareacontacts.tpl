@@ -23,7 +23,7 @@
                     </select>
                 </div>
                 <div class="col-sm-2 hidden-xs">
-                    <button type="submit" class="btn btn-default btn-block">{$LANG.go}</button>
+                    <button type="submit" class="whmc-kbtn-2 btn-block">{$LANG.go}</button>
                 </div>
             </div>
         </form>
@@ -144,7 +144,7 @@
                         {include file="$template/includes/pwstrength.tpl" noDisable=true}
                     </div>
                     <div class="col-sm-3">
-                        <button type="button" class="btn btn-default generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                        <button type="button" class="whmc-kbtn-2 generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                             {$LANG.generatePassword.btnLabel}
                         </button>
                     </div>
@@ -193,7 +193,7 @@
 
         <div class="form-group text-center">
             <input class="whmc-kbtn " type="submit" name="save" value="{$LANG.clientareasavechanges}" />
-            <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
+            <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}" />
             <a class="btn btn-danger" data-toggle="confirmation" data-btn-ok-label="{lang key='yes'}" data-btn-ok-icon="fas fa-check" data-btn-ok-class="btn-success" data-btn-cancel-label="{lang key='no'}" data-btn-cancel-icon="fas fa-ban" data-btn-cancel-class="btn-default" data-title="{lang key='clientareadeletecontact'}" data-content="{lang key='clientareadeletecontactareyousure'}" data-popout="true" href="clientarea.php?action=contacts&delete=true&id={$contactid}&token={$token}">{lang key='clientareadeletecontact'}</a>
         </div>
 

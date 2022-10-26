@@ -75,7 +75,7 @@
                 <td class="text-right">
                     <div class="d-inline d-md-none">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle dropdown-hamburger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle dropdown-hamburger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bars"></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -87,8 +87,8 @@
                     </div>
                     <div class="d-none d-md-inline d-xl-none">
                         <div class="btn-group" role="group">
-                            <button class="btn btn-default btn-sm manage-account">{lang key='ox.manageAccount'}</button>
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                            <button class="whmc-kbtn-2 btn-sm manage-account">{lang key='ox.manageAccount'}</button>
+                            <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
                                 <li><a href="#" class="dropdown-item set-ox-password">{lang key='ox.setPassword'}</a></li>
                                 <li><a href="#" class="dropdown-item list-group-item-action list-group-item-danger ox-delete">{lang key='ox.delete'}</a></li>
@@ -97,8 +97,8 @@
                     </div>
                     <div class="d-none d-xl-inline">
                         <div class="btn-group" role="group">
-                            <button class="btn btn-default btn-sm manage-account">{lang key='ox.manageAccount'}</button>
-                            <button class="btn btn-default btn-sm set-ox-password">{lang key='ox.setPassword'}</button>
+                            <button class="whmc-kbtn-2 btn-sm manage-account">{lang key='ox.manageAccount'}</button>
+                            <button class="whmc-kbtn-2 btn-sm set-ox-password">{lang key='ox.setPassword'}</button>
                             <button class="btn btn-danger btn-sm ox-delete">{lang key='ox.delete'}</button>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                 <td colspan="2"><span class="alias"></span>@{$domain}</td>
                 <td class="text-right">
                     <div class="btn-group" role="group">
-                        <button class="btn btn-default btn-xs ox-delete-alias">{lang key='ox.delete'}</button>
+                        <button class="whmc-kbtn-2 btn-xs ox-delete-alias">{lang key='ox.delete'}</button>
                     </div>
                 </td>
             </tr>
@@ -326,7 +326,7 @@
                                 <div class="input-group">
                                     <input type="password" class="form-control required" name="password" id="inputPassword" data-error-threshold="{$pwStrengthErrorThreshold}" data-warning-threshold="{$pwStrengthWarningThreshold}" placeholder="{lang key="loginpassword"}" autocomplete="off" />
                                     <div class="input-group-append">
-                                        <button type="button" class="btn btn-default generate-password" data-targetfields="inputPassword,inputConfirmPassword">
+                                        <button type="button" class="whmc-kbtn-2 generate-password" data-targetfields="inputPassword,inputConfirmPassword">
                                             {lang key="generatePassword.btnShort"}
                                         </button>
                                     </div>
@@ -355,7 +355,7 @@
                         <i class="fas fa-sync-alt fa-spin"></i>
                         {lang key='loading'}
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key='close'}
                     </button>
                     <button type="button" class="whmc-kbtnox-submit-button">
@@ -403,7 +403,7 @@
                         <i class="fas fa-sync-alt fa-spin"></i>
                         {lang key='loading'}
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key='close'}
                     </button>
                     <button type="button" class="whmc-kbtnox-submit-button">
@@ -435,7 +435,7 @@
                         <div class="input-group">
                             <input type="password" class="form-control required" name="password" id="inputChangePassword" data-error-threshold="{$pwStrengthErrorThreshold}" data-warning-threshold="{$pwStrengthWarningThreshold}" placeholder="{lang key="loginpassword"}" autocomplete="off" />
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-default generate-password" data-targetfields="inputChangePassword,inputChangePasswordConfirm">
+                                <button type="button" class="whmc-kbtn-2 generate-password" data-targetfields="inputChangePassword,inputChangePasswordConfirm">
                                     {lang key="generatePassword.btnShort"}
                                 </button>
                             </div>
@@ -461,7 +461,7 @@
                         <i class="fas fa-sync-alt fa-spin"></i>
                         {lang key='loading'}
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key='close'}
                     </button>
                     <button type="button" class="whmc-kbtnox-submit-button">
@@ -496,7 +496,7 @@
                         <i class="fas fa-sync-alt fa-spin"></i>
                         {lang key='loading'}
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key='close'}
                     </button>
                     <button type="button" class="btn btn-danger ox-submit-button" id="btnDoDelete">
@@ -533,7 +533,7 @@
                         <i class="fas fa-sync-alt fa-spin"></i>
                         {lang key='loading'}
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {lang key='close'}
                     </button>
                     <button type="button" class="btn btn-danger ox-submit-button" id="btnDoDelete">

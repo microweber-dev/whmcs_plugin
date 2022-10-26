@@ -9,7 +9,7 @@
 
         <p><em>{lang key='store.addon.notFound.ref'}: {$productName}</em></p>
 
-        <a href="{$WEB_ROOT}/contact.php" class="btn btn-default">
+        <a href="{$WEB_ROOT}/contact.php" class="whmc-kbtn-2">
             {lang key='store.addon.notFound.contactSupport'}
         </a>
     </div>

@@ -16,7 +16,7 @@
                 {/if}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                     {if isset($closeLabel)}
                         {$closeLabel}
                     {else}

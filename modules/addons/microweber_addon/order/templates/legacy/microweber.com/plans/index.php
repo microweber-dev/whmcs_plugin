@@ -68,13 +68,13 @@ $plans = $controller->get_hosting_products();
                                         <?php
                                         $desc = $plan['description'];
 
-                                        $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="btn btn-default btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
+                                        $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="whmc-kbtn-2 btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
 
                                         print  $desc;
                                         ?>
                                         <?php if ($key > 0): ?>
                                             <div class="description last">
-                                                <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="btn btn-default btn-md m-t-20">Start <?php print $plan['name'] ?></a>
+                                                <a href="<?php echo $current_url ?>&plan=<?php print $plan['id'] ?>" class="whmc-kbtn-2 btn-md m-t-20">Start <?php print $plan['name'] ?></a>
                                             </div>
                                         <?php endif; ?>
                                     </div>

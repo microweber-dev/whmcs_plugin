@@ -92,7 +92,7 @@ $whmplans = $controller->get_hosting_products($params);
 
 
 
-                                        <!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="btn btn-default btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
+                                        <!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="whmc-kbtn-2 btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
                                     </div>
                                 <?php endif; ?>
 

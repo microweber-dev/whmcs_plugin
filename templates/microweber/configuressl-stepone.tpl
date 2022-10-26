@@ -159,7 +159,7 @@
         <form method="post" action="clientarea.php?action=productdetails">
             <input type="hidden" name="id" value="{$serviceid}" />
             <p>
-            <input type="submit" value="{$LANG.invoicesbacktoclientarea}" class="btn btn-default" /></p>
+            <input type="submit" value="{$LANG.invoicesbacktoclientarea}" class="whmc-kbtn-2" /></p>
         </form>
 
     {/if}

@@ -25,7 +25,7 @@
                     <p class="margin-bottom">{$errormsg}</p>
 
                     <div class="text-center">
-                        <a href="javascript:history.go(-1)" class="btn btn-default">
+                        <a href="javascript:history.go(-1)" class="whmc-kbtn-2">
                             <i class="fas fa-arrow-left"></i>&nbsp;
                             {$LANG.problemgoback}
                         </a>

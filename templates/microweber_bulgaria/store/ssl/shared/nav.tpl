@@ -31,7 +31,7 @@
 {if $inCompetitiveUpgrade}
     <div class="competitive-upgrade-banner" id="competitiveUpgradeBanner">
         <div class="container">
-            <button class="btn btn-default btn-sm pull-right" onclick="$('#competitiveUpgradeBanner').slideUp()">{lang key="dismiss"}</button>
+            <button class="whmc-kbtn-2 btn-sm pull-right" onclick="$('#competitiveUpgradeBanner').slideUp()">{lang key="dismiss"}</button>
             <h4>{lang key="store.ssl.competitiveUpgrade"}</h4>
             <p>{lang key="store.ssl.competitiveUpgradeBannerMsg" domain=$competitiveUpgradeDomain}</p>
         </div>

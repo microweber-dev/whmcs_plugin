@@ -24,7 +24,7 @@
                     {$LANG.domainRenewal.noDomains}
                 </div>
                 <p>
-                    <a href="clientarea.php" class="btn btn-default">
+                    <a href="clientarea.php" class="whmc-kbtn-2">
                         <i class="fas fa-arrow-circle-left"></i>
                         {$LANG.orderForm.returnToClientArea}
                     </a>
@@ -114,7 +114,7 @@
                                     <div class="text-right">
                                         {if !$renewalData.eligibleForRenewal || $renewalData.beforeRenewLimit || ($renewalData.pastGracePeriod && $renewalData.pastRedemptionGracePeriod)}
                                         {else}
-                                            <button id="renewDomain{$renewalData.id}" class="btn btn-default btn-sm btn-add-renewal-to-cart" data-domain-id="{$renewalData.id}">
+                                            <button id="renewDomain{$renewalData.id}" class="whmc-kbtn-2 btn-sm btn-add-renewal-to-cart" data-domain-id="{$renewalData.id}">
                                                 <span class="to-add">
                                                     <i class="fas fa-fw fa-spinner fa-spin"></i>
                                                     {lang key='addtocart'}
@@ -179,7 +179,7 @@
                         {lang key='cartremoveitemconfirm'}
                     </div>
                     <div class="modal-footer d-block">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
+                        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='no'}</button>
                         <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
                     </div>
                 </div>

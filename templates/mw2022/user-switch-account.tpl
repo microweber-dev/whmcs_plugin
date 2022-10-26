@@ -6,7 +6,7 @@
             <p>{lang key="switchAccount.noneFound"}</p>
             <p>{lang key="switchAccount.createInstructions"}</p>
             <p>
-                <a href="{routePath('cart-index')}" class="btn btn-default">
+                <a href="{routePath('cart-index')}" class="whmc-kbtn-2">
                     {lang key="shopNow"}
                 </a>
             </p>

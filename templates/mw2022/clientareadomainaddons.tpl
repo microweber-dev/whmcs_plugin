@@ -63,6 +63,6 @@
         {/if}
     {/if}
 
-    <p><a href="clientarea.php?action=domaindetails&id={$domainid}" class="btn btn-default">{$LANG.clientareabacklink}</a></p>
+    <p><a href="clientarea.php?action=domaindetails&id={$domainid}" class="whmc-kbtn-2">{$LANG.clientareabacklink}</a></p>
 
 </form>

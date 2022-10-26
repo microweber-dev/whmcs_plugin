@@ -284,7 +284,7 @@
     {/if}
 
     <p>
-        <a href="clientarea.php?action=domains" class="btn btn-default">{$LANG.clientareabacklink}</a>
+        <a href="clientarea.php?action=domains" class="whmc-kbtn-2">{$LANG.clientareabacklink}</a>
     </p>
 
     <br />
