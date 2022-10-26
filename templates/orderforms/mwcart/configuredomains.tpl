@@ -39,7 +39,7 @@
                            </svg>
                        </div>
                    </div>
-                    <div class="row col-md-11">
+                    <div class="row col-xl-11">
                         <div class="panel-heading">
                             <div class="row panel-title">
 
