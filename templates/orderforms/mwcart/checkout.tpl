@@ -503,7 +503,7 @@
                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
                            {if $client}
                               <div class="col-lg-9 col-sm-12 px-0">
-                                  <div id="existingCardsContainer" class="existing-cc-grid">
+                                  <div id="existingCardsContainer" class="row existing-cc-grid">
                                       {include file="orderforms/mwcart/includes/existing-paymethods.tpl"}
                                   </div>
                               </div>
