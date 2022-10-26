@@ -22,7 +22,7 @@
 
 <div id="order-standard_cart">
 
-    <div class="row col-xl-8 mx-auto">
+    <div class="row col-xl-10 col-12 mx-auto">
 
         <div class="cart-body">
             <div class="header-lined">
@@ -500,7 +500,7 @@
                     <div class="clearfix"></div>
 
                     <div class="cc-input-container{if $selectedgatewaytype neq "CC"} w-hidden{/if}" id="creditCardInputFields">
-                       <div class="d-flex" style="display: flex; align-items: center;">
+                       <div style="display: flex; align-items: center; flex-wrap: wrap;">
                            {if $client}
                               <div class="col-lg-9 col-sm-12 px-0">
                                   <div id="existingCardsContainer" class="existing-cc-grid">
