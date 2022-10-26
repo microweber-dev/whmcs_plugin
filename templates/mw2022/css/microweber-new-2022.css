@@ -1907,11 +1907,11 @@ input[type="radio"], input[type="checkbox"] {
 
 @media (max-width: 1145px) {
 
-    .stripe-cards-inputs, .col-md-6 {
+    .stripe-cards-inputs .col-md-6 {
         width: 100%!important;
     }
 
-    .stripe-cards-inputs, .col-md-3 {
+    .stripe-cards-inputs .col-md-3 {
         width: 100%!important;
     }
 }
