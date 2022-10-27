@@ -102,7 +102,7 @@
         <div class="form-group row cc-billing-address">
             <label for="inputCountry" class="col-sm-4 text-md-right col-form-label">{lang key='clientareacountry'}</label>
             <div class="col-sm-6">
-                <select id="country" name="country" class="custom-select">
+                <select id="country" name="country" class="form-control">
                     {foreach $countries as $countryCode => $countryName}
                         <option value="{$countryCode}"{if $countryCode == $country} selected="selected"{/if}>
                             {$countryName}

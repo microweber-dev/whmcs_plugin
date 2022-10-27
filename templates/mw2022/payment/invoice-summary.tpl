@@ -1,4 +1,4 @@
-<div id="invoiceIdSummary" class="card">
+<div id="invoiceIdSummary" class="card panel panel-default">
     <div class="card-body invoice-summary">
         <h2 class="text-center">
             {lang key="invoicenumber"}{if $invoicenum}{$invoicenum}{else}{$invoiceid}{/if}
