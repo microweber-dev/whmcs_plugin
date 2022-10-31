@@ -49,13 +49,13 @@
         <img  src="{$WEB_ROOT}/templates/mw2022/img/login-page.jpg" alt="">
 
         <div>
-            <h3 style="font-weight: bold;">Microweber Member Area</h3>
-            <p style="font-size: 18px;">Please login to the website control panel</p>
+            <h3 style="font-weight: bold;">{$LANG.MW_member_area}</h3>
+            <p style="font-size: 18px;">{$LANG.MW_please_Login_Website}</p>
         </div>
 
         <div class="text-center">
             <br> <br>
-            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn">Log In</a>
+            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn">{$LANG.login}</a>
         </div>
     </div>
 </div>
@@ -116,7 +116,7 @@
                 <div align="center">
                     <button id="login" type="submit" class="cbtn">{$LANG.loginbutton}</button>
                     &nbsp;
-                    <a href="register.php" class="cbtn cbtn-alt">New registration</a>
+                    <a href="register.php" class="cbtn cbtn-alt">{$LANG.MW_newRegistration}</a>
                 </div>
                 <br/>
             </form>

@@ -1,9 +1,9 @@
 <div class="mw-whm clientareaproducts">
 
     <div class="header-lined text-center">
-        <h1 style="font-size: 36px; font-weight: 700;">My Website</h1>
+        <h1 style="font-size: 36px; font-weight: 700;">{$LANG.MW_myWebsite}</h1>
         <br/>
-        <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; Create New Website</a>
+        <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; {$LANG.MW_createNewWebsite}</a>
     </div>
 
 
@@ -160,9 +160,9 @@
 
                 <th>{$LANG.clientareaaddonpricing}</th>
 {*                <th>{$LANG.clientareahostingnextduedate}</th>*}
-                <th>Register date</th>
+                <th>{$LANG.MW_registerDate}</th>
                 <th>{$LANG.clientareastatus}</th>
-                <th class="responsive-edit-button" >Actions</th>
+                <th class="responsive-edit-button" >{$LANG.MW_actions}</th>
             </tr>
             </thead>
             <tbody>
@@ -185,15 +185,15 @@
                         {*<span class="more-table-button"></span>*}
                         <div class="more-table-menu">
                             {if $service.group == 'Templates'}
-                                <a href="go_to_product.php?id={$service.id}&template=true" target="_blank" class="cbtn cbtn-small">View template</a>
+                                <a href="go_to_product.php?id={$service.id}&template=true" target="_blank" class="cbtn cbtn-small">{$LANG.MW_viewTemplate}</a>
                             {else}
 
 
-                                <a href="upgrade.php?type=package&id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="Change plan">Plan</a>
+                                <a href="upgrade.php?type=package&id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="Change plan">{$LANG.MW_plan}</a>
 
-                                <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="{$LANG.manageproduct}">Manage</i></a>
+                                <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="{$LANG.manageproduct}">{$LANG.MW_manage}</i></a>
 
-                                <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" data-toggle="tooltip" title="Edit this website" class="whmc-kbtn-small">Edit</a>
+                                <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" data-toggle="tooltip" title="Edit this website" class="whmc-kbtn-small">{$LANG.MW_edit}</a>
 
                             {/if}
                         </div>

@@ -37,7 +37,7 @@
                     <div class=" product-plans-free col-xl-6 col-lg-8">
                         <div id="product{$num}"style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
                             <div class="col-xl-2 text-center col-12 produc-plans-free-border-blue">
-                                <h1 class="product-plans-free-h1">{$product.name}</h1>
+                                <h1 class="product-plans-free-h1" style="font-size: 20px;">{$product.name}</h1>
                                 {if $product.qty}
                                     <span class="qty">
                                         ({$product.qty} {$LANG.orderavailable})

@@ -210,7 +210,7 @@
                             <th>{$LANG.nextdue}</th>
                             <th>{$LANG.domainsautorenew}</th>
                             <th>{$LANG.domainstatus}</th>
-                            <th>&nbspActions</th>
+                            <th>{$LANG.MW_actions}</th>
                         </tr>
                         </thead>
                         <tbody>

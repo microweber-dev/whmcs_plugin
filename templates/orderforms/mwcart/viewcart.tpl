@@ -254,13 +254,13 @@
                                                 {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <span class="cycle" style="font-size: 14px; color: gray;">{$domain.regperiod} {$domain.yearsLanguage}</span>
-                                                    <span class="renewal cycle" style="font-size: 14px; color: gray;>
+                                                    <span class="renewal cycle" style="font-size: 14px; color: gray;">
                                                         {if isset($domain.renewprice)}{lang key='domainrenewalprice'} <span class="renewal-price cycle">{$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}{/if}</span>
                                                     </span>
                                                 {else}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <div class="dropdown">
-                                                        <button class="whmc-kbtn-2 btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             {$domain.regperiod} {$domain.yearsLanguage}
                                                             <span class="caret"></span>
                                                         </button>
