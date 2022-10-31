@@ -37,7 +37,7 @@
                             <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
                         {/if}
 
-                        <a href="http://microweber.com" class="back-to-website-button">Back to Site</a>
+                        <a href="http://microweber.com" class="back-to-website-button">{$LANG.MW_backToSite}</a>
                     </div>
                     <div>
                         <nav class="main-menu">
@@ -60,8 +60,8 @@
                                             <div class="clearfix"></div>
                                             <div class="more-menu">
                                                 <ul>
-                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">My websites</a></li>
-                                                    <li><a href="{$WEB_ROOT}/logout.php">Logout</a></li>
+                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MW_myWebsites}</a></li>
+                                                    <li><a href="{$WEB_ROOT}/logout.php">{$LANG.MW_logout}</a></li>
                                                 </ul>
                                             </div>
                                         {else}
@@ -77,9 +77,9 @@
 
                                 {if $loggedin}
                                     <li>
-                                        <a href="javascript:;" class="menu-more">Profile &nbsp;<b class="caret"></b></a>
+                                        <a href="javascript:;" class="menu-more">{$LANG.MW_Profile} &nbsp;<b class="caret"></b></a>
                                         <ul>
-                                            <li><a href="{$WEB_ROOT}/clientarea.php?action=details">Edit profile</a></li>
+                                            <li><a href="{$WEB_ROOT}/clientarea.php?action=details">{$LANG.MW_editProfile}</a></li>
                                             {if $condlinks.updatecc}
                                                 <li><a href="{$WEB_ROOT}/clientarea.php?action=creditcard">{$LANG.navmanagecc}</a></li>
                                             {/if}
@@ -108,8 +108,8 @@
                                 <div class="clearfix"></div>
                                 <div class="more-menu">
                                     <ul>
-                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=services">My websites</a></li>
-                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=details">Edit profile</a></li>
+                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MW_myWebsites}</a></li>
+                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=details">{$LANG.MW_editProfile}</a></li>
 
                                         {if $condlinks.updatecc}
                                             <li><a href="{$WEB_ROOT}/clientarea.php?action=creditcard">{$LANG.navmanagecc}</a></li>
@@ -139,7 +139,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right" style="margin-top: 6px;">My Websites</a>
+                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right" style="margin-top: 6px;">{$LANG.MW_myWebsites}</a>
                             {if $cartitems==0}
                                 <a href="cart.php?a=checkout" class="cbtn cbtn-alt top-right-button hidden-mobile pull-right" style="padding: 0 10px;" title="0 Items"><span
                                             class="fa fa-shopping-cart" ></span> &nbsp;0</a>
@@ -157,7 +157,7 @@
                             </div>
                         {else}
 {*                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>*}
-                            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn" >Log in</a>
+                            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn" >{$LANG.login}</a>
                         {/if}
 
                     </div>

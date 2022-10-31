@@ -54,7 +54,7 @@ $templates = get_enabled_templates();
  ?>
 <?php if (empty((array) $templates)): ?>
     <div class="alert alert-danger" role="alert">
-        No templates are enabled from the admin panel
+        Няма позолени темплейти позволени от админ панелът
     </div>
  <?php endif; ?>
 
@@ -62,10 +62,10 @@ $templates = get_enabled_templates();
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == '_top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center mb-5">
 
-                    <h1 style="font-size: 48px; font-weight: 700;">Create a Website Based on a Great Template</h1>
-                    <p style="font-size: 18px!important; font-weight: 300;">Choose From a library of Hundreds of Professional Prepared Mobile Ready Themes</p>
+                    <h1 style="font-size: 48px; font-weight: 700;">Направи Уебсайт Базиран на Уникален Темплейт</h1>
+                    <p style="font-size: 18px!important; font-weight: 300;">Избери от Списък със Стотици Професионални Предварително Дефинирани Теми Готови За Работа с Всяко Устройство</p>
 
                 </div>
             </div>
@@ -97,7 +97,7 @@ $templates = get_enabled_templates();
                         </form>
 
                        <div class="template-box-bottom-2 m-t-15">
-                           <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;">Preview</button>
+                           <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;">Предварителен Преглед</button>
 
                            <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
@@ -107,7 +107,7 @@ $templates = get_enabled_templates();
                                <input type="hidden" value="true" name="skip_preview_template"/>
 
 
-                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Start</button>
+                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Започни</button>
                            </form>
 
                        </div>

@@ -260,7 +260,7 @@
                                                 {else}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <div class="dropdown">
-                                                        <button class="whmc-kbtn-2 btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             {$domain.regperiod} {$domain.yearsLanguage}
                                                             <span class="caret"></span>
                                                         </button>
