@@ -21,7 +21,42 @@
 
 if (!defined("WHMCS")) die("This file cannot be accessed directly");
 
+
 $_LANG['locale'] = "bg_BG";
+
+
+
+//*********************
+//MICROWEBER TRANSLATE
+//********************** 
+$_LANG['MW_start'] = "Започни";
+$_LANG['MW_chooseACurrency'] = "Избери Валута";
+$_LANG['MW_createAWebsite'] = "Направи си Уебсайт";
+$_LANG['MW_contactSales'] = "Свържи се с нас";
+$_LANG['MW_createPowerfulSite'] = "Направи перфектният сайт с технологията на Drag&Drop";
+$_LANG['MW_BuildingAWebsiteEasy'] = "Правенето на Уебсайт е по-лесно от всякога";
+$_LANG['MW_Websites'] = "Уебсайтове";
+
+$_LANG['MW_our_Guarantees'] = "Нашите Гаранции";
+$_LANG['MW_guarantees_1'] = "Научете защо повече от 35,000 клиента по целия свят ни се довериха.";
+$_LANG['MW_expertSupport'] = "Експертна Поддръжка";
+$_LANG['MW_ourExpertSupportIs'] = "Нашият екип пълен с експерти е на ваше разположение 24/7, за да ви помага за технически въпроси и дава съвети.";
+$_LANG['MW_fastAndReliable'] = "Бързо и надеждно Fast & Reliable";
+$_LANG['MW_createASiteFaster'] = "Направи уебсайт по-бързо от всякога, който ще бъде онлайн по всяко време.";
+$_LANG['MW_superAndEasyToUse'] = "Супер Лесен за Използване";
+$_LANG['MW_easeOfUseIsAchieved'] = "Лесното използване се постига с интуитивен дизайн, удобен контролен панел и технология за Drag & Drop.";
+$_LANG['MW_uptimeGuaranteed'] = "Гарантирано Време за Работа";
+$_LANG['MW_theGuaranteeOfUninterrupted'] = "Гаранцията за непрекъсната работа на вашия сайт, ще бъде онлайн по всяко време на годината.";
+$_LANG['MW_secureServers'] = "Сигурни Съвръри";
+$_LANG['MW_highLevelOfSecurity'] = "Високо ниво на сигурност, ние защитаваме вашия уебсайт от хакери и атаки.";
+$_LANG['MW_highPerformance'] = "Висока Производителност";
+$_LANG['MW_youCreateMoreSites'] = "Създавате повече сайтове за по-малко време. Бързо и лесно.";
+
+
+//*********************
+//END MICROWEBER TRANSLATE
+//**********************
+
 
 $_LANG['accountinfo'] = "Информация за профила";
 $_LANG['accountstats'] = "Статистика на акаунта";
@@ -1230,7 +1265,7 @@ $_LANG['navemailssent'] = "История на имейлите";
 $_LANG['hello'] = "Здравейте";
 $_LANG['helloname'] = "Здравейте, %s!";
 $_LANG['account'] = "Сметка";
-$_LANG['login'] = "Влизам";
+$_LANG['login'] = "Вход";
 $_LANG['register'] = "Регистрирам";
 $_LANG['forgotpw'] = "Забравена парола?";
 

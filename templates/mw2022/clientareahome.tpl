@@ -53,29 +53,29 @@
 
     <div class="mw-whm-hero--clientarea" style="background-image: url({$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg)">
         <div>
-            <h1>Building a Website Has Never Been Easier</h1>
-            <p>Create the perfect site with powerful drag and drop tools</p>
-            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">Create a Website</a>
-            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
+            <h1>{$LANG.MW_BuildingAWebsiteEasy}</h1>
+            <p>{$LANG.MW_createPowerfulSite}</p>
+            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">{$LANG.MW_createAWebsite}</a>
+            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >{$LANG.MW_contactSales}</a>
         </div>
     </div>
 
-   {*<div class="row  client-area-row-box ">
-       <div class="col-lg-4 client-area-box-1" style="    margin-top: 100px;">
-           <h1 style="font-size: 48px; font-weight: 700; line-height: 1.2;">Building a Website Has Never Been Easier</h1>
-           <p style="margin-top: 20px;">Create the perfect site with powerful drag and drop tools</p>
+    {*<div class="row  client-area-row-box ">
+        <div class="col-lg-4 client-area-box-1" style="    margin-top: 100px;">
+            <h1 style="font-size: 48px; font-weight: 700; line-height: 1.2;">Building a Website Has Never Been Easier</h1>
+            <p style="margin-top: 20px;">Create the perfect site with powerful drag and drop tools</p>
 
 
-           <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
-           <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
-       </div>
+            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn" style="margin-right: 10px">Create a Website</a>
+            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >Contact Sales</a>
+        </div>
 
-       <div class="col-lg-8 client-area-box-2">
+        <div class="col-lg-8 client-area-box-2">
 
-           <img width="100%" src="{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg" alt="">
+            <img width="100%" src="{$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg" alt="">
 
-       </div>
-   </div>*}
+        </div>
+    </div>*}
     <div class="tiles clearfix">
 
 
@@ -93,7 +93,7 @@
                         </svg>
                     </div>
                     <div class="stat">{$clientsstats.productsnumactive}</div>
-                    <div class="title">Websites</div>
+                    <div class="title">{$LANG.MW_Websites}</div>
                     <div class="highlight bg-color-blue"></div>
                 </a>
             </div>
@@ -204,8 +204,8 @@
 
 <div class="site-section section-primary">
     <div class="container-fluid">
-        <h2 class="section-title">Our Guarantees</h2>
-        <p class="section-subtitle">Learn why we are trusted by over 35,000 clients worldwides</p>
+        <h2 class="section-title">{$LANG.MW_our_Guarantees}</h2>
+        <p class="section-subtitle">{$LANG.MW_guarantees_1}</p>
         <div class="section-content">
             <div class="row row-eq-height row-eq-height-xs features">
                 <div class="col-lg-4 col-md-6">
@@ -221,14 +221,14 @@
                                 <line class="svg-icon-outline-s" x1="38" y1="20.5" x2="38" y2="28.2"></line>
                                 <polygon class="svg-icon-outline-s" points="32,63 5,47.4 5,16.6 32,1 59,16.6 59,47.4"></polygon>
                             </svg>                                </div>
-                            <div class="feature-content">
-                                <h4 class="feature-title">24/7 Expert Support</h4>
-                                <p class="feature-desc">
-                                    Our expert support team is on hand 24/7 to give expert support and advice on all your technical problems.
-                                </p>
-                            </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">24/7 {$LANG.MW_expertSupport}</h4>
+                            <p class="feature-desc">
+                                {$LANG.MW_ourExpertSupportIs}
+                            </p>
                         </div>
                     </div>
+                </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="feature feature-xs-left">
                         <div class="feature-icon">
@@ -241,8 +241,8 @@
                             </svg>
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Fast &amp; Reliable</h4>
-                            <p class="feature-desc">Create a site faster than ever that will be available online at any time.</p>
+                            <h4 class="feature-title">{$LANG.MW_fastAndReliable}</h4>
+                            <p class="feature-desc">{$LANG.MW_createASiteFaster}</p>
                         </div>
                     </div>
                 </div>
@@ -264,8 +264,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Super Easy to Use</h4>
-                            <p class="feature-desc">Ease of use is achieved with an intuitive design, convenient control panel and drag and drop technology.</p>
+                            <h4 class="feature-title">{$LANG.MW_superAndEasyToUse}</h4>
+                            <p class="feature-desc">{$LANG.MW_easeOfUseIsAchieved}</p>
                         </div>
                     </div>
                 </div>
@@ -282,8 +282,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">100% Uptime Guaranteed</h4>
-                            <p class="feature-desc">The guarantee of uninterrupted operation of your site, will be online at any time of the year.</p>
+                            <h4 class="feature-title">100% {$LANG.MW_uptimeGuaranteed} </h4>
+                            <p class="feature-desc">{$LANG.MW_theGuaranteeOfUninterrupted}</p>
                         </div>
                     </div>
                 </div>
@@ -302,8 +302,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Secure Servers</h4>
-                            <p class="feature-desc">High level of security, we protect your website from hackers and attacks.</p>
+                            <h4 class="feature-title">{$LANG.MW_secureServers}</h4>
+                            <p class="feature-desc">{$LANG.MW_highLevelOfSecurity}</p>
                         </div>
                     </div>
                 </div>
@@ -333,8 +333,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">High Performance</h4>
-                            <p class="feature-desc">You create more sites in less time. Fast and easy</p>
+                            <h4 class="feature-title">{$LANG.MW_highPerformance}</h4>
+                            <p class="feature-desc">{$LANG.MW_youCreateMoreSites}</p>
                         </div>
                     </div>
                 </div>

@@ -67,7 +67,7 @@
                                         {else}
                                             <div class="more-menu">
                                                 <ul>
-                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">Log in</a></li>
+                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.login}</a></li>
                                                 </ul>
                                             </div>
                                         {/if}
@@ -157,7 +157,7 @@
                             </div>
                         {else}
 {*                            <a href="{$WEB_ROOT}/clientarea.php" id="whmc_login_button_header" class="hidden-mobile">Login</a>*}
-                            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn" >Log in</a>
+                            <a href="{$custom_oauth2_login_url}" class="whmc-kbtn" >{$LANG.login}</a>
                         {/if}
 
                     </div>

@@ -23,6 +23,38 @@ if (!defined("WHMCS")) die("This file cannot be accessed directly");
 
 $_LANG['locale'] = "en_GB";
 
+
+
+//*********************
+//MICROWEBER TRANSLATE
+//**********************
+
+$_LANG['MW_CreateAWebsite'] = "Make a Website";
+$_LANG['MW_chooseACurrency'] = "Choose a Currency";
+$_LANG['MW_createAWebsite'] = "Make a Website";
+$_LANG['MW_contactSales'] = "Contact Sales";
+$_LANG['MW_createPowerfulSite'] = "Create the perfect site with powerful drag and drop tools";
+$_LANG['MW_BuildingAWebsiteEasy'] = "Building a Website Has Never Been Easier";
+
+$_LANG['MW_our_Guarantees'] = "Our Guarantees";
+$_LANG['MW_guarantees_1'] = "Learn why we are trusted by over 35,000 clients worldwides";
+$_LANG['MW_expertSupport'] = "Expert Support";
+$_LANG['MW_ourExpertSupportIs'] = "Our expert support team is on hand 24/7 to give expert support and advice on all your technical problems.";
+$_LANG['MW_fastAndReliable'] = "Fast & Reliable";
+$_LANG['MW_createASiteFaster'] = "Create a site faster than ever that will be available online at any time.";
+$_LANG['MW_superAndEasyToUse'] = "Super Easy to Use";
+$_LANG['MW_easeOfUseIsAchieved'] = "Ease of use is achieved with an intuitive design, convenient control panel and drag and drop technology.";
+$_LANG['MW_uptimeGuaranteed'] = "Uptime Guaranteed";
+$_LANG['MW_theGuaranteeOfUninterrupted'] = "The guarantee of uninterrupted operation of your site, will be online at any time of the year.";
+$_LANG['MW_secureServers'] = "Secure Servers";
+$_LANG['MW_highLevelOfSecurity'] = "High level of security, we protect your website from hackers and attacks.";
+$_LANG['MW_highPerformance'] = "High Performance";
+$_LANG['MW_youCreateMoreSites'] = "You create more sites in less time. Fast and easy";
+
+//*********************
+//END MICROWEBER TRANSLATE
+//**********************
+
 $_LANG['accountinfo'] = "Account Information";
 $_LANG['accountstats'] = "Account Statistics";
 $_LANG['addfunds'] = "Add Funds";
