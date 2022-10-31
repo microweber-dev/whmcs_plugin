@@ -1,6 +1,6 @@
 <div class="mw-whm clientareadomains">
     <div class="header-lined text-center">
-        <h1>My Domains</h1>
+        <h1>{$LANG.MW_myDomains}</h1>
     </div>
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}

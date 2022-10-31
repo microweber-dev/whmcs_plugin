@@ -189,7 +189,7 @@
                         <div class="transactions-container small-text" style="font-size: 14px; margin-top: 40px;">
                             <div style=" border: none;">
 
-                               <h5 style="font-size: 16px;">Transactions:</h5>
+                               <h5 style="font-size: 16px;">{$LANG.MW_transactions}:</h5>
                                 <table class="table table-condensed">
                                     <thead style="margin: 20px;">
                                     <tr style="font-size: 14px; font-weight: 300; color: gray;">

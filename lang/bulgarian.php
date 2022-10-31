@@ -116,7 +116,11 @@ $_LANG['MW_networkStatus'] = "Мрежов статус";
 $_LANG['MW_contactUs'] = "Свържи се с нас";
 
 $_LANG['MW_goToWebsite'] = "Напред към моят сайт";
+$_LANG['MW_pay'] = "Плащане";
+$_LANG['MW_transactions'] = "Транзакции";
+$_LANG['MW_findYourDomainName'] = "Намери своето име на Домейн";
 $_LANG['MW_orderInformation'] = "Информация за Поръчката";
+$_LANG['MW_supportticketsheader'] = "Поддръжка / Направи Запитване";
 
 
 //*********************

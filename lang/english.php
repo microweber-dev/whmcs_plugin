@@ -115,6 +115,8 @@ $_LANG['MW_transferDomainToUs'] = "Transfer Domains to Us";
 $_LANG['MW_networkStatus'] = "Network Status";
 $_LANG['MW_contactUs'] = "Contact Us";
 
+$_LANG['MW_supportticketsheader'] = "Support / Open Ticket";
+
 
 //*********************
 //END MICROWEBER TRANSLATE
