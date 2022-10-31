@@ -67,7 +67,7 @@
                                         {else}
                                             <div class="more-menu">
                                                 <ul>
-                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">Log in</a></li>
+                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.login}</a></li>
                                                 </ul>
                                             </div>
                                         {/if}

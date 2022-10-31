@@ -254,7 +254,7 @@
                                                 {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <span class="cycle" style="font-size: 14px; color: gray;">{$domain.regperiod} {$domain.yearsLanguage}</span>
-                                                    <span class="renewal cycle" style="font-size: 14px; color: gray;>
+                                                    <span class="renewal cycle" style="font-size: 14px; color: gray;">
                                                         {if isset($domain.renewprice)}{lang key='domainrenewalprice'} <span class="renewal-price cycle">{$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}{/if}</span>
                                                     </span>
                                                 {else}
