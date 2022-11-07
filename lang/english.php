@@ -35,7 +35,7 @@ $_LANG['MW_createAWebsite'] = "Make a Website";
 $_LANG['MW_contactSales'] = "Contact Sales";
 $_LANG['MW_createPowerfulSite'] = "Create the perfect site with powerful drag and drop tools";
 $_LANG['MW_BuildingAWebsiteEasy'] = "Building a Website Has Never Been Easier";
-
+$_LANG['MW_Websites'] = "Websites";
 $_LANG['MW_our_Guarantees'] = "Our Guarantees";
 $_LANG['MW_guarantees_1'] = "Learn why we are trusted by over 35,000 clients worldwides";
 $_LANG['MW_expertSupport'] = "Expert Support";

@@ -357,11 +357,11 @@
                         cache: false,
                         type: "POST",
                         success: function (response) {
-                           $(item).replaceWith(getDomainItemTemplate(response));
+                            $(item).replaceWith(getDomainItemTemplate(response));
                         }
                     });
 
-               });
+                });
             }, 369);
 
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');
@@ -380,9 +380,9 @@
             <div>
 
                 <div class="just-text text-center m-t-80 m-b-20">
-                    <h1 class="m-b-20">Регистрирай Домейн и Направи Сайт</h1>
+                    <h1 class="m-b-20">Register Domain and Create Site</h1>
                     <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
-                    <p>Регистрирай своя домейн с <?php echo $controller->branding_get_company_name(); ?></p>
+                    <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
                 </div>
 
 
@@ -390,23 +390,23 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder" style="display: flex;">
-                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="Напишете домейн име тук..." tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
+                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                             <button class="js-clear-domain clear-domain" type="button"></button>
-                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit">Търси</button>
+                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit">Search</button>
                         </div>
 
-                        <p class="provide-domains">Ние предоставяме .com .net .org .eu домейни.</p>
+                        <p class="provide-domains">We provide .com .net .org .eu domains.</p>
 
                         <div class="fixed-container user_registration_form_msg">
                             <div class="urf urf_warn" style="display: none;">
                                 <div class="icon"></div>
-                                <strong><span class="var-websiteName">ИметоНаДомейна.com</span> е зает.</strong> Опитай с нов!<br/>
-                                Ако това е вашият домейн, <u>Можете да свържете с <?php echo $controller->branding_get_company_name(); ?> Премиум.</u>
+                                <strong><span class="var-websiteName">DomainName.com</span> is taken.</strong> Try new one!<br/>
+                                If this is your domain, <u>you can map it with <?php echo $controller->branding_get_company_name(); ?> Premium.</u>
                             </div>
                             <div class="urf urf_success" style="display: none;">
                                 <div class="icon"></div>
-                                <strong><span class="var-websiteName">ИметоНаДомейна.com</span> е свободен!</strong> Вземи сега!<br/>
-                                Купи домейн с това име сега <u>с хостинг и уебсайт!.</u>
+                                <strong><span class="var-websiteName">DomainName.com</span> is available!</strong> Get it now!<br/>
+                                Purchase this domain name right now <u>with hosting and website.</u>
                             </div>
                         </div>
 
@@ -416,7 +416,7 @@
                                 <div class="domain-item cant-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="not-available-tag">Зает</span>
+                                        <span class="not-available-tag">Unavailable</span>
                                         <span class="di-price">&nbsp;</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -425,7 +425,7 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-free-tag">Безплатен</span>
+                                        <span class="domain-free-tag">Free</span>
                                         <span class="di-price">$0.00</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -434,7 +434,7 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-recommended-tag">Свободен</span>
+                                        <span class="domain-recommended-tag">Available</span>
                                         <span class="di-price">$10.00</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -443,33 +443,33 @@
 
                         </div>
 
-<!--                        <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">-->
-<!--                            <button type="button" class="whmc-kbtn js-domain-search-load-more-btn">Load more</button>-->
-<!--                        </div>-->
+                        <!--                        <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">-->
+                        <!--                            <button type="button" class="whmc-kbtn js-domain-search-load-more-btn">Load more</button>-->
+                        <!--                        </div>-->
 
                     </form>
 
                 </div>
 
-<!--                <div class="just-text boxes p-b-50">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-4">-->
-<!--                            <h6>Register a new domain</h6>-->
-<!--                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="col-md-4">-->
-<!--                            <h6>Connect your own domain</h6>-->
-<!--                            <p>Already have a domain name? Point it to your --><?php //echo $controller->branding_get_company_name(); ?><!-- website in a few easy steps.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="col-md-4">-->
-<!--                            <h6>Connect your email</h6>-->
-<!--                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="just-text boxes p-b-50">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-md-4">-->
+                <!--                            <h6>Register a new domain</h6>-->
+                <!--                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>-->
+                <!--                        </div>-->
+                <!---->
+                <!--                        <div class="col-md-4">-->
+                <!--                            <h6>Connect your own domain</h6>-->
+                <!--                            <p>Already have a domain name? Point it to your --><?php //echo $controller->branding_get_company_name(); ?><!-- website in a few easy steps.-->
+                <!--                            </p>-->
+                <!--                        </div>-->
+                <!---->
+                <!--                        <div class="col-md-4">-->
+                <!--                            <h6>Connect your email</h6>-->
+                <!--                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>

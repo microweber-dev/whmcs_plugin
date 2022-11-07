@@ -51,21 +51,21 @@
 </style>
 <?php
 $templates = get_enabled_templates();
- ?>
+?>
 <?php if (empty((array) $templates)): ?>
     <div class="alert alert-danger" role="alert">
-        Няма позолени темплейти позволени от админ панелът
+        No templates are enabled from the admin panel
     </div>
- <?php endif; ?>
+<?php endif; ?>
 
 <div class="templates">
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == '_top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center mb-5">
+                <div class="col-md-12 text-center">
 
-                    <h1 style="font-size: 48px; font-weight: 700;">Направи Уебсайт Базиран на Уникален Темплейт</h1>
-                    <p style="font-size: 18px!important; font-weight: 300;">Избери от Списък със Стотици Професионални Предварително Дефинирани Теми Готови За Работа с Всяко Устройство</p>
+                    <h1 style="font-size: 48px; font-weight: 700;">Create a Website Based on a Great Template</h1>
+                    <p style="font-size: 18px!important; font-weight: 300;">Choose From a library of Hundreds of Professional Prepared Mobile Ready Themes</p>
 
                 </div>
             </div>
@@ -96,21 +96,21 @@ $templates = get_enabled_templates();
 
                         </form>
 
-                       <div class="template-box-bottom-2 m-t-15">
-                           <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;">Предварителен Преглед</button>
+                        <div class="template-box-bottom-2 m-t-15">
+                            <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;">Preview</button>
 
-                           <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+                            <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
-                               <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
+                                <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                               <input type="hidden" value="true" name="template_view"/>
-                               <input type="hidden" value="true" name="skip_preview_template"/>
+                                <input type="hidden" value="true" name="template_view"/>
+                                <input type="hidden" value="true" name="skip_preview_template"/>
 
 
-                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Започни</button>
-                           </form>
+                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Start</button>
+                            </form>
 
-                       </div>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
