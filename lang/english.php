@@ -135,6 +135,12 @@ $_LANG['MW_search'] = "Search";
 $_LANG['MW_typeDomainNameHere'] = "Type a domain name here";
 
 
+$_LANG['MW_noTemplatesAreEnabled'] = "No templates are enabled from the admin panel";
+$_LANG['MW_weCreateAWebsiteBasedOnTemplate'] = "Create a Website Based on a Great Template";
+$_LANG['MW_chooseFromALibraryOfHundred'] = "Choose From a library of Hundreds of Professional Prepared Mobile Ready Themes";
+$_LANG['MW_preview'] = "Preview";
+
+
 
 
 

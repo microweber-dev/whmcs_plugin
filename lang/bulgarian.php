@@ -142,6 +142,17 @@ $_LANG['MW_typeDomainNameHere'] = "Напиши домейн име тук";
 
 
 
+$_LANG['MW_noTemplatesAreEnabled'] = "Няма активирани темплейти от админ панелът.";
+$_LANG['MW_weCreateAWebsiteBasedOnTemplate'] = "Направи Уебсайт Базиран на Уникален Темплейт";
+$_LANG['MW_chooseFromALibraryOfHundred'] = "Избери от библиотека от стотици предварително подготвени професионални темплейти, готови за използване на всяко устройство";
+$_LANG['MW_preview'] = "Прегледай";
+
+
+
+
+
+
+
 
 
 
