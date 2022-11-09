@@ -143,6 +143,7 @@ $_LANG['MW_selectYourPlan'] = "Select Your Plan";
 $_LANG['MW_takeAdvantageOfOurPremium'] = "Take advantage of our premium plan to be sure your site will run smoothly";
 $_LANG['MW_14daysFreeTrial'] = "14 days free trial";
 $_LANG['MW_orderNow'] = "Order Now";
+$_LANG['MW_start'] = "Start";
 
 
 
