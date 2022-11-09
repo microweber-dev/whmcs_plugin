@@ -123,6 +123,32 @@ $_LANG['MW_orderInformation'] = "Информация за Поръчката";
 $_LANG['MW_supportticketsheader'] = "Поддръжка / Направи Запитване";
 
 
+$_LANG['MW_registerDomainCreateSite'] = "Регистрирай Домейн и Направи Сайт";
+$_LANG['MW_registerYourDomainWith'] = "Регистрирай Своя Домейн с";
+$_LANG['MW_weProvide'] = "Ние предоставяме";
+$_LANG['MW_domainName'] = "ИмеНаДомейн";
+$_LANG['MW_isTaken'] = "е зает";
+$_LANG['MW_tryNewOne'] = "Опитайте отново!";
+$_LANG['MW_premium'] = "Премиум";
+$_LANG['MW_ifThisIsYourDomain'] = "Ако това е вашият домейн, можете да го свържете с";
+$_LANG['MW_isAvailable'] = "е наличен!";
+$_LANG['MW_getItnow'] = "Вземи Го Сега!";
+$_LANG['MW_purchaseThisDomainName'] = "Закупи този домейн сега с хостинг и уебсайт.";
+$_LANG['MW_unavailable'] = "Зает";
+$_LANG['MW_available'] = "Свободен";
+$_LANG['MW_free'] = "Безплатен";
+$_LANG['MW_search'] = "Търси";
+$_LANG['MW_typeDomainNameHere'] = "Напиши домейн име тук";
+
+
+
+
+
+
+
+
+
+
 //*********************
 //END MICROWEBER TRANSLATE
 //**********************

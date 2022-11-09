@@ -380,9 +380,9 @@
             <div>
 
                 <div class="just-text text-center m-t-80 m-b-20">
-                    <h1 class="m-b-20">Register Domain and Create Site</h1>
+                    <h1 class="m-b-20"><?php print Lang::trans('MW_registerDomainCreateSite') ?></h1>
                     <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
-                    <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
+                    <p> <?php echo $controller->branding_get_company_name(); ?></p>
                 </div>
 
 
@@ -390,23 +390,23 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder" style="display: flex;">
-                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
+                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="<?php print Lang::trans('MW_typeDomainNameHere') ?>" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                             <button class="js-clear-domain clear-domain" type="button"></button>
-                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit">Search</button>
+                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit"><?php print Lang::trans('MW_search') ?></button>
                         </div>
 
-                        <p class="provide-domains">We provide .com .net .org .eu domains.</p>
+                        <p class="provide-domains"><?php print Lang::trans('MW_weProvide') ?> .com .net .org .eu domains.</p>
 
                         <div class="fixed-container user_registration_form_msg">
                             <div class="urf urf_warn" style="display: none;">
                                 <div class="icon"></div>
-                                <strong><span class="var-websiteName">DomainName.com</span> is taken.</strong> Try new one!<br/>
-                                If this is your domain, <u>you can map it with <?php echo $controller->branding_get_company_name(); ?> Premium.</u>
+                                <strong><span class="var-websiteName"><?php print Lang::trans('MW_domainName') ?>.com</span> <?php print Lang::trans('MW_isTaken') ?>.</strong> <?php print Lang::trans('MW_tryNewOne') ?><br/>
+                                <?php print Lang::trans('MW_ifThisIsYourDomain') ?><?php echo $controller->branding_get_company_name(); ?> <?php print Lang::trans('MW_premium') ?>.
                             </div>
                             <div class="urf urf_success" style="display: none;">
                                 <div class="icon"></div>
-                                <strong><span class="var-websiteName">DomainName.com</span> is available!</strong> Get it now!<br/>
-                                Purchase this domain name right now <u>with hosting and website.</u>
+                                <strong><span class="var-websiteName"><?php print Lang::trans('MW_domainName') ?>.com</span> <?php print Lang::trans('MW_isAvailable') ?></strong> <?php print Lang::trans('MW_getItnow') ?><br/>
+                                <?php print Lang::trans('MW_purchaseThisDomainName') ?>
                             </div>
                         </div>
 
@@ -416,7 +416,7 @@
                                 <div class="domain-item cant-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="not-available-tag">Unavailable</span>
+                                        <span class="not-available-tag"><?php print Lang::trans('MW_unavailable') ?></span>
                                         <span class="di-price">&nbsp;</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -425,7 +425,7 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-free-tag">Free</span>
+                                        <span class="domain-free-tag"><?php print Lang::trans('MW_free') ?></span>
                                         <span class="di-price">$0.00</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -434,7 +434,7 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-recommended-tag">Available</span>
+                                        <span class="domain-recommended-tag"><?php print Lang::trans('MW_available') ?></span>
                                         <span class="di-price">$10.00</span>
                                     </div>
                                     <div class="clearfix"></div>

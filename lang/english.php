@@ -117,6 +117,29 @@ $_LANG['MW_contactUs'] = "Contact Us";
 
 $_LANG['MW_supportticketsheader'] = "Support / Open Ticket";
 
+$_LANG['MW_registerDomainCreateSite'] = "Register Domain and Create Site";
+$_LANG['MW_registerYourDomainWith'] = "Register your domain with";
+$_LANG['MW_weProvide'] = "We Provide";
+$_LANG['MW_domainName'] = "DomainName";
+$_LANG['MW_isTaken'] = "is taken";
+$_LANG['MW_tryNewOne'] = "Try new one!";
+$_LANG['MW_premium'] = "Premium";
+$_LANG['MW_ifThisIsYourDomain'] = "If this is your domain, you can map it with ";
+$_LANG['MW_isAvailable'] = "is available!";
+$_LANG['MW_getItnow'] = "Get It Now!";
+$_LANG['MW_purchaseThisDomainName'] = "Purchase this domain name right now with hosting and website.";
+$_LANG['MW_unavailable'] = "Unavailable";
+$_LANG['MW_available'] = "Available";
+$_LANG['MW_free'] = "Free";
+$_LANG['MW_search'] = "Search";
+$_LANG['MW_typeDomainNameHere'] = "Type a domain name here";
+
+
+
+
+
+
+
 
 //*********************
 //END MICROWEBER TRANSLATE
