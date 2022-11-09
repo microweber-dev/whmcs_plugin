@@ -78,7 +78,7 @@ $_LANG['MW_Profile'] = "Профил";
 $_LANG['MW_editProfile'] = "Редактирай профила";
 
 $_LANG['MW_home'] = "Начало";
-$_LANG['MW_dashboard'] = "Табло";
+$_LANG['MW_dashboard'] = "Начало";
 $_LANG['MW_services'] = "Услуги";
 $_LANG['MW_myServices'] = "Моите услуги";
 $_LANG['MW_myLicenses'] = "Моите лицензи";
@@ -146,17 +146,10 @@ $_LANG['MW_noTemplatesAreEnabled'] = "Няма активирани темпле
 $_LANG['MW_weCreateAWebsiteBasedOnTemplate'] = "Направи Уебсайт Базиран на Уникален Темплейт";
 $_LANG['MW_chooseFromALibraryOfHundred'] = "Избери от библиотека от стотици предварително подготвени професионални темплейти, готови за използване на всяко устройство";
 $_LANG['MW_preview'] = "Прегледай";
-
-
-
-
-
-
-
-
-
-
-
+$_LANG['MW_selectYourPlan'] = "Избери Своят План";
+$_LANG['MW_takeAdvantageOfOurPremium'] = "Възползвай се от нашия премиум план за да бъдеш сигурен, че твоят сайт ще работи добре";
+$_LANG['MW_14daysFreeTrial'] = "14 дни безплатно";
+$_LANG['MW_orderNow'] = "Поръчай Сега";
 
 
 

@@ -139,6 +139,11 @@ $_LANG['MW_noTemplatesAreEnabled'] = "No templates are enabled from the admin pa
 $_LANG['MW_weCreateAWebsiteBasedOnTemplate'] = "Create a Website Based on a Great Template";
 $_LANG['MW_chooseFromALibraryOfHundred'] = "Choose From a library of Hundreds of Professional Prepared Mobile Ready Themes";
 $_LANG['MW_preview'] = "Preview";
+$_LANG['MW_selectYourPlan'] = "Select Your Plan";
+$_LANG['MW_takeAdvantageOfOurPremium'] = "Take advantage of our premium plan to be sure your site will run smoothly";
+$_LANG['MW_14daysFreeTrial'] = "14 days free trial";
+$_LANG['MW_orderNow'] = "Order Now";
+
 
 
 

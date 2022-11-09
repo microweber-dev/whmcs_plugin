@@ -42,8 +42,8 @@ $plans = $controller->get_hosting_products($params);
             <div class="row">
                 <div class="col-md-12 fx-deactivate allow-drop text-center">
 <!--                    <h3>Choose your --><?php //echo $controller->branding_get_company_name(); ?><!-- plan </h3>-->
-                    <h1 style="font-size: 48px; font-weight: 700;">Select Your Plan</h1>
-                    <p>Take advantage of our premium plan to be sure your site will run smoothly</p>
+                    <h1 style="font-size: 48px; font-weight: 700;"><?php print Lang::trans('MW_selectYourPlan') ?></h1>
+                    <p><?php print Lang::trans('MW_takeAdvantageOfOurPremium') ?></p>
                 </div>
             </div>
         </div>
@@ -103,8 +103,8 @@ $plans = $controller->get_hosting_products($params);
 
 
                                                 <?php if ($is_free): ?>
-                                                <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;">Free</p>
-                                                    <span class="period safe-element">14 days free trial</span>
+                                                <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;"><?php print Lang::trans('MW_free') ?></p>
+                                                    <span class="period safe-element"><?php print Lang::trans('MW_14daysFreeTrial') ?></span>
                                                 <?php else: ?>
                                                     <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;"><?php print $price; ?></p>
 
@@ -147,7 +147,7 @@ $plans = $controller->get_hosting_products($params);
                                                      <?php include dirname(dirname(dirname(__DIR__))) . '/params.php'; ?>
                                                     <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                                                    <button type="submit"   class="whmc-kbtn " style="width: 100%;" >Order Now</button>
+                                                    <button type="submit"   class="whmc-kbtn " style="width: 100%;" ><?php print Lang::trans('MW_orderNow') ?></button>
                                                 </form>
 
 <!--                                                <a href="--><?php //echo $current_url ?><!--&plan=--><?php //print $plan['id'] ?><!--" class="whmc-kbtn-2 btn-md m-t-20">Start --><?php //print $plan['name'] ?><!--</a>-->
