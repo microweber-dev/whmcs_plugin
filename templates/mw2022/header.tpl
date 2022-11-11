@@ -27,7 +27,7 @@
                     <div>
                         {if $logo}
 {*                            <a href="{$WEB_ROOT}/" class="logo"><img src="{$logo}" alt="{$companyname}"></a>*}
-                            <a href="http://microweber.com" class="header-link-back-to-site">
+                            <a href="http://microweber.bg" class="header-link-back-to-site">
 {*
                                 <svg style="display: none" class="header-svg-back-to-site" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.05 16.94V12.94H18.97L19 10.93H10.05V6.94L5.05 11.94Z" /></svg>
 *}
@@ -37,7 +37,7 @@
                             <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
                         {/if}
 
-                        <a href="http://microweber.com" class="back-to-website-button">{$LANG.MW_backToSite}</a>
+                        <a href="http://microweber.bg" class="back-to-website-button">{$LANG.MW_backToSite}</a>
                     </div>
                     <div>
                         <nav class="main-menu">
