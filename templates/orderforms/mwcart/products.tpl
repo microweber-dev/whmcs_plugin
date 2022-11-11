@@ -34,10 +34,10 @@
             {if $num == 0}
 
                 <div class="col-xs-12 product-plans-free-wrapper">
-                    <div class=" product-plans-free col-xl-6 col-lg-8">
+                    <div class=" product-plans-free col-xl-7 col-lg-8">
                         <div id="product{$num}"style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-                            <div class="col-xl-2 text-center col-12 produc-plans-free-border-blue">
-                                <h1 class="product-plans-free-h1" style="font-size: 20px;">{$product.name}</h1>
+                            <div class="col-xl-3 text-center col-12 produc-plans-free-border-blue">
+                                <h1 class="product-plans-free-h1 my-4" style="font-size: 24px;">{$product.name}</h1>
                                 {if $product.qty}
                                     <span class="qty">
                                         ({$product.qty} {$LANG.orderavailable})
@@ -46,11 +46,11 @@
                             </div>
 
 
-                            <div class="col-xl-6 text-center col-12 description desc-holder" style="margin-top: 20px;">
+                            <div class="col-xl-6 text-center col-12 description desc-holder my-4">
                                 {$product.description|unescape}
                             </div>
 
-                            <div class="col-xl-3 text-center col-12">
+                            <div class="col-xl-3 text-center col-12 my-4">
                                 <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn">{$LANG.MW_start}</a>
                             </div>
 
