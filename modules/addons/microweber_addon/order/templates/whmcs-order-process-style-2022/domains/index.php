@@ -283,6 +283,8 @@
     }
 </style>
 
+
+
 <script>
     function render_domain_search_list(results, append = false) {
 
@@ -302,10 +304,10 @@
 
                 var ajax_status_check_class = '';
                 var can_start_class = 'cant-start';
-                var item_status_span = '<i class="availability-domain-checker-icon fa fa-close" ></i> <span class="not-available-tag availability-domain-checker-tag">Unavailable</span>';
+                var item_status_span = '<i class="availability-domain-checker-icon fa fa-close" ></i> <span class="not-available-tag availability-domain-checker-tag"><?php print Lang::trans('MW_unavailable') ?></span>';
 
                 if (item.status == 'available') {
-                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check" ></i> <span class="domain-recommended-tag availability-domain-checker-tag">Available</span>';
+                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check" ></i> <span class="domain-recommended-tag availability-domain-checker-tag"><?php print Lang::trans('MW_available') ?></span>';
                     can_start_class = 'can-start';
                 }
 
@@ -315,7 +317,7 @@
                 }
 
                 if (item.is_free) {
-                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check"></i> <span class="domain-free-tag availability-domain-checker-tag">Free</span>';
+                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check"></i> <span class="domain-free-tag availability-domain-checker-tag"><?php print Lang::trans('MW_free') ?></span>';
                 }
                 var other_data = '';
                 <?php if(isset($_REQUEST['template_id'])): ?>
