@@ -419,7 +419,7 @@
                         {/foreach}
 
                         <div class="view-cart-tabs">
-                           <p style="font-size: 26px; padding: 15px 0;">Promotion</p>
+                           <p style="font-size: 26px; padding: 15px 0;">  {$LANG.orderpromotioncode}</p>
 
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active promo" id="applyPromo">

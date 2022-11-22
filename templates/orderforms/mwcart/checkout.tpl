@@ -471,6 +471,11 @@
                     </label>
                 </div>
 
+
+
+                asdasdasd {$total}
+
+
                 {if !$inExpressCheckout}
                     <div id="paymentGatewaysContainer" class="form-group">
                         <p class="small text-muted">{$LANG.orderForm.preferredPaymentMethod}</p>

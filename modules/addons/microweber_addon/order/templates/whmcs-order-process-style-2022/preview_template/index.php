@@ -98,7 +98,12 @@
             background-color: transparent;
 
         }
+        <?php if(isset($_REQUEST['skip_preview_template'])): ?>
 
+        * {
+          display: none !important;
+        }
+        <?php endif; ?>
     </style>
     <div class="preview-navbar" id="preview-toolbar">
         <div class="left logo">
@@ -148,7 +153,10 @@
 
 
                 <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
-                    <span>Start with this template</span>
+                    <span>
+                        <?php print Lang::trans('MW_createAWebsite') ?>
+
+                         </span>
                 </span>
 
                 &nbsp;<?php if(isset($_REQUEST['skip_preview_template'])): ?>
