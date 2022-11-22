@@ -929,7 +929,8 @@ h.domain = '" . $username . "' and
                             ];
 
                             $pricing_data['billing_cycles'][] = $cycle_data;
-
+                            $pricing_data['is_free'] = $cycle_price->isFree();
+                      
                             $cyclename = $cycle_price->cycle();
                             if ($cyclename == 'monthly' and !$price->isFree()) {
                                 $pricing_data['billing_cycle'] = $cycle_price->cycle();
