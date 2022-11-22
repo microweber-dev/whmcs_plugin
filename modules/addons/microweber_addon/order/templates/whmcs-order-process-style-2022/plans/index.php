@@ -74,9 +74,29 @@ $plans = $controller->get_hosting_products($params);
                                 }
 
                                 ?>
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="plan <?php echo $planType; ?>" >
-                                        <div class="heading" style="text-align: center;">
+
+
+                                <?php
+                                $price = false;
+                                $billing_cycle = false;
+                                $is_free = false;
+
+                                //var_dump($plan ['pricing_data']);
+                                if(isset($plan['pricing_data']) and isset($plan['pricing_data']['price'])){
+                                    $price = $plan['pricing_data']['price'];
+                                }
+                                if(isset($plan['pricing_data']) and isset($plan['pricing_data']['billing_cycle'])){
+                                    $billing_cycle = $plan['pricing_data']['billing_cycle'];
+                                }
+                                if(isset($plan['pricing_data']) and isset($plan['pricing_data']['is_free'])){
+                                    $is_free = $plan['pricing_data']['is_free'];
+                                }
+
+                                ?>
+
+                                <div class="  <?php if ($is_free): ?> col-xs-12 product-plans-free-wrapper mt-5 <?php else : ?> col-lg-6 col-xl-4  <?php endif; ?> ">
+                                    <div class="  <?php if ($is_free): ?> product-plans-free-wrapper <?php endif; ?>  plan <?php echo $planType; ?>" style="align-items: center; flex-wrap: wrap;" >
+                                        <div class=" <?php if ($is_free): ?> pt-2 <?php endif; ?>  heading" style="text-align: center;">
                                             <div class="price">
                                                 <h1 style="font-size: 24px; font-weight: 300; color: #2b2b2b;"><?php echo $plan['name']; ?></h1>
 <!--                                                --><?php //echo $plan['description']; ?>
@@ -101,10 +121,10 @@ $plans = $controller->get_hosting_products($params);
                                                 ?>
 
 
-
                                                 <?php if ($is_free): ?>
-                                                <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;"><?php print Lang::trans('MW_free') ?></p>
-                                                    <span class="period safe-element"><?php print Lang::trans('MW_14daysFreeTrial') ?></span>
+<!--                                                <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;">--><?php //print Lang::trans('MW_free') ?><!--</p>-->
+<!--                                                    <span class="period safe-element">--><?php //print Lang::trans('MW_14daysFreeTrial') ?><!--</span>-->
+
                                                 <?php else: ?>
                                                     <p style="font-weight: bold; font-size: 36px; color: #2b2b2b;"><?php print $price; ?></p>
 
@@ -126,18 +146,9 @@ $plans = $controller->get_hosting_products($params);
                                             $desc .= '</ul>';
                                         }
 
-
-
-
-
                                        // $desc = str_replace('<div class="js-order-btn"></div>', '<a href="' . $current_url . '&plan=' . $plan['id'] . '" class="whmc-kbtn-2 btn-md m-t-20">Start ' . $plan['name'] . '</a>', $desc);
-
                                         print $desc;
-
-
-
                                         ?>
-
                                         </div>
                                         <?php if ($plan['id']): ?>
                                             <div class="description last">
