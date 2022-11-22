@@ -445,6 +445,23 @@
                     </div>
                 {/foreach}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="sub-heading">
                     <span class="primary-bg-color">{$LANG.orderForm.paymentDetails}</span>
                 </div>
@@ -471,9 +488,11 @@
                     </label>
                 </div>
 
+                {if $rawtotal < 1}
 
+                    <input type="hidden" name="paymentmethod" value="paypal">
 
-                asdasdasd {$total}
+                {elseif $rawtotal > 1}
 
 
                 {if !$inExpressCheckout}
@@ -619,7 +638,7 @@
                         </p>
                     {/if}
                 {/if}
-
+                {/if}
                 {if $shownotesfield}
 
                     <div class="sub-heading">
