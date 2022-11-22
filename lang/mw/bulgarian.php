@@ -121,5 +121,10 @@ $_LANG['MW_preview'] = "Прегледай";
 $_LANG['MW_selectYourPlan'] = "Избери Своят План";
 $_LANG['MW_takeAdvantageOfOurPremium'] = "Възползвай се от нашия премиум план за да бъдеш сигурен, че твоят сайт ще работи добре";
 $_LANG['MW_14daysFreeTrial'] = "14 дни безплатно";
-$_LANG['MW_orderNow'] = "Поръчай Сега";
+$_LANG['MW_orderNow'] = "Започни Сега";
+$_LANG['MW_continueWithOrder'] = "Продължи с Поръчката";
+
+$_LANG['MW_completeOrder'] = "Завърши Поръчката";
+
+
 

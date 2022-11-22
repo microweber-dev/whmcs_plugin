@@ -121,6 +121,10 @@ $_LANG['MW_takeAdvantageOfOurPremium'] = "Take advantage of our premium plan to 
 $_LANG['MW_14daysFreeTrial'] = "14 days free trial";
 $_LANG['MW_orderNow'] = "Order Now";
 $_LANG['MW_start'] = "Start";
+$_LANG['MW_continueWithOrder'] = "Continue";
+$_LANG['MW_completeOrder'] = "Complete Order";
+
+
 
 
 

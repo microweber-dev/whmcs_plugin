@@ -681,7 +681,7 @@
                             class="whmc-kbtn my-4 disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
                             {if $cartitems==0}disabled="disabled"{/if}
                     >
-                        {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.completeorder}{/if}
+                        {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.MW_completeOrder}{/if}
                         &nbsp;<i class="fas fa-arrow-circle-right"></i>
                     </button>
                 </div>

@@ -555,7 +555,7 @@
                                 <div class="text-right" style="margin: 0 20px;">
                                     <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="whmc-kbtn btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
 {*                                        <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>*}
-                                        {$LANG.orderForm.checkout}
+                                        {$LANG.MW_continueWithOrder}
                                     </a><br />
 {*                                    <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">*}
 {*                                        {$LANG.orderForm.continueShopping}*}
