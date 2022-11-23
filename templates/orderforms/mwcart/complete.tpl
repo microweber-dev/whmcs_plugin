@@ -4,7 +4,7 @@
 {literal}<script type="text/javascript">
 
 
-  var timeleft = 30;
+  var timeleft = 45;
   var downloadTimer = setInterval(function(){
     document.getElementById("progressBar").value = 30 - --timeleft;
     if(timeleft <= 0) {

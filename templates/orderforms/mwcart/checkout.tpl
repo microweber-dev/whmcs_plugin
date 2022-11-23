@@ -488,11 +488,11 @@
                     </label>
                 </div>
 
-                {if $rawtotal < 1}
+
 
                     <input type="hidden" name="paymentmethod" value="paypal">
 
-                {elseif $rawtotal > 1}
+
 
 
                 {if !$inExpressCheckout}
@@ -638,7 +638,12 @@
                         </p>
                     {/if}
                 {/if}
-                {/if}
+
+
+
+                
+
+
                 {if $shownotesfield}
 
                     <div class="sub-heading">
