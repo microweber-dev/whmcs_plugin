@@ -125,6 +125,8 @@ $_LANG['MW_continueWithOrder'] = "Continue";
 $_LANG['MW_completeOrder'] = "Complete Order";
 $_LANG['MW_startWithThisTemplate'] = "Start with this Template";
 $_LANG['MW_orderForm.billingAddress'] = "Billing address";
+$_LANG['MW_profile'] = "Profile";
+
 
 
 
