@@ -4,6 +4,7 @@
 $_LANG['MW_start'] = "Започни";
 $_LANG['MW_chooseACurrency'] = "Избери Валута";
 $_LANG['MW_createAWebsite'] = "Направи си Уебсайт";
+$_LANG['MW_startWithThisTemplate'] = "Започни с този Темплейт";
 $_LANG['MW_contactSales'] = "Свържи се с нас";
 $_LANG['MW_createPowerfulSite'] = "Направи перфектният сайт с технологията на Drag&Drop";
 $_LANG['MW_BuildingAWebsiteEasy'] = "Правенето на Уебсайт е по-лесно от всякога";

@@ -123,6 +123,8 @@ $_LANG['MW_orderNow'] = "Order Now";
 $_LANG['MW_start'] = "Start";
 $_LANG['MW_continueWithOrder'] = "Continue";
 $_LANG['MW_completeOrder'] = "Complete Order";
+$_LANG['MW_startWithThisTemplate'] = "Start with this Template";
+
 
 
 
