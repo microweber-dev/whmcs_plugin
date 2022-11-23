@@ -94,6 +94,7 @@ $_LANG['MW_transactions'] = "Транзакции";
 $_LANG['MW_findYourDomainName'] = "Намери своето име на Домейн";
 $_LANG['MW_orderInformation'] = "Информация за Поръчката";
 $_LANG['MW_supportticketsheader'] = "Поддръжка / Направи Запитване";
+$_LANG['MW_personalInformation'] = "Лична Информация";
 
 
 $_LANG['MW_registerDomainCreateSite'] = "Регистрирай Домейн и Направи Сайт";
@@ -114,6 +115,7 @@ $_LANG['MW_search'] = "Търси";
 $_LANG['MW_typeDomainNameHere'] = "Напиши домейн име тук";
 $_LANG['MW_orderForm.billingAddress'] = "Данни за Фактуриране";
 $_LANG['MW_profile'] = "Профил";
+$_LANG['MW_changePassword'] = "Смени си Паролата";
 
 
 

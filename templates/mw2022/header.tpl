@@ -100,6 +100,8 @@
 
 
                         {if $loggedin}
+                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right">{$LANG.MW_myWebsites}</a>
+
                             <div class="user-menu-dropdown pull-right">
                                 <a class="user-bar" href="clientarea.php?action=details">
                                     <span class="">{$LANG.MW_profile}</span>
@@ -138,7 +140,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right">{$LANG.MW_myWebsites}</a>
                             {if $cartitems==0}
                                 <a href="cart.php?a=checkout" class="cbtn cbtn-alt top-right-button hidden-mobile pull-right" style="padding: 0 10px;" title="0 Items"><span
                                             class="fa fa-shopping-cart" ></span> &nbsp;0</a>

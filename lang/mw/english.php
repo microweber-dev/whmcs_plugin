@@ -110,6 +110,9 @@ $_LANG['MW_available'] = "Available";
 $_LANG['MW_free'] = "Free";
 $_LANG['MW_search'] = "Search";
 $_LANG['MW_typeDomainNameHere'] = "Type a domain name here";
+$_LANG['MW_personalInformation'] = "Personal Information";
+$_LANG['MW_changePassword'] = "Change Password";
+
 
 
 $_LANG['MW_noTemplatesAreEnabled'] = "No templates are enabled from the admin panel";

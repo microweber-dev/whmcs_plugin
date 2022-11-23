@@ -1378,6 +1378,7 @@ footer {
 
 #order-standard_cart .prepend-icon .field {
     padding-left: 15px!important;
+    color: #000000;
 }
 
  #order-standard_cart .field, #order-standard_cart .form-control {
@@ -1981,4 +1982,16 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
 
 header .user-menu-dropdown .more-menu li a:hover {
     background-color: #1279fa;
+}
+
+.user-menu-dropdown:hover .user-bar {
+    color: #1279fa;
+    border: unset!important;
+}
+
+.user-menu-dropdown .user-bar {
+    color: #1279fa;
+    font-size: 14px;
+    padding-bottom: 3px;
+
 }

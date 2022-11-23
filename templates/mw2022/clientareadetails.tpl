@@ -14,7 +14,7 @@
 
     <div class="row panel panel-default mt-5">
         <div style="font-weight: 700!important;" class="px-4 ms-2 py-3">
-            <h1>Personal Information</h1>
+            <h1> {$LANG.MW_personalInformation}</h1>
             <br />
         </div>
 
@@ -135,8 +135,8 @@
 
        <div class="col-md-6 col-12">
            <div class="form-group m-4 ">
-               <label for="inputPhone" class="control-label">Change Password</label><br>
-               <button class="whmc-kbtn-2">Change password</button>
+               <label for="inputPhone" class="control-label">{$LANG.MW_changePassword}</label><br>
+               <button class="whmc-kbtn-2">{$LANG.MW_changePassword}</button>
            </div>
        </div>
 
