@@ -487,16 +487,14 @@
                         {lang key='cart.applyCreditSkip' amount=$creditBalance}
                     </label>
                 </div>
+                {if $rawtotal < 1}
 
 
 
-                    <input type="hidden" name="paymentmethod" value="paypal">
-
-
-
+                {/if}
 
                 {if !$inExpressCheckout}
-                    <div id="paymentGatewaysContainer" class="form-group">
+                    <div id="paymentGatewaysContainer" class="form-group" >
                         <p class="small text-muted">{$LANG.orderForm.preferredPaymentMethod}</p>
 
                         <div class="text-center">
@@ -564,8 +562,8 @@
                             </li>
                         </ul>
 
-                        <div class="row" id="newCardInfo" style="display: none!important;">
-                            <div id="cardNumberContainer" class="col-sm-6 new-card-container">
+                        <div class="row" id="newCardInfo" >
+                            {*<div id="cardNumberContainer" class="col-sm-6 new-card-container">
                                 <div class="form-group prepend-icon">
 
                                     <input type="tel" name="ccnumber" id="inputCardNumber" class="field form-control cc-number-field" placeholder="{$LANG.orderForm.cardNumber}" autocomplete="cc-number" data-message-unsupported="{lang key='paymentMethodsManage.unsupportedCardType'}" data-message-invalid="{lang key='paymentMethodsManage.cardNumberNotValid'}" data-supported-cards="{$supportedCardTypes}" />
@@ -592,7 +590,7 @@
                                     </div>
                                     <span class="field-error-msg">{lang key="paymentMethodsManage.cvcNumberNotValid"}</span>
                                 </div>
-                            </div>
+                            </div>*}
                             {if $showccissuestart}
                                 <div class="col-sm-3 col-sm-offset-6 new-card-container offset-sm-6">
                                     <div class="form-group prepend-icon">
