@@ -102,8 +102,7 @@
                         {if $loggedin}
                             <div class="user-menu-dropdown pull-right">
                                 <a class="user-bar" href="clientarea.php?action=details">
-                                    <span class="image" style="background-image: url('{$WEB_ROOT}/templates/{$template}/img/avatar.jpg')"></span>
-                                    <span class="name"></span>
+                                    <span class="">Profile</span>
                                 </a>
                                 <div class="clearfix"></div>
                                 <div class="more-menu">

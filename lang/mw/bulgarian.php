@@ -112,6 +112,8 @@ $_LANG['MW_available'] = "Свободен";
 $_LANG['MW_free'] = "Безплатен";
 $_LANG['MW_search'] = "Търси";
 $_LANG['MW_typeDomainNameHere'] = "Напиши домейн име тук";
+$_LANG['MW_orderForm.billingAddress'] = "Данни за Фактуриране";
+
 
 
 

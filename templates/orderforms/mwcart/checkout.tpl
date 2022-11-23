@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="sub-heading">
-                        <span class="primary-bg-color ms-4">{$LANG.orderForm.billingAddress}</span>
+                        <span class="primary-bg-color ms-4">{$LANG.MW_orderForm.billingAddress}</span> 
                     </div>
 
                     <div class="row">
