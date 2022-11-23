@@ -1819,7 +1819,7 @@ $_LANG['assignedIPs'] = "Присвоени IP адреси";
 $_LANG['diskSpace'] = "Дисково пространство";
 $_LANG['bandwidth'] = "Честотна лента";
 $_LANG['registered'] = "Регистриран";
-$_LANG['upgrade'] = "Подобряване на";
+$_LANG['upgrade'] = "Ъпгрейд";
 
 $_LANG['downdoadsdesc'] = "Ръководства, програми и други файлове";
 

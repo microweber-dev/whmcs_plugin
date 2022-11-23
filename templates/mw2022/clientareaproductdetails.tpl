@@ -20,110 +20,110 @@
         <div class="tab-pane fade in active" id="tabOverview">
 
             {if $tplOverviewTabOutput}
-                {$tplOverviewTabOutput}
+            {$tplOverviewTabOutput}
             {else}
-                <div class="product-details clearfix">
+            <div class="product-details clearfix">
 
-                    <div class="row justify-content-center mx-auto" style="justify-content: center;">
-                       <div class="row col-sm-12 " style="justify-content: center;">
-                           <div class="col-lg-5 mx-3">
-                               <div class="row product-status product-status-{$rawstatus|strtolower}">
-                                   <div class="product-icon text-center">
-                                       <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                <div class="row justify-content-center mx-auto" style="justify-content: center;">
+                    <div class="row col-sm-12 " style="justify-content: center;">
+                        <div class="col-lg-5 mx-3">
+                            <div class="row product-status product-status-{$rawstatus|strtolower}">
+                                <div class="product-icon text-center">
+                                    <svg class="svg-icon svg-icon-on-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
                                             <line style="stroke: #ffffff;" class="svg-icon-outline-s" x1="32" y1="1.5" x2="32" y2="8.4"></line>
-                                           <polygon  class="svg-icon-prime svg-icon-stroke" points="17,23 32,31.7 47,23 47,16.9 17,16.9"></polygon>
-                                           <polygon class="svg-icon-prime-l svg-icon-stroke" points="32,25.2 17,16.6 32,7.9 47,16.6"></polygon>
-                                           <line style="stroke: #ffffff;" class="svg-icon-outline-s" x1="32" y1="32.7" x2="32" y2="62.5"></line>
-                                           <polyline style="stroke: #ffffff;" class="svg-icon-outline-s" points="58.5,16.9 32,32.2 5.5,16.9"></polyline>
-                                           <polygon style="stroke: #ffffff;" class="svg-icon-outline-s" points="32,63 5,47.4 5,16.6 32,1 59,16.6 59,47.4"></polygon>
+                                        <polygon  class="svg-icon-prime svg-icon-stroke" points="17,23 32,31.7 47,23 47,16.9 17,16.9"></polygon>
+                                        <polygon class="svg-icon-prime-l svg-icon-stroke" points="32,25.2 17,16.6 32,7.9 47,16.6"></polygon>
+                                        <line style="stroke: #ffffff;" class="svg-icon-outline-s" x1="32" y1="32.7" x2="32" y2="62.5"></line>
+                                        <polyline style="stroke: #ffffff;" class="svg-icon-outline-s" points="58.5,16.9 32,32.2 5.5,16.9"></polyline>
+                                        <polygon style="stroke: #ffffff;" class="svg-icon-outline-s" points="32,63 5,47.4 5,16.6 32,1 59,16.6 59,47.4"></polygon>
                                         </svg>
-                                       <div class="mt-5 pt-3">
-                                           <h2 style="font-weight: 700; color: #ffffff;">{$product}</h2>
-                                           <h3 style="font-weight: 700; color: #ffffff;">{$groupname}</h3>
-                                       </div>
-                                   </div>
+                                    <div class="mt-5 pt-3">
+                                        <h2 style="font-weight: 700; color: #ffffff;">{$product}</h2>
+                                        <h3 style="font-weight: 700; color: #ffffff;">{$groupname}</h3>
+                                    </div>
+                                </div>
 
-                                  <div class="product-footer text-center">
-                                      {if $packagesupgrade}
+                                <div class="product-footer text-center">
+                                    {if $packagesupgrade}
 
-                                          {if $packagesupgrade}
+                                        {if $packagesupgrade}
 
-                                              <a href="upgrade.php?type=package&amp;id={$id}" class="whmc-kbtn-2" style="border-radius: 0px;">{$LANG.upgrade}</a>
+                                            <a href="upgrade.php?type=package&amp;id={$id}" class="whmc-kbtn-2" style="border-radius: 0px;">{$LANG.upgrade}</a>
 
-                                          {/if}
-                                          {if $showcancelbutton}
+                                        {/if}
+                                        {if $showcancelbutton}
 
-                                              <a href="clientarea.php?action=cancel&amp;id={$id}"
-                                                 class="btn btn-block btn-danger {if $pendingcancellation}disabled{/if}">{if $pendingcancellation}{$LANG.cancellationrequested}{else}{$LANG.clientareacancelrequestbutton}{/if}</a>
+                                            <a href="clientarea.php?action=cancel&amp;id={$id}"
+                                               class="btn btn-block btn-danger {if $pendingcancellation}disabled{/if}">{if $pendingcancellation}{$LANG.cancellationrequested}{else}{$LANG.clientareacancelrequestbutton}{/if}</a>
 
-                                          {/if}
-                                      {/if}
-                                  </div>
-                               </div>
-                           </div>
-
-
-                           <div class="col-lg-5 mx-3" style="margin-top: 50px;">
-                               <div class=" panel panel-default" style="height:100%;">
+                                        {/if}
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
 
 
-                                   <div class=" py-3">
-                                       <h4 style="font-size: 15px; color: #acb0b9;">Status</h4>
-                                       <h3 style="font-size: 18px; margin: 0;"> {$status}</h3>
-                                   </div>
+                        <div class="col-lg-5 mx-3" style="margin-top: 50px;">
+                            <div class=" panel panel-default" style="height:100%;">
 
 
-                                   <div class=" py-3">
-                                       <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.clientareahostingregdate}</h4>
-                                      <h3 style="font-size: 18px; margin: 0;">{$regdate}</h3>
-                                   </div>
+                                <div class=" py-3">
+                                    <h4 style="font-size: 15px; color: #acb0b9;">Status</h4>
+                                    <h3 style="font-size: 18px; margin: 0;"> {$status}</h3>
+                                </div>
 
-                                   {if $firstpaymentamount neq $recurringamount}
-                                       <div class=" py-3">
-                                           <h4  style="color: #acb0b9;">{$LANG.firstpaymentamount}</h4 >
-                                           <h3 style="font-size: 18px; margin: 0;"> {$firstpaymentamount}</h3>
-                                       </div>
-                                   {/if}
 
-                                   {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
-                                       <div class=" py-3">
-                                           <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.recurringamount}</h4 >
-                                           <h3 style="font-size: 18px; margin: 0;"> {$recurringamount}</h3>
-                                       </div>
-                                   {/if}
+                                <div class=" py-3">
+                                    <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.clientareahostingregdate}</h4>
+                                    <h3 style="font-size: 18px; margin: 0;">{$regdate}</h3>
+                                </div>
 
-                                   <div class=" py-3">
-                                       <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.orderbillingcycle}</h4 >
-                                       <h3 style="font-size: 18px; margin: 0;"> {$billingcycle}</h3>
-                                   </div>
+                                {if $firstpaymentamount neq $recurringamount}
+                                    <div class=" py-3">
+                                        <h4  style="color: #acb0b9;">{$LANG.firstpaymentamount}</h4 >
+                                        <h3 style="font-size: 18px; margin: 0;"> {$firstpaymentamount}</h3>
+                                    </div>
+                                {/if}
 
-                                   <div class=" py-3">
-                                       <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.clientareahostingnextduedate}</h4 >
-                                       <h3 style="font-size: 18px; margin: 0;"> {$nextduedate}</h3>
-                                   </div>
+                                {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
+                                    <div class=" py-3">
+                                        <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.recurringamount}</h4 >
+                                        <h3 style="font-size: 18px; margin: 0;"> {$recurringamount}</h3>
+                                    </div>
+                                {/if}
 
-                                   <div class=" py-3">
-                                       <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.orderpaymentmethod}</h4 >
-                                       <h3 style="font-size: 18px; margin: 0;"> {$paymentmethod}</h3>
-                                   </div>
+                                <div class=" py-3">
+                                    <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.orderbillingcycle}</h4 >
+                                    <h3 style="font-size: 18px; margin: 0;"> {$billingcycle}</h3>
+                                </div>
 
-                                   {if $suspendreason}
-                                       <div class=" py-3">
-                                           <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.suspendreason}</h4 >
-                                           <h3 style="font-size: 18px; margin: 0;"> {$suspendreason}</h3>
-                                       </div>
-                                   {/if}
+                                <div class=" py-3">
+                                    <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.clientareahostingnextduedate}</h4 >
+                                    <h3 style="font-size: 18px; margin: 0;"> {$nextduedate}</h3>
+                                </div>
 
-                               </div>
-                           </div>
-                       </div>
-                          <div class="col-md-10 mt-5 padding-x-0 px-0">
-                              {foreach $hookOutput as $output}
-                                  <div>
-                                      {$output}
-                                  </div>
-                              {/foreach}
-                          </div>
+                                <div class=" py-3">
+                                    <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.orderpaymentmethod}</h4 >
+                                    <h3 style="font-size: 18px; margin: 0;"> {$paymentmethod}</h3>
+                                </div>
+
+                                {if $suspendreason}
+                                    <div class=" py-3">
+                                        <h4  style="font-size: 15px; color: #acb0b9;">{$LANG.suspendreason}</h4 >
+                                        <h3 style="font-size: 18px; margin: 0;"> {$suspendreason}</h3>
+                                    </div>
+                                {/if}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 mt-5 padding-x-0 px-0">
+                        {foreach $hookOutput as $output}
+                            <div>
+                                {$output}
+                            </div>
+                        {/foreach}
+                    </div>
 
 
                     {if $domain || $moduleclientarea || $configurableoptions || $customfields || $lastupdate}
@@ -352,14 +352,14 @@
                             </div>
                         </div>
                     {/if}
-                        <script src="{$BASE_PATH_JS}/bootstrap-tabdrop.js"></script>
-                        <script type="text/javascript">
-                            jQuery('.nav-tabs-overflow').tabdrop();
-                        </script>
+                    <script src="{$BASE_PATH_JS}/bootstrap-tabdrop.js"></script>
+                    <script type="text/javascript">
+                        jQuery('.nav-tabs-overflow').tabdrop();
+                    </script>
                     {/if}
-                    </div>
-
                 </div>
+
+            </div>
 
 
 
