@@ -112,6 +112,11 @@ $_LANG['MW_search'] = "Search";
 $_LANG['MW_typeDomainNameHere'] = "Type a domain name here";
 $_LANG['MW_personalInformation'] = "Personal Information";
 $_LANG['MW_changePassword'] = "Change Password";
+$_LANG['MW_productDetails'] = "Product Details";
+$_LANG['MW_status'] = "Status";
+$_LANG['MW_website'] = "Website";
+$_LANG['MW_domain'] = "Domain";
+$_LANG['MW_loginAsAdmin'] = "Login as Admin";
 
 
 

@@ -1,7 +1,7 @@
 
 <div class="mw-whm clientareaproductdetails">
     <div class="text-left">
-        <h1 class="py-4 mt-5" style="font-weight: 700!important; font-size: 40px!important;">Product Details</h1><br />
+        <h1 class="py-4 mt-5" style="font-weight: 700!important; font-size: 40px!important;">{$LANG.MW_productDetails}</h1><br />
     </div>
     {if $modulecustombuttonresult}
         {if $modulecustombuttonresult == "success"}
@@ -68,7 +68,7 @@
 
 
                                 <div class=" py-3">
-                                    <h4 style="font-size: 15px; color: #acb0b9;">Status</h4>
+                                    <h4 style="font-size: 15px; color: #acb0b9;">{$LANG.MW_status}</h4>
                                     <h3 style="font-size: 18px; margin: 0;"> {$status}</h3>
                                 </div>
 

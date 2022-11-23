@@ -9,6 +9,7 @@ $_LANG['MW_contactSales'] = "Свържи се с нас";
 $_LANG['MW_createPowerfulSite'] = "Направи перфектният сайт с технологията на Drag&Drop";
 $_LANG['MW_BuildingAWebsiteEasy'] = "Правенето на Уебсайт е по-лесно от всякога";
 $_LANG['MW_Websites'] = "Уебсайтове";
+$_LANG['MW_website'] = "Уебсайт";
 $_LANG['MW_our_Guarantees'] = "Нашите Гаранции";
 $_LANG['MW_guarantees_1'] = "Научете защо повече от 35,000 клиента по целия свят ни се довериха.";
 $_LANG['MW_expertSupport'] = "Експертна Поддръжка";
@@ -58,6 +59,8 @@ $_LANG['MW_myLicenses'] = "Моите лицензи";
 $_LANG['MW_orderNewServices'] = "Заяви нови услуги";
 $_LANG['MW_viewAvailableAddons'] = "Виж наличните добавки";
 $_LANG['MW_domains'] = "Домейни";
+$_LANG['MW_domain'] = "Домейн";
+$_LANG['MW_loginAsAdmin'] = "Влез като Админ";
 $_LANG['MW_myDomains'] = "Моите домейни";
 $_LANG['MW_renewDomains'] = "Поднови домейн";
 $_LANG['MW_registerANewDomain'] = "Регистрирай нов домейн";
@@ -116,6 +119,8 @@ $_LANG['MW_typeDomainNameHere'] = "Напиши домейн име тук";
 $_LANG['MW_orderForm.billingAddress'] = "Данни за Фактуриране";
 $_LANG['MW_profile'] = "Профил";
 $_LANG['MW_changePassword'] = "Смени си Паролата";
+$_LANG['MW_productDetails'] = "Детайли за Продукта";
+$_LANG['MW_status'] = "Статус";
 
 
 
