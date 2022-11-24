@@ -117,6 +117,8 @@ $_LANG['MW_status'] = "Status";
 $_LANG['MW_website'] = "Website";
 $_LANG['MW_domain'] = "Domain";
 $_LANG['MW_loginAsAdmin'] = "Login as Admin";
+$_LANG['MW_bandwidthUsage'] = "Disc Usage";
+$_LANG['MW_diskUsage'] = "Bandwidth Usage";
 
 
 
