@@ -49,6 +49,8 @@ $_LANG['MW_backToSite'] = "Върни се към Сайта";
 $_LANG['MW_myWebsites'] = "Моите уебсайтове";
 $_LANG['MW_logout'] = "Излез";
 $_LANG['MW_Profile'] = "Профил";
+$_LANG['MW_bandwidthUsage'] = "Използване на Диска";
+$_LANG['MW_diskUsage'] = "Заето място на Диска";
 $_LANG['MW_editProfile'] = "Редактирай профила";
 
 $_LANG['MW_home'] = "Начало";
