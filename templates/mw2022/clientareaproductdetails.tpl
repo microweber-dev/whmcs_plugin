@@ -364,108 +364,118 @@
 
 
         </div>
-        <div class="tab-pane fade in" id="tabDownloads">
 
-            <h3>{$LANG.downloadstitle}</h3>
+        <div class="row col-xl-6 col-12">
+            <div class="tab-pane fade in panel-default panel" id="tabAddons">
 
-            {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductDownloadsAvailable"}" textcenter=true}
+                <h3>{$LANG.clientareahostingaddons}</h3>
 
-            <div class="row">
-                {foreach from=$downloads item=download}
-                    <div class="col-xs-10 col-xs-offset-1">
-                        <h4>{$download.title}</h4>
-                        <p>
-                            {$download.description}
-                        </p>
-                        <p>
-                            <a href="{$download.link}" class="whmc-kbtn-2"><i class="fa fa-download"></i> {$LANG.downloadname}</a>
-                        </p>
-                    </div>
-                {/foreach}
-            </div>
+                {if $addonsavailable}
+                    {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductAddonsAvailable"}" textcenter=true}
+                {/if}
 
-        </div>
-        <div class="tab-pane fade in" id="tabAddons">
-
-            <h3>{$LANG.clientareahostingaddons}</h3>
-
-            {if $addonsavailable}
-                {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductAddonsAvailable"}" textcenter=true}
-            {/if}
-
-            <div class="row">
-                {foreach from=$addons item=addon}
-                    <div class="col-xs-10 col-xs-offset-1">
-                        <div class="panel panel-default panel-accent-blue ">
-                            <div class="panel-heading">
-                                {$addon.name}
-                                <div class="pull-right status-{$addon.rawstatus|strtolower}">{$addon.status}</div>
-                            </div>
-                            <div class="row panel-body">
-                                <div class="col-md-6">
-                                    <p>
-                                        {$addon.pricing}
-                                    </p>
-                                    <p>
-                                        {$LANG.registered}: {$addon.regdate}
-                                    </p>
-                                    <p>
-                                        {$LANG.clientareahostingnextduedate}: {$addon.nextduedate}
-                                    </p>
+                <div class="row">
+                    {foreach from=$addons item=addon}
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <div class="panel panel-default panel-accent-blue ">
+                                <div class="panel-heading">
+                                    {$addon.name}
+                                    <div class="pull-right status-{$addon.rawstatus|strtolower}">{$addon.status}</div>
+                                </div>
+                                <div class="row panel-body">
+                                    <div class="col-md-6">
+                                        <p>
+                                            {$addon.pricing}
+                                        </p>
+                                        <p>
+                                            {$LANG.registered}: {$addon.regdate}
+                                        </p>
+                                        <p>
+                                            {$LANG.clientareahostingnextduedate}: {$addon.nextduedate}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    {$addon.managementActions}
                                 </div>
                             </div>
-                            <div class="panel-footer">
-                                {$addon.managementActions}
-                            </div>
                         </div>
-                    </div>
-                {/foreach}
+                    {/foreach}
+                </div>
+
             </div>
-
         </div>
-        <div class="tab-pane fade in" id="tabChangepw">
+       <div class="row col-12" style="padding-top: 100px;">
+           <div class="col-xl-6 col-12">
+               <div class="tab-pane fade in panel-default panel" id="tabChangepw">
 
-            <h3>{$LANG.serverchangepassword}</h3>
+                   <h3 class="mb-5">{$LANG.serverchangepassword}</h3>
 
-            {if $modulechangepwresult}
-                {if $modulechangepwresult == "success"}
-                    {include file="$template/includes/alert.tpl" type="success" msg=$modulechangepasswordmessage textcenter=true}
-                {elseif $modulechangepwresult == "error"}
-                    {include file="$template/includes/alert.tpl" type="error" msg=$modulechangepasswordmessage|strip_tags textcenter=true}
-                {/if}
-            {/if}
+                   {if $modulechangepwresult}
+                       {if $modulechangepwresult == "success"}
+                           {include file="$template/includes/alert.tpl" type="success" msg=$modulechangepasswordmessage textcenter=true}
+                       {elseif $modulechangepwresult == "error"}
+                           {include file="$template/includes/alert.tpl" type="error" msg=$modulechangepasswordmessage|strip_tags textcenter=true}
+                       {/if}
+                   {/if}
 
-            <form class="form-horizontal using-password-strength" method="post" action="{$smarty.server.PHP_SELF}?action=productdetails#tabChangepw" role="form">
-                <input type="hidden" name="id" value="{$id}"/>
-                <input type="hidden" name="modulechangepassword" value="true"/>
+                   <form class="form-horizontal using-password-strength" method="post" action="{$smarty.server.PHP_SELF}?action=productdetails#tabChangepw" role="form">
+                       <input type="hidden" name="id" value="{$id}"/>
+                       <input type="hidden" name="modulechangepassword" value="true"/>
 
-                <div id="newPassword1" class="form-group has-feedback">
-                    <label for="inputNewPassword1" class="col-sm-5 control-label">{$LANG.newpassword}</label>
-                    <div class="col-sm-6">
-                        <input type="password" class="form-control" id="inputNewPassword1" name="newpw" autocomplete="off"/>
-                        <span class="form-control-feedback glyphicon"></span>
-                        {include file="$template/includes/pwstrength.tpl"}
-                    </div>
-                </div>
-                <div id="newPassword2" class="form-group has-feedback">
-                    <label for="inputNewPassword2" class="col-sm-5 control-label">{$LANG.confirmnewpassword}</label>
-                    <div class="col-sm-6">
-                        <input type="password" class="form-control" id="inputNewPassword2" name="confirmpw" autocomplete="off"/>
-                        <span class="form-control-feedback glyphicon"></span>
-                        <div id="inputNewPassword2Msg">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-6 col-sm-6">
-                        <input class="whmc-kbtn " type="submit" value="{$LANG.clientareasavechanges}"/>
-                        <input class="btn" type="reset" value="{$LANG.cancel}"/>
-                    </div>
-                </div>
+                       <div id="newPassword1" class="form-group has-feedback">
+                           <label for="inputNewPassword1" class="col-sm-3 control-label" style="text-align: left;">{$LANG.newpassword}</label>
+                           <div class="col-sm-9">
+                               <input type="password" class="form-control" id="inputNewPassword1" name="newpw" autocomplete="off"/>
+                               <span class="form-control-feedback glyphicon"></span>
+                               {include file="$template/includes/pwstrength.tpl"}
+                           </div>
+                       </div>
+                       <div id="newPassword2" class="form-group has-feedback">
+                           <label for="inputNewPassword2" class="col-sm-3 control-label" style="text-align: left;">{$LANG.confirmnewpassword}</label>
+                           <div class="col-sm-9">
+                               <input type="password" class="form-control" id="inputNewPassword2" name="confirmpw" autocomplete="off"/>
+                               <span class="form-control-feedback glyphicon"></span>
+                               <div id="inputNewPassword2Msg">
+                               </div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <div class=" col-12 text-right mt-5">
+                               <input class="whmc-kbtn " type="submit" value="{$LANG.clientareasavechanges}"/>
+                               <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}"/>
+                           </div>
+                       </div>
 
-            </form>
+                   </form>
 
-        </div>
+               </div>
+           </div>
+
+           <div class="col-xl-6 col-12">
+               <div class="tab-pane fade in panel-default panel" id="tabDownloads">
+
+                   <h3>{$LANG.downloadstitle}</h3>
+
+                   {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductDownloadsAvailable"}" textcenter=true}
+
+                   <div class="row">
+                       {foreach from=$downloads item=download}
+                           <div class="col-xs-10 col-xs-offset-1">
+                               <h4>{$download.title}</h4>
+                               <p>
+                                   {$download.description}
+                               </p>
+                               <p>
+                                   <a href="{$download.link}" class="whmc-kbtn-2"><i class="fa fa-download"></i> {$LANG.downloadname}</a>
+                               </p>
+                           </div>
+                       {/foreach}
+                   </div>
+
+               </div>
+           </div>
+       </div>
     </div>
 
 </div>

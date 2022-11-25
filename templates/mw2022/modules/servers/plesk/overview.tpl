@@ -3,7 +3,7 @@
 
 <div class="row col-12" style="justify-content: center;">
 
-    <div class="col-xl-6 col-12 px-5">
+    <div class="col-xl-6 col-12 pe-5">
 
         <div class="product-status product-status-{$rawstatus|strtolower}">
             <div class="product-icon text-center">
@@ -33,7 +33,7 @@
         </div>
 
     </div>
-    <div class="col-xl-6 col-12 px-5" >
+    <div class="col-xl-6 col-12 ps-5" >
 
         <div class="row panel card panel-default mb-3" id="cPanelUsagePanel"
              style="height: 100%;
@@ -325,94 +325,101 @@
 
 {/if}
 
-<div class=" col-md-6 panel-default panel card mb-3" id="cPanelBillingOverviewPanel">
-    <div class="panel-heading card-header">
-        <h3 class="panel-title card-title m-0">{lang key='billingOverview'}</h3>
-    </div>
-    <div class="panel-body card-body">
-
-        <div class="row">
-            <div class="col-md-5">
-                {if $firstpaymentamount neq $recurringamount}
-                    <div class="row" id="firstPaymentAmount">
-                        <div class="col-xs-6 col-6 text-right" >
-                            {$LANG.firstpaymentamount}
-                        </div>
-                        <div class="col-xs-6 col-6">
-                            {$firstpaymentamount}
-                        </div>
-                    </div>
-                {/if}
-                {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
-                    <div class="row" id="recurringAmount">
-                        <div class="col-xs-6 col-6 text-right">
-                            {$LANG.recurringamount}
-                        </div>
-                        <div class="col-xs-6 col-6">
-                            {$recurringamount}
-                        </div>
-                    </div>
-                {/if}
-                <div class="row" id="billingCycle">
-                    <div class="col-xs-6 col-6 text-right">
-                        {$LANG.orderbillingcycle}
-                    </div>
-                    <div class="col-xs-6 col-6">
-                        {$billingcycle}
-                    </div>
-                </div>
-                <div class="row" id="paymentMethod">
-                    <div class="col-xs-6 col-6 text-right">
-                        {$LANG.orderpaymentmethod}
-                    </div>
-                    <div class="col-xs-6 col-6">
-                        {$paymentmethod}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="row" id="registrationDate">
-                    <div class="col-xs-6 col-6 col-xl-5 text-right">
-                        {$LANG.clientareahostingregdate}
-                    </div>
-                    <div class="col-xs-6 col-6 col-xl-7">
-                        {$regdate}
-                    </div>
-                </div>
-                <div class="row" id="nextDueDate">
-                    <div class="col-xs-6 col-6 col-xl-5 text-right">
-                        {$LANG.clientareahostingnextduedate}
-                    </div>
-                    <div class="col-xs-6 col-6 col-xl-7">
-                        {$nextduedate}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-6">
-    {if $configurableoptions}
-        <div class="panel card panel-default mb-3" id="cPanelConfigurableOptionsPanel">
+<div class="row col-12">
+    <div class="col-xl-6 col-12 ">
+        <div class=" panel-default panel card mb-3" id="cPanelBillingOverviewPanel">
             <div class="panel-heading card-header">
-                <h3 class="panel-title card-title m-0">{$LANG.orderconfigpackage}</h3>
+                <h3 class="panel-title card-title m-0">{lang key='billingOverview'}</h3>
             </div>
             <div class="panel-body card-body">
-                {foreach from=$configurableoptions item=configoption}
-                    <div class="row">
-                        <div class="col-md-5 col-xs-6 col-6 text-right">
-                            <strong>{$configoption.optionname}</strong>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        {if $firstpaymentamount neq $recurringamount}
+                            <div class="row" id="firstPaymentAmount">
+                                <div class="col-xs-6 col-6 text-left" >
+                                    {$LANG.firstpaymentamount}
+                                </div>
+                                <div class="col-xs-6 col-6">
+                                    {$firstpaymentamount}
+                                </div>
+                            </div>
+                        {/if}
+                        {if $billingcycle != $LANG.orderpaymenttermonetime && $billingcycle != $LANG.orderfree}
+                            <div class="row" id="recurringAmount">
+                                <div class="col-xs-6 col-6 text-left">
+                                    {$LANG.recurringamount}
+                                </div>
+                                <div class="col-xs-6 col-6">
+                                    {$recurringamount}
+                                </div>
+                            </div>
+                        {/if}
+                        <div class="row" id="billingCycle">
+                            <div class="col-xs-6 col-6 text-left">
+                                {$LANG.orderbillingcycle}
+                            </div>
+                            <div class="col-xs-6 col-6">
+                                {$billingcycle}
+                            </div>
                         </div>
-                        <div class="col-md-7 col-xs-6 col-6 text-left">
-                            {if $configoption.optiontype eq 3}{if $configoption.selectedqty}{$LANG.yes}{else}{$LANG.no}{/if}{elseif $configoption.optiontype eq 4}{$configoption.selectedqty} x {$configoption.selectedoption}{else}{$configoption.selectedoption}{/if}
+                        <div class="row" id="paymentMethod">
+                            <div class="col-xs-6 col-6 text-left">
+                                {$LANG.orderpaymentmethod}
+                            </div>
+                            <div class="col-xs-6 col-6">
+                                {$paymentmethod}
+                            </div>
                         </div>
                     </div>
-                {/foreach}
+                    <div class="col-md-7">
+                        <div class="row" id="registrationDate">
+                            <div class="col-xs-6 col-6 col-xl-5 text-left">
+                                {$LANG.clientareahostingregdate}
+                            </div>
+                            <div class="col-xs-6 col-6 col-xl-7">
+                                {$regdate}
+                            </div>
+                        </div>
+                        <div class="row" id="nextDueDate">
+                            <div class="col-xs-6 col-6 col-xl-5 text-left">
+                                {$LANG.clientareahostingnextduedate}
+                            </div>
+                            <div class="col-xs-6 col-6 col-xl-7">
+                                {$nextduedate}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    {/if}
+    </div>
+
+    <div class="col-xl-6 col-12">
+        {if $configurableoptions}
+            <div class="panel card panel-default mb-3" id="cPanelConfigurableOptionsPanel">
+                <div class="panel-heading card-header">
+                    <h3 class="panel-title card-title m-0">{$LANG.orderconfigpackage}</h3>
+                </div>
+                <div class="panel-body card-body">
+                    {foreach from=$configurableoptions item=configoption}
+                        <div class="row">
+                            <div class="col-md-3 col-xs-6 col-6 text-left">
+                                <strong>{$configoption.optionname}</strong>
+                            </div>
+                            <div class="col-md-9 col-xs-6 col-6 text-left">
+                                {if $configoption.optiontype eq 3}{if $configoption.selectedqty}{$LANG.yes}{else}{$LANG.no}{/if}{elseif $configoption.optiontype eq 4}{$configoption.selectedqty} x {$configoption.selectedoption}{else}{$configoption.selectedoption}{/if}
+                            </div>
+                        </div>
+                    {/foreach}
+                </div>
+            </div>
+        {/if}
+    </div>
 </div>
-<div class="col-md-6">
+
+
+<div class="col-xl-6 col-12">
     {if $metricStats}
         <div class="panel card panel-default mb-3" id="cPanelMetricStatsPanel">
             <div class="panel-heading card-header">
@@ -424,7 +431,7 @@
         </div>
     {/if}
 </div>
-<div class="col-md-6">
+<div class="col-xl-6 col-12">
     {if $customfields}
         <div class="panel card panel-default mb-3" id="cPanelAdditionalInfoPanel">
             <div class="panel-heading card-header">
