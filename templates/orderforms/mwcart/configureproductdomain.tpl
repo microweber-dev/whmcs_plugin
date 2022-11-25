@@ -165,8 +165,15 @@
         <div id="greyout"></div>
 
         <div id="domainpopupcontainer">
+
             <form id="domainfrm" onsubmit="completedomain();return false">
+                <button onclick="cancelcheck();" type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
                 <div class="domainresults" id="domainresults">
+
+
                     <img src="assets/img/loading.gif" border="0" alt="Loading..."/>
                 </div>
             </form>

@@ -16,7 +16,10 @@
         jQuery('#tableLoading').addClass('hidden');
     });
 </script>
-<div class="table-container clearfix">
+<div class="panel panel-default mt-5 pt-5 table-container clearfix">
+
+    <h1 class="text-center">{$LANG.MW_myQuotes}</h1>
+
     <table id="tableQuotesList" class="table table-list hidden table-responsive" style="width: 100% !important;">
         <thead>
             <tr>

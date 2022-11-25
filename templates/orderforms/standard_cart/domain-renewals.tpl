@@ -7,7 +7,7 @@
 {*        </div>*}
         <div class="cart-body">
             <div class="header-lined">
-                <h1 class="font-size-36">
+                <h1 class="font-size-36 text-center">
 
                     {if $totalResults > 1}{lang key='domainrenewals'}{else}{lang key='domainrenewal'}{/if}
                     {if $totalResults > 5}

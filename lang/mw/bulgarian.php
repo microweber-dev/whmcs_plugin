@@ -45,6 +45,7 @@ $_LANG['MW_member_area'] = "Зона за Клиенти на Микроуебъ
 $_LANG['MW_please_Login_Website'] = "Моля влезте в контрол панелът на уебсайта";
 $_LANG['MW_newRegistration'] = "Нова регистрация";
 $_LANG['MW_websites'] = "Уебсайтове";
+$_LANG['MW_myQuotes'] = "Моите Записки";
 
 $_LANG['MW_backToSite'] = "Върни се към Сайта";
 $_LANG['MW_myWebsites'] = "Моите уебсайтове";

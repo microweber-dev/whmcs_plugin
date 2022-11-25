@@ -1,5 +1,5 @@
 <div class="panel panel-default mt-5 pt-5 mw-whm supportticketslist">
-    <div class="header-lined text-left">
+    <div class="header-lined text-center">
         <h1>{$LANG.MW_tickets}</h1>
     </div>
     {include file="$template/includes/tablelist.tpl" tableName="TicketsList" filterColumn="2"}

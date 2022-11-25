@@ -1,6 +1,6 @@
 <div class="panel panel-default mw-whm clientareadomains mt-5 pt-5">
-    <div class="header-lined text-left">
-        <h1>{$LANG.MW_myDomains}</h1>
+    <div class="header-lined text-center">
+        <h1 class="mb-3">{$LANG.MW_myDomains}</h1>
     </div>
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
@@ -186,17 +186,17 @@
                     jQuery('#tableLoading').addClass('hidden');
                 });
             </script>
-            <div class="btn-group margin-bottom">
-                <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" id="nameservers" class="setBulkAction"><i class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>
-                    <li><a href="#" id="autorenew" class="setBulkAction"><i class="glyphicon glyphicon-refresh"></i> {$LANG.domainautorenewstatus}</a></li>
-                    <li><a href="#" id="reglock" class="setBulkAction"><i class="glyphicon glyphicon-lock"></i> {$LANG.domainreglockstatus}</a></li>
-                    <li><a href="#" id="contactinfo" class="setBulkAction"><i class="glyphicon glyphicon-user"></i> {$LANG.domaincontactinfoedit}</a></li>
-                </ul>
-            </div>
+{*            <div class="btn-group margin-bottom">*}
+{*                <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle" data-toggle="dropdown">*}
+{*                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>*}
+{*                </button>*}
+{*                <ul class="dropdown-menu" role="menu">*}
+{*                    <li><a href="#" id="nameservers" class="setBulkAction"><i class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>*}
+{*                    <li><a href="#" id="autorenew" class="setBulkAction"><i class="glyphicon glyphicon-refresh"></i> {$LANG.domainautorenewstatus}</a></li>*}
+{*                    <li><a href="#" id="reglock" class="setBulkAction"><i class="glyphicon glyphicon-lock"></i> {$LANG.domainreglockstatus}</a></li>*}
+{*                    <li><a href="#" id="contactinfo" class="setBulkAction"><i class="glyphicon glyphicon-user"></i> {$LANG.domaincontactinfoedit}</a></li>*}
+{*                </ul>*}
+{*            </div>*}
             <form id="domainForm" method="post" action="clientarea.php?action=bulkdomain">
                 <input id="bulkaction" name="update" type="hidden"/>
 

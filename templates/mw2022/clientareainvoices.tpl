@@ -1,5 +1,5 @@
 <div class="panel panel-default mt-5 pt-5 mw-whm clientareainvoices">
-    <div class="header-lined text-left">
+    <div class="header-lined text-center">
         <h1>{$LANG.invoices}</h1>
     </div>
 

@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="col-xs-6">
-                        <input id="inputCaptcha" type="text" name="code" maxlength="5" class="form-control" />
+                        <input id="inputCaptcha" type="text" name="code" maxlength="6" class="form-control" />
                     </div>
                 </div>
             </div>
