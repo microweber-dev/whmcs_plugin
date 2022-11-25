@@ -1,5 +1,5 @@
-<div class="mw-whm clientareadomains">
-    <div class="header-lined text-center">
+<div class="panel panel-default mw-whm clientareadomains mt-5 pt-5">
+    <div class="header-lined text-left">
         <h1>{$LANG.MW_myDomains}</h1>
     </div>
     {if $warnings}

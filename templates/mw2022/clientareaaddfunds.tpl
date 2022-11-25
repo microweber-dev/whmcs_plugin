@@ -1,6 +1,6 @@
-<div class="mw-whm affiliates">
+<div class="panel panel-default mt-5 pt-5 mw-whm affiliates">
 
-    <div class="header-lined text-center">
+    <div class="header-lined text-left">
         <h1>Add Funds</h1><br/>
     </div>
 

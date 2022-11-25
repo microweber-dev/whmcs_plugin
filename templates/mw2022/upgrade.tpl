@@ -1,4 +1,4 @@
-<div class="mw-whm affiliates">
+<div class="panel-default panel mt-5 pt-5 mw-whm affiliates">
 
     <div class="header-lined">
         <h1 style="margin: 30px 0; font-size: 36px; font-weight: 700;">Upgrade Hosting</h1>

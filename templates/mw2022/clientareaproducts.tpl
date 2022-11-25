@@ -1,6 +1,6 @@
-<div class="mw-whm clientareaproducts">
+<div class="panel panel-default pt-5 mt-5 mw-whm clientareaproducts">
 
-    <div class="header-lined text-center">
+    <div class="header-lined text-left">
         <h1 style="font-size: 36px; font-weight: 700;">{$LANG.MW_myWebsite}</h1>
         <br/>
         <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; {$LANG.MW_createNewWebsite}</a>
@@ -152,7 +152,7 @@
             }
         </style>
     {/literal}
-    <div class="panel panel-default table-container clearfix" id="tableServicesList-table-container">
+    <div class="table-container clearfix" id="tableServicesList-table-container">
         <table id="tableServicesList" class="table table-list hidden" >
             <thead>
             <tr>

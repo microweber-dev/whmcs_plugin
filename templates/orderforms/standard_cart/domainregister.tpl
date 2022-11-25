@@ -18,7 +18,7 @@
 
             <div class="domain-checker-container">
                 <div class="domain-checker-bg clearfix">
-                    <form method="post" action="cart.php" id="frmDomainChecker"> 
+                    <form method="post" action="cart.php" id="frmDomainChecker">
                         <input type="hidden" name="a" value="checkDomain">
                         <div class="row" style="justify-content: center; display: flex;">
                             <div class="col-md-8">

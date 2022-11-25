@@ -16,10 +16,10 @@
     {include file="$template/includes/alert.tpl" type="warning" msg="<i class='fas fa-times fa-fw'></i> {lang key='paymentMethods.deleteFailed'}"}
 {/if}
 
-<div class="card">
+<div class="panel panel-default mt-5 pt-5 card">
     <div class="card-body">
 
-        <h3 class="card-title">{lang key='paymentMethods.title'}</h3>
+        <h1 class="card-title">{lang key='paymentMethods.title'}</h1>
         <p>{lang key='paymentMethods.intro'}</p>
 
         <p>

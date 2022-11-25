@@ -1,6 +1,6 @@
 {include file="orderforms/standard_cart/common.tpl"}
 
-<div id="order-standard_cart">
+<div class="panel panel-default mt-5 pt-5" id="order-standard_cart">
     <div class="row">
 {*        <div class="cart-sidebar">*}
 {*            {include file="orderforms/standard_cart/sidebar-categories.tpl"}*}

@@ -1,5 +1,5 @@
 <div class="mw-whm submittickket">
-    <div class="header-lined text-center py-3 mb-3">
+    <div class="header-lined text-left py-3 mb-3">
         <h1 class="mb-3">{$LANG.MW_supportticketsheader}</h1>
         <p>{$LANG.supportticketsheader}</p>
     </div>

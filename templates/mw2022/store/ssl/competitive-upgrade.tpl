@@ -1,7 +1,7 @@
 <link href="{assetPath file='store.css'}" rel="stylesheet">
 
 <div class="landing-page ssl">
-
+dsadadaad
     <div class="hero">
         <div class="container">
             <h2>{lang key='store.ssl.competitiveUpgrades.switch'}</h2>
