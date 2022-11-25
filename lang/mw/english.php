@@ -119,6 +119,9 @@ $_LANG['MW_domain'] = "Domain";
 $_LANG['MW_loginAsAdmin'] = "Login as Admin";
 $_LANG['MW_bandwidthUsage'] = "Disc Usage";
 $_LANG['MW_diskUsage'] = "Bandwidth Usage";
+$_LANG['MW_billindOverview'] = "Billing overview";
+$_LANG['MW_supportTicket'] = "Support / Open a Ticket";
+$_LANG['MW_viewTicket'] = "View Ticket";
 
 
 

@@ -100,7 +100,7 @@
 
 
                         {if $loggedin}
-                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right">{$LANG.MW_myWebsites}</a>
+{*                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right">{$LANG.MW_myWebsites}</a>*}
 
                             <div class="user-menu-dropdown pull-right">
                                 <a class="user-bar" href="clientarea.php?action=details">

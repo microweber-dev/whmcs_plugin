@@ -44,6 +44,7 @@ $_LANG['MW_selectTemplate'] = "Избери темплейт";
 $_LANG['MW_member_area'] = "Зона за Клиенти на Микроуебър";
 $_LANG['MW_please_Login_Website'] = "Моля влезте в контрол панелът на уебсайта";
 $_LANG['MW_newRegistration'] = "Нова регистрация";
+$_LANG['MW_websites'] = "Уебсайтове";
 
 $_LANG['MW_backToSite'] = "Върни се към Сайта";
 $_LANG['MW_myWebsites'] = "Моите уебсайтове";
@@ -52,6 +53,9 @@ $_LANG['MW_Profile'] = "Профил";
 $_LANG['MW_bandwidthUsage'] = "Използване на Диска";
 $_LANG['MW_diskUsage'] = "Заето място на Диска";
 $_LANG['MW_editProfile'] = "Редактирай профила";
+$_LANG['MW_billindOverview'] = "Информация за плащане";
+$_LANG['MW_supportTicket'] = "Поддръжка / Направи Запитване";
+$_LANG['MW_viewTicket'] = "Виж своето Запитване";
 
 $_LANG['MW_home'] = "Начало";
 $_LANG['MW_dashboard'] = "Начало";

@@ -329,7 +329,7 @@
     <div class="col-xl-6 col-12 ">
         <div class=" panel-default panel card mb-3" id="cPanelBillingOverviewPanel">
             <div class="panel-heading card-header">
-                <h3 class="panel-title card-title m-0">{lang key='billingOverview'}</h3>
+                <h3 class="panel-title card-title m-0"> {$LANG.MW_billindOverview}</h3>
             </div>
             <div class="panel-body card-body">
 

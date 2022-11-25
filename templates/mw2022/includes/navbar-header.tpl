@@ -1,10 +1,10 @@
 {if $loggedin}
     <li menuitemname="Home" class="" id="Primary_Navbar-Home"><a href="{$WEB_ROOT}/clientarea.php">{$LANG.MW_dashboard}</a></li>
     <li menuitemname="Services" class="" id="Primary_Navbar-Services">
-        <a class="menu-more" href="javascript:;">{$LANG.MW_services} &nbsp;<b class="caret"></b></a>
+        <a class="menu-more" href="javascript:;">{$LANG.MW_websites} &nbsp;<b class="caret"></b></a>
         <ul>
-            <li menuitemname="My Services" id="Primary_Navbar-Services-My_Services"><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MW_services} </a></li>
-            <li menuitemname="My Licenses" id="Primary_Navbar-Services-My_Licenses"><a href="{$WEB_ROOT}/clientarea.php?action=products&amp;module=licensing">{$LANG.MW_myServices}</a></li>
+            <li menuitemname="My Services" id="Primary_Navbar-Services-My_Services"><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MW_websites} </a></li>
+            <li menuitemname="My Licenses" id="Primary_Navbar-Services-My_Licenses"><a href="{$WEB_ROOT}/clientarea.php?action=products&amp;module=licensing">{$LANG.MW_websites}</a></li>
             <li menuitemname="Order New Services" id="Primary_Navbar-Services-Order_New_Services"><a href="{$WEB_ROOT}/cart.php">{$LANG.MW_orderNewServices}</a></li>
             <li menuitemname="View Available Addons" id="Primary_Navbar-Services-View_Available_Addons"><a href="{$WEB_ROOT}/cart.php?gid=addons">{$LANG.MW_viewAvailableAddons}</a></li>
         </ul>

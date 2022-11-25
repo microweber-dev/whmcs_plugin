@@ -1271,6 +1271,11 @@ footer {
     padding-left: 30px;
 }
 
+#tableTicketsList {
+width: 100% !important;
+
+}
+
 .pending-screenshot {
     background-size: 100% 100%;
     width: 100%;
@@ -1994,4 +1999,8 @@ header .user-menu-dropdown .more-menu li a:hover {
     font-size: 14px;
     padding-bottom: 3px;
 
+}
+
+#tableServicesList_length, .dataTables_filter {
+    display: none;
 }

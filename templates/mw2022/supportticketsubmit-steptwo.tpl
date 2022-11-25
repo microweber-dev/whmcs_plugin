@@ -48,7 +48,7 @@
 
 <div class="mw-whm submittickket" id="mw-whm-submit-ticket-block">
     <div class="header-lined text-center mb-5">
-        <h1>Support / Open Ticket</h1><br />
+        <h1>{$LANG.MW_supportTicket}</h1><br />
     </div>
 
     {if $errormessage}
@@ -124,11 +124,11 @@
                           <div class="col-md-12">
                               <label for="inputAttachments">{$LANG.supportticketsticketattachments}</label>
                           </div>
-                          <div class="col-md-9">
+                          <div class="col-lg-6 col-12">
                               <input type="file" name="attachments[]" id="inputAttachments" class="form-control"/>
                               <div id="fileUploadsContainer"></div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-lg-6 col-12">
                               <button type="button" class="whmc-kbtn-2 btn-block" onclick="extraTicketAttachment()">
                                   <i class="fa fa-plus"></i> {$LANG.addmore}
                               </button>

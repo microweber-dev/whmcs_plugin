@@ -152,7 +152,7 @@
             }
         </style>
     {/literal}
-    <div class="table-container clearfix" id="tableServicesList-table-container">
+    <div class="panel panel-default table-container clearfix" id="tableServicesList-table-container">
         <table id="tableServicesList" class="table table-list hidden" >
             <thead>
             <tr>

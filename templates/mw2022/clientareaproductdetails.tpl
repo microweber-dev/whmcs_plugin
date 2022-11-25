@@ -442,7 +442,7 @@
                        </div>
                        <div class="form-group">
                            <div class=" col-12 text-right mt-5">
-                               <input class="whmc-kbtn " type="submit" value="{$LANG.clientareasavechanges}"/>
+                               <input class="whmc-kbtn" type="submit" value="{$LANG.clientareasavechanges}"/>
                                <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}"/>
                            </div>
                        </div>

@@ -1,6 +1,6 @@
 <div class="mw-whm">
     <div class="header-lined text-center">
-        <h1>View Ticket</h1>
+        <h1>{$LANG.MW_viewTicket} </h1>
         <br />
     </div>
 
@@ -61,11 +61,11 @@
                         <div class="col-sm-12">
                             <label for="inputAttachments">{$LANG.supportticketsticketattachments}</label>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-xl-9 col-12">
                             <input type="file" name="attachments[]" id="inputAttachments" class="form-control"/>
                             <div id="fileUploadsContainer"></div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-xl-3 col-12">
                             <button type="button" class="whmc-kbtn-2 btn-block" onclick="extraTicketAttachment()">
                                 <i class="fa fa-plus"></i> {$LANG.addmore}
                             </button>
@@ -128,13 +128,12 @@
                                 {/if}
                             </span>
                             </div>
-                            <div class="col-xs-6 text-right">
+                            <div class="col-xs-6 text-left mt-4">
                                 <div class="date">
                                     {$reply.date}
                                 </div>
                             </div>
                         </div>
-                        <br/>
                     </div>
                     <div class=" panel-body message">
 
