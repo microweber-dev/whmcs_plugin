@@ -53,6 +53,8 @@ $_LANG['MW_myWebsites'] = "My websites";
 $_LANG['MW_logout'] = "Logout";
 $_LANG['MW_Profile'] = "Profile";
 $_LANG['MW_editProfile'] = "Edit Profile";
+$_LANG['MW_goToWebsite'] = "Go to my Website";
+
 
 $_LANG['MW_home'] = "Home";
 $_LANG['MW_dashboard'] = "Dashboard";
