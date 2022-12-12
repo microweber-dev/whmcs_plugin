@@ -1,6 +1,6 @@
 <div class="mw-whm">
     <div class="header-lined text-center">
-        <h1>{$LANG.MW_viewTicket} </h1>
+        <h1>{$LANG.MWviewTicket} </h1>
         <br />
     </div>
 

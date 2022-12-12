@@ -48,7 +48,7 @@
 
 <div class="mw-whm submittickket" id="mw-whm-submit-ticket-block">
     <div class="header-lined text-center mb-5">
-        <h1>{$LANG.MW_supportTicket}</h1><br />
+        <h1>{$LANG.MWsupportTicket}</h1><br />
     </div>
 
     {if $errormessage}

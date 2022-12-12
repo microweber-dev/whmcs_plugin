@@ -29,7 +29,7 @@
 
                             {if $configurableoptions}
                                 {*<h3>{$LANG.orderconfigpackage}</h3>*}
-                                <h3>{$LANG.MW_selectTemplate}</h3>
+                                <h3>{$LANG.MWselectTemplate}</h3>
                                 <div class="">
                                     <table width="100%" cellspacing="0" cellpadding="0" class="configtable">
                                         {foreach from=$configurableoptions item=configoption}

@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="sub-heading">
-                        <span class="primary-bg-color ms-4">{$LANG.MW_orderForm.billingAddress}</span>
+                        <span class="primary-bg-color ms-4">{$LANG.MWorderForm.billingAddress}</span>
                     </div>
 
                     <div class="row">
@@ -684,7 +684,7 @@
                             class="whmc-kbtn my-4 disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
                             {if $cartitems==0}disabled="disabled"{/if}
                     >
-                        {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.MW_completeOrder}{/if}
+                        {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.MWcompleteOrder}{/if}
                         &nbsp;<i class="fas fa-arrow-circle-right"></i>
                     </button>
                 </div>

@@ -54,7 +54,7 @@ $templates = get_enabled_templates();
 ?>
 <?php if (empty((array) $templates)): ?>
     <div class="alert alert-danger" role="alert">
-        <?php print Lang::trans('MW_noTemplatesAreEnabled') ?>
+        <?php print Lang::trans('MWnoTemplatesAreEnabled') ?>
     </div>
 <?php endif; ?>
 
@@ -64,8 +64,8 @@ $templates = get_enabled_templates();
             <div class="row">
                 <div class="col-md-12 text-center mb-5">
 
-                    <h1 style="font-size: 48px; font-weight: 700;"><?php print Lang::trans('MW_weCreateAWebsiteBasedOnTemplate') ?></h1>
-                    <p style="font-size: 18px!important; font-weight: 300;"><?php print Lang::trans('MW_chooseFromALibraryOfHundred') ?></p>
+                    <h1 style="font-size: 48px; font-weight: 700;"><?php print Lang::trans('MWweCreateAWebsiteBasedOnTemplate') ?></h1>
+                    <p style="font-size: 18px!important; font-weight: 300;"><?php print Lang::trans('MWchooseFromALibraryOfHundred') ?></p>
 
                 </div>
             </div>
@@ -97,7 +97,7 @@ $templates = get_enabled_templates();
                         </form>
 
                         <div class="template-box-bottom-2 m-t-15">
-                            <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;"><?php print Lang::trans('MW_preview') ?></button>
+                            <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;"><?php print Lang::trans('MWpreview') ?></button>
 
                             <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
@@ -107,7 +107,7 @@ $templates = get_enabled_templates();
                                 <input type="hidden" value="true" name="skip_preview_template"/>
 
 
-                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>"><?php print Lang::trans('MW_start') ?></button>
+                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>"><?php print Lang::trans('MWstart') ?></button>
                             </form>
 
                         </div>

@@ -23,7 +23,7 @@ if (!defined("WHMCS")) die("This file cannot be accessed directly");
 
 $_LANG['locale'] = "en_GB";
 
-include ('mw/english.php');
+
 
 $_LANG['accountinfo'] = "Account Information";
 $_LANG['accountstats'] = "Account Statistics";
@@ -3967,4 +3967,9 @@ $_LANG['store']['siteBuilder']['promo']['sidebar']['body'] = "Create your websit
 $_LANG['cPanel']['wptk'] = "WordPress Toolkit";
 $_LANG['api']['client']['countryError'] = "Valid country required";
 
+
 ////////// End of english language file.  Do not place any translation strings below this line!
+
+
+
+include (__DIR__.'/mw/english.php');

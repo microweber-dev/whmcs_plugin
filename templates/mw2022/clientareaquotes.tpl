@@ -18,7 +18,7 @@
 </script>
 <div class="panel panel-default mt-5 pt-5 table-container clearfix">
 
-    <h1 class="text-center">{$LANG.MW_myQuotes}</h1>
+    <h1 class="text-center">{$LANG.MWmyQuotes}</h1>
 
     <table id="tableQuotesList" class="table table-list hidden table-responsive" style="width: 100% !important;">
         <thead>

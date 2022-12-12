@@ -37,7 +37,7 @@
                             <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
                         {/if}
 
-                        <a href="http://microweber.bg" class="back-to-website-button">{$LANG.MW_backToSite}</a>
+                        <a href="http://microweber.bg" class="back-to-website-button">{$LANG.MWbackToSite}</a>
                     </div>
                     <div>
                         <nav class="main-menu">
@@ -60,8 +60,8 @@
                                             <div class="clearfix"></div>
                                             <div class="more-menu">
                                                 <ul>
-                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MW_myWebsites}</a></li>
-                                                    <li><a href="{$WEB_ROOT}/logout.php">{$LANG.MW_logout}</a></li>
+                                                    <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MWmyWebsites}</a></li>
+                                                    <li><a href="{$WEB_ROOT}/logout.php">{$LANG.MWlogout}</a></li>
                                                 </ul>
                                             </div>
                                         {else}
@@ -77,9 +77,9 @@
 
                                 {if $loggedin}
                                     <li>
-                                        <a href="javascript:;" class="menu-more">{$LANG.MW_Profile} &nbsp;<b class="caret"></b></a>
+                                        <a href="javascript:;" class="menu-more">{$LANG.MWProfile} &nbsp;<b class="caret"></b></a>
                                         <ul>
-                                            <li><a href="{$WEB_ROOT}/clientarea.php?action=details">{$LANG.MW_editProfile}</a></li>
+                                            <li><a href="{$WEB_ROOT}/clientarea.php?action=details">{$LANG.MWeditProfile}</a></li>
                                             {if $condlinks.updatecc}
                                                 <li><a href="{$WEB_ROOT}/clientarea.php?action=creditcard">{$LANG.navmanagecc}</a></li>
                                             {/if}
@@ -100,17 +100,17 @@
 
 
                         {if $loggedin}
-{*                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right">{$LANG.MW_myWebsites}</a>*}
+{*                            <a href="{$WEB_ROOT}/clientarea.php?action=services" class="btn btn-link top-right-button hidden-mobile pull-right">{$LANG.MWmyWebsites}</a>*}
 
                             <div class="user-menu-dropdown pull-right">
                                 <a class="user-bar" href="clientarea.php?action=details">
-                                    <span class="">{$LANG.MW_profile}</span>
+                                    <span class="">{$LANG.MWprofile}</span>
                                 </a>
                                 <div class="clearfix"></div>
                                 <div class="more-menu">
                                     <ul>
-                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MW_myWebsites}</a></li>
-                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=details">{$LANG.MW_editProfile}</a></li>
+                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MWmyWebsites}</a></li>
+                                        <li><a href="{$WEB_ROOT}/clientarea.php?action=details">{$LANG.MWeditProfile}</a></li>
 
                                         {if $condlinks.updatecc}
                                             <li><a href="{$WEB_ROOT}/clientarea.php?action=creditcard">{$LANG.navmanagecc}</a></li>

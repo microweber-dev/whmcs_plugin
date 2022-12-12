@@ -47,14 +47,14 @@
 
                 <div class="row">
                     <div class="col-xl-6 col-12" id="diskUsage">
-                        <strong style="color: #acb0b9; font-weight: 500;">{$LANG.MW_diskUsage}</strong>
+                        <strong style="color: #acb0b9; font-weight: 500;">{$LANG.MWdiskUsage}</strong>
                         <br /><br />
                         <input type="text" value="{$diskpercent|substr:0:-1}" class="usage-dial" data-fgColor="#444" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($diskpercent, 0, -1) > 100}{$diskpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="130" data-height="100" />
                         <br /><br />
                         <span style="color: #acb0b9; font-weight: 500;">  {$diskusage} M / {$disklimit} M </span>
                     </div>
                     <div class="col-xl-6 col-12" id="bandwidthUsage">
-                        <strong style="color: #acb0b9; font-weight: 500;">{$LANG.MW_bandwidthUsage}</strong>
+                        <strong style="color: #acb0b9; font-weight: 500;">{$LANG.MWbandwidthUsage}</strong>
                         <br /><br />
                         <input type="text" value="{$bwpercent|substr:0:-1}" class="usage-dial" data-fgColor="#d9534f" data-angleOffset="-125" data-angleArc="250" data-min="0" data-max="{if substr($bwpercent, 0, -1) > 100}{$bwpercent|substr:0:-1}{else}100{/if}" data-readOnly="true" data-width="130" data-height="100" />
                         <br /><br />
@@ -329,7 +329,7 @@
     <div class="col-xl-6 col-12 ">
         <div class=" panel-default panel card mb-3" id="cPanelBillingOverviewPanel">
             <div class="panel-heading card-header">
-                <h3 class="panel-title card-title m-0"> {$LANG.MW_billindOverview}</h3>
+                <h3 class="panel-title card-title m-0"> {$LANG.MWbillindOverview}</h3>
             </div>
             <div class="panel-body card-body">
 

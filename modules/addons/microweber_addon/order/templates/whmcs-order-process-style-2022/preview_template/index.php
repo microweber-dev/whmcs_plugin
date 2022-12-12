@@ -154,7 +154,7 @@
 
                 <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
                     <span>
-                        <?php print Lang::trans('MW_startWithThisTemplate') ?>
+                        <?php print Lang::trans('MWstartWithThisTemplate') ?>
 
                          </span>
                 </span>

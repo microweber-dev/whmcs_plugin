@@ -49,8 +49,8 @@
         <img  src="{$WEB_ROOT}/templates/mw2022/img/login-page.jpg" alt="">
 
         <div>
-            <h3 style="font-weight: bold;">{$LANG.MW_member_area}</h3>
-            <p style="font-size: 18px;">{$LANG.MW_please_Login_Website}</p>
+            <h3 style="font-weight: bold;">{$LANG.MWmember_area}</h3>
+            <p style="font-size: 18px;">{$LANG.MWplease_Login_Website}</p>
         </div>
 
         <div class="text-center">
@@ -116,7 +116,7 @@
                 <div align="center">
                     <button id="login" type="submit" class="cbtn">{$LANG.loginbutton}</button>
                     &nbsp;
-                    <a href="register.php" class="cbtn cbtn-alt">{$LANG.MW_newRegistration}</a>
+                    <a href="register.php" class="cbtn cbtn-alt">{$LANG.MWnewRegistration}</a>
                 </div>
                 <br/>
             </form>

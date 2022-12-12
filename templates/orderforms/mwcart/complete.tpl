@@ -43,7 +43,7 @@
 
     <a href="{get_website_login_by_orderid($orderid)}" target="_blank"
        data-toggle="tooltip" title="Edit this website"
-       class="whmc-kbtn">{$LANG.MW_goToWebsite}</a>
+       class="whmc-kbtn">{$LANG.MWgoToWebsite}</a>
 
 
 
@@ -52,7 +52,7 @@
 
 
 
-  <h3 class="oi-title">{$LANG.MW_orderInformation}</h3>
+  <h3 class="oi-title">{$LANG.MWorderInformation}</h3>
 
 <div class="signupfields padded">
 

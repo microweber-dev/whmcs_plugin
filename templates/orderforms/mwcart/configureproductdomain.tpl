@@ -19,7 +19,7 @@
                            {if $incartdomains}
                                <div class="offset-md-2  p-1 option">
                                    <label class="radio-inline">
-                                       <input type="radio" class="input-select-domaintransfer" placeholder="{$LANG.MW_searchDomain}" name="domainoption" value="incart" id="selincart"/><span class="ms-3">{$LANG.cartproductdomainuseincart}</span>
+                                       <input type="radio" class="input-select-domaintransfer" placeholder="{$LANG.MWsearchDomain}" name="domainoption" value="incart" id="selincart"/><span class="ms-3">{$LANG.cartproductdomainuseincart}</span>
                                    </label>
                                </div>
                            {/if}
@@ -77,7 +77,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
-                                            <input type="text" id="registersld" value="{$sld}" class="form-control" placeholder="{$LANG.MW_searchDomain}" autocapitalize="none"/>
+                                            <input type="text" id="registersld" value="{$sld}" class="form-control" placeholder="{$LANG.MWsearchDomain}" autocapitalize="none"/>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
@@ -96,7 +96,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
-                                            <input type="text" id="transfersld" value="{$sld}" placeholder="{$LANG.MW_transferDomain}" class="form-control" autocapitalize="none"/>
+                                            <input type="text" id="transfersld" value="{$sld}" placeholder="{$LANG.MWtransferDomain}" class="form-control" autocapitalize="none"/>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
@@ -115,7 +115,7 @@
                                     <div class="col-md-6 col-12" >
                                         <div class="input-group" style="display: block;">
                                             {*                                                <span class="input-group-addon">www.</span>*}
-                                            <input type="text" id="owndomainsld" value="{$sld}" placeholder="{$LANG.MW_typeYourDomain}" class="form-control" autocapitalize="none"/>
+                                            <input type="text" id="owndomainsld" value="{$sld}" placeholder="{$LANG.MWtypeYourDomain}" class="form-control" autocapitalize="none"/>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-6 padding-on-mobile">
@@ -131,7 +131,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="input-group" class="input-select-domaintransfer" style="display: block;">
                                             {*                                                <span class="input-group-addon">http://</span>*}
-                                            <input type="text"  id="subdomainsld" size="30" placeholder="{$LANG.MW_typeYourSubDomain}" value="{$sld}" autocapitalize="none" class="form-control"/>
+                                            <input type="text"  id="subdomainsld" size="30" placeholder="{$LANG.MWtypeYourSubDomain}" value="{$sld}" autocapitalize="none" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-2 col-8 padding-on-mobile">

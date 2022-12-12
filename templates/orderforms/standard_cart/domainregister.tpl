@@ -9,7 +9,7 @@
         <div class="cart-body" style="width: 90%; text-align: center;">
             <div class="header-lined page-domains adddomain-title" >
                 <h1>
-                    {$LANG.MW_findYourDomainName}
+                    {$LANG.MWfindYourDomainName}
                 </h1>
             </div>
             {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}

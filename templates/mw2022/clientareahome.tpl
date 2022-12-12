@@ -53,10 +53,10 @@
 
     <div class="mw-whm-hero--clientarea" style="background-image: url({$WEB_ROOT}/templates/mw2022/img/client-panel-banner-2.jpg)">
         <div>
-            <h1>{$LANG.MW_BuildingAWebsiteEasy}</h1>
-            <p>{$LANG.MW_createPowerfulSite}</p>
-            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">{$LANG.MW_createAWebsite}</a>
-            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >{$LANG.MW_contactSales}</a>
+            <h1>{$LANG.MWBuildingAWebsiteEasy}</h1>
+            <p>{$LANG.MWcreatePowerfulSite}</p>
+            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">{$LANG.MWcreateAWebsite}</a>
+            <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >{$LANG.MWcontactSales}</a>
         </div>
     </div>
 
@@ -93,7 +93,7 @@
                         </svg>
                     </div>
                     <div class="stat">{$clientsstats.productsnumactive}</div>
-                    <div class="title">{$LANG.MW_Websites}</div>
+                    <div class="title">{$LANG.MWwebsites}</div>
                     <div class="highlight bg-color-blue"></div>
                 </a>
             </div>
@@ -204,8 +204,8 @@
 
 <div class="site-section section-primary">
     <div class="container-fluid">
-        <h2 class="section-title">{$LANG.MW_our_Guarantees}</h2>
-        <p class="section-subtitle">{$LANG.MW_guarantees_1}</p>
+        <h2 class="section-title">{$LANG.MWour_Guarantees}</h2>
+        <p class="section-subtitle">{$LANG.MWguarantees_1}</p>
         <div class="section-content">
             <div class="row row-eq-height row-eq-height-xs features">
                 <div class="col-lg-4 col-md-6">
@@ -222,9 +222,9 @@
                                 <polygon class="svg-icon-outline-s" points="32,63 5,47.4 5,16.6 32,1 59,16.6 59,47.4"></polygon>
                             </svg>                                </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">24/7 {$LANG.MW_expertSupport}</h4>
+                            <h4 class="feature-title">24/7 {$LANG.MWexpertSupport}</h4>
                             <p class="feature-desc">
-                                {$LANG.MW_ourExpertSupportIs}
+                                {$LANG.MWourExpertSupportIs}
                             </p>
                         </div>
                     </div>
@@ -241,8 +241,8 @@
                             </svg>
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">{$LANG.MW_fastAndReliable}</h4>
-                            <p class="feature-desc">{$LANG.MW_createASiteFaster}</p>
+                            <h4 class="feature-title">{$LANG.MWfastAndReliable}</h4>
+                            <p class="feature-desc">{$LANG.MWcreateASiteFaster}</p>
                         </div>
                     </div>
                 </div>
@@ -264,8 +264,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">{$LANG.MW_superAndEasyToUse}</h4>
-                            <p class="feature-desc">{$LANG.MW_easeOfUseIsAchieved}</p>
+                            <h4 class="feature-title">{$LANG.MWsuperAndEasyToUse}</h4>
+                            <p class="feature-desc">{$LANG.MWeaseOfUseIsAchieved}</p>
                         </div>
                     </div>
                 </div>
@@ -282,8 +282,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">100% {$LANG.MW_uptimeGuaranteed} </h4>
-                            <p class="feature-desc">{$LANG.MW_theGuaranteeOfUninterrupted}</p>
+                            <h4 class="feature-title">100% {$LANG.MWuptimeGuaranteed} </h4>
+                            <p class="feature-desc">{$LANG.MWtheGuaranteeOfUninterrupted}</p>
                         </div>
                     </div>
                 </div>
@@ -302,8 +302,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">{$LANG.MW_secureServers}</h4>
-                            <p class="feature-desc">{$LANG.MW_highLevelOfSecurity}</p>
+                            <h4 class="feature-title">{$LANG.MWsecureServers}</h4>
+                            <p class="feature-desc">{$LANG.MWhighLevelOfSecurity}</p>
                         </div>
                     </div>
                 </div>
@@ -333,8 +333,8 @@
 
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">{$LANG.MW_highPerformance}</h4>
-                            <p class="feature-desc">{$LANG.MW_youCreateMoreSites}</p>
+                            <h4 class="feature-title">{$LANG.MWhighPerformance}</h4>
+                            <p class="feature-desc">{$LANG.MWyouCreateMoreSites}</p>
                         </div>
                     </div>
                 </div>

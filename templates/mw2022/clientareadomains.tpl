@@ -1,6 +1,6 @@
 <div class="panel panel-default mw-whm clientareadomains mt-5 pt-5">
     <div class="header-lined text-center">
-        <h1 class="mb-3">{$LANG.MW_myDomains}</h1>
+        <h1 class="mb-3">{$LANG.MWmyDomains}</h1>
     </div>
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
@@ -210,7 +210,7 @@
                             <th>{$LANG.nextdue}</th>
                             <th>{$LANG.domainsautorenew}</th>
                             <th>{$LANG.domainstatus}</th>
-                            <th>{$LANG.MW_actions}</th>
+                            <th>{$LANG.MWactions}</th>
                         </tr>
                         </thead>
                         <tbody>
