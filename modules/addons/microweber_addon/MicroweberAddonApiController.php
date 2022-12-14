@@ -85,7 +85,7 @@ class MicroweberAddonApiController
                 font-size: 16px;
                 line-height: 19px;
                 font-weight: 500;
-                cursor: pointer;
+                cursor: pointer; 
             }
         
             .mw-ads-holder p {
