@@ -16,7 +16,7 @@
                 {/if}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                     {if isset($closeLabel)}
                         {$closeLabel}
                     {else}
@@ -24,7 +24,7 @@
                     {/if}
                 </button>
                 {if isset($submitAction)}
-                    <button type="button" class="btn btn-primary" onclick="{$submitAction}">
+                    <button type="button" class="whmc-kbtn " onclick="{$submitAction}">
                         {if isset($submitLabel)}
                             {$submitLabel}
                         {else}

@@ -8,9 +8,10 @@
                 <div class="wrapper">
 
 
-                    <section class="copy">
-                        <div class="row">
-                            <div class="col-xs-4">
+                    <section class="copy pt-5">
+                        <div class="row pt-5" style="justify-content: center; align-items: center;">
+
+                            <div class="col-md-4">
 
                                 {if $logo}
                                     <a href="{$WEB_ROOT}/" class="logo"><img src="templates/mw2022/img/logo.svg" alt="{$companyname}" class="img-responsive"></a>
@@ -19,23 +20,43 @@
                                 {/if}
                             </div>
 
-                            <div class="col-xs-4 text-center" style="margin-top: 20px;">
+                            <div class="col-md-4 text-center" style="margin-top: 20px;">
 
                                 Copyright &copy; {$date_year} {$companyname}. Open Source Website Builder &amp; CMS under MIT License
+
                             </div>
 
-                            <div class="col-xs-4" style="margin-top: 20px;">
+
+                            <div class="col-md-4" style="margin-top: 20px;">
                                 <div class="copy-follow">
                                     <a href="https://twitter.com/microweber" target="_blank">Twitter</a>
                                     <a href="https://facebook.com/microweber" target="_blank">Facebook</a>
                                     <a href="https://linkedin.com/company/microweber" target="_blank">LinkedIn</a>
                                     <a href="https://youtube.com/microweber" target="_blank">YouTube</a>
-{*                                    <a href="https://pinterest.com/Microweber" target="_blank">Pinterest</a>*}
-{*                                    <a href="https://plus.google.com/+Microweber" target="_blank">Google Plus</a>*}
+                                    {*                                    <a href="https://pinterest.com/Microweber" target="_blank">Pinterest</a>*}
+                                    {*                                    <a href="https://plus.google.com/+Microweber" target="_blank">Google Plus</a>*}
                                     <br>
+
 
                                 </div>
                             </div>
+
+                            <div class="col-md-12 mx-auto text-center mt-4">
+                                {if $languagechangeenabled && count($locales) > 1 || $currencies}
+                                    <li class="list-inline-item" style="list-style: none;">
+                                        <button type="button" class="btn" data-toggle="modal" data-target="#modalChooseLanguage">
+                                            <div class="d-inline-block align-middle">
+                                                <div class="iti-flag {if $activeLocale.countryCode === 'GB'}us{else}{$activeLocale.countryCode|lower}{/if}"></div>
+                                            </div>
+                                            {$activeLocale.localisedName}
+                                            /
+                                            {$activeCurrency.prefix}
+                                            {$activeCurrency.code}
+                                        </button>
+                                    </li>
+                                {/if}
+                            </div>
+
                         </div>
 
                     </section>
@@ -59,10 +80,10 @@
                             <div class="pull-left loader">
                                 <i class="fa fa-circle-o-notch fa-spin"></i> Loading...
                             </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                                 Close
                             </button>
-                            <button type="button" class="btn btn-primary modal-submit">
+                            <button type="button" class="whmc-kbtnmodal-submit">
                                 Submit
                             </button>
                         </div>
@@ -84,6 +105,18 @@
         ga('require', 'linkid', 'linkid.js');
 
         ga('send', 'pageview');
+
+        var pageWrapperSize = function () {
+            var header = document.querySelector('#container > header');
+            var footer = document.querySelector('#container > footer');
+            var pageWrapper = document.querySelector('#container > .page-wrapper');
+            if(header && footer && pageWrapper) {
+                pageWrapper.style.minHeight = 'calc(100vh - ' + header.offsetHeight + 'px - ' + footer.offsetHeight + 'px)';
+            }
+        };
+
+        addEventListener('load', pageWrapperSize);
+        addEventListener('resize', pageWrapperSize);
 
     </script>
 

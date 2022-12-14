@@ -14,7 +14,7 @@
                 {if count($metric.pricing) > 1}
                     {lang key='metrics.startingFrom'} {$metric.lowestPrice} / {if $metric.unitName}{$metric.unitName}{else}{lang key='metrics.unit'}{/if}
                     <br>
-                    <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalMetricPricing-{$metric.systemName}">
+                    <button type="button" class="whmc-kbtn-2 btn-xs" data-toggle="modal" data-target="#modalMetricPricing-{$metric.systemName}">
                         {lang key='metrics.viewPricing'}
                     </button>
                 {elseif count($metric.pricing) == 1}

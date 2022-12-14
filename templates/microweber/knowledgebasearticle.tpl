@@ -12,7 +12,7 @@
 </div>
 
 {if $kbarticle.editLink}
-    <a href="{$kbarticle.editLink}" class="btn btn-default btn-sm pull-right">
+    <a href="{$kbarticle.editLink}" class="whmc-kbtn-2 btn-sm pull-right">
         <i class="fas fa-pencil-alt fa-fw"></i>
         {$LANG.edit}
     </a>

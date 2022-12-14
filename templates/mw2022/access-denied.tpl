@@ -14,11 +14,11 @@
             <div>{lang key='subaccountcontactmaster'}</div>
         </div>
         <div class="buttons pt-2 pb-4">
-            <a href="javascript:history.go(-1)" class="btn btn-primary">
+            <a href="javascript:history.go(-1)" class="whmc-kbtn ">
                 <i class="fas fa-arrow-circle-left"></i>
                 {lang key='goback'}
             </a>
-            <a href="index.php" class="btn btn-default">
+            <a href="index.php" class="whmc-kbtn-2">
                 <i class="fas fa-home"></i>
                 {lang key='returnhome'}
             </a>

@@ -20,7 +20,7 @@ var stateNotRequired = true;
                 </select>
             </div>
             <div class="col-sm-2 hidden-xs">
-                <button type="submit" class="btn btn-default btn-block">{$LANG.go}</button>
+                <button type="submit" class="whmc-kbtn-2 btn-block">{$LANG.go}</button>
             </div>
         </div>
     </form>
@@ -170,8 +170,8 @@ var stateNotRequired = true;
     </div>
 
     <div class="form-group text-center">
-        <input class="btn btn-primary" type="submit" name="save" value="{$LANG.clientareasavechanges}" />
-        <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
+        <input class="whmc-kbtn " type="submit" name="save" value="{$LANG.clientareasavechanges}" />
+        <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}" />
     </div>
 
 </form>

@@ -287,7 +287,7 @@
                 </div>
                 <form method="post" action="{routePath('cart-order')}">
                     <input type="hidden" name="pid" value="{$emergencyPlan->id}">
-                    <button type="submit" class="btn btn-default mt-3 mt-lg-0 float-lg-right">
+                    <button type="submit" class="whmc-kbtn-2 mt-3 mt-lg-0 float-lg-right">
                         {lang key="store.sitelock.buyNow"}
                     </button>
                 </form>

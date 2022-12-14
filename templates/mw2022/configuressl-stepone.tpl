@@ -2,7 +2,7 @@
 
     {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.sslinvalidlink textcenter=true}
 
-    <p class="text-center"><input type="button" value="{$LANG.clientareabacklink}" onclick="history.go(-1)" class="btn btn-primary" /></p>
+    <p class="text-center"><input type="button" value="{$LANG.clientareabacklink}" onclick="history.go(-1)" class="whmc-kbtn " /></p>
 
 {else}
 
@@ -147,7 +147,7 @@
             </fieldset>
 
             <p class="text-center">
-                <input type="submit" value="{$LANG.ordercontinuebutton}" class="btn btn-primary" />
+                <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn " />
             </p>
 
         </form>
@@ -159,7 +159,7 @@
         <form method="post" action="clientarea.php?action=productdetails">
             <input type="hidden" name="id" value="{$serviceid}" />
             <p>
-            <input type="submit" value="{$LANG.invoicesbacktoclientarea}" class="btn btn-default" /></p>
+            <input type="submit" value="{$LANG.invoicesbacktoclientarea}" class="whmc-kbtn-2" /></p>
         </form>
 
     {/if}

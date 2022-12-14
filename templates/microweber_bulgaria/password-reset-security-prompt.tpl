@@ -7,7 +7,7 @@
     </div>
 
     <div class="form-group text-center">
-        <button type="submit" class="btn btn-primary">{$LANG.pwresetsubmit}</button>
+        <button type="submit" class="whmc-kbtn ">{$LANG.pwresetsubmit}</button>
     </div>
 
 </form>

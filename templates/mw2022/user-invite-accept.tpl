@@ -31,7 +31,7 @@
             {if $loggedin}
                 <form method="post" action="{routePath('invite-validate', $invite->token)}">
                     <p>
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="whmc-kbtn-2">
                             {lang key="accountInvite.accept"}
                         </button>
                     </p>
@@ -52,7 +52,7 @@
                                 </div>
                                 {include file="$template/includes/captcha.tpl" captchaForm=$captchaForm containerClass="form-group row" nocache}
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default{$captcha->getButtonClass($captchaForm)}">
+                                    <button type="submit" class="whmc-kbtn-2{$captcha->getButtonClass($captchaForm)}">
                                         {lang key="login"}
                                     </button>
                                 </div>
@@ -80,7 +80,7 @@
                                     <div class="input-group">
                                         <input type="password" class="form-control" name="password" id="inputPassword" data-error-threshold="{$pwStrengthErrorThreshold}" data-warning-threshold="{$pwStrengthWarningThreshold}" placeholder="{lang key="loginpassword"}" autocomplete="off" />
                                         <div class="input-group-append">
-                                            <button type="button" class="btn btn-default generate-password" data-targetfields="inputPassword">
+                                            <button type="button" class="whmc-kbtn-2 generate-password" data-targetfields="inputPassword">
                                                 {lang key="generatePassword.btnShort"}
                                             </button>
                                         </div>
@@ -106,7 +106,7 @@
                                 {/if}
                                 {include file="$template/includes/captcha.tpl" captchaForm=$captchaFormRegister containerClass="form-group row" nocache}
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default{$captcha->getButtonClass($captchaFormRegister)}">
+                                    <button type="submit" class="whmc-kbtn-2{$captcha->getButtonClass($captchaFormRegister)}">
                                         {lang key="register"}
                                     </button>
                                 </div>

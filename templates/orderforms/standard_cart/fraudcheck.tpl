@@ -24,7 +24,7 @@
                     {if !$userValidation.submittedAt && $userValidation.token eq true}
                         <p class="margin-bottom">{lang key='fraud.furtherVal'}</p>
                         <p>
-                            <a href="#" class="btn btn-default" data-url="{$userValidationUrl}" onclick="openValidationSubmitModal(this);return false;">
+                            <a href="#" class="whmc-kbtn-2" data-url="{$userValidationUrl}" onclick="openValidationSubmitModal(this);return false;">
                                 {lang key='fraud.submitDocs'}
                                 &nbsp;<i class="fas fa-arrow-right"></i>
                             </a>
@@ -36,7 +36,7 @@
                                         <iframe id="validationContent" allow="camera {$userValidationHost}" width="100%" height="700" frameborder="0" src=""></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='close'}</button>
+                                        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='close'}</button>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                         <p class="margin-bottom">{$error}</p>
 
                         <p>
-                            <a href="submitticket.php" class="btn btn-default">
+                            <a href="submitticket.php" class="whmc-kbtn-2">
                                 {$LANG.orderForm.submitTicket}
                                 &nbsp;<i class="fas fa-arrow-right"></i>
                             </a>

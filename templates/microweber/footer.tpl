@@ -31,10 +31,10 @@
                             <i class="fas fa-circle-notch fa-spin"></i>
                             {$LANG.loading}
                         </div>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                             {$LANG.close}
                         </button>
-                        <button type="button" class="btn btn-primary modal-submit">
+                        <button type="button" class="whmc-kbtn modal-submit">
                             {$LANG.submit}
                         </button>
                     </div>

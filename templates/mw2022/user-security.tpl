@@ -58,8 +58,8 @@
                 </div>
 
                 <p>
-                    <input class="btn btn-primary" type="submit" name="submit" value="{lang key='clientareasavechanges'}" />
-                    <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
+                    <input class="whmc-kbtn " type="submit" name="submit" value="{lang key='clientareasavechanges'}" />
+                    <input class="whmc-kbtn-2" type="reset" value="{lang key='cancel'}" />
                 </p>
             </form>
         </div>

@@ -47,8 +47,8 @@
 </style>
 
 <div class="mw-whm submittickket" id="mw-whm-submit-ticket-block">
-    <div class="header-lined text-center">
-        <h1>Support / Open Ticket</h1><br />
+    <div class="header-lined text-center mb-5">
+        <h1>{$LANG.MWsupportTicket}</h1><br />
     </div>
 
     {if $errormessage}
@@ -58,98 +58,109 @@
     <form method="post" action="{$smarty.server.PHP_SELF}?step=3" enctype="multipart/form-data" role="form">
 
         <div class="row">
-            <div class="form-group col-sm-4">
-                <label for="inputName">{$LANG.supportticketsclientname}</label>
-                <input type="text" name="name" id="inputName" value="{if $loggedin}{$clientname}{else}{$name}{/if}"
-                       class="form-control{if $loggedin} disabled{/if}"{if $loggedin} disabled="disabled"{/if} />
-            </div>
-            <div class="form-group col-sm-4">
-                <label for="inputEmail">{$LANG.supportticketsclientemail}</label>
-                <input type="email" name="email" id="inputEmail" value="{$email}" class="form-control{if $loggedin} disabled{/if}"{if $loggedin} disabled="disabled"{/if} />
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-8">
-                <label for="inputSubject">{$LANG.supportticketsticketsubject}</label>
-                <input type="text" name="subject" id="inputSubject" value="{$subject}" class="form-control"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-3">
-                <label for="inputDepartment">{$LANG.supportticketsdepartment}</label>
-                <select name="deptid" id="inputDepartment" class="form-control" onchange="refreshCustomFields(this)">
-                    {foreach from=$departments item=department}
-                        <option value="{$department.id}"{if $department.id eq $deptid} selected="selected"{/if}>
-                            {$department.name}
-                        </option>
-                    {/foreach}
-                </select>
-            </div>
-            {if $relatedservices}
-                <div class="form-group col-sm-5">
-                    <label for="inputRelatedService">{$LANG.relatedservice}</label>
-                    <select name="relatedservice" id="inputRelatedService" class="form-control">
-                        <option value="">{$LANG.none}</option>
-                        {foreach from=$relatedservices item=relatedservice}
-                            <option value="{$relatedservice.id}">
-                                {$relatedservice.name} ({$relatedservice.status})
-                            </option>
-                        {/foreach}
-                    </select>
-                </div>
-            {/if}
-            <div class="form-group col-sm-3">
-                <label for="inputPriority">{$LANG.supportticketspriority}</label>
-                <select name="urgency" id="inputPriority" class="form-control">
-                    <option value="High"{if $urgency eq "High"} selected="selected"{/if}>
-                        {$LANG.supportticketsticketurgencyhigh}
-                    </option>
-                    <option value="Medium"{if $urgency eq "Medium" || !$urgency} selected="selected"{/if}>
-                        {$LANG.supportticketsticketurgencymedium}
-                    </option>
-                    <option value="Low"{if $urgency eq "Low"} selected="selected"{/if}>
-                        {$LANG.supportticketsticketurgencylow}
-                    </option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputMessage">{$LANG.contactmessage}</label>
-            <textarea name="message" id="inputMessage" rows="12" class="form-control markdown-editor" data-auto-save-name="client_ticket_open">{$message}</textarea>
-        </div>
 
-        <div class="row form-group" id="mw-whm-attachments-row">
-            <div class="col-sm-12">
-                <label for="inputAttachments">{$LANG.supportticketsticketattachments}</label>
-            </div>
-            <div class="col-sm-9">
-                <input type="file" name="attachments[]" id="inputAttachments" class="form-control"/>
-                <div id="fileUploadsContainer"></div>
-            </div>
-            <div class="col-sm-3">
-                <button type="button" class="btn btn-default btn-block" onclick="extraTicketAttachment()">
-                    <i class="fa fa-plus"></i> {$LANG.addmore}
-                </button>
-            </div>
-            <div class="col-xs-12 ticket-attachments-message text-muted">
-                {$LANG.supportticketsallowedextensions}: {$allowedfiletypes}
-            </div>
+               <div class="col-sm-12">
+                   <div class="form-group py-3 col-lg-6 col-12">
+                       <label for="inputName">{$LANG.supportticketsclientname}</label>
+                       <input type="text" name="name" id="inputName" value="{if $loggedin}{$clientname}{else}{$name}{/if}"
+                              class="form-control{if $loggedin} disabled{/if}"{if $loggedin} disabled="disabled"{/if} />
+                   </div>
+                   <div class="form-group py-3 col-lg-6 col-12">
+                       <label for="inputEmail">{$LANG.supportticketsclientemail}</label>
+                       <input type="email" name="email" id="inputEmail" value="{$email}" class="form-control{if $loggedin} disabled{/if}"{if $loggedin} disabled="disabled"{/if} />
+                   </div>
+
+
+                   <div class="form-group py-3 col-md-12 col-12">
+                       <label for="inputSubject">{$LANG.supportticketsticketsubject}</label>
+                       <input type="text" name="subject" id="inputSubject" value="{$subject}" class="form-control"/>
+                   </div>
+
+
+                   <div class="form-group py-3 col-lg-4 col-12">
+                       <label for="inputDepartment">{$LANG.supportticketsdepartment}</label>
+                       <select name="deptid" id="inputDepartment" class="form-control" onchange="refreshCustomFields(this)">
+                           {foreach from=$departments item=department}
+                               <option value="{$department.id}"{if $department.id eq $deptid} selected="selected"{/if}>
+                                   {$department.name}
+                               </option>
+                           {/foreach}
+                       </select>
+                   </div>
+                   {if $relatedservices}
+                       <div class="form-group py-3 col-lg-4 col-12">
+                           <label for="inputRelatedService">{$LANG.relatedservice}</label>
+                           <select name="relatedservice" id="inputRelatedService" class="form-control">
+                               <option value="">{$LANG.none}</option>
+                               {foreach from=$relatedservices item=relatedservice}
+                                   <option value="{$relatedservice.id}">
+                                       {$relatedservice.name} ({$relatedservice.status})
+                                   </option>
+                               {/foreach}
+                           </select>
+                       </div>
+                   {/if}
+                   <div class="form-group py-3 col-lg-4 col-12">
+                       <label for="inputPriority">{$LANG.supportticketspriority}</label>
+                       <select name="urgency" id="inputPriority" class="form-control">
+                           <option value="High"{if $urgency eq "High"} selected="selected"{/if}>
+                               {$LANG.supportticketsticketurgencyhigh}
+                           </option>
+                           <option value="Medium"{if $urgency eq "Medium" || !$urgency} selected="selected"{/if}>
+                               {$LANG.supportticketsticketurgencymedium}
+                           </option>
+                           <option value="Low"{if $urgency eq "Low"} selected="selected"{/if}>
+                               {$LANG.supportticketsticketurgencylow}
+                           </option>
+                       </select>
+                   </div>
+                   <div class=" form-group py-3 col-sm-12">
+                       <label for="inputMessage">{$LANG.contactmessage}</label>
+                       <textarea name="message" id="inputMessage" rows="12" class="form-control markdown-editor" data-auto-save-name="client_ticket_open">{$message}</textarea>
+                   </div>
+
+                  <div class=" col-md-8 col-12 justify-content-center">
+                      <div class="col-sm-12 form-group py-3" id="mw-whm-attachments-row">
+                          <div class="col-md-12">
+                              <label for="inputAttachments">{$LANG.supportticketsticketattachments}</label>
+                          </div>
+                          <div class="col-lg-6 col-12">
+                              <input type="file" name="attachments[]" id="inputAttachments" class="form-control"/>
+                              <div id="fileUploadsContainer"></div>
+                          </div>
+                          <div class="col-lg-6 col-12">
+                              <button type="button" class="whmc-kbtn-2 btn-block" onclick="extraTicketAttachment()">
+                                  <i class="fa fa-plus"></i> {$LANG.addmore}
+                              </button>
+                          </div>
+                          <div class="col-md-12 ticket-attachments-message text-muted">
+                              {$LANG.supportticketsallowedextensions}: {$allowedfiletypes}
+                          </div>
+                      </div>
+                  </div>
+
+                   <div class="col-lg-5 col-12">
+                       <div id="customFieldsContainer">
+                           {include file="$template/supportticketsubmit-customfields.tpl"}
+                       </div>
+                       <div id="autoAnswerSuggestions" class="well hidden"></div>
+
+                   </div>
+                   <div class="col-lg-8 col-12">
+                       <div class="text-center margin-bottom">
+                           {include file="$template/includes/captcha.tpl"}
+                       </div>
+                   </div>
+
+
+               </div>
+
+                   <div class=" col-12 text-center mx-auto mt-5">
+
+                       <a href="supporttickets.php" class="whmc-kbtn-2 mx-2">{$LANG.cancel}</a>
+                       <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="whmc-kbtn mx-2"/>
+                   </div>
         </div>
-
-        <div id="customFieldsContainer">
-            {include file="$template/supportticketsubmit-customfields.tpl"}
-        </div>
-
-        <div id="autoAnswerSuggestions" class="well hidden"></div>
-
-        <div class="text-center margin-bottom">
-            {include file="$template/includes/captcha.tpl"}
-        </div>
-
-        <p>
-            <input type="submit" id="openTicketSubmit" value="{$LANG.supportticketsticketsubmit}" class="whmc-kbtn-2"/>
-            <a href="supporttickets.php" class="whmc-kbtn">{$LANG.cancel}</a>
-        </p>
 
     </form>
 

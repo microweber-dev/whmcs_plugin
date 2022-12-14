@@ -51,21 +51,21 @@
 </style>
 <?php
 $templates = get_enabled_templates();
- ?>
+?>
 <?php if (empty((array) $templates)): ?>
     <div class="alert alert-danger" role="alert">
-        No templates are enabled from the admin panel
+        <?php print Lang::trans('MWnoTemplatesAreEnabled') ?>
     </div>
- <?php endif; ?>
+<?php endif; ?>
 
 <div class="templates">
     <div class="container">
         <?php if (isset($_GET['target']) AND $_GET['target'] == '_top'): ?>
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center mb-5">
 
-                    <h1 style="font-size: 48px; font-weight: 700;">Create a Website Based on a Great Template</h1>
-                    <p style="font-size: 18px!important; font-weight: 300;">Choose From a library of Hundreds of Professional Prepared Mobile Ready Themes</p>
+                    <h1 style="font-size: 48px; font-weight: 700;"><?php print Lang::trans('MWweCreateAWebsiteBasedOnTemplate') ?></h1>
+                    <p style="font-size: 18px!important; font-weight: 300;"><?php print Lang::trans('MWchooseFromALibraryOfHundred') ?></p>
 
                 </div>
             </div>
@@ -96,21 +96,21 @@ $templates = get_enabled_templates();
 
                         </form>
 
-                       <div class="template-box-bottom-2 m-t-15">
-                           <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;">Preview</button>
+                        <div class="template-box-bottom-2 m-t-15">
+                            <button type="submit" form="template-<?php print $template_id ?>" class="whmc-kbtn-2" style="margin-right: 10px;"><?php print Lang::trans('MWpreview') ?></button>
 
-                           <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
+                            <form id="template-start-<?php print $template_id ?>" method="post" action="<?php echo $current_url ?>" <?php if (isset($_GET['target']) AND $_GET['target'] == 'top'): ?> target="_top"<?php endif; ?> class="clearfix">
 
-                               <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
+                                <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                               <input type="hidden" value="true" name="template_view"/>
-                               <input type="hidden" value="true" name="skip_preview_template"/>
+                                <input type="hidden" value="true" name="template_view"/>
+                                <input type="hidden" value="true" name="skip_preview_template"/>
 
 
-                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>">Start</button>
-                           </form>
+                                <button type="submit" class="whmc-kbtn" form="template-start-<?php print $template_id ?>"><?php print Lang::trans('MWstart') ?></button>
+                            </form>
 
-                       </div>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

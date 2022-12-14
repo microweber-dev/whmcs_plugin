@@ -4,7 +4,7 @@
 {literal}<script type="text/javascript">
 
 
-  var timeleft = 30;
+  var timeleft = 45;
   var downloadTimer = setInterval(function(){
     document.getElementById("progressBar").value = 30 - --timeleft;
     if(timeleft <= 0) {
@@ -31,7 +31,7 @@
 
 <div id="order-loading">
 
-  <p  style="text-align: center; padding-top: 40px;">Loading...
+  <p  style="text-align: center; padding-top: 40px;">{$LANG.loading}
     <progress value="0" max="10" id="progressBar"></progress></p>
 
 </div>
@@ -43,7 +43,7 @@
 
     <a href="{get_website_login_by_orderid($orderid)}" target="_blank"
        data-toggle="tooltip" title="Edit this website"
-       class="whmc-kbtn">Go to my website</a>
+       class="whmc-kbtn">{$LANG.MWgoToWebsite}</a>
 
 
 
@@ -52,7 +52,7 @@
 
 
 
-  <h3 class="oi-title">Order information</h3>
+  <h3 class="oi-title">{$LANG.MWorderInformation}</h3>
 
 <div class="signupfields padded">
 

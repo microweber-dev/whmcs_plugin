@@ -32,7 +32,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-primary btn-block">
+                                        <button type="submit" class="whmc-kbtn btn-block">
                                             {$LANG.orderForm.use}
                                         </button>
                                     </div>
@@ -67,7 +67,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-primary btn-block">
+                                        <button type="submit" class="whmc-kbtn btn-block">
                                             {$LANG.orderForm.check}
                                         </button>
                                     </div>
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-primary btn-block">
+                                        <button type="submit" class="whmc-kbtn btn-block">
                                             {$LANG.orderForm.transfer}
                                         </button>
                                     </div>
@@ -133,7 +133,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-primary btn-block" id="useOwnDomain">
+                                        <button type="submit" class="whmc-kbtn btn-block" id="useOwnDomain">
                                             {$LANG.orderForm.use}
                                         </button>
                                     </div>
@@ -166,7 +166,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-primary btn-block">
+                                        <button type="submit" class="whmc-kbtn btn-block">
                                             {$LANG.orderForm.check}
                                         </button>
                                     </div>
@@ -197,7 +197,7 @@
                         <div id="primaryLookupResult" class="domain-lookup-result domain-lookup-primary-results w-hidden">
                             <div class="domain-unavailable domain-checker-unavailable headline">{lang key='orderForm.domainIsUnavailable'}</div>
                             <div class="domain-available domain-checker-available headline">{$LANG.domainavailable1} <strong></strong> {$LANG.domainavailable2}</div>
-                            <div class="btn btn-primary domain-contact-support headline">{$LANG.domainContactUs}</div>
+                            <div class="whmc-kbtn domain-contact-support headline">{$LANG.domainContactUs}</div>
                             <div class="transfer-eligible">
                                 <p class="domain-checker-available headline">{lang key='orderForm.transferEligible'}</p>
                                 <p>{lang key='orderForm.transferUnlockBeforeContinuing'}</p>
@@ -278,7 +278,7 @@
                                                         <span class="added">{lang key='domaincheckeradded'}</span>
                                                         <span class="unavailable">{$LANG.domaincheckertaken}</span>
                                                     </button>
-                                                    <button type="button" class="btn btn-primary domain-contact-support w-hidden">{lang key='domainChecker.contactSupport'}</button>
+                                                    <button type="button" class="whmc-kbtn domain-contact-support w-hidden">{lang key='domainChecker.contactSupport'}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -306,7 +306,7 @@
                                             <span class="added">{lang key='domaincheckeradded'}</span>
                                             <span class="unavailable">{$LANG.domaincheckertaken}</span>
                                         </button>
-                                        <button type="button" class="btn btn-primary domain-contact-support w-hidden">{lang key='domainChecker.contactSupport'}</button>
+                                        <button type="button" class="whmc-kbtn domain-contact-support w-hidden">{lang key='domainChecker.contactSupport'}</button>
                                         <span class="price"></span>
                                         <span class="promo w-hidden"></span>
                                     </div>
@@ -324,7 +324,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button id="btnDomainContinue" type="submit" class="btn btn-primary btn-lg w-hidden" disabled="disabled">
+                    <button id="btnDomainContinue" type="submit" class="whmc-kbtn btn-lg w-hidden" disabled="disabled">
                         {$LANG.continue}
                         &nbsp;<i class="fas fa-arrow-circle-right"></i>
                     </button>

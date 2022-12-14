@@ -15,11 +15,13 @@
     </div>
 
     {if !$loggedin && $currencies}
-        <div class="currencychooser">
+        <div class="currencychooser col-md-12 text-center mx-auto my-5">
+            <h3 class="mb-4">{$LANG.MWchooseACurrency}</h3>
             <div class="btn-group" role="group">
                 {foreach from=$currencies item=curr}
-                    <a href="cart.php?a=add&domain={$domain}&currency={$curr.id}" class="btn btn-default{if $currency.id eq $curr.id} active{/if}">
-                        <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png" border="0" alt="" />
+                    <a href="cart.php?gid={$gid}&currency={$curr.id}" class="whmc-kbtn-2{if $currency.id eq $curr.id} active{/if}">
+{*                        <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png"*}
+{*                             border="0" alt=""/>*}
                         {$curr.code}
                     </a>
                 {/foreach}

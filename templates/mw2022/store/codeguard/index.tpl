@@ -107,7 +107,7 @@
                             </div>
                             <form action="{routePath('cart-order')}" method="post" class="float-right">
                                 <input id="selectedProductId" type="hidden" name="pid" value="">
-                                <button type="submit" class="btn btn-default order-btn" id="product-order-button">
+                                <button type="submit" class="whmc-kbtn-2 order-btn" id="product-order-button">
                                     {lang key='ordernowbutton'}
                                 </button>
                             </form>

@@ -13,14 +13,14 @@
     <form id="frmPayment" method="post" action="{$submitLocation}" role="form">
         <input type="hidden" name="invoiceid" value="{$invoiceid}" />
 
-        <div class="row cc-payment-form">
-            <div class="col-md-7">
+        <div class="row cc-payment-form" style="justify-content: space-between;">
+
+            <div class="col-xl-6 mx-2 panel panel-default">
 
                 {if $errormessage}
                     {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage}
                 {/if}
 
-                <div class="alert alert-danger text-center gateway-errors w-hidden"></div>
 
                 <div class="card">
                     <div class="card-body">
@@ -41,9 +41,9 @@
                         {/if}
                         <div id="btnSubmitContainer" class="form-group submit-container">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary" id="btnSubmit" value="{lang key='submitpayment'}">
+                                <button type="submit" class="whmc-kbtn mt-5" id="btnSubmit" value="{lang key='submitpayment'}">
                                     <span class="pay-text">{lang key='submitpayment'}</span>
-                                    <span class="click-text w-hidden">{lang key='pleasewait'}</span>
+                                    <span class="click-text w-hidden"></span>
                                 </button>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                 </div>
 
             </div>
-            <div class="col-md-5">
+            <div class="col-xl-5 mx-2">
                 {include file="$template/payment/invoice-summary.tpl"}
             </div>
         </div>

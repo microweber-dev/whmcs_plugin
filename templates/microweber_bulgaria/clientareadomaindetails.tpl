@@ -221,7 +221,7 @@
                 </div>
             {/for}
             <p class="text-center">
-                <input type="submit" class="btn btn-primary" value="{$LANG.changenameservers}" />
+                <input type="submit" class="whmc-kbtn " value="{$LANG.changenameservers}" />
             </p>
         </form>
 
@@ -280,7 +280,7 @@
             </div>
 
             <p class="text-center">
-                <input type="submit" value="{$LANG.domainrelease}" class="btn btn-primary" />
+                <input type="submit" value="{$LANG.domainrelease}" class="whmc-kbtn " />
             </p>
         </form>
 

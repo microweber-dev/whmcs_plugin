@@ -14,7 +14,7 @@
         <p class="text-center">{lang key='twofabackupcodeexpl'}</p>
 
         <p class="text-center">
-            <a href="{routePath('clientarea-home')}" class="btn btn-default">
+            <a href="{routePath('clientarea-home')}" class="whmc-kbtn-2">
                 {lang key='continue'} &raquo;
             </a>
         </p>

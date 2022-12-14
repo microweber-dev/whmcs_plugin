@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-default btn-block mt-2 mt-md-0">{lang key='go'}</button>
+                <button type="submit" class="whmc-kbtn-2 btn-block mt-2 mt-md-0">{lang key='go'}</button>
             </div>
         </div>
     </form>
@@ -126,8 +126,8 @@
     </div>
 
     <div class="form-group text-center">
-        <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
-        <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
+        <input class="whmc-kbtn " type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+        <input class="whmc-kbtn-2" type="reset" value="{lang key='cancel'}" />
     </div>
 
 </form>

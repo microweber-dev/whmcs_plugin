@@ -385,7 +385,7 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder">
-                            <button class="btn btn-default search-domain search-domain js-search-domains" style="display: none;" type="submit">Search</button>
+                            <button class="whmc-kbtn-2 search-domain search-domain js-search-domains" style="display: none;" type="submit">Search</button>
                             <input type="text" name="domain" placeholder="start typing to search" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                         </div>
 

@@ -1,6 +1,6 @@
-<div class="mw-whm clientareadomains">
+<div class="panel panel-default mw-whm clientareadomains mt-5 pt-5">
     <div class="header-lined text-center">
-        <h1>My Domains</h1>
+        <h1 class="mb-3">{$LANG.MWmyDomains}</h1>
     </div>
     {if $warnings}
         {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
@@ -186,17 +186,17 @@
                     jQuery('#tableLoading').addClass('hidden');
                 });
             </script>
-            <div class="btn-group margin-bottom">
-                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" id="nameservers" class="setBulkAction"><i class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>
-                    <li><a href="#" id="autorenew" class="setBulkAction"><i class="glyphicon glyphicon-refresh"></i> {$LANG.domainautorenewstatus}</a></li>
-                    <li><a href="#" id="reglock" class="setBulkAction"><i class="glyphicon glyphicon-lock"></i> {$LANG.domainreglockstatus}</a></li>
-                    <li><a href="#" id="contactinfo" class="setBulkAction"><i class="glyphicon glyphicon-user"></i> {$LANG.domaincontactinfoedit}</a></li>
-                </ul>
-            </div>
+{*            <div class="btn-group margin-bottom">*}
+{*                <button type="button" class="whmc-kbtn-2 btn-sm dropdown-toggle" data-toggle="dropdown">*}
+{*                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp; {$LANG.withselected} <span class="caret"></span>*}
+{*                </button>*}
+{*                <ul class="dropdown-menu" role="menu">*}
+{*                    <li><a href="#" id="nameservers" class="setBulkAction"><i class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>*}
+{*                    <li><a href="#" id="autorenew" class="setBulkAction"><i class="glyphicon glyphicon-refresh"></i> {$LANG.domainautorenewstatus}</a></li>*}
+{*                    <li><a href="#" id="reglock" class="setBulkAction"><i class="glyphicon glyphicon-lock"></i> {$LANG.domainreglockstatus}</a></li>*}
+{*                    <li><a href="#" id="contactinfo" class="setBulkAction"><i class="glyphicon glyphicon-user"></i> {$LANG.domaincontactinfoedit}</a></li>*}
+{*                </ul>*}
+{*            </div>*}
             <form id="domainForm" method="post" action="clientarea.php?action=bulkdomain">
                 <input id="bulkaction" name="update" type="hidden"/>
 
@@ -210,7 +210,7 @@
                             <th>{$LANG.nextdue}</th>
                             <th>{$LANG.domainsautorenew}</th>
                             <th>{$LANG.domainstatus}</th>
-                            <th>&nbspActions</th>
+                            <th>{$LANG.MWactions}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -242,13 +242,13 @@
                                 </span>
                                 </td>
                                 <td>
-                                    <div class="btn-group btn-group-sm" style="width:60px;">
+                                    <div class="btn-group btn-group-sm" style="width:60px; float: right;">
                                         <a href="clientarea.php?action=domaindetails&id={$domain.id}" class="btn btn-default"><i class="fa fa-wrench"></i></a>
                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                             <span class="caret"></span>
                                             <span class="sr-only">Toggle Dropdown</span>
                                         </button>
-                                        <ul class="dropdown-menu text-left" role="menu">
+                                        <ul class="dropdown-menu dropdown-menu-left " role="menu">
                                             {if $domain.status eq 'Active'}
                                                 <li><a href="clientarea.php?action=domaindetails&id={$domain.id}#tabNameservers"><i
                                                                 class="glyphicon glyphicon-globe"></i> {$LANG.domainmanagens}</a></li>
@@ -297,7 +297,7 @@
                         <th>&nbsp;</th>
                         <th>
                             <div id="btnCheckout" style="display:none;">
-                                <a href="cart.php?a=view" class="btn btn-default">{$LANG.domainsgotocheckout} &raquo;</a>
+                                <a href="cart.php?a=view" class="whmc-kbtn-2">{$LANG.domainsgotocheckout} &raquo;</a>
                             </div>
                         </th>
                     </tr>
@@ -348,7 +348,7 @@
                             </td>
                             <td class="text-center">
                                 {if !$renewal.beforeRenewLimit && !$renewal.pastGracePeriod}
-                                    <button type="button" class="btn btn-primary btn-sm" id="renewButton{$renewal.id}" onclick="addRenewalToCart({$renewal.id}, this)">
+                                    <button type="button" class="whmc-kbtnbtn-sm" id="renewButton{$renewal.id}" onclick="addRenewalToCart({$renewal.id}, this)">
                                         <span class="glyphicon glyphicon-shopping-cart"></span> {$LANG.addtocart}
                                     </button>
                                 {/if}
@@ -361,7 +361,7 @@
 
             <div class="row">
                 <div class="col-xs-12" id="backLink">
-                    <a href="#tabOverview" class="btn btn-default btn-sm" data-toggle="tab" id="back">
+                    <a href="#tabOverview" class="whmc-kbtn-2 btn-sm" data-toggle="tab" id="back">
                         <i class="glyphicon glyphicon-backward"></i> {$LANG.clientareabacklink|replace:'&laquo; ':''}
                     </a>
                 </div>

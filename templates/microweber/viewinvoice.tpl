@@ -247,8 +247,8 @@
             </div>
 
             <div class="pull-right btn-group btn-group-sm hidden-print">
-                <a href="javascript:window.print()" class="btn btn-default"><i class="fas fa-print"></i> {$LANG.print}</a>
-                <a href="dl.php?type=i&amp;id={$invoiceid}" class="btn btn-default"><i class="fas fa-download"></i> {$LANG.invoicesdownload}</a>
+                <a href="javascript:window.print()" class="whmc-kbtn-2"><i class="fas fa-print"></i> {$LANG.print}</a>
+                <a href="dl.php?type=i&amp;id={$invoiceid}" class="whmc-kbtn-2"><i class="fas fa-download"></i> {$LANG.invoicesdownload}</a>
             </div>
 
         {/if}

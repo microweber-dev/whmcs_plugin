@@ -103,16 +103,16 @@
 
             <div class="row">
                 <div class="col-sm-5">
-                     <a href="javascript:history.go(-1)" class="btn btn-default">
+                     <a href="javascript:history.go(-1)" class="whmc-kbtn-2">
                         <i class="fa fa-arrow-left"></i>
                         Back
                     </a>
                 </div>
                 <div class="col-sm-7 text-right">
-                    <button type="submit" name="continue" value="1" class="btn btn-default">
+                    <button type="submit" name="continue" value="1" class="whmc-kbtn-2">
                         Continue Shopping
                     </button>
-                    <button type="submit" name="checkout" value="1" class="btn btn-primary">
+                    <button type="submit" name="checkout" value="1" class="whmc-kbtn ">
                         Checkout
                         <i class="fa fa-shopping-cart" ></i>
                     </button>

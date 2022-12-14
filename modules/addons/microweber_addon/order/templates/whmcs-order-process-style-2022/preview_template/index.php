@@ -98,11 +98,16 @@
             background-color: transparent;
 
         }
+        <?php if(isset($_REQUEST['skip_preview_template'])): ?>
 
+        * {
+          display: none !important;
+        }
+        <?php endif; ?>
     </style>
     <div class="preview-navbar" id="preview-toolbar">
         <div class="left logo">
-            <a href="javascript:;" onclick="window.history.back()" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+            <a href="javascript:;" onclick="window.history.back()" class="whmc-kbtn-2"><i class="fa fa-chevron-left"></i></a>
         </div>
 
         <div class="screens">
@@ -148,7 +153,10 @@
 
 
                 <span class="mwbtn btn-primary" onclick="submitForPreview(this.parentNode);">
-                    <span>Start with this template</span>
+                    <span>
+                        <?php print Lang::trans('MWstartWithThisTemplate') ?>
+
+                         </span>
                 </span>
 
                 &nbsp;<?php if(isset($_REQUEST['skip_preview_template'])): ?>

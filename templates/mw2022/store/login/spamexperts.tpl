@@ -23,7 +23,7 @@
                             <input type="hidden" name="service-id" value="{if $accounts[0].type == 'addon'}a{/if}{$accounts[0].id}">
                         {/if}
                     </p>
-                    <button class="btn btn-default btn-service-sso">
+                    <button class="whmc-kbtn-2 btn-service-sso">
                         <span class="loading hidden">
                             <i class="fa fa-spinner fa-spin"></i>
                         </span>

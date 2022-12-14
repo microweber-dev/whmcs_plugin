@@ -1,16 +1,21 @@
-<div class="mw-whm clientareaproducts">
+<div class="panel panel-default pt-5 mt-5 mw-whm clientareaproducts">
 
     <div class="header-lined text-center">
-        <h1 style="font-size: 36px; font-weight: 700;">My Website</h1>
+        <h1 style="font-size: 36px; font-weight: 700;">{$LANG.MWmyWebsite}</h1>
         <br/>
-        <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; Create New Website</a>
+        <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; {$LANG.MWcreateNewWebsite}</a>
     </div>
 
 
 {*    {include file="$template/includes/tablelist.tpl" tableName="ServicesList" filterColumn="4" startOrderCol="[1, 'desc'], [1, 'asc']"}*}
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            var table = jQuery('#tableServicesList').removeClass('hidden').DataTable();
+            var table = jQuery('#tableServicesList').removeClass('hidden').DataTable({
+                dom:
+                    "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 pagination-clientareaproducts'p>>",
+            });
             {if $orderby == 'product'}
             table.order([2, 'desc']);
             {elseif $orderby == 'amount' || $orderby == 'billingcycle'}
@@ -155,9 +160,9 @@
 
                 <th>{$LANG.clientareaaddonpricing}</th>
 {*                <th>{$LANG.clientareahostingnextduedate}</th>*}
-                <th>Register date</th>
+                <th>{$LANG.MWregisterDate}</th>
                 <th>{$LANG.clientareastatus}</th>
-                <th class="responsive-edit-button" >Actions</th>
+                <th class="responsive-edit-button" >{$LANG.MWactions}</th>
             </tr>
             </thead>
             <tbody>
@@ -180,15 +185,15 @@
                         {*<span class="more-table-button"></span>*}
                         <div class="more-table-menu">
                             {if $service.group == 'Templates'}
-                                <a href="go_to_product.php?id={$service.id}&template=true" target="_blank" class="cbtn cbtn-small">View template</a>
+                                <a href="go_to_product.php?id={$service.id}&template=true" target="_blank" class="cbtn cbtn-small">{$LANG.MWviewTemplate}</a>
                             {else}
 
 
-                                <a href="upgrade.php?type=package&id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="Change plan">Plan</a>
+                                <a href="upgrade.php?type=package&id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="Change plan">{$LANG.MWplan}</a>
 
-                                <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="{$LANG.manageproduct}">Manage</i></a>
+                                <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="{$LANG.manageproduct}">{$LANG.MWmanage}</i></a>
 
-                                <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" data-toggle="tooltip" title="Edit this website" class="whmc-kbtn-small">Edit</a>
+                                <a href="{get_website_redirect_url($service.domain, $service.id)}" target="_blank" data-toggle="tooltip" title="Edit this website" class="whmc-kbtn-small">{$LANG.MWedit}</a>
 
                             {/if}
                         </div>

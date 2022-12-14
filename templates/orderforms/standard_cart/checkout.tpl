@@ -134,7 +134,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="button" id="btnExistingLogin" class="btn btn-primary btn-md">
+                        <button type="button" id="btnExistingLogin" class="whmc-kbtn btn-md">
                             <span id="existingLoginButton">{lang key='login'}</span>
                             <span id="existingLoginPleaseWait" class="w-hidden">{lang key='pleasewait'}</span>
                         </button>
@@ -455,7 +455,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <button type="button" class="btn btn-default btn-sm generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                                <button type="button" class="whmc-kbtn-2 btn-sm generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                                     {$LANG.generatePassword.btnLabel}
                                 </button>
                             </div>
@@ -569,7 +569,7 @@
                                     <div class="input-group">
                                         <input type="tel" name="cccvv" id="inputCardCVV2" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
                                         <span class="input-group-btn input-group-append">
-                                            <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                            <button type="button" class="whmc-kbtn-2" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
                                                 ?
                                             </button>
                                         </span>
@@ -616,7 +616,7 @@
                                     <div class="input-group">
                                         <input type="tel" name="cccvv" id="inputCardCVV" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
                                         <span class="input-group-btn input-group-append">
-                                            <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                            <button type="button" class="whmc-kbtn-2" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
                                                 ?
                                             </button>
                                         </span><br>
@@ -719,7 +719,7 @@
 
                     <button type="submit"
                             id="btnCompleteOrder"
-                            class="btn btn-primary btn-lg disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
+                            class="whmc-kbtn btn-lg disable-on-click spinner-on-click{if $captcha}{$captcha->getButtonClass($captchaForm)}{/if}"
                             {if $cartitems==0}disabled="disabled"{/if}
                     >
                         {if $inExpressCheckout}{$LANG.confirmAndPay}{else}{$LANG.completeorder}{/if}

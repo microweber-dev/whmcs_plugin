@@ -2,7 +2,7 @@
 
     {include file="$template/includes/alert.tpl" type="error" msg=$LANG.clientareacancelinvalid textcenter=true}
     <p class="text-center">
-        <a href="clientarea.php?action=productdetails&amp;id={$id}" class="btn btn-primary">{$LANG.clientareabacklink}</a>
+        <a href="clientarea.php?action=productdetails&amp;id={$id}" class="whmc-kbtn ">{$LANG.clientareabacklink}</a>
     </p>
 
 {elseif $requested}
@@ -10,7 +10,7 @@
     {include file="$template/includes/alert.tpl" type="success" msg=$LANG.clientareacancelconfirmation textcenter=true}
 
     <p class="text-center">
-        <a href="clientarea.php?action=productdetails&amp;id={$id}" class="btn btn-primary">{$LANG.clientareabacklink}</a>
+        <a href="clientarea.php?action=productdetails&amp;id={$id}" class="whmc-kbtn ">{$LANG.clientareabacklink}</a>
     </p>
 
 {else}
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <div class="form-inline text-center">
                     <input type="submit" value="{$LANG.clientareacancelrequestbutton}" class="btn btn-danger" />
-                    <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default">{$LANG.cancel}</a>
+                    <a href="clientarea.php?action=productdetails&id={$id}" class="whmc-kbtn-2">{$LANG.cancel}</a>
                 </div>
             </div>
 

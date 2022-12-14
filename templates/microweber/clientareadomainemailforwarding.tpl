@@ -49,7 +49,7 @@
         </table>
 
         <p class="text-center">
-            <input type="submit" value="{$LANG.clientareasavechanges}" class="btn btn-primary" /> <input type="reset" value="{$LANG.clientareacancel}" class="btn btn-default" />
+            <input type="submit" value="{$LANG.clientareasavechanges}" class="whmc-kbtn " /> <input type="reset" value="{$LANG.clientareacancel}" class="whmc-kbtn-2" />
         </p>
 
     </form>

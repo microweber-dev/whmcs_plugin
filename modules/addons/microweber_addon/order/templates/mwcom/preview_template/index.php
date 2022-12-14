@@ -107,7 +107,7 @@
     </style>
     <div class="preview-navbar" id="preview-toolbar">
         <div class="left logo">
-            <a href="javascript:;" onclick="window.history.back()" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+            <a href="javascript:;" onclick="window.history.back()" class="whmc-kbtn-2"><i class="fa fa-chevron-left"></i></a>
         </div>
 
         <div class="screens">

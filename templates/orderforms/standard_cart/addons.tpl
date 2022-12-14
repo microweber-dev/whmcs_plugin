@@ -20,7 +20,7 @@
                     {$LANG.cartproductaddonsnone}
                 </div>
                 <p class="text-center">
-                    <a href="clientarea.php" class="btn btn-default">
+                    <a href="clientarea.php" class="whmc-kbtn-2">
                         <i class="fas fa-arrow-circle-left"></i>
                         {$LANG.orderForm.returnToClientArea}
                     </a>

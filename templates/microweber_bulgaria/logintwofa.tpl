@@ -22,7 +22,7 @@
         {elseif $backupcode}
             <input type="text" name="code" class="form-control" placeholder="{$LANG.twofabackupcodelogin}">
             <br/>
-            <input id="login" type="submit" class="btn btn-primary btn-block" value="{$LANG.loginbutton}" />
+            <input id="login" type="submit" class="whmc-kbtn btn-block" value="{$LANG.loginbutton}" />
             <input type="hidden" name="backupcode" value="1" />
         {else}
             <div class="margin-bottom">

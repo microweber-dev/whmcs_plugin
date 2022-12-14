@@ -15,7 +15,7 @@
     {/if}
 
     <div class="form-group text-center m-t-30">
-        <button type="submit" class="btn btn-default btn-md{$captcha->getButtonClass($captchaForm)}">
+        <button type="submit" class="whmc-kbtn-2 btn-md{$captcha->getButtonClass($captchaForm)}">
             {$LANG.pwresetsubmit}
         </button>
     </div>

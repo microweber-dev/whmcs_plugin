@@ -118,7 +118,7 @@
                 <div class="col-sm-9">
                     <div class="btn-group" role="group">
                         {foreach $billingCycles as $cycle}
-                            <button type="button" class="btn btn-default cycle-change{if $cycle@first} active{/if}" data-cycle="{$cycle}">
+                            <button type="button" class="whmc-kbtn-2 cycle-change{if $cycle@first} active{/if}" data-cycle="{$cycle}">
                                 {lang key={'orderpaymentterm'|cat:$cycle}}
                             </button>
                         {/foreach}
@@ -178,7 +178,7 @@
                             <form method="post" action="{routePath('store-order')}">
                                 <input type="hidden" name="pid" value="{$product->id}">
                                 <input type="hidden" name="billingcycle" value="">
-                                <button type="submit" class="btn btn-primary btn-block btn-signup">Signup</button>
+                                <button type="submit" class="whmc-kbtnbtn-block btn-signup">Signup</button>
                             </form>
                         </div>
                     {/foreach}

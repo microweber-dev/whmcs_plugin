@@ -26,7 +26,7 @@
                 {/if}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='close'}</button>
+                <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='close'}</button>
             </div>
         </div>
     </div>

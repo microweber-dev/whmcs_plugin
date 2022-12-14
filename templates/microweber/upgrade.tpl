@@ -9,21 +9,21 @@
 {if $overdueinvoice}
 
     <p>
-        <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default">{$LANG.clientareabacklink}</a>
+        <a href="clientarea.php?action=productdetails&id={$id}" class="whmc-kbtn-2">{$LANG.clientareabacklink}</a>
     </p>
 
 {elseif $existingupgradeinvoice}
 
     <p>
-        <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default btn-lg">{$LANG.clientareabacklink}</a>
-        <a href="submitticket.php" class="btn btn-default btn-lg">{$LANG.submitticketdescription}</a>
+        <a href="clientarea.php?action=productdetails&id={$id}" class="whmc-kbtn-2 btn-lg">{$LANG.clientareabacklink}</a>
+        <a href="submitticket.php" class="whmc-kbtn-2 btn-lg">{$LANG.submitticketdescription}</a>
     </p>
 
 {elseif $upgradenotavailable}
 
     <p>
-        <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default btn-lg">{$LANG.clientareabacklink}</a>
-        <a href="submitticket.php" class="btn btn-default btn-lg">{$LANG.submitticketdescription}</a>
+        <a href="clientarea.php?action=productdetails&id={$id}" class="whmc-kbtn-2 btn-lg">{$LANG.clientareabacklink}</a>
+        <a href="submitticket.php" class="whmc-kbtn-2 btn-lg">{$LANG.submitticketdescription}</a>
     </p>
 
 {else}
@@ -70,7 +70,7 @@
                                     </select>
                                 {/if}
                             </div>
-                            <input type="submit" value="{$LANG.upgradedowngradechooseproduct}" class="btn btn-primary btn-block" />
+                            <input type="submit" value="{$LANG.upgradedowngradechooseproduct}" class="whmc-kbtn btn-block" />
                         </form>
                     </td>
                 </tr>
@@ -132,7 +132,7 @@
             </table>
 
             <p class="text-center">
-                <input type="submit" value="{$LANG.ordercontinuebutton}" class="btn btn-primary" />
+                <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn " />
             </p>
 
         </form>

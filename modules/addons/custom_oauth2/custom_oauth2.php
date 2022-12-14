@@ -147,7 +147,12 @@ function custom_oauth2_clientarea($vars)
             $state = $_SESSION['state'];
         }
 
-        if(isset($_GET['code'])){
+        $userCurrencyFromCart = false;
+        if(isset($_SESSION['currency'])){
+            $userCurrencyFromCart = $_SESSION['currency'];
+        }
+
+         if(isset($_GET['code'])){
             $code = $_GET['code'];
         } else {
             $code = $_SESSION['code'];
@@ -191,7 +196,8 @@ function custom_oauth2_clientarea($vars)
             if($identity){
            		$oauth_provider->setIdentity($identity);
             }
-            
+
+
          	$client_id = create_user($token['access_token'], $vars, $oauth_provider);
         }
 
@@ -205,10 +211,13 @@ function custom_oauth2_clientarea($vars)
         	
         	$client_details = get_user_details_by_id($client_id);
 
-
             $postData = array(
                 'clientid' => $client_id,
             );
+
+            if($new_user and $userCurrencyFromCart){
+            	$postData['currency'] = intval($userCurrencyFromCart);
+            }
 
             if(!isset($client_details['firstname']) or
                 (isset($client_details['firstname']) and $client_details['firstname'] == '')){
@@ -216,7 +225,7 @@ function custom_oauth2_clientarea($vars)
             }
             if(!isset($client_details['lastname']) or
                 (isset($client_details['lastname']) and $client_details['lastname'] == '')){
-                $postData['lastname'] = ''. $client_id;
+                $postData['lastname'] = 'Profile '. $client_id;
             }
 
 

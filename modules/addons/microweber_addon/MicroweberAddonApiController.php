@@ -908,6 +908,7 @@ h.domain = '" . $username . "' and
                 }
 
                 $pricing = $prod->pricing($currencyID);
+                $cycles = $prod->pricing($currencyID)->allAvailableCycles();
 
 //                $data = Capsule::table('tblpricing')
 //                    ->where('type', '=', 'product')
@@ -926,6 +927,28 @@ h.domain = '" . $username . "' and
                     $pricing_data['is_free'] = $price->isFree();
                     $pricing_data['billing_cycle'] = $price->cycle();
                     $pricing_data['price'] = $price->price()->format();
+                    $pricing_data['billing_cycles'] = [];
+
+                    if ($cycles) {
+                        foreach ($cycles as $cycle_price) {
+                            $cycle_data = [
+                                'billing_cycle' => $cycle_price->cycle(),
+                                'price' => $cycle_price->price()->format(),
+                                'is_free' => $cycle_price->isFree(),
+                            ];
+
+                            $pricing_data['billing_cycles'][] = $cycle_data;
+                            $pricing_data['is_free'] = $cycle_price->isFree();
+                      
+                            $cyclename = $cycle_price->cycle();
+                            if ($cyclename == 'monthly' and !$price->isFree()) {
+                                $pricing_data['billing_cycle'] = $cycle_price->cycle();
+                                $pricing_data['price'] = $cycle_price->price()->format();
+                            }
+                        }
+                    }
+
+
                 }
 
 

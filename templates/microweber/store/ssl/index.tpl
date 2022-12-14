@@ -219,7 +219,7 @@
 
                             <p class="ssl-types-expl">{lang key="store.ssl.landingPage.help.dv.type"}</p>
 
-                            <a href="{routePath('store-ssl-certificates-dv')}" class="btn btn-primary btn-block">{lang key="store.ssl.landingPage.help.dv.browse"}</a>
+                            <a href="{routePath('store-ssl-certificates-dv')}" class="whmc-kbtn btn-block">{lang key="store.ssl.landingPage.help.dv.browse"}</a>
                         </div>
                         <div class="col-sm-4">
                             <h4>{lang key="store.ssl.landingPage.help.ov.title"}</h4>
@@ -236,7 +236,7 @@
 
                             <p class="ssl-types-expl">{lang key="store.ssl.landingPage.help.ov.type"}</p>
 
-                            <a href="{routePath('store-ssl-certificates-ov')}" class="btn btn-primary btn-block">{lang key="store.ssl.landingPage.help.ov.browse"}</a>
+                            <a href="{routePath('store-ssl-certificates-ov')}" class="whmc-kbtn btn-block">{lang key="store.ssl.landingPage.help.ov.browse"}</a>
                         </div>
                         <div class="col-sm-4">
                             <h4>{lang key="store.ssl.landingPage.help.ev.title"}</h4>
@@ -253,7 +253,7 @@
 
                             <p class="ssl-types-expl">{lang key="store.ssl.landingPage.help.ev.type"}</p>
 
-                            <a href="{routePath('store-ssl-certificates-ev')}" class="btn btn-primary btn-block">{lang key="store.ssl.landingPage.help.ev.browse"}</a>
+                            <a href="{routePath('store-ssl-certificates-ev')}" class="whmc-kbtn btn-block">{lang key="store.ssl.landingPage.help.ev.browse"}</a>
                         </div>
                     </div>
 

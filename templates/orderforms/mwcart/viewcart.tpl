@@ -4,11 +4,18 @@
 
 {else}
 
+    {if !$loggedin && $custom_oauth2_login_url}
+        <script>
+            window.location.href = "{$custom_oauth2_login_url}";
+        </script>
+    {/if}
+
     <script>
         // Define state tab index value
         var statesTab = 10;
         var stateNotRequired = true;
     </script>
+
     {include file="orderforms/standard_cart/common.tpl"}
     <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
@@ -24,7 +31,7 @@
 
 
                 <div class="row">
-                    <div class="secondary-cart-body">
+                    <div class="col-xl-8 col-12 secondary-cart-body">
 
                         {if $promoerrormessage}
                             <div class="alert alert-warning text-center" role="alert">
@@ -58,19 +65,19 @@
                             </div>
                         {/if}
 
-                        <form method="post" action="{$smarty.server.PHP_SELF}?a=view">
+                        <form class="secondary-card-form" method="post" action="{$smarty.server.PHP_SELF}?a=view">
 
                             <div class="view-cart-items-header">
                                 <div class="row">
-                                    <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7">
+                                    <div class="ps-5 {if $showqtyoptions}col-sm-5{else}col-sm-7{/if} col-xs-7 col-7" style="color: #000000;">
                                         {$LANG.orderForm.productOptions}
                                     </div>
                                     {if $showqtyoptions}
-                                        <div class="col-sm-2 hidden-xs text-center d-none d-sm-block">
+                                        <div class="col-sm-2 hidden-xs text-center d-none d-sm-block" >
                                             {$LANG.orderForm.qty}
                                         </div>
                                     {/if}
-                                    <div class="col-sm-4 col-xs-5 col-5 text-right">
+                                    <div class="col-sm-4 col-xs-5 col-5 " style="color: #000000;">
                                         {$LANG.orderForm.priceCycle}
                                     </div>
                                 </div>
@@ -79,14 +86,11 @@
 
                                 {foreach $products as $num => $product}
                                     <div class="item">
-                                        <div class="row">
-                                            <div class="{if $showqtyoptions}col-sm-5{else}col-sm-7{/if}">
+                                        <div class="row py-4">
+                                            <div class="ps-5 {if $showqtyoptions}col-sm-5{else}col-sm-7{/if}">
                                                 <span class="item-title">
                                                     {$product.productinfo.name}
-                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                        {$LANG.orderForm.edit}
-                                                    </a>
+
                                                     <span class="visible-xs-inline d-inline d-sm-none">
                                                         <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
                                                             <i class="fas fa-times"></i>
@@ -94,20 +98,20 @@
                                                         </button>
                                                     </span>
                                                 </span>
-                                                <span class="item-group">
-                                                    {$product.productinfo.groupname}
-                                                </span>
+{*                                                <span class="item-group">*}
+{*                                                    {$product.productinfo.groupname}*}
+{*                                                </span>*}
                                                 {if $product.domain}
-                                                    <span class="item-domain">
-                                                        {$product.domain}
+                                                    <span class="item-domain py-1">
+                                                      <a style="font-size: 16px; color: #1279fa;" href="{$product.domain}">{$product.domain}</a>
                                                     </span>
                                                 {/if}
                                                 {if $product.configoptions}
-                                                    <small>
+                                                    <p style="font-size: 15px;">
                                                         {foreach key=confnum item=configoption from=$product.configoptions}
-                                                            &nbsp;&raquo; {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}<br />
+                                                          {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}<br />
                                                         {/foreach}
-                                                    </small>
+                                                    </p>
                                                 {/if}
                                             </div>
                                             {if $showqtyoptions}
@@ -120,17 +124,23 @@
                                                     {/if}
                                                 </div>
                                             {/if}
-                                            <div class="col-sm-4 item-price">
+                                            <div class="col-sm-3 my-auto item-price">
                                                 <span>{$product.pricing.totalTodayExcludingTaxSetup}</span>
-                                                <span class="cycle">{$product.billingcyclefriendly}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$product.billingcyclefriendly}</span>
                                                 {if $product.pricing.productonlysetup}
                                                     {$product.pricing.productonlysetup->toPrefixed()} {$LANG.ordersetupfee}
                                                 {/if}
                                                 {if $product.proratadate}<br />({$LANG.orderprorata} {$product.proratadate}){/if}
                                             </div>
-                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
-                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
-                                                    <i class="fas fa-times"></i>
+                                            <div class="col-sm-2 text-center my-auto hidden-xs d-none d-sm-block">
+                                                    <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-link btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                        <i class="fas fa-edit checkout-procuts-actions "></i>
+                                                    </a>
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" onclick="removeItem('p','{$num}')">
+
+                                                        <i class="fas fa-trash checkout-procuts-actions "></i>
+
+
                                                 </button>
                                             </div>
                                         </div>
@@ -157,8 +167,8 @@
                                                     </div>
                                                 {/if}
                                                 <div class="col-sm-4 item-price">
-                                                    <span>{$addon.totaltoday}</span>
-                                                    <span class="cycle">{$addon.billingcyclefriendly}</span>
+                                                    <span style="font-size: 14px; color: gray;">{$addon.totaltoday}</span>
+                                                    <span class="cycle" style="font-size: 14px; color: gray;">{$addon.billingcyclefriendly}</span>
                                                     {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
                                                     {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
                                                 </div>
@@ -200,8 +210,8 @@
                                                 </div>
                                             {/if}
                                             <div class="col-sm-4 item-price">
-                                                <span>{$addon.totaltoday}</span>
-                                                <span class="cycle">{$addon.billingcyclefriendly}</span>
+                                                <span style="font-size: 14px; color: gray;">{$addon.totaltoday}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$addon.billingcyclefriendly}</span>
                                                 {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
                                                 {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
                                             </div>
@@ -216,14 +226,11 @@
 
                                 {foreach $domains as $num => $domain}
                                     <div class="item">
-                                        <div class="row">
-                                            <div class="col-sm-7">
+                                        <div class="row py-4">
+                                            <div class="col-sm-7 ps-5">
                                                 <span class="item-title">
                                                     {if $domain.type eq "register"}{$LANG.orderdomainregistration}{else}{$LANG.orderdomaintransfer}{/if}
-                                                    <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                        {$LANG.orderForm.edit}
-                                                    </a>
+
                                                     <span class="visible-xs-inline d-inline d-sm-none">
                                                         <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
                                                             <i class="fas fa-times"></i>
@@ -233,24 +240,27 @@
                                                 </span>
                                                 {if $domain.domain}
                                                     <span class="item-domain">
-                                                        {$domain.domain}
+
+                                                       <a href="" style="font-size: 16px; color: #1279fa;">
+                                                            {$domain.domain}
+                                                       </a>
                                                     </span>
                                                 {/if}
                                                 {if $domain.dnsmanagement}&nbsp;&raquo; {$LANG.domaindnsmanagement}<br />{/if}
                                                 {if $domain.emailforwarding}&nbsp;&raquo; {$LANG.domainemailforwarding}<br />{/if}
                                                 {if $domain.idprotection}&nbsp;&raquo; {$LANG.domainidprotection}<br />{/if}
                                             </div>
-                                            <div class="col-sm-4 item-price">
+                                            <div class="col-sm-3 my-auto item-price">
                                                 {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
-                                                    <span class="cycle">{$domain.regperiod} {$domain.yearsLanguage}</span>
-                                                    <span class="renewal cycle">
+                                                    <span class="cycle" style="font-size: 14px; color: gray;">{$domain.regperiod} {$domain.yearsLanguage}</span>
+                                                    <span class="renewal cycle" style="font-size: 14px; color: gray;">
                                                         {if isset($domain.renewprice)}{lang key='domainrenewalprice'} <span class="renewal-price cycle">{$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}{/if}</span>
                                                     </span>
                                                 {else}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <div class="dropdown">
-                                                        <button class="btn btn-default btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             {$domain.regperiod} {$domain.yearsLanguage}
                                                             <span class="caret"></span>
                                                         </button>
@@ -269,10 +279,16 @@
                                                     </span>
                                                 {/if}
                                             </div>
-                                            <div class="col-sm-1 hidden-xs d-none d-sm-block">
-                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
-                                                    <i class="fas fa-times"></i>
+                                            <div class="col-sm-2 text-center my-auto hidden-xs d-none d-sm-block">
+                                                <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-link btn-xs" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                                    <i class="fas fa-edit checkout-procuts-actions"></i>
+
+                                                </a>
+
+                                                <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" onclick="removeItem('d','{$num}')">
+                                                    <i class="fas fa-trash checkout-procuts-actions"></i>
                                                 </button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -293,8 +309,8 @@
                                                 {if $domain.idprotection}&nbsp;&raquo; {$LANG.domainidprotection}<br />{/if}
                                             </div>
                                             <div class="col-sm-4 item-price">
-                                                <span>{$domain.price}</span>
-                                                <span class="cycle">{$domain.regperiod} {$LANG.orderyears}</span>
+                                                <span style="font-size: 14px; color: gray;">{$domain.price}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$domain.regperiod} {$LANG.orderyears}</span>
                                             </div>
                                             <div class="col-sm-1">
                                                 <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('r','{$num}')">
@@ -337,8 +353,8 @@
                                                 </div>
                                             {/if}
                                             <div class="col-sm-4 item-price">
-                                                <span>{$upgrade->newRecurringAmount}</span>
-                                                <span class="cycle">{$upgrade->localisedNewCycle}</span>
+                                                <span style="font-size: 14px; color: gray;">{$upgrade->newRecurringAmount}</span>
+                                                <span class="cycle" style="font-size: 14px; color: gray;">{$upgrade->localisedNewCycle}</span>
                                             </div>
                                             <div class="col-sm-1">
                                                 <button type="button" class="btn btn-link btn-xs btn-remove-from-cart" onclick="removeItem('u','{$num}')">
@@ -358,7 +374,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4 item-price">
-                                                    <span>-{$upgrade->creditAmount}</span>
+                                                    <span style="font-size: 14px; color: gray;">-{$upgrade->creditAmount}</span>
                                                 </div>
                                             </div>
                                         {/if}
@@ -373,12 +389,18 @@
 
                             </div>
 
+
+
                             {if $cartitems > 0}
-                                <div class="empty-cart">
-                                    <button type="button" class="btn btn-link btn-xs" id="btnEmptyCart">
-                                        <i class="fas fa-trash-alt"></i>
-                                        <span>{$LANG.emptycart}</span>
-                                    </button>
+                                <div class="empty-cart ps-5">
+                                    <a href="{$WEB_ROOT}/cart.php" class="whmc-kbtn mb-0" id="continueShopping">
+                                        {$LANG.orderForm.continueShopping}
+                                    </a>
+
+{*                                    <button type="button" class="whmc-kbtn-2" id="btnEmptyCart">*}
+{*                                        <i class="fas fa-trash-alt"></i>*}
+{*                                        <span>{$LANG.emptycart}</span>*}
+{*                                    </button>*}
                                 </div>
                             {/if}
 
@@ -397,20 +419,8 @@
                         {/foreach}
 
                         <div class="view-cart-tabs">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="nav-item active">
-                                    <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab"{if $template == 'twenty-one'} aria-selected="true"{else} aria-expanded="true"{/if}>
-                                        {$LANG.orderForm.applyPromoCode}
-                                    </a>
-                                </li>
-                                {if $taxenabled && !$loggedin}
-                                    <li role="presentation" class="nav-item">
-                                        <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab"{if $template == 'twenty-one'} aria-selected="false"{else} aria-expanded="false"{/if}>
-                                            {$LANG.orderForm.estimateTaxes}
-                                        </a>
-                                    </li>
-                                {/if}
-                            </ul>
+                           <p style="font-size: 26px; padding: 15px 0;">  {$LANG.orderpromotioncode}</p>
+
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
                                     {if $promotioncode}
@@ -418,21 +428,21 @@
                                             {$promotioncode} - {$promotiondescription}
                                         </div>
                                         <div class="text-center">
-                                            <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-default btn-xs">
+                                            <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="whmc-kbtn-2 btn-xs">
                                                 {$LANG.orderForm.removePromotionCode}
                                             </a>
                                         </div>
                                     {else}
                                         <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
-                                            <div class="form-group prepend-icon ">
-                                                <label for="cardno" class="field-icon">
-                                                    <i class="fas fa-ticket-alt"></i>
-                                                </label>
+                                            <div class="m-0 p-3 prepend-icon " style="display: flex;">
+{*                                                <label for="cardno" class="col-sm-8 field-icon">*}
+{*                                                    <i class="fas fa-ticket-alt"></i>*}
+{*                                                </label>*}
                                                 <input type="text" name="promocode" id="inputPromotionCode" class="field form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
-                                            </div>
-                                            <button type="submit" name="validatepromo" class="btn btn-block btn-default" value="{$LANG.orderpromovalidatebutton}">
+                                            <button type="submit" name="validatepromo" class="whmc-kbtn-2 coupon-code-verify btn-default" value="{$LANG.orderpromovalidatebutton}">
                                                 {$LANG.orderpromovalidatebutton}
                                             </button>
+                                            </div>
                                         </form>
                                     {/if}
                                 </div>
@@ -458,7 +468,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-default">
+                                            <button type="submit" class="whmc-kbtn-2">
                                                 {$LANG.orderForm.updateTotals}
                                             </button>
                                         </div>
@@ -469,9 +479,9 @@
                         </div>
 
                     </div>
-                    <div class="secondary-cart-sidebar" id="scrollingPanelContainer">
+                    <div class="col-xl-4 col-12 secondary-cart-sidebar" >
 
-                        <div class="order-summary" id="orderSummary">
+                        <div class="order-summary" >
                             <div class="loader w-hidden" id="orderSummaryLoader">
                                 <i class="fas fa-fw fa-sync fa-spin"></i>
                             </div>
@@ -529,8 +539,8 @@
                                 </div>
 
                                 <div class="total-due-today total-due-today-padded">
+                                    <span class="todal-due-span">{$LANG.ordertotalduetoday}</span>
                                     <span id="totalDueToday" class="amt">{$total}</span>
-                                    <span>{$LANG.ordertotalduetoday}</span>
                                 </div>
 
                                 <div class="express-checkout-buttons">
@@ -542,13 +552,13 @@
                                     {/foreach}
                                 </div>
 
-                                <div class="text-right">
-                                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-success btn-lg btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
-                                        {$LANG.orderForm.checkout}
-                                        <i class="fas fa-arrow-right"></i>
+                                <div class="text-right" style="margin: 0 20px;">
+                                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="whmc-kbtn btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
+{*                                        <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>*}
+                                        {$LANG.MWcontinueWithOrder}
                                     </a><br />
-                                    <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">
-                                        {$LANG.orderForm.continueShopping}
+{*                                    <a href="{$WEB_ROOT}/cart.php" class="btn btn-link btn-continue-shopping" id="continueShopping">*}
+{*                                        {$LANG.orderForm.continueShopping}*}
                                     </a>
                                 </div>
 
@@ -573,14 +583,14 @@
                                 </button>
                             </div>
                             <h4 class="modal-title margin-bottom mb-3">
-                                <i class="fas fa-times fa-3x"></i>
+{*                                <i class="fas fa-question fa-3x"></i>*}
                                 <span>{lang key='orderForm.removeItem'}</span>
                             </h4>
                             {lang key='cartremoveitemconfirm'}
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
-                            <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+                            <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='no'}</button>
+                            <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
                         </div>
                     </div>
                 </div>
@@ -605,8 +615,8 @@
                             {$LANG.cartemptyconfirm}
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.no}</button>
-                            <button type="submit" class="btn btn-primary">{$LANG.yes}</button>
+                            <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{$LANG.no}</button>
+                            <button type="submit" class="whmc-kbtn ">{$LANG.yes}</button>
                         </div>
                     </div>
                 </div>

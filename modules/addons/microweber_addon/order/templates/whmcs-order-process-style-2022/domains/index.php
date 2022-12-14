@@ -283,6 +283,8 @@
     }
 </style>
 
+
+
 <script>
     function render_domain_search_list(results, append = false) {
 
@@ -302,10 +304,10 @@
 
                 var ajax_status_check_class = '';
                 var can_start_class = 'cant-start';
-                var item_status_span = '<i class="availability-domain-checker-icon fa fa-close" ></i> <span class="not-available-tag availability-domain-checker-tag">Unavailable</span>';
+                var item_status_span = '<i class="availability-domain-checker-icon fa fa-close" ></i> <span class="not-available-tag availability-domain-checker-tag"><?php print Lang::trans('MWunavailable') ?></span>';
 
                 if (item.status == 'available') {
-                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check" ></i> <span class="domain-recommended-tag availability-domain-checker-tag">Available</span>';
+                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check" ></i> <span class="domain-recommended-tag availability-domain-checker-tag"><?php print Lang::trans('MWavailable') ?></span>';
                     can_start_class = 'can-start';
                 }
 
@@ -315,7 +317,7 @@
                 }
 
                 if (item.is_free) {
-                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check"></i> <span class="domain-free-tag availability-domain-checker-tag">Free</span>';
+                    item_status_span = '<i class="availability-domain-checker-icon fa fa-check"></i> <span class="domain-free-tag availability-domain-checker-tag"><?php print Lang::trans('MWfree') ?></span>';
                 }
                 var other_data = '';
                 <?php if(isset($_REQUEST['template_id'])): ?>
@@ -357,11 +359,11 @@
                         cache: false,
                         type: "POST",
                         success: function (response) {
-                           $(item).replaceWith(getDomainItemTemplate(response));
+                            $(item).replaceWith(getDomainItemTemplate(response));
                         }
                     });
 
-               });
+                });
             }, 369);
 
             $("#domain-search-field-autocomplete").removeClass('ajax-loading');
@@ -377,12 +379,12 @@
 <section class="section-60 p-t-30 p-b-30 fx-particles">
     <div>
         <div class="mw-whm--search-box">
-            <div >
+            <div>
 
                 <div class="just-text text-center m-t-80 m-b-20">
-                    <h1 class="m-b-20">Register Domain and Create Site</h1>
+                    <h1 class="m-b-20"><?php print Lang::trans('MWregisterDomainCreateSite') ?></h1>
                     <h1 class="m-b-20"><?php // print  lang_translate_key('store.chooseDomain'); ?></h1>
-                    <p>Register your domain with <?php echo $controller->branding_get_company_name(); ?></p>
+                    <p> <?php echo $controller->branding_get_company_name(); ?></p>
                 </div>
 
 
@@ -390,23 +392,23 @@
                 <div id="domain-selector">
                     <form id="user_registration_form" method="post" action="<?php echo $current_url ?>" class="clearfix">
                         <div class="input-holder" style="display: flex;">
-                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="Type a domain name here" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
+                            <input class="input-domain-domains-area" type="text" name="domain" placeholder="<?php print Lang::trans('MWtypeDomainNameHere') ?>" tabindex="1" autocomplete="off" id="domain-search-field" value=""/>
                             <button class="js-clear-domain clear-domain" type="button"></button>
-                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit">Search</button>
+                            <button class="whmc-kbtn input-domain-domains-area-btn js-search-domains" type="submit"><?php print Lang::trans('MWsearch') ?></button>
                         </div>
 
-                        <p class="provide-domains">We provide .com .net .org .eu domains.</p>
+                        <p class="provide-domains"><?php print Lang::trans('MWweProvide') ?> .com .net .org .eu domains.</p>
 
                         <div class="fixed-container user_registration_form_msg">
                             <div class="urf urf_warn" style="display: none;">
                                 <div class="icon"></div>
-                                <strong><span class="var-websiteName">DomainName.com</span> is taken.</strong> Try new one!<br/>
-                                If this is your domain, <u>you can map it with <?php echo $controller->branding_get_company_name(); ?> Premium.</u>
+                                <strong><span class="var-websiteName"><?php print Lang::trans('MWdomainName') ?>.com</span> <?php print Lang::trans('MWisTaken') ?>.</strong> <?php print Lang::trans('MWtryNewOne') ?><br/>
+                                <?php print Lang::trans('MWifThisIsYourDomain') ?><?php echo $controller->branding_get_company_name(); ?> <?php print Lang::trans('MWpremium') ?>.
                             </div>
                             <div class="urf urf_success" style="display: none;">
                                 <div class="icon"></div>
-                                <strong><span class="var-websiteName">DomainName.com</span> is available!</strong> Get it now!<br/>
-                                Purchase this domain name right now <u>with hosting and website.</u>
+                                <strong><span class="var-websiteName"><?php print Lang::trans('MWdomainName') ?>.com</span> <?php print Lang::trans('MWisAvailable') ?></strong> <?php print Lang::trans('MWgetItnow') ?><br/>
+                                <?php print Lang::trans('MWpurchaseThisDomainName') ?>
                             </div>
                         </div>
 
@@ -416,7 +418,7 @@
                                 <div class="domain-item cant-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="not-available-tag">Unavailable</span>
+                                        <span class="not-available-tag"><?php print Lang::trans('MWunavailable') ?></span>
                                         <span class="di-price">&nbsp;</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -425,7 +427,7 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-free-tag">Free</span>
+                                        <span class="domain-free-tag"><?php print Lang::trans('MWfree') ?></span>
                                         <span class="di-price">$0.00</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -434,7 +436,7 @@
                                 <div class="domain-item can-start">
                                     <div class=" text-left"><span class="domainName "><?php echo $CONFIG['Domain']; ?></span></div>
                                     <div class="right last-div">
-                                        <span class="domain-recommended-tag">Available</span>
+                                        <span class="domain-recommended-tag"><?php print Lang::trans('MWavailable') ?></span>
                                         <span class="di-price">$10.00</span>
                                     </div>
                                     <div class="clearfix"></div>
@@ -443,33 +445,33 @@
 
                         </div>
 
-<!--                        <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">-->
-<!--                            <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>-->
-<!--                        </div>-->
+                        <!--                        <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">-->
+                        <!--                            <button type="button" class="whmc-kbtn js-domain-search-load-more-btn">Load more</button>-->
+                        <!--                        </div>-->
 
                     </form>
 
                 </div>
 
-<!--                <div class="just-text boxes p-b-50">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-4">-->
-<!--                            <h6>Register a new domain</h6>-->
-<!--                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="col-md-4">-->
-<!--                            <h6>Connect your own domain</h6>-->
-<!--                            <p>Already have a domain name? Point it to your --><?php //echo $controller->branding_get_company_name(); ?><!-- website in a few easy steps.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!---->
-<!--                        <div class="col-md-4">-->
-<!--                            <h6>Connect your email</h6>-->
-<!--                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="just-text boxes p-b-50">-->
+                <!--                    <div class="row">-->
+                <!--                        <div class="col-md-4">-->
+                <!--                            <h6>Register a new domain</h6>-->
+                <!--                            <p>Register a domain for your site to make it easier to remember and easier to share.</p>-->
+                <!--                        </div>-->
+                <!---->
+                <!--                        <div class="col-md-4">-->
+                <!--                            <h6>Connect your own domain</h6>-->
+                <!--                            <p>Already have a domain name? Point it to your --><?php //echo $controller->branding_get_company_name(); ?><!-- website in a few easy steps.-->
+                <!--                            </p>-->
+                <!--                        </div>-->
+                <!---->
+                <!--                        <div class="col-md-4">-->
+                <!--                            <h6>Connect your email</h6>-->
+                <!--                            <p>Use your custom domain in your email address by using cPanel or other email services.</p>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>

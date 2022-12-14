@@ -80,7 +80,7 @@
             </div>
         </div>
         <p align="center">
-            <input type="submit" class="btn btn-primary btn-large" value="{$LANG.changenameservers}" />
+            <input type="submit" class="whmc-kbtnbtn-large" value="{$LANG.changenameservers}" />
         </p>
     </fieldset>
 
@@ -278,13 +278,13 @@
     {/foreach}
 
     <p align="center">
-        <input type="submit" value="{$LANG.clientareasavechanges}" class="btn btn-primary" />
+        <input type="submit" value="{$LANG.clientareasavechanges}" class="whmc-kbtn " />
     </p>
 
     {/if}
 
     <p>
-        <a href="clientarea.php?action=domains" class="btn btn-default">{$LANG.clientareabacklink}</a>
+        <a href="clientarea.php?action=domains" class="whmc-kbtn-2">{$LANG.clientareabacklink}</a>
     </p>
 
     <br />

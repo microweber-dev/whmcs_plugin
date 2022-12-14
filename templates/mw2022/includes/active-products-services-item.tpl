@@ -44,7 +44,7 @@
             </div>
             {if $primaryServiceBtn}
                 <div class="btn-group btn-group-sm btn-group-secondary" role="group">
-                    <button class="btn btn-default btn-sm btn-custom-action{if !$primaryServiceBtn['active']} disabled{/if}"
+                    <button class="whmc-kbtn-2 btn-sm btn-custom-action{if !$primaryServiceBtn['active']} disabled{/if}"
                             data-serviceid="{$primaryServiceBtn['serviceid']}"
                             data-identifier="{$primaryServiceBtn['identifier']}"
                             data-active="{$primaryServiceBtn['active']}"
@@ -85,7 +85,7 @@
                 </div>
             {/if}
         {/if}
-        <button class="btn btn-default btn-sm btn-view-details">
+        <button class="whmc-kbtn-2 btn-sm btn-view-details">
             <i aria-hidden="true" class="far fa-info-circle" title="{lang key="clientareaviewdetails"}"></i>
             <span class="sr-only">{lang key="clientareaviewdetails"}</span>
             <span>{lang key="clientareaviewdetails"}</span>

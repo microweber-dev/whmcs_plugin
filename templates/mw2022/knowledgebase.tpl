@@ -2,7 +2,7 @@
     <div class="input-group input-group-lg kb-search">
         <input type="text" id="inputKnowledgebaseSearch" name="search" class="form-control" placeholder="What can we help you with?" />
         <span class="input-group-btn">
-            <input type="submit" id="btnKnowledgebaseSearch" class="btn btn-primary btn-input-padded-responsive" value="{$LANG.search}" />
+            <input type="submit" id="btnKnowledgebaseSearch" class="whmc-kbtnbtn-input-padded-responsive" value="{$LANG.search}" />
         </span>
     </div>
 </form>

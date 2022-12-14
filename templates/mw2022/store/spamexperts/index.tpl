@@ -283,13 +283,13 @@
                         {if $numberOfFeaturedProducts > 0}
                             <div class="btn-group choose-product" role="group">
                                 {if $products.incoming}
-                                    <button type="button" class="btn btn-default active" data-product="incoming">Incoming Filtering</button>
+                                    <button type="button" class="whmc-kbtn-2 active" data-product="incoming">Incoming Filtering</button>
                                 {/if}
                                 {if $products.outgoing}
-                                    <button type="button" class="btn btn-default" data-product="outgoing">Outgoing Filtering</button>
+                                    <button type="button" class="whmc-kbtn-2" data-product="outgoing">Outgoing Filtering</button>
                                 {/if}
                                 {if $products.archiving}
-                                    <button type="button" class="btn btn-default" data-product="archiving">Email Archiving</button>
+                                    <button type="button" class="whmc-kbtn-2" data-product="archiving">Email Archiving</button>
                                 {/if}
                             </div>
                         {elseif $inPreview}

@@ -17,7 +17,7 @@
         </div>
         <div class="panel-footer">
             <p class="text-center">
-                <input type="button" value="{$LANG.closewindow}" class="btn btn-primary" onclick="window.close()" />
+                <input type="button" value="{$LANG.closewindow}" class="whmc-kbtn " onclick="window.close()" />
             </p>
         </div>
     </div>

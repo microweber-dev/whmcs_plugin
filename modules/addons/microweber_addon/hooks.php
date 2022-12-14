@@ -106,19 +106,19 @@ function mw_client_area_output_html($service)
         <div class="col-md-12" style="padding-left: 0;">
 		<div class="panel panel-default whmc-2022-panel " id="mwPanelConfigurableOptionsPanel">
 			   <div class="panel-heading">
-				   <h3 class="panel-title">Website</h3>
+				   <h3 class="panel-title" style="font-size: 25px!important;"> '.  Lang::trans('MWwebsite') . '</h3>
 			   </div>
 			   <div class="panel-body" style="padding-top: 0;">
 								   <div class="row">
 						   <div class="col-sm-12 hosting-information-titles left-padding-domain">
-							   <p><strong >Domain</strong></p>
+							   <p class="pb-2" style="font-size: 20px;"> '.  Lang::trans('MWdomain') . '</p>
 							 
-								' . $output['domain'] . '
+							<p class="mt-3" style="font-size: 18px; color: #1279fa;">	' . $output['domain'] . ' </p>
 						   </div>
 						   <div class="col-sm-12 hosting-information-titles left-padding-domain" style="padding-top: 20px;">
 
-						   <a class="btn btn-default" href="' . $output['admin'] . '" target="_blank"><i class="fa fa-user"></i> Login as [Admin]</a>
-						   <a class="btn btn-success" href="' . $output['live_edit'] . '" target="_blank"><i class="fa fa-pencil"></i> Go to website [Live Edit]</a>
+						   <a class="whmc-kbtn" href="' . $output['admin'] . '" target="_blank"><i class="fa fa-user pe-2"></i>  '.  Lang::trans('MWloginAsAdmin') . '</a>
+						   <a class="whmc-kbtn-2" href="' . $output['live_edit'] . '" target="_blank"><i class="fa fa-pencil pe-2"></i> '.  Lang::trans('MWgoToWebsite') . '</a>
 
 							</div>
 					   </div>

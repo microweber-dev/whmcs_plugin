@@ -16,8 +16,11 @@
         jQuery('#tableLoading').addClass('hidden');
     });
 </script>
-<div class="table-container clearfix">
-    <table id="tableQuotesList" class="table table-list hidden">
+<div class="panel panel-default mt-5 pt-5 table-container clearfix">
+
+    <h1 class="text-center">{$LANG.MWmyQuotes}</h1>
+
+    <table id="tableQuotesList" class="table table-list hidden table-responsive" style="width: 100% !important;">
         <thead>
             <tr>
                 <th>{$LANG.quotenumber}</th>
@@ -41,7 +44,7 @@
                         <form method="submit" action="dl.php">
                             <input type="hidden" name="type" value="q" />
                             <input type="hidden" name="id" value="{$quote.id}" />
-                            <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-download"></i> {$LANG.quotedownload}</button>
+                            <button type="submit" class="whmc-kbtn-2 btn-sm"><i class="fa fa-download"></i> {$LANG.quotedownload}</button>
                         </form>
                     </td>
                     <td class="responsive-edit-button" style="display: none;">

@@ -1,6 +1,6 @@
-<div class="mw-whm clientareainvoices">
+<div class="panel panel-default mt-5 pt-5 mw-whm clientareainvoices">
     <div class="header-lined text-center">
-        <h1>Invoices</h1>
+        <h1>{$LANG.invoices}</h1>
     </div>
 
     {include file="$template/includes/tablelist.tpl" tableName="InvoicesList" filterColumn="4"}
@@ -54,9 +54,9 @@
                     </td>
                     <td style="width: 100px;">
                         {if $invoice.statusClass eq 'unpaid'}
-                            <a href="viewinvoice.php?id={$invoice.id}" class="cbtn cbtn-small cbtn-red">Pay</a>
+                            <a href="viewinvoice.php?id={$invoice.id}" class="cbtn cbtn-small cbtn-red">{$LANG.MWpay}</a>
                         {else}
-                            <a href="viewinvoice.php?id={$invoice.id}" class="cbtn cbtn-small cbtn-blue">View</a>
+                            <a href="viewinvoice.php?id={$invoice.id}" class="cbtn cbtn-small cbtn-blue">{$LANG.view}</a>
 
                         {/if}
                     </td>

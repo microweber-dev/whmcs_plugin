@@ -347,7 +347,7 @@
                 {/if}
                 <div id="btnSubmitContainer" class="form-group submit-container">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg margin-top-5" id="btnSubmit" value="{$LANG.submitpayment}">
+                        <button type="submit" class="whmc-kbtn btn-lg margin-top-5" id="btnSubmit" value="{$LANG.submitpayment}">
                             <span class="pay-text">{$LANG.submitpayment}</span>
                             <span class="click-text hidden">{$LANG.pleasewait}</span>
                         </button>

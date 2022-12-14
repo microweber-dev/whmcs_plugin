@@ -1,11 +1,12 @@
-<div class="mw-whm affiliates">
+<div class="panel-default panel mt-5 pt-5 mw-whm affiliates">
 
-    <div class="header-lined text-center">
+    <div class="header-lined">
         <h1 style="margin: 30px 0; font-size: 36px; font-weight: 700;">Upgrade Hosting</h1>
         <br/>
     </div>
 
-    <div class="text-center">
+    <div class="panel panel-default text-center">
+
         {if $overdueinvoice}
             {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeerroroverdueinvoice}
         {elseif $existingupgradeinvoice}
@@ -14,6 +15,7 @@
             {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeNotPossible textcenter=true}
         {/if}
     </div>
+
 
     {if $overdueinvoice}
         <p class="text-center">
@@ -38,10 +40,10 @@
             <p>{$LANG.upgradecurrentconfig}:<br/><strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}</p>
             <p>{$LANG.upgradenewconfig}:</p>
             <hr/>
-            <div class="row pricing-list-2 text-center"  style="margin-top: 30px;">
+            <div class="row pricing-list-2 text-center py-5"  style="margin-top: 30px;">
                 {foreach key=num item=upgradepackage from=$upgradepackages}
-                    <div class="col-md-6 col-lg-4 plan" >
-                        <h1 style="font-weight: bold; font-size: 36px; color: #2b2b2b; margin-top: 50px;">
+                    <div class="col-lg-6 col-xl-4 plan" >
+                        <h1 class="col-md-12" style="font-weight: bold; font-size: 36px; color: #2b2b2b; margin-top: 50px;">
                             {$upgradepackage.groupname} - {$upgradepackage.name}
                         </h1>
                         <br/>
@@ -60,7 +62,7 @@
                                     {$upgradepackage.pricing.onetime} {$LANG.orderpaymenttermonetime}
                                     <input type="hidden" name="billingcycle" value="onetime">
                                 {elseif $upgradepackage.pricing.type eq "recurring"}
-                                    <select name="billingcycle" class="form-control text-center" style="margin: 30px auto;">
+                                    <select name="billingcycle" class="form-control text-center" style="width: 50%; margin: 30px auto;">
                                         {if $upgradepackage.pricing.monthly}
                                             <option value="monthly">{$upgradepackage.pricing.monthly}</option>{/if}
                                         {if $upgradepackage.pricing.quarterly}
@@ -137,7 +139,7 @@
                 </table>
 
                 <p class="text-center">
-                    <input type="submit" value="{$LANG.ordercontinuebutton}" class="btn btn-primary"/>
+                    <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn "/>
                 </p>
 
             </form>

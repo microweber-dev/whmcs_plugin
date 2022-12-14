@@ -26,11 +26,11 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-4">
-                            <button type="submit" class="btn btn-default btn-sm">
+                            <button type="submit" class="whmc-kbtn-2 btn-sm">
                                 <i class="fa fa-plus fa-fw"></i>
                                 {$LANG.generatePassword.generateNew}
                             </button>
-                            <button type="button" class="btn btn-default btn-sm copy-to-clipboard" data-clipboard-target="#inputGeneratePasswordOutput">
+                            <button type="button" class="whmc-kbtn-2 btn-sm copy-to-clipboard" data-clipboard-target="#inputGeneratePasswordOutput">
                                 <img src="assets/img/clippy.svg" alt="Copy to clipboard" width="15">
                                 {$LANG.copy}
                             </button>
@@ -38,10 +38,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">
                         {$LANG.close}
                     </button>
-                    <button type="button" class="btn btn-primary" id="btnGeneratePasswordInsert" data-clipboard-target="#inputGeneratePasswordOutput">
+                    <button type="button" class="whmc-kbtn " id="btnGeneratePasswordInsert" data-clipboard-target="#inputGeneratePasswordOutput">
                         {$LANG.generatePassword.copyAndInsert}
                     </button>
                 </div>

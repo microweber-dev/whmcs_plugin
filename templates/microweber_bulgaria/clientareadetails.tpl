@@ -124,8 +124,8 @@
     {/if}
 
     <div class="form-group text-center">
-        <input class="btn btn-primary" type="submit" name="save" value="{$LANG.clientareasavechanges}" />
-        <input class="btn btn-default" type="reset" value="{$LANG.cancel}" />
+        <input class="whmc-kbtn " type="submit" name="save" value="{$LANG.clientareasavechanges}" />
+        <input class="whmc-kbtn-2" type="reset" value="{$LANG.cancel}" />
     </div>
 
 </form>

@@ -2,7 +2,7 @@
     <div class="col-xs-12">
 
         <div class="choosecat btn-group  product-chooser">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="whmc-kbtn-2 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 {$LANG.cartchooseanothercategory} <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">

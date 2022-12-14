@@ -18,7 +18,7 @@
 
     <div class="preview-navbar">
         <div class="left logo">
-            <a href="javascript:;" onclick="window.history.back()" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+            <a href="javascript:;" onclick="window.history.back()" class="whmc-kbtn-2"><i class="fa fa-chevron-left"></i></a>
         </div>
 
         <div class="right buttons">
@@ -28,9 +28,9 @@
 
                 <?php include dirname(dirname(dirname(__DIR__))) . '/params_fields.php'; ?>
 
-                <a href="javascript:;" class="btn btn-primary" onclick="submitForPreview(this.parentNode);">Start with this template</a>
+                <a href="javascript:;" class="whmc-kbtn " onclick="submitForPreview(this.parentNode);">Start with this template</a>
                 &nbsp;
-                <a class="btn btn-default" href="<?php print $preview_url; ?>" target="_blank"><i class="fa fa-times"></i></a>
+                <a class="whmc-kbtn-2" href="<?php print $preview_url; ?>" target="_blank"><i class="fa fa-times"></i></a>
             </form>
         </div>
     </div>

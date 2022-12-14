@@ -150,7 +150,7 @@
                             </ul>
                             <form action="{routePath('cart-order')}" method="post">
                                 <input type="hidden" name="pid" value="{$plan->id}">
-                                <button type="submit" class="btn btn-primary btn-signup">
+                                <button type="submit" class="whmc-kbtnbtn-signup">
                                     {lang key='store.marketgoo.signup'}
                                 </button>
                             </form>

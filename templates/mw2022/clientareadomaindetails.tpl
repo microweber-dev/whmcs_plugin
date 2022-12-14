@@ -255,7 +255,7 @@
                         </div>
 
                         <p class="text-center">
-                            <input type="submit" value="{$LANG.domainrelease}" class="btn btn-primary"/>
+                            <input type="submit" value="{$LANG.domainrelease}" class="whmc-kbtn "/>
                         </p>
                     </form>
 

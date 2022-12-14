@@ -571,7 +571,7 @@
                             />
 
                             <button class="js-clear-domain clear-domain" type="button"></button>
-                            <button class="btn btn-default search-domain js-search-domains" type="submit">Search</button>
+                            <button class="whmc-kbtn-2 search-domain js-search-domains" type="submit">Search</button>
                         </div>
 
                         <p class="provide-domains">We provide .com .net .org .biz .info domains.</p>
@@ -626,7 +626,7 @@
                         /*
 
                         <div id="domain-search-load-more" class="fixed-container text-center m-b-20 ajax-loading" style="display: none">
-                           <button type="button" class="btn btn-primary js-domain-search-load-more-btn">Load more</button>
+                           <button type="button" class="whmc-kbtn js-domain-search-load-more-btn">Load more</button>
                        </div>
 
                          * */

@@ -16,20 +16,20 @@
     {include file="$template/includes/alert.tpl" type="warning" msg="<i class='fas fa-times fa-fw'></i> {lang key='paymentMethods.deleteFailed'}"}
 {/if}
 
-<div class="card">
+<div class="panel panel-default mt-5 pt-5 card">
     <div class="card-body">
 
-        <h3 class="card-title">{lang key='paymentMethods.title'}</h3>
+        <h1 class="card-title">{lang key='paymentMethods.title'}</h1>
         <p>{lang key='paymentMethods.intro'}</p>
 
         <p>
             {if $allowCreditCard}
-                <a href="{routePath('account-paymentmethods-add')}" class="btn btn-primary" data-role="add-new-credit-card">
+                <a href="{routePath('account-paymentmethods-add')}" class="whmc-kbtn " data-role="add-new-credit-card">
                     {lang key='paymentMethods.addNewCC'}
                 </a>
             {/if}
             {if $allowBankDetails}
-                <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="btn btn-default">
+                <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="whmc-kbtn-2">
                     {lang key='paymentMethods.addNewBank'}
                 </a>
             {/if}
@@ -97,8 +97,8 @@
         <p>{lang key='paymentMethods.deletePaymentMethodConfirm'}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
-        <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='no'}</button>
+        <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
       </div>
     </div>
   </div>

@@ -1,17 +1,17 @@
 <script src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
-<div class="card">
+<div class="card panel panel-default">
     <div class="card-body">
 
-        <h3 class="card-title">
+        <h1 class="card-title pb-5">
             {if $editMode}
                 {lang key='paymentMethodsManage.editPaymentMethod'}
             {else}
                 {lang key='paymentMethodsManage.addPaymentMethod'}
             {/if}
-        </h3>
+        </h1>
 
-        <form id="frmManagePaymentMethod" class="frm-credit-card-input" role="form" method="post" action="{if $editMode}{routePath('account-paymentmethods-save', $payMethod->id)}{else}{routePath('account-paymentmethods-add')}{/if}">
+        <form id="frmManagePaymentMethod" class=" frm-credit-card-input" role="form" method="post" action="{if $editMode}{routePath('account-paymentmethods-save', $payMethod->id)}{else}{routePath('account-paymentmethods-add')}{/if}">
             <div class="alert alert-warning text-center gateway-errors assisted-cc-input-feedback w-hidden">
                 {lang key='paymentMethodsManage.invalidCardDetails'}
             </div>
@@ -172,13 +172,13 @@
                             {include file="$template/account-paymentmethods-billing-contacts.tpl"}
                         </div>
                         <br>
-                        <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalBillingAddress">{lang key='paymentMethodsManage.addNewAddress'}</a>
+                        <a href="#" class="whmc-kbtn-2 btn-sm" data-toggle="modal" data-target="#modalBillingAddress">{lang key='paymentMethodsManage.addNewAddress'}</a>
                     </div>
                 </div>
                 <div class="form-group row submit-container">
-                    <div class="col-md-8 offset-sm-4">
-                        <button type="submit" name="submit" id="btnSubmit" class="btn btn-primary">{lang key='clientareasavechanges'}</button>
-                        <a href="{routePath('account-paymentmethods')}" class="btn btn-default">{lang key='cancel'}</a>
+                    <div class="col-md-12 text-center mt-5">
+                        <button type="submit" name="submit" id="btnSubmit" class="whmc-kbtn ">{lang key='clientareasavechanges'}</button>
+                        <a href="{routePath('account-paymentmethods')}" class="whmc-kbtn-2">{lang key='cancel'}</a>
                     </div>
                 </div>
             </div>
@@ -191,16 +191,16 @@
             <input type="hidden" name="billing_country" id="inputBillingCountry" value="">
         </form>
 
-        <div class="fieldgroup-remoteinput{if ($editMode && !$remoteUpdate) || !$editMode} w-hidden{/if}">
-            {if $remoteUpdate}
-                <div id="tokenGatewayRemoteUpdateOutput" class="text-center">{$remoteUpdate}</div>
-            {else}
-                <div id="tokenGatewayRemoteInputOutput" class="text-center" align="center"></div>
-                <div class="text-center">
-                    <iframe name="ccframe" class="auth3d-area" width="90%" height="600" scrolling="auto" src="about:blank"></iframe>
-                </div>
-            {/if}
-        </div>
+{*        <div class="fieldgroup-remoteinput{if ($editMode && !$remoteUpdate) || !$editMode} w-hidden{/if}">*}
+{*            {if $remoteUpdate}*}
+{*                <div id="tokenGatewayRemoteUpdateOutput" class="text-center">{$remoteUpdate}</div>*}
+{*            {else}*}
+{*                <div id="tokenGatewayRemoteInputOutput" class="text-center" align="center"></div>*}
+{*                <div class="text-center">*}
+{*                    <iframe name="ccframe" class="auth3d-area" width="90%" height="600" scrolling="auto" src="about:blank"></iframe>*}
+{*                </div>*}
+{*            {/if}*}
+{*        </div>*}
 
     </div>
 </div>
@@ -299,8 +299,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='paymentMethods.close'}</button>
-                    <button type="submit" class="btn btn-primary">{lang key='paymentMethods.saveChanges'}</button>
+                    <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='paymentMethods.close'}</button>
+                    <button type="submit" class="whmc-kbtn ">{lang key='paymentMethods.saveChanges'}</button>
                 </div>
             </form>
         </div>

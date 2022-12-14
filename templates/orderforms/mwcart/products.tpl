@@ -13,43 +13,45 @@
             </div>
         </div>
 
-        {if !$loggedin && $currencies}
-            <div class="currencychooser">
-                <div class="btn-group" role="group">
-                    {foreach from=$currencies item=curr}
-                        <a href="cart.php?gid={$gid}&currency={$curr.id}" class="btn btn-default{if $currency.id eq $curr.id} active{/if}">
-                            <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png"
-                                 border="0" alt=""/>
-                            {$curr.code}
-                        </a>
-                    {/foreach}
-                </div>
-            </div>
-        {/if}
+{*        {if !$loggedin && $currencies}*}
+{*            <div class="currencychooser col-md-12 text-center mx-auto my-5">*}
+{*                <h3 class="mb-4">Choose your Currency</h3>*}
+
+{*                <div class="btn-group" role="group">*}
+{*                    {foreach from=$currencies item=curr}*}
+{*                        <a href="cart.php?gid={$gid}&currency={$curr.id}" class="whmc-kbtn-2{if $currency.id eq $curr.id} active{/if}">*}
+{*                            <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png"*}
+{*                                 border="0" alt=""/>*}
+{*                            {$curr.code}*}
+{*                        </a>*}
+{*                    {/foreach}*}
+{*                </div>*}
+{*            </div>*}
+{*        {/if}*}
 
         {*here is a first plan*}
         {foreach from=$products key=num item=product}
             {if $num == 0}
 
                 <div class="col-xs-12 product-plans-free-wrapper">
-                    <div class="product-plans-free col-xs-6">
-                        <div id="product{$num}" style="display: flex; align-items: center; justify-content: center;">
-                            <div class="col-xs-2" style=" border-right: 1px solid #1279fa;">
-                                <h1 class="product-plans-free-h1">{$product.name}</h1>
+                    <div class=" product-plans-free col-xl-7 col-lg-8">
+                        <div id="product{$num}"style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+                            <div class="col-xl-3 text-center col-12 produc-plans-free-border-blue">
+                                <h1 class="product-plans-free-h1 my-4" style="font-size: 24px;">{$product.name}</h1>
                                 {if $product.qty}
                                     <span class="qty">
-                            ({$product.qty} {$LANG.orderavailable})
-                        </span>
+                                        ({$product.qty} {$LANG.orderavailable})
+                                    </span>
                                 {/if}
                             </div>
 
 
-                            <div class="col-xs-5 description desc-holder" style="margin-top: 20px;">
+                            <div class="col-xl-6 text-center col-12 description desc-holder my-4">
                                 {$product.description|unescape}
                             </div>
 
-                            <div class="col-xs-5">
-                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn"> Start with Free</a>
+                            <div class="col-xl-3 text-center col-12 my-4">
+                                <a href="cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}" class="whmc-kbtn">{$LANG.MWstart}</a>
                             </div>
 
                         </div>
@@ -70,10 +72,10 @@
                 {continue}
             {/if}
 
-            <div class="col-md-6 col-lg-4 ">
+            <div class="col-lg-6 col-xl-4 ">
                 {*<div id="product{$num}" class="panel" onclick="window.location='cart.php?a=add&{if $product.bid}bid={$product.bid}{else}pid={$product.pid}{/if}'">*}
                 <div id="product{$num}" class="panel panel-title plan">
-                    <div class="row " style="text-align: center;">
+                    <div class="row" style="text-align: center; padding-top: 40px;">
 
                         <h1 style="margin-top:50px; margin-bottom:10px; font-size: 24px; font-weight: 300; color: #2b2b2b;">{$product.name}</h1>
                             {if $product.qty}
@@ -143,12 +145,14 @@
         </div>
 
         {if !$loggedin && $currencies}
-            <div class="currencychooser">
+            <div class="currencychooser col-md-12 text-center mx-auto my-5">
+                <h3 class="mb-4">{$LANG.MWchooseACurrency}</h3>
+
                 <div class="btn-group" role="group">
                     {foreach from=$currencies item=curr}
-                        <a href="cart.php?gid={$gid}&currency={$curr.id}" class="btn btn-default{if $currency.id eq $curr.id} active{/if}">
-                            <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png"
-                                 border="0" alt=""/>
+                        <a href="cart.php?gid={$gid}&currency={$curr.id}" class="whmc-kbtn-2{if $currency.id eq $curr.id} active{/if}">
+{*                            <img src="{$BASE_PATH_IMG}/flags/{if $curr.code eq "AUD"}au{elseif $curr.code eq "CAD"}ca{elseif $curr.code eq "EUR"}eu{elseif $curr.code eq "GBP"}gb{elseif $curr.code eq "INR"}in{elseif $curr.code eq "JPY"}jp{elseif $curr.code eq "USD"}us{elseif $curr.code eq "ZAR"}za{else}na{/if}.png"*}
+{*                                 border="0" alt=""/>*}
                             {$curr.code}
                         </a>
                     {/foreach}

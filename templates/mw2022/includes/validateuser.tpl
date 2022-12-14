@@ -10,7 +10,7 @@
                 <span class="text">{lang key='fraud.furtherValShort'}</span>
             </div>
             <div class="col-12 col-sm-4 col-md-3 order-sm-2 order-md-last">
-                <a href="#" class="btn btn-default btn-sm btn-block btn-action" data-url="{$userValidationUrl}" onclick="openValidationSubmitModal(this);return false;">
+                <a href="#" class="whmc-kbtn-2 btn-sm btn-block btn-action" data-url="{$userValidationUrl}" onclick="openValidationSubmitModal(this);return false;">
                     {lang key='fraud.submitDocs'}
                 </a>
             </div>
@@ -24,7 +24,7 @@
                 <iframe id="validationContent" allow="camera {$userValidationHost}" width="100%" height="700" frameborder="0" src=""></iframe>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='close'}</button>
+                <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='close'}</button>
             </div>
         </div>
     </div>

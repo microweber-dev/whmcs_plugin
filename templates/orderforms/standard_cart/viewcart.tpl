@@ -254,7 +254,7 @@
                                                 {else}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <div class="dropdown">
-                                                        <button class="btn btn-default btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="whmc-kbtn-2 btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             {$domain.regperiod} {$domain.yearsLanguage}
                                                             <span class="caret"></span>
                                                         </button>
@@ -422,7 +422,7 @@
                                             {$promotioncode} - {$promotiondescription}
                                         </div>
                                         <div class="text-center">
-                                            <a href="{$smarty.server.PHP_SELF}?a=removepromo" class="btn btn-default btn-xs">
+                                            <a href="{$smarty.server.PHP_SELF}?a=removepromo" class="whmc-kbtn-2 btn-xs">
                                                 {$LANG.orderForm.removePromotionCode}
                                             </a>
                                         </div>
@@ -462,7 +462,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-default">
+                                            <button type="submit" class="whmc-kbtn-2">
                                                 {$LANG.orderForm.updateTotals}
                                             </button>
                                         </div>
@@ -583,8 +583,8 @@
                             {lang key='cartremoveitemconfirm'}
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
-                            <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
+                            <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{lang key='no'}</button>
+                            <button type="submit" class="whmc-kbtn ">{lang key='yes'}</button>
                         </div>
                     </div>
                 </div>
@@ -609,8 +609,8 @@
                             {$LANG.cartemptyconfirm}
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.no}</button>
-                            <button type="submit" class="btn btn-primary">{$LANG.yes}</button>
+                            <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{$LANG.no}</button>
+                            <button type="submit" class="whmc-kbtn ">{$LANG.yes}</button>
                         </div>
                     </div>
                 </div>

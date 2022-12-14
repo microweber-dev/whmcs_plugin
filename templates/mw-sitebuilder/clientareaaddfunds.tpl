@@ -50,7 +50,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="{$LANG.addfunds}" class="btn btn-primary btn-block" />
+                                <input type="submit" value="{$LANG.addfunds}" class="whmc-kbtn btn-block" />
                             </div>
                         </fieldset>
                     </form>

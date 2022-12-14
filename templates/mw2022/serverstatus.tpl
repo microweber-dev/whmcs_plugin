@@ -22,8 +22,8 @@
 {/foreach}
 
 <div class="btn-group">
-    <a href="{if $prevpage}{$smarty.server.PHP_SELF}?{if $view}view={$view}&amp;{/if}page={$prevpage}{else}#{/if}" class="btn btn-default {if !$prevpage}disabled{/if}">&lt; {$LANG.previouspage}</a>
-    <a href="{if $nextpage}{$smarty.server.PHP_SELF}?{if $view}view={$view}&amp;{/if}page={$nextpage}{else}#{/if}" class="btn btn-default {if !$nextpage}disabled{/if}">{$LANG.nextpage} &gt;</a>
+    <a href="{if $prevpage}{$smarty.server.PHP_SELF}?{if $view}view={$view}&amp;{/if}page={$prevpage}{else}#{/if}" class="whmc-kbtn-2 {if !$prevpage}disabled{/if}">&lt; {$LANG.previouspage}</a>
+    <a href="{if $nextpage}{$smarty.server.PHP_SELF}?{if $view}view={$view}&amp;{/if}page={$nextpage}{else}#{/if}" class="whmc-kbtn-2 {if !$nextpage}disabled{/if}">{$LANG.nextpage} &gt;</a>
 </div>
 
 {if $servers}

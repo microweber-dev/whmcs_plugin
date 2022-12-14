@@ -59,13 +59,13 @@
                 <div class="input-group">
                     {if $prevpage}
                         <span class="input-group-btn">
-                            <a href="{routePath('announcement-index-paged', $prevpage, $view)}" class="btn btn-default">&laquo; {$LANG.previouspage}</a>
+                            <a href="{routePath('announcement-index-paged', $prevpage, $view)}" class="whmc-kbtn-2">&laquo; {$LANG.previouspage}</a>
                         </span>
                     {/if}
                     <input class="form-control" style="text-align: center;" value="{$LANG.page} {$pagenumber}" disabled="disabled">
                     {if $nextpage}
                         <span class="input-group-btn">
-                            <a href="{routePath('announcement-index-paged', $nextpage, $view)}" class="btn btn-default">{$LANG.nextpage} &raquo;</a>
+                            <a href="{routePath('announcement-index-paged', $nextpage, $view)}" class="whmc-kbtn-2">{$LANG.nextpage} &raquo;</a>
                         </span>
                     {/if}
                 </div>

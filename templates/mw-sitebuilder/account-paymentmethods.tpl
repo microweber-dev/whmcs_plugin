@@ -19,11 +19,11 @@
 <p>{$LANG.paymentMethods.intro}</p>
 
 <p>
-    <a href="{routePath('account-paymentmethods-add')}" class="btn btn-primary" data-role="add-new-credit-card">
+    <a href="{routePath('account-paymentmethods-add')}" class="whmc-kbtn " data-role="add-new-credit-card">
         {$LANG.paymentMethods.addNewCC}
     </a>
     {if $allowBankDetails}
-    <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="btn btn-default">
+    <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="whmc-kbtn-2">
         {$LANG.paymentMethods.addNewBank}
     </a>
     {/if}
@@ -88,8 +88,8 @@
         <p>{$LANG.paymentMethods.deletePaymentMethodConfirm}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.no}</button>
-        <button type="submit" class="btn btn-primary">{$LANG.yes}</button>
+        <button type="button" class="whmc-kbtn-2" data-dismiss="modal">{$LANG.no}</button>
+        <button type="submit" class="whmc-kbtn ">{$LANG.yes}</button>
       </div>
     </div>
   </div>
