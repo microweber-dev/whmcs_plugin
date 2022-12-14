@@ -50,10 +50,18 @@ function microweber_addon_config()
         'author' => 'Microweber',
         'language' => 'english',
         'fields' => [
+
+            'create_website_link' => [
+                'FriendlyName' => 'Create Website Link',
+                'Description' => 'Paste the create website link url.',
+                'Type' => 'text',
+            ],
+
             'whitelabel_key' => [
                 'FriendlyName' => 'Whitelabel Key',
                 'Type' => 'text',
             ],
+
             'package_manager_urls' => [
                 'FriendlyName' => 'Package Manager Urls',
                 'Type' => 'textarea',
