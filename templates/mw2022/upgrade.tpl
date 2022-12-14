@@ -1,20 +1,20 @@
-<div class="panel-default panel mt-5 pt-5 mw-whm affiliates">
+<div class=" mt-5 pt-5 mw-whm affiliates">
 
-    <div class="header-lined">
-        <h1 style="margin: 30px 0; font-size: 36px; font-weight: 700;">Upgrade Hosting</h1>
-        <br/>
-    </div>
+    {*    <div class="header-lined">*}
+    {*        <h1 style="margin: 30px 0; font-size: 36px; font-weight: 700;">Upgrade Hosting</h1>*}
+    {*        <br/>*}
+    {*    </div>*}
 
-    <div class="panel panel-default text-center">
+    {*    <div class="panel panel-default text-center">*}
 
-        {if $overdueinvoice}
-            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeerroroverdueinvoice}
-        {elseif $existingupgradeinvoice}
-            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeexistingupgradeinvoice}
-        {elseif $upgradenotavailable}
-            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeNotPossible textcenter=true}
-        {/if}
-    </div>
+    {*        {if $overdueinvoice}*}
+    {*            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeerroroverdueinvoice}*}
+    {*        {elseif $existingupgradeinvoice}*}
+    {*            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeexistingupgradeinvoice}*}
+    {*        {elseif $upgradenotavailable}*}
+    {*            {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeNotPossible textcenter=true}*}
+    {*        {/if}*}
+    {*    </div>*}
 
 
     {if $overdueinvoice}
@@ -36,10 +36,10 @@
     {else}
 
         {if $type eq "package"}
-            <p>{$LANG.upgradechoosepackage}</p>
-            <p>{$LANG.upgradecurrentconfig}:<br/><strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}</p>
-            <p>{$LANG.upgradenewconfig}:</p>
-            <hr/>
+            {*            <p>{$LANG.upgradechoosepackage}</p>*}
+            {*            <p>{$LANG.upgradecurrentconfig}:<br/><strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}</p>*}
+            {*            <p>{$LANG.upgradenewconfig}:</p>*}
+            {*            <hr/>*}
             <div class="row pricing-list-2 text-center py-5"  style="margin-top: 30px;">
                 {foreach key=num item=upgradepackage from=$upgradepackages}
                     <div class="col-lg-6 col-xl-4 plan" >

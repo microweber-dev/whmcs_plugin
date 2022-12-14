@@ -1,17 +1,14 @@
-{if $promoerror}
-    {include file="$template/includes/alert.tpl" type="error" msg=$promoerror textcenter=true}
-{/if}
+<style>
+    .mw-whmc-upgrade-table.table > thead > tr > th, .mw-whmc-upgrade-table.panel-default td  {
+        padding: 30px!important;
+    }
 
-{if $promorecurring}
-    {include file="$template/includes/alert.tpl" type="info"
-    msg=$LANG.recurringpromodesc|sprintf2:$promorecurring textcenter=true}
-{/if}
+    .mw-whmc-upgrade-row .form-control {
+        height: 53px!important;
+    }
+</style>
 
-<div class="alert alert-block alert-info text-center">
-    {$LANG.upgradecurrentconfig}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}
-</div>
-
-<table class="table table-striped">
+<table class="mw-whmc-upgrade-table panel panel-default table">
     <thead>
         <tr>
             <th width="60%">{$LANG.orderdesc}</th>
@@ -65,7 +62,7 @@
     {include file="$template/includes/alert.tpl" type="warning" msg=$LANG.upgradeproductlogic|cat:' ('|cat:$upgrade.daysuntilrenewal|cat:' '|cat:$LANG.days|cat:')' textcenter=true}
 {/if}
 
-<div class="row">
+<div class="row mw-whmc-upgrade-row">
     <div class="col-sm-6">
 
         <form method="post" action="{$smarty.server.PHP_SELF}" role="form">
@@ -86,11 +83,11 @@
                 {if $promocode}
                     <span class="input-group-btn">
                         <input type="submit" name="removepromo" value="{$LANG.orderdontusepromo}"
-                               class="btn btn-danger" />
+                               class="whmc-kbtn-2" />
                     </span>
                 {else}
                     <span class="input-group-btn">
-                        <input type="submit" value="{$LANG.orderpromovalidatebutton}" class="btn btn-success" />
+                        <input type="submit" value="{$LANG.orderpromovalidatebutton}" class="whmc-kbtn-2" />
                     </span>
                 {/if}
             </div>
@@ -128,7 +125,7 @@
 </div>
 
 <div class="form-group text-center">
-    <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn " />
+    <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn mt-5" />
 </div>
 
 </form>
