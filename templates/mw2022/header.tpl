@@ -37,7 +37,7 @@
                             <a href="{$WEB_ROOT}/" class="logo">{$companyname}</a>
                         {/if}
 
-                        <a href="http://microweber.bg" class="back-to-website-button">{$LANG.MWbackToSite}</a>
+                        <a href="http://microweber.com" class="back-to-website-button">{$LANG.MWbackToSite}</a>
                     </div>
                     <div>
                         <nav class="main-menu">
