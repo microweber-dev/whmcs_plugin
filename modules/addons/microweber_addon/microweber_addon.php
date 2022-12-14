@@ -51,7 +51,7 @@ function microweber_addon_config()
         'language' => 'english',
         'fields' => [
 
-            'create_website_link' => [ 
+            'create_website_link' => [
                 'FriendlyName' => 'Create Website Link',
                 'Description' => 'Paste the create website link url.',
                 'Type' => 'text',
