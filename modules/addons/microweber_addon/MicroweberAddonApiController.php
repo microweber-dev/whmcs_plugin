@@ -178,10 +178,22 @@ class MicroweberAddonApiController
             }
         }
 
-        $html = '<div class="mw-ads-holder" onclick="window.open(\''.site_url().'\', \'_blank\');"><div class="row">
+
+        $createWebsiteUrl = site_url();
+        $getCreateWebsiteLink = \WHMCS\Database\Capsule::table('tbladdonmodules')
+            ->where('module', 'microweber_addon')
+            ->where('setting', 'create_website_link')
+            ->first();
+
+        if ($getCreateWebsiteLink && !empty($getCreateWebsiteLink)) {
+            $createWebsiteUrl = $getCreateWebsiteLink->value;
+        }
+
+
+        $html = '<div class="mw-ads-holder" onclick="window.open(\''.$createWebsiteUrl.'\', \'_blank\');"><div class="row">
     <div class="col"> <p class="hidden-xs">
     <span class="hidden-sm">
-    Upgrade your plan to remove ads. 
+    Upgrade your plan. 
     </span>
     </p>
     </div>
@@ -195,21 +207,21 @@ class MicroweberAddonApiController
 
     public function show_ads_bar()
     {
-        $siteUrl = site_url();
+        $createWebsiteUrl = site_url();
         $getCreateWebsiteLink = \WHMCS\Database\Capsule::table('tbladdonmodules')
             ->where('module', 'microweber_addon')
             ->where('setting', 'create_website_link')
             ->first();
 
         if ($getCreateWebsiteLink && !empty($getCreateWebsiteLink)) {
-            $siteUrl = $getCreateWebsiteLink->value;
+            $createWebsiteUrl = $getCreateWebsiteLink->value;
         }
 
-        $html = '<div class="mw-ads-holder" onclick="window.open(\''.$siteUrl.'\', \'_blank\');"><div class="row">
+        $html = '<div class="mw-ads-holder" onclick="window.open(\''.$createWebsiteUrl.'\', \'_blank\');"><div class="row">
     <div class="col"><img src="./modules/addons/microweber_addon/mw_logo.png" alt="" /> <p class="hidden-xs"><span class="hidden-sm">
     Create Website Easily with </span> <strong>'.$this->branding_get_company_name().'</strong></p>
     </div>
-    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.$siteUrl.'\', \'_blank\');">Create a Website</a></div>
+    <div class="col text-right"><a href="javascript:;" onclick="window.open(\''.$createWebsiteUrl.'\', \'_blank\');">Create a Website</a></div>
     </div>
     </div>'; 
 
