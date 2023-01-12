@@ -67,7 +67,7 @@
 
         <div class="panel panel-default" style="height: 100%;">
 
-            <form method="post" action="{$smarty.server.PHP_SELF}" role="form">
+            <form method="post" action="{$smarty.server.PHP_SELF}" role="form" id="upgrade-form">
                    <input type="hidden" name="step" value="2" />
                    <input type="hidden" name="type" value="{$type}" />
                    <input type="hidden" name="id" value="{$id}" />
@@ -99,8 +99,8 @@
     </div>
     <div class="col-lg-6 col-12 mt-5 ">
 
-        <div class="panel panel-default" style="height: 100%;">
-            <form method="post" action="{$smarty.server.PHP_SELF}">
+        <div class="panel panel-default" style="height: 100%;" >
+            <form method="post" action="{$smarty.server.PHP_SELF}" id="upgrade-form-payment">
                 <input type="hidden" name="step" value="3" />
                 <input type="hidden" name="type" value="{$type}" />
                 <input type="hidden" name="id" value="{$id}" />
@@ -131,6 +131,6 @@
 </div>
 
 <div class="form-group text-center mt-5">
-    <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn mt-5" />
+    <input type="submit" value="{$LANG.ordercontinuebutton}" class="whmc-kbtn mt-5" form="upgrade-form-payment" />
 </div>
 
