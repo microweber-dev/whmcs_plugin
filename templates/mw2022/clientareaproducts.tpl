@@ -183,11 +183,14 @@
                     <td class="text-center status-column"><span class="status mw-whm-product-status status-{$service.status|strtolower}"><span>{$service.statustext}</span></span></td>
                     <td class="responsive-edit-button" style="max-width: 250px; text-align: right">
                         {*<span class="more-table-button"></span>*}
+
+
                         <div class="more-table-menu">
                             {if $service.group == 'Templates'}
                                 <a href="go_to_product.php?id={$service.id}&template=true" target="_blank" class="cbtn cbtn-small">{$LANG.MWviewTemplate}</a>
+                            {elseif $service.group == 'License'}
+                                <a href="clientarea.php?action=productdetails&amp;id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="{$LANG.manageproduct}">{$LANG.MWmanage}</i></a>
                             {else}
-
 
                                 <a href="upgrade.php?type=package&id={$service.id}" class="whmc-kbtn-2-small"  data-toggle="tooltip" title="Change plan">{$LANG.MWplan}</a>
 
