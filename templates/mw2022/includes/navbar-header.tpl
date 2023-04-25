@@ -6,11 +6,15 @@
 
         <ul>
             <li menuitemname="My Services" id="Primary_Navbar-Services-My_Services"><a href="{$WEB_ROOT}/clientarea.php?action=services">{$LANG.MWwebsites} </a></li>
-            <li menuitemname="My Licenses" id="Primary_Navbar-Services-My_Licenses"><a href="{$WEB_ROOT}/clientarea.php?action=products&amp;module=licensing">{$LANG.MWwebsites}</a></li>
             <li menuitemname="Order New Services" id="Primary_Navbar-Services-Order_New_Services"><a href="{$WEB_ROOT}/cart.php">{$LANG.MWorderNewServices}</a></li>
+            <li menuitemname="My Licenses" id="Primary_Navbar-Services-licensing"><a href="{$WEB_ROOT}/clientarea.php?action=products&amp;module=licensing">My Licenses</a></li>
+
+            <li menuitemname="View Available Addons Licensing" id="Primary_Navbar-Services-View_Available_Addons-licensing"><a href="{$WEB_ROOT}/index.php?rp=/store/license">Order new License</a></li>
             <li menuitemname="View Available Addons" id="Primary_Navbar-Services-View_Available_Addons"><a href="{$WEB_ROOT}/cart.php?gid=addons">{$LANG.MWviewAvailableAddons}</a></li>
+
         </ul>
     </li>
+
     <li menuitemname="Domains" class="" id="Primary_Navbar-Domains">
         <a class="menu-more" href="javascript:;">{$LANG.MWdomains} &nbsp;<b class="caret"></b></a>
         <ul>
