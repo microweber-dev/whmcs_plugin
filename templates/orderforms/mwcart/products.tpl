@@ -1,5 +1,14 @@
 <div class="mw-whm cart-products">
     <script type="text/javascript" src="templates/orderforms/{$carttpl}/js/main.js"></script>
+    {if $gid == 1}
+    <style>
+    #order-modern {
+         display: none;
+    }
+    </style>
+<h2>Click continue to create new site</h2>
+        <a href="https://www.microweber.com/projects" class="whmc-kbtn-2" style="margin-top: 20px; margin-bottom: 20px; margin-left: 20px;">Continue</a>
+    {/if}
 
     <div id="order-modern">
         <div class="title-bar">
