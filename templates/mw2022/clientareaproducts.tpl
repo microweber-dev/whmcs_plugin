@@ -3,7 +3,7 @@
     <div class="header-lined text-center">
         <h1 style="font-size: 36px; font-weight: 700;">{$LANG.MWmyWebsite}</h1>
         <br/>
-        <a href="index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&target=_top" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; {$LANG.MWcreateNewWebsite}</a>
+        <a href="https://microweber.com/projects" class="whmc-kbtn-2 m-b-10"><i class="fa fa-plus"></i> &nbsp; {$LANG.MWcreateNewWebsite}</a>
     </div>
 
 

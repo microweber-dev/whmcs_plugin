@@ -55,7 +55,8 @@
         <div>
             <h1>{$LANG.MWBuildingAWebsiteEasy}</h1>
             <p>{$LANG.MWcreatePowerfulSite}</p>
-            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">{$LANG.MWcreateAWebsite}</a>
+{*            <a href="{$WEB_ROOT}/index.php?m=microweber_addon&function=order_iframe&style=whmcs-order-process-style-2022&from_step=2&target=_top" class="whmc-kbtn">{$LANG.MWcreateAWebsite}</a>*}
+            <a href="https://microweber.com/projects" class="whmc-kbtn">{$LANG.MWcreateAWebsite}</a>
             <a href="{$WEB_ROOT}/submitticket.php?step=2&deptid=2" class="whmc-kbtn-2" >{$LANG.MWcontactSales}</a>
         </div>
     </div>
@@ -197,8 +198,6 @@
 {/literal}
 
 {literal}
-
-    <script src="modules/addons/microweber_addon/order/embed.js?style=whmcs-order-process-style-2022&from_step=2&quick_search=1&target=_top" id="domain-search-iframe-js"></script>
 
 {/literal}
 
