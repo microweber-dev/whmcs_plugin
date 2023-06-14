@@ -10,7 +10,7 @@
         <div class="col-sm-10 col-sm-offset-1">
             <div class="row">
                 {foreach from=$departments key=num item=department}
-                    <div class="col-md-6 margin-bottom">
+                    <div class="col-md-12  margin-bottom">
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
